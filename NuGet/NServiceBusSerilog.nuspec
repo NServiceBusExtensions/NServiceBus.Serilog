@@ -12,7 +12,7 @@
     <iconUrl>https://raw.github.com/SimonCropp/NServiceBusSerilog/master/Icons/package_icon.png</iconUrl>
     <description>An email sender for NServiceBus.</description>
     <language>en-AU</language>
-    <tags>NSericeBus, Serilog, NServiceBusSerilog</tags>
+    <tags>NServiceBus, Serilog, NServiceBusSerilog</tags>
 	  <dependencies>
 		  <group targetFramework=".NETFramework4.0">
 			  <dependency id="NServiceBus" version="4.0.0-beta0001" />
