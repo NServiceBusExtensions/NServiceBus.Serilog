@@ -25,9 +25,9 @@
   <UsingTask TaskName="PepitaPackage.WeavingTask" AssemblyFile="$(SolutionDir)Tools\Pepita\PepitaPackage.dll" />
   <Target Name="NuGetBuild" DependsOnTargets="Clean">
     <MakeDir Directories="$(SolutionDir)NuGetBuild" />
-    <Copy SourceFiles="$(SolutionDir)NServiceBusSerilog\bin\$(ConfigurationName)\NServiceBusSerilog.dll" DestinationFolder="$(SolutionDir)NuGetBuild\Lib\NET40" />
-    <Copy SourceFiles="$(SolutionDir)NServiceBusSerilog\bin\$(ConfigurationName)\NServiceBusSerilog.pdb" DestinationFolder="$(SolutionDir)NuGetBuild\Lib\NET40" />
-    <Copy SourceFiles="$(SolutionDir)NServiceBusSerilog\bin\$(ConfigurationName)\NServiceBusSerilog.xml" DestinationFolder="$(SolutionDir)NuGetBuild\Lib\NET40" />
+    <Copy SourceFiles="$(SolutionDir)NServiceBusSerilog\bin\$(ConfigurationName)\NServiceBusSerilog.dll" DestinationFolder="$(SolutionDir)NuGetBuild\Lib\NET45" />
+    <Copy SourceFiles="$(SolutionDir)NServiceBusSerilog\bin\$(ConfigurationName)\NServiceBusSerilog.pdb" DestinationFolder="$(SolutionDir)NuGetBuild\Lib\NET45" />
+    <Copy SourceFiles="$(SolutionDir)NServiceBusSerilog\bin\$(ConfigurationName)\NServiceBusSerilog.xml" DestinationFolder="$(SolutionDir)NuGetBuild\Lib\NET45" />
     <Copy SourceFiles="$(SolutionDir)NuGet\NServiceBusSerilog.nuspec" DestinationFolder="$(SolutionDir)NuGetBuild" />
     <PepitaPackage.WeavingTask NuGetBuildDirectory="$(SolutionDir)NuGetBuild" MetadataAssembly="$(SolutionDir)NServiceBusSerilog\bin\$(ConfigurationName)\NServiceBusSerilog.dll" />
   </Target>
