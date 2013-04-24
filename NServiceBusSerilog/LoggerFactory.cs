@@ -15,7 +15,8 @@ namespace NServiceBusSerilog
 
         public ILog GetLogger(Type type)
         {
-            return GetLogger(type.FullName);
+            var contextLogger = logger.ForContext(type);
+            return new Logger(contextLogger);
         }
 
         public ILog GetLogger(string name)
