@@ -14,10 +14,8 @@
     <language>en-AU</language>
     <tags>NServiceBus, Serilog, NServiceBus.Serilog</tags>
 	  <dependencies>
-		  <group targetFramework=".NETFramework4.0">
-			  <dependency id="NServiceBus" version="4.0.0-beta0001" />
-			  <dependency id="Serilog" version="0.2.3" />
-      </group>
+		  <dependency id="NServiceBus" version="4.0.0-beta0001" />
+		  <dependency id="Serilog" version="0.2.3" />
 	  </dependencies>
   </metadata>
 </package>
