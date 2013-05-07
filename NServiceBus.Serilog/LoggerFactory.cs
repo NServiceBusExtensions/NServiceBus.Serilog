@@ -2,7 +2,7 @@
 using NServiceBus.Logging;
 using Serilog;
 
-namespace NServiceBusSerilog
+namespace NServiceBus.Serilog
 {
     class LoggerFactory : ILoggerFactory
     {

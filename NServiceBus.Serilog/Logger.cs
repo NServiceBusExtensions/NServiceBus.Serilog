@@ -3,7 +3,7 @@ using NServiceBus.Logging;
 using Serilog;
 using Serilog.Events;
 
-namespace NServiceBusSerilog
+namespace NServiceBus.Serilog
 {
     class Logger : ILog
     {

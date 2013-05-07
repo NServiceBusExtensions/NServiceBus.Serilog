@@ -1,7 +1,7 @@
 ﻿using NServiceBus.Logging;
 using Serilog;
 
-namespace NServiceBusSerilog
+namespace NServiceBus.Serilog
 {
     /// <summary>
     /// Used to forward NServiceBus logging message through Serilog

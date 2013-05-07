@@ -1,7 +1,7 @@
 ﻿using System;
 using NServiceBus;
 using NServiceBus.Installation.Environments;
-using NServiceBusSerilog;
+using NServiceBus.Serilog;
 using Serilog;
 
 namespace Sample
