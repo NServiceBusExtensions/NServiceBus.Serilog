@@ -1,18 +1,18 @@
 <?xml version="1.0"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
-    <id>NServiceBusSerilog</id>
+    <id>NServiceBus.Serilog</id>
     <version>$version$-preRelease</version>
-    <title>NServiceBusSerilog</title>
+    <title>NServiceBus.Serilog</title>
     <authors>Simon Cropp</authors>
     <owners>Simon Cropp</owners>
     <licenseUrl>http://www.opensource.org/licenses/mit-license.php</licenseUrl>
-    <projectUrl>http://github.com/SimonCropp/NServiceBusSerilog</projectUrl>
+    <projectUrl>http://github.com/SimonCropp/NServiceBus.Serilog</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <iconUrl>https://raw.github.com/SimonCropp/NServiceBusSerilog/master/Icons/package_icon.png</iconUrl>
+    <iconUrl>https://raw.github.com/SimonCropp/NServiceBus.Serilog/master/Icons/package_icon.png</iconUrl>
     <description>An email sender for NServiceBus.</description>
     <language>en-AU</language>
-    <tags>NServiceBus, Serilog, NServiceBusSerilog</tags>
+    <tags>NServiceBus, Serilog, NServiceBus.Serilog</tags>
 	  <dependencies>
 		  <group targetFramework=".NETFramework4.0">
 			  <dependency id="NServiceBus" version="4.0.0-beta0001" />

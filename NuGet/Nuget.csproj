@@ -25,21 +25,21 @@
   <UsingTask TaskName="PepitaPackage.WeavingTask" AssemblyFile="$(SolutionDir)Tools\Pepita\PepitaPackage.dll" />
   <Target Name="NuGetBuild" DependsOnTargets="Clean">
     <MakeDir Directories="$(SolutionDir)NuGetBuild" />
-    <Copy SourceFiles="$(SolutionDir)NServiceBusSerilog\bin\$(ConfigurationName)\NServiceBusSerilog.dll" DestinationFolder="$(SolutionDir)NuGetBuild\Lib\NET45" />
-    <Copy SourceFiles="$(SolutionDir)NServiceBusSerilog\bin\$(ConfigurationName)\NServiceBusSerilog.pdb" DestinationFolder="$(SolutionDir)NuGetBuild\Lib\NET45" />
-    <Copy SourceFiles="$(SolutionDir)NServiceBusSerilog\bin\$(ConfigurationName)\NServiceBusSerilog.xml" DestinationFolder="$(SolutionDir)NuGetBuild\Lib\NET45" />
-    <Copy SourceFiles="$(SolutionDir)NuGet\NServiceBusSerilog.nuspec" DestinationFolder="$(SolutionDir)NuGetBuild" />
-    <PepitaPackage.WeavingTask NuGetBuildDirectory="$(SolutionDir)NuGetBuild" MetadataAssembly="$(SolutionDir)NServiceBusSerilog\bin\$(ConfigurationName)\NServiceBusSerilog.dll" />
+    <Copy SourceFiles="$(SolutionDir)NServiceBus.Serilog\bin\$(ConfigurationName)\NServiceBus.Serilog.dll" DestinationFolder="$(SolutionDir)NuGetBuild\Lib\NET45" />
+    <Copy SourceFiles="$(SolutionDir)NServiceBus.Serilog\bin\$(ConfigurationName)\NServiceBus.Serilog.pdb" DestinationFolder="$(SolutionDir)NuGetBuild\Lib\NET45" />
+    <Copy SourceFiles="$(SolutionDir)NServiceBus.Serilog\bin\$(ConfigurationName)\NServiceBus.Serilog.xml" DestinationFolder="$(SolutionDir)NuGetBuild\Lib\NET45" />
+    <Copy SourceFiles="$(SolutionDir)NuGet\NServiceBus.Serilog.nuspec" DestinationFolder="$(SolutionDir)NuGetBuild" />
+    <PepitaPackage.WeavingTask NuGetBuildDirectory="$(SolutionDir)NuGetBuild" MetadataAssembly="$(SolutionDir)NServiceBus.Serilog\bin\$(ConfigurationName)\NServiceBus.Serilog.dll" />
   </Target>
   <ItemGroup>
-    <None Include="NServiceBusSerilog.nuspec">
+    <None Include="NServiceBus.Serilog.nuspec">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\NServiceBusSerilog\NServiceBusSerilog.csproj">
+    <ProjectReference Include="..\NServiceBus.Serilog\NServiceBus.Serilog.csproj">
       <Project>{17097d26-641a-4a26-bd4a-39db66964774}</Project>
-      <Name>NServiceBusSerilog</Name>
+      <Name>NServiceBus.Serilog</Name>
     </ProjectReference>
   </ItemGroup>
 </Project>

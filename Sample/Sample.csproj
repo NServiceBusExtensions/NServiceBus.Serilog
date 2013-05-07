@@ -61,9 +61,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\NServiceBusSerilog\NServiceBusSerilog.csproj">
+    <ProjectReference Include="..\NServiceBus.Serilog\NServiceBus.Serilog.csproj">
       <Project>{17097d26-641a-4a26-bd4a-39db66964774}</Project>
-      <Name>NServiceBusSerilog</Name>
+      <Name>NServiceBus.Serilog</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,13 +1,13 @@
-NServiceBusSerilog
+NServiceBus.Serilog
 ==================
 
 Add support for sending [NServiceBus](http://nservicebus.com/) logging message through [Serilog](http://serilog.net/)
 
 ## Nuget
 
-https://nuget.org/packages/NServiceBusSerilog/
+https://nuget.org/packages/NServiceBus.Serilog/
     
-    PM> Install-Package NServiceBusSerilog -Pre
+    PM> Install-Package NServiceBus.Serilog -Pre
 
 ## Usage 
 

@@ -7,8 +7,8 @@
     <ProjectGuid>{17097D26-641A-4A26-BD4A-39DB66964774}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>NServiceBusSerilog</RootNamespace>
-    <AssemblyName>NServiceBusSerilog</AssemblyName>
+    <RootNamespace>NServiceBus.Serilog</RootNamespace>
+    <AssemblyName>NServiceBus.Serilog</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <FodyPath>..\packages\Fody.1.13.6.1</FodyPath>
@@ -23,7 +23,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
-    <DocumentationFile>bin\Debug\NServiceBusSerilog.XML</DocumentationFile>
+    <DocumentationFile>bin\Debug\NServiceBus.Serilog.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -33,12 +33,12 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
-    <DocumentationFile>bin\Release\NServiceBusSerilog.xml</DocumentationFile>
+    <DocumentationFile>bin\Release\NServiceBus.Serilog.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Deployable|AnyCPU'">
     <OutputPath>bin\Deployable\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
-    <DocumentationFile>bin\Deployable\NServiceBusSerilog.xml</DocumentationFile>
+    <DocumentationFile>bin\Deployable\NServiceBus.Serilog.xml</DocumentationFile>
     <Optimize>true</Optimize>
     <DebugType>pdbonly</DebugType>
     <PlatformTarget>AnyCPU</PlatformTarget>
