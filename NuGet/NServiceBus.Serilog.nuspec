@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>NServiceBus.Serilog</id>
-    <version>$version$-preRelease</version>
+    <version>$version$</version>
     <title>NServiceBus.Serilog</title>
     <authors>Simon Cropp</authors>
     <owners>Simon Cropp</owners>
@@ -14,7 +14,7 @@
     <language>en-AU</language>
     <tags>NServiceBus, Serilog, NServiceBus.Serilog</tags>
 	  <dependencies>
-		  <dependency id="NServiceBus" version="4.0.0-beta0001" />
+		  <dependency id="NServiceBus" version="4.0.0.1" />
 		  <dependency id="Serilog" version="0.6.1" />
 	  </dependencies>
   </metadata>
