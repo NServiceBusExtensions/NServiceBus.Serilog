@@ -20,8 +20,7 @@ namespace Sample
                 .CreateLogger();
             SerilogConfigurator.Configure();
 
-
-            configure.JsonSerializer();
+            Configure.Serialization.Json()
             configure.UseTransport<Msmq>();
             configure.UnicastBus();
             var bus = configure
