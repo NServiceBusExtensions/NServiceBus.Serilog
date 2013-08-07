@@ -7,7 +7,7 @@ Add support for sending [NServiceBus](http://nservicebus.com/) logging message t
 
 https://nuget.org/packages/NServiceBus.Serilog/
     
-    PM> Install-Package NServiceBus.Serilog -Pre
+    PM> Install-Package NServiceBus.Serilog
 
 ## Usage 
 
