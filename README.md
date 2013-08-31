@@ -11,13 +11,13 @@ https://nuget.org/packages/NServiceBus.Serilog/
 
 ## Usage 
 
-    var configure = Configure
-        .With().DefaultBuilder();
-
     Log.Logger = new LoggerConfiguration()
         .WriteTo.Console()
         .CreateLogger();
     SerilogConfigurator.Configure();
+    
+    var configure = Configure
+        .With().DefaultBuilder();
 
 ## Icon
 

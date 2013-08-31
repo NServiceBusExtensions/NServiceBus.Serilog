@@ -12,18 +12,20 @@ namespace Sample
         {
             Configure.GetEndpointNameAction = () => "NServiceBusSerilogSample";
 
-            var configure = Configure
-                .With().DefaultBuilder();
-
+            //Setup Serilog
             Log.Logger = new LoggerConfiguration()
                 .WriteTo.Console()
                 .CreateLogger();
+
+            //Set NServiceBus to log to Serilog
             SerilogConfigurator.Configure();
 
+            //Start using NServiceBus
             Configure.Serialization.Json();
-            configure.UseTransport<Msmq>();
-            configure.UnicastBus();
-            var bus = configure
+            Configure.With()
+                .DefaultBuilder()
+                .UseTransport<Msmq>()
+                .UnicastBus()
                 .CreateBus()
                 .Start(() => Configure.Instance.ForInstallationOn<Windows>().Install());
             Console.ReadLine();

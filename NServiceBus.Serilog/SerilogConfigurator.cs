@@ -24,6 +24,11 @@ namespace NServiceBus.Serilog
         public static void Configure(ILogger logger)
         {
             LogManager.LoggerFactory = new LoggerFactory(logger);
+            if (NServiceBus.Configure.Instance != null)
+            {
+                var log = LogManager.GetLogger(typeof(SerilogConfigurator));
+                log.Warn("You have called SerilogConfigurator.Configure() after NServiceBus.Configure.With() has been called. To capture messages and errors that occur during configuration you should call SerilogConfigurator.Configure() before NServiceBus.Configure.With().");
+            }
         }
     }
 }
