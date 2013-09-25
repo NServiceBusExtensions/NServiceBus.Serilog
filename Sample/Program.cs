@@ -15,6 +15,7 @@ namespace Sample
             //Setup Serilog
             Log.Logger = new LoggerConfiguration()
                 .WriteTo.Console()
+                .WriteTo.File("logFile.txt")
                 .CreateLogger();
 
             //Set NServiceBus to log to Serilog
