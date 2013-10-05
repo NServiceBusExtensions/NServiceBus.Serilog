@@ -109,7 +109,7 @@
     <Copy SourceFiles="$(ProjectDir)\Logger.cs" DestinationFiles="$(SolutionDir)NuGetBuildCodeOnly\Content\NServiceBusSerilog\Logger.cs.pp" />
     <Copy SourceFiles="$(ProjectDir)\SerilogConfigurator.cs" DestinationFiles="$(SolutionDir)NuGetBuildCodeOnly\Content\NServiceBusSerilog\SerilogConfigurator.cs.pp" />
     <ItemGroup>
-      <CsFiles Include="$(SolutionDir)NuGetBuildCodeOnly\Content\NServiceBus.Serilog\*.cs.pp" />
+      <CsFiles Include="$(SolutionDir)NuGetBuildCodeOnly\Content\NServiceBusSerilog\*.cs.pp" />
     </ItemGroup>
     <FileUpdate Files="@(CsFiles)" Regex="namespace NServiceBus.Serilog" ReplacementText="namespace $rootnamespace$.NServiceBusSerilog" />
     <Copy SourceFiles="$(ProjectDir)\NServiceBus.Serilog-CodeOnly.nuspec" DestinationFolder="$(SolutionDir)NuGetBuildCodeOnly\" />
