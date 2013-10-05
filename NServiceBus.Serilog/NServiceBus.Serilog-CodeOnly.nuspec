@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
-    <id>NServiceBus.Serilog</id>
+    <id>NServiceBus.Serilog-CodeOnly</id>
     <version>$version$</version>
-    <title>NServiceBus.Serilog</title>
+    <title>NServiceBus.Serilog-CodeOnly</title>
     <authors>Simon Cropp</authors>
     <owners>Simon Cropp</owners>
     <licenseUrl>http://www.opensource.org/licenses/mit-license.php</licenseUrl>
