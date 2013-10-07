@@ -1,7 +1,9 @@
+![Icon](https://raw.github.com/SimonCropp/NServiceBus.Serilog/master/Icons/package_icon.png)
+
 NServiceBus.Serilog
 ==================
 
-Add support for sending [NServiceBus](http://nservicebus.com/) logging message through [Serilog](http://serilog.net/)
+Add support for sending [NServiceBus](http://particular.net/NServiceBus) logging message through [Serilog](http://serilog.net/)
 
 ## Nuget
 

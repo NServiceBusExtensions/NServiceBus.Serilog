@@ -103,7 +103,7 @@
     <Copy SourceFiles="$(OutputPath)\NServiceBus.Serilog.dll" DestinationFolder="$(SolutionDir)NuGetBuild\Lib\NET45" />
     <Copy SourceFiles="$(OutputPath)\NServiceBus.Serilog.pdb" DestinationFolder="$(SolutionDir)NuGetBuild\Lib\NET45" />
     <Copy SourceFiles="$(OutputPath)\NServiceBus.Serilog.xml" DestinationFolder="$(SolutionDir)NuGetBuild\Lib\NET45" />
-    <Copy SourceFiles="$(ProjectDir)\NServiceBus.Serilog.nuspec" DestinationFolder="$(SolutionDir)NuGetBuild" />
+    <Copy SourceFiles="SolutionDir)NuGetBuild\NServiceBus.Serilog.nuspec" DestinationFolder="$(SolutionDir)NuGetBuild" />
     <PepitaPackage.CreatePackageTask NuGetBuildDirectory="$(SolutionDir)NuGetBuild" MetadataAssembly="$(OutputPath)\NServiceBus.Serilog.dll" />
     <Copy SourceFiles="$(ProjectDir)\LoggerFactory.cs" DestinationFiles="$(SolutionDir)NuGetBuildCodeOnly\Content\NServiceBusSerilog\LoggerFactory.cs.pp" />
     <Copy SourceFiles="$(ProjectDir)\Logger.cs" DestinationFiles="$(SolutionDir)NuGetBuildCodeOnly\Content\NServiceBusSerilog\Logger.cs.pp" />
@@ -112,7 +112,7 @@
       <CsFiles Include="$(SolutionDir)NuGetBuildCodeOnly\Content\NServiceBusSerilog\*.cs.pp" />
     </ItemGroup>
     <FileUpdate Files="@(CsFiles)" Regex="namespace NServiceBus.Serilog" ReplacementText="namespace $rootnamespace$.NServiceBusSerilog" />
-    <Copy SourceFiles="$(ProjectDir)\NServiceBus.Serilog-CodeOnly.nuspec" DestinationFolder="$(SolutionDir)NuGetBuildCodeOnly\" />
+    <Copy SourceFiles="$(SolutionDir)NuGetBuild\NServiceBus.Serilog-CodeOnly.nuspec" DestinationFolder="$(SolutionDir)NuGetBuildCodeOnly\" />
     <PepitaPackage.CreatePackageTask NuGetBuildDirectory="$(SolutionDir)NuGetBuildCodeOnly" MetadataAssembly="$(OutputPath)\NServiceBus.Serilog.dll" />
   </Target>
   <Import Project="Fody.targets" />
