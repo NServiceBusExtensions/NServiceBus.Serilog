@@ -45,25 +45,25 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="NServiceBus, Version=4.0.0.0, Culture=neutral, PublicKeyToken=9fc386479f8a226c, processorArchitecture=MSIL">
+    <Reference Include="NServiceBus, Version=4.1.0.0, Culture=neutral, PublicKeyToken=9fc386479f8a226c, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\NServiceBus.Interfaces.4.0.5\lib\net40\NServiceBus.dll</HintPath>
+      <HintPath>..\packages\NServiceBus.Interfaces.4.1.1\lib\net40\NServiceBus.dll</HintPath>
     </Reference>
-    <Reference Include="NServiceBus.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=9fc386479f8a226c, processorArchitecture=MSIL">
+    <Reference Include="NServiceBus.Core, Version=4.1.0.0, Culture=neutral, PublicKeyToken=9fc386479f8a226c, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\NServiceBus.4.0.5\lib\net40\NServiceBus.Core.dll</HintPath>
+      <HintPath>..\packages\NServiceBus.4.1.1\lib\net40\NServiceBus.Core.dll</HintPath>
     </Reference>
     <Reference Include="Scalpel">
       <HintPath>..\packages\Scalpel.Fody.0.12.3\Lib\NET35\Scalpel.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Serilog, Version=0.9.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
+    <Reference Include="Serilog, Version=1.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Packages\Serilog.0.9.4\lib\net45\Serilog.dll</HintPath>
+      <HintPath>..\packages\Serilog.1.0.2\lib\net45\Serilog.dll</HintPath>
     </Reference>
-    <Reference Include="Serilog.FullNetFx, Version=0.9.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
+    <Reference Include="Serilog.FullNetFx, Version=1.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Packages\Serilog.0.9.4\lib\net45\Serilog.FullNetFx.dll</HintPath>
+      <HintPath>..\packages\Serilog.1.0.2\lib\net45\Serilog.FullNetFx.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -100,19 +100,19 @@
       <FilesToDelete Include="$(SolutionDir)NuGetBuildCodeOnly\**\*.*" />
     </ItemGroup>
     <Delete Files="@(FilesToDelete)" />
-    <Copy SourceFiles="$(OutputPath)\NServiceBus.Serilog.dll" DestinationFolder="$(SolutionDir)NuGetBuild\Lib\NET45" />
-    <Copy SourceFiles="$(OutputPath)\NServiceBus.Serilog.pdb" DestinationFolder="$(SolutionDir)NuGetBuild\Lib\NET45" />
-    <Copy SourceFiles="$(OutputPath)\NServiceBus.Serilog.xml" DestinationFolder="$(SolutionDir)NuGetBuild\Lib\NET45" />
-    <Copy SourceFiles="SolutionDir)NuGetBuild\NServiceBus.Serilog.nuspec" DestinationFolder="$(SolutionDir)NuGetBuild" />
+    <Copy SourceFiles="$(OutputPath)NServiceBus.Serilog.dll" DestinationFolder="$(SolutionDir)NuGetBuild\Lib\NET45" />
+    <Copy SourceFiles="$(OutputPath)NServiceBus.Serilog.pdb" DestinationFolder="$(SolutionDir)NuGetBuild\Lib\NET45" />
+    <Copy SourceFiles="$(OutputPath)NServiceBus.Serilog.xml" DestinationFolder="$(SolutionDir)NuGetBuild\Lib\NET45" />
+    <Copy SourceFiles="$(ProjectDir)NServiceBus.Serilog.nuspec" DestinationFolder="$(SolutionDir)NuGetBuild" />
     <PepitaPackage.CreatePackageTask NuGetBuildDirectory="$(SolutionDir)NuGetBuild" MetadataAssembly="$(OutputPath)\NServiceBus.Serilog.dll" />
-    <Copy SourceFiles="$(ProjectDir)\LoggerFactory.cs" DestinationFiles="$(SolutionDir)NuGetBuildCodeOnly\Content\NServiceBusSerilog\LoggerFactory.cs.pp" />
-    <Copy SourceFiles="$(ProjectDir)\Logger.cs" DestinationFiles="$(SolutionDir)NuGetBuildCodeOnly\Content\NServiceBusSerilog\Logger.cs.pp" />
-    <Copy SourceFiles="$(ProjectDir)\SerilogConfigurator.cs" DestinationFiles="$(SolutionDir)NuGetBuildCodeOnly\Content\NServiceBusSerilog\SerilogConfigurator.cs.pp" />
+    <Copy SourceFiles="$(ProjectDir)LoggerFactory.cs" DestinationFiles="$(SolutionDir)NuGetBuildCodeOnly\Content\NServiceBusSerilog\LoggerFactory.cs.pp" />
+    <Copy SourceFiles="$(ProjectDir)Logger.cs" DestinationFiles="$(SolutionDir)NuGetBuildCodeOnly\Content\NServiceBusSerilog\Logger.cs.pp" />
+    <Copy SourceFiles="$(ProjectDir)SerilogConfigurator.cs" DestinationFiles="$(SolutionDir)NuGetBuildCodeOnly\Content\NServiceBusSerilog\SerilogConfigurator.cs.pp" />
     <ItemGroup>
       <CsFiles Include="$(SolutionDir)NuGetBuildCodeOnly\Content\NServiceBusSerilog\*.cs.pp" />
     </ItemGroup>
     <FileUpdate Files="@(CsFiles)" Regex="namespace NServiceBus.Serilog" ReplacementText="namespace $rootnamespace$.NServiceBusSerilog" />
-    <Copy SourceFiles="$(SolutionDir)NuGetBuild\NServiceBus.Serilog-CodeOnly.nuspec" DestinationFolder="$(SolutionDir)NuGetBuildCodeOnly\" />
+    <Copy SourceFiles="$(ProjectDir)NServiceBus.Serilog-CodeOnly.nuspec" DestinationFolder="$(SolutionDir)NuGetBuildCodeOnly\" />
     <PepitaPackage.CreatePackageTask NuGetBuildDirectory="$(SolutionDir)NuGetBuildCodeOnly" MetadataAssembly="$(OutputPath)\NServiceBus.Serilog.dll" />
   </Target>
   <Import Project="Fody.targets" />
