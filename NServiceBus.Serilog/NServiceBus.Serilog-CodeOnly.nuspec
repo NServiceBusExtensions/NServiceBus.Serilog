@@ -15,7 +15,7 @@
     <tags>NServiceBus, Serilog, NServiceBus.Serilog</tags>
 	  <dependencies>
 		  <dependency id="NServiceBus" version="4.0" />
-		  <dependency id="Serilog" version="1.0" />
+		  <dependency id="Serilog" version="1.2" />
 	  </dependencies>
   </metadata>
 </package>

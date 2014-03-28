@@ -25,7 +25,9 @@ namespace Sample
             Configure.Serialization.Json();
             Configure.With()
                 .DefaultBuilder()
-                .UseTransport<Msmq>()
+                .InMemorySagaPersister()
+                .UseInMemoryTimeoutPersister()
+                .InMemorySubscriptionStorage()
                 .UnicastBus()
                 .CreateBus()
                 .Start(() => Configure.Instance.ForInstallationOn<Windows>().Install());
