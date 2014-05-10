@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
-    <id>NServiceBus.Serilog</id>
+    <id>NServiceBus.Serilog.Tracing</id>
     <version>$version$</version>
-    <title>NServiceBus.Serilog</title>
+    <title>NServiceBus.Serilog.Tracing</title>
     <authors>Simon Cropp</authors>
     <owners>Simon Cropp</owners>
     <licenseUrl>http://www.opensource.org/licenses/mit-license.php</licenseUrl>
@@ -12,7 +12,7 @@
     <iconUrl>https://raw.github.com/SimonCropp/NServiceBus.Serilog/master/Icons/package_icon.png</iconUrl>
     <description>Serilog integration for NServiceBus.</description>
     <language>en-AU</language>
-    <tags>NServiceBus, Serilog, NServiceBus.Serilog</tags>
+    <tags>NServiceBus, Serilog, NServiceBus.Serilog, Seq</tags>
 	  <dependencies>
 		  <dependency id="NServiceBus" version="4.6.1" />
 		  <dependency id="Serilog" version="1.3.6" />
