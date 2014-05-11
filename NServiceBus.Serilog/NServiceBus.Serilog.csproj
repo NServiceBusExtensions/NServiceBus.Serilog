@@ -12,7 +12,7 @@
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
-    <NuGetPackageImportStamp>45074c1c</NuGetPackageImportStamp>
+    <NuGetPackageImportStamp>231a5429</NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -73,9 +73,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\CommonAssemblyInfo.cs">
-      <Link>CommonAssemblyInfo.cs</Link>
-    </Compile>
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="SerilogConfigurator.cs" />
@@ -83,7 +80,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="NServiceBus.Serilog-CodeOnly.nuspec" />
-    <None Include="NServiceBus.Serilog.nuspec" />
+    <None Include="NServiceBus.Serilog.nuspec">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
@@ -117,11 +116,11 @@
     <Copy SourceFiles="$(ProjectDir)NServiceBus.Serilog-CodeOnly.nuspec" DestinationFolder="$(SolutionDir)NuGetBuildCodeOnly\" />
     <PepitaPackage.CreatePackageTask NuGetBuildDirectory="$(SolutionDir)NuGetBuildCodeOnly" MetadataAssembly="$(OutputPath)\NServiceBus.Serilog.dll" />
   </Target>
-  <Import Project="..\packages\Fody.1.24.0-beta2\build\Fody.targets" Condition="Exists('..\packages\Fody.1.24.0-beta2\build\Fody.targets')" />
+  <Import Project="..\packages\Fody.1.24.0-beta3\build\Fody.targets" Condition="Exists('..\packages\Fody.1.24.0-beta3\build\Fody.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Fody.1.24.0-beta2\build\Fody.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Fody.1.24.0-beta2\build\Fody.targets'))" />
+    <Error Condition="!Exists('..\packages\Fody.1.24.0-beta3\build\Fody.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Fody.1.24.0-beta3\build\Fody.targets'))" />
   </Target>
 </Project>
