@@ -92,7 +92,7 @@ namespace NServiceBus.Serilog.Tracing
                 .ForContext("Initiator", initiator, true)
                 .ForContext("ResultingMessages", sagaAudit.ResultingMessages, true)
                 .ForContext("SagaState", saga.Entity, true)
-                .Information("Saga execution occurred: {SagaType} {SagaId}");
+                .Information("Saga execution {SagaType} {SagaId}");
         }
 
 
