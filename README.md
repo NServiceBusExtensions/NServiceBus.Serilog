@@ -64,6 +64,10 @@ To log to [Seq](http://getseq.net/ "Seq") use
 		.MinimumLevel.Information()
         .CreateLogger());
 
+Which will result in something like this
+
+![](https://raw.githubusercontent.com/SimonCropp/NServiceBus.Serilog/master/NsbSeq.png)
+
 ## Icon
 
 <a href="http://thenounproject.com/noun/brain/#icon-No10411" target="_blank">Brain</a> designed by <a href="http://thenounproject.com/catalarem" target="_blank">Rémy Médard</a> from The Noun Project
