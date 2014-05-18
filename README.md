@@ -39,7 +39,7 @@ The benefits of this approach are ease of debugging and less files to deploy
 
 ## Tracing Library
 
-Plugs into the low level NServiceBus pipeline to give more detail diagnostics.
+Plugs into the low level NServiceBus pipeline to give more detailed diagnostics.
 
 ### Nuget
 
