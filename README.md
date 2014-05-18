@@ -13,13 +13,13 @@ Plus into the standard NServiceBus logging API to pipe message through to Serilo
 
 There are two nuget packages
 
-#### The [binary version](http://nuget.org/packages/NServiceBus.Serilog/)
+#### http://nuget.org/packages/NServiceBus.Serilog/
 
 This uses the standard approach to constructing a nuget package. It contains a dll which will be added as a reference to your project. You then deploy the binary with your project.
 
     PM> Install-Package NServiceBus.Serilog
 
-#### The [code only version](http://nuget.org/packages/NServiceBus.Serilog-CodeOnly/)
+#### http://nuget.org/packages/NServiceBus.Serilog-CodeOnly/
 
 This is a "code only" package that leverages the [Content Convention](http://docs.nuget.org/docs/creating-packages/creating-and-publishing-a-package#From_a_convention_based_working_directory) of Nuget to inject code files into your project. Note that this is only compatible with C# projects. 
 
@@ -43,18 +43,25 @@ Plugs into the low level NServiceBus pipeline to give more detail diagnostics.
 
 ### Nuget
 
-There are two nuget packages
- 
-#### The [binary version](http://nuget.org/NServiceBus.Serilog.Tracing/)
-
-This uses the standard approach to constructing a nuget package. It contains a dll which will be added as a reference to your project. You then deploy the binary with your project.
+#### http://nuget.org/NServiceBus.Serilog.Tracing/
 
     PM> Install-Package NServiceBus.Serilog.Tracing
 
 ### Usage 
 
+    Log.Logger = new LoggerConfiguration()
+        .WriteTo.Console()
+        .WriteTo.File("logFile.txt")
+        .MinimumLevel.Information()
+        .CreateLogger();
+
+    TracingLog.Enable(Log.Logger);
+
+To log to [Seq](http://getseq.net/ "Seq") use 
+
     TracingLog.Enable(new LoggerConfiguration()
-        .WriteTo.Seq("http://localhost:5341").MinimumLevel.Information()
+        .WriteTo.Seq("http://localhost:5341")
+		.MinimumLevel.Information()
         .CreateLogger());
 
 ## Icon
