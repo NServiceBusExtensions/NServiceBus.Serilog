@@ -43,7 +43,7 @@ Plugs into the low level NServiceBus pipeline to give more detailed diagnostics.
 
 ### Nuget
 
-#### http://nuget.org/NServiceBus.Serilog.Tracing/
+#### https://www.nuget.org/packages/NServiceBus.Serilog.Tracing/
 
     PM> Install-Package NServiceBus.Serilog.Tracing
 
