@@ -9,7 +9,6 @@
     // ReSharper disable CSharpWarnings::CS0618
     class CaptureSagaResultingMessagesBehavior : IBehavior<SendPhysicalMessageContext>
     {
-
         static ILog logger = LogManager.GetLogger(typeof(CaptureSagaResultingMessagesBehavior));
         SagaUpdatedMessage sagaUpdatedMessage;
 
@@ -41,12 +40,9 @@
             var sagaResultingMessage = new SagaChangeOutput
                 {
                     ResultingMessageId = context.MessageToSend.Id,
-                    TimeSent = context.TimeSent(),
                     MessageType = logicalMessage.MessageType.ToString(),
-                    DeliveryDelay = context.SendOptions.DelayDeliveryWith,
-                    DeliveryAt = context.SendOptions.DeliverAt,
-                    Destination = context.GetDestination(),
-                    Intent = context.SendOptions.Intent.ToString()
+                    Destination = context.Destination(),
+                    MessageIntent = context.SendOptions.Intent.ToString()
                 };
             sagaUpdatedMessage.ResultingMessages.Add(sagaResultingMessage);
         }

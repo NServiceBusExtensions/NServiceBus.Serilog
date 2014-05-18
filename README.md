@@ -5,17 +5,21 @@ NServiceBus.Serilog
 
 Add support for sending [NServiceBus](http://particular.net/NServiceBus) logging message through [Serilog](http://serilog.net/)
 
-## Nuget
+## Standard Logging Library
+
+Plus into the standard NServiceBus logging API to pipe message through to Serilog.
+
+### Nuget
 
 There are two nuget packages
 
-### The [binary version](http://nuget.org/packages/NServiceBus.Serilog/)
+#### The [binary version](http://nuget.org/packages/NServiceBus.Serilog/)
 
 This uses the standard approach to constructing a nuget package. It contains a dll which will be added as a reference to your project. You then deploy the binary with your project.
 
     PM> Install-Package NServiceBus.Serilog
 
-### The [code only version](http://nuget.org/packages/NServiceBus.Serilog-CodeOnly/)
+#### The [code only version](http://nuget.org/packages/NServiceBus.Serilog-CodeOnly/)
 
 This is a "code only" package that leverages the [Content Convention](http://docs.nuget.org/docs/creating-packages/creating-and-publishing-a-package#From_a_convention_based_working_directory) of Nuget to inject code files into your project. Note that this is only compatible with C# projects. 
 
@@ -23,7 +27,7 @@ The benefits of this approach are ease of debugging and less files to deploy
 
     PM> Install-Package NServiceBus.Serilog-CodeOnly
 
-## Usage 
+### Usage 
 
     Log.Logger = new LoggerConfiguration()
         .WriteTo.Console()
@@ -32,6 +36,26 @@ The benefits of this approach are ease of debugging and less files to deploy
     
     var configure = Configure
         .With().DefaultBuilder();
+
+## Tracing Library
+
+Plugs into the low level NServiceBus pipeline to give more detail diagnostics.
+
+### Nuget
+
+There are two nuget packages
+ 
+#### The [binary version](http://nuget.org/NServiceBus.Serilog.Tracing/)
+
+This uses the standard approach to constructing a nuget package. It contains a dll which will be added as a reference to your project. You then deploy the binary with your project.
+
+    PM> Install-Package NServiceBus.Serilog.Tracing
+
+### Usage 
+
+    TracingLog.Enable(new LoggerConfiguration()
+        .WriteTo.Seq("http://localhost:5341").MinimumLevel.Information()
+        .CreateLogger());
 
 ## Icon
 

@@ -45,11 +45,12 @@
     </Reference>
     <Reference Include="Serilog, Version=1.3.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Serilog.1.3.6\lib\net45\Serilog.dll</HintPath>
+      <HintPath>..\packages\Serilog.1.3.20\lib\net45\Serilog.dll</HintPath>
     </Reference>
     <Reference Include="Serilog.FullNetFx, Version=1.3.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Serilog.1.3.6\lib\net45\Serilog.FullNetFx.dll</HintPath>
+      <HintPath>..\packages\Serilog.1.3.20\lib\net45\Serilog.FullNetFx.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -61,17 +62,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
-    <Compile Include="MessageAudit\AuditBehavior.cs" />
-    <Compile Include="MessageAudit\MessageAuditingOverride.cs" />
-    <Compile Include="MessageAudit\SerilogMessageAudit.cs" />
+    <Compile Include="MessageAudit\ReceiveMessageOverride.cs" />
+    <Compile Include="MessageAudit\SendMessageBehavior.cs" />
+    <Compile Include="MessageAudit\ReceiveMessageBehavior.cs" />
+    <Compile Include="MessageAudit\SendMessageOverride.cs" />
+    <Compile Include="MessageAudit\HeaderAppender.cs" />
     <Compile Include="SagaAudit\CaptureSagaResultingMessagesBehavior.cs" />
     <Compile Include="SagaAudit\CaptureSagaStateBehavior.cs" />
     <Compile Include="SagaAudit\Data\SagaChangeInitiator.cs" />
     <Compile Include="SagaAudit\Data\SagaChangeOutput.cs" />
     <Compile Include="SagaAudit\Data\SagaUpdatedMessage.cs" />
-    <Compile Include="SagaAudit\NServiceBusExtensions.cs" />
+    <Compile Include="NServiceBusExtensions.cs" />
     <Compile Include="SagaAudit\SagaStateAuditingOverride.cs" />
-    <Compile Include="SagaAudit\SerilogSagaAudit.cs" />
+    <Compile Include="TracingLog.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="NServiceBus.Serilog.Tracing.nuspec" />

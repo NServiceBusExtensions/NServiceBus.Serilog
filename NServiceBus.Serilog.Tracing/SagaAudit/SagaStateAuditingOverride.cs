@@ -1,5 +1,4 @@
-﻿using NServiceBus.Features;
-using NServiceBus.Pipeline;
+﻿using NServiceBus.Pipeline;
 using NServiceBus.Pipeline.Contexts;
 using NServiceBus.Sagas;
 
@@ -10,20 +9,18 @@ namespace NServiceBus.Serilog.Tracing
     {
         public override void Override(BehaviorList<HandlerInvocationContext> behaviorList)
         {
-            if (!Feature.IsEnabled<SerilogSagaAudit>())
+            if (!TracingLog.IsEnabled())
             {
                 return;
             }
-
             behaviorList.InsertBefore<SagaPersistenceBehavior, CaptureSagaStateBehavior>();
         }
         public override void Override(BehaviorList<SendPhysicalMessageContext> behaviorList)
         {
-            if (!Feature.IsEnabled<SerilogSagaAudit>())
+            if (!TracingLog.IsEnabled())
             {
                 return;
             }
-
             behaviorList.Add<CaptureSagaResultingMessagesBehavior>();
         }
     }

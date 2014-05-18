@@ -1,6 +1,5 @@
 namespace Server
 {
-    using System;
     using NServiceBus;
 
     class MessageSender : IWantToRunWhenBusStartsAndStops
@@ -9,9 +8,11 @@ namespace Server
 
         public void Start()
         {
-            Bus.SendLocal(new Message1
+            Bus.SendLocal(new CreateUser
                 {
-                    SomeId = Guid.NewGuid()
+                    UserName = "jsmith",
+                    FamilyName = "Smith",
+                    GivenNames = "John",
                 });
         }
 

@@ -3,6 +3,7 @@ using NServiceBus;
 using NServiceBus.Features;
 using NServiceBus.Installation.Environments;
 using NServiceBus.Serilog;
+using NServiceBus.Serilog.Tracing;
 using Seq;
 using Serilog;
 
@@ -16,8 +17,13 @@ class Program
         Log.Logger = new LoggerConfiguration()
             .WriteTo.Console()
             .WriteTo.File("logFile.txt")
-            .WriteTo.Seq("http://localhost:5341").MinimumLevel.Information()
+            .MinimumLevel.Information()
             .CreateLogger();
+
+        TracingLog.Enable(new LoggerConfiguration()
+            .WriteTo.Seq("http://localhost:5341")
+            .MinimumLevel.Information()
+            .CreateLogger());
 
         //Set NServiceBus to log to Serilog
         SerilogConfigurator.Configure();

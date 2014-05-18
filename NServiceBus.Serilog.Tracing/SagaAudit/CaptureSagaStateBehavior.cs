@@ -5,6 +5,7 @@ using NServiceBus.Saga;
 using NServiceBus.Sagas;
 using NServiceBus.Transports;
 using Serilog;
+using Serilog.Events;
 
 namespace NServiceBus.Serilog.Tracing
 {
@@ -12,8 +13,9 @@ namespace NServiceBus.Serilog.Tracing
     // ReSharper disable CSharpWarnings::CS0618
     class CaptureSagaStateBehavior : IBehavior<HandlerInvocationContext>
     {
-        static ILogger logger = Log.ForContext<CaptureSagaStateBehavior>()
-                .ForContext("Endpoint", Configure.EndpointName);
+        static ILogger logger = TracingLog.GetLogger("NServiceBus.Serilog.SagaAudit")
+                .ForContext("ProcessingEndpoint", Configure.EndpointName);
+
         public ISendMessages MessageSender { get; set; }
         SagaUpdatedMessage sagaAudit;
 
@@ -27,6 +29,11 @@ namespace NServiceBus.Serilog.Tracing
                 return;
             }
 
+            if (!logger.IsEnabled(LogEventLevel.Information))
+            {
+                next();
+                return;
+            }
             sagaAudit = new SagaUpdatedMessage
             {
                 StartTime = DateTime.UtcNow,
@@ -85,7 +92,7 @@ namespace NServiceBus.Serilog.Tracing
                 .ForContext("Initiator", initiator, true)
                 .ForContext("ResultingMessages", sagaAudit.ResultingMessages, true)
                 .ForContext("SagaState", saga.Entity, true)
-                .Information("Saga audit occurred: SagaId:{SagaId}, SagaType:{SagaType}");
+                .Information("Saga execution occurred: {SagaType} {SagaId}");
         }
 
 
