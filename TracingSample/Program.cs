@@ -20,10 +20,11 @@ class Program
             .MinimumLevel.Information()
             .CreateLogger();
 
-        TracingLog.Enable(new LoggerConfiguration()
+        var logger = new LoggerConfiguration()
             .WriteTo.Seq("http://localhost:5341")
             .MinimumLevel.Information()
-            .CreateLogger());
+            .CreateLogger();
+        TracingLog.Enable(logger);
 
         //Set NServiceBus to log to Serilog
         SerilogConfigurator.Configure();
