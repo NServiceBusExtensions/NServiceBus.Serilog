@@ -4,7 +4,6 @@ using NServiceBus.Features;
 using NServiceBus.Installation.Environments;
 using NServiceBus.Serilog;
 using NServiceBus.Serilog.Tracing;
-using Seq;
 using Serilog;
 
 class Program
