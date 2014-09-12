@@ -47,13 +47,9 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="NServiceBus, Version=4.6.0.0, Culture=neutral, PublicKeyToken=9fc386479f8a226c, processorArchitecture=MSIL">
+    <Reference Include="NServiceBus.Core, Version=5.0.0.0, Culture=neutral, PublicKeyToken=9fc386479f8a226c, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\NServiceBus.Interfaces.4.6.1\lib\net40\NServiceBus.dll</HintPath>
-    </Reference>
-    <Reference Include="NServiceBus.Core, Version=4.6.0.0, Culture=neutral, PublicKeyToken=9fc386479f8a226c, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\NServiceBus.4.6.1\lib\net40\NServiceBus.Core.dll</HintPath>
+      <HintPath>..\packages\NServiceBus.5.0.0-beta0005\lib\net45\NServiceBus.Core.dll</HintPath>
     </Reference>
     <Reference Include="Serilog, Version=1.4.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -74,7 +70,7 @@
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="Logger.cs" />
-    <Compile Include="SerilogConfigurator.cs" />
+    <Compile Include="SerilogFactory.cs" />
     <Compile Include="LoggerFactory.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -106,8 +102,8 @@
     <PepitaPackage.CreatePackageTask NuGetBuildDirectory="$(SolutionDir)NuGetBuild" MetadataAssembly="$(OutputPath)\NServiceBus.Serilog.dll" />
     <Copy SourceFiles="$(ProjectDir)LoggerFactory.cs" DestinationFiles="$(SolutionDir)NuGetBuildCodeOnly\Content\NServiceBusSerilog\LoggerFactory.cs.pp" />
     <Copy SourceFiles="$(ProjectDir)Logger.cs" DestinationFiles="$(SolutionDir)NuGetBuildCodeOnly\Content\NServiceBusSerilog\Logger.cs.pp" />
-    <Copy SourceFiles="$(ProjectDir)SerilogConfigurator.cs" DestinationFiles="$(SolutionDir)NuGetBuildCodeOnly\Content\NServiceBusSerilog\SerilogConfigurator.cs.pp" />
-    <ItemGroup>
+    <Copy SourceFiles="$(ProjectDir)SerilogFactory.cs" DestinationFiles="$(SolutionDir)NuGetBuildCodeOnly\Content\NServiceBusSerilog\SerilogFactory.cs.pp" />
+    <ItemGroup> 
       <CsFiles Include="$(SolutionDir)NuGetBuildCodeOnly\Content\NServiceBusSerilog\*.cs.pp" />
     </ItemGroup>
     <FileUpdate Files="@(CsFiles)" Regex="namespace NServiceBus.Serilog" ReplacementText="namespace $rootnamespace$.NServiceBusSerilog" />

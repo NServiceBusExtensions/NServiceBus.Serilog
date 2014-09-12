@@ -1,5 +1,4 @@
 ﻿using System;
-using NServiceBus.Pipeline.Contexts;
 using NServiceBus.Unicast.Messages;
 
 namespace NServiceBus.Serilog.Tracing
@@ -8,15 +7,15 @@ namespace NServiceBus.Serilog.Tracing
     static class NServiceBusExtensions
     {
 
-        public static string MessageIntent(this HandlerInvocationContext context)
+        public static string MessageIntent(this LogicalMessage logicalMessage)
         {
-            var headers = context.LogicalMessage.Headers;
-            return headers.ContainsKey(Headers.MessageIntent) ? headers[Headers.MessageIntent] : "Send"; // Just in case the received message is from an early version that does not have intent, should be a rare occasion.
-        }
-
-        public static DateTime TimeSent(this SendPhysicalMessageContext context)
-        {
-            return DateTimeExtensions.ToUtcDateTime(context.MessageToSend.Headers[Headers.TimeSent]);
+            var headers = logicalMessage.Headers;
+            string intent;
+            if (headers.TryGetValue(Headers.MessageIntent, out intent))
+            {
+                return intent;
+            }
+            return "Send";
         }
 
         public static string MessageTypeName(this LogicalMessage logicalMessage)
@@ -29,19 +28,9 @@ namespace NServiceBus.Serilog.Tracing
             return type.Name;
         }
 
-        public static DateTime TimeSent(this HandlerInvocationContext context)
+        public static DateTime TimeSent(this LogicalMessage logicalMessage)
         {
-            return DateTimeExtensions.ToUtcDateTime(context.LogicalMessage.Headers[Headers.TimeSent]);
-        }
-
-        public static string Destination(this SendPhysicalMessageContext context)
-        {
-            // Destination can be null for publish events
-            if (context.SendOptions.Destination != null)
-            {
-                return context.SendOptions.Destination.ToString();
-            }
-            return null;
+            return DateTimeExtensions.ToUtcDateTime(logicalMessage.Headers[Headers.TimeSent]);
         }
 
         public static bool IsTimeoutMessage(this LogicalMessage message)

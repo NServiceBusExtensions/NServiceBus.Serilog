@@ -1,50 +1,56 @@
 ﻿namespace NServiceBus.Serilog.Tracing
 {
     using System;
-    using System.Linq;
-    using Logging;
+    using NServiceBus.Unicast;
     using Pipeline;
     using Pipeline.Contexts;
 
-    // ReSharper disable CSharpWarnings::CS0618
-    class CaptureSagaResultingMessagesBehavior : IBehavior<SendPhysicalMessageContext>
+    class CaptureSagaResultingMessagesBehavior : IBehavior<OutgoingContext>
     {
-        static ILog logger = LogManager.GetLogger(typeof(CaptureSagaResultingMessagesBehavior));
         SagaUpdatedMessage sagaUpdatedMessage;
 
-        public void Invoke(SendPhysicalMessageContext context, Action next)
+        public void Invoke(OutgoingContext context, Action next)
         {
             AppendMessageToState(context);
             next();
         }
 
-        void AppendMessageToState(SendPhysicalMessageContext context)
+        void AppendMessageToState(OutgoingContext context)
         {
             if (!context.TryGet(out sagaUpdatedMessage))
             {
                 return;
             }
-            var messages = context.LogicalMessages.ToList();
-            if (messages.Count > 1)
-            {
-                logger.WarnFormat("Could not audit outgoing messages for the the saga `{0}` since the SagaAuditing plugin does not support batch messages. Consider not using batch messages from this saga.", sagaUpdatedMessage.SagaType);
-                return;
-            }
-            if (messages.Count == 0)
+
+            var logicalMessage = context.OutgoingLogicalMessage;
+            if (logicalMessage == null)
             {
                 //this can happen on control messages
                 return;
             }
-            var logicalMessage = messages.First();
             
-            var sagaResultingMessage = new SagaChangeOutput
+            var sendOptions = context.DeliveryOptions as SendOptions;
+            if (sendOptions != null)
+            {
+                var sagaResultingMessage = new SagaChangeOutput
                 {
-                    ResultingMessageId = context.MessageToSend.Id,
+                    ResultingMessageId = context.OutgoingMessage.Id,
                     MessageType = logicalMessage.MessageType.ToString(),
-                    Destination = context.Destination(),
-                    MessageIntent = context.SendOptions.Intent.ToString()
+                    Destination = sendOptions.Destination.ToString(),
+                    MessageIntent = "Send"
                 };
-            sagaUpdatedMessage.ResultingMessages.Add(sagaResultingMessage);
+                sagaUpdatedMessage.ResultingMessages.Add(sagaResultingMessage);
+            }
+            if (context.DeliveryOptions is PublishOptions)
+            {
+                var sagaResultingMessage = new SagaChangeOutput
+                {
+                    ResultingMessageId = context.OutgoingMessage.Id,
+                    MessageType = logicalMessage.MessageType.ToString(),
+                    MessageIntent = "Publish"
+                };
+                sagaUpdatedMessage.ResultingMessages.Add(sagaResultingMessage);
+            }
         }
 
     }
