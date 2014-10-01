@@ -1,30 +1,30 @@
 ﻿using System;
 using NServiceBus.Pipeline;
 using NServiceBus.Pipeline.Contexts;
-using Serilog;
 
 namespace NServiceBus.Serilog.Tracing
 {
-    // ReSharper disable CSharpWarnings::CS0618
-    class SendMessageBehavior : IBehavior<SendPhysicalMessageContext>
+    // wrap DispatchMessageToTransportBehavior
+    class SendMessageBehavior : IBehavior<OutgoingContext>
     {
-        static ILogger logger = TracingLog.GetLogger("NServiceBus.Serilog.MessageSent")
-                .ForContext("SendingEndpoint", Configure.EndpointName);
+        LogBuilder logBuilder;
 
-        public void Invoke(SendPhysicalMessageContext context, Action next)
+        public SendMessageBehavior(LogBuilder logBuilder)
         {
-            foreach (var message in context.LogicalMessages)
-            {
+            this.logBuilder = logBuilder;
+        }
 
-                var logicalMessage = context.MessageToSend;
-                var forContext = logger
-                    .ForContext("Message", message.Instance, true)
-                    .ForContext("MessageType", message.MessageTypeName())
-                    .ForContext("MessageId", context.MessageToSend.Id);
-                forContext = forContext.AddHeaders(logicalMessage.Headers);
+        public void Invoke(OutgoingContext context, Action next)
+        {
+            var logger = logBuilder.GetLogger("NServiceBus.Serilog.MessageSent");
+            var message = context.OutgoingLogicalMessage;
+            var forContext = logger
+                .ForContext("Message", message.Instance, true)
+                .ForContext("MessageType", message.MessageTypeName())
+                .ForContext("MessageId", context.OutgoingMessage.Id);
+            forContext = forContext.AddHeaders(context.OutgoingLogicalMessage.Headers);
 
-                forContext.Information("Sent message {MessageType} {MessageId}");
-            }
+            forContext.Information("Sent message {MessageType} {MessageId}");
             next();
         }
     }

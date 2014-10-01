@@ -5,11 +5,11 @@ public class CreateUserSaga : Saga<MySagaData>, IAmStartedByMessages<CreateUser>
 {
     static ILog logger = LogManager.GetLogger(typeof (CreateUserSaga));
 
-
-    public override void ConfigureHowToFindSaga()
+    protected override void ConfigureHowToFindSaga(SagaPropertyMapper<MySagaData> mapper)
     {
-        ConfigureMapping<CreateUser>(m => m.UserName)
-            .ToSaga(s => s.UserName);
+        mapper.ConfigureMapping<CreateUser>(m => m.UserName)
+            .ToSaga(s=>s.UserName);
+
     }
 
     public void Handle(CreateUser message)

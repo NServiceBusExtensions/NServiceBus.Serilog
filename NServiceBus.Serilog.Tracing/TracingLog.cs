@@ -1,55 +1,66 @@
-﻿using System;
-using Serilog;
-using Serilog.Core;
-
-namespace NServiceBus.Serilog.Tracing
+﻿namespace NServiceBus.Serilog.Tracing
 {
-    public static class TracingLog
+    using global::Serilog;
+    using NServiceBus.Features;
+    using NServiceBus.Pipeline;
+
+    public class TracingLog:Feature
     {
-        static bool initialized;
-        static ILogger logger;
 
-        public static void Enable(ILogger logger)
+        public TracingLog()
         {
-            VerifyNotInitialized();
-            initialized = true;
-            TracingLog.logger = logger;
+            EnableByDefault();
         }
 
-        public static void Disable()
+        protected override void Setup(FeatureConfigurationContext context)
         {
-            VerifyNotInitialized();
-            initialized = true;
-        }
-
-        internal static ILogger GetLogger(string sourceContext)
-        {
-            VerifyInitialized();
-
-            return logger
-                .ForContext(Constants.SourceContextPropertyName, sourceContext);
-        }
-
-        static void VerifyInitialized()
-        {
-            if (!initialized)
+            context.Pipeline.Register<CaptureSagaStateRegistration>();
+            context.Pipeline.Register<CaptureSagaResultingMessageRegistration>();
+            context.Pipeline.Register<ReceiveMessageRegistration>();
+            context.Pipeline.Register<SendMessageRegistration>();
+            ILogger logger;
+            if (!context.Settings.TryGetSerilogTracingTarget(out logger))
             {
-                throw new Exception("Must Call either TracingLog.Enable or TracingLog.Disable before starting the bus.");
+                logger = Log.Logger;
+            }
+            var logBuilder = new LogBuilder(logger, context.Settings.EndpointName());
+            context.Container.ConfigureComponent(() => logBuilder, DependencyLifecycle.SingleInstance);
+        }
+
+        class CaptureSagaStateRegistration : RegisterStep
+        {
+            public CaptureSagaStateRegistration()
+                : base("SerilogCaptureSagaState", typeof(CaptureSagaStateBehavior), "Records saga state changes")
+            {
+                InsertBefore(WellKnownStep.InvokeSaga);
             }
         }
 
-        internal static bool IsEnabled()
+        class CaptureSagaResultingMessageRegistration : RegisterStep
         {
-            VerifyInitialized();
-            return logger != null;
-        }
-        static void VerifyNotInitialized()
-        {
-            if (initialized)
+            public CaptureSagaResultingMessageRegistration()
+                : base("SerilogReportSagaStateChanges", typeof(CaptureSagaResultingMessagesBehavior), "Reports the saga state changes to Serilog")
             {
-                throw new Exception("Enable or Disable can only be called once.");
+                InsertAfter(WellKnownStep.InvokeSaga);
             }
         }
 
+        class ReceiveMessageRegistration : RegisterStep
+        {
+            public ReceiveMessageRegistration()
+                : base("SerilogReceiveMessage", typeof(ReceiveMessageBehavior), "Logs incoming messages")
+            {
+                InsertBefore(WellKnownStep.MutateIncomingMessages);
+            }
+        }
+
+        class SendMessageRegistration : RegisterStep
+        {
+            public SendMessageRegistration()
+                : base("SerilogSendMessage", typeof(SendMessageBehavior), "Logs outgoing messages")
+            {
+                InsertAfter(WellKnownStep.DispatchMessageToTransport);
+            }
+        }
     }
 }

@@ -1,20 +1,27 @@
 ﻿using System;
 using NServiceBus.Pipeline;
 using NServiceBus.Pipeline.Contexts;
-using Serilog;
+using NServiceBus.Settings;
 
 namespace NServiceBus.Serilog.Tracing
 {
-    // ReSharper disable CSharpWarnings::CS0618
-    class ReceiveMessageBehavior : IBehavior<ReceiveLogicalMessageContext>
+    class ReceiveMessageBehavior : IBehavior<IncomingContext>
     {
-        static ILogger logger = TracingLog.GetLogger("NServiceBus.Serilog.MessageReceived")
-                .ForContext("ProcessingEndpoint", Configure.EndpointName);
+        ReadOnlySettings settings;
+        LogBuilder logBuilder;
 
-        public void Invoke(ReceiveLogicalMessageContext context, Action next)
+        public ReceiveMessageBehavior(ReadOnlySettings settings, LogBuilder logBuilder)
         {
-            var logicalMessage = context.LogicalMessage;
+            this.settings = settings;
+            this.logBuilder = logBuilder;
+        }
+
+        public void Invoke(IncomingContext context, Action next)
+        {
+            var logger = logBuilder.GetLogger("NServiceBus.Serilog.MessageReceived");
+            var logicalMessage = context.IncomingLogicalMessage;
             var forContext = logger
+                .ForContext("ProcessingEndpoint", settings.EndpointName())
                 .ForContext("Message", logicalMessage.Instance, true)
                 .ForContext("MessageType", logicalMessage.MessageTypeName());
             forContext = forContext.AddHeaders(logicalMessage.Headers);
