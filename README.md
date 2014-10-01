@@ -31,11 +31,11 @@ The benefits of this approach are ease of debugging and less files to deploy
 
     Log.Logger = new LoggerConfiguration()
         .WriteTo.Console()
+        .WriteTo.File("logFile.txt")
         .CreateLogger();
-    SerilogConfigurator.Configure();
-    
-    var configure = Configure
-        .With().DefaultBuilder();
+
+    //Set NServiceBus to log to Serilog
+    LogManager.Use<SerilogFactory>();
 
 ## Tracing Library
 
@@ -54,15 +54,24 @@ Plugs into the low level NServiceBus pipeline to give more detailed diagnostics.
         .WriteTo.File("logFile.txt")
         .MinimumLevel.Information()
         .CreateLogger();
+    LogManager.Use<SerilogFactory>();
 
-    TracingLog.Enable(Log.Logger);
+
+
+    var busConfig = new BusConfiguration();
+    busConfig.EndpointName("SeqSample");
+    busConfig.EnableFeature<TracingLog>();
 
 To log to [Seq](http://getseq.net/ "Seq") use 
 
-    TracingLog.Enable(new LoggerConfiguration()
+    var tracingLog = new LoggerConfiguration()
         .WriteTo.Seq("http://localhost:5341")
-		.MinimumLevel.Information()
-        .CreateLogger());
+        .MinimumLevel.Information()
+        .CreateLogger();
+
+Then call
+
+    busConfig.SerilogTracingTarget(tracingLog);
 
 Which will result in something like this
 
