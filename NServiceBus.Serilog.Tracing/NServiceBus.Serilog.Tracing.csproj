@@ -62,12 +62,14 @@
     <Compile Include="MessageAudit\SendMessageBehavior.cs" />
     <Compile Include="MessageAudit\ReceiveMessageBehavior.cs" />
     <Compile Include="MessageAudit\HeaderAppender.cs" />
+    <Compile Include="MessageTracing.cs" />
     <Compile Include="SagaAudit\CaptureSagaResultingMessagesBehavior.cs" />
     <Compile Include="SagaAudit\CaptureSagaStateBehavior.cs" />
     <Compile Include="SagaAudit\Data\SagaChangeInitiator.cs" />
     <Compile Include="SagaAudit\Data\SagaChangeOutput.cs" />
     <Compile Include="SagaAudit\Data\SagaUpdatedMessage.cs" />
     <Compile Include="NServiceBusExtensions.cs" />
+    <Compile Include="SagaTracing.cs" />
     <Compile Include="TracingLog.cs" />
   </ItemGroup>
   <ItemGroup>
