@@ -20,17 +20,36 @@ namespace NServiceBus.Serilog.Tracing
 
         public static string MessageTypeName(this LogicalMessage logicalMessage)
         {
-            var type = logicalMessage.MessageType;
-            if (type.Namespace != null)
+            if (logicalMessage.IsControlMessage())
             {
-                return String.Format("{0}.{1}", type.Namespace, type.Name);
+                return "ControlMessage";
             }
-            return type.Name;
+            var type = logicalMessage.MessageType;
+            if (type.Namespace == null)
+            {
+                return type.Name;
+            }
+            return string.Format("{0}.{1}", type.Namespace, type.Name);
         }
 
         public static DateTime TimeSent(this LogicalMessage logicalMessage)
         {
             return DateTimeExtensions.ToUtcDateTime(logicalMessage.Headers[Headers.TimeSent]);
+        }
+
+
+        public static bool IsControlMessage(this LogicalMessage transportMessage)
+        {
+            if (transportMessage.Headers == null)
+            {
+                return false;
+            }
+            string isControlMessage;
+            if (transportMessage.Headers.TryGetValue(Headers.ControlMessageHeader, out isControlMessage))
+            {
+                return isControlMessage == "true";
+            }
+            return false;
         }
 
         public static bool IsTimeoutMessage(this LogicalMessage message)

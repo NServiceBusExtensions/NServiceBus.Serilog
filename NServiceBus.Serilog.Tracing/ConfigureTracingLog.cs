@@ -4,6 +4,9 @@ namespace NServiceBus.Serilog.Tracing
     using NServiceBus.Configuration.AdvanceExtensibility;
     using NServiceBus.Settings;
 
+    /// <summary>
+    /// Proveds extensions to <see cref="BusConfiguration"/> to configure serilog tracing.
+    /// </summary>
     public static class ConfigureTracingLog
     {
 
@@ -12,6 +15,8 @@ namespace NServiceBus.Serilog.Tracing
         /// </summary>
         public static void SerilogTracingTarget(this BusConfiguration busConfiguration, ILogger logger)
         {
+            Guard.AgainstNull(busConfiguration, "busConfiguration");
+            Guard.AgainstNull(logger, "logger");
             var settings = busConfiguration.GetSettings();
             settings.Set("customSerilogTracingTarget", logger);
         }

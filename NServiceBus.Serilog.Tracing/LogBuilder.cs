@@ -4,7 +4,7 @@
     using global::Serilog;
     using global::Serilog.Core;
 
-    internal class LogBuilder
+    class LogBuilder
     {
         ILogger logger;
         ConcurrentDictionary<string, ILogger> loggers = new ConcurrentDictionary<string, ILogger>();

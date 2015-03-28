@@ -103,7 +103,7 @@ namespace NServiceBus.Serilog.Tracing
             var physicalMessage = context.PhysicalMessage;
             if (!physicalMessage.Headers.TryGetValue("NServiceBus.Serilog.Tracing.SagaStateChange", out sagaStateChange))
             {
-                sagaStateChange = String.Empty;
+                sagaStateChange = string.Empty;
             }
 
             var statechange = "Updated";
@@ -116,11 +116,11 @@ namespace NServiceBus.Serilog.Tracing
                 statechange = "Completed";
             }
 
-            if (!String.IsNullOrEmpty(sagaStateChange))
+            if (!string.IsNullOrEmpty(sagaStateChange))
             {
                 sagaStateChange += ";";
             }
-            sagaStateChange += String.Format("{0}:{1}", sagaAudit.SagaId, statechange);
+            sagaStateChange += string.Format("{0}:{1}", sagaAudit.SagaId, statechange);
 
             physicalMessage.Headers["NServiceBus.Serilog.Tracing.SagaStateChange"] = sagaStateChange;
         }
