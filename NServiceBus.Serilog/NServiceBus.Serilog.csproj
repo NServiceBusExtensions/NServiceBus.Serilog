@@ -68,6 +68,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\CommonAssemblyInfo.cs">
+      <Link>CommonAssemblyInfo.cs</Link>
+    </Compile>
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="Guard.cs" />
     <Compile Include="Logger.cs" />
@@ -75,7 +78,9 @@
     <Compile Include="LoggerFactory.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="NServiceBus.Serilog-CodeOnly.nuspec" />
+    <None Include="NServiceBus.Serilog-CodeOnly.nuspec">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="NServiceBus.Serilog.nuspec">
       <SubType>Designer</SubType>
     </None>
