@@ -61,7 +61,6 @@
   <ItemGroup>
     <Compile Include="ConfigErrorQueue.cs" />
     <Compile Include="Program.cs" />
-    <None Include="app.config" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
