@@ -1,5 +1,4 @@
 ﻿using NServiceBus.Features;
-using NServiceBus.Pipeline;
 
 namespace NServiceBus.Serilog.Tracing
 {
@@ -22,26 +21,10 @@ namespace NServiceBus.Serilog.Tracing
         {
             Guard.AgainstNull(context, "context");
 
-            context.Pipeline.Register<CaptureSagaStateRegistration>();
-            context.Pipeline.Register<CaptureSagaResultingMessageRegistration>();
+            context.Pipeline.Register<CaptureSagaStateBehavior.Registration>();
+            context.Pipeline.Register<CaptureSagaResultingMessagesBehavior.Registration>();
         }
 
-        class CaptureSagaStateRegistration : RegisterStep
-        {
-            public CaptureSagaStateRegistration()
-                : base("SerilogCaptureSagaState", typeof (CaptureSagaStateBehavior), "Records saga state changes")
-            {
-                InsertBefore(WellKnownStep.InvokeSaga);
-            }
-        }
 
-        class CaptureSagaResultingMessageRegistration : RegisterStep
-        {
-            public CaptureSagaResultingMessageRegistration()
-                : base("SerilogReportSagaStateChanges", typeof (CaptureSagaResultingMessagesBehavior), "Reports the saga state changes to Serilog")
-            {
-                InsertAfter(WellKnownStep.InvokeSaga);
-            }
-        }
     }
 }

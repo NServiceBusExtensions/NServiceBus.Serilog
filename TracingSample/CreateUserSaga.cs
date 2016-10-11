@@ -1,7 +1,9 @@
-﻿using NServiceBus.Logging;
-using NServiceBus.Saga;
+﻿using System.Threading.Tasks;
+using NServiceBus;
+using NServiceBus.Logging;
 
-public class CreateUserSaga : Saga<MySagaData>, IAmStartedByMessages<CreateUser>
+public class CreateUserSaga : Saga<MySagaData>, 
+    IAmStartedByMessages<CreateUser>
 {
     static ILog logger = LogManager.GetLogger(typeof (CreateUserSaga));
 
@@ -9,16 +11,18 @@ public class CreateUserSaga : Saga<MySagaData>, IAmStartedByMessages<CreateUser>
     {
         mapper.ConfigureMapping<CreateUser>(m => m.UserName)
             .ToSaga(s=>s.UserName);
-
     }
 
-    public void Handle(CreateUser message)
+    public async Task Handle(CreateUser message, IMessageHandlerContext context)
     {
         Data.UserName = message.UserName;
         logger.Info("User created");
+        var userCreated = new UserCreated
+        {
+            UserName = message.UserName
+        };
+        await context.SendLocal(userCreated);
         MarkAsComplete();
-        Bus.SendLocal(new UserCreated { UserName = message.UserName });
     }
-
 }
 

@@ -89,29 +89,10 @@ namespace NServiceBus.Serilog
             logger.Fatal(format, args);
         }
 
-        public bool IsDebugEnabled
-        {
-            get { return logger.IsEnabled(LogEventLevel.Debug); }
-        }
-
-        public bool IsInfoEnabled
-        {
-            get { return logger.IsEnabled(LogEventLevel.Information); }
-        }
-
-        public bool IsWarnEnabled
-        {
-            get { return logger.IsEnabled(LogEventLevel.Warning); }
-        }
-
-        public bool IsErrorEnabled
-        {
-            get { return logger.IsEnabled(LogEventLevel.Error); }
-        }
-
-        public bool IsFatalEnabled
-        {
-            get { return logger.IsEnabled(LogEventLevel.Fatal); }
-        }
+        public bool IsDebugEnabled => logger.IsEnabled(LogEventLevel.Debug);
+        public bool IsInfoEnabled => logger.IsEnabled(LogEventLevel.Information);
+        public bool IsWarnEnabled => logger.IsEnabled(LogEventLevel.Warning);
+        public bool IsErrorEnabled => logger.IsEnabled(LogEventLevel.Error);
+        public bool IsFatalEnabled => logger.IsEnabled(LogEventLevel.Fatal);
     }
 }

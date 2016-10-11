@@ -1,10 +1,6 @@
-using System;
-using NServiceBus.Saga;
+using NServiceBus;
 
-public class MySagaData : IContainSagaData
+public class MySagaData : ContainSagaData
 {
-    public Guid Id { get; set; }
-    public string Originator { get; set; }
-    public string OriginalMessageId { get; set; }
     public string UserName { get; set; }
 }

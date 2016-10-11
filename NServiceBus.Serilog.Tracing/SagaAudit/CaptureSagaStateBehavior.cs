@@ -1,79 +1,79 @@
-﻿
+﻿using System;
+using System.Threading.Tasks;
+using NServiceBus.Pipeline;
+using NServiceBus.Sagas;
+using Serilog;
+using Serilog.Events;
+using Serilog.Parsing;
+
 namespace NServiceBus.Serilog.Tracing
 {
-    using System;
-    using global::Serilog;
-    using global::Serilog.Events;
-    using NServiceBus.Pipeline;
-    using NServiceBus.Pipeline.Contexts;
-    using NServiceBus.Sagas;
-    using Saga = NServiceBus.Saga.Saga;
 
-    class CaptureSagaStateBehavior : IBehavior<IncomingContext>
+    class CaptureSagaStateBehavior : Behavior<IInvokeHandlerContext>
     {
         SagaUpdatedMessage sagaAudit;
         ILogger logger;
+        MessageTemplate messageTemplate;
 
         public CaptureSagaStateBehavior(LogBuilder logBuilder)
         {
+            var templateParser = new MessageTemplateParser();
+            messageTemplate = templateParser.Parse("Saga execution '{SagaType}' '{SagaId}'.");
+
             logger = logBuilder.GetLogger("NServiceBus.Serilog.SagaAudit");
         }
 
-        public void Invoke(IncomingContext context, Action next)
+        public override async Task Invoke(IInvokeHandlerContext context, Func<Task> next)
         {
             var saga = context.MessageHandler.Instance as Saga;
-
             if (saga == null)
             {
-                next();
-                return;
+                await next().ConfigureAwait(false);
+                return; // Message was not handled by the saga
             }
 
             if (!logger.IsEnabled(LogEventLevel.Information))
             {
-                next();
+                await next().ConfigureAwait(false);
                 return;
             }
+
             sagaAudit = new SagaUpdatedMessage
             {
-                StartTime = DateTime.UtcNow,
-                SagaType = saga.GetType().FullName
+                StartTime = DateTime.UtcNow
             };
-            context.Set(sagaAudit);
-            next();
-
-            if (saga.Entity == null)
-            {
-                return; // Message was not handled by the saga
-            }
+            context.Extensions.Set(sagaAudit);
+            await next()
+                .ConfigureAwait(false);
+            var activeSagaInstance = context.Extensions.Get<ActiveSagaInstance>();
+            sagaAudit.SagaType = activeSagaInstance.Instance.GetType().FullName;
 
             sagaAudit.FinishTime = DateTime.UtcNow;
-            AuditSaga(saga, context);
+            AuditSaga(activeSagaInstance, context);
         }
 
-        void AuditSaga(Saga saga, IncomingContext context)
+        void AuditSaga(ActiveSagaInstance activeSagaInstance, IInvokeHandlerContext context)
         {
             string messageId;
-
-            if (!context.IncomingLogicalMessage.Headers.TryGetValue(Headers.MessageId, out messageId))
+            var saga = activeSagaInstance.Instance;
+            if (!context.Headers.TryGetValue(Headers.MessageId, out messageId))
             {
                 return;
             }
 
-            var activeSagaInstance = context.Get<ActiveSagaInstance>();
-            var headers = context.IncomingLogicalMessage.Headers;
+            var headers = context.Headers;
             var originatingMachine = headers["NServiceBus.OriginatingMachine"];
             var originatingEndpoint = headers[Headers.OriginatingEndpoint];
-            var intent = context.IncomingLogicalMessage.MessageIntent();
+            var intent = context.MessageIntent();
 
             var initiator = new SagaChangeInitiator
             {
-                IsSagaTimeoutMessage = context.IncomingLogicalMessage.IsTimeoutMessage(),
+                IsSagaTimeoutMessage = context.IsTimeoutMessage(),
                 InitiatingMessageId = messageId,
                 OriginatingMachine = originatingMachine,
                 OriginatingEndpoint = originatingEndpoint,
-                MessageType = context.IncomingLogicalMessage.MessageType.FullName,
-                TimeSent = context.IncomingLogicalMessage.TimeSent(),
+                MessageType = context.MessageMetadata.MessageType.FullName,
+                TimeSent = context.TimeSent(),
                 Intent = intent
             };
             sagaAudit.IsNew = activeSagaInstance.IsNew;
@@ -82,26 +82,28 @@ namespace NServiceBus.Serilog.Tracing
 
             AssignSagaStateChangeCausedByMessage(context);
 
-            logger
-                .ForContext("SagaId", sagaAudit.SagaId)
-                .ForContext("SagaType", sagaAudit.SagaType)
-                .ForContext("StartTime", sagaAudit.StartTime)
-                .ForContext("FinishTime", sagaAudit.FinishTime)
-                .ForContext("IsCompleted", sagaAudit.IsCompleted)
-                .ForContext("IsNew", sagaAudit.IsNew)
-                .ForContext("Initiator", initiator, true)
-                .ForContext("ResultingMessages", sagaAudit.ResultingMessages, true)
-                .ForContext("SagaState", saga.Entity, true)
-                .Information("Saga execution {SagaType} {SagaId}");
+            logger.WriteInfo(
+                messageTemplate: messageTemplate,
+                properties: new[]
+                {
+                    new LogEventProperty("SagaType", new ScalarValue(sagaAudit.SagaType)),
+                    new LogEventProperty("SagaId", new ScalarValue(sagaAudit.SagaId)),
+                    new LogEventProperty("StartTime", new ScalarValue(sagaAudit.StartTime)),
+                    new LogEventProperty("FinishTime", new ScalarValue(sagaAudit.FinishTime)),
+                    new LogEventProperty("IsCompleted", new ScalarValue(sagaAudit.IsCompleted)),
+                    new LogEventProperty("IsNew", new ScalarValue(sagaAudit.IsNew)),
+                    new LogEventProperty("SagaType", new ScalarValue(sagaAudit.SagaType)),
+                    logger.BindProperty("Initiator", initiator),
+                    logger.BindProperty("ResultingMessages", sagaAudit.ResultingMessages),
+                    logger.BindProperty("Entity", saga.Entity),
+                });
         }
 
 
-        void AssignSagaStateChangeCausedByMessage(IncomingContext context)
+        void AssignSagaStateChangeCausedByMessage(IInvokeHandlerContext context)
         {
             string sagaStateChange;
-
-            var physicalMessage = context.PhysicalMessage;
-            if (!physicalMessage.Headers.TryGetValue("NServiceBus.Serilog.Tracing.SagaStateChange", out sagaStateChange))
+            if (!context.Headers.TryGetValue("NServiceBus.Serilog.Tracing.SagaStateChange", out sagaStateChange))
             {
                 sagaStateChange = string.Empty;
             }
@@ -120,12 +122,20 @@ namespace NServiceBus.Serilog.Tracing
             {
                 sagaStateChange += ";";
             }
-            sagaStateChange += string.Format("{0}:{1}", sagaAudit.SagaId, statechange);
+            sagaStateChange += $"{sagaAudit.SagaId}:{statechange}";
 
-            physicalMessage.Headers["NServiceBus.Serilog.Tracing.SagaStateChange"] = sagaStateChange;
+            context.Headers["NServiceBus.Serilog.Tracing.SagaStateChange"] = sagaStateChange;
         }
 
 
+        public class Registration : RegisterStep
+        {
+            public Registration()
+                : base("SerilogCaptureSagaState", typeof(CaptureSagaStateBehavior), "Records saga state changes")
+            {
+                InsertBefore("InvokeSaga");
+            }
+        }
     }
 
 }

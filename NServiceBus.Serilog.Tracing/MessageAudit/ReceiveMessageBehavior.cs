@@ -1,32 +1,46 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using NServiceBus.Pipeline;
-using NServiceBus.Pipeline.Contexts;
-using NServiceBus.Settings;
+using Serilog;
+using Serilog.Events;
+using Serilog.Parsing;
 
 namespace NServiceBus.Serilog.Tracing
 {
-    class ReceiveMessageBehavior : IBehavior<IncomingContext>
+    class ReceiveMessageBehavior : Behavior<IIncomingLogicalMessageContext>
     {
-        ReadOnlySettings settings;
-        LogBuilder logBuilder;
+        MessageTemplate messageTemplate;
+        ILogger logger;
 
-        public ReceiveMessageBehavior(ReadOnlySettings settings, LogBuilder logBuilder)
+        public ReceiveMessageBehavior(LogBuilder logBuilder)
         {
-            this.settings = settings;
-            this.logBuilder = logBuilder;
+            var templateParser = new MessageTemplateParser();
+            messageTemplate = templateParser.Parse("Receive message {MessageType} {MessageId}.");
+            logger = logBuilder.GetLogger("NServiceBus.Serilog.MessageReceived");
         }
 
-        public void Invoke(IncomingContext context, Action next)
+        public class Registration : RegisterStep
         {
-            var logger = logBuilder.GetLogger("NServiceBus.Serilog.MessageReceived");
-            var logicalMessage = context.IncomingLogicalMessage;
-            var forContext = logger
-                .ForContext("ProcessingEndpoint", settings.EndpointName())
-                .ForContext("Message", logicalMessage.Instance, true)
-                .ForContext("MessageType", logicalMessage.MessageTypeName());
-            forContext = forContext.AddHeaders(logicalMessage.Headers);
-            forContext.Information("Receive message {MessageType} {MessageId}");
-            next();
+            public Registration()
+                : base("SerilogReceiveMessage", typeof(ReceiveMessageBehavior), "Logs incoming messages")
+            {
+                InsertBefore("MutateIncomingMessages");
+            }
+        }
+
+        public override Task Invoke(IIncomingLogicalMessageContext context, Func<Task> next)
+        {
+            IEnumerable<LogEventProperty> properties = new[]
+            {
+                new LogEventProperty("MessageType", new ScalarValue(context.Message.MessageType)),
+                logger.BindProperty("Message", context.Message.Instance),
+                logger.BindProperty("MessageId", context.MessageId),
+            };
+            properties = properties.Concat(logger.BuildHeaders(context.Headers));
+            logger.WriteInfo(messageTemplate, properties);
+            return next();
         }
     }
 }

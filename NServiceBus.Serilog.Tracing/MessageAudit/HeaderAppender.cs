@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Serilog;
+using Serilog.Events;
 
 namespace NServiceBus.Serilog.Tracing
 {
@@ -13,28 +14,29 @@ namespace NServiceBus.Serilog.Tracing
             "NServiceBus.Version"
         };
         
-        public static ILogger AddHeaders(this ILogger forContext, Dictionary<string, string> headers)
+        public static IEnumerable<LogEventProperty> BuildHeaders(this ILogger logger, Dictionary<string, string> headers)
         {
             var otherHeaders = new Dictionary<string,string>();
             foreach (var header in headers
                 .Where(x => x.Key.StartsWith("NServiceBus.") && !excludeHeaders.Contains(x.Key))
                 .OrderBy(x=>x.Key))
             {
-                if (header.Key.StartsWith("$.diagnostics.") || header.Key.StartsWith("NServiceBus."))
+                var key = header.Key;
+                if (key.StartsWith("$.diagnostics.") || key.StartsWith("NServiceBus."))
                 {
-                    if (!excludeHeaders.Contains(header.Key))
+                    if (!excludeHeaders.Contains(key))
                     {
-                        forContext = forContext.ForContext(header.Key.Replace("NServiceBus.", ""), header.Value);
+                        var replace = key.Replace("NServiceBus.", "");
+                        yield return new LogEventProperty(replace, new ScalarValue(header.Value));
                     }
                     continue;
                 }
-                otherHeaders.Add(header.Key, header.Value);
+                otherHeaders.Add(key, header.Value);
             }
             if (otherHeaders.Count > 0)
             {
-                forContext.ForContext("OtherHeaders", otherHeaders, true);
+                yield return logger.BindProperty("OtherHeaders", otherHeaders);
             }
-            return forContext;
         }
     }
 }

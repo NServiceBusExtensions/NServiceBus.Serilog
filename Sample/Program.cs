@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using NServiceBus;
 using NServiceBus.Logging;
 using NServiceBus.Serilog;
@@ -7,6 +8,11 @@ using Serilog;
 class Program
 {
     static void Main()
+    {
+        AsyncMain().GetAwaiter().GetResult();
+    }
+
+    static async Task AsyncMain()
     {
         //Setup Serilog
         Log.Logger = new LoggerConfiguration()
@@ -18,16 +24,21 @@ class Program
         LogManager.Use<SerilogFactory>();
 
         //Start using NServiceBus
-        var busConfig = new BusConfiguration();
-        busConfig.EndpointName("SerilogSample");
-        busConfig.UseSerialization<JsonSerializer>();
-        busConfig.EnableInstallers();
-        busConfig.UsePersistence<InMemoryPersistence>();
-        using (var bus = Bus.Create(busConfig))
+        var config = new EndpointConfiguration("SerilogSample");
+        config.UseSerialization<JsonSerializer>();
+        config.EnableInstallers();
+        config.SendFailedMessagesTo("error");
+        config.UsePersistence<InMemoryPersistence>();
+
+        var endpoint = await Endpoint.Start(config);
+        try
         {
-            bus.Start();
             Console.WriteLine("\r\nPress any key to stop program\r\n");
             Console.Read();
+        }
+        finally
+        {
+            await endpoint.Stop();
         }
     }
 }

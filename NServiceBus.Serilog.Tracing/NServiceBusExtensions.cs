@@ -1,5 +1,5 @@
 ﻿using System;
-using NServiceBus.Unicast.Messages;
+using NServiceBus.Pipeline;
 
 namespace NServiceBus.Serilog.Tracing
 {
@@ -7,7 +7,7 @@ namespace NServiceBus.Serilog.Tracing
     static class NServiceBusExtensions
     {
 
-        public static string MessageIntent(this LogicalMessage logicalMessage)
+        public static string MessageIntent(this IInvokeHandlerContext logicalMessage)
         {
             var headers = logicalMessage.Headers;
             string intent;
@@ -18,41 +18,12 @@ namespace NServiceBus.Serilog.Tracing
             return "Send";
         }
 
-        public static string MessageTypeName(this LogicalMessage logicalMessage)
-        {
-            if (logicalMessage.IsControlMessage())
-            {
-                return "ControlMessage";
-            }
-            var type = logicalMessage.MessageType;
-            if (type.Namespace == null)
-            {
-                return type.Name;
-            }
-            return string.Format("{0}.{1}", type.Namespace, type.Name);
-        }
-
-        public static DateTime TimeSent(this LogicalMessage logicalMessage)
+        public static DateTime TimeSent(this IInvokeHandlerContext logicalMessage)
         {
             return DateTimeExtensions.ToUtcDateTime(logicalMessage.Headers[Headers.TimeSent]);
         }
 
-
-        public static bool IsControlMessage(this LogicalMessage transportMessage)
-        {
-            if (transportMessage.Headers == null)
-            {
-                return false;
-            }
-            string isControlMessage;
-            if (transportMessage.Headers.TryGetValue(Headers.ControlMessageHeader, out isControlMessage))
-            {
-                return isControlMessage == "true";
-            }
-            return false;
-        }
-
-        public static bool IsTimeoutMessage(this LogicalMessage message)
+        public static bool IsTimeoutMessage(this IInvokeHandlerContext message)
         {
             string isTimeoutString;
             if (message.Headers.TryGetValue(Headers.IsSagaTimeoutMessage, out isTimeoutString))

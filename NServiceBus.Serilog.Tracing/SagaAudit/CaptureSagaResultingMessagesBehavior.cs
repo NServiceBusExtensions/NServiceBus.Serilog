@@ -1,55 +1,62 @@
-﻿namespace NServiceBus.Serilog.Tracing
-{
-    using System;
-    using NServiceBus.Unicast;
-    using Pipeline;
-    using Pipeline.Contexts;
+﻿using System.Linq;
+using System.Threading.Tasks;
+using NServiceBus.Routing;
+using System;
+using NServiceBus.Pipeline;
 
-    class CaptureSagaResultingMessagesBehavior : IBehavior<OutgoingContext>
+namespace NServiceBus.Serilog.Tracing
+{
+
+    class CaptureSagaResultingMessagesBehavior : Behavior<IOutgoingLogicalMessageContext>
     {
         SagaUpdatedMessage sagaUpdatedMessage;
 
-        public void Invoke(OutgoingContext context, Action next)
+        public override Task Invoke(IOutgoingLogicalMessageContext context, Func<Task> next)
         {
             AppendMessageToState(context);
-            next();
+            return next();
         }
 
-        void AppendMessageToState(OutgoingContext context)
+        void AppendMessageToState(IOutgoingLogicalMessageContext context)
         {
-            if (!context.TryGet(out sagaUpdatedMessage))
+            if (!context.Extensions.TryGet(out sagaUpdatedMessage))
             {
                 return;
             }
 
-            var logicalMessage = context.OutgoingLogicalMessage;
+            var logicalMessage = context.Message;
             if (logicalMessage == null)
             {
                 //this can happen on control messages
                 return;
             }
-            
-            var sendOptions = context.DeliveryOptions as SendOptions;
-            if (sendOptions != null)
+
+            var sagaResultingMessage = new SagaChangeOutput
             {
-                var sagaResultingMessage = new SagaChangeOutput
-                {
-                    ResultingMessageId = context.OutgoingMessage.Id,
-                    MessageType = logicalMessage.MessageType.ToString(),
-                    Destination = sendOptions.Destination.ToString(),
-                    MessageIntent = "Send"
-                };
-                sagaUpdatedMessage.ResultingMessages.Add(sagaResultingMessage);
+                ResultingMessageId = context.MessageId,
+                MessageType = logicalMessage.MessageType.ToString(),
+                Destination = GetDestinationForUnicastMessages(context),
+                MessageIntent = context.Headers[Headers.MessageIntent]
+            };
+            sagaUpdatedMessage.ResultingMessages.Add(sagaResultingMessage);
+        }
+
+        static string GetDestinationForUnicastMessages(IOutgoingLogicalMessageContext context)
+        {
+            var sendAddressTags = context.RoutingStrategies.OfType<UnicastRoutingStrategy>().Select(urs => urs.Apply(context.Headers)).Cast<UnicastAddressTag>().ToList();
+            if (sendAddressTags.Count != 1)
+            {
+                return null;
             }
-            if (context.DeliveryOptions is PublishOptions)
+            return sendAddressTags.First().Destination;
+        }
+
+        public class Registration : RegisterStep
+        {
+            public Registration()
+                : base("SerilogCaptureSagaResultingMessages", typeof(CaptureSagaResultingMessagesBehavior), "Reports messages outgoing from a saga to Serilog")
             {
-                var sagaResultingMessage = new SagaChangeOutput
-                {
-                    ResultingMessageId = context.OutgoingMessage.Id,
-                    MessageType = logicalMessage.MessageType.ToString(),
-                    MessageIntent = "Publish"
-                };
-                sagaUpdatedMessage.ResultingMessages.Add(sagaResultingMessage);
+               // InsertAfter("InvokeSaga");
             }
         }
 

@@ -1,5 +1,4 @@
 ﻿using NServiceBus.Features;
-using NServiceBus.Pipeline;
 using Serilog;
 
 namespace NServiceBus.Serilog.Tracing
@@ -29,29 +28,13 @@ namespace NServiceBus.Serilog.Tracing
             {
                 logger = Log.Logger;
             }
+            //TODO: dont use container
             var logBuilder = new LogBuilder(logger, context.Settings.EndpointName());
             context.Container.ConfigureComponent(() => logBuilder, DependencyLifecycle.SingleInstance);
 
-
-            context.Pipeline.Register<ReceiveMessageRegistration>();
-            context.Pipeline.Register<SendMessageRegistration>();
-        }
-        class ReceiveMessageRegistration : RegisterStep
-        {
-            public ReceiveMessageRegistration()
-                : base("SerilogReceiveMessage", typeof(ReceiveMessageBehavior), "Logs incoming messages")
-            {
-                InsertBefore(WellKnownStep.MutateIncomingMessages);
-            }
+            context.Pipeline.Register<ReceiveMessageBehavior.Registration>();
+            context.Pipeline.Register<SendMessageBehavior.Registration>();
         }
 
-        class SendMessageRegistration : RegisterStep
-        {
-            public SendMessageRegistration()
-                : base("SerilogSendMessage", typeof(SendMessageBehavior), "Logs outgoing messages")
-            {
-                InsertAfter(WellKnownStep.DispatchMessageToTransport);
-            }
-        }
     }
 }

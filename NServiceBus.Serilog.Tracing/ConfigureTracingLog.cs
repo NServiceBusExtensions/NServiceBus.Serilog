@@ -1,11 +1,11 @@
 namespace NServiceBus.Serilog.Tracing
 {
     using global::Serilog;
-    using NServiceBus.Configuration.AdvanceExtensibility;
-    using NServiceBus.Settings;
+    using Configuration.AdvanceExtensibility;
+    using Settings;
 
     /// <summary>
-    /// Proveds extensions to <see cref="BusConfiguration"/> to configure serilog tracing.
+    /// Proveds extensions to <see cref="EndpointConfiguration"/> to configure serilog tracing.
     /// </summary>
     public static class ConfigureTracingLog
     {
@@ -13,11 +13,11 @@ namespace NServiceBus.Serilog.Tracing
         /// <summary>
         ///   Defines a custom <see cref="ILogger"/> to use for by <see cref="TracingLog"/> to taregt. If not defined then <see cref="Log.Logger"/> will be used.
         /// </summary>
-        public static void SerilogTracingTarget(this BusConfiguration busConfiguration, ILogger logger)
+        public static void SerilogTracingTarget(this EndpointConfiguration configuration, ILogger logger)
         {
-            Guard.AgainstNull(busConfiguration, "busConfiguration");
+            Guard.AgainstNull(configuration, "configuration");
             Guard.AgainstNull(logger, "logger");
-            var settings = busConfiguration.GetSettings();
+            var settings = configuration.GetSettings();
             settings.Set("customSerilogTracingTarget", logger);
         }
 
