@@ -6,7 +6,7 @@ namespace NServiceBus.Serilog.Tracing
     /// <summary>
     /// Enabled tracing of messages to Serilog.
     /// </summary>
-    public class TracingLog:Feature
+    public class TracingLog : Feature
     {
         /// <summary>
         /// Initializes a new instance of <see cref="TracingLog"/>.

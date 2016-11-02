@@ -23,10 +23,11 @@ namespace NServiceBus.Serilog.Tracing
 
         public override Task Invoke(IOutgoingLogicalMessageContext context, Func<Task> next)
         {
+            var message = context.Message;
             IEnumerable<LogEventProperty> properties = new[]
             {
-                new LogEventProperty("MessageType", new ScalarValue(context.Message.MessageType)),
-                logger.BindProperty("Message", context.Message.Instance),
+                new LogEventProperty("MessageType", new ScalarValue(message.MessageType)),
+                logger.BindProperty("Message", message.Instance),
                 logger.BindProperty("MessageId", context.MessageId),
             };
             properties = properties.Concat(logger.BuildHeaders(context.Headers));
@@ -43,4 +44,3 @@ namespace NServiceBus.Serilog.Tracing
         }
     }
 }
-

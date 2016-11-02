@@ -89,10 +89,6 @@
       <Project>{7b772db8-19f3-469a-bd4c-7a9cabf8dada}</Project>
       <Name>NServiceBus.Serilog.Tracing</Name>
     </ProjectReference>
-    <ProjectReference Include="..\NServiceBus.Serilog\NServiceBus.Serilog.csproj">
-      <Project>{17097D26-641A-4A26-BD4A-39DB66964774}</Project>
-      <Name>NServiceBus.Serilog</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -25,6 +25,5 @@ namespace NServiceBus.Serilog.Tracing
             context.Pipeline.Register<CaptureSagaResultingMessagesBehavior.Registration>();
         }
 
-
     }
 }

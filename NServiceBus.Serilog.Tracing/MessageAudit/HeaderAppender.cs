@@ -9,11 +9,11 @@ namespace NServiceBus.Serilog.Tracing
     {
         static List<string> excludeHeaders = new List<string>
         {
-            Headers.EnclosedMessageTypes, 
-            Headers.ProcessingEndpoint, 
+            Headers.EnclosedMessageTypes,
+            Headers.ProcessingEndpoint,
             "NServiceBus.Version"
         };
-        
+
         public static IEnumerable<LogEventProperty> BuildHeaders(this ILogger logger, Dictionary<string, string> headers)
         {
             var otherHeaders = new Dictionary<string,string>();
