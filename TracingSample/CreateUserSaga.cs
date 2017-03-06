@@ -5,7 +5,7 @@ using NServiceBus.Logging;
 public class CreateUserSaga : Saga<MySagaData>, 
     IAmStartedByMessages<CreateUser>
 {
-    static ILog logger = LogManager.GetLogger(typeof (CreateUserSaga));
+    static ILog log = LogManager.GetLogger(typeof (CreateUserSaga));
 
     protected override void ConfigureHowToFindSaga(SagaPropertyMapper<MySagaData> mapper)
     {
@@ -16,7 +16,7 @@ public class CreateUserSaga : Saga<MySagaData>,
     public Task Handle(CreateUser message, IMessageHandlerContext context)
     {
         Data.UserName = message.UserName;
-        logger.Info("User created");
+        log.InfoFormat("User created. Message: {@Message}", message);
         var userCreated = new UserCreated
         {
             UserName = message.UserName

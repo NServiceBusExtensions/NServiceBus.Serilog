@@ -30,15 +30,17 @@ class Program
         config.SendFailedMessagesTo("error");
         config.UsePersistence<InMemoryPersistence>();
 
-        var endpoint = await Endpoint.Start(config).ConfigureAwait(false);
-        try
+        var endpoint = await Endpoint.Start(config)
+            .ConfigureAwait(false);
+        var createUser = new CreateUser
         {
-            Console.WriteLine("\r\nPress any key to stop program\r\n");
-            Console.Read();
-        }
-        finally
-        {
-            await endpoint.Stop().ConfigureAwait(false);
-        }
+            UserName = "jsmith",
+            FamilyName = "Smith",
+            GivenNames = "John",
+        };
+        await endpoint.SendLocal(createUser)
+            .ConfigureAwait(false);
+        Console.WriteLine("Press any key to stop program");
+        Console.Read();
     }
 }

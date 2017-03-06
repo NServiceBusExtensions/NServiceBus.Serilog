@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Threading.Tasks;
 using NServiceBus;
+using NServiceBus.Logging;
+using NServiceBus.Serilog;
 using NServiceBus.Serilog.Tracing;
 using Serilog;
 
@@ -17,6 +19,9 @@ class Program
             .WriteTo.Seq("http://localhost:5341")
             .MinimumLevel.Information()
             .CreateLogger();
+        //Set NServiceBus to log to Serilog
+        var serilogFactory = LogManager.Use<SerilogFactory>();
+        serilogFactory.WithLogger(tracingLog);
 
         var config = new EndpointConfiguration("SeqSample");
         config.EnableFeature<TracingLog>();
@@ -26,24 +31,16 @@ class Program
         config.UsePersistence<InMemoryPersistence>();
         config.SendFailedMessagesTo("error");
         var endpoint = await Endpoint.Start(config)
-                .ConfigureAwait(false);
-        try
+            .ConfigureAwait(false);
+        var createUser = new CreateUser
         {
-            var createUser = new CreateUser
-            {
-                UserName = "jsmith",
-                FamilyName = "Smith",
-                GivenNames = "John",
-            };
-            await endpoint.SendLocal(createUser)
-                .ConfigureAwait(false);
-            Console.WriteLine("Press any key to stop program");
-            Console.Read();
-        }
-        finally
-        {
-            await endpoint.Stop()
-                .ConfigureAwait(false);
-        }
+            UserName = "jsmith",
+            FamilyName = "Smith",
+            GivenNames = "John",
+        };
+        await endpoint.SendLocal(createUser)
+            .ConfigureAwait(false);
+        Console.WriteLine("Press any key to stop program");
+        Console.Read();
     }
 }
