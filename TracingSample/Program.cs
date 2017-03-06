@@ -25,7 +25,8 @@ class Program
         config.EnableInstallers();
         config.UsePersistence<InMemoryPersistence>();
         config.SendFailedMessagesTo("error");
-        var endpoint = await Endpoint.Start(config);
+        var endpoint = await Endpoint.Start(config)
+                .ConfigureAwait(false);
         try
         {
             var createUser = new CreateUser
@@ -34,13 +35,15 @@ class Program
                 FamilyName = "Smith",
                 GivenNames = "John",
             };
-            await endpoint.SendLocal(createUser);
+            await endpoint.SendLocal(createUser)
+                .ConfigureAwait(false);
             Console.WriteLine("Press any key to stop program");
             Console.Read();
         }
         finally
         {
-            await endpoint.Stop();
+            await endpoint.Stop()
+                .ConfigureAwait(false);
         }
     }
 }

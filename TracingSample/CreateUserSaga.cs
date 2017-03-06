@@ -13,7 +13,7 @@ public class CreateUserSaga : Saga<MySagaData>,
             .ToSaga(s=>s.UserName);
     }
 
-    public async Task Handle(CreateUser message, IMessageHandlerContext context)
+    public Task Handle(CreateUser message, IMessageHandlerContext context)
     {
         Data.UserName = message.UserName;
         logger.Info("User created");
@@ -21,8 +21,7 @@ public class CreateUserSaga : Saga<MySagaData>,
         {
             UserName = message.UserName
         };
-        await context.SendLocal(userCreated);
         MarkAsComplete();
+        return context.SendLocal(userCreated);
     }
 }
-

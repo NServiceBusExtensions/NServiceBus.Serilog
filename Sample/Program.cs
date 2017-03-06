@@ -30,7 +30,7 @@ class Program
         config.SendFailedMessagesTo("error");
         config.UsePersistence<InMemoryPersistence>();
 
-        var endpoint = await Endpoint.Start(config);
+        var endpoint = await Endpoint.Start(config).ConfigureAwait(false);
         try
         {
             Console.WriteLine("\r\nPress any key to stop program\r\n");
@@ -38,7 +38,7 @@ class Program
         }
         finally
         {
-            await endpoint.Stop();
+            await endpoint.Stop().ConfigureAwait(false);
         }
     }
 }
