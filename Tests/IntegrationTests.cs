@@ -42,4 +42,38 @@ public class IntegrationTests
             await endpoint.Stop();
         }
     }
+
+    [Test]
+    public async Task Use_default_logger_even_if_it_gets_changed()
+    {
+        LogManager.Use<SerilogFactory>();
+
+        var logs = new List<LogEvent>();
+        var eventSink = new EventSink
+        {
+            Action = logs.Add
+        };
+
+        Log.Logger = new LoggerConfiguration()
+            .MinimumLevel.Verbose()
+            .WriteTo.Sink(eventSink)
+            .CreateLogger();
+
+        var endpointConfiguration = new EndpointConfiguration("SerilogTests");
+        endpointConfiguration.UseSerialization<JsonSerializer>();
+        endpointConfiguration.EnableInstallers();
+        endpointConfiguration.SendFailedMessagesTo("error");
+        endpointConfiguration.UsePersistence<InMemoryPersistence>();
+
+        var endpoint = await Endpoint.Start(endpointConfiguration);
+        try
+        {
+            Assert.IsNotEmpty(logs);
+        }
+        finally
+        {
+            await endpoint.Stop();
+        }
+
+    }
 }
