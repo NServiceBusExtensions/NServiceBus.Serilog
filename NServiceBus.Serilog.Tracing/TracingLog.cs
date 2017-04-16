@@ -28,7 +28,7 @@ namespace NServiceBus.Serilog.Tracing
             {
                 logger = Log.Logger;
             }
-            //TODO: dont use container
+            //TODO: don't use container
             var logBuilder = new LogBuilder(logger, context.Settings.EndpointName());
             context.Container.ConfigureComponent(() => logBuilder, DependencyLifecycle.SingleInstance);
 

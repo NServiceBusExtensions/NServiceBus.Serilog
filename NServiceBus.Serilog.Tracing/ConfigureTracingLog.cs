@@ -5,13 +5,13 @@ namespace NServiceBus.Serilog.Tracing
     using Settings;
 
     /// <summary>
-    /// Proveds extensions to <see cref="EndpointConfiguration"/> to configure serilog tracing.
+    /// Provides extensions to <see cref="EndpointConfiguration"/> to configure serilog tracing.
     /// </summary>
     public static class ConfigureTracingLog
     {
 
         /// <summary>
-        ///   Defines a custom <see cref="ILogger"/> to use for by <see cref="TracingLog"/> to taregt. If not defined then <see cref="Log.Logger"/> will be used.
+        ///   Defines a custom <see cref="ILogger"/> to use for by <see cref="TracingLog"/> to target. If not defined then <see cref="Log.Logger"/> will be used.
         /// </summary>
         public static void SerilogTracingTarget(this EndpointConfiguration configuration, ILogger logger)
         {
