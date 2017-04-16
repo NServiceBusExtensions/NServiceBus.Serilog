@@ -8,14 +8,14 @@ namespace NServiceBus.Serilog
     /// </summary>
     public class SerilogFactory : LoggingFactoryDefinition
     {
-        ILogger loggerToUse = Log.Logger;
+        ILogger loggerToUse;
 
         /// <summary>
         /// <see cref="LoggingFactoryDefinition.GetLoggingFactory"/>.
         /// </summary>
         protected override ILoggerFactory GetLoggingFactory()
         {
-            return new LoggerFactory(loggerToUse);
+            return new LoggerFactory(loggerToUse ?? Log.Logger);
         }
 
         /// <summary>
