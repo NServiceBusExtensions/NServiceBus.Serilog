@@ -9,7 +9,6 @@ using Serilog;
 using Serilog.Events;
 
 [TestFixture]
-[Explicit]
 public class IntegrationTests
 {
     [Test]
@@ -46,6 +45,7 @@ public class IntegrationTests
     }
 
     [Test]
+    [Explicit]
     public async Task Use_default_logger_even_if_it_gets_changed()
     {
         LogManager.Use<SerilogFactory>();
