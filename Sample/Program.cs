@@ -24,13 +24,14 @@ class Program
         LogManager.Use<SerilogFactory>();
 
         //Start using NServiceBus
-        var config = new EndpointConfiguration("SerilogSample");
-        config.UseSerialization<JsonSerializer>();
-        config.EnableInstallers();
-        config.SendFailedMessagesTo("error");
-        config.UsePersistence<InMemoryPersistence>();
+        var endpointConfiguration = new EndpointConfiguration("SerilogSample");
+        endpointConfiguration.UseSerialization<JsonSerializer>();
+        endpointConfiguration.EnableInstallers();
+        endpointConfiguration.SendFailedMessagesTo("error");
+        endpointConfiguration.UsePersistence<InMemoryPersistence>();
+        endpointConfiguration.UseTransport<LearningTransport>();
 
-        var endpoint = await Endpoint.Start(config)
+        var endpoint = await Endpoint.Start(endpointConfiguration)
             .ConfigureAwait(false);
         var createUser = new CreateUser
         {
