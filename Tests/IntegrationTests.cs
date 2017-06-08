@@ -32,6 +32,7 @@ public class IntegrationTests
         endpointConfiguration.EnableInstallers();
         endpointConfiguration.SendFailedMessagesTo("error");
         endpointConfiguration.UsePersistence<InMemoryPersistence>();
+        endpointConfiguration.UseTransport<LearningTransport>();
 
         var endpoint = await Endpoint.Start(endpointConfiguration);
         try
@@ -65,6 +66,7 @@ public class IntegrationTests
         endpointConfiguration.EnableInstallers();
         endpointConfiguration.SendFailedMessagesTo("error");
         endpointConfiguration.UsePersistence<InMemoryPersistence>();
+        endpointConfiguration.UseTransport<LearningTransport>();
 
         var endpoint = await Endpoint.Start(endpointConfiguration);
         try
