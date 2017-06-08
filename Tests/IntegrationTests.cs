@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections.Concurrent;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using NServiceBus;
 using NServiceBus.Logging;
@@ -14,7 +15,7 @@ public class IntegrationTests
     [Test]
     public async Task Ensure_log_messages_are_redirected()
     {
-        var logs = new List<LogEvent>();
+        var logs = new ConcurrentBag<LogEvent>();
         var eventSink = new EventSink
         {
             Action = logs.Add
@@ -48,7 +49,7 @@ public class IntegrationTests
     {
         LogManager.Use<SerilogFactory>();
 
-        var logs = new List<LogEvent>();
+        var logs = new ConcurrentBag<LogEvent>();
         var eventSink = new EventSink
         {
             Action = logs.Add
