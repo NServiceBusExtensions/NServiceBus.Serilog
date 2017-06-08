@@ -1,0 +1,5 @@
+2017-06-08 10:38:00.055 +10:00 [Information] No valid license could be found, falling back to trial license with start date '4/09/2026'
+
+2017-06-08 10:38:00.105 +10:00 [Information] Did not attempt to add user '"retina\simon"' to group '"Performance Monitor Users"' since the process is not running with elevated privileges. Processing will continue. To manually perform this action, run the following command from an admin console:
+net localgroup ""Performance Monitor Users"" ""retina\simon"" /add
+2017-06-08 10:38:00.546 +10:00 [Information] Hello from "CreateUserHandler". Message: CreateUser { UserName: "jsmith", FamilyName: "Smith", GivenNames: "John" }

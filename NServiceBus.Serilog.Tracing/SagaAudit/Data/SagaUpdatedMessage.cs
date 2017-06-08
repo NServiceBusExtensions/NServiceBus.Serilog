@@ -5,17 +5,12 @@ namespace NServiceBus.Serilog.Tracing
 {
     class SagaUpdatedMessage
     {
-        public SagaUpdatedMessage()
-        {
-            ResultingMessages = new List<SagaChangeOutput>();
-        }
-
-        public Guid SagaId;
-        public List<SagaChangeOutput> ResultingMessages;
-        public bool IsNew;
-        public bool IsCompleted;
-        public DateTime StartTime;
-        public DateTime FinishTime;
-        public string SagaType;
+        public Guid SagaId { get; set; }
+        public List<SagaChangeOutput> ResultingMessages { get; set; } = new List<SagaChangeOutput>();
+        public bool IsNew { get; set; }
+        public bool IsCompleted { get; set; }
+        public DateTime StartTime { get; set; }
+        public DateTime FinishTime { get; set; }
+        public string SagaType { get; set; }
     }
 }

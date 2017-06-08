@@ -2,9 +2,9 @@
 {
     class SagaChangeOutput
     {
-        public string MessageType;
-        public string Destination;
-        public string ResultingMessageId;
-        public string MessageIntent;
+        public string MessageType { get; set; }
+        public string Destination { get; set; }
+        public string ResultingMessageId { get; set; }
+        public string MessageIntent { get; set; }
     }
 }

@@ -4,12 +4,12 @@ namespace NServiceBus.Serilog.Tracing
 {
     class SagaChangeInitiator
     {
-        public string InitiatingMessageId;
-        public string MessageType;
-        public bool IsSagaTimeoutMessage;
-        public DateTime TimeSent;
-        public string OriginatingMachine;
-        public string OriginatingEndpoint;
-        public string Intent;
+        public string InitiatingMessageId { get; set; }
+        public string MessageType { get; set; }
+        public bool IsSagaTimeoutMessage { get; set; }
+        public DateTime TimeSent { get; set; }
+        public string OriginatingMachine { get; set; }
+        public string OriginatingEndpoint { get; set; }
+        public string Intent { get; set; }
     }
 }

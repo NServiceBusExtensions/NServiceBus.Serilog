@@ -28,7 +28,7 @@ namespace NServiceBus.Serilog.Tracing
             string isTimeoutString;
             if (message.Headers.TryGetValue(Headers.IsSagaTimeoutMessage, out isTimeoutString))
             {
-                return isTimeoutString == "true";
+                return string.Equals(isTimeoutString, "true", StringComparison.OrdinalIgnoreCase);
             }
             return false;
         }

@@ -21,8 +21,9 @@ namespace NServiceBus.Serilog.Tracing
         {
             Guard.AgainstNull(context, "context");
 
-            context.Pipeline.Register<CaptureSagaStateBehavior.Registration>();
-            context.Pipeline.Register<CaptureSagaResultingMessagesBehavior.Registration>();
+            var pipeline = context.Pipeline;
+            pipeline.Register<CaptureSagaStateBehavior.Registration>();
+            pipeline.Register<CaptureSagaResultingMessagesBehavior.Registration>();
         }
 
     }
