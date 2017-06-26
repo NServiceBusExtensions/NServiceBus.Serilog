@@ -10,8 +10,7 @@ namespace NServiceBus.Serilog.Tracing
         public static string MessageIntent(this IInvokeHandlerContext logicalMessage)
         {
             var headers = logicalMessage.Headers;
-            string intent;
-            if (headers.TryGetValue(Headers.MessageIntent, out intent))
+            if (headers.TryGetValue(Headers.MessageIntent, out string intent))
             {
                 return intent;
             }
@@ -25,8 +24,7 @@ namespace NServiceBus.Serilog.Tracing
 
         public static bool IsTimeoutMessage(this IInvokeHandlerContext message)
         {
-            string isTimeoutString;
-            if (message.Headers.TryGetValue(Headers.IsSagaTimeoutMessage, out isTimeoutString))
+            if (message.Headers.TryGetValue(Headers.IsSagaTimeoutMessage, out string isTimeoutString))
             {
                 return string.Equals(isTimeoutString, "true", StringComparison.OrdinalIgnoreCase);
             }

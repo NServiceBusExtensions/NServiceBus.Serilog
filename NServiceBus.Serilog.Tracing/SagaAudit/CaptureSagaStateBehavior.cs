@@ -66,8 +66,7 @@ namespace NServiceBus.Serilog.Tracing
                 }
                 throw new Exception("Expected saga.Entity to contain a value.");
             }
-            string messageId;
-            if (!context.Headers.TryGetValue(Headers.MessageId, out messageId))
+            if (!context.Headers.TryGetValue(Headers.MessageId, out string messageId))
             {
                 return;
             }
@@ -113,8 +112,7 @@ namespace NServiceBus.Serilog.Tracing
 
         void AssignSagaStateChangeCausedByMessage(IInvokeHandlerContext context)
         {
-            string sagaStateChange;
-            if (!context.Headers.TryGetValue("NServiceBus.Serilog.Tracing.SagaStateChange", out sagaStateChange))
+            if (!context.Headers.TryGetValue("NServiceBus.Serilog.Tracing.SagaStateChange", out string sagaStateChange))
             {
                 sagaStateChange = string.Empty;
             }

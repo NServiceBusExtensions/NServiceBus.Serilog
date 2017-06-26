@@ -23,8 +23,7 @@ namespace NServiceBus.Serilog.Tracing
         {
             Guard.AgainstNull(context, "context");
 
-            ILogger logger;
-            if (!context.Settings.TryGetSerilogTracingTarget(out logger))
+            if (!context.Settings.TryGetSerilogTracingTarget(out ILogger logger))
             {
                 logger = Log.Logger;
             }
