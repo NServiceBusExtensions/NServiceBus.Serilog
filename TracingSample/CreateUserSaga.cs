@@ -1,16 +1,18 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using NServiceBus;
 using NServiceBus.Logging;
 
-public class CreateUserSaga : Saga<MySagaData>, 
-    IAmStartedByMessages<CreateUser>
+public class CreateUserSaga : Saga<MySagaData>,
+    IAmStartedByMessages<CreateUser>,
+    IHandleTimeouts<SagaTimeout>
 {
-    static ILog log = LogManager.GetLogger(typeof (CreateUserSaga));
+    static ILog log = LogManager.GetLogger(typeof(CreateUserSaga));
 
     protected override void ConfigureHowToFindSaga(SagaPropertyMapper<MySagaData> mapper)
     {
         mapper.ConfigureMapping<CreateUser>(m => m.UserName)
-            .ToSaga(s=>s.UserName);
+            .ToSaga(s => s.UserName);
     }
 
     public Task Handle(CreateUser message, IMessageHandlerContext context)
@@ -22,6 +24,14 @@ public class CreateUserSaga : Saga<MySagaData>,
             UserName = message.UserName
         };
         MarkAsComplete();
-        return context.SendLocal(userCreated);
+        return Task.WhenAll(
+            RequestTimeout<SagaTimeout>(context, TimeSpan.FromSeconds(10)),
+            context.SendLocal(userCreated));
+    }
+
+    public Task Timeout(SagaTimeout state, IMessageHandlerContext context)
+    {
+        log.Info("Timeout received");
+        return Task.CompletedTask;
     }
 }

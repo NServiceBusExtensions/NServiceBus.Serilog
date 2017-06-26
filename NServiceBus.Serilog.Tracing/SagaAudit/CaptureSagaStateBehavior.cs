@@ -28,8 +28,9 @@ namespace NServiceBus.Serilog.Tracing
             var saga = context.MessageHandler.Instance as Saga;
             if (saga == null)
             {
+                // Message was not handled by the saga
                 await next().ConfigureAwait(false);
-                return; // Message was not handled by the saga
+                return;
             }
 
             if (!logger.IsEnabled(LogEventLevel.Information))
@@ -54,8 +55,18 @@ namespace NServiceBus.Serilog.Tracing
 
         void AuditSaga(ActiveSagaInstance activeSagaInstance, IInvokeHandlerContext context)
         {
-            string messageId;
             var saga = activeSagaInstance.Instance;
+
+            if (saga.Entity == null)
+            {
+                if (context.IsTimeoutMessage())
+                {
+                    //Receiving a timeout for a saga that has completed
+                    return;
+                }
+                throw new Exception("Expected saga.Entity to contain a value.");
+            }
+            string messageId;
             if (!context.Headers.TryGetValue(Headers.MessageId, out messageId))
             {
                 return;
