@@ -26,7 +26,6 @@ class Program
         var endpointConfiguration = new EndpointConfiguration("SeqSample");
         endpointConfiguration.EnableFeature<TracingLog>();
         endpointConfiguration.SerilogTracingTarget(tracingLog);
-        endpointConfiguration.UseSerialization<JsonSerializer>();
         endpointConfiguration.EnableInstallers();
         endpointConfiguration.UsePersistence<InMemoryPersistence>();
         endpointConfiguration.UseTransport<LearningTransport>();

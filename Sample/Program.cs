@@ -25,7 +25,6 @@ class Program
 
         //Start using NServiceBus
         var endpointConfiguration = new EndpointConfiguration("SerilogSample");
-        endpointConfiguration.UseSerialization<JsonSerializer>();
         endpointConfiguration.EnableInstallers();
         endpointConfiguration.SendFailedMessagesTo("error");
         endpointConfiguration.UsePersistence<InMemoryPersistence>();

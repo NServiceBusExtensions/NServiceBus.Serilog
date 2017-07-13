@@ -1,7 +1,8 @@
+using NServiceBus.Configuration.AdvancedExtensibility;
+
 namespace NServiceBus.Serilog.Tracing
 {
     using global::Serilog;
-    using Configuration.AdvanceExtensibility;
     using Settings;
 
     /// <summary>

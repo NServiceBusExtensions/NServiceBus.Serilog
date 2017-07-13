@@ -1,34 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk" ToolsVersion="15.0">
   <PropertyGroup>
-    <TargetFramework>net452</TargetFramework>
-    <AssemblyName>NServiceBus.Serilog</AssemblyName>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-    <SignAssembly>true</SignAssembly>
-    <AssemblyOriginatorKeyFile>$(SolutionDir)key.snk</AssemblyOriginatorKeyFile>
-    <DebugType>full</DebugType>
-    <DebugSymbols>True</DebugSymbols>
-    <NoWarn>CS1591</NoWarn>
-    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-    <DocumentationFile>$(ProjectDir)bin\$(Configuration)\$(AssemblyName).xml</DocumentationFile>
+    <TargetFrameworks>net452;netcoreapp2.0</TargetFrameworks>
+    <PackageId>NServiceBus.Serilog</PackageId>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="NServiceBus" Version="6.3.4" />
-    <PackageReference Include="Serilog" Version="2.4.0" />
-    <PackageReference Include="PepitaPackage" Version="1.21.4" />
-    <Compile Include="..\CommonAssemblyInfo.cs">
-      <Link>CommonAssemblyInfo.cs</Link>
-    </Compile>
+    <PackageReference Include="NServiceBus" Version="[7.0.0-*, 8.0.0)" />
+    <PackageReference Include="Serilog" Version="2.*" />
   </ItemGroup>
-  <Target Name="NuGetBuild" AfterTargets="AfterBuild">
-    <ItemGroup>
-      <FilesToDelete Include="$(SolutionDir)NuGetBuild\**\*.*" />
-    </ItemGroup>
-    <Delete Files="@(FilesToDelete)" />
-    <Copy SourceFiles="$(ProjectDir)bin\$(Configuration)\net452\$(AssemblyName).dll" DestinationFolder="$(SolutionDir)NuGetBuild\lib\net452" />
-    <Copy SourceFiles="$(ProjectDir)bin\$(Configuration)\net452\$(AssemblyName).pdb" DestinationFolder="$(SolutionDir)NuGetBuild\lib\net452" />
-    <Copy SourceFiles="$(ProjectDir)bin\$(Configuration)\net452\$(AssemblyName).xml" DestinationFolder="$(SolutionDir)NuGetBuild\lib\net452" />
-    <Copy SourceFiles="$(ProjectDir)NServiceBus.Serilog.nuspec" DestinationFolder="$(SolutionDir)NuGetBuild" />
-    <PepitaPackage.CreatePackageTask NuGetBuildDirectory="$(SolutionDir)NuGetBuild" MetadataAssembly="$(ProjectDir)bin\$(Configuration)\net452\$(AssemblyName).dll" />
-  </Target>
+  <Import Project="$(SolutionDir)shared.props" />
 </Project>
