@@ -7,7 +7,7 @@
     <AssemblyVersion>3.1.0</AssemblyVersion>
     <FileVersion>3.1.0</FileVersion>
     <InformationalVersion>$(FileVersion)</InformationalVersion>
-    <PackageVersion>$(FileVersion)-beta002</PackageVersion>
+    <PackageVersion>$(FileVersion)-beta003</PackageVersion>
     <Authors>Simon Cropp</Authors>
     <PackageLicenseUrl>http://www.opensource.org/licenses/mit-license.php</PackageLicenseUrl>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
