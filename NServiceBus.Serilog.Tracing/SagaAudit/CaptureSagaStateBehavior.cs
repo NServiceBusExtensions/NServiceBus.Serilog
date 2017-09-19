@@ -25,8 +25,7 @@ namespace NServiceBus.Serilog.Tracing
 
         public override async Task Invoke(IInvokeHandlerContext context, Func<Task> next)
         {
-            var saga = context.MessageHandler.Instance as Saga;
-            if (saga == null)
+            if (!(context.MessageHandler.Instance is Saga saga))
             {
                 // Message was not handled by the saga
                 await next().ConfigureAwait(false);
@@ -66,7 +65,7 @@ namespace NServiceBus.Serilog.Tracing
                 }
                 throw new Exception("Expected saga.Entity to contain a value.");
             }
-            if (!context.Headers.TryGetValue(Headers.MessageId, out string messageId))
+            if (!context.Headers.TryGetValue(Headers.MessageId, out var messageId))
             {
                 return;
             }
@@ -112,26 +111,26 @@ namespace NServiceBus.Serilog.Tracing
 
         void AssignSagaStateChangeCausedByMessage(IInvokeHandlerContext context)
         {
-            if (!context.Headers.TryGetValue("NServiceBus.Serilog.Tracing.SagaStateChange", out string sagaStateChange))
+            if (!context.Headers.TryGetValue("NServiceBus.Serilog.Tracing.SagaStateChange", out var sagaStateChange))
             {
                 sagaStateChange = string.Empty;
             }
 
-            var statechange = "Updated";
+            var stateChange = "Updated";
             if (sagaAudit.IsNew)
             {
-                statechange = "New";
+                stateChange = "New";
             }
             if (sagaAudit.IsCompleted)
             {
-                statechange = "Completed";
+                stateChange = "Completed";
             }
 
             if (!string.IsNullOrEmpty(sagaStateChange))
             {
                 sagaStateChange += ";";
             }
-            sagaStateChange += $"{sagaAudit.SagaId}:{statechange}";
+            sagaStateChange += $"{sagaAudit.SagaId}:{stateChange}";
 
             context.Headers["NServiceBus.Serilog.Tracing.SagaStateChange"] = sagaStateChange;
         }

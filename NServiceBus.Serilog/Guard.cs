@@ -2,7 +2,7 @@ using System;
 
 namespace NServiceBus.Serilog
 {
-    internal static class Guard
+    static class Guard
     {
 
         // ReSharper disable UnusedParameter.Global

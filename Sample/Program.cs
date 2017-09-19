@@ -7,12 +7,7 @@ using Serilog;
 
 class Program
 {
-    static void Main()
-    {
-        AsyncMain().GetAwaiter().GetResult();
-    }
-
-    static async Task AsyncMain()
+    static async Task Main()
     {
         //Setup Serilog
         Log.Logger = new LoggerConfiguration()

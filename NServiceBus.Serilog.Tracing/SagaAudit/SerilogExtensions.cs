@@ -7,7 +7,7 @@ static class SerilogExtensions
 {
     public static LogEventProperty BindProperty(this ILogger logger, string name, object value)
     {
-        logger.BindProperty(name, value, true, out LogEventProperty property);
+        logger.BindProperty(name, value, true, out var property);
         return property;
     }
 

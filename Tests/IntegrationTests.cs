@@ -1,5 +1,4 @@
 ﻿using System.Collections.Concurrent;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using NServiceBus;
 using NServiceBus.Logging;
@@ -33,14 +32,8 @@ public class IntegrationTests
         endpointConfiguration.UseTransport<LearningTransport>();
 
         var endpoint = await Endpoint.Start(endpointConfiguration);
-        try
-        {
-            Assert.IsNotEmpty(logs);
-        }
-        finally
-        {
-            await endpoint.Stop();
-        }
+        Assert.IsNotEmpty(logs);
+        await endpoint.Stop();
     }
 
     [Test]

@@ -2,6 +2,7 @@
 <Project>
   <PropertyGroup>
     <SignAssembly>true</SignAssembly>
+    <LangVersion>latest</LangVersion>
     <AssemblyOriginatorKeyFile>$(SolutionDir)key.snk</AssemblyOriginatorKeyFile>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <AssemblyVersion>4.0.0</AssemblyVersion>
@@ -12,7 +13,6 @@
     <PackageLicenseUrl>http://www.opensource.org/licenses/mit-license.php</PackageLicenseUrl>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <Copyright>Copyright $([System.DateTime]::UtcNow.ToString(yyyy)) Simon Cropp. All rights reserved</Copyright>
-    <PackageTags>NServiceBus, Serilog</PackageTags>
     <PackageIconUrl>https://raw.github.com/SimonCropp/NServiceBus.Serilog/master/Icons/package_icon.png</PackageIconUrl>
     <PackageProjectUrl>https://docs.particular.net/nuget/$(PackageId)</PackageProjectUrl>
   </PropertyGroup>
