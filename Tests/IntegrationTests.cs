@@ -27,7 +27,6 @@ public class IntegrationTests
         LogManager.Use<SerilogFactory>();
 
         var endpointConfiguration = new EndpointConfiguration("SerilogTests");
-        endpointConfiguration.UseSerialization<JsonSerializer>();
         endpointConfiguration.EnableInstallers();
         endpointConfiguration.SendFailedMessagesTo("error");
         endpointConfiguration.UsePersistence<InMemoryPersistence>();
@@ -62,21 +61,13 @@ public class IntegrationTests
             .CreateLogger();
 
         var endpointConfiguration = new EndpointConfiguration("SerilogTests");
-        endpointConfiguration.UseSerialization<JsonSerializer>();
         endpointConfiguration.EnableInstallers();
         endpointConfiguration.SendFailedMessagesTo("error");
         endpointConfiguration.UsePersistence<InMemoryPersistence>();
         endpointConfiguration.UseTransport<LearningTransport>();
 
         var endpoint = await Endpoint.Start(endpointConfiguration);
-        try
-        {
-            Assert.IsNotEmpty(logs);
-        }
-        finally
-        {
-            await endpoint.Stop();
-        }
-
+        Assert.IsNotEmpty(logs);
+        await endpoint.Stop();
     }
 }

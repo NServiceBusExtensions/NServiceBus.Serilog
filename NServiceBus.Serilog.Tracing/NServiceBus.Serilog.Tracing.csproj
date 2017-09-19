@@ -1,37 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk" ToolsVersion="15.0">
   <PropertyGroup>
-    <TargetFramework>net452</TargetFramework>
-    <AssemblyName>NServiceBus.Serilog.Tracing</AssemblyName>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-    <SignAssembly>true</SignAssembly>
-    <AssemblyOriginatorKeyFile>$(SolutionDir)key.snk</AssemblyOriginatorKeyFile>
-    <DebugType>full</DebugType>
-    <DebugSymbols>True</DebugSymbols>
-    <NoWarn>CS1591</NoWarn>
-    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-    <DocumentationFile>$(ProjectDir)bin\$(Configuration)\$(AssemblyName).xml</DocumentationFile>
+    <TargetFrameworks>net452;netcoreapp2.0</TargetFrameworks>
+    <PackageId>NServiceBus.Serilog.Tracing</PackageId>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="NServiceBus" Version="6.3.4" />
-    <PackageReference Include="Serilog" Version="2.4.0" />
-    <PackageReference Include="PepitaPackage" Version="1.21.4" />
-    <Compile Include="..\CommonAssemblyInfo.cs">
-      <Link>CommonAssemblyInfo.cs</Link>
-    </Compile>
+    <PackageReference Include="NServiceBus" Version="[7.0.0-*, 8.0.0)" />
+    <PackageReference Include="Serilog" Version="[2.5.0, 3.0.0)" />
     <Compile Include="..\NServiceBus.Serilog\Guard.cs">
       <Link>Guard.cs</Link>
     </Compile>
   </ItemGroup>
-  <Target Name="NuGetBuild" AfterTargets="AfterBuild">
-    <ItemGroup>
-      <FilesToDelete Include="$(SolutionDir)NuGetTracingBuild\**\*.*" />
-    </ItemGroup>
-    <Delete Files="@(FilesToDelete)" />
-    <Copy SourceFiles="$(ProjectDir)bin\$(Configuration)\net452\$(AssemblyName).dll" DestinationFolder="$(SolutionDir)NuGetTracingBuild\lib\net452" />
-    <Copy SourceFiles="$(ProjectDir)bin\$(Configuration)\net452\$(AssemblyName).pdb" DestinationFolder="$(SolutionDir)NuGetTracingBuild\lib\net452" />
-    <Copy SourceFiles="$(ProjectDir)bin\$(Configuration)\net452\$(AssemblyName).xml" DestinationFolder="$(SolutionDir)NuGetTracingBuild\lib\net452" />
-    <Copy SourceFiles="$(ProjectDir)NServiceBus.Serilog.Tracing.nuspec" DestinationFolder="$(SolutionDir)NuGetTracingBuild" />
-    <PepitaPackage.CreatePackageTask NuGetBuildDirectory="$(SolutionDir)NuGetTracingBuild" MetadataAssembly="$(ProjectDir)bin\$(Configuration)\net452\$(AssemblyName).dll" />
-  </Target>
 </Project>
