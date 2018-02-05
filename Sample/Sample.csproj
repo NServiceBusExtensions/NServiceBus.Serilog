@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net462;netcoreapp2.0</TargetFrameworks>
+    <TargetFrameworks>net47;netcoreapp2.0</TargetFrameworks>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <OutputType>Exe</OutputType>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Serilog.Sinks.Console" Version="2.*" />
     <PackageReference Include="Serilog.Sinks.File" Version="3.*" />
-    <PackageReference Include="NServiceBus" Version="7.0.0-rc0001" />
+    <PackageReference Include="NServiceBus" Version="7.0.0-beta0012" />
     <PackageReference Include="Serilog" Version="2.*" />
     <ProjectReference Include="..\NServiceBus.Serilog\NServiceBus.Serilog.csproj" />
   </ItemGroup>

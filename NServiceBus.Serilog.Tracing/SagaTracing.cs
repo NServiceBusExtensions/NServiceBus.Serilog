@@ -2,7 +2,6 @@
 
 namespace NServiceBus.Serilog.Tracing
 {
-
     /// <summary>
     /// The serilog saga tracing feature.
     /// </summary>

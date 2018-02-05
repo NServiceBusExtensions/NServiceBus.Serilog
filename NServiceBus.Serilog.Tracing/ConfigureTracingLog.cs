@@ -10,7 +10,6 @@ namespace NServiceBus.Serilog.Tracing
     /// </summary>
     public static class ConfigureTracingLog
     {
-
         /// <summary>
         ///   Defines a custom <see cref="ILogger"/> to use for by <see cref="TracingLog"/> to target. If not defined then <see cref="Log.Logger"/> will be used.
         /// </summary>
@@ -26,6 +25,5 @@ namespace NServiceBus.Serilog.Tracing
         {
             return settings.TryGet("customSerilogTracingTarget", out logger);
         }
-
     }
 }

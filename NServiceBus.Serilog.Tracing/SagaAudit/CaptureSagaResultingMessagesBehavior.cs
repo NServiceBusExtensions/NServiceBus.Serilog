@@ -58,5 +58,4 @@ class CaptureSagaResultingMessagesBehavior : Behavior<IOutgoingLogicalMessageCon
             // InsertAfter("InvokeSaga");
         }
     }
-
 }
