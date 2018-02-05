@@ -18,14 +18,14 @@ class Program
         var serilogFactory = LogManager.Use<SerilogFactory>();
         serilogFactory.WithLogger(tracingLog);
 
-        var endpointConfiguration = new EndpointConfiguration("SeqSample");
-        endpointConfiguration.EnableFeature<TracingLog>();
-        endpointConfiguration.SerilogTracingTarget(tracingLog);
-        endpointConfiguration.EnableInstallers();
-        endpointConfiguration.UsePersistence<InMemoryPersistence>();
-        endpointConfiguration.UseTransport<LearningTransport>();
-        endpointConfiguration.SendFailedMessagesTo("error");
-        var endpoint = await Endpoint.Start(endpointConfiguration)
+        var configuration = new EndpointConfiguration("SeqSample");
+        configuration.EnableFeature<TracingLog>();
+        configuration.SerilogTracingTarget(tracingLog);
+        configuration.EnableInstallers();
+        configuration.UsePersistence<InMemoryPersistence>();
+        configuration.UseTransport<LearningTransport>();
+        configuration.SendFailedMessagesTo("error");
+        var endpoint = await Endpoint.Start(configuration)
             .ConfigureAwait(false);
         var createUser = new CreateUser
         {
