@@ -3,14 +3,13 @@ using System.Threading.Tasks;
 using NServiceBus;
 using NServiceBus.Logging;
 using NServiceBus.Serilog;
-using NUnit.Framework;
 using Serilog;
 using Serilog.Events;
+using Xunit;
 
-[TestFixture]
 public class IntegrationTests
 {
-    [Test]
+    [Fact]
     public async Task Ensure_log_messages_are_redirected()
     {
         var logs = new ConcurrentBag<LogEvent>();
@@ -25,42 +24,14 @@ public class IntegrationTests
             .CreateLogger();
         LogManager.Use<SerilogFactory>();
 
-        var endpointConfiguration = new EndpointConfiguration("SerilogTests");
-        endpointConfiguration.EnableInstallers();
-        endpointConfiguration.SendFailedMessagesTo("error");
-        endpointConfiguration.UsePersistence<InMemoryPersistence>();
-        endpointConfiguration.UseTransport<LearningTransport>();
+        var configuration = new EndpointConfiguration("SerilogTests");
+        configuration.EnableInstallers();
+        configuration.SendFailedMessagesTo("error");
+        configuration.UsePersistence<InMemoryPersistence>();
+        configuration.UseTransport<LearningTransport>();
 
-        var endpoint = await Endpoint.Start(endpointConfiguration);
-        Assert.IsNotEmpty(logs);
-        await endpoint.Stop();
-    }
-
-    [Test]
-    [Explicit]
-    public async Task Use_default_logger_even_if_it_gets_changed()
-    {
-        LogManager.Use<SerilogFactory>();
-
-        var logs = new ConcurrentBag<LogEvent>();
-        var eventSink = new EventSink
-        {
-            Action = logs.Add
-        };
-
-        Log.Logger = new LoggerConfiguration()
-            .MinimumLevel.Verbose()
-            .WriteTo.Sink(eventSink)
-            .CreateLogger();
-
-        var endpointConfiguration = new EndpointConfiguration("SerilogTests");
-        endpointConfiguration.EnableInstallers();
-        endpointConfiguration.SendFailedMessagesTo("error");
-        endpointConfiguration.UsePersistence<InMemoryPersistence>();
-        endpointConfiguration.UseTransport<LearningTransport>();
-
-        var endpoint = await Endpoint.Start(endpointConfiguration);
-        Assert.IsNotEmpty(logs);
+        var endpoint = await Endpoint.Start(configuration);
+        Assert.NotEmpty(logs);
         await endpoint.Stop();
     }
 }

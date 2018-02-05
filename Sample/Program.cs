@@ -19,13 +19,13 @@ class Program
         LogManager.Use<SerilogFactory>();
 
         //Start using NServiceBus
-        var endpointConfiguration = new EndpointConfiguration("SerilogSample");
-        endpointConfiguration.EnableInstallers();
-        endpointConfiguration.SendFailedMessagesTo("error");
-        endpointConfiguration.UsePersistence<InMemoryPersistence>();
-        endpointConfiguration.UseTransport<LearningTransport>();
+        var configuration = new EndpointConfiguration("SerilogSample");
+        configuration.EnableInstallers();
+        configuration.SendFailedMessagesTo("error");
+        configuration.UsePersistence<InMemoryPersistence>();
+        configuration.UseTransport<LearningTransport>();
 
-        var endpoint = await Endpoint.Start(endpointConfiguration)
+        var endpoint = await Endpoint.Start(configuration)
             .ConfigureAwait(false);
         var createUser = new CreateUser
         {
@@ -34,6 +34,8 @@ class Program
             GivenNames = "John",
         };
         await endpoint.SendLocal(createUser)
+            .ConfigureAwait(false);
+        await endpoint.ScheduleEvery(TimeSpan.FromSeconds(1), context => context.SendLocal(createUser))
             .ConfigureAwait(false);
         Console.WriteLine("Press any key to stop program");
         Console.Read();

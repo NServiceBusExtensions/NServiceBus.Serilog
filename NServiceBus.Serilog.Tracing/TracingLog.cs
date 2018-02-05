@@ -35,6 +35,5 @@ namespace NServiceBus.Serilog.Tracing
             pipeline.Register<ReceiveMessageBehavior.Registration>();
             pipeline.Register<SendMessageBehavior.Registration>();
         }
-
     }
 }

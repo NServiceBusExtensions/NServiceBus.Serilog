@@ -1,17 +1,13 @@
 using System;
 
-namespace NServiceBus.Serilog
+static class Guard
 {
-    static class Guard
+    // ReSharper disable UnusedParameter.Global
+    public static void AgainstNull(object value, string argumentName)
     {
-
-        // ReSharper disable UnusedParameter.Global
-        public static void AgainstNull(object value, string argumentName)
+        if (value == null)
         {
-            if (value == null)
-            {
-                throw new ArgumentNullException(argumentName);
-            }
+            throw new ArgumentNullException(argumentName);
         }
     }
 }

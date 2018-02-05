@@ -1,26 +1,23 @@
-﻿namespace NServiceBus.Serilog.Tracing
+﻿using System.Collections.Concurrent;
+using global::Serilog;
+using global::Serilog.Core;
+
+class LogBuilder
 {
-    using System.Collections.Concurrent;
-    using global::Serilog;
-    using global::Serilog.Core;
+    ILogger logger;
+    ConcurrentDictionary<string, ILogger> loggers = new ConcurrentDictionary<string, ILogger>();
+    string endpointName;
 
-    class LogBuilder
+    public LogBuilder(ILogger logger, string endpointName)
     {
-        ILogger logger;
-        ConcurrentDictionary<string, ILogger> loggers = new ConcurrentDictionary<string, ILogger>();
-        string endpointName;
+        this.logger = logger;
+        this.endpointName = endpointName;
+    }
 
-        public LogBuilder(ILogger logger, string endpointName)
-        {
-            this.logger = logger;
-            this.endpointName = endpointName;
-        }
-
-        public ILogger GetLogger(string key)
-        {
-            return loggers.GetOrAdd(key, s => logger
-                .ForContext(Constants.SourceContextPropertyName, key)
-                .ForContext("ProcessingEndpoint", endpointName));
-        }
+    public ILogger GetLogger(string key)
+    {
+        return loggers.GetOrAdd(key, s => logger
+            .ForContext(Constants.SourceContextPropertyName, key)
+            .ForContext("ProcessingEndpoint", endpointName));
     }
 }

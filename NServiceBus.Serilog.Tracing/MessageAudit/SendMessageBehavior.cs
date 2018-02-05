@@ -7,40 +7,37 @@ using Serilog;
 using Serilog.Events;
 using Serilog.Parsing;
 
-namespace NServiceBus.Serilog.Tracing
+class SendMessageBehavior : Behavior<IOutgoingLogicalMessageContext>
 {
-    class SendMessageBehavior : Behavior<IOutgoingLogicalMessageContext>
+    ILogger logger;
+    MessageTemplate messageTemplate;
+
+    public SendMessageBehavior(LogBuilder logBuilder)
     {
-        ILogger logger;
-        MessageTemplate messageTemplate;
+        var templateParser = new MessageTemplateParser();
+        logger = logBuilder.GetLogger("NServiceBus.Serilog.MessageSent");
+        messageTemplate = templateParser.Parse("Sent message {MessageType} {MessageId}.");
+    }
 
-        public SendMessageBehavior(LogBuilder logBuilder)
+    public override Task Invoke(IOutgoingLogicalMessageContext context, Func<Task> next)
+    {
+        var message = context.Message;
+        IEnumerable<LogEventProperty> properties = new[]
         {
-            var templateParser = new MessageTemplateParser();
-            logger = logBuilder.GetLogger("NServiceBus.Serilog.MessageSent");
-            messageTemplate = templateParser.Parse("Sent message {MessageType} {MessageId}.");
-        }
+            new LogEventProperty("MessageType", new ScalarValue(message.MessageType)),
+            logger.BindProperty("Message", message.Instance),
+            logger.BindProperty("MessageId", context.MessageId),
+        };
+        properties = properties.Concat(logger.BuildHeaders(context.Headers));
+        logger.WriteInfo(messageTemplate, properties);
+        return next();
+    }
 
-        public override Task Invoke(IOutgoingLogicalMessageContext context, Func<Task> next)
+    public class Registration : RegisterStep
+    {
+        public Registration()
+            : base("SerilogSendMessage", typeof(SendMessageBehavior), "Logs outgoing messages")
         {
-            var message = context.Message;
-            IEnumerable<LogEventProperty> properties = new[]
-            {
-                new LogEventProperty("MessageType", new ScalarValue(message.MessageType)),
-                logger.BindProperty("Message", message.Instance),
-                logger.BindProperty("MessageId", context.MessageId),
-            };
-            properties = properties.Concat(logger.BuildHeaders(context.Headers));
-            logger.WriteInfo(messageTemplate, properties);
-            return next();
-        }
-
-        public class Registration : RegisterStep
-        {
-            public Registration()
-                : base("SerilogSendMessage", typeof(SendMessageBehavior), "Logs outgoing messages")
-            {
-            }
         }
     }
 }

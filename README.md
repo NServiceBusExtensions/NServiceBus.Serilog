@@ -14,7 +14,7 @@ Plus into the standard NServiceBus logging API to pipe message through to Serilo
 ### Nuget
 
 
-#### http://nuget.org/packages/NServiceBus.Serilog/  [![NuGet Status](http://img.shields.io/nuget/v/NServiceBus.Serilog.svg?style=flat)](https://www.nuget.org/packages/NServiceBus.Serilog/)
+#### http://nuget.org/packages/NServiceBus.Serilog/  [![NuGet Status](http://img.shields.io/nuget/v/NServiceBus.Serilog.svg?style=flat&max-age=86400)](https://www.nuget.org/packages/NServiceBus.Serilog/)
 
 This uses the standard approach to constructing a nuget package. It contains a dll which will be added as a reference to your project. You then deploy the binary with your project.
 
@@ -39,7 +39,7 @@ Plugs into the low level NServiceBus pipeline to give more detailed diagnostics.
 ### Nuget
 
 
-#### https://www.nuget.org/packages/NServiceBus.Serilog.Tracing/   [![NuGet Status](http://img.shields.io/nuget/v/NServiceBus.Serilog.Tracing.svg?style=flat)](https://www.nuget.org/packages/NServiceBus.Serilog.Tracing/)
+#### https://www.nuget.org/packages/NServiceBus.Serilog.Tracing/   [![NuGet Status](http://img.shields.io/nuget/v/NServiceBus.Serilog.Tracing.svg?style=flat&max-age=86400)](https://www.nuget.org/packages/NServiceBus.Serilog.Tracing/)
 
     PM> Install-Package NServiceBus.Serilog.Tracing
 

@@ -35,6 +35,7 @@ class Program
         };
         await endpoint.SendLocal(createUser)
             .ConfigureAwait(false);
+        await endpoint.ScheduleEvery(TimeSpan.FromSeconds(1), context => context.SendLocal(createUser));
         Console.WriteLine("Press any key to stop program");
         Console.Read();
     }

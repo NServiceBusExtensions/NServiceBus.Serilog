@@ -7,41 +7,38 @@ using Serilog;
 using Serilog.Events;
 using Serilog.Parsing;
 
-namespace NServiceBus.Serilog.Tracing
+class ReceiveMessageBehavior : Behavior<IIncomingLogicalMessageContext>
 {
-    class ReceiveMessageBehavior : Behavior<IIncomingLogicalMessageContext>
+    MessageTemplate messageTemplate;
+    ILogger logger;
+
+    public ReceiveMessageBehavior(LogBuilder logBuilder)
     {
-        MessageTemplate messageTemplate;
-        ILogger logger;
+        var templateParser = new MessageTemplateParser();
+        messageTemplate = templateParser.Parse("Receive message {MessageType} {MessageId}.");
+        logger = logBuilder.GetLogger("NServiceBus.Serilog.MessageReceived");
+    }
 
-        public ReceiveMessageBehavior(LogBuilder logBuilder)
+    public class Registration : RegisterStep
+    {
+        public Registration()
+            : base("SerilogReceiveMessage", typeof(ReceiveMessageBehavior), "Logs incoming messages")
         {
-            var templateParser = new MessageTemplateParser();
-            messageTemplate = templateParser.Parse("Receive message {MessageType} {MessageId}.");
-            logger = logBuilder.GetLogger("NServiceBus.Serilog.MessageReceived");
+            InsertBefore("MutateIncomingMessages");
         }
+    }
 
-        public class Registration : RegisterStep
+    public override Task Invoke(IIncomingLogicalMessageContext context, Func<Task> next)
+    {
+        var message = context.Message;
+        IEnumerable<LogEventProperty> properties = new[]
         {
-            public Registration()
-                : base("SerilogReceiveMessage", typeof(ReceiveMessageBehavior), "Logs incoming messages")
-            {
-                InsertBefore("MutateIncomingMessages");
-            }
-        }
-
-        public override Task Invoke(IIncomingLogicalMessageContext context, Func<Task> next)
-        {
-            var message = context.Message;
-            IEnumerable<LogEventProperty> properties = new[]
-            {
-                new LogEventProperty("MessageType", new ScalarValue(message.MessageType)),
-                logger.BindProperty("Message", message.Instance),
-                logger.BindProperty("MessageId", context.MessageId),
-            };
-            properties = properties.Concat(logger.BuildHeaders(context.Headers));
-            logger.WriteInfo(messageTemplate, properties);
-            return next();
-        }
+            new LogEventProperty("MessageType", new ScalarValue(message.MessageType)),
+            logger.BindProperty("Message", message.Instance),
+            logger.BindProperty("MessageId", context.MessageId),
+        };
+        properties = properties.Concat(logger.BuildHeaders(context.Headers));
+        logger.WriteInfo(messageTemplate, properties);
+        return next();
     }
 }
