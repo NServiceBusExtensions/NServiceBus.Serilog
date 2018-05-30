@@ -1,6 +1,6 @@
 ﻿using System.Collections.Concurrent;
-using global::Serilog;
-using global::Serilog.Core;
+using Serilog;
+using Serilog.Core;
 
 class LogBuilder
 {
