@@ -44,11 +44,14 @@ class CaptureSagaStateBehavior : Behavior<IInvokeHandlerContext>
         context.Extensions.Set(sagaAudit);
         await next()
             .ConfigureAwait(false);
-        var activeSagaInstance = context.Extensions.Get<ActiveSagaInstance>();
-        sagaAudit.SagaType = activeSagaInstance.Instance.GetType().FullName;
 
-        sagaAudit.FinishTime = DateTime.UtcNow;
-        AuditSaga(activeSagaInstance, context);
+        if (context.Extensions.TryGet(out ActiveSagaInstance activeSagaInstance))
+        {
+            sagaAudit.SagaType = activeSagaInstance.Instance.GetType().FullName;
+
+            sagaAudit.FinishTime = DateTime.UtcNow;
+            AuditSaga(activeSagaInstance, context);
+        }
     }
 
     void AuditSaga(ActiveSagaInstance activeSagaInstance, IInvokeHandlerContext context)
