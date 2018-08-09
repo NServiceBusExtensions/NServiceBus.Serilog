@@ -24,7 +24,7 @@ class CaptureSagaStateBehavior : Behavior<IInvokeHandlerContext>
 
     public override async Task Invoke(IInvokeHandlerContext context, Func<Task> next)
     {
-        if (!(context.MessageHandler.Instance is Saga saga))
+        if (!(context.MessageHandler.Instance is Saga))
         {
             // Message was not handled by the saga
             await next().ConfigureAwait(false);
