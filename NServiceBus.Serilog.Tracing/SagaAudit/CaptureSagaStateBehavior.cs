@@ -51,6 +51,14 @@ class CaptureSagaStateBehavior : Behavior<IInvokeHandlerContext>
 
             sagaAudit.FinishTime = DateTime.UtcNow;
             AuditSaga(activeSagaInstance, context);
+           
+            if (context.Extensions.TryGet(out ActiveSagaInstance activeSagaInstance))
+            {
+                sagaAudit.SagaType = activeSagaInstance.Instance.GetType().FullName;
+                sagaAudit.FinishTime = DateTime.UtcNow;
+                
+                AuditSaga(activeSagaInstance, context);
+            }
         }
     }
 
