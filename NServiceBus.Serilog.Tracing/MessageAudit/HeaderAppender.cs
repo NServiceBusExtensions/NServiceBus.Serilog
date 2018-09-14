@@ -34,7 +34,10 @@ static class HeaderAppender
         }
         if (otherHeaders.Count > 0)
         {
-            yield return logger.BindProperty("OtherHeaders", otherHeaders);
+            if (logger.BindProperty("OtherHeaders", otherHeaders, out var property))
+            {
+                yield return property;
+            }
         }
     }
 }

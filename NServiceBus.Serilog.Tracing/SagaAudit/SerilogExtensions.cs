@@ -5,10 +5,9 @@ using Serilog.Events;
 
 static class SerilogExtensions
 {
-    public static LogEventProperty BindProperty(this ILogger logger, string name, object value)
+    public static bool BindProperty(this ILogger logger, string name, object value, out LogEventProperty property)
     {
-        logger.BindProperty(name, value, true, out var property);
-        return property;
+        return logger.BindProperty(name, value, true, out property);
     }
 
     public static void WriteInfo(this ILogger logger, MessageTemplate messageTemplate, IEnumerable<LogEventProperty> properties)

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using NServiceBus.Pipeline;
 using Serilog;
@@ -31,13 +30,22 @@ class ReceiveMessageBehavior : Behavior<IIncomingLogicalMessageContext>
     public override Task Invoke(IIncomingLogicalMessageContext context, Func<Task> next)
     {
         var message = context.Message;
-        IEnumerable<LogEventProperty> properties = new[]
+        var properties = new List<LogEventProperty>
         {
-            new LogEventProperty("MessageType", new ScalarValue(message.MessageType)),
-            logger.BindProperty("Message", message.Instance),
-            logger.BindProperty("MessageId", context.MessageId),
+            new LogEventProperty("MessageType", new ScalarValue(message.MessageType))
         };
-        properties = properties.Concat(logger.BuildHeaders(context.Headers));
+
+        if (logger.BindProperty("Message", message.Instance, out var messageProperty))
+        {
+            properties.Add(messageProperty);
+        }
+
+        if (logger.BindProperty("MessageId", context.MessageId, out var messageId))
+        {
+            properties.Add(messageId);
+        }
+
+        properties.AddRange(logger.BuildHeaders(context.Headers));
         logger.WriteInfo(messageTemplate, properties);
         return next();
     }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using NServiceBus;
 using NServiceBus.Pipeline;
@@ -93,23 +94,30 @@ class CaptureSagaStateBehavior : Behavior<IInvokeHandlerContext>
 
         AssignSagaStateChangeCausedByMessage(context);
 
-        logger.WriteInfo(
-            messageTemplate: messageTemplate,
-            properties: new[]
-            {
-                new LogEventProperty("SagaType", new ScalarValue(sagaAudit.SagaType)),
-                new LogEventProperty("SagaId", new ScalarValue(sagaAudit.SagaId)),
-                new LogEventProperty("StartTime", new ScalarValue(sagaAudit.StartTime)),
-                new LogEventProperty("FinishTime", new ScalarValue(sagaAudit.FinishTime)),
-                new LogEventProperty("IsCompleted", new ScalarValue(sagaAudit.IsCompleted)),
-                new LogEventProperty("IsNew", new ScalarValue(sagaAudit.IsNew)),
-                new LogEventProperty("SagaType", new ScalarValue(sagaAudit.SagaType)),
-                logger.BindProperty("Initiator", initiator),
-                logger.BindProperty("ResultingMessages", sagaAudit.ResultingMessages),
-                logger.BindProperty("Entity", saga.Entity),
-            });
+        var properties = new List<LogEventProperty>
+        {
+            new LogEventProperty("SagaType", new ScalarValue(sagaAudit.SagaType)),
+            new LogEventProperty("SagaId", new ScalarValue(sagaAudit.SagaId)),
+            new LogEventProperty("StartTime", new ScalarValue(sagaAudit.StartTime)),
+            new LogEventProperty("FinishTime", new ScalarValue(sagaAudit.FinishTime)),
+            new LogEventProperty("IsCompleted", new ScalarValue(sagaAudit.IsCompleted)),
+            new LogEventProperty("IsNew", new ScalarValue(sagaAudit.IsNew)),
+            new LogEventProperty("SagaType", new ScalarValue(sagaAudit.SagaType)),
+        };
+        if (logger.BindProperty("Initiator", initiator, out var initiatorProperty))
+        {
+            properties.Add(initiatorProperty);
+        }
+        if (logger.BindProperty("ResultingMessages", sagaAudit.ResultingMessages, out var resultingMessagesProperty))
+        {
+            properties.Add(resultingMessagesProperty);
+        }
+        if (logger.BindProperty("Entity", saga.Entity, out var sagaEntityProperty))
+        {
+            properties.Add(sagaEntityProperty);
+        }
+        logger.WriteInfo(messageTemplate, properties);
     }
-
 
     void AssignSagaStateChangeCausedByMessage(IInvokeHandlerContext context)
     {
