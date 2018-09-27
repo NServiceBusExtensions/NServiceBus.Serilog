@@ -1,6 +1,5 @@
 ﻿using System;
 using NServiceBus.Logging;
-using NServiceBus.Serilog;
 using Serilog;
 
 class LoggerFactory : ILoggerFactory
