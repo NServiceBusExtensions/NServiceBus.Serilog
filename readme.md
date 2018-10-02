@@ -11,6 +11,11 @@ Add support for sending [NServiceBus](http://particular.net/NServiceBus) logging
 Plus into the standard NServiceBus logging API to pipe message through to Serilog.
 
 
+### Documentation
+
+https://docs.particular.net/nuget/NServiceBus.Serilog
+
+
 ### Nuget
 
 
@@ -18,17 +23,26 @@ Plus into the standard NServiceBus logging API to pipe message through to Serilo
 
 This uses the standard approach to constructing a nuget package. It contains a dll which will be added as a reference to your project. You then deploy the binary with your project.
 
-    PM> Install-Package NServiceBus.Serilog
+```
+PM> Install-Package NServiceBus.Serilog
+```
 
-### Usage 
 
-    Log.Logger = new LoggerConfiguration()
-        .WriteTo.Console()
-        .WriteTo.File("logFile.txt")
-        .CreateLogger();
+### Usage
 
-    //Set NServiceBus to log to Serilog
-    LogManager.Use<SerilogFactory>();
+```csharp
+var loggerConfiguration = new LoggerConfiguration();
+loggerConfiguration.WriteTo.Console();
+loggerConfiguration.MinimumLevel.Debug();
+loggerConfiguration.WriteTo.File("logFile.txt");
+var logger = loggerConfiguration.CreateLogger();
+
+Log.Logger = logger;
+
+//Set NServiceBus to log to Serilog
+var serilogFactory = LogManager.Use<SerilogFactory>();
+serilogFactory.WithLogger(logger);
+```
 
 
 ## Tracing Library
@@ -36,36 +50,46 @@ This uses the standard approach to constructing a nuget package. It contains a d
 Plugs into the low level NServiceBus pipeline to give more detailed diagnostics.
 
 
+### Documentation
+
+https://docs.particular.net/nuget/NServiceBus.Serilog.Tracing
+
+
 ### Nuget
 
 
 #### https://www.nuget.org/packages/NServiceBus.Serilog.Tracing/   [![NuGet Status](http://img.shields.io/nuget/v/NServiceBus.Serilog.Tracing.svg?style=flat&max-age=86400)](https://www.nuget.org/packages/NServiceBus.Serilog.Tracing/)
 
-    PM> Install-Package NServiceBus.Serilog.Tracing
+```
+PM> Install-Package NServiceBus.Serilog.Tracing
+```
 
 
-### Usage 
+### Usage
 
-    Log.Logger = new LoggerConfiguration()
-        .WriteTo.Console()
-        .WriteTo.File("logFile.txt")
-        .MinimumLevel.Information()
-        .CreateLogger();
-    LogManager.Use<SerilogFactory>();
+```csharp
+var tracingLog = new LoggerConfiguration()
+    .WriteTo.Console()
+    .WriteTo.File("logFile.txt")
+    .MinimumLevel.Information()
+    .CreateLogger();
 
-    var config = new EndpointConfiguration("SeqSample");
-    config.EnableFeature<TracingLog>();
+var serilogFactory = LogManager.Use<SerilogFactory>();
+serilogFactory.WithLogger(tracingLog);
 
-To log to [Seq](http://getseq.net/ "Seq") use 
+var config = new EndpointConfiguration("SeqSample");
+var serilogTracing = configuration.EnableSerilogTracing(tracingLog);
+serilogTracing.EnableSagaTracing();
+```
 
-    var tracingLog = new LoggerConfiguration()
-        .WriteTo.Seq("http://localhost:5341")
-        .MinimumLevel.Information()
-        .CreateLogger();
+To log to [Seq](http://getseq.net/ "Seq") use the following to create the Logger.
 
-Then call
-
-    config.SerilogTracingTarget(tracingLog);
+```csharp
+var tracingLog = new LoggerConfiguration()
+    .WriteTo.Seq("http://localhost:5341")
+    .MinimumLevel.Information()
+    .CreateLogger();
+```
 
 Which will result in something like this
 

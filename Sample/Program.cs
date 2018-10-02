@@ -14,10 +14,12 @@ class Program
         loggerConfiguration.WriteTo.Console();
         loggerConfiguration.MinimumLevel.Debug();
         loggerConfiguration.WriteTo.File("logFile.txt");
-        Log.Logger = loggerConfiguration.CreateLogger();
+        var logger = loggerConfiguration.CreateLogger();
+        Log.Logger = logger;
 
         //Set NServiceBus to log to Serilog
-        LogManager.Use<SerilogFactory>();
+        var serilogFactory = LogManager.Use<SerilogFactory>();
+        serilogFactory.WithLogger(logger);
 
         //Start using NServiceBus
         var configuration = new EndpointConfiguration("SerilogSample");
