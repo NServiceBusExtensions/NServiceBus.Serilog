@@ -43,8 +43,12 @@ class SendMessageBehavior : Behavior<IOutgoingLogicalMessageContext>
 
     public class Registration : RegisterStep
     {
-        public Registration()
-            : base("SerilogSendMessage", typeof(SendMessageBehavior), "Logs outgoing messages")
+        public Registration(LogBuilder logBuilder)
+            : base(
+                stepId: "SerilogSendMessage",
+                behavior: typeof(SendMessageBehavior),
+                description: "Logs outgoing messages",
+                factoryMethod: builder => new SendMessageBehavior(logBuilder))
         {
         }
     }

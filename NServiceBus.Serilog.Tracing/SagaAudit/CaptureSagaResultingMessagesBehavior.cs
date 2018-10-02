@@ -42,7 +42,10 @@ class CaptureSagaResultingMessagesBehavior : Behavior<IOutgoingLogicalMessageCon
 
     static string GetDestinationForUnicastMessages(IOutgoingLogicalMessageContext context)
     {
-        var sendAddressTags = context.RoutingStrategies.OfType<UnicastRoutingStrategy>().Select(urs => urs.Apply(context.Headers)).Cast<UnicastAddressTag>().ToList();
+        var sendAddressTags = context.RoutingStrategies
+            .OfType<UnicastRoutingStrategy>()
+            .Select(urs => urs.Apply(context.Headers))
+            .Cast<UnicastAddressTag>().ToList();
         if (sendAddressTags.Count != 1)
         {
             return null;
@@ -53,9 +56,12 @@ class CaptureSagaResultingMessagesBehavior : Behavior<IOutgoingLogicalMessageCon
     public class Registration : RegisterStep
     {
         public Registration()
-            : base("SerilogCaptureSagaResultingMessages", typeof(CaptureSagaResultingMessagesBehavior), "Reports messages outgoing from a saga to Serilog")
+            : base(
+                stepId: "SerilogCaptureSagaResultingMessages",
+                behavior: typeof(CaptureSagaResultingMessagesBehavior),
+                description: "Reports messages outgoing from a saga to Serilog",
+                factoryMethod: builder => new CaptureSagaResultingMessagesBehavior())
         {
-            // InsertAfter("InvokeSaga");
         }
     }
 }

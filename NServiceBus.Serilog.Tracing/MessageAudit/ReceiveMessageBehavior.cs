@@ -20,8 +20,13 @@ class ReceiveMessageBehavior : Behavior<IIncomingLogicalMessageContext>
 
     public class Registration : RegisterStep
     {
-        public Registration()
-            : base("SerilogReceiveMessage", typeof(ReceiveMessageBehavior), "Logs incoming messages")
+        public Registration(LogBuilder logBuilder)
+            : base(
+                stepId: "SerilogReceiveMessage",
+                behavior: typeof(ReceiveMessageBehavior),
+                description: "Logs incoming messages",
+                factoryMethod: builder => new ReceiveMessageBehavior(logBuilder)
+                )
         {
             InsertBefore("MutateIncomingMessages");
         }

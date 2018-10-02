@@ -145,11 +145,14 @@ class CaptureSagaStateBehavior : Behavior<IInvokeHandlerContext>
         context.Headers["NServiceBus.Serilog.Tracing.SagaStateChange"] = sagaStateChange;
     }
 
-
     public class Registration : RegisterStep
     {
-        public Registration()
-            : base("SerilogCaptureSagaState", typeof(CaptureSagaStateBehavior), "Records saga state changes")
+        public Registration(LogBuilder logBuilder)
+            : base(
+                stepId: "SerilogCaptureSagaState",
+                behavior: typeof(CaptureSagaStateBehavior),
+                description: "Records saga state changes",
+                factoryMethod: builder => new CaptureSagaStateBehavior(logBuilder))
         {
             InsertBefore("InvokeSaga");
         }

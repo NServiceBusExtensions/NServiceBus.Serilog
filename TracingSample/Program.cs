@@ -3,7 +3,6 @@ using System.Threading.Tasks;
 using NServiceBus;
 using NServiceBus.Logging;
 using NServiceBus.Serilog;
-using NServiceBus.Serilog.Tracing;
 using Serilog;
 
 class Program
@@ -19,8 +18,8 @@ class Program
         serilogFactory.WithLogger(tracingLog);
 
         var configuration = new EndpointConfiguration("SeqSample");
-        configuration.EnableFeature<TracingLog>();
-        configuration.SerilogTracingTarget(tracingLog);
+        var serilogTracing = configuration.EnableSerilogTracing(tracingLog);
+        serilogTracing.EnableSagaTracing();
         configuration.EnableInstallers();
         configuration.UsePersistence<InMemoryPersistence>();
         configuration.UseTransport<LearningTransport>();
