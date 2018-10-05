@@ -10,8 +10,8 @@
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0-beta-63127-02" PrivateAssets="All" />
     <PackageReference Include="NServiceBus" Version="7.1.4" />
     <PackageReference Include="Serilog" Version="2.7.1" />
-    <Compile Include="..\NServiceBus.Serilog\Guard.cs">
-      <Link>Guard.cs</Link>
-    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NServiceBus.Serilog\NServiceBus.Serilog.csproj" />
   </ItemGroup>
 </Project>
