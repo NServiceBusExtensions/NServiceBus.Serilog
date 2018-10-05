@@ -1,0 +1,66 @@
+﻿[
+  {
+    "Timestamp": "DateTimeOffset 1",
+    "Level": 2,
+    "MessageTemplate": {
+      "Text": "Hello from {@Handler}. Message: {@Message}",
+      "Tokens": {
+        "$type": "MessageTemplateToken[]",
+        "$values": [
+          {
+            "$type": "TextToken",
+            "Length": 11,
+            "Text": "Hello from "
+          },
+          {
+            "$type": "PropertyToken",
+            "Length": 10,
+            "PropertyName": "Handler",
+            "Destructuring": 2,
+            "StartIndex": 11
+          },
+          {
+            "$type": "TextToken",
+            "Length": 11,
+            "Text": ". Message: ",
+            "StartIndex": 21
+          },
+          {
+            "$type": "PropertyToken",
+            "Length": 10,
+            "PropertyName": "Message",
+            "Destructuring": 2,
+            "StartIndex": 32
+          }
+        ]
+      }
+    },
+    "Properties": {
+      "$type": "Dictionary`2",
+      "Handler": {
+        "$type": "ScalarValue",
+        "Value": "TheHandler"
+      },
+      "Message": {
+        "$type": "StructureValue",
+        "TypeTag": "StartHandler",
+        "Properties": {
+          "$type": "LogEventProperty[]",
+          "$values": [
+            {
+              "Name": "Property",
+              "Value": {
+                "$type": "ScalarValue",
+                "Value": "TheProperty"
+              }
+            }
+          ]
+        }
+      },
+      "SourceContext": {
+        "$type": "ScalarValue",
+        "Value": "TheHandler"
+      }
+    }
+  }
+]

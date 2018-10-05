@@ -11,6 +11,7 @@ using Serilog.Parsing;
 
 class CaptureSagaStateBehavior : Behavior<IInvokeHandlerContext>
 {
+    internal const string Key = "NServiceBus.Serilog.SagaAudit";
     SagaUpdatedMessage sagaAudit;
     ILogger logger;
     MessageTemplate messageTemplate;
@@ -20,7 +21,7 @@ class CaptureSagaStateBehavior : Behavior<IInvokeHandlerContext>
         var templateParser = new MessageTemplateParser();
         messageTemplate = templateParser.Parse("Saga execution '{SagaType}' '{SagaId}'.");
 
-        logger = logBuilder.GetLogger("NServiceBus.Serilog.SagaAudit");
+        logger = logBuilder.GetLogger(Key);
     }
 
     public override async Task Invoke(IInvokeHandlerContext context, Func<Task> next)
