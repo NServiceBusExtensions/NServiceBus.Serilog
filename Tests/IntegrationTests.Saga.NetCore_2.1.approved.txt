@@ -112,6 +112,10 @@
           "$type": "ScalarValue",
           "Value": "StartSaga, Tests, Version=5.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6"
         },
+        "MessageId": {
+          "$type": "ScalarValue",
+          "Value": "Guid 1"
+        },
         "Message": {
           "$type": "StructureValue",
           "TypeTag": "StartSaga",
@@ -127,10 +131,6 @@
               }
             ]
           }
-        },
-        "MessageId": {
-          "$type": "ScalarValue",
-          "Value": "Guid 1"
         },
         "ContentType": {
           "$type": "ScalarValue",
@@ -220,6 +220,10 @@
           "$type": "ScalarValue",
           "Value": "StartSaga, Tests, Version=5.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6"
         },
+        "MessageId": {
+          "$type": "ScalarValue",
+          "Value": "Guid 4"
+        },
         "Message": {
           "$type": "StructureValue",
           "TypeTag": "StartSaga",
@@ -235,10 +239,6 @@
               }
             ]
           }
-        },
-        "MessageId": {
-          "$type": "ScalarValue",
-          "Value": "Guid 4"
         },
         "ConversationId": {
           "$type": "ScalarValue",

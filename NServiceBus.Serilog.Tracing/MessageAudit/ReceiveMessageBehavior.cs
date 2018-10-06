@@ -40,14 +40,14 @@ class ReceiveMessageBehavior : Behavior<IIncomingLogicalMessageContext>
             new LogEventProperty("MessageType", new ScalarValue(message.MessageType))
         };
 
-        if (logger.BindProperty("Message", message.Instance, out var messageProperty))
-        {
-            properties.Add(messageProperty);
-        }
-
         if (logger.BindProperty("MessageId", context.MessageId, out var messageId))
         {
             properties.Add(messageId);
+        }
+
+        if (logger.BindProperty("Message", message.Instance, out var messageProperty))
+        {
+            properties.Add(messageProperty);
         }
 
         properties.AddRange(logger.BuildHeaders(context.Headers));

@@ -11,7 +11,7 @@ using Serilog.Parsing;
 
 class CaptureSagaStateBehavior : Behavior<IInvokeHandlerContext>
 {
-    internal const string Key = "NServiceBus.Serilog.SagaAudit";
+    const string Key = "NServiceBus.Serilog.SagaAudit";
     SagaUpdatedMessage sagaAudit;
     ILogger logger;
     MessageTemplate messageTemplate;

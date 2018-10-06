@@ -26,15 +26,16 @@ class SendMessageBehavior : Behavior<IOutgoingLogicalMessageContext>
             new LogEventProperty("MessageType", new ScalarValue(message.MessageType))
         };
 
+        if (logger.BindProperty("MessageId", context.MessageId, out var messageId))
+        {
+            properties.Add(messageId);
+        }
+
         if (logger.BindProperty("Message", message.Instance, out var messageProperty))
         {
             properties.Add(messageProperty);
         }
 
-        if (logger.BindProperty("MessageId", context.MessageId, out var messageId))
-        {
-            properties.Add(messageId);
-        }
 
         properties.AddRange(logger.BuildHeaders(context.Headers));
         logger.WriteInfo(messageTemplate, properties);
