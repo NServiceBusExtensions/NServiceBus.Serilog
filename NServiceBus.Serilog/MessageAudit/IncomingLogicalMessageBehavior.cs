@@ -15,7 +15,7 @@ class IncomingLogicalMessageBehavior : Behavior<IIncomingLogicalMessageContext>
     {
         var templateParser = new MessageTemplateParser();
         messageTemplate = templateParser.Parse("Receive message {MessageType} {MessageId}.");
-        logger = logBuilder.GetLogger("NServiceBus.Serilog.MessageReceived");
+        logger = logBuilder.GetLogger("NServiceBus.Serilog." + nameof(IncomingLogicalMessageBehavior));
     }
 
     public class Registration : RegisterStep

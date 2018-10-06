@@ -14,7 +14,7 @@ class OutgoingLogicalMessageBehavior : Behavior<IOutgoingLogicalMessageContext>
     public OutgoingLogicalMessageBehavior(LogBuilder logBuilder)
     {
         var templateParser = new MessageTemplateParser();
-        logger = logBuilder.GetLogger("NServiceBus.Serilog.MessageSent");
+        logger = logBuilder.GetLogger("NServiceBus.Serilog." + nameof(OutgoingLogicalMessageBehavior));
         messageTemplate = templateParser.Parse("Sent message {MessageType} {MessageId}.");
     }
 
