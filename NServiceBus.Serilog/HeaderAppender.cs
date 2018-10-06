@@ -16,10 +16,10 @@ static class HeaderAppender
 
     public static IEnumerable<LogEventProperty> BuildHeaders(this ILogger logger, Dictionary<string, string> headers)
     {
-        var otherHeaders = new Dictionary<string,string>();
+        var otherHeaders = new Dictionary<string, string>();
         foreach (var header in headers
             .Where(x => x.Key.StartsWith("NServiceBus.") && !excludeHeaders.Contains(x.Key))
-            .OrderBy(x=>x.Key))
+            .OrderBy(x => x.Key))
         {
             var key = header.Key;
             if (key.StartsWith("$.diagnostics.") || key.StartsWith("NServiceBus."))
@@ -29,10 +29,13 @@ static class HeaderAppender
                     var replace = key.Replace("NServiceBus.", "");
                     yield return new LogEventProperty(replace, new ScalarValue(header.Value));
                 }
+
                 continue;
             }
+
             otherHeaders.Add(key, header.Value);
         }
+
         if (otherHeaders.Count > 0)
         {
             if (logger.BindProperty("OtherHeaders", otherHeaders, out var property))
