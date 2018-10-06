@@ -13,8 +13,11 @@ static class SerializerBuilder
             SerializationBinder = new ShortNameBinder(),
             ContractResolver = new CustomContractResolver()
         };
-        jsonSerializerSettings.Converters.Add(new GuidScrubbingConverter());
-        jsonSerializerSettings.Converters.Add(new DateTimeOffsetScrubbingConverter());
+        var guidScrubbingConverter = new GuidScrubbingConverter();
+        jsonSerializerSettings.Converters.Add(guidScrubbingConverter);
+        var dateTimeOffsetScrubbingConverter = new DateTimeScrubbingConverter();
+        jsonSerializerSettings.Converters.Add(dateTimeOffsetScrubbingConverter);
+        jsonSerializerSettings.Converters.Add(new StringScrubbingConverter(guidScrubbingConverter, dateTimeOffsetScrubbingConverter));
         return jsonSerializerSettings;
     }
 }

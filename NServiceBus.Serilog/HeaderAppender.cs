@@ -10,7 +10,8 @@ static class HeaderAppender
     {
         Headers.EnclosedMessageTypes,
         Headers.ProcessingEndpoint,
-        "NServiceBus.Version"
+        "NServiceBus.Version",
+        Headers.MessageId
     };
 
     public static IEnumerable<LogEventProperty> BuildHeaders(this ILogger logger, Dictionary<string, string> headers)

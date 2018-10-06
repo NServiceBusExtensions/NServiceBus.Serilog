@@ -1,14 +1,19 @@
 ﻿using System;
 using Newtonsoft.Json;
 
-class DateTimeOffsetScrubbingConverter : JsonConverter
+class DateTimeScrubbingConverter : JsonConverter
 {
     int count;
 
     public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
     {
+        WriteValue(writer);
+    }
+
+    public void WriteValue(JsonWriter writer)
+    {
         count++;
-        writer.WriteValue($"DateTimeOffset {count}");
+        writer.WriteValue($"DateTime {count}");
     }
 
     public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
@@ -18,8 +23,9 @@ class DateTimeOffsetScrubbingConverter : JsonConverter
 
     public override bool CanRead => false;
 
-    public override bool CanConvert(Type objectType)
+    public override bool CanConvert(Type type)
     {
-        return objectType == typeof(DateTimeOffset);
+        return type == typeof(DateTimeOffset)||
+               type == typeof(DateTime);
     }
 }

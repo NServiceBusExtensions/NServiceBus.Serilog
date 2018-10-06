@@ -9,40 +9,29 @@ public static class TestExtensions
         return LogsForType<T>(logs).SingleOrDefault();
     }
 
-    public static IEnumerable<LogEvent> LogsForNsbSerilog<T>(this IEnumerable<LogEvent> logs)
+    public static IEnumerable<LogEvent> LogsForNsbSerilog(this IEnumerable<LogEvent> logs)
     {
-        foreach (var log in logs)
-        {
-            if (log.TryGetSourceContext(out var value))
+        return logs.Where(log =>
             {
-                if (value.StartsWith("NServiceBus.Serilog."))
-                {
-                    yield return log;
-                }
-            }
-        }
+                var sourceContext = log.StringSourceContext();
+                return sourceContext != null && sourceContext.StartsWith("NServiceBus.Serilog.");
+            })
+            .OrderBy(x => x.StringSourceContext());
     }
 
     public static IEnumerable<LogEvent> LogsForType<T>(this IEnumerable<LogEvent> logs)
     {
-        return LogsForName(logs, typeof(T).Name);
+        return LogsForName(logs, typeof(T).Name)
+            .OrderBy(x=>x.StringSourceContext());
     }
 
     public static IEnumerable<LogEvent> LogsForName(this IEnumerable<LogEvent> logs, string name)
     {
-        foreach (var log in logs)
-        {
-            if (log.TryGetSourceContext(out var value))
-            {
-                if (value == name)
-                {
-                    yield return log;
-                }
-            }
-        }
+        return logs.Where(log => log.StringSourceContext() == name)
+            .OrderBy(x => x.StringSourceContext());
     }
 
-    public static bool TryGetSourceContext(this LogEvent log, out string value)
+    public static string StringSourceContext(this LogEvent log)
     {
         if (log.Properties.TryGetValue("SourceContext", out var sourceContext))
         {
@@ -50,13 +39,11 @@ public static class TestExtensions
             {
                 if (scalarValue.Value is string temp)
                 {
-                    value = temp;
-                    return true;
+                    return temp;
                 }
             }
         }
 
-        value = null;
-        return false;
+        return null;
     }
 }

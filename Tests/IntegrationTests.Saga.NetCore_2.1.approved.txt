@@ -1,0 +1,456 @@
+﻿{
+  "logsForTarget": [
+    {
+      "Timestamp": "DateTime 1",
+      "Level": 2,
+      "MessageTemplate": {
+        "Text": "Hello from {@Saga}. Message: {@Message}",
+        "Tokens": {
+          "$type": "MessageTemplateToken[]",
+          "$values": [
+            {
+              "$type": "TextToken",
+              "Length": 11,
+              "Text": "Hello from "
+            },
+            {
+              "$type": "PropertyToken",
+              "Length": 7,
+              "PropertyName": "Saga",
+              "Destructuring": 2,
+              "StartIndex": 11
+            },
+            {
+              "$type": "TextToken",
+              "Length": 11,
+              "Text": ". Message: ",
+              "StartIndex": 18
+            },
+            {
+              "$type": "PropertyToken",
+              "Length": 10,
+              "PropertyName": "Message",
+              "Destructuring": 2,
+              "StartIndex": 29
+            }
+          ]
+        }
+      },
+      "Properties": {
+        "$type": "Dictionary`2",
+        "Saga": {
+          "$type": "ScalarValue",
+          "Value": "TheSaga"
+        },
+        "Message": {
+          "$type": "StructureValue",
+          "TypeTag": "StartSaga",
+          "Properties": {
+            "$type": "LogEventProperty[]",
+            "$values": [
+              {
+                "Name": "Property",
+                "Value": {
+                  "$type": "ScalarValue",
+                  "Value": "TheProperty"
+                }
+              }
+            ]
+          }
+        },
+        "SourceContext": {
+          "$type": "ScalarValue",
+          "Value": "TheSaga"
+        }
+      }
+    }
+  ],
+  "logsForNsbSerilog": [
+    {
+      "Timestamp": "DateTime 2",
+      "Level": 2,
+      "MessageTemplate": {
+        "Text": "Receive message {MessageType} {MessageId}.",
+        "Tokens": {
+          "$type": "MessageTemplateToken[]",
+          "$values": [
+            {
+              "$type": "TextToken",
+              "Length": 16,
+              "Text": "Receive message "
+            },
+            {
+              "$type": "PropertyToken",
+              "Length": 13,
+              "PropertyName": "MessageType",
+              "StartIndex": 16
+            },
+            {
+              "$type": "TextToken",
+              "Length": 1,
+              "Text": " ",
+              "StartIndex": 29
+            },
+            {
+              "$type": "PropertyToken",
+              "Length": 11,
+              "PropertyName": "MessageId",
+              "StartIndex": 30
+            },
+            {
+              "$type": "TextToken",
+              "Length": 1,
+              "Text": ".",
+              "StartIndex": 41
+            }
+          ]
+        }
+      },
+      "Properties": {
+        "$type": "Dictionary`2",
+        "MessageType": {
+          "$type": "ScalarValue",
+          "Value": "StartSaga, Tests, Version=5.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6"
+        },
+        "Message": {
+          "$type": "StructureValue",
+          "TypeTag": "StartSaga",
+          "Properties": {
+            "$type": "LogEventProperty[]",
+            "$values": [
+              {
+                "Name": "Property",
+                "Value": {
+                  "$type": "ScalarValue",
+                  "Value": "TheProperty"
+                }
+              }
+            ]
+          }
+        },
+        "MessageId": {
+          "$type": "ScalarValue",
+          "Value": "Guid 1"
+        },
+        "ContentType": {
+          "$type": "ScalarValue",
+          "Value": "text/xml"
+        },
+        "ConversationId": {
+          "$type": "ScalarValue",
+          "Value": "Guid 2"
+        },
+        "CorrelationId": {
+          "$type": "ScalarValue",
+          "Value": "Guid 3"
+        },
+        "MessageIntent": {
+          "$type": "ScalarValue",
+          "Value": "Send"
+        },
+        "OriginatingEndpoint": {
+          "$type": "ScalarValue",
+          "Value": "SerilogTestsCore"
+        },
+        "OriginatingMachine": {
+          "$type": "ScalarValue",
+          "Value": "MachineName"
+        },
+        "ReplyToAddress": {
+          "$type": "ScalarValue",
+          "Value": "SerilogTestsCore"
+        },
+        "TimeSent": {
+          "$type": "ScalarValue",
+          "Value": "DateTime 3"
+        },
+        "ProcessingEndpoint": {
+          "$type": "ScalarValue",
+          "Value": "SerilogTestsCore"
+        },
+        "SourceContext": {
+          "$type": "ScalarValue",
+          "Value": "NServiceBus.Serilog.MessageReceived"
+        }
+      }
+    },
+    {
+      "Timestamp": "DateTime 4",
+      "Level": 2,
+      "MessageTemplate": {
+        "Text": "Sent message {MessageType} {MessageId}.",
+        "Tokens": {
+          "$type": "MessageTemplateToken[]",
+          "$values": [
+            {
+              "$type": "TextToken",
+              "Length": 13,
+              "Text": "Sent message "
+            },
+            {
+              "$type": "PropertyToken",
+              "Length": 13,
+              "PropertyName": "MessageType",
+              "StartIndex": 13
+            },
+            {
+              "$type": "TextToken",
+              "Length": 1,
+              "Text": " ",
+              "StartIndex": 26
+            },
+            {
+              "$type": "PropertyToken",
+              "Length": 11,
+              "PropertyName": "MessageId",
+              "StartIndex": 27
+            },
+            {
+              "$type": "TextToken",
+              "Length": 1,
+              "Text": ".",
+              "StartIndex": 38
+            }
+          ]
+        }
+      },
+      "Properties": {
+        "$type": "Dictionary`2",
+        "MessageType": {
+          "$type": "ScalarValue",
+          "Value": "StartSaga, Tests, Version=5.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6"
+        },
+        "Message": {
+          "$type": "StructureValue",
+          "TypeTag": "StartSaga",
+          "Properties": {
+            "$type": "LogEventProperty[]",
+            "$values": [
+              {
+                "Name": "Property",
+                "Value": {
+                  "$type": "ScalarValue",
+                  "Value": "TheProperty"
+                }
+              }
+            ]
+          }
+        },
+        "MessageId": {
+          "$type": "ScalarValue",
+          "Value": "Guid 4"
+        },
+        "ConversationId": {
+          "$type": "ScalarValue",
+          "Value": "Guid 5"
+        },
+        "CorrelationId": {
+          "$type": "ScalarValue",
+          "Value": "Guid 6"
+        },
+        "MessageIntent": {
+          "$type": "ScalarValue",
+          "Value": "Send"
+        },
+        "OriginatingEndpoint": {
+          "$type": "ScalarValue",
+          "Value": "SerilogTestsCore"
+        },
+        "OriginatingMachine": {
+          "$type": "ScalarValue",
+          "Value": "MachineName"
+        },
+        "ReplyToAddress": {
+          "$type": "ScalarValue",
+          "Value": "SerilogTestsCore"
+        },
+        "ProcessingEndpoint": {
+          "$type": "ScalarValue",
+          "Value": "SerilogTestsCore"
+        },
+        "SourceContext": {
+          "$type": "ScalarValue",
+          "Value": "NServiceBus.Serilog.MessageSent"
+        }
+      }
+    },
+    {
+      "Timestamp": "DateTime 5",
+      "Level": 2,
+      "MessageTemplate": {
+        "Text": "Saga execution '{SagaType}' '{SagaId}'.",
+        "Tokens": {
+          "$type": "MessageTemplateToken[]",
+          "$values": [
+            {
+              "$type": "TextToken",
+              "Length": 16,
+              "Text": "Saga execution '"
+            },
+            {
+              "$type": "PropertyToken",
+              "Length": 10,
+              "PropertyName": "SagaType",
+              "StartIndex": 16
+            },
+            {
+              "$type": "TextToken",
+              "Length": 3,
+              "Text": "' '",
+              "StartIndex": 26
+            },
+            {
+              "$type": "PropertyToken",
+              "Length": 8,
+              "PropertyName": "SagaId",
+              "StartIndex": 29
+            },
+            {
+              "$type": "TextToken",
+              "Length": 2,
+              "Text": "'.",
+              "StartIndex": 37
+            }
+          ]
+        }
+      },
+      "Properties": {
+        "$type": "Dictionary`2",
+        "SagaType": {
+          "$type": "ScalarValue",
+          "Value": "TheSaga"
+        },
+        "SagaId": {
+          "$type": "ScalarValue",
+          "Value": "Guid 7"
+        },
+        "StartTime": {
+          "$type": "ScalarValue",
+          "Value": "DateTime 6"
+        },
+        "FinishTime": {
+          "$type": "ScalarValue",
+          "Value": "DateTime 7"
+        },
+        "IsCompleted": {
+          "$type": "ScalarValue",
+          "Value": false
+        },
+        "IsNew": {
+          "$type": "ScalarValue",
+          "Value": true
+        },
+        "Initiator": {
+          "$type": "StructureValue",
+          "TypeTag": "SagaChangeInitiator",
+          "Properties": {
+            "$type": "LogEventProperty[]",
+            "$values": [
+              {
+                "Name": "InitiatingMessageId",
+                "Value": {
+                  "$type": "ScalarValue",
+                  "Value": "Guid 8"
+                }
+              },
+              {
+                "Name": "MessageType",
+                "Value": {
+                  "$type": "ScalarValue",
+                  "Value": "StartSaga"
+                }
+              },
+              {
+                "Name": "IsSagaTimeoutMessage",
+                "Value": {
+                  "$type": "ScalarValue",
+                  "Value": false
+                }
+              },
+              {
+                "Name": "TimeSent",
+                "Value": {
+                  "$type": "ScalarValue",
+                  "Value": "DateTime 8"
+                }
+              },
+              {
+                "Name": "OriginatingMachine",
+                "Value": {
+                  "$type": "ScalarValue",
+                  "Value": "MachineName"
+                }
+              },
+              {
+                "Name": "OriginatingEndpoint",
+                "Value": {
+                  "$type": "ScalarValue",
+                  "Value": "SerilogTestsCore"
+                }
+              },
+              {
+                "Name": "Intent",
+                "Value": {
+                  "$type": "ScalarValue",
+                  "Value": "Send"
+                }
+              }
+            ]
+          }
+        },
+        "ResultingMessages": {
+          "$type": "SequenceValue",
+          "Elements": {
+            "$type": "LogEventPropertyValue[]",
+            "$values": []
+          }
+        },
+        "Entity": {
+          "$type": "StructureValue",
+          "TypeTag": "TheSagaData",
+          "Properties": {
+            "$type": "LogEventProperty[]",
+            "$values": [
+              {
+                "Name": "Property",
+                "Value": {
+                  "$type": "ScalarValue",
+                  "Value": "TheProperty"
+                }
+              },
+              {
+                "Name": "Id",
+                "Value": {
+                  "$type": "ScalarValue",
+                  "Value": "Guid 9"
+                }
+              },
+              {
+                "Name": "Originator",
+                "Value": {
+                  "$type": "ScalarValue",
+                  "Value": "SerilogTestsCore"
+                }
+              },
+              {
+                "Name": "OriginalMessageId",
+                "Value": {
+                  "$type": "ScalarValue",
+                  "Value": "Guid 10"
+                }
+              }
+            ]
+          }
+        },
+        "ProcessingEndpoint": {
+          "$type": "ScalarValue",
+          "Value": "SerilogTestsCore"
+        },
+        "SourceContext": {
+          "$type": "ScalarValue",
+          "Value": "NServiceBus.Serilog.SagaAudit"
+        }
+      }
+    }
+  ]
+}

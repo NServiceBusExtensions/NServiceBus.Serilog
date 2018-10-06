@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using ApprovalTests.Namers;
 using NServiceBus;
 using NServiceBus.Logging;
 using NServiceBus.Serilog;
@@ -23,21 +24,42 @@ public class IntegrationTests : TestBase
     }
 
     [Fact]
-    public async Task Ensure_handler()
+    public async Task Handler()
     {
-        var events = await Send(new StartHandler {Property = "TheProperty"});
+        var events = await Send(
+            new StartHandler
+            {
+                Property = "TheProperty"
+            });
         var logEvents = events.ToList();
-        var logsForType = logEvents.LogForType<TheHandler>();
-        ObjectApprover.VerifyWithJson(logsForType, jsonSerializerSettings: SerializerBuilder.Get());
+        Verify<TheHandler>(logEvents);
     }
 
     [Fact]
-    public async Task Ensure_saga()
+    public async Task Saga()
     {
-        var events = await Send(new StartSaga {Property = "TheProperty"});
+        var events = await Send(
+            new StartSaga
+            {
+                Property = "TheProperty"
+            });
         var logEvents = events.ToList();
-        var sagaLogEvent = logEvents.LogForType<TheSaga>();
-        ObjectApprover.VerifyWithJson(sagaLogEvent, jsonSerializerSettings: SerializerBuilder.Get());
+        Verify<TheSaga>(logEvents);
+    }
+
+    static void Verify<T>(List<LogEvent> logEvents)
+    {
+        using (ApprovalResults.UniqueForRuntime())
+        {
+            var logsForTarget = logEvents.LogsForType<T>().ToList();
+            ObjectApprover.VerifyWithJson(
+                new
+                {
+                    logsForTarget,
+                    logsForNsbSerilog = logEvents.LogsForNsbSerilog().ToList()
+                },
+                jsonSerializerSettings: SerializerBuilder.Get(), scrubber: s => s.Replace(Environment.MachineName, "MachineName"));
+        }
     }
 
     async Task<IEnumerable<LogEvent>> Send(object message)
@@ -54,7 +76,12 @@ public class IntegrationTests : TestBase
             .CreateLogger();
         LogManager.Use<SerilogFactory>();
 
-        var configuration = new EndpointConfiguration("SerilogTests");
+#if NET472
+        var endpointName = "SerilogTestsClassic";
+#else
+        var endpointName = "SerilogTestsCore";
+#endif
+        var configuration = new EndpointConfiguration(endpointName);
         configuration.EnableInstallers();
         configuration.EnableSerilogTracing().EnableSagaTracing();
 

@@ -7,6 +7,11 @@ class GuidScrubbingConverter : JsonConverter
 
     public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
     {
+        WriteValue(writer);
+    }
+
+    public void WriteValue(JsonWriter writer)
+    {
         count++;
         writer.WriteValue($"Guid {count}");
     }
@@ -18,8 +23,8 @@ class GuidScrubbingConverter : JsonConverter
 
     public override bool CanRead => false;
 
-    public override bool CanConvert(Type objectType)
+    public override bool CanConvert(Type type)
     {
-        return objectType == typeof(Guid);
+        return type == typeof(Guid);
     }
 }
