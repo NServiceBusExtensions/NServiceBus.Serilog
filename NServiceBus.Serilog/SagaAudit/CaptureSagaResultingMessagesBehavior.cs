@@ -4,7 +4,7 @@ using NServiceBus.Routing;
 using System;
 using NServiceBus;
 using NServiceBus.Pipeline;
-using NServiceBus.Serilog.Tracing;
+using NServiceBus.Serilog;
 
 class CaptureSagaResultingMessagesBehavior : Behavior<IOutgoingLogicalMessageContext>
 {

@@ -1,6 +1,6 @@
 ﻿using Serilog;
 
-namespace NServiceBus.Serilog.Tracing
+namespace NServiceBus.Serilog
 {
     /// <summary>
     /// All settings for Serilog Tracing.

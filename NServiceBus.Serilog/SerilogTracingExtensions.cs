@@ -1,5 +1,5 @@
 ﻿using NServiceBus.Configuration.AdvancedExtensibility;
-using NServiceBus.Serilog.Tracing;
+using NServiceBus.Serilog;
 using Serilog;
 
 namespace NServiceBus

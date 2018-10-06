@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace NServiceBus.Serilog.Tracing
+namespace NServiceBus.Serilog
 {
     class SagaChangeInitiator
     {

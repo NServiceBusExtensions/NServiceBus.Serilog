@@ -1,6 +1,6 @@
 ﻿using NServiceBus;
 using NServiceBus.Features;
-using NServiceBus.Serilog.Tracing;
+using NServiceBus.Serilog;
 
 class TracingLog : Feature
 {

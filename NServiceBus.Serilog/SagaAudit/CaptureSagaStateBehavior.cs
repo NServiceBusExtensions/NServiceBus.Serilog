@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using NServiceBus;
 using NServiceBus.Pipeline;
 using NServiceBus.Sagas;
-using NServiceBus.Serilog.Tracing;
+using NServiceBus.Serilog;
 using Serilog;
 using Serilog.Events;
 using Serilog.Parsing;

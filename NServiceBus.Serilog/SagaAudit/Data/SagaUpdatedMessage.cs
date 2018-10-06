@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace NServiceBus.Serilog.Tracing
+namespace NServiceBus.Serilog
 {
     class SagaUpdatedMessage
     {
