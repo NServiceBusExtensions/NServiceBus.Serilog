@@ -11,8 +11,8 @@ class TracingLog : Feature
         var logBuilder = new LogBuilder(settings.Logger, context.Settings.EndpointName());
 
         var pipeline = context.Pipeline;
-        pipeline.Register(new ReceiveMessageBehavior.Registration(logBuilder));
-        pipeline.Register(new SendMessageBehavior.Registration(logBuilder));
+        pipeline.Register(new IncomingLogicalMessageBehavior.Registration(logBuilder));
+        pipeline.Register(new OutgoingLogicalMessageBehavior.Registration(logBuilder));
         if (settings.UseSagaTracing)
         {
             pipeline.Register(new CaptureSagaStateBehavior.Registration(logBuilder));

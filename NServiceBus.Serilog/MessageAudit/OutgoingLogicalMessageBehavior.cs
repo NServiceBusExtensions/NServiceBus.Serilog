@@ -6,33 +6,19 @@ using Serilog;
 using Serilog.Events;
 using Serilog.Parsing;
 
-class ReceiveMessageBehavior : Behavior<IIncomingLogicalMessageContext>
+class OutgoingLogicalMessageBehavior : Behavior<IOutgoingLogicalMessageContext>
 {
-    MessageTemplate messageTemplate;
     ILogger logger;
+    MessageTemplate messageTemplate;
 
-    public ReceiveMessageBehavior(LogBuilder logBuilder)
+    public OutgoingLogicalMessageBehavior(LogBuilder logBuilder)
     {
         var templateParser = new MessageTemplateParser();
-        messageTemplate = templateParser.Parse("Receive message {MessageType} {MessageId}.");
-        logger = logBuilder.GetLogger("NServiceBus.Serilog.MessageReceived");
+        logger = logBuilder.GetLogger("NServiceBus.Serilog.MessageSent");
+        messageTemplate = templateParser.Parse("Sent message {MessageType} {MessageId}.");
     }
 
-    public class Registration : RegisterStep
-    {
-        public Registration(LogBuilder logBuilder)
-            : base(
-                stepId: "SerilogReceiveMessage",
-                behavior: typeof(ReceiveMessageBehavior),
-                description: "Logs incoming messages",
-                factoryMethod: builder => new ReceiveMessageBehavior(logBuilder)
-                )
-        {
-            InsertBefore("MutateIncomingMessages");
-        }
-    }
-
-    public override Task Invoke(IIncomingLogicalMessageContext context, Func<Task> next)
+    public override Task Invoke(IOutgoingLogicalMessageContext context, Func<Task> next)
     {
         var message = context.Message;
         var properties = new List<LogEventProperty>
@@ -50,8 +36,21 @@ class ReceiveMessageBehavior : Behavior<IIncomingLogicalMessageContext>
             properties.Add(messageProperty);
         }
 
+
         properties.AddRange(logger.BuildHeaders(context.Headers));
         logger.WriteInfo(messageTemplate, properties);
         return next();
+    }
+
+    public class Registration : RegisterStep
+    {
+        public Registration(LogBuilder logBuilder)
+            : base(
+                stepId: "Serilog" + nameof(OutgoingLogicalMessageBehavior),
+                behavior: typeof(OutgoingLogicalMessageBehavior),
+                description: "Logs outgoing messages",
+                factoryMethod: builder => new OutgoingLogicalMessageBehavior(logBuilder))
+        {
+        }
     }
 }

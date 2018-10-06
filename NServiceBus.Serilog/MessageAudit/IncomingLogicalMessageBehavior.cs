@@ -6,19 +6,33 @@ using Serilog;
 using Serilog.Events;
 using Serilog.Parsing;
 
-class SendMessageBehavior : Behavior<IOutgoingLogicalMessageContext>
+class IncomingLogicalMessageBehavior : Behavior<IIncomingLogicalMessageContext>
 {
-    ILogger logger;
     MessageTemplate messageTemplate;
+    ILogger logger;
 
-    public SendMessageBehavior(LogBuilder logBuilder)
+    public IncomingLogicalMessageBehavior(LogBuilder logBuilder)
     {
         var templateParser = new MessageTemplateParser();
-        logger = logBuilder.GetLogger("NServiceBus.Serilog.MessageSent");
-        messageTemplate = templateParser.Parse("Sent message {MessageType} {MessageId}.");
+        messageTemplate = templateParser.Parse("Receive message {MessageType} {MessageId}.");
+        logger = logBuilder.GetLogger("NServiceBus.Serilog.MessageReceived");
     }
 
-    public override Task Invoke(IOutgoingLogicalMessageContext context, Func<Task> next)
+    public class Registration : RegisterStep
+    {
+        public Registration(LogBuilder logBuilder)
+            : base(
+                stepId: "Serilog" + nameof(IncomingLogicalMessageBehavior),
+                behavior: typeof(IncomingLogicalMessageBehavior),
+                description: "Logs incoming messages",
+                factoryMethod: builder => new IncomingLogicalMessageBehavior(logBuilder)
+                )
+        {
+            InsertBefore("MutateIncomingMessages");
+        }
+    }
+
+    public override Task Invoke(IIncomingLogicalMessageContext context, Func<Task> next)
     {
         var message = context.Message;
         var properties = new List<LogEventProperty>
@@ -36,21 +50,8 @@ class SendMessageBehavior : Behavior<IOutgoingLogicalMessageContext>
             properties.Add(messageProperty);
         }
 
-
         properties.AddRange(logger.BuildHeaders(context.Headers));
         logger.WriteInfo(messageTemplate, properties);
         return next();
-    }
-
-    public class Registration : RegisterStep
-    {
-        public Registration(LogBuilder logBuilder)
-            : base(
-                stepId: "SerilogSendMessage",
-                behavior: typeof(SendMessageBehavior),
-                description: "Logs outgoing messages",
-                factoryMethod: builder => new SendMessageBehavior(logBuilder))
-        {
-        }
     }
 }
