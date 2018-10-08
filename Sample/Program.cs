@@ -21,8 +21,6 @@ class Program
         var serilogFactory = LogManager.Use<SerilogFactory>();
         serilogFactory.WithLogger(logger);
 
-
-
         //Start using NServiceBus
         var configuration = new EndpointConfiguration("SerilogSample");
         configuration.EnableInstallers();
@@ -30,7 +28,8 @@ class Program
         configuration.UsePersistence<InMemoryPersistence>();
         configuration.UseTransport<LearningTransport>();
 
-        configuration.EnableSerilogTracing();
+        var serilogTracing = configuration.EnableSerilogTracing();
+        serilogTracing.EnableMessageTracing();
 
         var endpoint = await Endpoint.Start(configuration);
         var createUser = new CreateUser

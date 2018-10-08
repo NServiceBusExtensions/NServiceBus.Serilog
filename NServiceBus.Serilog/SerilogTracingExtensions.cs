@@ -30,6 +30,7 @@ namespace NServiceBus
             settings.Set(attachments);
             return attachments;
         }
+
         /// <summary>
         /// Get the current <see cref="ILogger"/> for this context.
         /// </summary>
