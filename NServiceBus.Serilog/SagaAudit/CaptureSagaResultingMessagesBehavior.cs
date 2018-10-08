@@ -57,7 +57,7 @@ class CaptureSagaResultingMessagesBehavior : Behavior<IOutgoingLogicalMessageCon
     {
         public Registration()
             : base(
-                stepId: "SerilogCaptureSagaResultingMessages",
+                stepId: $"Serilog{nameof(CaptureSagaResultingMessagesBehavior)}",
                 behavior: typeof(CaptureSagaResultingMessagesBehavior),
                 description: "Reports messages outgoing from a saga to Serilog",
                 factoryMethod: builder => new CaptureSagaResultingMessagesBehavior())

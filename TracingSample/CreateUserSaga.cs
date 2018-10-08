@@ -1,14 +1,11 @@
 ﻿using System;
 using System.Threading.Tasks;
 using NServiceBus;
-using Serilog;
 
 public class CreateUserSaga : Saga<MySagaData>,
     IAmStartedByMessages<CreateUser>,
     IHandleTimeouts<SagaTimeout>
 {
-    static ILogger log = Log.ForContext<CreateUserSaga>();
-
     protected override void ConfigureHowToFindSaga(SagaPropertyMapper<MySagaData> mapper)
     {
         mapper.ConfigureMapping<CreateUser>(m => m.UserName)
@@ -18,7 +15,7 @@ public class CreateUserSaga : Saga<MySagaData>,
     public Task Handle(CreateUser message, IMessageHandlerContext context)
     {
         Data.UserName = message.UserName;
-        log.Information("User created. Message: {@Message}", message);
+        context.Logger().Information("User created. Message: {@Message}", message);
         var userCreated = new UserCreated
         {
             UserName = message.UserName
@@ -31,7 +28,7 @@ public class CreateUserSaga : Saga<MySagaData>,
 
     public Task Timeout(SagaTimeout state, IMessageHandlerContext context)
     {
-        log.Information("Timeout received");
+        context.Logger().Information("Timeout received");
         return Task.CompletedTask;
     }
 }

@@ -2,7 +2,6 @@
 using NServiceBus;
 using NServiceBus.Pipeline;
 
-// ReSharper disable CSharpWarnings::CS0618
 static class NServiceBusExtensions
 {
     public static string MessageIntent(this IInvokeHandlerContext logicalMessage)

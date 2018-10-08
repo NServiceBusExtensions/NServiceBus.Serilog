@@ -32,7 +32,7 @@ public class IntegrationTests : TestBase
                 Property = "TheProperty"
             });
         var logEvents = events.ToList();
-        Verify<TheHandler>(logEvents);
+        Verify<StartHandler>(logEvents);
     }
 
     [Fact]
@@ -44,7 +44,7 @@ public class IntegrationTests : TestBase
                 Property = "TheProperty"
             });
         var logEvents = events.ToList();
-        Verify<TheSaga>(logEvents);
+        Verify<StartSaga>(logEvents);
     }
 
     static void Verify<T>(List<LogEvent> logEvents)
@@ -58,7 +58,8 @@ public class IntegrationTests : TestBase
                     logsForTarget,
                     logsForNsbSerilog = logEvents.LogsForNsbSerilog().ToList()
                 },
-                jsonSerializerSettings: SerializerBuilder.Get(), scrubber: s => s.Replace(Environment.MachineName, "MachineName"));
+                jsonSerializerSettings: SerializerBuilder.Get(),
+                scrubber: s => s.Replace(Environment.MachineName, "MachineName"));
         }
     }
 
@@ -87,6 +88,7 @@ public class IntegrationTests : TestBase
 
         configuration.SendFailedMessagesTo("error");
         configuration.UsePersistence<InMemoryPersistence>();
+        configuration.PurgeOnStartup(true);
         configuration.UseTransport<LearningTransport>();
 
         var endpoint = await Endpoint.Start(configuration);

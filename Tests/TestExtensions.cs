@@ -4,11 +4,6 @@ using Serilog.Events;
 
 public static class TestExtensions
 {
-    public static LogEvent LogForType<T>(this IEnumerable<LogEvent> logs)
-    {
-        return LogsForType<T>(logs).SingleOrDefault();
-    }
-
     public static IEnumerable<LogEvent> LogsForNsbSerilog(this IEnumerable<LogEvent> logs)
     {
         return logs.Where(log =>
@@ -16,13 +11,13 @@ public static class TestExtensions
                 var sourceContext = log.StringSourceContext();
                 return sourceContext != null && sourceContext.StartsWith("NServiceBus.Serilog.");
             })
-            .OrderBy(x => x.StringSourceContext());
+            .OrderBy(x => x.MessageTemplate.Text);
     }
 
     public static IEnumerable<LogEvent> LogsForType<T>(this IEnumerable<LogEvent> logs)
     {
         return LogsForName(logs, typeof(T).Name)
-            .OrderBy(x=>x.StringSourceContext());
+        .OrderBy(x => x.MessageTemplate.Text);
     }
 
     public static IEnumerable<LogEvent> LogsForName(this IEnumerable<LogEvent> logs, string name)

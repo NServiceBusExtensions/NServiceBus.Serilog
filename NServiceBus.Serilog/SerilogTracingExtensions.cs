@@ -30,5 +30,18 @@ namespace NServiceBus
             settings.Set(attachments);
             return attachments;
         }
+        /// <summary>
+        /// Get the current <see cref="ILogger"/> for this context.
+        /// </summary>
+        public static ILogger Logger(this IPipelineContext context)
+        {
+            Guard.AgainstNull(context, nameof(context));
+            var bag = context.Extensions;
+            if (bag.TryGet("SerilogHandlerLogger", out ILogger logger))
+            {
+                return logger;
+            }
+            return bag.Get<ILogger>();
+        }
     }
 }

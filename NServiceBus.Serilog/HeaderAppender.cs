@@ -10,11 +10,14 @@ static class HeaderAppender
     {
         Headers.EnclosedMessageTypes,
         Headers.ProcessingEndpoint,
+        Headers.ContentType,
+        Headers.CorrelationId,
+        Headers.ConversationId,
         "NServiceBus.Version",
         Headers.MessageId
     };
 
-    public static IEnumerable<LogEventProperty> BuildHeaders(this ILogger logger, Dictionary<string, string> headers)
+    public static IEnumerable<LogEventProperty> BuildHeaders(this ILogger logger, IReadOnlyDictionary<string, string> headers)
     {
         var otherHeaders = new Dictionary<string, string>();
         foreach (var header in headers

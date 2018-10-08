@@ -4,7 +4,7 @@
       "Timestamp": "DateTime 1",
       "Level": 2,
       "MessageTemplate": {
-        "Text": "Hello from {@Handler}. Message: {@Message}",
+        "Text": "Hello from {@Handler}.",
         "Tokens": {
           "$type": "MessageTemplateToken[]",
           "$values": [
@@ -22,16 +22,9 @@
             },
             {
               "$type": "TextToken",
-              "Length": 11,
-              "Text": ". Message: ",
+              "Length": 1,
+              "Text": ".",
               "StartIndex": 21
-            },
-            {
-              "$type": "PropertyToken",
-              "Length": 10,
-              "PropertyName": "Message",
-              "Destructuring": 2,
-              "StartIndex": 32
             }
           ]
         }
@@ -42,30 +35,32 @@
           "$type": "ScalarValue",
           "Value": "TheHandler"
         },
-        "Message": {
-          "$type": "StructureValue",
-          "TypeTag": "StartHandler",
-          "Properties": {
-            "$type": "LogEventProperty[]",
-            "$values": [
-              {
-                "Name": "Property",
-                "Value": {
-                  "$type": "ScalarValue",
-                  "Value": "TheProperty"
-                }
-              }
-            ]
-          }
+        "MessageId": {
+          "$type": "ScalarValue",
+          "Value": "Guid 1"
+        },
+        "MessageType": {
+          "$type": "ScalarValue",
+          "Value": "StartHandler, Tests, Version=5.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6"
+        },
+        "CorrelationId": {
+          "$type": "ScalarValue",
+          "Value": "Guid 2"
+        },
+        "ConversationId": {
+          "$type": "ScalarValue",
+          "Value": "Guid 3"
         },
         "SourceContext": {
           "$type": "ScalarValue",
-          "Value": "TheHandler"
+          "Value": "StartHandler"
+        },
+        "ProcessingEndpoint": {
+          "$type": "ScalarValue",
+          "Value": "SerilogTestsCore"
         }
       }
-    }
-  ],
-  "logsForNsbSerilog": [
+    },
     {
       "Timestamp": "DateTime 2",
       "Level": 2,
@@ -108,14 +103,6 @@
       },
       "Properties": {
         "$type": "Dictionary`2",
-        "MessageType": {
-          "$type": "ScalarValue",
-          "Value": "StartHandler, Tests, Version=5.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6"
-        },
-        "MessageId": {
-          "$type": "ScalarValue",
-          "Value": "Guid 1"
-        },
         "Message": {
           "$type": "StructureValue",
           "TypeTag": "StartHandler",
@@ -131,18 +118,6 @@
               }
             ]
           }
-        },
-        "ContentType": {
-          "$type": "ScalarValue",
-          "Value": "text/xml"
-        },
-        "ConversationId": {
-          "$type": "ScalarValue",
-          "Value": "Guid 2"
-        },
-        "CorrelationId": {
-          "$type": "ScalarValue",
-          "Value": "Guid 3"
         },
         "MessageIntent": {
           "$type": "ScalarValue",
@@ -164,13 +139,29 @@
           "$type": "ScalarValue",
           "Value": "DateTime 3"
         },
-        "ProcessingEndpoint": {
+        "MessageId": {
           "$type": "ScalarValue",
-          "Value": "SerilogTestsCore"
+          "Value": "Guid 4"
+        },
+        "MessageType": {
+          "$type": "ScalarValue",
+          "Value": "StartHandler, Tests, Version=5.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6"
+        },
+        "CorrelationId": {
+          "$type": "ScalarValue",
+          "Value": "Guid 5"
+        },
+        "ConversationId": {
+          "$type": "ScalarValue",
+          "Value": "Guid 6"
         },
         "SourceContext": {
           "$type": "ScalarValue",
-          "Value": "NServiceBus.Serilog.MessageReceived"
+          "Value": "StartHandler"
+        },
+        "ProcessingEndpoint": {
+          "$type": "ScalarValue",
+          "Value": "SerilogTestsCore"
         }
       }
     },
@@ -216,14 +207,6 @@
       },
       "Properties": {
         "$type": "Dictionary`2",
-        "MessageType": {
-          "$type": "ScalarValue",
-          "Value": "StartHandler, Tests, Version=5.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6"
-        },
-        "MessageId": {
-          "$type": "ScalarValue",
-          "Value": "Guid 4"
-        },
         "Message": {
           "$type": "StructureValue",
           "TypeTag": "StartHandler",
@@ -239,14 +222,6 @@
               }
             ]
           }
-        },
-        "ConversationId": {
-          "$type": "ScalarValue",
-          "Value": "Guid 5"
-        },
-        "CorrelationId": {
-          "$type": "ScalarValue",
-          "Value": "Guid 6"
         },
         "MessageIntent": {
           "$type": "ScalarValue",
@@ -264,13 +239,29 @@
           "$type": "ScalarValue",
           "Value": "SerilogTestsCore"
         },
-        "ProcessingEndpoint": {
+        "MessageId": {
           "$type": "ScalarValue",
-          "Value": "SerilogTestsCore"
+          "Value": "Guid 7"
+        },
+        "MessageType": {
+          "$type": "ScalarValue",
+          "Value": "StartHandler, Tests, Version=5.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6"
+        },
+        "CorrelationId": {
+          "$type": "ScalarValue",
+          "Value": "Guid 8"
+        },
+        "ConversationId": {
+          "$type": "ScalarValue",
+          "Value": "Guid 9"
         },
         "SourceContext": {
           "$type": "ScalarValue",
-          "Value": "NServiceBus.Serilog.MessageSent"
+          "Value": "StartHandler"
+        },
+        "ProcessingEndpoint": {
+          "$type": "ScalarValue",
+          "Value": "SerilogTestsCore"
         }
       }
     }

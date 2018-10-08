@@ -5,23 +5,18 @@ using NServiceBus;
 using NServiceBus.Pipeline;
 using NServiceBus.Sagas;
 using NServiceBus.Serilog;
-using Serilog;
 using Serilog.Events;
 using Serilog.Parsing;
 
 class CaptureSagaStateBehavior : Behavior<IInvokeHandlerContext>
 {
-    const string Key = "NServiceBus.Serilog.SagaAudit";
     SagaUpdatedMessage sagaAudit;
-    ILogger logger;
     MessageTemplate messageTemplate;
 
-    public CaptureSagaStateBehavior(LogBuilder logBuilder)
+    public CaptureSagaStateBehavior()
     {
         var templateParser = new MessageTemplateParser();
         messageTemplate = templateParser.Parse("Saga execution '{SagaType}' '{SagaId}'.");
-
-        logger = logBuilder.GetLogger(Key);
     }
 
     public override async Task Invoke(IInvokeHandlerContext context, Func<Task> next)
@@ -33,6 +28,7 @@ class CaptureSagaStateBehavior : Behavior<IInvokeHandlerContext>
             return;
         }
 
+        var logger = context.Logger();
         if (!logger.IsEnabled(LogEventLevel.Information))
         {
             await next().ConfigureAwait(false);
@@ -67,14 +63,16 @@ class CaptureSagaStateBehavior : Behavior<IInvokeHandlerContext>
                 //Receiving a timeout for a saga that has completed
                 return;
             }
+
             throw new Exception("Expected saga.Entity to contain a value.");
         }
-        if (!context.Headers.TryGetValue(Headers.MessageId, out var messageId))
+
+        var headers = context.Headers;
+        if (!headers.TryGetValue(Headers.MessageId, out var messageId))
         {
             return;
         }
 
-        var headers = context.Headers;
         var originatingMachine = headers["NServiceBus.OriginatingMachine"];
         var originatingEndpoint = headers[Headers.OriginatingEndpoint];
         var intent = context.MessageIntent();
@@ -105,24 +103,29 @@ class CaptureSagaStateBehavior : Behavior<IInvokeHandlerContext>
             new LogEventProperty("IsNew", new ScalarValue(sagaAudit.IsNew)),
             new LogEventProperty("SagaType", new ScalarValue(sagaAudit.SagaType)),
         };
+
+        var logger = context.Logger();
         if (logger.BindProperty("Initiator", initiator, out var initiatorProperty))
         {
             properties.Add(initiatorProperty);
         }
+
         if (logger.BindProperty("ResultingMessages", sagaAudit.ResultingMessages, out var resultingMessagesProperty))
         {
             properties.Add(resultingMessagesProperty);
         }
+
         if (logger.BindProperty("Entity", saga.Entity, out var sagaEntityProperty))
         {
             properties.Add(sagaEntityProperty);
         }
+
         logger.WriteInfo(messageTemplate, properties);
     }
 
     void AssignSagaStateChangeCausedByMessage(IInvokeHandlerContext context)
     {
-        if (!context.Headers.TryGetValue("NServiceBus.Serilog.Tracing.SagaStateChange", out var sagaStateChange))
+        if (!context.Headers.TryGetValue("NServiceBus.Serilog.SagaStateChange", out var sagaStateChange))
         {
             sagaStateChange = string.Empty;
         }
@@ -132,6 +135,7 @@ class CaptureSagaStateBehavior : Behavior<IInvokeHandlerContext>
         {
             stateChange = "New";
         }
+
         if (sagaAudit.IsCompleted)
         {
             stateChange = "Completed";
@@ -141,19 +145,20 @@ class CaptureSagaStateBehavior : Behavior<IInvokeHandlerContext>
         {
             sagaStateChange += ";";
         }
+
         sagaStateChange += $"{sagaAudit.SagaId}:{stateChange}";
 
-        context.Headers["NServiceBus.Serilog.Tracing.SagaStateChange"] = sagaStateChange;
+        context.Headers["NServiceBus.Serilog.SagaStateChange"] = sagaStateChange;
     }
 
     public class Registration : RegisterStep
     {
-        public Registration(LogBuilder logBuilder)
+        public Registration()
             : base(
-                stepId: "SerilogCaptureSagaState",
+                stepId: $"Serilog{nameof(CaptureSagaStateBehavior)}",
                 behavior: typeof(CaptureSagaStateBehavior),
                 description: "Records saga state changes",
-                factoryMethod: builder => new CaptureSagaStateBehavior(logBuilder))
+                factoryMethod: builder => new CaptureSagaStateBehavior())
         {
             InsertBefore("InvokeSaga");
         }
