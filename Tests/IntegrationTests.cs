@@ -84,7 +84,9 @@ public class IntegrationTests : TestBase
 #endif
         var configuration = new EndpointConfiguration(endpointName);
         configuration.EnableInstallers();
-        configuration.EnableSerilogTracing().EnableSagaTracing();
+        var serilogTracing = configuration.EnableSerilogTracing();
+        serilogTracing.EnableSagaTracing();
+        serilogTracing.EnableMessageTracing();
 
         configuration.SendFailedMessagesTo("error");
         configuration.UsePersistence<InMemoryPersistence>();

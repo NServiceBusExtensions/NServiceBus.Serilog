@@ -6,17 +6,12 @@ using NServiceBus.Pipeline;
 using Serilog;
 using Serilog.Core.Enrichers;
 
-class TypeHelper
-{
-    public static string GetShortTypeName(string messageType) => messageType.Substring(0, messageType.IndexOf(","));
-}
-
-class IncomingPhysicalMessageBehavior : Behavior<IIncomingPhysicalMessageContext>
+class InjectIncomingPhysicalMessageBehavior : Behavior<IIncomingPhysicalMessageContext>
 {
     LogBuilder logBuilder;
     ILogger loggerForPipeline;
 
-    public IncomingPhysicalMessageBehavior(LogBuilder logBuilder)
+    public InjectIncomingPhysicalMessageBehavior(LogBuilder logBuilder)
     {
         this.logBuilder = logBuilder;
         loggerForPipeline = logBuilder.GetLogger("NServiceBus.Serilog.Pipeline");
@@ -26,10 +21,10 @@ class IncomingPhysicalMessageBehavior : Behavior<IIncomingPhysicalMessageContext
     {
         public Registration(LogBuilder logBuilder)
             : base(
-                stepId: $"Serilog{nameof(IncomingPhysicalMessageBehavior)}",
-                behavior: typeof(IncomingPhysicalMessageBehavior),
-                description: "Logs incoming messages",
-                factoryMethod: builder => new IncomingPhysicalMessageBehavior(logBuilder)
+                stepId: $"Serilog{nameof(InjectIncomingPhysicalMessageBehavior)}",
+                behavior: typeof(InjectIncomingPhysicalMessageBehavior),
+                description: "Injects a logger into the incoming context",
+                factoryMethod: builder => new InjectIncomingPhysicalMessageBehavior(logBuilder)
             )
         {
         }

@@ -9,6 +9,7 @@ namespace NServiceBus.Serilog
     {
         internal ILogger Logger;
         internal bool UseSagaTracing;
+        internal bool UseMessageTracing;
 
         internal SerilogTracingSettings(ILogger logger)
         {
@@ -21,6 +22,14 @@ namespace NServiceBus.Serilog
         public void EnableSagaTracing()
         {
             UseSagaTracing = true;
+        }
+
+        /// <summary>
+        /// Enable tracing of messages. Measure the performance impact of this setting on the system.
+        /// </summary>
+        public void EnableMessageTracing()
+        {
+            UseMessageTracing = true;
         }
     }
 }

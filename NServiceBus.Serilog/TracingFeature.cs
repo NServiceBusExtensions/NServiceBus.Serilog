@@ -2,7 +2,7 @@
 using NServiceBus.Features;
 using NServiceBus.Serilog;
 
-class TracingLog : Feature
+class TracingFeature : Feature
 {
     protected override void Setup(FeatureConfigurationContext context)
     {
@@ -11,10 +11,14 @@ class TracingLog : Feature
         var logBuilder = new LogBuilder(settings.Logger, context.Settings.EndpointName());
 
         var pipeline = context.Pipeline;
-        pipeline.Register(new IncomingPhysicalMessageBehavior.Registration(logBuilder));
-        pipeline.Register(new IncomingLogicalMessageBehavior.Registration());
-        pipeline.Register(new InvokeHandlerContextBehavior.Registration());
-        pipeline.Register(new OutgoingLogicalMessageBehavior.Registration(logBuilder));
+        pipeline.Register(new InjectIncomingPhysicalMessageBehavior.Registration(logBuilder));
+        pipeline.Register(new InjectInvokeHandlerContextBehavior.Registration());
+        pipeline.Register(new InjectOutgoingLogicalMessageBehavior.Registration(logBuilder));
+        if (settings.UseMessageTracing)
+        {
+            pipeline.Register(new LogIncomingLogicalMessageBehavior.Registration());
+            pipeline.Register(new LogOutgoingLogicalMessageBehavior.Registration());
+        }
         if (settings.UseSagaTracing)
         {
             pipeline.Register(new CaptureSagaStateBehavior.Registration());
