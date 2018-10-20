@@ -5,17 +5,6 @@ NServiceBus.Serilog
 
 Add support for sending [NServiceBus](http://particular.net/NServiceBus) logging message through [Serilog](http://serilog.net/)
 
-
-## Standard Logging Library
-
-Plus into the standard NServiceBus logging API to pipe message through to Serilog.
-
-
-### Documentation
-
-https://docs.particular.net/nuget/NServiceBus.Serilog
-
-
 ### Nuget
 
 
@@ -26,6 +15,16 @@ This uses the standard approach to constructing a nuget package. It contains a d
 ```
 PM> Install-Package NServiceBus.Serilog
 ```
+
+
+## Standard Logging Library
+
+Pipe [NServiceBus logging messages](https://docs.particular.net/nservicebus/logging/) through to Serilog.
+
+
+### Documentation
+
+https://docs.particular.net/nuget/NServiceBus.Serilog
 
 
 ### Usage
@@ -53,16 +52,6 @@ Plugs into the low level NServiceBus pipeline to give more detailed diagnostics.
 ### Documentation
 
 https://docs.particular.net/nuget/NServiceBus.Serilog.Tracing
-
-
-### Nuget
-
-
-#### https://www.nuget.org/packages/NServiceBus.Serilog.Tracing/   [![NuGet Status](http://img.shields.io/nuget/v/NServiceBus.Serilog.Tracing.svg?style=flat&max-age=86400)](https://www.nuget.org/packages/NServiceBus.Serilog.Tracing/)
-
-```
-PM> Install-Package NServiceBus.Serilog.Tracing
-```
 
 
 ### Usage
