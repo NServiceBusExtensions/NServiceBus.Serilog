@@ -8,12 +8,12 @@ namespace NServiceBus.Serilog
     public class SerilogTracingSettings
     {
         internal ILogger Logger;
-        internal bool UseSagaTracing;
-        internal bool UseMessageTracing;
+        EndpointConfiguration configuration;
 
-        internal SerilogTracingSettings(ILogger logger)
+        internal SerilogTracingSettings(ILogger logger, EndpointConfiguration configuration)
         {
             Logger = logger;
+            this.configuration = configuration;
         }
 
         /// <summary>
@@ -21,7 +21,7 @@ namespace NServiceBus.Serilog
         /// </summary>
         public void EnableSagaTracing()
         {
-            UseSagaTracing = true;
+            configuration.EnableFeature<SagaTracingFeature>();
         }
 
         /// <summary>
@@ -29,7 +29,7 @@ namespace NServiceBus.Serilog
         /// </summary>
         public void EnableMessageTracing()
         {
-            UseMessageTracing = true;
+            configuration.EnableFeature<MessageTracingFeature>();
         }
     }
 }

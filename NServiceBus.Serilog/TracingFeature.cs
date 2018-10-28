@@ -14,15 +14,5 @@ class TracingFeature : Feature
         pipeline.Register(new InjectIncomingPhysicalMessageBehavior.Registration(logBuilder));
         pipeline.Register(new InjectInvokeHandlerContextBehavior.Registration());
         pipeline.Register(new InjectOutgoingLogicalMessageBehavior.Registration(logBuilder));
-        if (settings.UseMessageTracing)
-        {
-            pipeline.Register(new LogIncomingLogicalMessageBehavior.Registration());
-            pipeline.Register(new LogOutgoingLogicalMessageBehavior.Registration());
-        }
-        if (settings.UseSagaTracing)
-        {
-            pipeline.Register(new CaptureSagaStateBehavior.Registration());
-            pipeline.Register<CaptureSagaResultingMessagesBehavior.Registration>();
-        }
     }
 }
