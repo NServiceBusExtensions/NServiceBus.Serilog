@@ -26,7 +26,7 @@ namespace NServiceBus
             Guard.AgainstNull(logger, nameof(logger));
             configuration.EnableFeature<TracingFeature>();
             var settings = configuration.GetSettings();
-            var attachments = new SerilogTracingSettings(logger);
+            var attachments = new SerilogTracingSettings(logger,configuration);
             settings.Set(attachments);
             return attachments;
         }

@@ -20,6 +20,7 @@ class Program
         var configuration = new EndpointConfiguration("SeqSample");
         var serilogTracing = configuration.EnableSerilogTracing(tracingLog);
         serilogTracing.EnableSagaTracing();
+        serilogTracing.EnableMessageTracing();
         configuration.EnableInstallers();
         configuration.UsePersistence<InMemoryPersistence>();
         configuration.UseTransport<LearningTransport>();
