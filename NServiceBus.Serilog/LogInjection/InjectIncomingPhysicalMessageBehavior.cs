@@ -48,15 +48,7 @@ class InjectIncomingPhysicalMessageBehavior : Behavior<IIncomingPhysicalMessageC
             logger = loggerForPipeline;
         }
 
-        if (headers.TryGetValue(Headers.CorrelationId, out var correlationId))
-        {
-            properties.Add(new PropertyEnricher("CorrelationId", correlationId));
-        }
-
-        if (headers.TryGetValue(Headers.ConversationId, out var conversationId))
-        {
-            properties.Add(new PropertyEnricher("ConversationId", conversationId));
-        }
+        HeaderPromote.PromoteCorrAndConv(headers, properties);
 
         var forContext = logger.ForContext(properties);
         context.Extensions.Set(forContext);

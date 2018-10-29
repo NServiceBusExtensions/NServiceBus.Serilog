@@ -25,10 +25,9 @@ class InjectOutgoingLogicalMessageBehavior : Behavior<IOutgoingLogicalMessageCon
         {
             new PropertyEnricher("MessageId", context.MessageId),
             new PropertyEnricher("MessageType", messageType.AssemblyQualifiedName),
-            new PropertyEnricher("CorrelationId", headers[Headers.CorrelationId]),
-            new PropertyEnricher("ConversationId", headers[Headers.ConversationId])
         };
 
+        HeaderPromote.PromoteCorrAndConv(headers, properties);
         var forContext = logger.ForContext(properties);
         context.Extensions.Set(forContext);
 
