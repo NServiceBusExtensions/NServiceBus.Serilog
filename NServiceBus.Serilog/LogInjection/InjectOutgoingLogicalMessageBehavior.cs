@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using NServiceBus;
 using NServiceBus.Pipeline;
 using Serilog.Core.Enrichers;
 

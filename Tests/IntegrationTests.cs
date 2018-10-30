@@ -58,7 +58,7 @@ public class IntegrationTests : TestBase
                     logsForTarget,
                     logsForNsbSerilog = logEvents.LogsForNsbSerilog().ToList()
                 },
-                jsonSerializerSettings: SerializerBuilder.Get(),
+                jsonSerializerSettings: null,
                 scrubber: s => s.Replace(Environment.MachineName, "MachineName"));
         }
     }
