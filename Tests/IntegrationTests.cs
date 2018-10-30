@@ -18,6 +18,7 @@ public class IntegrationTests : TestBase
 {
     public static ManualResetEvent resetEvent;
 
+
     public IntegrationTests(ITestOutputHelper output) : base(output)
     {
         resetEvent = new ManualResetEvent(false);
@@ -47,7 +48,7 @@ public class IntegrationTests : TestBase
         Verify<StartSaga>(logEvents);
     }
 
-    static void Verify<T>(List<LogEvent> logEvents)
+    static void Verify<T>(List<LogEventEx> logEvents)
     {
         using (ApprovalResults.UniqueForRuntime())
         {
@@ -63,7 +64,7 @@ public class IntegrationTests : TestBase
         }
     }
 
-    async Task<IEnumerable<LogEvent>> Send(object message)
+    async Task<IEnumerable<LogEventEx>> Send(object message)
     {
         var logs = new ConcurrentBag<LogEvent>();
         var eventSink = new EventSink
@@ -102,6 +103,19 @@ public class IntegrationTests : TestBase
 
         await endpoint.Stop();
         Log.CloseAndFlush();
-        return logs.OrderBy(x=>x.Timestamp);
+        return logs.Select(x =>
+            new LogEventEx
+            {
+                MessageTemplate = x.MessageTemplate,
+                Level = x.Level,
+                Properties = x.Properties,
+            });
     }
+}
+
+public class LogEventEx
+{
+    public MessageTemplate MessageTemplate;
+    public LogEventLevel Level;
+    public IReadOnlyDictionary<string, LogEventPropertyValue> Properties;
 }

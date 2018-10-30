@@ -1,12 +1,10 @@
 ﻿{
   "$type": "dynamic",
   "logsForTarget": {
-    "$type": "List<LogEvent>",
+    "$type": "List<LogEventEx>",
     "$values": [
       {
-        "$type": "LogEvent",
-        "Timestamp": "DateTimeOffset 1",
-        "Level": "Information",
+        "$type": "LogEventEx",
         "MessageTemplate": {
           "$type": "MessageTemplate",
           "Text": "Hello from {@Handler}.",
@@ -34,6 +32,7 @@
             ]
           }
         },
+        "Level": "Information",
         "Properties": {
           "$type": "Dictionary<string, LogEventPropertyValue>",
           "Handler": {
@@ -67,9 +66,7 @@
         }
       },
       {
-        "$type": "LogEvent",
-        "Timestamp": "DateTimeOffset 2",
-        "Level": "Information",
+        "$type": "LogEventEx",
         "MessageTemplate": {
           "$type": "MessageTemplate",
           "Text": "Receive message {MessageType} {MessageId}.",
@@ -108,6 +105,7 @@
             ]
           }
         },
+        "Level": "Information",
         "Properties": {
           "$type": "Dictionary<string, LogEventPropertyValue>",
           "Message": {
@@ -174,9 +172,7 @@
         }
       },
       {
-        "$type": "LogEvent",
-        "Timestamp": "DateTimeOffset 3",
-        "Level": "Information",
+        "$type": "LogEventEx",
         "MessageTemplate": {
           "$type": "MessageTemplate",
           "Text": "Sent message {MessageType} {MessageId}.",
@@ -215,6 +211,7 @@
             ]
           }
         },
+        "Level": "Information",
         "Properties": {
           "$type": "Dictionary<string, LogEventPropertyValue>",
           "Message": {

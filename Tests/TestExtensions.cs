@@ -4,7 +4,7 @@ using Serilog.Events;
 
 public static class TestExtensions
 {
-    public static IEnumerable<LogEvent> LogsForNsbSerilog(this IEnumerable<LogEvent> logs)
+    public static IEnumerable<LogEventEx> LogsForNsbSerilog(this IEnumerable<LogEventEx> logs)
     {
         return logs.Where(log =>
             {
@@ -14,19 +14,19 @@ public static class TestExtensions
             .OrderBy(x => x.MessageTemplate.Text);
     }
 
-    public static IEnumerable<LogEvent> LogsForType<T>(this IEnumerable<LogEvent> logs)
+    public static IEnumerable<LogEventEx> LogsForType<T>(this IEnumerable<LogEventEx> logs)
     {
         return LogsForName(logs, typeof(T).Name)
-        .OrderBy(x => x.MessageTemplate.Text);
+            .OrderBy(x => x.MessageTemplate.Text);
     }
 
-    public static IEnumerable<LogEvent> LogsForName(this IEnumerable<LogEvent> logs, string name)
+    public static IEnumerable<LogEventEx> LogsForName(this IEnumerable<LogEventEx> logs, string name)
     {
         return logs.Where(log => log.StringSourceContext() == name)
             .OrderBy(x => x.StringSourceContext());
     }
 
-    public static string StringSourceContext(this LogEvent log)
+    public static string StringSourceContext(this LogEventEx log)
     {
         if (log.Properties.TryGetValue("SourceContext", out var sourceContext))
         {
