@@ -102,6 +102,6 @@ public class IntegrationTests : TestBase
 
         await endpoint.Stop();
         Log.CloseAndFlush();
-        return logs;
+        return logs.OrderBy(x=>x.Timestamp);
     }
 }
