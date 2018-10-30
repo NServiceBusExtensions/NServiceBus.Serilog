@@ -169,10 +169,6 @@
             "$type": "ScalarValue",
             "Value": "SerilogTestsCore"
           },
-          "TimeSent": {
-            "$type": "ScalarValue",
-            "Value": "DateTime 1"
-          },
           "MessageId": {
             "$type": "ScalarValue",
             "Value": "Guid 1"
@@ -252,11 +248,11 @@
           },
           "StartTime": {
             "$type": "ScalarValue",
-            "Value": "DateTime 2"
+            "Value": "DateTime 1"
           },
           "FinishTime": {
             "$type": "ScalarValue",
-            "Value": "DateTime 3"
+            "Value": "DateTime 2"
           },
           "IsCompleted": {
             "$type": "ScalarValue",
@@ -301,7 +297,7 @@
                   "Name": "TimeSent",
                   "Value": {
                     "$type": "ScalarValue",
-                    "Value": "DateTime 4"
+                    "Value": "DateTime 3"
                   }
                 },
                 {

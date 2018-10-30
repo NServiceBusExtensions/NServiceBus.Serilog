@@ -141,10 +141,6 @@
             "$type": "ScalarValue",
             "Value": "SerilogTestsCore"
           },
-          "TimeSent": {
-            "$type": "ScalarValue",
-            "Value": "DateTime 1"
-          },
           "MessageId": {
             "$type": "ScalarValue",
             "Value": "Guid 1"

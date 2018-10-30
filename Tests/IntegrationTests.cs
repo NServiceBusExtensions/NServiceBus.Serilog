@@ -18,9 +18,9 @@ public class IntegrationTests : TestBase
 {
     public static ManualResetEvent resetEvent;
 
-
     public IntegrationTests(ITestOutputHelper output) : base(output)
     {
+        HeaderAppender.excludeHeaders.Add(Headers.TimeSent);
         resetEvent = new ManualResetEvent(false);
     }
 
