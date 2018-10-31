@@ -602,7 +602,7 @@
                     "$type": "ScalarValue",
                     "Value": "SerilogTestsClassic"
                   },
-                  "\"$.diagnostics.originating.hostid\"": {
+                  "\"OriginatingHostId\"": {
                     "$type": "ScalarValue",
                     "Value": "Guid 3"
                   },
@@ -656,7 +656,7 @@
             "CorrelationId": "Guid 1",
             "OriginatingMachine": "MachineName",
             "OriginatingEndpoint": "SerilogTestsClassic",
-            "$.diagnostics.originating.hostid": "Guid 3",
+            "OriginatingHostId": "Guid 3",
             "ReplyToAddress": "SerilogTestsClassic",
             "ContentType": "text/xml",
             "EnclosedMessageTypes": "StartHandlerThatThrows, Tests, Version=5.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6",
@@ -742,7 +742,7 @@
                     "$type": "ScalarValue",
                     "Value": "SerilogTestsClassic"
                   },
-                  "\"$.diagnostics.originating.hostid\"": {
+                  "\"OriginatingHostId\"": {
                     "$type": "ScalarValue",
                     "Value": "Guid 3"
                   },
@@ -796,7 +796,7 @@
             "CorrelationId": "Guid 1",
             "OriginatingMachine": "MachineName",
             "OriginatingEndpoint": "SerilogTestsClassic",
-            "$.diagnostics.originating.hostid": "Guid 3",
+            "OriginatingHostId": "Guid 3",
             "ReplyToAddress": "SerilogTestsClassic",
             "ContentType": "text/xml",
             "EnclosedMessageTypes": "StartHandlerThatThrows, Tests, Version=5.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6",
@@ -882,7 +882,7 @@
                     "$type": "ScalarValue",
                     "Value": "SerilogTestsClassic"
                   },
-                  "\"$.diagnostics.originating.hostid\"": {
+                  "\"OriginatingHostId\"": {
                     "$type": "ScalarValue",
                     "Value": "Guid 3"
                   },
@@ -944,7 +944,7 @@
             "CorrelationId": "Guid 1",
             "OriginatingMachine": "MachineName",
             "OriginatingEndpoint": "SerilogTestsClassic",
-            "$.diagnostics.originating.hostid": "Guid 3",
+            "OriginatingHostId": "Guid 3",
             "ReplyToAddress": "SerilogTestsClassic",
             "ContentType": "text/xml",
             "EnclosedMessageTypes": "StartHandlerThatThrows, Tests, Version=5.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6",
@@ -1032,7 +1032,7 @@
                     "$type": "ScalarValue",
                     "Value": "SerilogTestsClassic"
                   },
-                  "\"$.diagnostics.originating.hostid\"": {
+                  "\"OriginatingHostId\"": {
                     "$type": "ScalarValue",
                     "Value": "Guid 3"
                   },
@@ -1094,7 +1094,7 @@
             "CorrelationId": "Guid 1",
             "OriginatingMachine": "MachineName",
             "OriginatingEndpoint": "SerilogTestsClassic",
-            "$.diagnostics.originating.hostid": "Guid 3",
+            "OriginatingHostId": "Guid 3",
             "ReplyToAddress": "SerilogTestsClassic",
             "ContentType": "text/xml",
             "EnclosedMessageTypes": "StartHandlerThatThrows, Tests, Version=5.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6",
