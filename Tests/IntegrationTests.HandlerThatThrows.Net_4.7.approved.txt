@@ -1,0 +1,1119 @@
+﻿{
+  "$type": "dynamic",
+  "logsForTarget": {
+    "$type": "List<LogEventEx>",
+    "$values": [
+      {
+        "$type": "LogEventEx",
+        "MessageTemplate": {
+          "$type": "MessageTemplate",
+          "Text": "Receive message {MessageType} {MessageId}.",
+          "Tokens": {
+            "$type": "MessageTemplateToken[]",
+            "$values": [
+              {
+                "$type": "TextToken",
+                "Length": 16,
+                "Text": "Receive message "
+              },
+              {
+                "$type": "PropertyToken",
+                "Length": 13,
+                "PropertyName": "MessageType",
+                "StartIndex": 16
+              },
+              {
+                "$type": "TextToken",
+                "Length": 1,
+                "Text": " ",
+                "StartIndex": 29
+              },
+              {
+                "$type": "PropertyToken",
+                "Length": 11,
+                "PropertyName": "MessageId",
+                "StartIndex": 30
+              },
+              {
+                "$type": "TextToken",
+                "Length": 1,
+                "Text": ".",
+                "StartIndex": 41
+              }
+            ]
+          }
+        },
+        "Level": "Information",
+        "Properties": {
+          "$type": "Dictionary<string, LogEventPropertyValue>",
+          "Message": {
+            "$type": "StructureValue",
+            "TypeTag": "StartHandlerThatThrows",
+            "Properties": {
+              "$type": "LogEventProperty[]",
+              "$values": [
+                {
+                  "$type": "LogEventProperty",
+                  "Name": "Property",
+                  "Value": {
+                    "$type": "ScalarValue",
+                    "Value": "TheProperty"
+                  }
+                }
+              ]
+            }
+          },
+          "MessageIntent": {
+            "$type": "ScalarValue",
+            "Value": "Send"
+          },
+          "OriginatingEndpoint": {
+            "$type": "ScalarValue",
+            "Value": "SerilogTestsClassic"
+          },
+          "OriginatingMachine": {
+            "$type": "ScalarValue",
+            "Value": "MachineName"
+          },
+          "ReplyToAddress": {
+            "$type": "ScalarValue",
+            "Value": "SerilogTestsClassic"
+          },
+          "MessageId": {
+            "$type": "ScalarValue",
+            "Value": "Guid 1"
+          },
+          "MessageType": {
+            "$type": "ScalarValue",
+            "Value": "StartHandlerThatThrows, Tests, Version=5.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6"
+          },
+          "CorrelationId": {
+            "$type": "ScalarValue",
+            "Value": "Guid 1"
+          },
+          "ConversationId": {
+            "$type": "ScalarValue",
+            "Value": "Guid 2"
+          },
+          "SourceContext": {
+            "$type": "ScalarValue",
+            "Value": "StartHandlerThatThrows"
+          },
+          "ProcessingEndpoint": {
+            "$type": "ScalarValue",
+            "Value": "SerilogTestsClassic"
+          }
+        }
+      },
+      {
+        "$type": "LogEventEx",
+        "MessageTemplate": {
+          "$type": "MessageTemplate",
+          "Text": "Receive message {MessageType} {MessageId}.",
+          "Tokens": {
+            "$type": "MessageTemplateToken[]",
+            "$values": [
+              {
+                "$type": "TextToken",
+                "Length": 16,
+                "Text": "Receive message "
+              },
+              {
+                "$type": "PropertyToken",
+                "Length": 13,
+                "PropertyName": "MessageType",
+                "StartIndex": 16
+              },
+              {
+                "$type": "TextToken",
+                "Length": 1,
+                "Text": " ",
+                "StartIndex": 29
+              },
+              {
+                "$type": "PropertyToken",
+                "Length": 11,
+                "PropertyName": "MessageId",
+                "StartIndex": 30
+              },
+              {
+                "$type": "TextToken",
+                "Length": 1,
+                "Text": ".",
+                "StartIndex": 41
+              }
+            ]
+          }
+        },
+        "Level": "Information",
+        "Properties": {
+          "$type": "Dictionary<string, LogEventPropertyValue>",
+          "Message": {
+            "$type": "StructureValue",
+            "TypeTag": "StartHandlerThatThrows",
+            "Properties": {
+              "$type": "LogEventProperty[]",
+              "$values": [
+                {
+                  "$type": "LogEventProperty",
+                  "Name": "Property",
+                  "Value": {
+                    "$type": "ScalarValue",
+                    "Value": "TheProperty"
+                  }
+                }
+              ]
+            }
+          },
+          "MessageIntent": {
+            "$type": "ScalarValue",
+            "Value": "Send"
+          },
+          "OriginatingEndpoint": {
+            "$type": "ScalarValue",
+            "Value": "SerilogTestsClassic"
+          },
+          "OriginatingMachine": {
+            "$type": "ScalarValue",
+            "Value": "MachineName"
+          },
+          "ReplyToAddress": {
+            "$type": "ScalarValue",
+            "Value": "SerilogTestsClassic"
+          },
+          "MessageId": {
+            "$type": "ScalarValue",
+            "Value": "Guid 1"
+          },
+          "MessageType": {
+            "$type": "ScalarValue",
+            "Value": "StartHandlerThatThrows, Tests, Version=5.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6"
+          },
+          "CorrelationId": {
+            "$type": "ScalarValue",
+            "Value": "Guid 1"
+          },
+          "ConversationId": {
+            "$type": "ScalarValue",
+            "Value": "Guid 2"
+          },
+          "SourceContext": {
+            "$type": "ScalarValue",
+            "Value": "StartHandlerThatThrows"
+          },
+          "ProcessingEndpoint": {
+            "$type": "ScalarValue",
+            "Value": "SerilogTestsClassic"
+          }
+        }
+      },
+      {
+        "$type": "LogEventEx",
+        "MessageTemplate": {
+          "$type": "MessageTemplate",
+          "Text": "Receive message {MessageType} {MessageId}.",
+          "Tokens": {
+            "$type": "MessageTemplateToken[]",
+            "$values": [
+              {
+                "$type": "TextToken",
+                "Length": 16,
+                "Text": "Receive message "
+              },
+              {
+                "$type": "PropertyToken",
+                "Length": 13,
+                "PropertyName": "MessageType",
+                "StartIndex": 16
+              },
+              {
+                "$type": "TextToken",
+                "Length": 1,
+                "Text": " ",
+                "StartIndex": 29
+              },
+              {
+                "$type": "PropertyToken",
+                "Length": 11,
+                "PropertyName": "MessageId",
+                "StartIndex": 30
+              },
+              {
+                "$type": "TextToken",
+                "Length": 1,
+                "Text": ".",
+                "StartIndex": 41
+              }
+            ]
+          }
+        },
+        "Level": "Information",
+        "Properties": {
+          "$type": "Dictionary<string, LogEventPropertyValue>",
+          "Message": {
+            "$type": "StructureValue",
+            "TypeTag": "StartHandlerThatThrows",
+            "Properties": {
+              "$type": "LogEventProperty[]",
+              "$values": [
+                {
+                  "$type": "LogEventProperty",
+                  "Name": "Property",
+                  "Value": {
+                    "$type": "ScalarValue",
+                    "Value": "TheProperty"
+                  }
+                }
+              ]
+            }
+          },
+          "MessageIntent": {
+            "$type": "ScalarValue",
+            "Value": "Send"
+          },
+          "OriginatingEndpoint": {
+            "$type": "ScalarValue",
+            "Value": "SerilogTestsClassic"
+          },
+          "OriginatingMachine": {
+            "$type": "ScalarValue",
+            "Value": "MachineName"
+          },
+          "ReplyToAddress": {
+            "$type": "ScalarValue",
+            "Value": "SerilogTestsClassic"
+          },
+          "Retries": {
+            "$type": "ScalarValue",
+            "Value": "1"
+          },
+          "Retries.Timestamp": {
+            "$type": "ScalarValue",
+            "Value": "DateTime 1"
+          },
+          "MessageId": {
+            "$type": "ScalarValue",
+            "Value": "Guid 1"
+          },
+          "MessageType": {
+            "$type": "ScalarValue",
+            "Value": "StartHandlerThatThrows, Tests, Version=5.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6"
+          },
+          "CorrelationId": {
+            "$type": "ScalarValue",
+            "Value": "Guid 1"
+          },
+          "ConversationId": {
+            "$type": "ScalarValue",
+            "Value": "Guid 2"
+          },
+          "SourceContext": {
+            "$type": "ScalarValue",
+            "Value": "StartHandlerThatThrows"
+          },
+          "ProcessingEndpoint": {
+            "$type": "ScalarValue",
+            "Value": "SerilogTestsClassic"
+          }
+        }
+      },
+      {
+        "$type": "LogEventEx",
+        "MessageTemplate": {
+          "$type": "MessageTemplate",
+          "Text": "Receive message {MessageType} {MessageId}.",
+          "Tokens": {
+            "$type": "MessageTemplateToken[]",
+            "$values": [
+              {
+                "$type": "TextToken",
+                "Length": 16,
+                "Text": "Receive message "
+              },
+              {
+                "$type": "PropertyToken",
+                "Length": 13,
+                "PropertyName": "MessageType",
+                "StartIndex": 16
+              },
+              {
+                "$type": "TextToken",
+                "Length": 1,
+                "Text": " ",
+                "StartIndex": 29
+              },
+              {
+                "$type": "PropertyToken",
+                "Length": 11,
+                "PropertyName": "MessageId",
+                "StartIndex": 30
+              },
+              {
+                "$type": "TextToken",
+                "Length": 1,
+                "Text": ".",
+                "StartIndex": 41
+              }
+            ]
+          }
+        },
+        "Level": "Information",
+        "Properties": {
+          "$type": "Dictionary<string, LogEventPropertyValue>",
+          "Message": {
+            "$type": "StructureValue",
+            "TypeTag": "StartHandlerThatThrows",
+            "Properties": {
+              "$type": "LogEventProperty[]",
+              "$values": [
+                {
+                  "$type": "LogEventProperty",
+                  "Name": "Property",
+                  "Value": {
+                    "$type": "ScalarValue",
+                    "Value": "TheProperty"
+                  }
+                }
+              ]
+            }
+          },
+          "MessageIntent": {
+            "$type": "ScalarValue",
+            "Value": "Send"
+          },
+          "OriginatingEndpoint": {
+            "$type": "ScalarValue",
+            "Value": "SerilogTestsClassic"
+          },
+          "OriginatingMachine": {
+            "$type": "ScalarValue",
+            "Value": "MachineName"
+          },
+          "ReplyToAddress": {
+            "$type": "ScalarValue",
+            "Value": "SerilogTestsClassic"
+          },
+          "Retries": {
+            "$type": "ScalarValue",
+            "Value": "1"
+          },
+          "Retries.Timestamp": {
+            "$type": "ScalarValue",
+            "Value": "DateTime 1"
+          },
+          "MessageId": {
+            "$type": "ScalarValue",
+            "Value": "Guid 1"
+          },
+          "MessageType": {
+            "$type": "ScalarValue",
+            "Value": "StartHandlerThatThrows, Tests, Version=5.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6"
+          },
+          "CorrelationId": {
+            "$type": "ScalarValue",
+            "Value": "Guid 1"
+          },
+          "ConversationId": {
+            "$type": "ScalarValue",
+            "Value": "Guid 2"
+          },
+          "SourceContext": {
+            "$type": "ScalarValue",
+            "Value": "StartHandlerThatThrows"
+          },
+          "ProcessingEndpoint": {
+            "$type": "ScalarValue",
+            "Value": "SerilogTestsClassic"
+          }
+        }
+      },
+      {
+        "$type": "LogEventEx",
+        "MessageTemplate": {
+          "$type": "MessageTemplate",
+          "Text": "Sent message {MessageType} {MessageId}.",
+          "Tokens": {
+            "$type": "MessageTemplateToken[]",
+            "$values": [
+              {
+                "$type": "TextToken",
+                "Length": 13,
+                "Text": "Sent message "
+              },
+              {
+                "$type": "PropertyToken",
+                "Length": 13,
+                "PropertyName": "MessageType",
+                "StartIndex": 13
+              },
+              {
+                "$type": "TextToken",
+                "Length": 1,
+                "Text": " ",
+                "StartIndex": 26
+              },
+              {
+                "$type": "PropertyToken",
+                "Length": 11,
+                "PropertyName": "MessageId",
+                "StartIndex": 27
+              },
+              {
+                "$type": "TextToken",
+                "Length": 1,
+                "Text": ".",
+                "StartIndex": 38
+              }
+            ]
+          }
+        },
+        "Level": "Information",
+        "Properties": {
+          "$type": "Dictionary<string, LogEventPropertyValue>",
+          "Message": {
+            "$type": "StructureValue",
+            "TypeTag": "StartHandlerThatThrows",
+            "Properties": {
+              "$type": "LogEventProperty[]",
+              "$values": [
+                {
+                  "$type": "LogEventProperty",
+                  "Name": "Property",
+                  "Value": {
+                    "$type": "ScalarValue",
+                    "Value": "TheProperty"
+                  }
+                }
+              ]
+            }
+          },
+          "MessageIntent": {
+            "$type": "ScalarValue",
+            "Value": "Send"
+          },
+          "OriginatingEndpoint": {
+            "$type": "ScalarValue",
+            "Value": "SerilogTestsClassic"
+          },
+          "OriginatingMachine": {
+            "$type": "ScalarValue",
+            "Value": "MachineName"
+          },
+          "ReplyToAddress": {
+            "$type": "ScalarValue",
+            "Value": "SerilogTestsClassic"
+          },
+          "MessageId": {
+            "$type": "ScalarValue",
+            "Value": "Guid 1"
+          },
+          "MessageType": {
+            "$type": "ScalarValue",
+            "Value": "StartHandlerThatThrows, Tests, Version=5.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6"
+          },
+          "CorrelationId": {
+            "$type": "ScalarValue",
+            "Value": "Guid 1"
+          },
+          "ConversationId": {
+            "$type": "ScalarValue",
+            "Value": "Guid 2"
+          },
+          "SourceContext": {
+            "$type": "ScalarValue",
+            "Value": "StartHandlerThatThrows"
+          },
+          "ProcessingEndpoint": {
+            "$type": "ScalarValue",
+            "Value": "SerilogTestsClassic"
+          }
+        }
+      }
+    ]
+  },
+  "logsWithExceptions": {
+    "$type": "List<LogEventEx>",
+    "$values": [
+      {
+        "$type": "LogEventEx",
+        "MessageTemplate": {
+          "$type": "MessageTemplate",
+          "Text": "{Text:l}",
+          "Tokens": {
+            "$type": "MessageTemplateToken[]",
+            "$values": [
+              {
+                "$type": "PropertyToken",
+                "Length": 8,
+                "PropertyName": "Text",
+                "Format": "l"
+              }
+            ]
+          }
+        },
+        "Level": "Information",
+        "Properties": {
+          "$type": "Dictionary<string, LogEventPropertyValue>",
+          "Text": {
+            "$type": "ScalarValue",
+            "Value": "Immediate Retry is going to retry message '00000000-0000-0000-0000-000000000001' because of an exception:"
+          },
+          "SourceContext": {
+            "$type": "ScalarValue",
+            "Value": "NServiceBus.RecoverabilityExecutor"
+          },
+          "ExceptionDetail": {
+            "$type": "DictionaryValue",
+            "Elements": {
+              "$type": "Dictionary<ScalarValue, LogEventPropertyValue>",
+              "\"Type\"": {
+                "$type": "ScalarValue",
+                "Value": "System.Exception"
+              },
+              "\"Data\"": {
+                "$type": "DictionaryValue",
+                "Elements": {
+                  "$type": "Dictionary<ScalarValue, LogEventPropertyValue>",
+                  "\"ProcessingEndpoint\"": {
+                    "$type": "ScalarValue",
+                    "Value": "SerilogTestsClassic"
+                  },
+                  "\"MessageId\"": {
+                    "$type": "ScalarValue",
+                    "Value": "Guid 1"
+                  },
+                  "\"MessageIntent\"": {
+                    "$type": "ScalarValue",
+                    "Value": "Send"
+                  },
+                  "\"ConversationId\"": {
+                    "$type": "ScalarValue",
+                    "Value": "Guid 2"
+                  },
+                  "\"CorrelationId\"": {
+                    "$type": "ScalarValue",
+                    "Value": "Guid 1"
+                  },
+                  "\"OriginatingMachine\"": {
+                    "$type": "ScalarValue",
+                    "Value": "MachineName"
+                  },
+                  "\"OriginatingEndpoint\"": {
+                    "$type": "ScalarValue",
+                    "Value": "SerilogTestsClassic"
+                  },
+                  "\"$.diagnostics.originating.hostid\"": {
+                    "$type": "ScalarValue",
+                    "Value": "Guid 3"
+                  },
+                  "\"ReplyToAddress\"": {
+                    "$type": "ScalarValue",
+                    "Value": "SerilogTestsClassic"
+                  },
+                  "\"ContentType\"": {
+                    "$type": "ScalarValue",
+                    "Value": "text/xml"
+                  },
+                  "\"EnclosedMessageTypes\"": {
+                    "$type": "ScalarValue",
+                    "Value": "StartHandlerThatThrows, Tests, Version=5.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6"
+                  },
+                  "\"Version\"": {
+                    "$type": "ScalarValue",
+                    "Value": "DateTimeOffset 1"
+                  },
+                  "\"TimeSent\"": {
+                    "$type": "ScalarValue",
+                    "Value": "DateTime 2"
+                  }
+                }
+              },
+              "\"HResult\"": {
+                "$type": "ScalarValue",
+                "Value": -2146233088
+              },
+              "\"Message\"": {
+                "$type": "ScalarValue",
+                "Value": "Exception of type 'System.Exception' was thrown."
+              },
+              "\"Source\"": {
+                "$type": "ScalarValue",
+                "Value": "Tests"
+              }
+            }
+          }
+        },
+        "Exception": {
+          "$type": "Exception",
+          "ClassName": "System.Exception",
+          "Message": null,
+          "Data": {
+            "$type": "ListDictionaryInternal",
+            "ProcessingEndpoint": "SerilogTestsClassic",
+            "MessageId": "Guid 1",
+            "MessageIntent": "Send",
+            "ConversationId": "Guid 2",
+            "CorrelationId": "Guid 1",
+            "OriginatingMachine": "MachineName",
+            "OriginatingEndpoint": "SerilogTestsClassic",
+            "$.diagnostics.originating.hostid": "Guid 3",
+            "ReplyToAddress": "SerilogTestsClassic",
+            "ContentType": "text/xml",
+            "EnclosedMessageTypes": "StartHandlerThatThrows, Tests, Version=5.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6",
+            "Version": "DateTimeOffset 1",
+            "TimeSent": "DateTime 2"
+          },
+          "InnerException": null,
+          "HelpURL": null,
+          "StackTraceString": "   at TheHandlerThatThrows.Handle(StartHandlerThatThrows message, IMessageHandlerContext context) in C:\\Code\\NServiceBus.Serilog\\Tests\\HandlerThatThrows\\TheHandlerThatThrows.cs:line 9\r\n   at NServiceBus.InvokeHandlerTerminator.Terminate(IInvokeHandlerContext context)\r\n   at (Closure`2 , IInvokeHandlerContext )\r\n   at InjectInvokeHandlerContextBehavior.<Invoke>d__1.MoveNext()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()\r\n   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)\r\n   at NServiceBus.SagaPersistenceBehavior.<Invoke>d__1.MoveNext()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()\r\n   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)\r\n   at System.Runtime.CompilerServices.ConfiguredTaskAwaitable.ConfiguredTaskAwaiter.GetResult()\r\n   at CaptureSagaStateBehavior.<Invoke>d__3.MoveNext()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()\r\n   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)\r\n   at NServiceBus.LoadHandlersConnector.<Invoke>d__1.MoveNext()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()\r\n   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)\r\n   at NServiceBus.InvokeSagaNotFoundBehavior.<Invoke>d__0.MoveNext()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()\r\n   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)\r\n   at NServiceBus.MutateIncomingMessageBehavior.<InvokeIncomingMessageMutators>d__2.MoveNext()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()\r\n   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)\r\n   at NServiceBus.DeserializeLogicalMessagesConnector.<Invoke>d__1.MoveNext()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()\r\n   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)\r\n   at System.Runtime.CompilerServices.ConfiguredTaskAwaitable.ConfiguredTaskAwaiter.GetResult()\r\n   at InjectIncomingPhysicalMessageBehavior.<Invoke>d__5.MoveNext()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()\r\n   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)\r\n   at NServiceBus.UnitOfWorkBehavior.<InvokeUnitsOfWork>d__1.MoveNext()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()\r\n   at NServiceBus.UnitOfWorkBehavior.<InvokeUnitsOfWork>d__1.MoveNext()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()\r\n   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)\r\n   at NServiceBus.MutateIncomingTransportMessageBehavior.<InvokeIncomingTransportMessagesMutators>d__2.MoveNext()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()\r\n   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)\r\n   at NServiceBus.ProcessingStatisticsBehavior.<Invoke>d__0.MoveNext()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()\r\n   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)\r\n   at NServiceBus.TransportReceiveToPhysicalMessageProcessingConnector.<Invoke>d__1.MoveNext()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()\r\n   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)\r\n   at NServiceBus.MainPipelineExecutor.<Invoke>d__1.MoveNext()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()\r\n   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)\r\n   at NServiceBus.LearningTransportMessagePump.<ProcessFile>d__9.MoveNext()",
+          "RemoteStackTraceString": null,
+          "RemoteStackIndex": 0,
+          "ExceptionMethod": "8\nHandle\nTests, Version=5.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6\nTheHandlerThatThrows\nSystem.Threading.Tasks.Task Handle(StartHandlerThatThrows, NServiceBus.IMessageHandlerContext)",
+          "HResult": -2146233088,
+          "Source": "Tests",
+          "WatsonBuckets": null
+        }
+      },
+      {
+        "$type": "LogEventEx",
+        "MessageTemplate": {
+          "$type": "MessageTemplate",
+          "Text": "{Text:l}",
+          "Tokens": {
+            "$type": "MessageTemplateToken[]",
+            "$values": [
+              {
+                "$type": "PropertyToken",
+                "Length": 8,
+                "PropertyName": "Text",
+                "Format": "l"
+              }
+            ]
+          }
+        },
+        "Level": "Warning",
+        "Properties": {
+          "$type": "Dictionary<string, LogEventPropertyValue>",
+          "Text": {
+            "$type": "ScalarValue",
+            "Value": "Delayed Retry will reschedule message '00000000-0000-0000-0000-000000000001' after a delay of 00:00:00.0010000 because of an exception:"
+          },
+          "SourceContext": {
+            "$type": "ScalarValue",
+            "Value": "NServiceBus.RecoverabilityExecutor"
+          },
+          "ExceptionDetail": {
+            "$type": "DictionaryValue",
+            "Elements": {
+              "$type": "Dictionary<ScalarValue, LogEventPropertyValue>",
+              "\"Type\"": {
+                "$type": "ScalarValue",
+                "Value": "System.Exception"
+              },
+              "\"Data\"": {
+                "$type": "DictionaryValue",
+                "Elements": {
+                  "$type": "Dictionary<ScalarValue, LogEventPropertyValue>",
+                  "\"ProcessingEndpoint\"": {
+                    "$type": "ScalarValue",
+                    "Value": "SerilogTestsClassic"
+                  },
+                  "\"MessageId\"": {
+                    "$type": "ScalarValue",
+                    "Value": "Guid 1"
+                  },
+                  "\"MessageIntent\"": {
+                    "$type": "ScalarValue",
+                    "Value": "Send"
+                  },
+                  "\"ConversationId\"": {
+                    "$type": "ScalarValue",
+                    "Value": "Guid 2"
+                  },
+                  "\"CorrelationId\"": {
+                    "$type": "ScalarValue",
+                    "Value": "Guid 1"
+                  },
+                  "\"OriginatingMachine\"": {
+                    "$type": "ScalarValue",
+                    "Value": "MachineName"
+                  },
+                  "\"OriginatingEndpoint\"": {
+                    "$type": "ScalarValue",
+                    "Value": "SerilogTestsClassic"
+                  },
+                  "\"$.diagnostics.originating.hostid\"": {
+                    "$type": "ScalarValue",
+                    "Value": "Guid 3"
+                  },
+                  "\"ReplyToAddress\"": {
+                    "$type": "ScalarValue",
+                    "Value": "SerilogTestsClassic"
+                  },
+                  "\"ContentType\"": {
+                    "$type": "ScalarValue",
+                    "Value": "text/xml"
+                  },
+                  "\"EnclosedMessageTypes\"": {
+                    "$type": "ScalarValue",
+                    "Value": "StartHandlerThatThrows, Tests, Version=5.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6"
+                  },
+                  "\"Version\"": {
+                    "$type": "ScalarValue",
+                    "Value": "DateTimeOffset 1"
+                  },
+                  "\"TimeSent\"": {
+                    "$type": "ScalarValue",
+                    "Value": "DateTime 2"
+                  }
+                }
+              },
+              "\"HResult\"": {
+                "$type": "ScalarValue",
+                "Value": -2146233088
+              },
+              "\"Message\"": {
+                "$type": "ScalarValue",
+                "Value": "Exception of type 'System.Exception' was thrown."
+              },
+              "\"Source\"": {
+                "$type": "ScalarValue",
+                "Value": "Tests"
+              }
+            }
+          }
+        },
+        "Exception": {
+          "$type": "Exception",
+          "ClassName": "System.Exception",
+          "Message": null,
+          "Data": {
+            "$type": "ListDictionaryInternal",
+            "ProcessingEndpoint": "SerilogTestsClassic",
+            "MessageId": "Guid 1",
+            "MessageIntent": "Send",
+            "ConversationId": "Guid 2",
+            "CorrelationId": "Guid 1",
+            "OriginatingMachine": "MachineName",
+            "OriginatingEndpoint": "SerilogTestsClassic",
+            "$.diagnostics.originating.hostid": "Guid 3",
+            "ReplyToAddress": "SerilogTestsClassic",
+            "ContentType": "text/xml",
+            "EnclosedMessageTypes": "StartHandlerThatThrows, Tests, Version=5.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6",
+            "Version": "DateTimeOffset 1",
+            "TimeSent": "DateTime 2"
+          },
+          "InnerException": null,
+          "HelpURL": null,
+          "StackTraceString": "   at TheHandlerThatThrows.Handle(StartHandlerThatThrows message, IMessageHandlerContext context) in C:\\Code\\NServiceBus.Serilog\\Tests\\HandlerThatThrows\\TheHandlerThatThrows.cs:line 9\r\n   at NServiceBus.InvokeHandlerTerminator.Terminate(IInvokeHandlerContext context)\r\n   at (Closure`2 , IInvokeHandlerContext )\r\n   at InjectInvokeHandlerContextBehavior.<Invoke>d__1.MoveNext()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()\r\n   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)\r\n   at NServiceBus.SagaPersistenceBehavior.<Invoke>d__1.MoveNext()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()\r\n   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)\r\n   at System.Runtime.CompilerServices.ConfiguredTaskAwaitable.ConfiguredTaskAwaiter.GetResult()\r\n   at CaptureSagaStateBehavior.<Invoke>d__3.MoveNext()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()\r\n   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)\r\n   at NServiceBus.LoadHandlersConnector.<Invoke>d__1.MoveNext()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()\r\n   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)\r\n   at NServiceBus.InvokeSagaNotFoundBehavior.<Invoke>d__0.MoveNext()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()\r\n   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)\r\n   at NServiceBus.DeserializeLogicalMessagesConnector.<Invoke>d__1.MoveNext()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()\r\n   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)\r\n   at System.Runtime.CompilerServices.ConfiguredTaskAwaitable.ConfiguredTaskAwaiter.GetResult()\r\n   at InjectIncomingPhysicalMessageBehavior.<Invoke>d__5.MoveNext()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()\r\n   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)\r\n   at NServiceBus.ProcessingStatisticsBehavior.<Invoke>d__0.MoveNext()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()\r\n   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)\r\n   at NServiceBus.TransportReceiveToPhysicalMessageProcessingConnector.<Invoke>d__1.MoveNext()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()\r\n   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)\r\n   at NServiceBus.MainPipelineExecutor.<Invoke>d__1.MoveNext()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()\r\n   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)\r\n   at NServiceBus.LearningTransportMessagePump.<ProcessFile>d__9.MoveNext()",
+          "RemoteStackTraceString": null,
+          "RemoteStackIndex": 0,
+          "ExceptionMethod": "8\nHandle\nTests, Version=5.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6\nTheHandlerThatThrows\nSystem.Threading.Tasks.Task Handle(StartHandlerThatThrows, NServiceBus.IMessageHandlerContext)",
+          "HResult": -2146233088,
+          "Source": "Tests",
+          "WatsonBuckets": null
+        }
+      },
+      {
+        "$type": "LogEventEx",
+        "MessageTemplate": {
+          "$type": "MessageTemplate",
+          "Text": "{Text:l}",
+          "Tokens": {
+            "$type": "MessageTemplateToken[]",
+            "$values": [
+              {
+                "$type": "PropertyToken",
+                "Length": 8,
+                "PropertyName": "Text",
+                "Format": "l"
+              }
+            ]
+          }
+        },
+        "Level": "Information",
+        "Properties": {
+          "$type": "Dictionary<string, LogEventPropertyValue>",
+          "Text": {
+            "$type": "ScalarValue",
+            "Value": "Immediate Retry is going to retry message '00000000-0000-0000-0000-000000000001' because of an exception:"
+          },
+          "SourceContext": {
+            "$type": "ScalarValue",
+            "Value": "NServiceBus.RecoverabilityExecutor"
+          },
+          "ExceptionDetail": {
+            "$type": "DictionaryValue",
+            "Elements": {
+              "$type": "Dictionary<ScalarValue, LogEventPropertyValue>",
+              "\"Type\"": {
+                "$type": "ScalarValue",
+                "Value": "System.Exception"
+              },
+              "\"Data\"": {
+                "$type": "DictionaryValue",
+                "Elements": {
+                  "$type": "Dictionary<ScalarValue, LogEventPropertyValue>",
+                  "\"ProcessingEndpoint\"": {
+                    "$type": "ScalarValue",
+                    "Value": "SerilogTestsClassic"
+                  },
+                  "\"MessageId\"": {
+                    "$type": "ScalarValue",
+                    "Value": "Guid 1"
+                  },
+                  "\"MessageIntent\"": {
+                    "$type": "ScalarValue",
+                    "Value": "Send"
+                  },
+                  "\"ConversationId\"": {
+                    "$type": "ScalarValue",
+                    "Value": "Guid 2"
+                  },
+                  "\"CorrelationId\"": {
+                    "$type": "ScalarValue",
+                    "Value": "Guid 1"
+                  },
+                  "\"OriginatingMachine\"": {
+                    "$type": "ScalarValue",
+                    "Value": "MachineName"
+                  },
+                  "\"OriginatingEndpoint\"": {
+                    "$type": "ScalarValue",
+                    "Value": "SerilogTestsClassic"
+                  },
+                  "\"$.diagnostics.originating.hostid\"": {
+                    "$type": "ScalarValue",
+                    "Value": "Guid 3"
+                  },
+                  "\"ReplyToAddress\"": {
+                    "$type": "ScalarValue",
+                    "Value": "SerilogTestsClassic"
+                  },
+                  "\"ContentType\"": {
+                    "$type": "ScalarValue",
+                    "Value": "text/xml"
+                  },
+                  "\"EnclosedMessageTypes\"": {
+                    "$type": "ScalarValue",
+                    "Value": "StartHandlerThatThrows, Tests, Version=5.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6"
+                  },
+                  "\"Version\"": {
+                    "$type": "ScalarValue",
+                    "Value": "DateTimeOffset 1"
+                  },
+                  "\"TimeSent\"": {
+                    "$type": "ScalarValue",
+                    "Value": "DateTime 2"
+                  },
+                  "\"Retries\"": {
+                    "$type": "ScalarValue",
+                    "Value": "1"
+                  },
+                  "\"Retries.Timestamp\"": {
+                    "$type": "ScalarValue",
+                    "Value": "DateTime 1"
+                  }
+                }
+              },
+              "\"HResult\"": {
+                "$type": "ScalarValue",
+                "Value": -2146233088
+              },
+              "\"Message\"": {
+                "$type": "ScalarValue",
+                "Value": "Exception of type 'System.Exception' was thrown."
+              },
+              "\"Source\"": {
+                "$type": "ScalarValue",
+                "Value": "Tests"
+              }
+            }
+          }
+        },
+        "Exception": {
+          "$type": "Exception",
+          "ClassName": "System.Exception",
+          "Message": null,
+          "Data": {
+            "$type": "ListDictionaryInternal",
+            "ProcessingEndpoint": "SerilogTestsClassic",
+            "MessageId": "Guid 1",
+            "MessageIntent": "Send",
+            "ConversationId": "Guid 2",
+            "CorrelationId": "Guid 1",
+            "OriginatingMachine": "MachineName",
+            "OriginatingEndpoint": "SerilogTestsClassic",
+            "$.diagnostics.originating.hostid": "Guid 3",
+            "ReplyToAddress": "SerilogTestsClassic",
+            "ContentType": "text/xml",
+            "EnclosedMessageTypes": "StartHandlerThatThrows, Tests, Version=5.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6",
+            "Version": "DateTimeOffset 1",
+            "TimeSent": "DateTime 2",
+            "Retries": "1",
+            "Retries.Timestamp": "DateTime 1"
+          },
+          "InnerException": null,
+          "HelpURL": null,
+          "StackTraceString": "   at TheHandlerThatThrows.Handle(StartHandlerThatThrows message, IMessageHandlerContext context) in C:\\Code\\NServiceBus.Serilog\\Tests\\HandlerThatThrows\\TheHandlerThatThrows.cs:line 9\r\n   at NServiceBus.InvokeHandlerTerminator.Terminate(IInvokeHandlerContext context)\r\n   at (Closure`2 , IInvokeHandlerContext )\r\n   at InjectInvokeHandlerContextBehavior.<Invoke>d__1.MoveNext()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()\r\n   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)\r\n   at NServiceBus.SagaPersistenceBehavior.<Invoke>d__1.MoveNext()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()\r\n   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)\r\n   at System.Runtime.CompilerServices.ConfiguredTaskAwaitable.ConfiguredTaskAwaiter.GetResult()\r\n   at CaptureSagaStateBehavior.<Invoke>d__3.MoveNext()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()\r\n   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)\r\n   at NServiceBus.LoadHandlersConnector.<Invoke>d__1.MoveNext()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()\r\n   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)\r\n   at NServiceBus.InvokeSagaNotFoundBehavior.<Invoke>d__0.MoveNext()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()\r\n   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)\r\n   at NServiceBus.DeserializeLogicalMessagesConnector.<Invoke>d__1.MoveNext()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()\r\n   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)\r\n   at System.Runtime.CompilerServices.ConfiguredTaskAwaitable.ConfiguredTaskAwaiter.GetResult()\r\n   at InjectIncomingPhysicalMessageBehavior.<Invoke>d__5.MoveNext()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()\r\n   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)\r\n   at NServiceBus.ProcessingStatisticsBehavior.<Invoke>d__0.MoveNext()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()\r\n   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)\r\n   at NServiceBus.TransportReceiveToPhysicalMessageProcessingConnector.<Invoke>d__1.MoveNext()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()\r\n   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)\r\n   at NServiceBus.MainPipelineExecutor.<Invoke>d__1.MoveNext()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()\r\n   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)\r\n   at NServiceBus.LearningTransportMessagePump.<ProcessFile>d__9.MoveNext()",
+          "RemoteStackTraceString": null,
+          "RemoteStackIndex": 0,
+          "ExceptionMethod": "8\nHandle\nTests, Version=5.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6\nTheHandlerThatThrows\nSystem.Threading.Tasks.Task Handle(StartHandlerThatThrows, NServiceBus.IMessageHandlerContext)",
+          "HResult": -2146233088,
+          "Source": "Tests",
+          "WatsonBuckets": null
+        }
+      },
+      {
+        "$type": "LogEventEx",
+        "MessageTemplate": {
+          "$type": "MessageTemplate",
+          "Text": "{Text:l}",
+          "Tokens": {
+            "$type": "MessageTemplateToken[]",
+            "$values": [
+              {
+                "$type": "PropertyToken",
+                "Length": 8,
+                "PropertyName": "Text",
+                "Format": "l"
+              }
+            ]
+          }
+        },
+        "Level": "Error",
+        "Properties": {
+          "$type": "Dictionary<string, LogEventPropertyValue>",
+          "Text": {
+            "$type": "ScalarValue",
+            "Value": "Moving message '00000000-0000-0000-0000-000000000001' to the error queue 'error' because processing failed due to an exception:"
+          },
+          "SourceContext": {
+            "$type": "ScalarValue",
+            "Value": "NServiceBus.RecoverabilityExecutor"
+          },
+          "ExceptionDetail": {
+            "$type": "DictionaryValue",
+            "Elements": {
+              "$type": "Dictionary<ScalarValue, LogEventPropertyValue>",
+              "\"Type\"": {
+                "$type": "ScalarValue",
+                "Value": "System.Exception"
+              },
+              "\"Data\"": {
+                "$type": "DictionaryValue",
+                "Elements": {
+                  "$type": "Dictionary<ScalarValue, LogEventPropertyValue>",
+                  "\"ProcessingEndpoint\"": {
+                    "$type": "ScalarValue",
+                    "Value": "SerilogTestsClassic"
+                  },
+                  "\"MessageId\"": {
+                    "$type": "ScalarValue",
+                    "Value": "Guid 1"
+                  },
+                  "\"MessageIntent\"": {
+                    "$type": "ScalarValue",
+                    "Value": "Send"
+                  },
+                  "\"ConversationId\"": {
+                    "$type": "ScalarValue",
+                    "Value": "Guid 2"
+                  },
+                  "\"CorrelationId\"": {
+                    "$type": "ScalarValue",
+                    "Value": "Guid 1"
+                  },
+                  "\"OriginatingMachine\"": {
+                    "$type": "ScalarValue",
+                    "Value": "MachineName"
+                  },
+                  "\"OriginatingEndpoint\"": {
+                    "$type": "ScalarValue",
+                    "Value": "SerilogTestsClassic"
+                  },
+                  "\"$.diagnostics.originating.hostid\"": {
+                    "$type": "ScalarValue",
+                    "Value": "Guid 3"
+                  },
+                  "\"ReplyToAddress\"": {
+                    "$type": "ScalarValue",
+                    "Value": "SerilogTestsClassic"
+                  },
+                  "\"ContentType\"": {
+                    "$type": "ScalarValue",
+                    "Value": "text/xml"
+                  },
+                  "\"EnclosedMessageTypes\"": {
+                    "$type": "ScalarValue",
+                    "Value": "StartHandlerThatThrows, Tests, Version=5.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6"
+                  },
+                  "\"Version\"": {
+                    "$type": "ScalarValue",
+                    "Value": "DateTimeOffset 1"
+                  },
+                  "\"TimeSent\"": {
+                    "$type": "ScalarValue",
+                    "Value": "DateTime 2"
+                  },
+                  "\"Retries\"": {
+                    "$type": "ScalarValue",
+                    "Value": "1"
+                  },
+                  "\"Retries.Timestamp\"": {
+                    "$type": "ScalarValue",
+                    "Value": "DateTime 1"
+                  }
+                }
+              },
+              "\"HResult\"": {
+                "$type": "ScalarValue",
+                "Value": -2146233088
+              },
+              "\"Message\"": {
+                "$type": "ScalarValue",
+                "Value": "Exception of type 'System.Exception' was thrown."
+              },
+              "\"Source\"": {
+                "$type": "ScalarValue",
+                "Value": "Tests"
+              }
+            }
+          }
+        },
+        "Exception": {
+          "$type": "Exception",
+          "ClassName": "System.Exception",
+          "Message": null,
+          "Data": {
+            "$type": "ListDictionaryInternal",
+            "ProcessingEndpoint": "SerilogTestsClassic",
+            "MessageId": "Guid 1",
+            "MessageIntent": "Send",
+            "ConversationId": "Guid 2",
+            "CorrelationId": "Guid 1",
+            "OriginatingMachine": "MachineName",
+            "OriginatingEndpoint": "SerilogTestsClassic",
+            "$.diagnostics.originating.hostid": "Guid 3",
+            "ReplyToAddress": "SerilogTestsClassic",
+            "ContentType": "text/xml",
+            "EnclosedMessageTypes": "StartHandlerThatThrows, Tests, Version=5.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6",
+            "Version": "DateTimeOffset 1",
+            "TimeSent": "DateTime 2",
+            "Retries": "1",
+            "Retries.Timestamp": "DateTime 1"
+          },
+          "InnerException": null,
+          "HelpURL": null,
+          "StackTraceString": "   at TheHandlerThatThrows.Handle(StartHandlerThatThrows message, IMessageHandlerContext context) in C:\\Code\\NServiceBus.Serilog\\Tests\\HandlerThatThrows\\TheHandlerThatThrows.cs:line 9\r\n   at NServiceBus.InvokeHandlerTerminator.Terminate(IInvokeHandlerContext context)\r\n   at (Closure`2 , IInvokeHandlerContext )\r\n   at InjectInvokeHandlerContextBehavior.<Invoke>d__1.MoveNext()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()\r\n   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)\r\n   at NServiceBus.SagaPersistenceBehavior.<Invoke>d__1.MoveNext()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()\r\n   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)\r\n   at System.Runtime.CompilerServices.ConfiguredTaskAwaitable.ConfiguredTaskAwaiter.GetResult()\r\n   at CaptureSagaStateBehavior.<Invoke>d__3.MoveNext()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()\r\n   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)\r\n   at NServiceBus.LoadHandlersConnector.<Invoke>d__1.MoveNext()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()\r\n   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)\r\n   at NServiceBus.InvokeSagaNotFoundBehavior.<Invoke>d__0.MoveNext()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()\r\n   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)\r\n   at NServiceBus.DeserializeLogicalMessagesConnector.<Invoke>d__1.MoveNext()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()\r\n   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)\r\n   at System.Runtime.CompilerServices.ConfiguredTaskAwaitable.ConfiguredTaskAwaiter.GetResult()\r\n   at InjectIncomingPhysicalMessageBehavior.<Invoke>d__5.MoveNext()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()\r\n   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)\r\n   at NServiceBus.ProcessingStatisticsBehavior.<Invoke>d__0.MoveNext()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()\r\n   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)\r\n   at NServiceBus.TransportReceiveToPhysicalMessageProcessingConnector.<Invoke>d__1.MoveNext()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()\r\n   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)\r\n   at NServiceBus.MainPipelineExecutor.<Invoke>d__1.MoveNext()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()\r\n   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)\r\n   at NServiceBus.LearningTransportMessagePump.<ProcessFile>d__9.MoveNext()",
+          "RemoteStackTraceString": null,
+          "RemoteStackIndex": 0,
+          "ExceptionMethod": "8\nHandle\nTests, Version=5.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6\nTheHandlerThatThrows\nSystem.Threading.Tasks.Task Handle(StartHandlerThatThrows, NServiceBus.IMessageHandlerContext)",
+          "HResult": -2146233088,
+          "Source": "Tests",
+          "WatsonBuckets": null
+        }
+      }
+    ]
+  }
+}

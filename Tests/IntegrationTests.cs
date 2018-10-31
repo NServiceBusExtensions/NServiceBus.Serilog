@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
@@ -11,6 +10,7 @@ using NServiceBus.Serilog;
 using ObjectApproval;
 using Serilog;
 using Serilog.Events;
+using Serilog.Exceptions;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -37,6 +37,18 @@ public class IntegrationTests : TestBase
     }
 
     [Fact]
+    public async Task HandlerThatThrows()
+    {
+        var events = await Send(
+            new StartHandlerThatThrows
+            {
+                Property = "TheProperty"
+            });
+        var logEvents = events.ToList();
+        Verify<StartHandlerThatThrows>(logEvents);
+    }
+
+    [Fact]
     public async Task Saga()
     {
         var events = await Send(
@@ -57,7 +69,8 @@ public class IntegrationTests : TestBase
                 new
                 {
                     logsForTarget,
-                    logsForNsbSerilog = logEvents.LogsForNsbSerilog().ToList()
+                    logsForNsbSerilog = logEvents.LogsForNsbSerilog().ToList(),
+                    logsWithExceptions = logEvents.LogsWithExceptions().ToList()
                 },
                 jsonSerializerSettings: null,
                 scrubber: s => s.Replace(Environment.MachineName, "MachineName"));
@@ -66,16 +79,17 @@ public class IntegrationTests : TestBase
 
     async Task<IEnumerable<LogEventEx>> Send(object message)
     {
-        var logs = new ConcurrentBag<LogEvent>();
+        var logs = new List<LogEvent>();
         var eventSink = new EventSink
         {
             Action = logs.Add
         };
 
-        Log.Logger = new LoggerConfiguration()
-            .MinimumLevel.Verbose()
-            .WriteTo.Sink(eventSink)
-            .CreateLogger();
+        var loggerConfiguration = new LoggerConfiguration();
+        loggerConfiguration.Enrich.WithExceptionDetails();
+        loggerConfiguration.MinimumLevel.Verbose();
+        loggerConfiguration.WriteTo.Sink(eventSink);
+        Log.Logger = loggerConfiguration.CreateLogger();
         LogManager.Use<SerilogFactory>();
 
 #if NET472
@@ -93,29 +107,36 @@ public class IntegrationTests : TestBase
         configuration.UsePersistence<InMemoryPersistence>();
         configuration.PurgeOnStartup(true);
         configuration.UseTransport<LearningTransport>();
+        var recoverability = configuration.Recoverability();
+        recoverability.Delayed(settings =>
+        {
+            settings.TimeIncrease(TimeSpan.FromMilliseconds(1));
+            settings.NumberOfRetries(1);
+        });
+        recoverability.Immediate(settings => { settings.NumberOfRetries(1); });
+
+        configuration.Notifications.Errors.MessageSentToErrorQueue +=
+            (sender, retry) => { resetEvent.Set(); };
 
         var endpoint = await Endpoint.Start(configuration);
-        await endpoint.SendLocal(message);
-        if (!resetEvent.WaitOne(TimeSpan.FromSeconds(2)))
+        var sendOptions = new SendOptions();
+        sendOptions.SetMessageId("00000000-0000-0000-0000-000000000001");
+        sendOptions.RouteToThisEndpoint();
+        await endpoint.Send(message, sendOptions);
+        if (!resetEvent.WaitOne(TimeSpan.FromSeconds(5)))
         {
             throw new Exception("No Set received.");
         }
-
         await endpoint.Stop();
         Log.CloseAndFlush();
+
         return logs.Select(x =>
             new LogEventEx
             {
                 MessageTemplate = x.MessageTemplate,
                 Level = x.Level,
                 Properties = x.Properties,
+                Exception = x.Exception,
             });
     }
-}
-
-public class LogEventEx
-{
-    public MessageTemplate MessageTemplate;
-    public LogEventLevel Level;
-    public IReadOnlyDictionary<string, LogEventPropertyValue> Properties;
 }

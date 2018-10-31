@@ -8,10 +8,11 @@ class TracingFeature : Feature
     {
         var settings = context.Settings.Get<SerilogTracingSettings>();
 
-        var logBuilder = new LogBuilder(settings.Logger, context.Settings.EndpointName());
+        var endpoint = context.Settings.EndpointName();
+        var logBuilder = new LogBuilder(settings.Logger, endpoint);
 
         var pipeline = context.Pipeline;
-        pipeline.Register(new InjectIncomingPhysicalMessageBehavior.Registration(logBuilder));
+        pipeline.Register(new InjectIncomingPhysicalMessageBehavior.Registration(logBuilder, endpoint));
         pipeline.Register(new InjectInvokeHandlerContextBehavior.Registration());
         pipeline.Register(new InjectOutgoingLogicalMessageBehavior.Registration(logBuilder));
     }

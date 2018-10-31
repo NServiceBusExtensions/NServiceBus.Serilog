@@ -4,15 +4,17 @@ using NServiceBus;
 using NServiceBus.Logging;
 using NServiceBus.Serilog;
 using Serilog;
+using Serilog.Exceptions;
 
 class Program
 {
     static async Task Main()
     {
-        var tracingLog = new LoggerConfiguration()
-            .WriteTo.Seq("http://localhost:5341")
-            .MinimumLevel.Information()
-            .CreateLogger();
+        var loggerConfiguration = new LoggerConfiguration();
+        loggerConfiguration.Enrich.WithExceptionDetails();
+        loggerConfiguration.WriteTo.Seq("http://localhost:5341");
+        loggerConfiguration.MinimumLevel.Information();
+        var tracingLog = loggerConfiguration.CreateLogger();
         //Set NServiceBus to log to Serilog
         var serilogFactory = LogManager.Use<SerilogFactory>();
         serilogFactory.WithLogger(tracingLog);

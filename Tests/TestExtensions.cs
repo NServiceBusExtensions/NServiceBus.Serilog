@@ -14,6 +14,11 @@ public static class TestExtensions
             .OrderBy(x => x.MessageTemplate.Text);
     }
 
+    public static IEnumerable<LogEventEx> LogsWithExceptions(this IEnumerable<LogEventEx> logs)
+    {
+        return logs.Where(x=>x.Exception!=null);
+    }
+
     public static IEnumerable<LogEventEx> LogsForType<T>(this IEnumerable<LogEventEx> logs)
     {
         return LogsForName(logs, typeof(T).Name)
