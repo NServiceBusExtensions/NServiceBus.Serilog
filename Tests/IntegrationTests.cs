@@ -73,7 +73,11 @@ public class IntegrationTests : TestBase
                     logsWithExceptions = logEvents.LogsWithExceptions().ToList()
                 },
                 jsonSerializerSettings: null,
-                scrubber: s => s.Replace(Environment.MachineName, "MachineName"));
+                scrubber: s =>
+                {
+                    var replace = s.Replace(Environment.MachineName, "MachineName");
+                    return replace.ReplaceCaseless(AssemblyLocation.SourceDirectory.Replace(@"\",@"\\"), "CurrentDirectory");
+                });
         }
     }
 
