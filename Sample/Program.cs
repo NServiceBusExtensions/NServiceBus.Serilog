@@ -14,7 +14,7 @@ class Program
         var loggerConfiguration = new LoggerConfiguration();
         loggerConfiguration.Enrich.WithExceptionDetails();
         loggerConfiguration.WriteTo.Console();
-        loggerConfiguration.MinimumLevel.Debug();
+        loggerConfiguration.MinimumLevel.Information();
         loggerConfiguration.WriteTo.File("logFile.txt");
         var logger = loggerConfiguration.CreateLogger();
         Log.Logger = logger;

@@ -578,6 +578,10 @@
                     "$type": "ScalarValue",
                     "Value": "SerilogTestsClassic"
                   },
+                  "\"MessageType\"": {
+                    "$type": "ScalarValue",
+                    "Value": "StartHandlerThatThrows"
+                  },
                   "\"MessageId\"": {
                     "$type": "ScalarValue",
                     "Value": "Guid 1"
@@ -614,13 +618,9 @@
                     "$type": "ScalarValue",
                     "Value": "text/xml"
                   },
-                  "\"EnclosedMessageTypes\"": {
+                  "\"NServiceBusVersion\"": {
                     "$type": "ScalarValue",
-                    "Value": "StartHandlerThatThrows, Tests, Version=5.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6"
-                  },
-                  "\"Version\"": {
-                    "$type": "ScalarValue",
-                    "Value": "DateTimeOffset 1"
+                    "Value": "7.1.4"
                   },
                   "\"TimeSent\"": {
                     "$type": "ScalarValue",
@@ -650,6 +650,7 @@
           "Data": {
             "$type": "ListDictionaryInternal",
             "ProcessingEndpoint": "SerilogTestsClassic",
+            "MessageType": "StartHandlerThatThrows",
             "MessageId": "Guid 1",
             "MessageIntent": "Send",
             "ConversationId": "Guid 2",
@@ -659,8 +660,7 @@
             "OriginatingHostId": "Guid 3",
             "ReplyToAddress": "SerilogTestsClassic",
             "ContentType": "text/xml",
-            "EnclosedMessageTypes": "StartHandlerThatThrows, Tests, Version=5.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6",
-            "Version": "DateTimeOffset 1",
+            "NServiceBusVersion": "7.1.4",
             "TimeSent": "DateTime 2"
           },
           "InnerException": null,
@@ -716,6 +716,10 @@
                     "$type": "ScalarValue",
                     "Value": "SerilogTestsClassic"
                   },
+                  "\"MessageType\"": {
+                    "$type": "ScalarValue",
+                    "Value": "StartHandlerThatThrows"
+                  },
                   "\"MessageId\"": {
                     "$type": "ScalarValue",
                     "Value": "Guid 1"
@@ -752,13 +756,9 @@
                     "$type": "ScalarValue",
                     "Value": "text/xml"
                   },
-                  "\"EnclosedMessageTypes\"": {
+                  "\"NServiceBusVersion\"": {
                     "$type": "ScalarValue",
-                    "Value": "StartHandlerThatThrows, Tests, Version=5.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6"
-                  },
-                  "\"Version\"": {
-                    "$type": "ScalarValue",
-                    "Value": "DateTimeOffset 1"
+                    "Value": "7.1.4"
                   },
                   "\"TimeSent\"": {
                     "$type": "ScalarValue",
@@ -788,6 +788,7 @@
           "Data": {
             "$type": "ListDictionaryInternal",
             "ProcessingEndpoint": "SerilogTestsClassic",
+            "MessageType": "StartHandlerThatThrows",
             "MessageId": "Guid 1",
             "MessageIntent": "Send",
             "ConversationId": "Guid 2",
@@ -797,8 +798,7 @@
             "OriginatingHostId": "Guid 3",
             "ReplyToAddress": "SerilogTestsClassic",
             "ContentType": "text/xml",
-            "EnclosedMessageTypes": "StartHandlerThatThrows, Tests, Version=5.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6",
-            "Version": "DateTimeOffset 1",
+            "NServiceBusVersion": "7.1.4",
             "TimeSent": "DateTime 2"
           },
           "InnerException": null,
@@ -854,6 +854,10 @@
                     "$type": "ScalarValue",
                     "Value": "SerilogTestsClassic"
                   },
+                  "\"MessageType\"": {
+                    "$type": "ScalarValue",
+                    "Value": "StartHandlerThatThrows"
+                  },
                   "\"MessageId\"": {
                     "$type": "ScalarValue",
                     "Value": "Guid 1"
@@ -890,13 +894,9 @@
                     "$type": "ScalarValue",
                     "Value": "text/xml"
                   },
-                  "\"EnclosedMessageTypes\"": {
+                  "\"NServiceBusVersion\"": {
                     "$type": "ScalarValue",
-                    "Value": "StartHandlerThatThrows, Tests, Version=5.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6"
-                  },
-                  "\"Version\"": {
-                    "$type": "ScalarValue",
-                    "Value": "DateTimeOffset 1"
+                    "Value": "7.1.4"
                   },
                   "\"TimeSent\"": {
                     "$type": "ScalarValue",
@@ -934,6 +934,7 @@
           "Data": {
             "$type": "ListDictionaryInternal",
             "ProcessingEndpoint": "SerilogTestsClassic",
+            "MessageType": "StartHandlerThatThrows",
             "MessageId": "Guid 1",
             "MessageIntent": "Send",
             "ConversationId": "Guid 2",
@@ -943,8 +944,7 @@
             "OriginatingHostId": "Guid 3",
             "ReplyToAddress": "SerilogTestsClassic",
             "ContentType": "text/xml",
-            "EnclosedMessageTypes": "StartHandlerThatThrows, Tests, Version=5.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6",
-            "Version": "DateTimeOffset 1",
+            "NServiceBusVersion": "7.1.4",
             "TimeSent": "DateTime 2",
             "Retries": "1",
             "Retries.Timestamp": "DateTime 1"
@@ -1002,6 +1002,10 @@
                     "$type": "ScalarValue",
                     "Value": "SerilogTestsClassic"
                   },
+                  "\"MessageType\"": {
+                    "$type": "ScalarValue",
+                    "Value": "StartHandlerThatThrows"
+                  },
                   "\"MessageId\"": {
                     "$type": "ScalarValue",
                     "Value": "Guid 1"
@@ -1038,13 +1042,9 @@
                     "$type": "ScalarValue",
                     "Value": "text/xml"
                   },
-                  "\"EnclosedMessageTypes\"": {
+                  "\"NServiceBusVersion\"": {
                     "$type": "ScalarValue",
-                    "Value": "StartHandlerThatThrows, Tests, Version=5.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6"
-                  },
-                  "\"Version\"": {
-                    "$type": "ScalarValue",
-                    "Value": "DateTimeOffset 1"
+                    "Value": "7.1.4"
                   },
                   "\"TimeSent\"": {
                     "$type": "ScalarValue",
@@ -1082,6 +1082,7 @@
           "Data": {
             "$type": "ListDictionaryInternal",
             "ProcessingEndpoint": "SerilogTestsClassic",
+            "MessageType": "StartHandlerThatThrows",
             "MessageId": "Guid 1",
             "MessageIntent": "Send",
             "ConversationId": "Guid 2",
@@ -1091,8 +1092,7 @@
             "OriginatingHostId": "Guid 3",
             "ReplyToAddress": "SerilogTestsClassic",
             "ContentType": "text/xml",
-            "EnclosedMessageTypes": "StartHandlerThatThrows, Tests, Version=5.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6",
-            "Version": "DateTimeOffset 1",
+            "NServiceBusVersion": "7.1.4",
             "TimeSent": "DateTime 2",
             "Retries": "1",
             "Retries.Timestamp": "DateTime 1"

@@ -1,4 +1,5 @@
-﻿using ObjectApproval;
+﻿using Newtonsoft.Json;
+using ObjectApproval;
 using Xunit.Abstractions;
 
 public class TestBase
@@ -8,6 +9,7 @@ public class TestBase
         SerializerBuilder.ExtraSettings = settings =>
         {
             settings.ContractResolver = new CustomContractResolverEx();
+            settings.TypeNameHandling = TypeNameHandling.All;
         };
         StringScrubber.AddExtraDatetimeFormat("yyyy-MM-dd HH:mm:ss:ffffff Z");
     }

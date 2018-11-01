@@ -1,4 +1,13 @@
 ﻿static class TypeHelper
 {
-    public static string GetShortTypeName(string messageType) => messageType.Substring(0, messageType.IndexOf(","));
+    public static string GetShortTypeName(string messageType)
+    {
+        var indexOf = messageType.IndexOf(',');
+        if (indexOf == -1)
+        {
+            return messageType;
+        }
+
+        return messageType.Substring(0, indexOf);
+    }
 }

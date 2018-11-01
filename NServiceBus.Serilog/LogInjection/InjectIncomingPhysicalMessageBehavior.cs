@@ -40,9 +40,11 @@ class InjectIncomingPhysicalMessageBehavior : Behavior<IIncomingPhysicalMessageC
         };
         ILogger logger;
         var headers = context.MessageHeaders;
+        string shortTypeName = null;
         if (headers.TryGetValue(Headers.EnclosedMessageTypes, out var messageType))
         {
-            logger = logBuilder.GetLogger(TypeHelper.GetShortTypeName(messageType));
+            shortTypeName = TypeHelper.GetShortTypeName(messageType);
+            logger = logBuilder.GetLogger(shortTypeName);
             properties.Add(new PropertyEnricher("MessageType", messageType));
         }
         else
@@ -61,38 +63,60 @@ class InjectIncomingPhysicalMessageBehavior : Behavior<IIncomingPhysicalMessageC
         }
         catch (Exception exception)
         {
-            var data = exception.Data;
-            data.Add("ProcessingEndpoint", endpoint);
-            foreach (var header in context.MessageHeaders)
+            AddContextToData(exception, shortTypeName, headers);
+            throw;
+        }
+    }
+
+    void AddContextToData(Exception exception, string shortTypeName, IReadOnlyDictionary<string, string> headers)
+    {
+        var data = exception.Data;
+        data.Add("ProcessingEndpoint", endpoint);
+        if (shortTypeName != null)
+        {
+            data.Add("MessageType", shortTypeName);
+        }
+
+        foreach (var header in headers)
+        {
+            var key = header.Key;
+            var value = header.Value;
+            if (key == Headers.NServiceBusVersion)
             {
-                var key = header.Key;
-                if (key.StartsWith("NServiceBus."))
-                {
-                    data.Add(key.Substring(12), header.Value);
-                    continue;
-                }
-
-                if (key == Headers.OriginatingHostId)
-                {
-                    data.Add(nameof(Headers.OriginatingHostId), header.Value);
-                    continue;
-                }
-                if (key == Headers.HostDisplayName)
-                {
-                    data.Add(nameof(Headers.HostDisplayName), header.Value);
-                    continue;
-                }
-                if (key == Headers.HostId)
-                {
-                    data.Add(nameof(Headers.HostId), header.Value);
-                    continue;
-                }
-
-
-                data.Add(key, header.Value);
+                data.Add(nameof(Headers.NServiceBusVersion), value);
+                continue;
             }
 
-            throw;
+            if (key == Headers.EnclosedMessageTypes)
+            {
+                continue;
+            }
+
+            if (key.StartsWith("NServiceBus."))
+            {
+                data.Add(key.Substring(12), value);
+                continue;
+            }
+
+            if (key == Headers.OriginatingHostId)
+            {
+                data.Add(nameof(Headers.OriginatingHostId), value);
+                continue;
+            }
+
+            if (key == Headers.HostDisplayName)
+            {
+                data.Add(nameof(Headers.HostDisplayName), value);
+                continue;
+            }
+
+            if (key == Headers.HostId)
+            {
+                data.Add(nameof(Headers.HostId), value);
+                continue;
+            }
+
+            data.Add(key, value);
         }
     }
 }
