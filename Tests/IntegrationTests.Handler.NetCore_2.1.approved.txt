@@ -1,274 +1,200 @@
 ﻿{
-  "$type": "dynamic",
-  "logsForTarget": {
-    "$type": "List<LogEventEx>",
-    "$values": [
-      {
-        "$type": "LogEventEx",
-        "MessageTemplate": {
-          "$type": "MessageTemplate",
-          "Text": "Hello from {@Handler}.",
-          "Tokens": {
-            "$type": "MessageTemplateToken[]",
-            "$values": [
-              {
-                "$type": "TextToken",
-                "Length": 11,
-                "Text": "Hello from "
-              },
-              {
-                "$type": "PropertyToken",
-                "Length": 10,
-                "PropertyName": "Handler",
-                "Destructuring": "Destructure",
-                "StartIndex": 11
-              },
-              {
-                "$type": "TextToken",
-                "Length": 1,
-                "Text": ".",
-                "StartIndex": 21
-              }
-            ]
+  "logsForTarget": [
+    {
+      "MessageTemplate": {
+        "Text": "Hello from {@Handler}.",
+        "Tokens": [
+          {
+            "Length": 11,
+            "Text": "Hello from "
+          },
+          {
+            "Length": 10,
+            "PropertyName": "Handler",
+            "Destructuring": "Destructure",
+            "StartIndex": 11
+          },
+          {
+            "Length": 1,
+            "Text": ".",
+            "StartIndex": 21
           }
-        },
-        "Level": "Information",
-        "Properties": {
-          "$type": "Dictionary<string, LogEventPropertyValue>",
-          "Handler": {
-            "$type": "ScalarValue",
-            "Value": "TheHandler"
-          },
-          "MessageId": {
-            "$type": "ScalarValue",
-            "Value": "Guid 1"
-          },
-          "MessageType": {
-            "$type": "ScalarValue",
-            "Value": "StartHandler, Tests, Version=5.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6"
-          },
-          "CorrelationId": {
-            "$type": "ScalarValue",
-            "Value": "Guid 1"
-          },
-          "ConversationId": {
-            "$type": "ScalarValue",
-            "Value": "Guid 2"
-          },
-          "SourceContext": {
-            "$type": "ScalarValue",
-            "Value": "StartHandler"
-          },
-          "ProcessingEndpoint": {
-            "$type": "ScalarValue",
-            "Value": "SerilogTestsCore"
-          }
-        }
+        ]
       },
-      {
-        "$type": "LogEventEx",
-        "MessageTemplate": {
-          "$type": "MessageTemplate",
-          "Text": "Receive message {MessageType} {MessageId}.",
-          "Tokens": {
-            "$type": "MessageTemplateToken[]",
-            "$values": [
-              {
-                "$type": "TextToken",
-                "Length": 16,
-                "Text": "Receive message "
-              },
-              {
-                "$type": "PropertyToken",
-                "Length": 13,
-                "PropertyName": "MessageType",
-                "StartIndex": 16
-              },
-              {
-                "$type": "TextToken",
-                "Length": 1,
-                "Text": " ",
-                "StartIndex": 29
-              },
-              {
-                "$type": "PropertyToken",
-                "Length": 11,
-                "PropertyName": "MessageId",
-                "StartIndex": 30
-              },
-              {
-                "$type": "TextToken",
-                "Length": 1,
-                "Text": ".",
-                "StartIndex": 41
-              }
-            ]
-          }
+      "Level": "Information",
+      "Properties": {
+        "Handler": {
+          "Value": "TheHandler"
         },
-        "Level": "Information",
-        "Properties": {
-          "$type": "Dictionary<string, LogEventPropertyValue>",
-          "Message": {
-            "$type": "StructureValue",
-            "TypeTag": "StartHandler",
-            "Properties": {
-              "$type": "LogEventProperty[]",
-              "$values": [
-                {
-                  "$type": "LogEventProperty",
-                  "Name": "Property",
-                  "Value": {
-                    "$type": "ScalarValue",
-                    "Value": "TheProperty"
-                  }
-                }
-              ]
-            }
-          },
-          "MessageIntent": {
-            "$type": "ScalarValue",
-            "Value": "Send"
-          },
-          "OriginatingEndpoint": {
-            "$type": "ScalarValue",
-            "Value": "SerilogTestsCore"
-          },
-          "OriginatingMachine": {
-            "$type": "ScalarValue",
-            "Value": "MachineName"
-          },
-          "ReplyToAddress": {
-            "$type": "ScalarValue",
-            "Value": "SerilogTestsCore"
-          },
-          "MessageId": {
-            "$type": "ScalarValue",
-            "Value": "Guid 1"
-          },
-          "MessageType": {
-            "$type": "ScalarValue",
-            "Value": "StartHandler, Tests, Version=5.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6"
-          },
-          "CorrelationId": {
-            "$type": "ScalarValue",
-            "Value": "Guid 1"
-          },
-          "ConversationId": {
-            "$type": "ScalarValue",
-            "Value": "Guid 2"
-          },
-          "SourceContext": {
-            "$type": "ScalarValue",
-            "Value": "StartHandler"
-          },
-          "ProcessingEndpoint": {
-            "$type": "ScalarValue",
-            "Value": "SerilogTestsCore"
-          }
-        }
-      },
-      {
-        "$type": "LogEventEx",
-        "MessageTemplate": {
-          "$type": "MessageTemplate",
-          "Text": "Sent message {MessageType} {MessageId}.",
-          "Tokens": {
-            "$type": "MessageTemplateToken[]",
-            "$values": [
-              {
-                "$type": "TextToken",
-                "Length": 13,
-                "Text": "Sent message "
-              },
-              {
-                "$type": "PropertyToken",
-                "Length": 13,
-                "PropertyName": "MessageType",
-                "StartIndex": 13
-              },
-              {
-                "$type": "TextToken",
-                "Length": 1,
-                "Text": " ",
-                "StartIndex": 26
-              },
-              {
-                "$type": "PropertyToken",
-                "Length": 11,
-                "PropertyName": "MessageId",
-                "StartIndex": 27
-              },
-              {
-                "$type": "TextToken",
-                "Length": 1,
-                "Text": ".",
-                "StartIndex": 38
-              }
-            ]
-          }
+        "MessageId": {
+          "Value": "Guid 1"
         },
-        "Level": "Information",
-        "Properties": {
-          "$type": "Dictionary<string, LogEventPropertyValue>",
-          "Message": {
-            "$type": "StructureValue",
-            "TypeTag": "StartHandler",
-            "Properties": {
-              "$type": "LogEventProperty[]",
-              "$values": [
-                {
-                  "$type": "LogEventProperty",
-                  "Name": "Property",
-                  "Value": {
-                    "$type": "ScalarValue",
-                    "Value": "TheProperty"
-                  }
-                }
-              ]
-            }
-          },
-          "MessageIntent": {
-            "$type": "ScalarValue",
-            "Value": "Send"
-          },
-          "OriginatingEndpoint": {
-            "$type": "ScalarValue",
-            "Value": "SerilogTestsCore"
-          },
-          "OriginatingMachine": {
-            "$type": "ScalarValue",
-            "Value": "MachineName"
-          },
-          "ReplyToAddress": {
-            "$type": "ScalarValue",
-            "Value": "SerilogTestsCore"
-          },
-          "MessageId": {
-            "$type": "ScalarValue",
-            "Value": "Guid 1"
-          },
-          "MessageType": {
-            "$type": "ScalarValue",
-            "Value": "StartHandler, Tests, Version=5.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6"
-          },
-          "CorrelationId": {
-            "$type": "ScalarValue",
-            "Value": "Guid 1"
-          },
-          "ConversationId": {
-            "$type": "ScalarValue",
-            "Value": "Guid 2"
-          },
-          "SourceContext": {
-            "$type": "ScalarValue",
-            "Value": "StartHandler"
-          },
-          "ProcessingEndpoint": {
-            "$type": "ScalarValue",
-            "Value": "SerilogTestsCore"
-          }
+        "MessageType": {
+          "Value": "StartHandler, Tests, Version=5.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6"
+        },
+        "CorrelationId": {
+          "Value": "Guid 1"
+        },
+        "ConversationId": {
+          "Value": "Guid 2"
+        },
+        "SourceContext": {
+          "Value": "StartHandler"
+        },
+        "ProcessingEndpoint": {
+          "Value": "SerilogTestsCore"
         }
       }
-    ]
-  }
+    },
+    {
+      "MessageTemplate": {
+        "Text": "Receive message {MessageType} {MessageId}.",
+        "Tokens": [
+          {
+            "Length": 16,
+            "Text": "Receive message "
+          },
+          {
+            "Length": 13,
+            "PropertyName": "MessageType",
+            "StartIndex": 16
+          },
+          {
+            "Length": 1,
+            "Text": " ",
+            "StartIndex": 29
+          },
+          {
+            "Length": 11,
+            "PropertyName": "MessageId",
+            "StartIndex": 30
+          },
+          {
+            "Length": 1,
+            "Text": ".",
+            "StartIndex": 41
+          }
+        ]
+      },
+      "Level": "Information",
+      "Properties": {
+        "Message": {
+          "TypeTag": "StartHandler",
+          "Properties": [
+            {
+              "Name": "Property",
+              "Value": {
+                "Value": "TheProperty"
+              }
+            }
+          ]
+        },
+        "MessageIntent": {
+          "Value": "Send"
+        },
+        "OriginatingEndpoint": {
+          "Value": "SerilogTestsCore"
+        },
+        "OriginatingMachine": {
+          "Value": "MachineName"
+        },
+        "ReplyToAddress": {
+          "Value": "SerilogTestsCore"
+        },
+        "MessageId": {
+          "Value": "Guid 1"
+        },
+        "MessageType": {
+          "Value": "StartHandler, Tests, Version=5.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6"
+        },
+        "CorrelationId": {
+          "Value": "Guid 1"
+        },
+        "ConversationId": {
+          "Value": "Guid 2"
+        },
+        "SourceContext": {
+          "Value": "StartHandler"
+        },
+        "ProcessingEndpoint": {
+          "Value": "SerilogTestsCore"
+        }
+      }
+    },
+    {
+      "MessageTemplate": {
+        "Text": "Sent message {MessageType} {MessageId}.",
+        "Tokens": [
+          {
+            "Length": 13,
+            "Text": "Sent message "
+          },
+          {
+            "Length": 13,
+            "PropertyName": "MessageType",
+            "StartIndex": 13
+          },
+          {
+            "Length": 1,
+            "Text": " ",
+            "StartIndex": 26
+          },
+          {
+            "Length": 11,
+            "PropertyName": "MessageId",
+            "StartIndex": 27
+          },
+          {
+            "Length": 1,
+            "Text": ".",
+            "StartIndex": 38
+          }
+        ]
+      },
+      "Level": "Information",
+      "Properties": {
+        "Message": {
+          "TypeTag": "StartHandler",
+          "Properties": [
+            {
+              "Name": "Property",
+              "Value": {
+                "Value": "TheProperty"
+              }
+            }
+          ]
+        },
+        "MessageIntent": {
+          "Value": "Send"
+        },
+        "OriginatingEndpoint": {
+          "Value": "SerilogTestsCore"
+        },
+        "OriginatingMachine": {
+          "Value": "MachineName"
+        },
+        "ReplyToAddress": {
+          "Value": "SerilogTestsCore"
+        },
+        "MessageId": {
+          "Value": "Guid 1"
+        },
+        "MessageType": {
+          "Value": "StartHandler, Tests, Version=5.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6"
+        },
+        "CorrelationId": {
+          "Value": "Guid 1"
+        },
+        "ConversationId": {
+          "Value": "Guid 2"
+        },
+        "SourceContext": {
+          "Value": "StartHandler"
+        },
+        "ProcessingEndpoint": {
+          "Value": "SerilogTestsCore"
+        }
+      }
+    }
+  ]
 }
