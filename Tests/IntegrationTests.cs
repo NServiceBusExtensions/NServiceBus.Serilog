@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using ApprovalTests.Namers;
 using NServiceBus;
 using NServiceBus.Logging;
 using NServiceBus.Serilog;
@@ -62,20 +61,17 @@ public class IntegrationTests : TestBase
 
     static void Verify<T>(List<LogEventEx> logEvents)
     {
-        using (ApprovalResults.UniqueForRuntime())
-        {
-            var logsForTarget = logEvents.LogsForType<T>().ToList();
-            ObjectApprover.VerifyWithJson(
-                new
-                {
-                    logsForTarget,
-                    logsForNsbSerilog = logEvents.LogsForNsbSerilog().ToList(),
-                    logsWithExceptions = logEvents.LogsWithExceptions().ToList()
-                },
-                jsonSerializerSettings: null,
-                scrubber: s => s.Replace(Environment.MachineName, "MachineName")
-                    .RemoveLinesContaining("StackTraceString"));
-        }
+        var logsForTarget = logEvents.LogsForType<T>().ToList();
+        ObjectApprover.VerifyWithJson(
+            new
+            {
+                logsForTarget,
+                logsForNsbSerilog = logEvents.LogsForNsbSerilog().ToList(),
+                logsWithExceptions = logEvents.LogsWithExceptions().ToList()
+            },
+            jsonSerializerSettings: null,
+            scrubber: s => s.Replace(Environment.MachineName, "MachineName")
+                .RemoveLinesContaining("StackTraceString"));
     }
 
     async Task<IEnumerable<LogEventEx>> Send(object message)
@@ -93,12 +89,7 @@ public class IntegrationTests : TestBase
         Log.Logger = loggerConfiguration.CreateLogger();
         LogManager.Use<SerilogFactory>();
 
-#if NET472
-        var endpointName = "SerilogTestsClassic";
-#else
-        var endpointName = "SerilogTestsCore";
-#endif
-        var configuration = new EndpointConfiguration(endpointName);
+        var configuration = new EndpointConfiguration("SerilogTests");
         configuration.EnableInstallers();
         var serilogTracing = configuration.EnableSerilogTracing();
         serilogTracing.EnableSagaTracing();

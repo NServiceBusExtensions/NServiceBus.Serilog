@@ -70,7 +70,6 @@ class InjectIncomingPhysicalMessageBehavior : Behavior<IIncomingPhysicalMessageC
         var loggerForContext = logger.ForContext(properties);
         context.Extensions.Set(loggerForContext);
 
-
         try
         {
             await next().ConfigureAwait(false);

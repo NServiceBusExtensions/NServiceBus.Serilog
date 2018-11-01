@@ -50,13 +50,13 @@
           "Value": "Send"
         },
         "OriginatingEndpoint": {
-          "Value": "SerilogTestsCore"
+          "Value": "SerilogTests"
         },
         "OriginatingMachine": {
           "Value": "MachineName"
         },
         "ReplyToAddress": {
-          "Value": "SerilogTestsCore"
+          "Value": "SerilogTests"
         },
         "MessageId": {
           "Value": "Guid 2"
@@ -74,7 +74,7 @@
           "Value": "StartHandlerThatThrows"
         },
         "ProcessingEndpoint": {
-          "Value": "SerilogTestsCore"
+          "Value": "SerilogTests"
         }
       }
     },
@@ -128,13 +128,13 @@
           "Value": "Send"
         },
         "OriginatingEndpoint": {
-          "Value": "SerilogTestsCore"
+          "Value": "SerilogTests"
         },
         "OriginatingMachine": {
           "Value": "MachineName"
         },
         "ReplyToAddress": {
-          "Value": "SerilogTestsCore"
+          "Value": "SerilogTests"
         },
         "MessageId": {
           "Value": "Guid 2"
@@ -152,7 +152,7 @@
           "Value": "StartHandlerThatThrows"
         },
         "ProcessingEndpoint": {
-          "Value": "SerilogTestsCore"
+          "Value": "SerilogTests"
         }
       }
     },
@@ -206,13 +206,13 @@
           "Value": "Send"
         },
         "OriginatingEndpoint": {
-          "Value": "SerilogTestsCore"
+          "Value": "SerilogTests"
         },
         "OriginatingMachine": {
           "Value": "MachineName"
         },
         "ReplyToAddress": {
-          "Value": "SerilogTestsCore"
+          "Value": "SerilogTests"
         },
         "Retries": {
           "Value": "1"
@@ -236,7 +236,7 @@
           "Value": "StartHandlerThatThrows"
         },
         "ProcessingEndpoint": {
-          "Value": "SerilogTestsCore"
+          "Value": "SerilogTests"
         }
       }
     },
@@ -290,13 +290,13 @@
           "Value": "Send"
         },
         "OriginatingEndpoint": {
-          "Value": "SerilogTestsCore"
+          "Value": "SerilogTests"
         },
         "OriginatingMachine": {
           "Value": "MachineName"
         },
         "ReplyToAddress": {
-          "Value": "SerilogTestsCore"
+          "Value": "SerilogTests"
         },
         "Retries": {
           "Value": "1"
@@ -320,7 +320,7 @@
           "Value": "StartHandlerThatThrows"
         },
         "ProcessingEndpoint": {
-          "Value": "SerilogTestsCore"
+          "Value": "SerilogTests"
         }
       }
     },
@@ -374,13 +374,13 @@
           "Value": "Send"
         },
         "OriginatingEndpoint": {
-          "Value": "SerilogTestsCore"
+          "Value": "SerilogTests"
         },
         "OriginatingMachine": {
           "Value": "MachineName"
         },
         "ReplyToAddress": {
-          "Value": "SerilogTestsCore"
+          "Value": "SerilogTests"
         },
         "MessageId": {
           "Value": "Guid 2"
@@ -398,7 +398,7 @@
           "Value": "StartHandlerThatThrows"
         },
         "ProcessingEndpoint": {
-          "Value": "SerilogTestsCore"
+          "Value": "SerilogTests"
         }
       }
     }
@@ -412,7 +412,7 @@
       "Level": "Information",
       "Properties": {
         "ProcessingEndpoint": {
-          "Value": "SerilogTestsCore"
+          "Value": "SerilogTests"
         },
         "MessageId": {
           "Value": "Guid 2"
@@ -467,7 +467,7 @@
       "Level": "Warning",
       "Properties": {
         "ProcessingEndpoint": {
-          "Value": "SerilogTestsCore"
+          "Value": "SerilogTests"
         },
         "MessageId": {
           "Value": "Guid 2"
@@ -522,7 +522,7 @@
       "Level": "Information",
       "Properties": {
         "ProcessingEndpoint": {
-          "Value": "SerilogTestsCore"
+          "Value": "SerilogTests"
         },
         "MessageId": {
           "Value": "Guid 2"
@@ -577,7 +577,7 @@
       "Level": "Error",
       "Properties": {
         "ProcessingEndpoint": {
-          "Value": "SerilogTestsCore"
+          "Value": "SerilogTests"
         },
         "MessageId": {
           "Value": "Guid 2"

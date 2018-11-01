@@ -13,33 +13,35 @@ class Logger : ILog
     {
         this.logger = logger;
     }
-    void WriteException(string message, Exception exception, LogEventLevel level)
+
+    void WriteExceptionEvent(string message, Exception exception, LogEventLevel level)
     {
-        if (!exception.Data.Contains("ExceptionLogState"))
+        var data = exception.Data;
+        if (!data.Contains("ExceptionLogState"))
         {
             logger.Write(level, message);
             return;
         }
 
-        var exceptionLogState = (ExceptionLogState)exception.Data["ExceptionLogState"];
-        exception.Data.Remove("ExceptionLogState");
+        var logState = (ExceptionLogState)data["ExceptionLogState"];
+        data.Remove("ExceptionLogState");
         var properties = new List<LogEventProperty>
         {
-            new LogEventProperty("ProcessingEndpoint", new ScalarValue(exceptionLogState.Endpoint)),
-            new LogEventProperty("MessageId", new ScalarValue(exceptionLogState.MessageId)),
-            new LogEventProperty("MessageType", new ScalarValue(exceptionLogState.MessageType))
+            new LogEventProperty("ProcessingEndpoint", new ScalarValue(logState.Endpoint)),
+            new LogEventProperty("MessageId", new ScalarValue(logState.MessageId)),
+            new LogEventProperty("MessageType", new ScalarValue(logState.MessageType))
         };
-        if (exceptionLogState.CorrelationId != null)
+        if (logState.CorrelationId != null)
         {
-            properties.Add(new LogEventProperty("CorrelationId", new ScalarValue(exceptionLogState.CorrelationId)));
+            properties.Add(new LogEventProperty("CorrelationId", new ScalarValue(logState.CorrelationId)));
         }
 
-        if (exceptionLogState.ConversationId != null)
+        if (logState.ConversationId != null)
         {
-            properties.Add(new LogEventProperty("ConversationId", new ScalarValue(exceptionLogState.ConversationId)));
+            properties.Add(new LogEventProperty("ConversationId", new ScalarValue(logState.ConversationId)));
         }
 
-        var messageTemplate = new MessageTemplate(message, new TextToken[] { });
+        var messageTemplate = new MessageTemplate(message, Array.Empty<TextToken>());
         var logEvent = new LogEvent(DateTimeOffset.Now, level, exception, messageTemplate, properties);
         logger.Write(logEvent);
     }
@@ -51,7 +53,7 @@ class Logger : ILog
 
     public void Debug(string message, Exception exception)
     {
-        WriteException(message, exception, LogEventLevel.Debug);
+        WriteExceptionEvent(message, exception, LogEventLevel.Debug);
     }
 
     public void DebugFormat(string format, params object[] args)
@@ -66,7 +68,7 @@ class Logger : ILog
 
     public void Info(string message, Exception exception)
     {
-        WriteException(message, exception, LogEventLevel.Information);
+        WriteExceptionEvent(message, exception, LogEventLevel.Information);
     }
 
     public void InfoFormat(string format, params object[] args)
@@ -81,7 +83,7 @@ class Logger : ILog
 
     public void Warn(string message, Exception exception)
     {
-        WriteException(message, exception, LogEventLevel.Warning);
+        WriteExceptionEvent(message, exception, LogEventLevel.Warning);
     }
 
     public void WarnFormat(string format, params object[] args)
@@ -96,7 +98,7 @@ class Logger : ILog
 
     public void Error(string message, Exception exception)
     {
-        WriteException(message, exception, LogEventLevel.Error);
+        WriteExceptionEvent(message, exception, LogEventLevel.Error);
     }
 
     public void ErrorFormat(string format, params object[] args)
@@ -111,7 +113,7 @@ class Logger : ILog
 
     public void Fatal(string message, Exception exception)
     {
-        WriteException(message, exception, LogEventLevel.Fatal);
+        WriteExceptionEvent(message, exception, LogEventLevel.Fatal);
     }
 
     public void FatalFormat(string format, params object[] args)

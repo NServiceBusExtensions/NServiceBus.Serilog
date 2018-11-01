@@ -42,7 +42,7 @@
           "Value": "StartHandler"
         },
         "ProcessingEndpoint": {
-          "Value": "SerilogTestsClassic"
+          "Value": "SerilogTests"
         }
       }
     },
@@ -96,13 +96,13 @@
           "Value": "Send"
         },
         "OriginatingEndpoint": {
-          "Value": "SerilogTestsClassic"
+          "Value": "SerilogTests"
         },
         "OriginatingMachine": {
           "Value": "MachineName"
         },
         "ReplyToAddress": {
-          "Value": "SerilogTestsClassic"
+          "Value": "SerilogTests"
         },
         "MessageId": {
           "Value": "Guid 1"
@@ -120,7 +120,7 @@
           "Value": "StartHandler"
         },
         "ProcessingEndpoint": {
-          "Value": "SerilogTestsClassic"
+          "Value": "SerilogTests"
         }
       }
     },
@@ -174,13 +174,13 @@
           "Value": "Send"
         },
         "OriginatingEndpoint": {
-          "Value": "SerilogTestsClassic"
+          "Value": "SerilogTests"
         },
         "OriginatingMachine": {
           "Value": "MachineName"
         },
         "ReplyToAddress": {
-          "Value": "SerilogTestsClassic"
+          "Value": "SerilogTests"
         },
         "MessageId": {
           "Value": "Guid 1"
@@ -198,7 +198,7 @@
           "Value": "StartHandler"
         },
         "ProcessingEndpoint": {
-          "Value": "SerilogTestsClassic"
+          "Value": "SerilogTests"
         }
       }
     }

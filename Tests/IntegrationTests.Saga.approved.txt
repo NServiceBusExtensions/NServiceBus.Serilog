@@ -62,7 +62,7 @@
           "Value": "StartSaga"
         },
         "ProcessingEndpoint": {
-          "Value": "SerilogTestsClassic"
+          "Value": "SerilogTests"
         }
       }
     },
@@ -116,13 +116,13 @@
           "Value": "Send"
         },
         "OriginatingEndpoint": {
-          "Value": "SerilogTestsClassic"
+          "Value": "SerilogTests"
         },
         "OriginatingMachine": {
           "Value": "MachineName"
         },
         "ReplyToAddress": {
-          "Value": "SerilogTestsClassic"
+          "Value": "SerilogTests"
         },
         "MessageId": {
           "Value": "Guid 1"
@@ -140,7 +140,7 @@
           "Value": "StartSaga"
         },
         "ProcessingEndpoint": {
-          "Value": "SerilogTestsClassic"
+          "Value": "SerilogTests"
         }
       }
     },
@@ -230,7 +230,7 @@
             {
               "Name": "OriginatingEndpoint",
               "Value": {
-                "Value": "SerilogTestsClassic"
+                "Value": "SerilogTests"
               }
             },
             {
@@ -262,7 +262,7 @@
             {
               "Name": "Originator",
               "Value": {
-                "Value": "SerilogTestsClassic"
+                "Value": "SerilogTests"
               }
             },
             {
@@ -289,7 +289,7 @@
           "Value": "StartSaga"
         },
         "ProcessingEndpoint": {
-          "Value": "SerilogTestsClassic"
+          "Value": "SerilogTests"
         }
       }
     },
@@ -343,13 +343,13 @@
           "Value": "Send"
         },
         "OriginatingEndpoint": {
-          "Value": "SerilogTestsClassic"
+          "Value": "SerilogTests"
         },
         "OriginatingMachine": {
           "Value": "MachineName"
         },
         "ReplyToAddress": {
-          "Value": "SerilogTestsClassic"
+          "Value": "SerilogTests"
         },
         "MessageId": {
           "Value": "Guid 1"
@@ -367,7 +367,7 @@
           "Value": "StartSaga"
         },
         "ProcessingEndpoint": {
-          "Value": "SerilogTestsClassic"
+          "Value": "SerilogTests"
         }
       }
     }
