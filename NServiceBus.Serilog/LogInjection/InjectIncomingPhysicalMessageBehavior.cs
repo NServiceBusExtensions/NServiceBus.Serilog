@@ -3,20 +3,17 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using NServiceBus;
 using NServiceBus.Pipeline;
-using Serilog;
 using Serilog.Core.Enrichers;
 
 class InjectIncomingPhysicalMessageBehavior : Behavior<IIncomingPhysicalMessageContext>
 {
     LogBuilder logBuilder;
     string endpoint;
-    ILogger loggerForPipeline;
 
     public InjectIncomingPhysicalMessageBehavior(LogBuilder logBuilder, string endpoint)
     {
         this.logBuilder = logBuilder;
         this.endpoint = endpoint;
-        loggerForPipeline = logBuilder.GetLogger("NServiceBus.Serilog.Pipeline");
     }
 
     public class Registration : RegisterStep
@@ -34,28 +31,45 @@ class InjectIncomingPhysicalMessageBehavior : Behavior<IIncomingPhysicalMessageC
 
     public override async Task Invoke(IIncomingPhysicalMessageContext context, Func<Task> next)
     {
-        var properties = new List<PropertyEnricher>
-        {
-            new PropertyEnricher("MessageId", context.MessageId)
-        };
-        ILogger logger;
+        string messageTypeName;
         var headers = context.MessageHeaders;
-        string shortTypeName = null;
         if (headers.TryGetValue(Headers.EnclosedMessageTypes, out var messageType))
         {
-            shortTypeName = TypeHelper.GetShortTypeName(messageType);
-            logger = logBuilder.GetLogger(shortTypeName);
-            properties.Add(new PropertyEnricher("MessageType", shortTypeName));
+            messageTypeName = TypeHelper.GetShortTypeName(messageType);
         }
         else
         {
-            logger = loggerForPipeline;
+            messageTypeName = "UnknownMessageType";
         }
 
-        HeaderPromote.PromoteCorrAndConv(headers, properties);
+        var logger = logBuilder.GetLogger(messageTypeName);
+        var properties = new List<PropertyEnricher>
+        {
+            new PropertyEnricher("MessageId", context.MessageId),
+            new PropertyEnricher("MessageType", messageTypeName)
+        };
+
+        var exceptionLogState = new ExceptionLogState
+        {
+            Endpoint = endpoint,
+            MessageId = context.MessageId,
+            MessageType = messageTypeName,
+        };
+        if (headers.TryGetValue(Headers.CorrelationId, out var correlationId))
+        {
+            exceptionLogState.CorrelationId = correlationId;
+            properties.Add(new PropertyEnricher("CorrelationId", correlationId));
+        }
+
+        if (headers.TryGetValue(Headers.ConversationId, out var conversationId))
+        {
+            exceptionLogState.ConversationId = conversationId;
+            properties.Add(new PropertyEnricher("ConversationId", conversationId));
+        }
 
         var loggerForContext = logger.ForContext(properties);
         context.Extensions.Set(loggerForContext);
+
 
         try
         {
@@ -63,60 +77,8 @@ class InjectIncomingPhysicalMessageBehavior : Behavior<IIncomingPhysicalMessageC
         }
         catch (Exception exception)
         {
-            AddContextToData(exception, shortTypeName, headers);
+            exception.Data.Add("ExceptionLogState", exceptionLogState);
             throw;
-        }
-    }
-
-    void AddContextToData(Exception exception, string shortTypeName, IReadOnlyDictionary<string, string> headers)
-    {
-        var data = exception.Data;
-        data.Add("ProcessingEndpoint", endpoint);
-        if (shortTypeName != null)
-        {
-            data.Add("MessageType", shortTypeName);
-        }
-
-        foreach (var header in headers)
-        {
-            var key = header.Key;
-            var value = header.Value;
-            if (key == Headers.NServiceBusVersion)
-            {
-                data.Add(nameof(Headers.NServiceBusVersion), value);
-                continue;
-            }
-
-            if (key == Headers.EnclosedMessageTypes)
-            {
-                continue;
-            }
-
-            if (key.StartsWith("NServiceBus."))
-            {
-                data.Add(key.Substring(12), value);
-                continue;
-            }
-
-            if (key == Headers.OriginatingHostId)
-            {
-                data.Add(nameof(Headers.OriginatingHostId), value);
-                continue;
-            }
-
-            if (key == Headers.HostDisplayName)
-            {
-                data.Add(nameof(Headers.HostDisplayName), value);
-                continue;
-            }
-
-            if (key == Headers.HostId)
-            {
-                data.Add(nameof(Headers.HostId), value);
-                continue;
-            }
-
-            data.Add(key, value);
         }
     }
 }

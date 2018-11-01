@@ -407,15 +407,25 @@
     {
       "MessageTemplate": {
         "Text": "Immediate Retry is going to retry message '00000000-0000-0000-0000-000000000001' because of an exception:",
-        "Tokens": [
-          {
-            "Length": 105,
-            "Text": "Immediate Retry is going to retry message '00000000-0000-0000-0000-000000000001' because of an exception:"
-          }
-        ]
+        "Tokens": []
       },
       "Level": "Information",
       "Properties": {
+        "ProcessingEndpoint": {
+          "Value": "SerilogTestsClassic"
+        },
+        "MessageId": {
+          "Value": "Guid 2"
+        },
+        "MessageType": {
+          "Value": "StartHandlerThatThrows"
+        },
+        "CorrelationId": {
+          "Value": "Guid 2"
+        },
+        "ConversationId": {
+          "Value": "Guid 3"
+        },
         "SourceContext": {
           "Value": "NServiceBus.RecoverabilityExecutor"
         },
@@ -423,49 +433,6 @@
           "Elements": {
             "\"Type\"": {
               "Value": "System.Exception"
-            },
-            "\"Data\"": {
-              "Elements": {
-                "\"ProcessingEndpoint\"": {
-                  "Value": "SerilogTestsClassic"
-                },
-                "\"MessageType\"": {
-                  "Value": "StartHandlerThatThrows"
-                },
-                "\"MessageId\"": {
-                  "Value": "Guid 2"
-                },
-                "\"MessageIntent\"": {
-                  "Value": "Send"
-                },
-                "\"ConversationId\"": {
-                  "Value": "Guid 3"
-                },
-                "\"CorrelationId\"": {
-                  "Value": "Guid 2"
-                },
-                "\"OriginatingMachine\"": {
-                  "Value": "MachineName"
-                },
-                "\"OriginatingEndpoint\"": {
-                  "Value": "SerilogTestsClassic"
-                },
-                "\"OriginatingHostId\"": {
-                  "Value": "Guid 1"
-                },
-                "\"ReplyToAddress\"": {
-                  "Value": "SerilogTestsClassic"
-                },
-                "\"ContentType\"": {
-                  "Value": "text/xml"
-                },
-                "\"NServiceBusVersion\"": {
-                  "Value": "7.1.4"
-                },
-                "\"TimeSent\"": {
-                  "Value": "DateTime 2"
-                }
-              }
             },
             "\"HResult\"": {
               "Value": -2146233088
@@ -482,21 +449,7 @@
       "Exception": {
         "ClassName": "System.Exception",
         "Message": null,
-        "Data": {
-          "ProcessingEndpoint": "SerilogTestsClassic",
-          "MessageType": "StartHandlerThatThrows",
-          "MessageId": "Guid 2",
-          "MessageIntent": "Send",
-          "ConversationId": "Guid 3",
-          "CorrelationId": "Guid 2",
-          "OriginatingMachine": "MachineName",
-          "OriginatingEndpoint": "SerilogTestsClassic",
-          "OriginatingHostId": "Guid 1",
-          "ReplyToAddress": "SerilogTestsClassic",
-          "ContentType": "text/xml",
-          "NServiceBusVersion": "7.1.4",
-          "TimeSent": "DateTime 2"
-        },
+        "Data": {},
         "InnerException": null,
         "HelpURL": null,
         "RemoteStackIndex": 0,
@@ -509,15 +462,25 @@
     {
       "MessageTemplate": {
         "Text": "Delayed Retry will reschedule message '00000000-0000-0000-0000-000000000001' after a delay of 00:00:00.0010000 because of an exception:",
-        "Tokens": [
-          {
-            "Length": 135,
-            "Text": "Delayed Retry will reschedule message '00000000-0000-0000-0000-000000000001' after a delay of 00:00:00.0010000 because of an exception:"
-          }
-        ]
+        "Tokens": []
       },
       "Level": "Warning",
       "Properties": {
+        "ProcessingEndpoint": {
+          "Value": "SerilogTestsClassic"
+        },
+        "MessageId": {
+          "Value": "Guid 2"
+        },
+        "MessageType": {
+          "Value": "StartHandlerThatThrows"
+        },
+        "CorrelationId": {
+          "Value": "Guid 2"
+        },
+        "ConversationId": {
+          "Value": "Guid 3"
+        },
         "SourceContext": {
           "Value": "NServiceBus.RecoverabilityExecutor"
         },
@@ -525,49 +488,6 @@
           "Elements": {
             "\"Type\"": {
               "Value": "System.Exception"
-            },
-            "\"Data\"": {
-              "Elements": {
-                "\"ProcessingEndpoint\"": {
-                  "Value": "SerilogTestsClassic"
-                },
-                "\"MessageType\"": {
-                  "Value": "StartHandlerThatThrows"
-                },
-                "\"MessageId\"": {
-                  "Value": "Guid 2"
-                },
-                "\"MessageIntent\"": {
-                  "Value": "Send"
-                },
-                "\"ConversationId\"": {
-                  "Value": "Guid 3"
-                },
-                "\"CorrelationId\"": {
-                  "Value": "Guid 2"
-                },
-                "\"OriginatingMachine\"": {
-                  "Value": "MachineName"
-                },
-                "\"OriginatingEndpoint\"": {
-                  "Value": "SerilogTestsClassic"
-                },
-                "\"OriginatingHostId\"": {
-                  "Value": "Guid 1"
-                },
-                "\"ReplyToAddress\"": {
-                  "Value": "SerilogTestsClassic"
-                },
-                "\"ContentType\"": {
-                  "Value": "text/xml"
-                },
-                "\"NServiceBusVersion\"": {
-                  "Value": "7.1.4"
-                },
-                "\"TimeSent\"": {
-                  "Value": "DateTime 2"
-                }
-              }
             },
             "\"HResult\"": {
               "Value": -2146233088
@@ -584,21 +504,7 @@
       "Exception": {
         "ClassName": "System.Exception",
         "Message": null,
-        "Data": {
-          "ProcessingEndpoint": "SerilogTestsClassic",
-          "MessageType": "StartHandlerThatThrows",
-          "MessageId": "Guid 2",
-          "MessageIntent": "Send",
-          "ConversationId": "Guid 3",
-          "CorrelationId": "Guid 2",
-          "OriginatingMachine": "MachineName",
-          "OriginatingEndpoint": "SerilogTestsClassic",
-          "OriginatingHostId": "Guid 1",
-          "ReplyToAddress": "SerilogTestsClassic",
-          "ContentType": "text/xml",
-          "NServiceBusVersion": "7.1.4",
-          "TimeSent": "DateTime 2"
-        },
+        "Data": {},
         "InnerException": null,
         "HelpURL": null,
         "RemoteStackIndex": 0,
@@ -611,15 +517,25 @@
     {
       "MessageTemplate": {
         "Text": "Immediate Retry is going to retry message '00000000-0000-0000-0000-000000000001' because of an exception:",
-        "Tokens": [
-          {
-            "Length": 105,
-            "Text": "Immediate Retry is going to retry message '00000000-0000-0000-0000-000000000001' because of an exception:"
-          }
-        ]
+        "Tokens": []
       },
       "Level": "Information",
       "Properties": {
+        "ProcessingEndpoint": {
+          "Value": "SerilogTestsClassic"
+        },
+        "MessageId": {
+          "Value": "Guid 2"
+        },
+        "MessageType": {
+          "Value": "StartHandlerThatThrows"
+        },
+        "CorrelationId": {
+          "Value": "Guid 2"
+        },
+        "ConversationId": {
+          "Value": "Guid 3"
+        },
         "SourceContext": {
           "Value": "NServiceBus.RecoverabilityExecutor"
         },
@@ -627,55 +543,6 @@
           "Elements": {
             "\"Type\"": {
               "Value": "System.Exception"
-            },
-            "\"Data\"": {
-              "Elements": {
-                "\"ProcessingEndpoint\"": {
-                  "Value": "SerilogTestsClassic"
-                },
-                "\"MessageType\"": {
-                  "Value": "StartHandlerThatThrows"
-                },
-                "\"MessageId\"": {
-                  "Value": "Guid 2"
-                },
-                "\"MessageIntent\"": {
-                  "Value": "Send"
-                },
-                "\"ConversationId\"": {
-                  "Value": "Guid 3"
-                },
-                "\"CorrelationId\"": {
-                  "Value": "Guid 2"
-                },
-                "\"OriginatingMachine\"": {
-                  "Value": "MachineName"
-                },
-                "\"OriginatingEndpoint\"": {
-                  "Value": "SerilogTestsClassic"
-                },
-                "\"OriginatingHostId\"": {
-                  "Value": "Guid 1"
-                },
-                "\"ReplyToAddress\"": {
-                  "Value": "SerilogTestsClassic"
-                },
-                "\"ContentType\"": {
-                  "Value": "text/xml"
-                },
-                "\"NServiceBusVersion\"": {
-                  "Value": "7.1.4"
-                },
-                "\"TimeSent\"": {
-                  "Value": "DateTime 2"
-                },
-                "\"Retries\"": {
-                  "Value": "1"
-                },
-                "\"Retries.Timestamp\"": {
-                  "Value": "DateTime 1"
-                }
-              }
             },
             "\"HResult\"": {
               "Value": -2146233088
@@ -692,23 +559,7 @@
       "Exception": {
         "ClassName": "System.Exception",
         "Message": null,
-        "Data": {
-          "ProcessingEndpoint": "SerilogTestsClassic",
-          "MessageType": "StartHandlerThatThrows",
-          "MessageId": "Guid 2",
-          "MessageIntent": "Send",
-          "ConversationId": "Guid 3",
-          "CorrelationId": "Guid 2",
-          "OriginatingMachine": "MachineName",
-          "OriginatingEndpoint": "SerilogTestsClassic",
-          "OriginatingHostId": "Guid 1",
-          "ReplyToAddress": "SerilogTestsClassic",
-          "ContentType": "text/xml",
-          "NServiceBusVersion": "7.1.4",
-          "TimeSent": "DateTime 2",
-          "Retries": "1",
-          "Retries.Timestamp": "DateTime 1"
-        },
+        "Data": {},
         "InnerException": null,
         "HelpURL": null,
         "RemoteStackIndex": 0,
@@ -721,15 +572,25 @@
     {
       "MessageTemplate": {
         "Text": "Moving message '00000000-0000-0000-0000-000000000001' to the error queue 'error' because processing failed due to an exception:",
-        "Tokens": [
-          {
-            "Length": 127,
-            "Text": "Moving message '00000000-0000-0000-0000-000000000001' to the error queue 'error' because processing failed due to an exception:"
-          }
-        ]
+        "Tokens": []
       },
       "Level": "Error",
       "Properties": {
+        "ProcessingEndpoint": {
+          "Value": "SerilogTestsClassic"
+        },
+        "MessageId": {
+          "Value": "Guid 2"
+        },
+        "MessageType": {
+          "Value": "StartHandlerThatThrows"
+        },
+        "CorrelationId": {
+          "Value": "Guid 2"
+        },
+        "ConversationId": {
+          "Value": "Guid 3"
+        },
         "SourceContext": {
           "Value": "NServiceBus.RecoverabilityExecutor"
         },
@@ -737,55 +598,6 @@
           "Elements": {
             "\"Type\"": {
               "Value": "System.Exception"
-            },
-            "\"Data\"": {
-              "Elements": {
-                "\"ProcessingEndpoint\"": {
-                  "Value": "SerilogTestsClassic"
-                },
-                "\"MessageType\"": {
-                  "Value": "StartHandlerThatThrows"
-                },
-                "\"MessageId\"": {
-                  "Value": "Guid 2"
-                },
-                "\"MessageIntent\"": {
-                  "Value": "Send"
-                },
-                "\"ConversationId\"": {
-                  "Value": "Guid 3"
-                },
-                "\"CorrelationId\"": {
-                  "Value": "Guid 2"
-                },
-                "\"OriginatingMachine\"": {
-                  "Value": "MachineName"
-                },
-                "\"OriginatingEndpoint\"": {
-                  "Value": "SerilogTestsClassic"
-                },
-                "\"OriginatingHostId\"": {
-                  "Value": "Guid 1"
-                },
-                "\"ReplyToAddress\"": {
-                  "Value": "SerilogTestsClassic"
-                },
-                "\"ContentType\"": {
-                  "Value": "text/xml"
-                },
-                "\"NServiceBusVersion\"": {
-                  "Value": "7.1.4"
-                },
-                "\"TimeSent\"": {
-                  "Value": "DateTime 2"
-                },
-                "\"Retries\"": {
-                  "Value": "1"
-                },
-                "\"Retries.Timestamp\"": {
-                  "Value": "DateTime 1"
-                }
-              }
             },
             "\"HResult\"": {
               "Value": -2146233088
@@ -802,23 +614,7 @@
       "Exception": {
         "ClassName": "System.Exception",
         "Message": null,
-        "Data": {
-          "ProcessingEndpoint": "SerilogTestsClassic",
-          "MessageType": "StartHandlerThatThrows",
-          "MessageId": "Guid 2",
-          "MessageIntent": "Send",
-          "ConversationId": "Guid 3",
-          "CorrelationId": "Guid 2",
-          "OriginatingMachine": "MachineName",
-          "OriginatingEndpoint": "SerilogTestsClassic",
-          "OriginatingHostId": "Guid 1",
-          "ReplyToAddress": "SerilogTestsClassic",
-          "ContentType": "text/xml",
-          "NServiceBusVersion": "7.1.4",
-          "TimeSent": "DateTime 2",
-          "Retries": "1",
-          "Retries.Timestamp": "DateTime 1"
-        },
+        "Data": {},
         "InnerException": null,
         "HelpURL": null,
         "RemoteStackIndex": 0,

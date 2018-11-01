@@ -16,14 +16,14 @@ class InjectOutgoingLogicalMessageBehavior : Behavior<IOutgoingLogicalMessageCon
     public override Task Invoke(IOutgoingLogicalMessageContext context, Func<Task> next)
     {
         var headers = context.Headers;
-        var messageType = context.Message.Instance.GetType();
 
-        var logger = logBuilder.GetLogger(messageType.FullName);
+        var messageTypeName = context.Message.Instance.GetType().FullName;
+        var logger = logBuilder.GetLogger(messageTypeName);
 
         var properties = new List<PropertyEnricher>
         {
             new PropertyEnricher("MessageId", context.MessageId),
-            new PropertyEnricher("MessageType", messageType.FullName),
+            new PropertyEnricher("MessageType", messageTypeName),
         };
 
         HeaderPromote.PromoteCorrAndConv(headers, properties);

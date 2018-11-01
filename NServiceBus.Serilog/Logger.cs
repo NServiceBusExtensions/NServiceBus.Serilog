@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using NServiceBus.Logging;
 using Serilog;
 using Serilog.Events;
+using Serilog.Parsing;
 
 class Logger : ILog
 {
@@ -11,6 +13,36 @@ class Logger : ILog
     {
         this.logger = logger;
     }
+    void WriteException(string message, Exception exception, LogEventLevel level)
+    {
+        if (!exception.Data.Contains("ExceptionLogState"))
+        {
+            logger.Write(level, message);
+            return;
+        }
+
+        var exceptionLogState = (ExceptionLogState)exception.Data["ExceptionLogState"];
+        exception.Data.Remove("ExceptionLogState");
+        var properties = new List<LogEventProperty>
+        {
+            new LogEventProperty("ProcessingEndpoint", new ScalarValue(exceptionLogState.Endpoint)),
+            new LogEventProperty("MessageId", new ScalarValue(exceptionLogState.MessageId)),
+            new LogEventProperty("MessageType", new ScalarValue(exceptionLogState.MessageType))
+        };
+        if (exceptionLogState.CorrelationId != null)
+        {
+            properties.Add(new LogEventProperty("CorrelationId", new ScalarValue(exceptionLogState.CorrelationId)));
+        }
+
+        if (exceptionLogState.ConversationId != null)
+        {
+            properties.Add(new LogEventProperty("ConversationId", new ScalarValue(exceptionLogState.ConversationId)));
+        }
+
+        var messageTemplate = new MessageTemplate(message, new TextToken[] { });
+        var logEvent = new LogEvent(DateTimeOffset.Now, level, exception, messageTemplate, properties);
+        logger.Write(logEvent);
+    }
 
     public void Debug(string message)
     {
@@ -19,7 +51,7 @@ class Logger : ILog
 
     public void Debug(string message, Exception exception)
     {
-        logger.Debug(exception, message);
+        WriteException(message, exception, LogEventLevel.Debug);
     }
 
     public void DebugFormat(string format, params object[] args)
@@ -34,7 +66,7 @@ class Logger : ILog
 
     public void Info(string message, Exception exception)
     {
-        logger.Information(exception, message);
+        WriteException(message, exception, LogEventLevel.Information);
     }
 
     public void InfoFormat(string format, params object[] args)
@@ -49,7 +81,7 @@ class Logger : ILog
 
     public void Warn(string message, Exception exception)
     {
-        logger.Warning(exception, message);
+        WriteException(message, exception, LogEventLevel.Warning);
     }
 
     public void WarnFormat(string format, params object[] args)
@@ -64,7 +96,7 @@ class Logger : ILog
 
     public void Error(string message, Exception exception)
     {
-        logger.Error(exception, message);
+        WriteException(message, exception, LogEventLevel.Error);
     }
 
     public void ErrorFormat(string format, params object[] args)
@@ -79,7 +111,7 @@ class Logger : ILog
 
     public void Fatal(string message, Exception exception)
     {
-        logger.Fatal(exception, message);
+        WriteException(message, exception, LogEventLevel.Fatal);
     }
 
     public void FatalFormat(string format, params object[] args)
