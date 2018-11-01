@@ -109,6 +109,9 @@
             }
           ]
         },
+        "OriginatingHostId": {
+          "Value": "Guid 3"
+        },
         "MessageIntent": {
           "Value": "Send"
         },
@@ -177,7 +180,7 @@
           "Value": "TheSaga"
         },
         "SagaId": {
-          "Value": "Guid 3"
+          "Value": "Guid 4"
         },
         "StartTime": {
           "Value": "DateTime 1"
@@ -253,7 +256,7 @@
             {
               "Name": "Id",
               "Value": {
-                "Value": "Guid 3"
+                "Value": "Guid 4"
               }
             },
             {
@@ -332,6 +335,9 @@
               }
             }
           ]
+        },
+        "OriginatingHostId": {
+          "Value": "Guid 3"
         },
         "MessageIntent": {
           "Value": "Send"

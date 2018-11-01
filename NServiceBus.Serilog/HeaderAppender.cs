@@ -21,22 +21,36 @@ static class HeaderAppender
     {
         var otherHeaders = new Dictionary<string, string>();
         foreach (var header in headers
-            .Where(x => x.Key.StartsWith("NServiceBus.") && !excludeHeaders.Contains(x.Key))
+            .Where(x => !excludeHeaders.Contains(x.Key))
             .OrderBy(x => x.Key))
         {
             var key = header.Key;
-            if (key.StartsWith("$.diagnostics.") || key.StartsWith("NServiceBus."))
+            var value = header.Value;
+            if (key.StartsWith("NServiceBus."))
             {
-                if (!excludeHeaders.Contains(key))
-                {
-                    var replace = key.Replace("NServiceBus.", "");
-                    yield return new LogEventProperty(replace, new ScalarValue(header.Value));
-                }
-
+                yield return new LogEventProperty(key.Substring(12), new ScalarValue(value));
                 continue;
             }
 
-            otherHeaders.Add(key, header.Value);
+            if (key == Headers.OriginatingHostId)
+            {
+                yield return new LogEventProperty(nameof(Headers.OriginatingHostId), new ScalarValue(value));
+                continue;
+            }
+
+            if (key == Headers.HostDisplayName)
+            {
+                yield return new LogEventProperty(nameof(Headers.HostDisplayName), new ScalarValue(value));
+                continue;
+            }
+
+            if (key == Headers.HostId)
+            {
+                yield return new LogEventProperty(nameof(Headers.HostId), new ScalarValue(value));
+                continue;
+            }
+
+            otherHeaders.Add(key, value);
         }
 
         if (otherHeaders.Count > 0)

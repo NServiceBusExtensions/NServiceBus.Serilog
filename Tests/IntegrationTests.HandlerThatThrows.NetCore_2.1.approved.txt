@@ -43,6 +43,9 @@
             }
           ]
         },
+        "OriginatingHostId": {
+          "Value": "Guid 1"
+        },
         "MessageIntent": {
           "Value": "Send"
         },
@@ -56,16 +59,16 @@
           "Value": "SerilogTestsCore"
         },
         "MessageId": {
-          "Value": "Guid 1"
+          "Value": "Guid 2"
         },
         "MessageType": {
           "Value": "StartHandlerThatThrows"
         },
         "CorrelationId": {
-          "Value": "Guid 1"
+          "Value": "Guid 2"
         },
         "ConversationId": {
-          "Value": "Guid 2"
+          "Value": "Guid 3"
         },
         "SourceContext": {
           "Value": "StartHandlerThatThrows"
@@ -118,6 +121,9 @@
             }
           ]
         },
+        "OriginatingHostId": {
+          "Value": "Guid 1"
+        },
         "MessageIntent": {
           "Value": "Send"
         },
@@ -131,16 +137,16 @@
           "Value": "SerilogTestsCore"
         },
         "MessageId": {
-          "Value": "Guid 1"
+          "Value": "Guid 2"
         },
         "MessageType": {
           "Value": "StartHandlerThatThrows"
         },
         "CorrelationId": {
-          "Value": "Guid 1"
+          "Value": "Guid 2"
         },
         "ConversationId": {
-          "Value": "Guid 2"
+          "Value": "Guid 3"
         },
         "SourceContext": {
           "Value": "StartHandlerThatThrows"
@@ -192,6 +198,9 @@
               }
             }
           ]
+        },
+        "OriginatingHostId": {
+          "Value": "Guid 1"
         },
         "MessageIntent": {
           "Value": "Send"
@@ -212,16 +221,16 @@
           "Value": "DateTime 1"
         },
         "MessageId": {
-          "Value": "Guid 1"
+          "Value": "Guid 2"
         },
         "MessageType": {
           "Value": "StartHandlerThatThrows"
         },
         "CorrelationId": {
-          "Value": "Guid 1"
+          "Value": "Guid 2"
         },
         "ConversationId": {
-          "Value": "Guid 2"
+          "Value": "Guid 3"
         },
         "SourceContext": {
           "Value": "StartHandlerThatThrows"
@@ -274,6 +283,9 @@
             }
           ]
         },
+        "OriginatingHostId": {
+          "Value": "Guid 1"
+        },
         "MessageIntent": {
           "Value": "Send"
         },
@@ -293,16 +305,16 @@
           "Value": "DateTime 1"
         },
         "MessageId": {
-          "Value": "Guid 1"
+          "Value": "Guid 2"
         },
         "MessageType": {
           "Value": "StartHandlerThatThrows"
         },
         "CorrelationId": {
-          "Value": "Guid 1"
+          "Value": "Guid 2"
         },
         "ConversationId": {
-          "Value": "Guid 2"
+          "Value": "Guid 3"
         },
         "SourceContext": {
           "Value": "StartHandlerThatThrows"
@@ -355,6 +367,9 @@
             }
           ]
         },
+        "OriginatingHostId": {
+          "Value": "Guid 1"
+        },
         "MessageIntent": {
           "Value": "Send"
         },
@@ -368,16 +383,16 @@
           "Value": "SerilogTestsCore"
         },
         "MessageId": {
-          "Value": "Guid 1"
+          "Value": "Guid 2"
         },
         "MessageType": {
           "Value": "StartHandlerThatThrows"
         },
         "CorrelationId": {
-          "Value": "Guid 1"
+          "Value": "Guid 2"
         },
         "ConversationId": {
-          "Value": "Guid 2"
+          "Value": "Guid 3"
         },
         "SourceContext": {
           "Value": "StartHandlerThatThrows"
@@ -418,16 +433,16 @@
                   "Value": "StartHandlerThatThrows"
                 },
                 "\"MessageId\"": {
-                  "Value": "Guid 1"
+                  "Value": "Guid 2"
                 },
                 "\"MessageIntent\"": {
                   "Value": "Send"
                 },
                 "\"ConversationId\"": {
-                  "Value": "Guid 2"
+                  "Value": "Guid 3"
                 },
                 "\"CorrelationId\"": {
-                  "Value": "Guid 1"
+                  "Value": "Guid 2"
                 },
                 "\"OriginatingMachine\"": {
                   "Value": "MachineName"
@@ -436,7 +451,7 @@
                   "Value": "SerilogTestsCore"
                 },
                 "\"OriginatingHostId\"": {
-                  "Value": "Guid 3"
+                  "Value": "Guid 1"
                 },
                 "\"ReplyToAddress\"": {
                   "Value": "SerilogTestsCore"
@@ -470,13 +485,13 @@
         "Data": {
           "ProcessingEndpoint": "SerilogTestsCore",
           "MessageType": "StartHandlerThatThrows",
-          "MessageId": "Guid 1",
+          "MessageId": "Guid 2",
           "MessageIntent": "Send",
-          "ConversationId": "Guid 2",
-          "CorrelationId": "Guid 1",
+          "ConversationId": "Guid 3",
+          "CorrelationId": "Guid 2",
           "OriginatingMachine": "MachineName",
           "OriginatingEndpoint": "SerilogTestsCore",
-          "OriginatingHostId": "Guid 3",
+          "OriginatingHostId": "Guid 1",
           "ReplyToAddress": "SerilogTestsCore",
           "ContentType": "text/xml",
           "NServiceBusVersion": "7.1.4",
@@ -520,16 +535,16 @@
                   "Value": "StartHandlerThatThrows"
                 },
                 "\"MessageId\"": {
-                  "Value": "Guid 1"
+                  "Value": "Guid 2"
                 },
                 "\"MessageIntent\"": {
                   "Value": "Send"
                 },
                 "\"ConversationId\"": {
-                  "Value": "Guid 2"
+                  "Value": "Guid 3"
                 },
                 "\"CorrelationId\"": {
-                  "Value": "Guid 1"
+                  "Value": "Guid 2"
                 },
                 "\"OriginatingMachine\"": {
                   "Value": "MachineName"
@@ -538,7 +553,7 @@
                   "Value": "SerilogTestsCore"
                 },
                 "\"OriginatingHostId\"": {
-                  "Value": "Guid 3"
+                  "Value": "Guid 1"
                 },
                 "\"ReplyToAddress\"": {
                   "Value": "SerilogTestsCore"
@@ -572,13 +587,13 @@
         "Data": {
           "ProcessingEndpoint": "SerilogTestsCore",
           "MessageType": "StartHandlerThatThrows",
-          "MessageId": "Guid 1",
+          "MessageId": "Guid 2",
           "MessageIntent": "Send",
-          "ConversationId": "Guid 2",
-          "CorrelationId": "Guid 1",
+          "ConversationId": "Guid 3",
+          "CorrelationId": "Guid 2",
           "OriginatingMachine": "MachineName",
           "OriginatingEndpoint": "SerilogTestsCore",
-          "OriginatingHostId": "Guid 3",
+          "OriginatingHostId": "Guid 1",
           "ReplyToAddress": "SerilogTestsCore",
           "ContentType": "text/xml",
           "NServiceBusVersion": "7.1.4",
@@ -622,16 +637,16 @@
                   "Value": "StartHandlerThatThrows"
                 },
                 "\"MessageId\"": {
-                  "Value": "Guid 1"
+                  "Value": "Guid 2"
                 },
                 "\"MessageIntent\"": {
                   "Value": "Send"
                 },
                 "\"ConversationId\"": {
-                  "Value": "Guid 2"
+                  "Value": "Guid 3"
                 },
                 "\"CorrelationId\"": {
-                  "Value": "Guid 1"
+                  "Value": "Guid 2"
                 },
                 "\"OriginatingMachine\"": {
                   "Value": "MachineName"
@@ -640,7 +655,7 @@
                   "Value": "SerilogTestsCore"
                 },
                 "\"OriginatingHostId\"": {
-                  "Value": "Guid 3"
+                  "Value": "Guid 1"
                 },
                 "\"ReplyToAddress\"": {
                   "Value": "SerilogTestsCore"
@@ -680,13 +695,13 @@
         "Data": {
           "ProcessingEndpoint": "SerilogTestsCore",
           "MessageType": "StartHandlerThatThrows",
-          "MessageId": "Guid 1",
+          "MessageId": "Guid 2",
           "MessageIntent": "Send",
-          "ConversationId": "Guid 2",
-          "CorrelationId": "Guid 1",
+          "ConversationId": "Guid 3",
+          "CorrelationId": "Guid 2",
           "OriginatingMachine": "MachineName",
           "OriginatingEndpoint": "SerilogTestsCore",
-          "OriginatingHostId": "Guid 3",
+          "OriginatingHostId": "Guid 1",
           "ReplyToAddress": "SerilogTestsCore",
           "ContentType": "text/xml",
           "NServiceBusVersion": "7.1.4",
@@ -732,16 +747,16 @@
                   "Value": "StartHandlerThatThrows"
                 },
                 "\"MessageId\"": {
-                  "Value": "Guid 1"
+                  "Value": "Guid 2"
                 },
                 "\"MessageIntent\"": {
                   "Value": "Send"
                 },
                 "\"ConversationId\"": {
-                  "Value": "Guid 2"
+                  "Value": "Guid 3"
                 },
                 "\"CorrelationId\"": {
-                  "Value": "Guid 1"
+                  "Value": "Guid 2"
                 },
                 "\"OriginatingMachine\"": {
                   "Value": "MachineName"
@@ -750,7 +765,7 @@
                   "Value": "SerilogTestsCore"
                 },
                 "\"OriginatingHostId\"": {
-                  "Value": "Guid 3"
+                  "Value": "Guid 1"
                 },
                 "\"ReplyToAddress\"": {
                   "Value": "SerilogTestsCore"
@@ -790,13 +805,13 @@
         "Data": {
           "ProcessingEndpoint": "SerilogTestsCore",
           "MessageType": "StartHandlerThatThrows",
-          "MessageId": "Guid 1",
+          "MessageId": "Guid 2",
           "MessageIntent": "Send",
-          "ConversationId": "Guid 2",
-          "CorrelationId": "Guid 1",
+          "ConversationId": "Guid 3",
+          "CorrelationId": "Guid 2",
           "OriginatingMachine": "MachineName",
           "OriginatingEndpoint": "SerilogTestsCore",
-          "OriginatingHostId": "Guid 3",
+          "OriginatingHostId": "Guid 1",
           "ReplyToAddress": "SerilogTestsCore",
           "ContentType": "text/xml",
           "NServiceBusVersion": "7.1.4",

@@ -89,6 +89,9 @@
             }
           ]
         },
+        "OriginatingHostId": {
+          "Value": "Guid 3"
+        },
         "MessageIntent": {
           "Value": "Send"
         },
@@ -163,6 +166,9 @@
               }
             }
           ]
+        },
+        "OriginatingHostId": {
+          "Value": "Guid 3"
         },
         "MessageIntent": {
           "Value": "Send"
