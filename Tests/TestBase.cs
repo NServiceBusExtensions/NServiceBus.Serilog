@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using ObjectApproval;
+﻿using ObjectApproval;
 using Xunit.Abstractions;
 
 public class TestBase

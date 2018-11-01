@@ -50,7 +50,7 @@
           "Value": "Guid 1"
         },
         "MessageType": {
-          "Value": "StartSaga, Tests, Version=5.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6"
+          "Value": "StartSaga"
         },
         "CorrelationId": {
           "Value": "Guid 1"
@@ -125,7 +125,7 @@
           "Value": "Guid 1"
         },
         "MessageType": {
-          "Value": "StartSaga, Tests, Version=5.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6"
+          "Value": "StartSaga"
         },
         "CorrelationId": {
           "Value": "Guid 1"
@@ -274,7 +274,7 @@
           "Value": "Guid 1"
         },
         "MessageType": {
-          "Value": "StartSaga, Tests, Version=5.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6"
+          "Value": "StartSaga"
         },
         "CorrelationId": {
           "Value": "Guid 1"
@@ -349,7 +349,7 @@
           "Value": "Guid 1"
         },
         "MessageType": {
-          "Value": "StartSaga, Tests, Version=5.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6"
+          "Value": "StartSaga"
         },
         "CorrelationId": {
           "Value": "Guid 1"

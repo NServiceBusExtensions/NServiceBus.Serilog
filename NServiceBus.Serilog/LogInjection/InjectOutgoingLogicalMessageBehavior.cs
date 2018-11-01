@@ -23,7 +23,7 @@ class InjectOutgoingLogicalMessageBehavior : Behavior<IOutgoingLogicalMessageCon
         var properties = new List<PropertyEnricher>
         {
             new PropertyEnricher("MessageId", context.MessageId),
-            new PropertyEnricher("MessageType", messageType.AssemblyQualifiedName),
+            new PropertyEnricher("MessageType", messageType.FullName),
         };
 
         HeaderPromote.PromoteCorrAndConv(headers, properties);

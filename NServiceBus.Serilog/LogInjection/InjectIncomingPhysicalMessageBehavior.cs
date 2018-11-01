@@ -45,7 +45,7 @@ class InjectIncomingPhysicalMessageBehavior : Behavior<IIncomingPhysicalMessageC
         {
             shortTypeName = TypeHelper.GetShortTypeName(messageType);
             logger = logBuilder.GetLogger(shortTypeName);
-            properties.Add(new PropertyEnricher("MessageType", messageType));
+            properties.Add(new PropertyEnricher("MessageType", shortTypeName));
         }
         else
         {

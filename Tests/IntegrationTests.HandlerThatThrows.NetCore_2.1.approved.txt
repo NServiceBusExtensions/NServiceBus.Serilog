@@ -59,7 +59,7 @@
           "Value": "Guid 1"
         },
         "MessageType": {
-          "Value": "StartHandlerThatThrows, Tests, Version=5.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6"
+          "Value": "StartHandlerThatThrows"
         },
         "CorrelationId": {
           "Value": "Guid 1"
@@ -134,88 +134,7 @@
           "Value": "Guid 1"
         },
         "MessageType": {
-          "Value": "StartHandlerThatThrows, Tests, Version=5.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6"
-        },
-        "CorrelationId": {
-          "Value": "Guid 1"
-        },
-        "ConversationId": {
-          "Value": "Guid 2"
-        },
-        "SourceContext": {
           "Value": "StartHandlerThatThrows"
-        },
-        "ProcessingEndpoint": {
-          "Value": "SerilogTestsCore"
-        }
-      }
-    },
-    {
-      "MessageTemplate": {
-        "Text": "Receive message {MessageType} {MessageId}.",
-        "Tokens": [
-          {
-            "Length": 16,
-            "Text": "Receive message "
-          },
-          {
-            "Length": 13,
-            "PropertyName": "MessageType",
-            "StartIndex": 16
-          },
-          {
-            "Length": 1,
-            "Text": " ",
-            "StartIndex": 29
-          },
-          {
-            "Length": 11,
-            "PropertyName": "MessageId",
-            "StartIndex": 30
-          },
-          {
-            "Length": 1,
-            "Text": ".",
-            "StartIndex": 41
-          }
-        ]
-      },
-      "Level": "Information",
-      "Properties": {
-        "Message": {
-          "TypeTag": "StartHandlerThatThrows",
-          "Properties": [
-            {
-              "Name": "Property",
-              "Value": {
-                "Value": "TheProperty"
-              }
-            }
-          ]
-        },
-        "MessageIntent": {
-          "Value": "Send"
-        },
-        "OriginatingEndpoint": {
-          "Value": "SerilogTestsCore"
-        },
-        "OriginatingMachine": {
-          "Value": "MachineName"
-        },
-        "ReplyToAddress": {
-          "Value": "SerilogTestsCore"
-        },
-        "Retries": {
-          "Value": "1"
-        },
-        "Retries.Timestamp": {
-          "Value": "DateTime 1"
-        },
-        "MessageId": {
-          "Value": "Guid 1"
-        },
-        "MessageType": {
-          "Value": "StartHandlerThatThrows, Tests, Version=5.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6"
         },
         "CorrelationId": {
           "Value": "Guid 1"
@@ -296,7 +215,88 @@
           "Value": "Guid 1"
         },
         "MessageType": {
-          "Value": "StartHandlerThatThrows, Tests, Version=5.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6"
+          "Value": "StartHandlerThatThrows"
+        },
+        "CorrelationId": {
+          "Value": "Guid 1"
+        },
+        "ConversationId": {
+          "Value": "Guid 2"
+        },
+        "SourceContext": {
+          "Value": "StartHandlerThatThrows"
+        },
+        "ProcessingEndpoint": {
+          "Value": "SerilogTestsCore"
+        }
+      }
+    },
+    {
+      "MessageTemplate": {
+        "Text": "Receive message {MessageType} {MessageId}.",
+        "Tokens": [
+          {
+            "Length": 16,
+            "Text": "Receive message "
+          },
+          {
+            "Length": 13,
+            "PropertyName": "MessageType",
+            "StartIndex": 16
+          },
+          {
+            "Length": 1,
+            "Text": " ",
+            "StartIndex": 29
+          },
+          {
+            "Length": 11,
+            "PropertyName": "MessageId",
+            "StartIndex": 30
+          },
+          {
+            "Length": 1,
+            "Text": ".",
+            "StartIndex": 41
+          }
+        ]
+      },
+      "Level": "Information",
+      "Properties": {
+        "Message": {
+          "TypeTag": "StartHandlerThatThrows",
+          "Properties": [
+            {
+              "Name": "Property",
+              "Value": {
+                "Value": "TheProperty"
+              }
+            }
+          ]
+        },
+        "MessageIntent": {
+          "Value": "Send"
+        },
+        "OriginatingEndpoint": {
+          "Value": "SerilogTestsCore"
+        },
+        "OriginatingMachine": {
+          "Value": "MachineName"
+        },
+        "ReplyToAddress": {
+          "Value": "SerilogTestsCore"
+        },
+        "Retries": {
+          "Value": "1"
+        },
+        "Retries.Timestamp": {
+          "Value": "DateTime 1"
+        },
+        "MessageId": {
+          "Value": "Guid 1"
+        },
+        "MessageType": {
+          "Value": "StartHandlerThatThrows"
         },
         "CorrelationId": {
           "Value": "Guid 1"
@@ -371,7 +371,7 @@
           "Value": "Guid 1"
         },
         "MessageType": {
-          "Value": "StartHandlerThatThrows, Tests, Version=5.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6"
+          "Value": "StartHandlerThatThrows"
         },
         "CorrelationId": {
           "Value": "Guid 1"
