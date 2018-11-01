@@ -367,6 +367,13 @@
             }
           ]
         },
+        "UnicastRoutes": {
+          "Elements": [
+            {
+              "Value": "SerilogTests"
+            }
+          ]
+        },
         "OriginatingHostId": {
           "Value": "Guid 1"
         },

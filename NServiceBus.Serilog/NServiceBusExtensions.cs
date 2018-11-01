@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using NServiceBus;
 using NServiceBus.Pipeline;
+using NServiceBus.Routing;
 
 static class NServiceBusExtensions
 {
@@ -14,6 +17,14 @@ static class NServiceBusExtensions
         return "Send";
     }
 
+    static Dictionary<string, string> emptyDictionary = new Dictionary<string, string>();
+    public static List<string> UnicastAddresses(this IOutgoingLogicalMessageContext context)
+    {
+        return context.RoutingStrategies
+            .OfType<UnicastRoutingStrategy>()
+            .Select(x => ((UnicastAddressTag)x.Apply(emptyDictionary)).Destination)
+            .ToList();
+    }
     public static DateTime TimeSent(this IInvokeHandlerContext logicalMessage)
     {
         return DateTimeExtensions.ToUtcDateTime(logicalMessage.Headers[Headers.TimeSent]);

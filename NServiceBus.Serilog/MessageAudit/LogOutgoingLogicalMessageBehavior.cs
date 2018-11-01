@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using NServiceBus;
 using NServiceBus.Pipeline;
@@ -24,7 +25,7 @@ class LogOutgoingLogicalMessageBehavior : Behavior<IOutgoingLogicalMessageContex
         return next();
     }
 
-    void LogMessage(IOutgoingContext context, ILogger forContext, object message)
+    void LogMessage(IOutgoingLogicalMessageContext context, ILogger forContext, object message)
     {
         var logProperties = new List<LogEventProperty>();
 
@@ -33,9 +34,17 @@ class LogOutgoingLogicalMessageBehavior : Behavior<IOutgoingLogicalMessageContex
             logProperties.Add(messageProperty);
         }
 
+        var addresses = context.UnicastAddresses();
+        if (addresses.Count > 0)
+        {
+            var sequence = new SequenceValue(addresses.Select(x => new ScalarValue(x)));
+            logProperties.Add(new LogEventProperty("UnicastRoutes", sequence));
+        }
+
         logProperties.AddRange(forContext.BuildHeaders(context.Headers));
         forContext.WriteInfo(messageTemplate, logProperties);
     }
+
 
     public class Registration : RegisterStep
     {
