@@ -391,20 +391,16 @@
   "logsWithExceptions": [
     {
       "MessageTemplate": {
-        "Text": "{Text:l}",
+        "Text": "Immediate Retry is going to retry message '00000000-0000-0000-0000-000000000001' because of an exception:",
         "Tokens": [
           {
-            "Length": 8,
-            "PropertyName": "Text",
-            "Format": "l"
+            "Length": 105,
+            "Text": "Immediate Retry is going to retry message '00000000-0000-0000-0000-000000000001' because of an exception:"
           }
         ]
       },
       "Level": "Information",
       "Properties": {
-        "Text": {
-          "Value": "Immediate Retry is going to retry message '00000000-0000-0000-0000-000000000001' because of an exception:"
-        },
         "SourceContext": {
           "Value": "NServiceBus.RecoverabilityExecutor"
         },
@@ -497,20 +493,16 @@
     },
     {
       "MessageTemplate": {
-        "Text": "{Text:l}",
+        "Text": "Delayed Retry will reschedule message '00000000-0000-0000-0000-000000000001' after a delay of 00:00:00.0010000 because of an exception:",
         "Tokens": [
           {
-            "Length": 8,
-            "PropertyName": "Text",
-            "Format": "l"
+            "Length": 135,
+            "Text": "Delayed Retry will reschedule message '00000000-0000-0000-0000-000000000001' after a delay of 00:00:00.0010000 because of an exception:"
           }
         ]
       },
       "Level": "Warning",
       "Properties": {
-        "Text": {
-          "Value": "Delayed Retry will reschedule message '00000000-0000-0000-0000-000000000001' after a delay of 00:00:00.0010000 because of an exception:"
-        },
         "SourceContext": {
           "Value": "NServiceBus.RecoverabilityExecutor"
         },
@@ -603,20 +595,16 @@
     },
     {
       "MessageTemplate": {
-        "Text": "{Text:l}",
+        "Text": "Immediate Retry is going to retry message '00000000-0000-0000-0000-000000000001' because of an exception:",
         "Tokens": [
           {
-            "Length": 8,
-            "PropertyName": "Text",
-            "Format": "l"
+            "Length": 105,
+            "Text": "Immediate Retry is going to retry message '00000000-0000-0000-0000-000000000001' because of an exception:"
           }
         ]
       },
       "Level": "Information",
       "Properties": {
-        "Text": {
-          "Value": "Immediate Retry is going to retry message '00000000-0000-0000-0000-000000000001' because of an exception:"
-        },
         "SourceContext": {
           "Value": "NServiceBus.RecoverabilityExecutor"
         },
@@ -717,20 +705,16 @@
     },
     {
       "MessageTemplate": {
-        "Text": "{Text:l}",
+        "Text": "Moving message '00000000-0000-0000-0000-000000000001' to the error queue 'error' because processing failed due to an exception:",
         "Tokens": [
           {
-            "Length": 8,
-            "PropertyName": "Text",
-            "Format": "l"
+            "Length": 127,
+            "Text": "Moving message '00000000-0000-0000-0000-000000000001' to the error queue 'error' because processing failed due to an exception:"
           }
         ]
       },
       "Level": "Error",
       "Properties": {
-        "Text": {
-          "Value": "Moving message '00000000-0000-0000-0000-000000000001' to the error queue 'error' because processing failed due to an exception:"
-        },
         "SourceContext": {
           "Value": "NServiceBus.RecoverabilityExecutor"
         },

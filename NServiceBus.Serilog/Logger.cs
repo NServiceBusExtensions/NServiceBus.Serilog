@@ -14,12 +14,12 @@ class Logger : ILog
 
     public void Debug(string message)
     {
-        logger.Debug("{Text:l}", message);
+        logger.Debug(message);
     }
 
     public void Debug(string message, Exception exception)
     {
-        logger.Debug(exception, "{Text:l}", message);
+        logger.Debug(exception, message);
     }
 
     public void DebugFormat(string format, params object[] args)
@@ -29,12 +29,12 @@ class Logger : ILog
 
     public void Info(string message)
     {
-        logger.Information("{Text:l}", message);
+        logger.Information(message);
     }
 
     public void Info(string message, Exception exception)
     {
-        logger.Information(exception, "{Text:l}", message);
+        logger.Information(exception, message);
     }
 
     public void InfoFormat(string format, params object[] args)
@@ -44,12 +44,12 @@ class Logger : ILog
 
     public void Warn(string message)
     {
-        logger.Warning("{Text:l}", message);
+        logger.Warning(message);
     }
 
     public void Warn(string message, Exception exception)
     {
-        logger.Warning(exception, "{Text:l}", message);
+        logger.Warning(exception, message);
     }
 
     public void WarnFormat(string format, params object[] args)
@@ -59,12 +59,12 @@ class Logger : ILog
 
     public void Error(string message)
     {
-        logger.Error("{Text:l}", message);
+        logger.Error(message);
     }
 
     public void Error(string message, Exception exception)
     {
-        logger.Error(exception, "{Text:l}", message);
+        logger.Error(exception, message);
     }
 
     public void ErrorFormat(string format, params object[] args)
@@ -74,12 +74,12 @@ class Logger : ILog
 
     public void Fatal(string message)
     {
-        logger.Fatal("{Text:l}", message);
+        logger.Fatal(message);
     }
 
     public void Fatal(string message, Exception exception)
     {
-        logger.Fatal(exception, "{Text:l}", message);
+        logger.Fatal(exception, message);
     }
 
     public void FatalFormat(string format, params object[] args)
