@@ -8,11 +8,11 @@ using Serilog;
 using Serilog.Events;
 using Serilog.Parsing;
 
-class LogOutgoingLogicalMessageBehavior : Behavior<IOutgoingLogicalMessageContext>
+class LogOutgoingMessageBehavior : Behavior<IOutgoingLogicalMessageContext>
 {
     MessageTemplate messageTemplate;
 
-    public LogOutgoingLogicalMessageBehavior()
+    public LogOutgoingMessageBehavior()
     {
         var templateParser = new MessageTemplateParser();
         messageTemplate = templateParser.Parse("Sent message {MessageType} {MessageId}.");
@@ -45,15 +45,14 @@ class LogOutgoingLogicalMessageBehavior : Behavior<IOutgoingLogicalMessageContex
         forContext.WriteInfo(messageTemplate, logProperties);
     }
 
-
     public class Registration : RegisterStep
     {
         public Registration()
             : base(
-                stepId: $"Serilog{nameof(LogOutgoingLogicalMessageBehavior)}",
-                behavior: typeof(LogOutgoingLogicalMessageBehavior),
+                stepId: $"Serilog{nameof(LogOutgoingMessageBehavior)}",
+                behavior: typeof(LogOutgoingMessageBehavior),
                 description: "Logs outgoing messages",
-                factoryMethod: builder => new LogOutgoingLogicalMessageBehavior())
+                factoryMethod: builder => new LogOutgoingMessageBehavior())
         {
         }
     }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using NServiceBus;
 using NServiceBus.Pipeline;
 using Serilog.Core.Enrichers;
 
@@ -26,7 +27,16 @@ class InjectOutgoingLogicalMessageBehavior : Behavior<IOutgoingLogicalMessageCon
             new PropertyEnricher("MessageType", messageTypeName),
         };
 
-        HeaderPromote.PromoteCorrAndConv(headers, properties);
+        if (headers.TryGetValue(Headers.CorrelationId, out var correlationId))
+        {
+            properties.Add(new PropertyEnricher("CorrelationId", correlationId));
+        }
+
+        if (headers.TryGetValue(Headers.ConversationId, out var conversationId))
+        {
+            properties.Add(new PropertyEnricher("ConversationId", conversationId));
+        }
+
         var forContext = logger.ForContext(properties);
         context.Extensions.Set(forContext);
 

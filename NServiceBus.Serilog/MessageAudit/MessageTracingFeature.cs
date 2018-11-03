@@ -10,7 +10,7 @@ class MessageTracingFeature : Feature
     protected override void Setup(FeatureConfigurationContext context)
     {
         var pipeline = context.Pipeline;
-        pipeline.Register(new LogIncomingLogicalMessageBehavior.Registration());
-        pipeline.Register(new LogOutgoingLogicalMessageBehavior.Registration());
+        pipeline.Register(new LogIncomingMessageBehavior.Registration());
+        pipeline.Register(new LogOutgoingMessageBehavior.Registration());
     }
 }

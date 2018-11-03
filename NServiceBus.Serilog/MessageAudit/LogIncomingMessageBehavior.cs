@@ -6,11 +6,11 @@ using NServiceBus.Pipeline;
 using Serilog.Events;
 using Serilog.Parsing;
 
-class LogIncomingLogicalMessageBehavior : Behavior<IIncomingLogicalMessageContext>
+class LogIncomingMessageBehavior : Behavior<IIncomingLogicalMessageContext>
 {
     MessageTemplate messageTemplate;
 
-    public LogIncomingLogicalMessageBehavior()
+    public LogIncomingMessageBehavior()
     {
         var templateParser = new MessageTemplateParser();
         messageTemplate = templateParser.Parse("Receive message {MessageType} {MessageId}.");
@@ -20,10 +20,10 @@ class LogIncomingLogicalMessageBehavior : Behavior<IIncomingLogicalMessageContex
     {
         public Registration()
             : base(
-                stepId: $"Serilog{nameof(LogIncomingLogicalMessageBehavior)}",
-                behavior: typeof(LogIncomingLogicalMessageBehavior),
+                stepId: $"Serilog{nameof(LogIncomingMessageBehavior)}",
+                behavior: typeof(LogIncomingMessageBehavior),
                 description: "Logs incoming messages",
-                factoryMethod: builder => new LogIncomingLogicalMessageBehavior()
+                factoryMethod: builder => new LogIncomingMessageBehavior()
                 )
         {
             InsertBefore("MutateIncomingMessages");

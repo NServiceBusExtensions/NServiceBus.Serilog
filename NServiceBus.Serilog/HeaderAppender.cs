@@ -13,7 +13,7 @@ static class HeaderAppender
         Headers.ContentType,
         Headers.CorrelationId,
         Headers.ConversationId,
-        "NServiceBus.Version",
+        Headers.NServiceBusVersion,
         Headers.MessageId
     };
 
