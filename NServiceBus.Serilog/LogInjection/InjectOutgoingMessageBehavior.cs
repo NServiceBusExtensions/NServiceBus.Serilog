@@ -5,11 +5,11 @@ using NServiceBus;
 using NServiceBus.Pipeline;
 using Serilog.Core.Enrichers;
 
-class InjectOutgoingLogicalMessageBehavior : Behavior<IOutgoingLogicalMessageContext>
+class InjectOutgoingMessageBehavior : Behavior<IOutgoingLogicalMessageContext>
 {
     LogBuilder logBuilder;
 
-    public InjectOutgoingLogicalMessageBehavior(LogBuilder logBuilder)
+    public InjectOutgoingMessageBehavior(LogBuilder logBuilder)
     {
         this.logBuilder = logBuilder;
     }
@@ -47,10 +47,10 @@ class InjectOutgoingLogicalMessageBehavior : Behavior<IOutgoingLogicalMessageCon
     {
         public Registration(LogBuilder logBuilder)
             : base(
-                stepId: $"Serilog{nameof(InjectOutgoingLogicalMessageBehavior)}",
-                behavior: typeof(InjectOutgoingLogicalMessageBehavior),
+                stepId: $"Serilog{nameof(InjectOutgoingMessageBehavior)}",
+                behavior: typeof(InjectOutgoingMessageBehavior),
                 description: "Injects a logger into the outgoing context",
-                factoryMethod: builder => new InjectOutgoingLogicalMessageBehavior(logBuilder))
+                factoryMethod: builder => new InjectOutgoingMessageBehavior(logBuilder))
         {
         }
     }

@@ -5,12 +5,12 @@ using NServiceBus;
 using NServiceBus.Pipeline;
 using Serilog.Core.Enrichers;
 
-class InjectIncomingPhysicalMessageBehavior : Behavior<IIncomingPhysicalMessageContext>
+class InjectIncomingMessageBehavior : Behavior<IIncomingPhysicalMessageContext>
 {
     LogBuilder logBuilder;
     string endpoint;
 
-    public InjectIncomingPhysicalMessageBehavior(LogBuilder logBuilder, string endpoint)
+    public InjectIncomingMessageBehavior(LogBuilder logBuilder, string endpoint)
     {
         this.logBuilder = logBuilder;
         this.endpoint = endpoint;
@@ -20,10 +20,10 @@ class InjectIncomingPhysicalMessageBehavior : Behavior<IIncomingPhysicalMessageC
     {
         public Registration(LogBuilder logBuilder, string endpoint)
             : base(
-                stepId: $"Serilog{nameof(InjectIncomingPhysicalMessageBehavior)}",
-                behavior: typeof(InjectIncomingPhysicalMessageBehavior),
+                stepId: $"Serilog{nameof(InjectIncomingMessageBehavior)}",
+                behavior: typeof(InjectIncomingMessageBehavior),
                 description: "Injects a logger into the incoming context",
-                factoryMethod: builder => new InjectIncomingPhysicalMessageBehavior(logBuilder, endpoint)
+                factoryMethod: builder => new InjectIncomingMessageBehavior(logBuilder, endpoint)
             )
         {
         }

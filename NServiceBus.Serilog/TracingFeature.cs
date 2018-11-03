@@ -12,8 +12,8 @@ class TracingFeature : Feature
         var logBuilder = new LogBuilder(settings.Logger, endpoint);
 
         var pipeline = context.Pipeline;
-        pipeline.Register(new InjectIncomingPhysicalMessageBehavior.Registration(logBuilder, endpoint));
+        pipeline.Register(new InjectIncomingMessageBehavior.Registration(logBuilder, endpoint));
         pipeline.Register(new InjectInvokeHandlerContextBehavior.Registration());
-        pipeline.Register(new InjectOutgoingLogicalMessageBehavior.Registration(logBuilder));
+        pipeline.Register(new InjectOutgoingMessageBehavior.Registration(logBuilder));
     }
 }
