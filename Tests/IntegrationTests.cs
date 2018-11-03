@@ -89,16 +89,11 @@ public class IntegrationTests : TestBase
         Log.Logger = loggerConfiguration.CreateLogger();
         LogManager.Use<SerilogFactory>();
 
-        var configuration = new EndpointConfiguration("SerilogTests");
-        configuration.EnableInstallers();
+        var configuration = ConfigBuilder.BuildDefaultConfig("SerilogTests");
         var serilogTracing = configuration.EnableSerilogTracing();
         serilogTracing.EnableSagaTracing();
         serilogTracing.EnableMessageTracing();
 
-        configuration.SendFailedMessagesTo("error");
-        configuration.UsePersistence<InMemoryPersistence>();
-        configuration.PurgeOnStartup(true);
-        configuration.UseTransport<LearningTransport>();
         var recoverability = configuration.Recoverability();
         recoverability.Delayed(settings =>
         {
@@ -119,6 +114,7 @@ public class IntegrationTests : TestBase
         {
             throw new Exception("No Set received.");
         }
+
         await endpoint.Stop();
         Log.CloseAndFlush();
 

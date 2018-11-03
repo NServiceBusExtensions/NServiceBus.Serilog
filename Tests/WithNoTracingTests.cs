@@ -15,11 +15,7 @@ public class WithNoTracingTests : TestBase
     public async Task Handler()
     {
         resetEvent = new ManualResetEvent(false);
-        var configuration = new EndpointConfiguration("WithNoTracingTests");
-        configuration.SendFailedMessagesTo("error");
-        configuration.UsePersistence<InMemoryPersistence>();
-        configuration.PurgeOnStartup(true);
-        configuration.UseTransport<LearningTransport>();
+        var configuration = ConfigBuilder.BuildDefaultConfig("WithNoTracingTests");
         configuration.DisableRetries();
 
         configuration.Notifications.Errors.MessageSentToErrorQueue +=
