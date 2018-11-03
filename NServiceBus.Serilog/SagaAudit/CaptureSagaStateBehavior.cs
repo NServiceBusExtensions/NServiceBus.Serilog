@@ -73,17 +73,15 @@ class CaptureSagaStateBehavior : Behavior<IInvokeHandlerContext>
             return;
         }
 
-        var originatingMachine = headers["NServiceBus.OriginatingMachine"];
-        var originatingEndpoint = headers[Headers.OriginatingEndpoint];
         var intent = context.MessageIntent();
 
         var initiator = new SagaChangeInitiator
         {
             IsSagaTimeoutMessage = context.IsTimeoutMessage(),
             InitiatingMessageId = messageId,
-            OriginatingMachine = originatingMachine,
-            OriginatingEndpoint = originatingEndpoint,
-            MessageType = context.MessageMetadata.MessageType.FullName,
+            OriginatingMachine = context.OriginatingMachine(),
+            OriginatingEndpoint = context.OriginatingEndpoint(),
+            MessageType = context.MessageName(),
             TimeSent = context.TimeSent(),
             Intent = intent
         };

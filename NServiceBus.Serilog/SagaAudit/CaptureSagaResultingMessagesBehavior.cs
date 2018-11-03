@@ -1,6 +1,5 @@
 ﻿using System.Threading.Tasks;
 using System;
-using NServiceBus;
 using NServiceBus.Pipeline;
 using NServiceBus.Serilog;
 
@@ -33,7 +32,7 @@ class CaptureSagaResultingMessagesBehavior : Behavior<IOutgoingLogicalMessageCon
             ResultingMessageId = context.MessageId,
             MessageType = logicalMessage.MessageType.ToString(),
             Destination = context.GetDestinationForUnicastMessages(),
-            MessageIntent = context.Headers[Headers.MessageIntent]
+            MessageIntent = context.MessageIntent()
         };
         sagaUpdatedMessage.ResultingMessages.Add(sagaResultingMessage);
     }

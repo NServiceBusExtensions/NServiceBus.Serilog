@@ -55,6 +55,7 @@ class InjectIncomingMessageBehavior : Behavior<IIncomingPhysicalMessageContext>
             MessageId = context.MessageId,
             MessageType = messageTypeName,
         };
+
         if (headers.TryGetValue(Headers.CorrelationId, out var correlationId))
         {
             exceptionLogState.CorrelationId = correlationId;

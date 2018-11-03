@@ -1,0 +1,1 @@
+﻿Expected to find a ILogger in the pipeline context. It is possible a call to SerilogTracingExtensions.EnableSerilogTracing is missing.

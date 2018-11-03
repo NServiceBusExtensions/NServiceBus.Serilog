@@ -5,7 +5,8 @@ public class TheHandler : IHandleMessages<StartHandler>
 {
     public Task Handle(StartHandler message, IMessageHandlerContext context)
     {
-        context.Logger().Information("Hello from {@Handler}.");
+        var logger = context.Logger();
+        logger.Information("Hello from {@Handler}.");
         IntegrationTests.resetEvent.Set();
         return Task.CompletedTask;
     }

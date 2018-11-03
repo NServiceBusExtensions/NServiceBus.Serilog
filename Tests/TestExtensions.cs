@@ -1,9 +1,17 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using NServiceBus;
 using Serilog.Events;
 
 public static class TestExtensions
 {
+    public static void DisableRetries(this EndpointConfiguration configuration)
+    {
+        var recoverability = configuration.Recoverability();
+        recoverability.Delayed(settings => { settings.NumberOfRetries(0); });
+        recoverability.Immediate(settings => { settings.NumberOfRetries(0); });
+    }
+
     public static IEnumerable<LogEventEx> LogsForNsbSerilog(this IEnumerable<LogEventEx> logs)
     {
         return logs.Where(log =>

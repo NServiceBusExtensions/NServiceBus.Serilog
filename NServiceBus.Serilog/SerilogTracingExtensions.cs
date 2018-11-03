@@ -24,6 +24,7 @@ namespace NServiceBus
         {
             Guard.AgainstNull(configuration, nameof(configuration));
             Guard.AgainstNull(logger, nameof(logger));
+            configuration.Recoverability().AddUnrecoverableException<ConfigurationException>();
             configuration.EnableFeature<TracingFeature>();
             var settings = configuration.GetSettings();
             var attachments = new SerilogTracingSettings(logger,configuration);
@@ -42,7 +43,12 @@ namespace NServiceBus
             {
                 return logger;
             }
-            return bag.Get<ILogger>();
+            if (bag.TryGet(out logger))
+            {
+                return logger;
+
+            }
+            throw new ConfigurationException($"Expected to find a {nameof(ILogger)} in the pipeline context. It is possible a call to {nameof(SerilogTracingExtensions)}.{nameof(SerilogTracingExtensions.EnableSerilogTracing)} is missing.");
         }
     }
 }

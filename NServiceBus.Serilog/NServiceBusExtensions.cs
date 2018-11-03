@@ -7,9 +7,48 @@ using NServiceBus.Routing;
 
 static class NServiceBusExtensions
 {
-    public static string MessageIntent(this IInvokeHandlerContext logicalMessage)
+    public static string OriginatingMachine(this IInvokeHandlerContext context)
     {
-        var headers = logicalMessage.Headers;
+        if (context.Headers.TryGetValue(Headers.OriginatingMachine, out var intent))
+        {
+            return intent;
+        }
+
+        return string.Empty;
+    }
+
+    public static string OriginatingEndpoint(this IInvokeHandlerContext context)
+    {
+        if (context.Headers.TryGetValue(Headers.OriginatingEndpoint, out var intent))
+        {
+            return intent;
+        }
+
+        return string.Empty;
+    }
+
+    public static string MessageIntent(this IInvokeHandlerContext context)
+    {
+        return MessageIntent(context.Headers);
+    }
+
+    public static string HandlerName(this IInvokeHandlerContext context)
+    {
+        return context.MessageHandler.HandlerType.FullName;
+    }
+
+    public static string MessageName(this IInvokeHandlerContext context)
+    {
+        return context.MessageMetadata.MessageType.FullName;
+    }
+
+    public static string MessageIntent(this IOutgoingLogicalMessageContext context)
+    {
+        return MessageIntent(context.Headers);
+    }
+
+    static string MessageIntent(Dictionary<string, string> headers)
+    {
         if (headers.TryGetValue(Headers.MessageIntent, out var intent))
         {
             return intent;
@@ -28,14 +67,14 @@ static class NServiceBusExtensions
             .ToList();
     }
 
-    public static DateTime TimeSent(this IInvokeHandlerContext logicalMessage)
+    public static DateTime TimeSent(this IInvokeHandlerContext context)
     {
-        return DateTimeExtensions.ToUtcDateTime(logicalMessage.Headers[Headers.TimeSent]);
+        return DateTimeExtensions.ToUtcDateTime(context.Headers[Headers.TimeSent]);
     }
 
-    public static bool IsTimeoutMessage(this IInvokeHandlerContext message)
+    public static bool IsTimeoutMessage(this IInvokeHandlerContext context)
     {
-        if (message.Headers.TryGetValue(Headers.IsSagaTimeoutMessage, out var isTimeoutString))
+        if (context.Headers.TryGetValue(Headers.IsSagaTimeoutMessage, out var isTimeoutString))
         {
             return string.Equals(isTimeoutString, "true", StringComparison.OrdinalIgnoreCase);
         }

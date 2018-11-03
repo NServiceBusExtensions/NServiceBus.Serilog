@@ -18,7 +18,7 @@ class InjectInvokeHandlerContextBehavior : Behavior<IInvokeHandlerContext>
 
     public override async Task Invoke(IInvokeHandlerContext context, Func<Task> next)
     {
-        var forContext = context.Logger().ForContext("Handler", context.MessageHandler.HandlerType.FullName);
+        var forContext = context.Logger().ForContext("Handler", context.HandlerName());
         try
         {
             context.Extensions.Set("SerilogHandlerLogger", forContext);
