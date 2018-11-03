@@ -10,7 +10,7 @@
     <PackageLicenseUrl>http://www.opensource.org/licenses/mit-license.php</PackageLicenseUrl>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <Copyright>Copyright $([System.DateTime]::UtcNow.ToString(yyyy)). All rights reserved</Copyright>
-    <PackageIconUrl>https://raw.github.com/SimonCropp/NServiceBus.Serilog/master/Icons/package_icon.png</PackageIconUrl>
+    <PackageIconUrl>https://raw.github.com/NServiceBusExtensions/NServiceBus.Serilog/master/Icons/package_icon.png</PackageIconUrl>
     <PackageProjectUrl>https://docs.particular.net/nuget/NServiceBus.Serilog</PackageProjectUrl>
     <RepositoryUrl>https://github.com/NServiceBusExtensions/NServiceBus.Serilog</RepositoryUrl>
     <PackageOutputPath>..\nugets</PackageOutputPath>
