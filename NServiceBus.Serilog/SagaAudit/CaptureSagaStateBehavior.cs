@@ -157,8 +157,7 @@ class CaptureSagaStateBehavior : Behavior<IInvokeHandlerContext>
             : base(
                 stepId: $"Serilog{nameof(CaptureSagaStateBehavior)}",
                 behavior: typeof(CaptureSagaStateBehavior),
-                description: "Records saga state changes",
-                factoryMethod: builder => new CaptureSagaStateBehavior())
+                description: "Records saga state changes")
         {
             InsertBefore("InvokeSaga");
         }

@@ -1,6 +1,4 @@
-﻿using System.Linq;
-using System.Threading.Tasks;
-using NServiceBus.Routing;
+﻿using System.Threading.Tasks;
 using System;
 using NServiceBus;
 using NServiceBus.Pipeline;
@@ -34,23 +32,10 @@ class CaptureSagaResultingMessagesBehavior : Behavior<IOutgoingLogicalMessageCon
         {
             ResultingMessageId = context.MessageId,
             MessageType = logicalMessage.MessageType.ToString(),
-            Destination = GetDestinationForUnicastMessages(context),
+            Destination = context.GetDestinationForUnicastMessages(),
             MessageIntent = context.Headers[Headers.MessageIntent]
         };
         sagaUpdatedMessage.ResultingMessages.Add(sagaResultingMessage);
-    }
-
-    static string GetDestinationForUnicastMessages(IOutgoingLogicalMessageContext context)
-    {
-        var sendAddressTags = context.RoutingStrategies
-            .OfType<UnicastRoutingStrategy>()
-            .Select(urs => urs.Apply(context.Headers))
-            .Cast<UnicastAddressTag>().ToList();
-        if (sendAddressTags.Count != 1)
-        {
-            return null;
-        }
-        return sendAddressTags.First().Destination;
     }
 
     public class Registration : RegisterStep
@@ -59,8 +44,7 @@ class CaptureSagaResultingMessagesBehavior : Behavior<IOutgoingLogicalMessageCon
             : base(
                 stepId: $"Serilog{nameof(CaptureSagaResultingMessagesBehavior)}",
                 behavior: typeof(CaptureSagaResultingMessagesBehavior),
-                description: "Reports messages outgoing from a saga to Serilog",
-                factoryMethod: builder => new CaptureSagaResultingMessagesBehavior())
+                description: "Reports messages outgoing from a saga to Serilog")
         {
         }
     }
