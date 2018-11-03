@@ -22,9 +22,7 @@ class LogIncomingMessageBehavior : Behavior<IIncomingLogicalMessageContext>
             : base(
                 stepId: $"Serilog{nameof(LogIncomingMessageBehavior)}",
                 behavior: typeof(LogIncomingMessageBehavior),
-                description: "Logs incoming messages",
-                factoryMethod: builder => new LogIncomingMessageBehavior()
-                )
+                description: "Logs incoming messages")
         {
             InsertBefore("MutateIncomingMessages");
         }

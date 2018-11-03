@@ -51,8 +51,7 @@ class LogOutgoingMessageBehavior : Behavior<IOutgoingLogicalMessageContext>
             : base(
                 stepId: $"Serilog{nameof(LogOutgoingMessageBehavior)}",
                 behavior: typeof(LogOutgoingMessageBehavior),
-                description: "Logs outgoing messages",
-                factoryMethod: builder => new LogOutgoingMessageBehavior())
+                description: "Logs outgoing messages")
         {
         }
     }

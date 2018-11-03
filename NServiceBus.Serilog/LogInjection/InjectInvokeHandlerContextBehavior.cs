@@ -11,9 +11,7 @@ class InjectInvokeHandlerContextBehavior : Behavior<IInvokeHandlerContext>
             : base(
                 stepId: $"Serilog{nameof(InjectInvokeHandlerContextBehavior)}",
                 behavior: typeof(InjectInvokeHandlerContextBehavior),
-                description: "Injects handler type into the logger",
-                factoryMethod: builder => new InjectInvokeHandlerContextBehavior()
-                )
+                description: "Injects handler type into the logger")
         {
         }
     }
