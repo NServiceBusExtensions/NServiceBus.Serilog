@@ -52,7 +52,7 @@ class InjectIncomingMessageBehavior : Behavior<IIncomingPhysicalMessageContext>
 
         var exceptionLogState = new ExceptionLogState
         {
-            Endpoint = endpoint,
+            ProcessingEndpoint = endpoint,
             MessageId = context.MessageId,
             MessageType = messageTypeName,
         };

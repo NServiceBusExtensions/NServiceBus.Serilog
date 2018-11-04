@@ -28,7 +28,7 @@ class Logger : ILog
         data.Remove("ExceptionLogState");
         var properties = new List<LogEventProperty>
         {
-            new LogEventProperty("ProcessingEndpoint", new ScalarValue(logState.Endpoint)),
+            new LogEventProperty("ProcessingEndpoint", new ScalarValue(logState.ProcessingEndpoint)),
             new LogEventProperty("MessageId", new ScalarValue(logState.MessageId)),
             new LogEventProperty("MessageType", new ScalarValue(logState.MessageType))
         };
