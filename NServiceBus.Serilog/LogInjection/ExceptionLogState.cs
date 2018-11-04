@@ -1,11 +1,14 @@
 ﻿using System;
 
-[Serializable]
-internal class ExceptionLogState
+namespace NServiceBus.Serilog
 {
-    public string Endpoint;
-    public string MessageId;
-    public string MessageType;
-    public string CorrelationId;
-    public string ConversationId;
+    [Serializable]
+    public class ExceptionLogState
+    {
+        public string Endpoint;
+        public string MessageId;
+        public string MessageType;
+        public string CorrelationId;
+        public string ConversationId;
+    }
 }

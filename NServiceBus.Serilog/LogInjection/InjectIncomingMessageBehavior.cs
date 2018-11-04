@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using NServiceBus;
 using NServiceBus.Pipeline;
+using NServiceBus.Serilog;
 using Serilog.Core.Enrichers;
 
 class InjectIncomingMessageBehavior : Behavior<IIncomingPhysicalMessageContext>
