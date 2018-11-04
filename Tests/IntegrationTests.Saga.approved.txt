@@ -183,10 +183,10 @@
           "Value": "Guid 4"
         },
         "StartTime": {
-          "Value": "DateTime 1"
+          "Value": "DateTimeOffset 1"
         },
         "FinishTime": {
-          "Value": "DateTime 2"
+          "Value": "DateTimeOffset 2"
         },
         "IsCompleted": {
           "Value": false
@@ -218,7 +218,7 @@
             {
               "Name": "TimeSent",
               "Value": {
-                "Value": "DateTime 3"
+                "Value": "DateTime 1"
               }
             },
             {

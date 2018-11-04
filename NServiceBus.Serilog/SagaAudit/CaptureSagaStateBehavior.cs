@@ -37,7 +37,7 @@ class CaptureSagaStateBehavior : Behavior<IInvokeHandlerContext>
 
         sagaAudit = new SagaUpdatedMessage
         {
-            StartTime = DateTime.UtcNow
+            StartTime = DateTimeOffset.UtcNow
         };
         context.Extensions.Set(sagaAudit);
         await next()
@@ -47,7 +47,7 @@ class CaptureSagaStateBehavior : Behavior<IInvokeHandlerContext>
         {
             sagaAudit.SagaType = activeSagaInstance.Instance.GetType().FullName;
 
-            sagaAudit.FinishTime = DateTime.UtcNow;
+            sagaAudit.FinishTime = DateTimeOffset.UtcNow;
             AuditSaga(activeSagaInstance, context);
         }
     }
