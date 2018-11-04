@@ -242,7 +242,37 @@
           ]
         },
         "ResultingMessages": {
-          "Elements": []
+          "Elements": [
+            {
+              "TypeTag": "SagaChangeOutput",
+              "Properties": [
+                {
+                  "Name": "MessageType",
+                  "Value": {
+                    "Value": "BackIntoSaga"
+                  }
+                },
+                {
+                  "Name": "Destination",
+                  "Value": {
+                    "Value": "SerilogTests"
+                  }
+                },
+                {
+                  "Name": "ResultingMessageId",
+                  "Value": {
+                    "Value": "Guid 5"
+                  }
+                },
+                {
+                  "Name": "MessageIntent",
+                  "Value": {
+                    "Value": "Send"
+                  }
+                }
+              ]
+            }
+          ]
         },
         "Entity": {
           "TypeTag": "TheSagaData",
@@ -357,6 +387,103 @@
         },
         "ReplyToAddress": {
           "Value": "SerilogTests"
+        },
+        "MessageId": {
+          "Value": "Guid 1"
+        },
+        "MessageType": {
+          "Value": "StartSaga"
+        },
+        "CorrelationId": {
+          "Value": "Guid 1"
+        },
+        "ConversationId": {
+          "Value": "Guid 2"
+        },
+        "SourceContext": {
+          "Value": "StartSaga"
+        },
+        "ProcessingEndpoint": {
+          "Value": "SerilogTests"
+        }
+      }
+    },
+    {
+      "MessageTemplate": {
+        "Text": "Sent message {MessageType} {MessageId}.",
+        "Tokens": [
+          {
+            "Length": 13,
+            "Text": "Sent message "
+          },
+          {
+            "Length": 13,
+            "PropertyName": "MessageType",
+            "StartIndex": 13
+          },
+          {
+            "Length": 1,
+            "Text": " ",
+            "StartIndex": 26
+          },
+          {
+            "Length": 11,
+            "PropertyName": "MessageId",
+            "StartIndex": 27
+          },
+          {
+            "Length": 1,
+            "Text": ".",
+            "StartIndex": 38
+          }
+        ]
+      },
+      "Level": "Information",
+      "Properties": {
+        "Message": {
+          "TypeTag": "BackIntoSaga",
+          "Properties": [
+            {
+              "Name": "Property",
+              "Value": {
+                "Value": "TheProperty"
+              }
+            }
+          ]
+        },
+        "UnicastRoutes": {
+          "Elements": [
+            {
+              "Value": "SerilogTests"
+            }
+          ]
+        },
+        "OriginatingHostId": {
+          "Value": "Guid 3"
+        },
+        "MessageIntent": {
+          "Value": "Send"
+        },
+        "OriginatingEndpoint": {
+          "Value": "SerilogTests"
+        },
+        "OriginatingMachine": {
+          "Value": "MachineName"
+        },
+        "OriginatingSagaId": {
+          "Value": "Guid 4"
+        },
+        "OriginatingSagaType": {
+          "Value": "TheSaga, Tests, Version=6.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6"
+        },
+        "RelatedTo": {
+          "Value": "Guid 1"
+        },
+        "ReplyToAddress": {
+          "Value": "SerilogTests"
+        },
+        "Handler": {
+          "Value": "TheSaga"
         },
         "MessageId": {
           "Value": "Guid 1"

@@ -1,7 +1,8 @@
 ﻿using System.Threading.Tasks;
 using NServiceBus;
 
-public class TheHandler : IHandleMessages<StartHandler>
+public class TheHandler :
+    IHandleMessages<StartHandler>
 {
     public Task Handle(StartHandler message, IMessageHandlerContext context)
     {
