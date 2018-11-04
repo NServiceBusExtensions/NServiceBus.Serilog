@@ -27,6 +27,9 @@ class Program
         configuration.UsePersistence<InMemoryPersistence>();
         configuration.UseTransport<LearningTransport>();
         configuration.SendFailedMessagesTo("error");
+        var recoverability = configuration.Recoverability();
+        recoverability.Delayed(settings => { settings.NumberOfRetries(1); });
+        recoverability.Immediate(settings => { settings.NumberOfRetries(1); });
         var endpoint = await Endpoint.Start(configuration)
             .ConfigureAwait(false);
         var createUser = new CreateUser

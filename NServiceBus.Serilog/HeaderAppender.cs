@@ -26,6 +26,11 @@ static class HeaderAppender
         {
             var key = header.Key;
             var value = header.Value;
+            if (key == Headers.TimeSent)
+            {
+                yield return new LogEventProperty(key.Substring(12), new ScalarValue(DateTimeExtensions.ToUtcDateTime(value)));
+                continue;
+            }
             if (key.StartsWith("NServiceBus."))
             {
                 yield return new LogEventProperty(key.Substring(12), new ScalarValue(value));
