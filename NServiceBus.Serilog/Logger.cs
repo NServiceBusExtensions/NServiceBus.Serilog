@@ -9,10 +9,12 @@ using Serilog.Parsing;
 class Logger : ILog
 {
     ILogger logger;
+    MessageTemplateParser templateParser;
 
     public Logger(ILogger logger)
     {
         this.logger = logger;
+        templateParser = new MessageTemplateParser();
     }
 
     void WriteExceptionEvent(string message, Exception exception, LogEventLevel level)
@@ -23,7 +25,6 @@ class Logger : ILog
             logger.Write(level, message);
             return;
         }
-
         var logState = (ExceptionLogState)data["ExceptionLogState"];
         data.Remove("ExceptionLogState");
         var properties = new List<LogEventProperty>
@@ -42,7 +43,7 @@ class Logger : ILog
             properties.Add(new LogEventProperty("ConversationId", new ScalarValue(logState.ConversationId)));
         }
 
-        var messageTemplate = new MessageTemplate(message, Array.Empty<TextToken>());
+        var messageTemplate = templateParser.Parse(message);
         var logEvent = new LogEvent(DateTimeOffset.Now, level, exception, messageTemplate, properties);
         logger.Write(logEvent);
     }
