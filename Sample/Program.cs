@@ -4,7 +4,6 @@ using NServiceBus;
 using NServiceBus.Logging;
 using NServiceBus.Serilog;
 using Serilog;
-using Serilog.Exceptions;
 
 class Program
 {
@@ -12,7 +11,6 @@ class Program
     {
         //Setup Serilog
         var loggerConfiguration = new LoggerConfiguration();
-        loggerConfiguration.Enrich.WithExceptionDetails();
         loggerConfiguration.WriteTo.Console();
         loggerConfiguration.MinimumLevel.Information();
         loggerConfiguration.WriteTo.File("logFile.txt");
