@@ -22,7 +22,7 @@ class Logger : ILog
         var data = exception.Data;
         if (!data.Contains("ExceptionLogState"))
         {
-            logger.Write(level, message);
+            logger.Write(level, exception, message);
             return;
         }
         var logState = (ExceptionLogState)data["ExceptionLogState"];

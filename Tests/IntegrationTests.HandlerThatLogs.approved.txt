@@ -1,0 +1,198 @@
+﻿{
+  "logsForTarget": [
+    {
+      "MessageTemplate": {
+        "Text": "Receive message {MessageType} {MessageId}.",
+        "Tokens": [
+          {
+            "Length": 16,
+            "Text": "Receive message "
+          },
+          {
+            "Length": 13,
+            "PropertyName": "MessageType",
+            "StartIndex": 16
+          },
+          {
+            "Length": 1,
+            "Text": " ",
+            "StartIndex": 29
+          },
+          {
+            "Length": 11,
+            "PropertyName": "MessageId",
+            "StartIndex": 30
+          },
+          {
+            "Length": 1,
+            "Text": ".",
+            "StartIndex": 41
+          }
+        ]
+      },
+      "Level": "Information",
+      "Properties": {
+        "Message": {
+          "TypeTag": "StartHandlerThatLogs",
+          "Properties": []
+        },
+        "OriginatingHostId": {
+          "Value": "Guid 1"
+        },
+        "MessageIntent": {
+          "Value": "Send"
+        },
+        "OriginatingEndpoint": {
+          "Value": "SerilogTests"
+        },
+        "OriginatingMachine": {
+          "Value": "MachineName"
+        },
+        "ReplyToAddress": {
+          "Value": "SerilogTests"
+        },
+        "MessageId": {
+          "Value": "Guid 2"
+        },
+        "MessageType": {
+          "Value": "StartHandlerThatLogs"
+        },
+        "CorrelationId": {
+          "Value": "Guid 2"
+        },
+        "ConversationId": {
+          "Value": "Guid 3"
+        },
+        "SourceContext": {
+          "Value": "StartHandlerThatLogs"
+        },
+        "ProcessingEndpoint": {
+          "Value": "SerilogTests"
+        }
+      }
+    },
+    {
+      "MessageTemplate": {
+        "Text": "Sent message {MessageType} {MessageId}.",
+        "Tokens": [
+          {
+            "Length": 13,
+            "Text": "Sent message "
+          },
+          {
+            "Length": 13,
+            "PropertyName": "MessageType",
+            "StartIndex": 13
+          },
+          {
+            "Length": 1,
+            "Text": " ",
+            "StartIndex": 26
+          },
+          {
+            "Length": 11,
+            "PropertyName": "MessageId",
+            "StartIndex": 27
+          },
+          {
+            "Length": 1,
+            "Text": ".",
+            "StartIndex": 38
+          }
+        ]
+      },
+      "Level": "Information",
+      "Properties": {
+        "Message": {
+          "TypeTag": "StartHandlerThatLogs",
+          "Properties": []
+        },
+        "UnicastRoutes": {
+          "Elements": [
+            {
+              "Value": "SerilogTests"
+            }
+          ]
+        },
+        "OriginatingHostId": {
+          "Value": "Guid 1"
+        },
+        "MessageIntent": {
+          "Value": "Send"
+        },
+        "OriginatingEndpoint": {
+          "Value": "SerilogTests"
+        },
+        "OriginatingMachine": {
+          "Value": "MachineName"
+        },
+        "ReplyToAddress": {
+          "Value": "SerilogTests"
+        },
+        "MessageId": {
+          "Value": "Guid 2"
+        },
+        "MessageType": {
+          "Value": "StartHandlerThatLogs"
+        },
+        "CorrelationId": {
+          "Value": "Guid 2"
+        },
+        "ConversationId": {
+          "Value": "Guid 3"
+        },
+        "SourceContext": {
+          "Value": "StartHandlerThatLogs"
+        },
+        "ProcessingEndpoint": {
+          "Value": "SerilogTests"
+        }
+      }
+    }
+  ],
+  "logsWithExceptions": [
+    {
+      "MessageTemplate": {
+        "Text": "The message",
+        "Tokens": [
+          {
+            "Length": 11,
+            "Text": "The message"
+          }
+        ]
+      },
+      "Level": "Error",
+      "Properties": {
+        "SourceContext": {
+          "Value": "TheHandlerThatThrows"
+        },
+        "ExceptionDetail": {
+          "Elements": {
+            "\"Type\"": {
+              "Value": "System.Exception"
+            },
+            "\"HResult\"": {
+              "Value": -2146233088
+            },
+            "\"Message\"": {
+              "Value": "Exception of type 'System.Exception' was thrown."
+            },
+            "\"Source\"": {}
+          }
+        }
+      },
+      "Exception": {
+        "ClassName": "System.Exception",
+        "Message": null,
+        "Data": {},
+        "InnerException": null,
+        "HelpURL": null,
+        "RemoteStackIndex": 0,
+        "ExceptionMethod": null,
+        "HResult": -2146233088,
+        "Source": null,
+        "WatsonBuckets": null
+      }
+    }
+  ]
+}

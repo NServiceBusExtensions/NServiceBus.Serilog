@@ -36,6 +36,14 @@ public class IntegrationTests : TestBase
     }
 
     [Fact]
+    public async Task HandlerThatLogs()
+    {
+        var events = await Send(new StartHandlerThatLogs());
+        var logEvents = events.ToList();
+        Verify<StartHandlerThatLogs>(logEvents);
+    }
+
+    [Fact]
     public async Task HandlerThatThrows()
     {
         var events = await Send(
