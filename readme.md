@@ -20,11 +20,11 @@ Thanks to all the backers! [[Become a backer](https://opencollective.com/nservic
 <!--- EndOpenCollectiveBackers -->
 
 
-## The NuGet package [![NuGet Status](http://img.shields.io/nuget/v/Newtonsoft.Serilog.svg?style=flat)](https://www.nuget.org/packages/Newtonsoft.Serilog/)
+## The NuGet package [![NuGet Status](http://img.shields.io/nuget/v/NServiceBus.Serilog.svg?style=flat)](https://www.nuget.org/packages/NServiceBus.Serilog/)
 
-https://nuget.org/packages/Newtonsoft.Json.Serilog/
+https://nuget.org/packages/NServiceBus.Serilog/
 
-    PM> Install-Package Newtonsoft.Serilog
+    PM> Install-Package NServiceBus.Serilog
 
 
 ## Standard Logging Library
