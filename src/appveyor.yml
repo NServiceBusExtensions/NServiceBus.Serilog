@@ -3,6 +3,6 @@ build_script:
 - cmd: dotnet build --configuration Release
 test_script:
 - cmd: >-
-    dotnet test "Tests\Tests.csproj" --configuration Release --no-build
+    dotnet test "src\Tests\Tests.csproj" --configuration Release --no-build
 artifacts:
 - path: nugets\**\*.nupkg
