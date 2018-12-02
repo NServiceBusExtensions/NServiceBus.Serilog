@@ -2,7 +2,6 @@
 using System.Threading.Tasks;
 using NServiceBus;
 using NServiceBus.Logging;
-using Serilog;
 
 public class TheHandlerThatLogs : IHandleMessages<StartHandlerThatLogs>
 {
