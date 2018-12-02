@@ -5,8 +5,8 @@
     <LangVersion>latest</LangVersion>
     <AssemblyOriginatorKeyFile>$(SolutionDir)key.snk</AssemblyOriginatorKeyFile>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-    <Version>6.1.4</Version>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <Version>6.1.5</Version>
+    <PackageLicenseUrl>http://www.opensource.org/licenses/mit-license.php</PackageLicenseUrl>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <Copyright>Copyright $([System.DateTime]::UtcNow.ToString(yyyy)). All rights reserved</Copyright>
     <PackageIconUrl>https://raw.github.com/NServiceBusExtensions/NServiceBus.Serilog/master/src/package_icon.png</PackageIconUrl>
@@ -16,6 +16,5 @@
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <DebugType>embedded</DebugType>
     <DebugSymbols>true</DebugSymbols>
-
   </PropertyGroup>
 </Project>
