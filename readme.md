@@ -1,6 +1,5 @@
-![Icon](https://raw.github.com/NServiceBusExtensions/NServiceBus.Serilog/master/Icons/package_icon.png)
 
-NServiceBus.Serilog
+<img src="https://raw.github.com/NServiceBusExtensions/NServiceBus.Serilog/master/Icons/package_icon.png" height="30px"> NServiceBus.Serilog
 ==================
 
 Add support for sending [NServiceBus](http://particular.net/NServiceBus) logging message through [Serilog](http://serilog.net/)
