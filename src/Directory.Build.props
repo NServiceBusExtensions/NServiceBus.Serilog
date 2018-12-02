@@ -13,7 +13,7 @@
     <PackageIconUrl>https://raw.github.com/NServiceBusExtensions/NServiceBus.Serilog/master/Icons/package_icon.png</PackageIconUrl>
     <PackageProjectUrl>https://docs.particular.net/nuget/NServiceBus.Serilog</PackageProjectUrl>
     <RepositoryUrl>https://github.com/NServiceBusExtensions/NServiceBus.Serilog</RepositoryUrl>
-    <PackageOutputPath>..\nugets</PackageOutputPath>
+    <PackageOutputPath>..\..\nugets</PackageOutputPath>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <DebugType>embedded</DebugType>
     <DebugSymbols>true</DebugSymbols>
