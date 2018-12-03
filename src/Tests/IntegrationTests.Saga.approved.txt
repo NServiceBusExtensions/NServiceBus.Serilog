@@ -474,7 +474,7 @@
           "Value": "Guid 4"
         },
         "OriginatingSagaType": {
-          "Value": "TheSaga, Tests, Version=6.1.5.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6"
+          "Value": "TheSaga, Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6"
         },
         "RelatedTo": {
           "Value": "Guid 1"
