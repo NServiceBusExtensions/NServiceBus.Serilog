@@ -150,47 +150,6 @@ serilogFactory.WithLogger(logger);
 ```
 
 
-## Tracing Library
-
-Plugs into the low level NServiceBus pipeline to give more detailed diagnostics.
-
-
-### Documentation
-
-https://docs.particular.net/nuget/NServiceBus.Serilog.Tracing
-
-
-### Usage
-
-```csharp
-var tracingLog = new LoggerConfiguration()
-    .WriteTo.Console()
-    .WriteTo.File("logFile.txt")
-    .MinimumLevel.Information()
-    .CreateLogger();
-
-var serilogFactory = LogManager.Use<SerilogFactory>();
-serilogFactory.WithLogger(tracingLog);
-
-var config = new EndpointConfiguration("SeqSample");
-var serilogTracing = configuration.EnableSerilogTracing(tracingLog);
-serilogTracing.EnableSagaTracing();
-```
-
-To log to [Seq](http://getseq.net/ "Seq") use the following to create the Logger.
-
-```csharp
-var tracingLog = new LoggerConfiguration()
-    .WriteTo.Seq("http://localhost:5341")
-    .MinimumLevel.Information()
-    .CreateLogger();
-```
-
-Which will result in something like this
-
-![](https://raw.githubusercontent.com/NServiceBusExtensions/NServiceBus.Serilog/master/NsbSeq.png)
-
-
 ## Icon
 
 <a href="http://thenounproject.com/noun/brain/#icon-No10411" target="_blank">Brain</a> designed by <a href="http://thenounproject.com/catalarem" target="_blank">Rémy Médard</a> from The Noun Project
