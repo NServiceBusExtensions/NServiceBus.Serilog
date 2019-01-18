@@ -1,211 +1,211 @@
 ﻿{
-  "logsForTarget": [
+  logsForTarget: [
     {
-      "MessageTemplate": {
-        "Text": "Hello from {@Handler}.",
-        "Tokens": [
+      MessageTemplate: {
+        Text: 'Hello from {@Handler}.',
+        Tokens: [
           {
-            "Length": 11,
-            "Text": "Hello from "
+            Length: 11,
+            Text: 'Hello from '
           },
           {
-            "Length": 10,
-            "PropertyName": "Handler",
-            "Destructuring": "Destructure",
-            "StartIndex": 11
+            Length: 10,
+            PropertyName: 'Handler',
+            Destructuring: 'Destructure',
+            StartIndex: 11
           },
           {
-            "Length": 1,
-            "Text": ".",
-            "StartIndex": 21
+            Length: 1,
+            Text: '.',
+            StartIndex: 21
           }
         ]
       },
-      "Level": "Information",
-      "Properties": {
-        "Handler": {
-          "Value": "TheHandler"
+      Level: 'Information',
+      Properties: {
+        Handler: {
+          Value: 'TheHandler'
         },
-        "MessageId": {
-          "Value": "Guid 1"
+        MessageId: {
+          Value: 'Guid 1'
         },
-        "MessageType": {
-          "Value": "StartHandler"
+        MessageType: {
+          Value: 'StartHandler'
         },
-        "CorrelationId": {
-          "Value": "Guid 1"
+        CorrelationId: {
+          Value: 'Guid 1'
         },
-        "ConversationId": {
-          "Value": "Guid 2"
+        ConversationId: {
+          Value: 'Guid 2'
         },
-        "SourceContext": {
-          "Value": "StartHandler"
+        SourceContext: {
+          Value: 'StartHandler'
         },
-        "ProcessingEndpoint": {
-          "Value": "SerilogTests"
+        ProcessingEndpoint: {
+          Value: 'SerilogTests'
         }
       }
     },
     {
-      "MessageTemplate": {
-        "Text": "Receive message {MessageType} {MessageId}.",
-        "Tokens": [
+      MessageTemplate: {
+        Text: 'Receive message {MessageType} {MessageId}.',
+        Tokens: [
           {
-            "Length": 16,
-            "Text": "Receive message "
+            Length: 16,
+            Text: 'Receive message '
           },
           {
-            "Length": 13,
-            "PropertyName": "MessageType",
-            "StartIndex": 16
+            Length: 13,
+            PropertyName: 'MessageType',
+            StartIndex: 16
           },
           {
-            "Length": 1,
-            "Text": " ",
-            "StartIndex": 29
+            Length: 1,
+            Text: ' ',
+            StartIndex: 29
           },
           {
-            "Length": 11,
-            "PropertyName": "MessageId",
-            "StartIndex": 30
+            Length: 11,
+            PropertyName: 'MessageId',
+            StartIndex: 30
           },
           {
-            "Length": 1,
-            "Text": ".",
-            "StartIndex": 41
+            Length: 1,
+            Text: '.',
+            StartIndex: 41
           }
         ]
       },
-      "Level": "Information",
-      "Properties": {
-        "Message": {
-          "TypeTag": "StartHandler",
-          "Properties": [
+      Level: 'Information',
+      Properties: {
+        Message: {
+          TypeTag: 'StartHandler',
+          Properties: [
             {
-              "Name": "Property",
-              "Value": {
-                "Value": "TheProperty"
+              Name: 'Property',
+              Value: {
+                Value: 'TheProperty'
               }
             }
           ]
         },
-        "OriginatingHostId": {
-          "Value": "Guid 3"
+        OriginatingHostId: {
+          Value: 'Guid 3'
         },
-        "MessageIntent": {
-          "Value": "Send"
+        MessageIntent: {
+          Value: 'Send'
         },
-        "OriginatingEndpoint": {
-          "Value": "SerilogTests"
+        OriginatingEndpoint: {
+          Value: 'SerilogTests'
         },
-        "OriginatingMachine": {
-          "Value": "MachineName"
+        OriginatingMachine: {
+          Value: 'MachineName'
         },
-        "ReplyToAddress": {
-          "Value": "SerilogTests"
+        ReplyToAddress: {
+          Value: 'SerilogTests'
         },
-        "MessageId": {
-          "Value": "Guid 1"
+        MessageId: {
+          Value: 'Guid 1'
         },
-        "MessageType": {
-          "Value": "StartHandler"
+        MessageType: {
+          Value: 'StartHandler'
         },
-        "CorrelationId": {
-          "Value": "Guid 1"
+        CorrelationId: {
+          Value: 'Guid 1'
         },
-        "ConversationId": {
-          "Value": "Guid 2"
+        ConversationId: {
+          Value: 'Guid 2'
         },
-        "SourceContext": {
-          "Value": "StartHandler"
+        SourceContext: {
+          Value: 'StartHandler'
         },
-        "ProcessingEndpoint": {
-          "Value": "SerilogTests"
+        ProcessingEndpoint: {
+          Value: 'SerilogTests'
         }
       }
     },
     {
-      "MessageTemplate": {
-        "Text": "Sent message {MessageType} {MessageId}.",
-        "Tokens": [
+      MessageTemplate: {
+        Text: 'Sent message {MessageType} {MessageId}.',
+        Tokens: [
           {
-            "Length": 13,
-            "Text": "Sent message "
+            Length: 13,
+            Text: 'Sent message '
           },
           {
-            "Length": 13,
-            "PropertyName": "MessageType",
-            "StartIndex": 13
+            Length: 13,
+            PropertyName: 'MessageType',
+            StartIndex: 13
           },
           {
-            "Length": 1,
-            "Text": " ",
-            "StartIndex": 26
+            Length: 1,
+            Text: ' ',
+            StartIndex: 26
           },
           {
-            "Length": 11,
-            "PropertyName": "MessageId",
-            "StartIndex": 27
+            Length: 11,
+            PropertyName: 'MessageId',
+            StartIndex: 27
           },
           {
-            "Length": 1,
-            "Text": ".",
-            "StartIndex": 38
+            Length: 1,
+            Text: '.',
+            StartIndex: 38
           }
         ]
       },
-      "Level": "Information",
-      "Properties": {
-        "Message": {
-          "TypeTag": "StartHandler",
-          "Properties": [
+      Level: 'Information',
+      Properties: {
+        Message: {
+          TypeTag: 'StartHandler',
+          Properties: [
             {
-              "Name": "Property",
-              "Value": {
-                "Value": "TheProperty"
+              Name: 'Property',
+              Value: {
+                Value: 'TheProperty'
               }
             }
           ]
         },
-        "UnicastRoutes": {
-          "Elements": [
+        UnicastRoutes: {
+          Elements: [
             {
-              "Value": "SerilogTests"
+              Value: 'SerilogTests'
             }
           ]
         },
-        "OriginatingHostId": {
-          "Value": "Guid 3"
+        OriginatingHostId: {
+          Value: 'Guid 3'
         },
-        "MessageIntent": {
-          "Value": "Send"
+        MessageIntent: {
+          Value: 'Send'
         },
-        "OriginatingEndpoint": {
-          "Value": "SerilogTests"
+        OriginatingEndpoint: {
+          Value: 'SerilogTests'
         },
-        "OriginatingMachine": {
-          "Value": "MachineName"
+        OriginatingMachine: {
+          Value: 'MachineName'
         },
-        "ReplyToAddress": {
-          "Value": "SerilogTests"
+        ReplyToAddress: {
+          Value: 'SerilogTests'
         },
-        "MessageId": {
-          "Value": "Guid 1"
+        MessageId: {
+          Value: 'Guid 1'
         },
-        "MessageType": {
-          "Value": "StartHandler"
+        MessageType: {
+          Value: 'StartHandler'
         },
-        "CorrelationId": {
-          "Value": "Guid 1"
+        CorrelationId: {
+          Value: 'Guid 1'
         },
-        "ConversationId": {
-          "Value": "Guid 2"
+        ConversationId: {
+          Value: 'Guid 2'
         },
-        "SourceContext": {
-          "Value": "StartHandler"
+        SourceContext: {
+          Value: 'StartHandler'
         },
-        "ProcessingEndpoint": {
-          "Value": "SerilogTests"
+        ProcessingEndpoint: {
+          Value: 'SerilogTests'
         }
       }
     }
