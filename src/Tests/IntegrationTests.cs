@@ -36,6 +36,20 @@ public class IntegrationTests : TestBase
     }
 
     [Fact]
+    public async Task SagaNotFound()
+    {
+        var events = await Send(
+            new NotFoundSagaMessage(),
+            options =>
+            {
+                options.SetHeader(Headers.SagaId,Guid.NewGuid().ToString());
+                options.SetHeader(Headers.SagaType,typeof(TheSaga).FullName);
+            });
+        var logEvents = events.ToList();
+        Verify<NotFoundSagaMessage>(logEvents);
+    }
+
+    [Fact]
     public async Task HandlerThatLogs()
     {
         var events = await Send(new StartHandlerThatLogs());
@@ -82,7 +96,7 @@ public class IntegrationTests : TestBase
                 .RemoveLinesContaining("StackTraceString"));
     }
 
-    async Task<IEnumerable<LogEventEx>> Send(object message)
+    async Task<IEnumerable<LogEventEx>> Send(object message, Action<SendOptions> optionsAction=null)
     {
         var logs = new List<LogEvent>();
         var eventSink = new EventSink
@@ -115,6 +129,7 @@ public class IntegrationTests : TestBase
 
         var endpoint = await Endpoint.Start(configuration);
         var sendOptions = new SendOptions();
+        optionsAction?.Invoke(sendOptions);
         sendOptions.SetMessageId("00000000-0000-0000-0000-000000000001");
         sendOptions.RouteToThisEndpoint();
         await endpoint.Send(message, sendOptions);

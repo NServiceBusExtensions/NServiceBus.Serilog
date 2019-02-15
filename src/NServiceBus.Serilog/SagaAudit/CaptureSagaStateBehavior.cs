@@ -58,13 +58,8 @@ class CaptureSagaStateBehavior : Behavior<IInvokeHandlerContext>
 
         if (saga.Entity == null)
         {
-            if (context.IsTimeoutMessage())
-            {
-                //Receiving a timeout for a saga that has completed
-                return;
-            }
-
-            throw new Exception("Expected saga.Entity to contain a value.");
+            //this can happen if it is a timeout or for invoking "saga not found" logic
+            return;
         }
 
         var headers = context.Headers;

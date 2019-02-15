@@ -1,0 +1,675 @@
+﻿{
+  logsForTarget: [
+    {
+      MessageTemplate: {
+        Text: 'Receive message {MessageType} {MessageId}.',
+        Tokens: [
+          {
+            Length: 16,
+            Text: 'Receive message '
+          },
+          {
+            Length: 13,
+            PropertyName: 'MessageType',
+            StartIndex: 16
+          },
+          {
+            Length: 1,
+            Text: ' ',
+            StartIndex: 29
+          },
+          {
+            Length: 11,
+            PropertyName: 'MessageId',
+            StartIndex: 30
+          },
+          {
+            Length: 1,
+            Text: '.',
+            StartIndex: 41
+          }
+        ]
+      },
+      Level: 'Information',
+      Properties: {
+        Message: {
+          TypeTag: 'NotFoundSagaMessage',
+          Properties: [
+            {
+              Name: 'Property',
+              Value: {}
+            }
+          ]
+        },
+        OriginatingHostId: {
+          Value: 'Guid 1'
+        },
+        MessageIntent: {
+          Value: 'Send'
+        },
+        OriginatingEndpoint: {
+          Value: 'SerilogTestsNotFoundSagaMessage'
+        },
+        OriginatingMachine: {
+          Value: 'MachineName'
+        },
+        ReplyToAddress: {
+          Value: 'SerilogTestsNotFoundSagaMessage'
+        },
+        SagaId: {
+          Value: 'Guid 2'
+        },
+        SagaType: {
+          Value: 'TheSaga'
+        },
+        MessageId: {
+          Value: 'Guid 3'
+        },
+        MessageType: {
+          Value: 'NotFoundSagaMessage'
+        },
+        CorrelationId: {
+          Value: 'Guid 3'
+        },
+        ConversationId: {
+          Value: 'Guid 4'
+        },
+        SourceContext: {
+          Value: 'NotFoundSagaMessage'
+        },
+        ProcessingEndpoint: {
+          Value: 'SerilogTestsNotFoundSagaMessage'
+        }
+      }
+    },
+    {
+      MessageTemplate: {
+        Text: 'Receive message {MessageType} {MessageId}.',
+        Tokens: [
+          {
+            Length: 16,
+            Text: 'Receive message '
+          },
+          {
+            Length: 13,
+            PropertyName: 'MessageType',
+            StartIndex: 16
+          },
+          {
+            Length: 1,
+            Text: ' ',
+            StartIndex: 29
+          },
+          {
+            Length: 11,
+            PropertyName: 'MessageId',
+            StartIndex: 30
+          },
+          {
+            Length: 1,
+            Text: '.',
+            StartIndex: 41
+          }
+        ]
+      },
+      Level: 'Information',
+      Properties: {
+        Message: {
+          TypeTag: 'NotFoundSagaMessage',
+          Properties: [
+            {
+              Name: 'Property',
+              Value: {}
+            }
+          ]
+        },
+        OriginatingHostId: {
+          Value: 'Guid 1'
+        },
+        MessageIntent: {
+          Value: 'Send'
+        },
+        OriginatingEndpoint: {
+          Value: 'SerilogTestsNotFoundSagaMessage'
+        },
+        OriginatingMachine: {
+          Value: 'MachineName'
+        },
+        ReplyToAddress: {
+          Value: 'SerilogTestsNotFoundSagaMessage'
+        },
+        SagaId: {
+          Value: 'Guid 2'
+        },
+        SagaType: {
+          Value: 'TheSaga'
+        },
+        MessageId: {
+          Value: 'Guid 3'
+        },
+        MessageType: {
+          Value: 'NotFoundSagaMessage'
+        },
+        CorrelationId: {
+          Value: 'Guid 3'
+        },
+        ConversationId: {
+          Value: 'Guid 4'
+        },
+        SourceContext: {
+          Value: 'NotFoundSagaMessage'
+        },
+        ProcessingEndpoint: {
+          Value: 'SerilogTestsNotFoundSagaMessage'
+        }
+      }
+    },
+    {
+      MessageTemplate: {
+        Text: 'Receive message {MessageType} {MessageId}.',
+        Tokens: [
+          {
+            Length: 16,
+            Text: 'Receive message '
+          },
+          {
+            Length: 13,
+            PropertyName: 'MessageType',
+            StartIndex: 16
+          },
+          {
+            Length: 1,
+            Text: ' ',
+            StartIndex: 29
+          },
+          {
+            Length: 11,
+            PropertyName: 'MessageId',
+            StartIndex: 30
+          },
+          {
+            Length: 1,
+            Text: '.',
+            StartIndex: 41
+          }
+        ]
+      },
+      Level: 'Information',
+      Properties: {
+        Message: {
+          TypeTag: 'NotFoundSagaMessage',
+          Properties: [
+            {
+              Name: 'Property',
+              Value: {}
+            }
+          ]
+        },
+        OriginatingHostId: {
+          Value: 'Guid 1'
+        },
+        MessageIntent: {
+          Value: 'Send'
+        },
+        OriginatingEndpoint: {
+          Value: 'SerilogTestsNotFoundSagaMessage'
+        },
+        OriginatingMachine: {
+          Value: 'MachineName'
+        },
+        ReplyToAddress: {
+          Value: 'SerilogTestsNotFoundSagaMessage'
+        },
+        Retries: {
+          Value: '1'
+        },
+        Retries.Timestamp: {
+          Value: 'DateTime 1'
+        },
+        SagaId: {
+          Value: 'Guid 2'
+        },
+        SagaType: {
+          Value: 'TheSaga'
+        },
+        MessageId: {
+          Value: 'Guid 3'
+        },
+        MessageType: {
+          Value: 'NotFoundSagaMessage'
+        },
+        CorrelationId: {
+          Value: 'Guid 3'
+        },
+        ConversationId: {
+          Value: 'Guid 4'
+        },
+        SourceContext: {
+          Value: 'NotFoundSagaMessage'
+        },
+        ProcessingEndpoint: {
+          Value: 'SerilogTestsNotFoundSagaMessage'
+        }
+      }
+    },
+    {
+      MessageTemplate: {
+        Text: 'Receive message {MessageType} {MessageId}.',
+        Tokens: [
+          {
+            Length: 16,
+            Text: 'Receive message '
+          },
+          {
+            Length: 13,
+            PropertyName: 'MessageType',
+            StartIndex: 16
+          },
+          {
+            Length: 1,
+            Text: ' ',
+            StartIndex: 29
+          },
+          {
+            Length: 11,
+            PropertyName: 'MessageId',
+            StartIndex: 30
+          },
+          {
+            Length: 1,
+            Text: '.',
+            StartIndex: 41
+          }
+        ]
+      },
+      Level: 'Information',
+      Properties: {
+        Message: {
+          TypeTag: 'NotFoundSagaMessage',
+          Properties: [
+            {
+              Name: 'Property',
+              Value: {}
+            }
+          ]
+        },
+        OriginatingHostId: {
+          Value: 'Guid 1'
+        },
+        MessageIntent: {
+          Value: 'Send'
+        },
+        OriginatingEndpoint: {
+          Value: 'SerilogTestsNotFoundSagaMessage'
+        },
+        OriginatingMachine: {
+          Value: 'MachineName'
+        },
+        ReplyToAddress: {
+          Value: 'SerilogTestsNotFoundSagaMessage'
+        },
+        Retries: {
+          Value: '1'
+        },
+        Retries.Timestamp: {
+          Value: 'DateTime 1'
+        },
+        SagaId: {
+          Value: 'Guid 2'
+        },
+        SagaType: {
+          Value: 'TheSaga'
+        },
+        MessageId: {
+          Value: 'Guid 3'
+        },
+        MessageType: {
+          Value: 'NotFoundSagaMessage'
+        },
+        CorrelationId: {
+          Value: 'Guid 3'
+        },
+        ConversationId: {
+          Value: 'Guid 4'
+        },
+        SourceContext: {
+          Value: 'NotFoundSagaMessage'
+        },
+        ProcessingEndpoint: {
+          Value: 'SerilogTestsNotFoundSagaMessage'
+        }
+      }
+    },
+    {
+      MessageTemplate: {
+        Text: 'Sent message {MessageType} {MessageId}.',
+        Tokens: [
+          {
+            Length: 13,
+            Text: 'Sent message '
+          },
+          {
+            Length: 13,
+            PropertyName: 'MessageType',
+            StartIndex: 13
+          },
+          {
+            Length: 1,
+            Text: ' ',
+            StartIndex: 26
+          },
+          {
+            Length: 11,
+            PropertyName: 'MessageId',
+            StartIndex: 27
+          },
+          {
+            Length: 1,
+            Text: '.',
+            StartIndex: 38
+          }
+        ]
+      },
+      Level: 'Information',
+      Properties: {
+        Message: {
+          TypeTag: 'NotFoundSagaMessage',
+          Properties: [
+            {
+              Name: 'Property',
+              Value: {}
+            }
+          ]
+        },
+        UnicastRoutes: {
+          Elements: [
+            {
+              Value: 'SerilogTestsNotFoundSagaMessage'
+            }
+          ]
+        },
+        OriginatingHostId: {
+          Value: 'Guid 1'
+        },
+        MessageIntent: {
+          Value: 'Send'
+        },
+        OriginatingEndpoint: {
+          Value: 'SerilogTestsNotFoundSagaMessage'
+        },
+        OriginatingMachine: {
+          Value: 'MachineName'
+        },
+        ReplyToAddress: {
+          Value: 'SerilogTestsNotFoundSagaMessage'
+        },
+        SagaId: {
+          Value: 'Guid 2'
+        },
+        SagaType: {
+          Value: 'TheSaga'
+        },
+        MessageId: {
+          Value: 'Guid 3'
+        },
+        MessageType: {
+          Value: 'NotFoundSagaMessage'
+        },
+        CorrelationId: {
+          Value: 'Guid 3'
+        },
+        ConversationId: {
+          Value: 'Guid 4'
+        },
+        SourceContext: {
+          Value: 'NotFoundSagaMessage'
+        },
+        ProcessingEndpoint: {
+          Value: 'SerilogTestsNotFoundSagaMessage'
+        }
+      }
+    }
+  ],
+  logsWithExceptions: [
+    {
+      MessageTemplate: {
+        Text: 'Immediate Retry is going to retry message \'00000000-0000-0000-0000-000000000001\' because of an exception:',
+        Tokens: [
+          {
+            Length: 105,
+            Text: 'Immediate Retry is going to retry message \'00000000-0000-0000-0000-000000000001\' because of an exception:'
+          }
+        ]
+      },
+      Level: 'Information',
+      Properties: {
+        ProcessingEndpoint: {
+          Value: 'SerilogTestsNotFoundSagaMessage'
+        },
+        MessageId: {
+          Value: 'Guid 3'
+        },
+        MessageType: {
+          Value: 'NotFoundSagaMessage'
+        },
+        CorrelationId: {
+          Value: 'Guid 3'
+        },
+        ConversationId: {
+          Value: 'Guid 4'
+        },
+        SourceContext: {
+          Value: 'NServiceBus.RecoverabilityExecutor'
+        },
+        ExceptionDetail: {
+          Elements: {
+            "Type": {
+              Value: 'System.NullReferenceException'
+            },
+            "HResult": {
+              Value: -2147467261
+            },
+            "Message": {
+              Value: 'Object reference not set to an instance of an object.'
+            },
+            "Source": {
+              Value: 'NServiceBus.Core'
+            }
+          }
+        }
+      },
+      Exception: {
+        ClassName: 'System.NullReferenceException',
+        Message: 'Object reference not set to an instance of an object.',
+        Data: {},
+        InnerException: null,
+        HelpURL: null,
+        RemoteStackIndex: 0,
+        ExceptionMethod: null,
+        HResult: -2147467261,
+        Source: 'NServiceBus.Core',
+        WatsonBuckets: null
+      }
+    },
+    {
+      MessageTemplate: {
+        Text: 'Delayed Retry will reschedule message \'00000000-0000-0000-0000-000000000001\' after a delay of 00:00:00.0010000 because of an exception:',
+        Tokens: [
+          {
+            Length: 135,
+            Text: 'Delayed Retry will reschedule message \'00000000-0000-0000-0000-000000000001\' after a delay of 00:00:00.0010000 because of an exception:'
+          }
+        ]
+      },
+      Level: 'Warning',
+      Properties: {
+        ProcessingEndpoint: {
+          Value: 'SerilogTestsNotFoundSagaMessage'
+        },
+        MessageId: {
+          Value: 'Guid 3'
+        },
+        MessageType: {
+          Value: 'NotFoundSagaMessage'
+        },
+        CorrelationId: {
+          Value: 'Guid 3'
+        },
+        ConversationId: {
+          Value: 'Guid 4'
+        },
+        SourceContext: {
+          Value: 'NServiceBus.RecoverabilityExecutor'
+        },
+        ExceptionDetail: {
+          Elements: {
+            "Type": {
+              Value: 'System.NullReferenceException'
+            },
+            "HResult": {
+              Value: -2147467261
+            },
+            "Message": {
+              Value: 'Object reference not set to an instance of an object.'
+            },
+            "Source": {
+              Value: 'NServiceBus.Core'
+            }
+          }
+        }
+      },
+      Exception: {
+        ClassName: 'System.NullReferenceException',
+        Message: 'Object reference not set to an instance of an object.',
+        Data: {},
+        InnerException: null,
+        HelpURL: null,
+        RemoteStackIndex: 0,
+        ExceptionMethod: null,
+        HResult: -2147467261,
+        Source: 'NServiceBus.Core',
+        WatsonBuckets: null
+      }
+    },
+    {
+      MessageTemplate: {
+        Text: 'Immediate Retry is going to retry message \'00000000-0000-0000-0000-000000000001\' because of an exception:',
+        Tokens: [
+          {
+            Length: 105,
+            Text: 'Immediate Retry is going to retry message \'00000000-0000-0000-0000-000000000001\' because of an exception:'
+          }
+        ]
+      },
+      Level: 'Information',
+      Properties: {
+        ProcessingEndpoint: {
+          Value: 'SerilogTestsNotFoundSagaMessage'
+        },
+        MessageId: {
+          Value: 'Guid 3'
+        },
+        MessageType: {
+          Value: 'NotFoundSagaMessage'
+        },
+        CorrelationId: {
+          Value: 'Guid 3'
+        },
+        ConversationId: {
+          Value: 'Guid 4'
+        },
+        SourceContext: {
+          Value: 'NServiceBus.RecoverabilityExecutor'
+        },
+        ExceptionDetail: {
+          Elements: {
+            "Type": {
+              Value: 'System.NullReferenceException'
+            },
+            "HResult": {
+              Value: -2147467261
+            },
+            "Message": {
+              Value: 'Object reference not set to an instance of an object.'
+            },
+            "Source": {
+              Value: 'NServiceBus.Core'
+            }
+          }
+        }
+      },
+      Exception: {
+        ClassName: 'System.NullReferenceException',
+        Message: 'Object reference not set to an instance of an object.',
+        Data: {},
+        InnerException: null,
+        HelpURL: null,
+        RemoteStackIndex: 0,
+        ExceptionMethod: null,
+        HResult: -2147467261,
+        Source: 'NServiceBus.Core',
+        WatsonBuckets: null
+      }
+    },
+    {
+      MessageTemplate: {
+        Text: 'Moving message \'00000000-0000-0000-0000-000000000001\' to the error queue \'error\' because processing failed due to an exception:',
+        Tokens: [
+          {
+            Length: 127,
+            Text: 'Moving message \'00000000-0000-0000-0000-000000000001\' to the error queue \'error\' because processing failed due to an exception:'
+          }
+        ]
+      },
+      Level: 'Error',
+      Properties: {
+        ProcessingEndpoint: {
+          Value: 'SerilogTestsNotFoundSagaMessage'
+        },
+        MessageId: {
+          Value: 'Guid 3'
+        },
+        MessageType: {
+          Value: 'NotFoundSagaMessage'
+        },
+        CorrelationId: {
+          Value: 'Guid 3'
+        },
+        ConversationId: {
+          Value: 'Guid 4'
+        },
+        SourceContext: {
+          Value: 'NServiceBus.RecoverabilityExecutor'
+        },
+        ExceptionDetail: {
+          Elements: {
+            "Type": {
+              Value: 'System.NullReferenceException'
+            },
+            "HResult": {
+              Value: -2147467261
+            },
+            "Message": {
+              Value: 'Object reference not set to an instance of an object.'
+            },
+            "Source": {
+              Value: 'NServiceBus.Core'
+            }
+          }
+        }
+      },
+      Exception: {
+        ClassName: 'System.NullReferenceException',
+        Message: 'Object reference not set to an instance of an object.',
+        Data: {},
+        InnerException: null,
+        HelpURL: null,
+        RemoteStackIndex: 0,
+        ExceptionMethod: null,
+        HResult: -2147467261,
+        Source: 'NServiceBus.Core',
+        WatsonBuckets: null
+      }
+    }
+  ]
+}
