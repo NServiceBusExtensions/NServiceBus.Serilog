@@ -97,7 +97,7 @@ public class IntegrationTests : TestBase
         Log.Logger = loggerConfiguration.CreateLogger();
         LogManager.Use<SerilogFactory>();
 
-        var configuration = ConfigBuilder.BuildDefaultConfig("SerilogTests");
+        var configuration = ConfigBuilder.BuildDefaultConfig("SerilogTests"+message.GetType().Name);
         var serilogTracing = configuration.EnableSerilogTracing();
         serilogTracing.EnableSagaTracing();
         serilogTracing.EnableMessageTracing();
