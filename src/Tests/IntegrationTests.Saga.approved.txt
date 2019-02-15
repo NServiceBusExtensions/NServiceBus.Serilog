@@ -62,7 +62,7 @@
           Value: 'StartSaga'
         },
         ProcessingEndpoint: {
-          Value: 'SerilogTests'
+          Value: 'SerilogTestsStartSaga'
         }
       }
     },
@@ -116,13 +116,13 @@
           Value: 'Send'
         },
         OriginatingEndpoint: {
-          Value: 'SerilogTests'
+          Value: 'SerilogTestsStartSaga'
         },
         OriginatingMachine: {
           Value: 'MachineName'
         },
         ReplyToAddress: {
-          Value: 'SerilogTests'
+          Value: 'SerilogTestsStartSaga'
         },
         MessageId: {
           Value: 'Guid 1'
@@ -140,7 +140,7 @@
           Value: 'StartSaga'
         },
         ProcessingEndpoint: {
-          Value: 'SerilogTests'
+          Value: 'SerilogTestsStartSaga'
         }
       }
     },
@@ -230,7 +230,7 @@
             {
               Name: 'OriginatingEndpoint',
               Value: {
-                Value: 'SerilogTests'
+                Value: 'SerilogTestsStartSaga'
               }
             },
             {
@@ -255,7 +255,7 @@
                 {
                   Name: 'Destination',
                   Value: {
-                    Value: 'SerilogTests'
+                    Value: 'SerilogTestsStartSaga'
                   }
                 },
                 {
@@ -292,7 +292,7 @@
             {
               Name: 'Originator',
               Value: {
-                Value: 'SerilogTests'
+                Value: 'SerilogTestsStartSaga'
               }
             },
             {
@@ -319,7 +319,7 @@
           Value: 'StartSaga'
         },
         ProcessingEndpoint: {
-          Value: 'SerilogTests'
+          Value: 'SerilogTestsStartSaga'
         }
       }
     },
@@ -369,7 +369,7 @@
         UnicastRoutes: {
           Elements: [
             {
-              Value: 'SerilogTests'
+              Value: 'SerilogTestsStartSaga'
             }
           ]
         },
@@ -380,13 +380,13 @@
           Value: 'Send'
         },
         OriginatingEndpoint: {
-          Value: 'SerilogTests'
+          Value: 'SerilogTestsStartSaga'
         },
         OriginatingMachine: {
           Value: 'MachineName'
         },
         ReplyToAddress: {
-          Value: 'SerilogTests'
+          Value: 'SerilogTestsStartSaga'
         },
         MessageId: {
           Value: 'Guid 1'
@@ -404,7 +404,7 @@
           Value: 'StartSaga'
         },
         ProcessingEndpoint: {
-          Value: 'SerilogTests'
+          Value: 'SerilogTestsStartSaga'
         }
       }
     },
@@ -454,7 +454,7 @@
         UnicastRoutes: {
           Elements: [
             {
-              Value: 'SerilogTests'
+              Value: 'SerilogTestsStartSaga'
             }
           ]
         },
@@ -465,7 +465,7 @@
           Value: 'Send'
         },
         OriginatingEndpoint: {
-          Value: 'SerilogTests'
+          Value: 'SerilogTestsStartSaga'
         },
         OriginatingMachine: {
           Value: 'MachineName'
@@ -480,7 +480,7 @@
           Value: 'Guid 1'
         },
         ReplyToAddress: {
-          Value: 'SerilogTests'
+          Value: 'SerilogTestsStartSaga'
         },
         Handler: {
           Value: 'TheSaga'
@@ -501,7 +501,7 @@
           Value: 'StartSaga'
         },
         ProcessingEndpoint: {
-          Value: 'SerilogTests'
+          Value: 'SerilogTestsStartSaga'
         }
       }
     }

@@ -42,7 +42,7 @@
           Value: 'StartHandler'
         },
         ProcessingEndpoint: {
-          Value: 'SerilogTests'
+          Value: 'SerilogTestsStartHandler'
         }
       }
     },
@@ -96,13 +96,13 @@
           Value: 'Send'
         },
         OriginatingEndpoint: {
-          Value: 'SerilogTests'
+          Value: 'SerilogTestsStartHandler'
         },
         OriginatingMachine: {
           Value: 'MachineName'
         },
         ReplyToAddress: {
-          Value: 'SerilogTests'
+          Value: 'SerilogTestsStartHandler'
         },
         MessageId: {
           Value: 'Guid 1'
@@ -120,7 +120,7 @@
           Value: 'StartHandler'
         },
         ProcessingEndpoint: {
-          Value: 'SerilogTests'
+          Value: 'SerilogTestsStartHandler'
         }
       }
     },
@@ -170,7 +170,7 @@
         UnicastRoutes: {
           Elements: [
             {
-              Value: 'SerilogTests'
+              Value: 'SerilogTestsStartHandler'
             }
           ]
         },
@@ -181,13 +181,13 @@
           Value: 'Send'
         },
         OriginatingEndpoint: {
-          Value: 'SerilogTests'
+          Value: 'SerilogTestsStartHandler'
         },
         OriginatingMachine: {
           Value: 'MachineName'
         },
         ReplyToAddress: {
-          Value: 'SerilogTests'
+          Value: 'SerilogTestsStartHandler'
         },
         MessageId: {
           Value: 'Guid 1'
@@ -205,7 +205,7 @@
           Value: 'StartHandler'
         },
         ProcessingEndpoint: {
-          Value: 'SerilogTests'
+          Value: 'SerilogTestsStartHandler'
         }
       }
     }

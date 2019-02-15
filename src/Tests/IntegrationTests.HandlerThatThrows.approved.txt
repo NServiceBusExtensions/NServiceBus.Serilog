@@ -50,13 +50,13 @@
           Value: 'Send'
         },
         OriginatingEndpoint: {
-          Value: 'SerilogTests'
+          Value: 'SerilogTestsStartHandlerThatThrows'
         },
         OriginatingMachine: {
           Value: 'MachineName'
         },
         ReplyToAddress: {
-          Value: 'SerilogTests'
+          Value: 'SerilogTestsStartHandlerThatThrows'
         },
         MessageId: {
           Value: 'Guid 2'
@@ -74,7 +74,7 @@
           Value: 'StartHandlerThatThrows'
         },
         ProcessingEndpoint: {
-          Value: 'SerilogTests'
+          Value: 'SerilogTestsStartHandlerThatThrows'
         }
       }
     },
@@ -128,13 +128,13 @@
           Value: 'Send'
         },
         OriginatingEndpoint: {
-          Value: 'SerilogTests'
+          Value: 'SerilogTestsStartHandlerThatThrows'
         },
         OriginatingMachine: {
           Value: 'MachineName'
         },
         ReplyToAddress: {
-          Value: 'SerilogTests'
+          Value: 'SerilogTestsStartHandlerThatThrows'
         },
         MessageId: {
           Value: 'Guid 2'
@@ -152,7 +152,7 @@
           Value: 'StartHandlerThatThrows'
         },
         ProcessingEndpoint: {
-          Value: 'SerilogTests'
+          Value: 'SerilogTestsStartHandlerThatThrows'
         }
       }
     },
@@ -206,13 +206,13 @@
           Value: 'Send'
         },
         OriginatingEndpoint: {
-          Value: 'SerilogTests'
+          Value: 'SerilogTestsStartHandlerThatThrows'
         },
         OriginatingMachine: {
           Value: 'MachineName'
         },
         ReplyToAddress: {
-          Value: 'SerilogTests'
+          Value: 'SerilogTestsStartHandlerThatThrows'
         },
         Retries: {
           Value: '1'
@@ -236,7 +236,7 @@
           Value: 'StartHandlerThatThrows'
         },
         ProcessingEndpoint: {
-          Value: 'SerilogTests'
+          Value: 'SerilogTestsStartHandlerThatThrows'
         }
       }
     },
@@ -290,13 +290,13 @@
           Value: 'Send'
         },
         OriginatingEndpoint: {
-          Value: 'SerilogTests'
+          Value: 'SerilogTestsStartHandlerThatThrows'
         },
         OriginatingMachine: {
           Value: 'MachineName'
         },
         ReplyToAddress: {
-          Value: 'SerilogTests'
+          Value: 'SerilogTestsStartHandlerThatThrows'
         },
         Retries: {
           Value: '1'
@@ -320,7 +320,7 @@
           Value: 'StartHandlerThatThrows'
         },
         ProcessingEndpoint: {
-          Value: 'SerilogTests'
+          Value: 'SerilogTestsStartHandlerThatThrows'
         }
       }
     },
@@ -370,7 +370,7 @@
         UnicastRoutes: {
           Elements: [
             {
-              Value: 'SerilogTests'
+              Value: 'SerilogTestsStartHandlerThatThrows'
             }
           ]
         },
@@ -381,13 +381,13 @@
           Value: 'Send'
         },
         OriginatingEndpoint: {
-          Value: 'SerilogTests'
+          Value: 'SerilogTestsStartHandlerThatThrows'
         },
         OriginatingMachine: {
           Value: 'MachineName'
         },
         ReplyToAddress: {
-          Value: 'SerilogTests'
+          Value: 'SerilogTestsStartHandlerThatThrows'
         },
         MessageId: {
           Value: 'Guid 2'
@@ -405,250 +405,8 @@
           Value: 'StartHandlerThatThrows'
         },
         ProcessingEndpoint: {
-          Value: 'SerilogTests'
+          Value: 'SerilogTestsStartHandlerThatThrows'
         }
-      }
-    }
-  ],
-  logsWithExceptions: [
-    {
-      MessageTemplate: {
-        Text: 'Immediate Retry is going to retry message \'00000000-0000-0000-0000-000000000001\' because of an exception:',
-        Tokens: [
-          {
-            Length: 105,
-            Text: 'Immediate Retry is going to retry message \'00000000-0000-0000-0000-000000000001\' because of an exception:'
-          }
-        ]
-      },
-      Level: 'Information',
-      Properties: {
-        ProcessingEndpoint: {
-          Value: 'SerilogTests'
-        },
-        MessageId: {
-          Value: 'Guid 2'
-        },
-        MessageType: {
-          Value: 'StartHandlerThatThrows'
-        },
-        CorrelationId: {
-          Value: 'Guid 2'
-        },
-        ConversationId: {
-          Value: 'Guid 3'
-        },
-        SourceContext: {
-          Value: 'NServiceBus.RecoverabilityExecutor'
-        },
-        ExceptionDetail: {
-          Elements: {
-            "Type": {
-              Value: 'System.Exception'
-            },
-            "HResult": {
-              Value: -2146233088
-            },
-            "Message": {
-              Value: 'Exception of type \'System.Exception\' was thrown.'
-            },
-            "Source": {
-              Value: 'Tests'
-            }
-          }
-        }
-      },
-      Exception: {
-        ClassName: 'System.Exception',
-        Message: null,
-        Data: {},
-        InnerException: null,
-        HelpURL: null,
-        RemoteStackIndex: 0,
-        ExceptionMethod: null,
-        HResult: -2146233088,
-        Source: 'Tests',
-        WatsonBuckets: null
-      }
-    },
-    {
-      MessageTemplate: {
-        Text: 'Delayed Retry will reschedule message \'00000000-0000-0000-0000-000000000001\' after a delay of 00:00:00.0010000 because of an exception:',
-        Tokens: [
-          {
-            Length: 135,
-            Text: 'Delayed Retry will reschedule message \'00000000-0000-0000-0000-000000000001\' after a delay of 00:00:00.0010000 because of an exception:'
-          }
-        ]
-      },
-      Level: 'Warning',
-      Properties: {
-        ProcessingEndpoint: {
-          Value: 'SerilogTests'
-        },
-        MessageId: {
-          Value: 'Guid 2'
-        },
-        MessageType: {
-          Value: 'StartHandlerThatThrows'
-        },
-        CorrelationId: {
-          Value: 'Guid 2'
-        },
-        ConversationId: {
-          Value: 'Guid 3'
-        },
-        SourceContext: {
-          Value: 'NServiceBus.RecoverabilityExecutor'
-        },
-        ExceptionDetail: {
-          Elements: {
-            "Type": {
-              Value: 'System.Exception'
-            },
-            "HResult": {
-              Value: -2146233088
-            },
-            "Message": {
-              Value: 'Exception of type \'System.Exception\' was thrown.'
-            },
-            "Source": {
-              Value: 'Tests'
-            }
-          }
-        }
-      },
-      Exception: {
-        ClassName: 'System.Exception',
-        Message: null,
-        Data: {},
-        InnerException: null,
-        HelpURL: null,
-        RemoteStackIndex: 0,
-        ExceptionMethod: null,
-        HResult: -2146233088,
-        Source: 'Tests',
-        WatsonBuckets: null
-      }
-    },
-    {
-      MessageTemplate: {
-        Text: 'Immediate Retry is going to retry message \'00000000-0000-0000-0000-000000000001\' because of an exception:',
-        Tokens: [
-          {
-            Length: 105,
-            Text: 'Immediate Retry is going to retry message \'00000000-0000-0000-0000-000000000001\' because of an exception:'
-          }
-        ]
-      },
-      Level: 'Information',
-      Properties: {
-        ProcessingEndpoint: {
-          Value: 'SerilogTests'
-        },
-        MessageId: {
-          Value: 'Guid 2'
-        },
-        MessageType: {
-          Value: 'StartHandlerThatThrows'
-        },
-        CorrelationId: {
-          Value: 'Guid 2'
-        },
-        ConversationId: {
-          Value: 'Guid 3'
-        },
-        SourceContext: {
-          Value: 'NServiceBus.RecoverabilityExecutor'
-        },
-        ExceptionDetail: {
-          Elements: {
-            "Type": {
-              Value: 'System.Exception'
-            },
-            "HResult": {
-              Value: -2146233088
-            },
-            "Message": {
-              Value: 'Exception of type \'System.Exception\' was thrown.'
-            },
-            "Source": {
-              Value: 'Tests'
-            }
-          }
-        }
-      },
-      Exception: {
-        ClassName: 'System.Exception',
-        Message: null,
-        Data: {},
-        InnerException: null,
-        HelpURL: null,
-        RemoteStackIndex: 0,
-        ExceptionMethod: null,
-        HResult: -2146233088,
-        Source: 'Tests',
-        WatsonBuckets: null
-      }
-    },
-    {
-      MessageTemplate: {
-        Text: 'Moving message \'00000000-0000-0000-0000-000000000001\' to the error queue \'error\' because processing failed due to an exception:',
-        Tokens: [
-          {
-            Length: 127,
-            Text: 'Moving message \'00000000-0000-0000-0000-000000000001\' to the error queue \'error\' because processing failed due to an exception:'
-          }
-        ]
-      },
-      Level: 'Error',
-      Properties: {
-        ProcessingEndpoint: {
-          Value: 'SerilogTests'
-        },
-        MessageId: {
-          Value: 'Guid 2'
-        },
-        MessageType: {
-          Value: 'StartHandlerThatThrows'
-        },
-        CorrelationId: {
-          Value: 'Guid 2'
-        },
-        ConversationId: {
-          Value: 'Guid 3'
-        },
-        SourceContext: {
-          Value: 'NServiceBus.RecoverabilityExecutor'
-        },
-        ExceptionDetail: {
-          Elements: {
-            "Type": {
-              Value: 'System.Exception'
-            },
-            "HResult": {
-              Value: -2146233088
-            },
-            "Message": {
-              Value: 'Exception of type \'System.Exception\' was thrown.'
-            },
-            "Source": {
-              Value: 'Tests'
-            }
-          }
-        }
-      },
-      Exception: {
-        ClassName: 'System.Exception',
-        Message: null,
-        Data: {},
-        InnerException: null,
-        HelpURL: null,
-        RemoteStackIndex: 0,
-        ExceptionMethod: null,
-        HResult: -2146233088,
-        Source: 'Tests',
-        WatsonBuckets: null
       }
     }
   ]
