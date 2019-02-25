@@ -19,11 +19,11 @@ class InjectInvokeHandlerContextBehavior : Behavior<IInvokeHandlerContext>
 
     public override async Task Invoke(IInvokeHandlerContext context, Func<Task> next)
     {
-        var handlerName = context.HandlerName();
+        var handler = context.HandlerType();
         var exceptionLogState = context.Extensions.Get<ExceptionLogState>();
-        exceptionLogState.HandlerName = handlerName;
+        exceptionLogState.HandlerType = handler;
         exceptionLogState.Message = context.MessageBeingHandled;
-        var forContext = context.Logger().ForContext("Handler", handlerName);
+        var forContext = context.Logger().ForContext("Handler", handler);
         try
         {
             context.Extensions.Set("SerilogHandlerLogger", forContext);

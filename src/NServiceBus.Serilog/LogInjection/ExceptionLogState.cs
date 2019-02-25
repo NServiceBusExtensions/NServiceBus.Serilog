@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+
 #pragma warning disable 1591
 
 namespace NServiceBus.Serilog
@@ -11,7 +13,8 @@ namespace NServiceBus.Serilog
         public string MessageType;
         public string CorrelationId;
         public string ConversationId;
-        public string HandlerName;
+        public string HandlerType;
         public object Message;
+        public IReadOnlyDictionary<string, string> Headers;
     }
 }

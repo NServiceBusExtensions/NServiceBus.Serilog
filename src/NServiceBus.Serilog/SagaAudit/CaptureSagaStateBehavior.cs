@@ -76,7 +76,7 @@ class CaptureSagaStateBehavior : Behavior<IInvokeHandlerContext>
             InitiatingMessageId = messageId,
             OriginatingMachine = context.OriginatingMachine(),
             OriginatingEndpoint = context.OriginatingEndpoint(),
-            MessageType = context.MessageName(),
+            MessageType = context.MessageType(),
             TimeSent = context.TimeSent(),
             Intent = intent
         };

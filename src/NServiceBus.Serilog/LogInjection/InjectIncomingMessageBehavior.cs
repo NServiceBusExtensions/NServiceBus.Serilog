@@ -55,6 +55,7 @@ class InjectIncomingMessageBehavior : Behavior<IIncomingPhysicalMessageContext>
             ProcessingEndpoint = endpoint,
             MessageId = context.MessageId,
             MessageType = messageTypeName,
+            Headers = context.MessageHeaders,
         };
 
         if (headers.TryGetValue(Headers.CorrelationId, out var correlationId))

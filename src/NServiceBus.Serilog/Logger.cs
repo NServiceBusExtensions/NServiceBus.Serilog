@@ -44,14 +44,22 @@ class Logger : ILog
             properties.Add(new LogEventProperty("ConversationId", new ScalarValue(logState.ConversationId)));
         }
 
-        if (logState.HandlerName != null)
+        if (logState.HandlerType != null)
         {
-            properties.Add(new LogEventProperty("HandlerName", new ScalarValue(logState.HandlerName)));
+            properties.Add(new LogEventProperty("HandlerType", new ScalarValue(logState.HandlerType)));
         }
 
         if (logState.Message != null)
         {
             if (logger.BindProperty("Message", logState.Message, out var property))
+            {
+                properties.Add(property);
+            }
+        }
+
+        if (logState.Headers != null)
+        {
+            if (logger.BindProperty("Headers", logState.Headers, out var property))
             {
                 properties.Add(property);
             }

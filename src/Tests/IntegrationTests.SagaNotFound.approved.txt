@@ -458,7 +458,7 @@
         ConversationId: {
           Value: 'Guid 4'
         },
-        HandlerName: {
+        HandlerType: {
           Value: 'NotFoundSaga'
         },
         Message: {
@@ -469,6 +469,52 @@
               Value: {}
             }
           ]
+        },
+        Headers: {
+          Elements: {
+            "NServiceBus.SagaId": {
+              Value: 'Guid 2'
+            },
+            "NServiceBus.SagaType": {
+              Value: 'TheSaga'
+            },
+            "NServiceBus.MessageId": {
+              Value: 'Guid 3'
+            },
+            "NServiceBus.MessageIntent": {
+              Value: 'Send'
+            },
+            "NServiceBus.ConversationId": {
+              Value: 'Guid 4'
+            },
+            "NServiceBus.CorrelationId": {
+              Value: 'Guid 3'
+            },
+            "NServiceBus.OriginatingMachine": {
+              Value: 'MachineName'
+            },
+            "NServiceBus.OriginatingEndpoint": {
+              Value: 'SerilogTestsNotFoundSagaMessage'
+            },
+            "$.diagnostics.originating.hostid": {
+              Value: 'Guid 1'
+            },
+            "NServiceBus.ReplyToAddress": {
+              Value: 'SerilogTestsNotFoundSagaMessage'
+            },
+            "NServiceBus.ContentType": {
+              Value: 'text/xml'
+            },
+            "NServiceBus.EnclosedMessageTypes": {
+              Value: 'NotFoundSagaMessage, Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6'
+            },
+            "NServiceBus.Version": {
+              Value: '7.1.6'
+            },
+            "NServiceBus.TimeSent": {
+              Value: 'DateTime 2'
+            }
+          }
         },
         SourceContext: {
           Value: 'NServiceBus.RecoverabilityExecutor'
@@ -530,7 +576,7 @@
         ConversationId: {
           Value: 'Guid 4'
         },
-        HandlerName: {
+        HandlerType: {
           Value: 'NotFoundSaga'
         },
         Message: {
@@ -541,6 +587,52 @@
               Value: {}
             }
           ]
+        },
+        Headers: {
+          Elements: {
+            "NServiceBus.SagaId": {
+              Value: 'Guid 2'
+            },
+            "NServiceBus.SagaType": {
+              Value: 'TheSaga'
+            },
+            "NServiceBus.MessageId": {
+              Value: 'Guid 3'
+            },
+            "NServiceBus.MessageIntent": {
+              Value: 'Send'
+            },
+            "NServiceBus.ConversationId": {
+              Value: 'Guid 4'
+            },
+            "NServiceBus.CorrelationId": {
+              Value: 'Guid 3'
+            },
+            "NServiceBus.OriginatingMachine": {
+              Value: 'MachineName'
+            },
+            "NServiceBus.OriginatingEndpoint": {
+              Value: 'SerilogTestsNotFoundSagaMessage'
+            },
+            "$.diagnostics.originating.hostid": {
+              Value: 'Guid 1'
+            },
+            "NServiceBus.ReplyToAddress": {
+              Value: 'SerilogTestsNotFoundSagaMessage'
+            },
+            "NServiceBus.ContentType": {
+              Value: 'text/xml'
+            },
+            "NServiceBus.EnclosedMessageTypes": {
+              Value: 'NotFoundSagaMessage, Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6'
+            },
+            "NServiceBus.Version": {
+              Value: '7.1.6'
+            },
+            "NServiceBus.TimeSent": {
+              Value: 'DateTime 2'
+            }
+          }
         },
         SourceContext: {
           Value: 'NServiceBus.RecoverabilityExecutor'
@@ -602,7 +694,7 @@
         ConversationId: {
           Value: 'Guid 4'
         },
-        HandlerName: {
+        HandlerType: {
           Value: 'NotFoundSaga'
         },
         Message: {
@@ -613,6 +705,58 @@
               Value: {}
             }
           ]
+        },
+        Headers: {
+          Elements: {
+            "NServiceBus.SagaId": {
+              Value: 'Guid 2'
+            },
+            "NServiceBus.SagaType": {
+              Value: 'TheSaga'
+            },
+            "NServiceBus.MessageId": {
+              Value: 'Guid 3'
+            },
+            "NServiceBus.MessageIntent": {
+              Value: 'Send'
+            },
+            "NServiceBus.ConversationId": {
+              Value: 'Guid 4'
+            },
+            "NServiceBus.CorrelationId": {
+              Value: 'Guid 3'
+            },
+            "NServiceBus.OriginatingMachine": {
+              Value: 'MachineName'
+            },
+            "NServiceBus.OriginatingEndpoint": {
+              Value: 'SerilogTestsNotFoundSagaMessage'
+            },
+            "$.diagnostics.originating.hostid": {
+              Value: 'Guid 1'
+            },
+            "NServiceBus.ReplyToAddress": {
+              Value: 'SerilogTestsNotFoundSagaMessage'
+            },
+            "NServiceBus.ContentType": {
+              Value: 'text/xml'
+            },
+            "NServiceBus.EnclosedMessageTypes": {
+              Value: 'NotFoundSagaMessage, Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6'
+            },
+            "NServiceBus.Version": {
+              Value: '7.1.6'
+            },
+            "NServiceBus.TimeSent": {
+              Value: 'DateTime 2'
+            },
+            "NServiceBus.Retries": {
+              Value: '1'
+            },
+            "NServiceBus.Retries.Timestamp": {
+              Value: 'DateTime 1'
+            }
+          }
         },
         SourceContext: {
           Value: 'NServiceBus.RecoverabilityExecutor'
@@ -674,7 +818,7 @@
         ConversationId: {
           Value: 'Guid 4'
         },
-        HandlerName: {
+        HandlerType: {
           Value: 'NotFoundSaga'
         },
         Message: {
@@ -685,6 +829,58 @@
               Value: {}
             }
           ]
+        },
+        Headers: {
+          Elements: {
+            "NServiceBus.SagaId": {
+              Value: 'Guid 2'
+            },
+            "NServiceBus.SagaType": {
+              Value: 'TheSaga'
+            },
+            "NServiceBus.MessageId": {
+              Value: 'Guid 3'
+            },
+            "NServiceBus.MessageIntent": {
+              Value: 'Send'
+            },
+            "NServiceBus.ConversationId": {
+              Value: 'Guid 4'
+            },
+            "NServiceBus.CorrelationId": {
+              Value: 'Guid 3'
+            },
+            "NServiceBus.OriginatingMachine": {
+              Value: 'MachineName'
+            },
+            "NServiceBus.OriginatingEndpoint": {
+              Value: 'SerilogTestsNotFoundSagaMessage'
+            },
+            "$.diagnostics.originating.hostid": {
+              Value: 'Guid 1'
+            },
+            "NServiceBus.ReplyToAddress": {
+              Value: 'SerilogTestsNotFoundSagaMessage'
+            },
+            "NServiceBus.ContentType": {
+              Value: 'text/xml'
+            },
+            "NServiceBus.EnclosedMessageTypes": {
+              Value: 'NotFoundSagaMessage, Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6'
+            },
+            "NServiceBus.Version": {
+              Value: '7.1.6'
+            },
+            "NServiceBus.TimeSent": {
+              Value: 'DateTime 2'
+            },
+            "NServiceBus.Retries": {
+              Value: '1'
+            },
+            "NServiceBus.Retries.Timestamp": {
+              Value: 'DateTime 1'
+            }
+          }
         },
         SourceContext: {
           Value: 'NServiceBus.RecoverabilityExecutor'

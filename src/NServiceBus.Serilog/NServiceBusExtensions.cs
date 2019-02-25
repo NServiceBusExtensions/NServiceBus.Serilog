@@ -32,12 +32,12 @@ static class NServiceBusExtensions
         return MessageIntent(context.Headers);
     }
 
-    public static string HandlerName(this IInvokeHandlerContext context)
+    public static string HandlerType(this IInvokeHandlerContext context)
     {
         return context.MessageHandler.HandlerType.FullName;
     }
 
-    public static string MessageName(this IInvokeHandlerContext context)
+    public static string MessageType(this IInvokeHandlerContext context)
     {
         return context.MessageMetadata.MessageType.FullName;
     }
