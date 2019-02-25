@@ -51,18 +51,15 @@ class Logger : ILog
 
         if (logState.Message != null)
         {
-            if (logger.BindProperty("Message", logState.Message, out var property))
+            if (logger.BindProperty("Message", logState.Message, out var messageProperty))
             {
-                properties.Add(property);
+                properties.Add(messageProperty);
             }
         }
 
-        if (logState.Headers != null)
+        if (logger.BindProperty("Headers", logState.Headers, out var headersProperty))
         {
-            if (logger.BindProperty("Headers", logState.Headers, out var property))
-            {
-                properties.Add(property);
-            }
+            properties.Add(headersProperty);
         }
 
         var messageTemplate = templateParser.Parse(message);
