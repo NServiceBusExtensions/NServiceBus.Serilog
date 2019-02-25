@@ -25,7 +25,8 @@ class Logger : ILog
             logger.Write(level, exception, message);
             return;
         }
-        var logState = (ExceptionLogState)data["ExceptionLogState"];
+
+        var logState = (ExceptionLogState) data["ExceptionLogState"];
         data.Remove("ExceptionLogState");
         var properties = new List<LogEventProperty>
         {
@@ -41,6 +42,19 @@ class Logger : ILog
         if (logState.ConversationId != null)
         {
             properties.Add(new LogEventProperty("ConversationId", new ScalarValue(logState.ConversationId)));
+        }
+
+        if (logState.HandlerName != null)
+        {
+            properties.Add(new LogEventProperty("HandlerName", new ScalarValue(logState.HandlerName)));
+        }
+
+        if (logState.Message != null)
+        {
+            if (logger.BindProperty("Message", logState.Message, out var property))
+            {
+                properties.Add(property);
+            }
         }
 
         var messageTemplate = templateParser.Parse(message);

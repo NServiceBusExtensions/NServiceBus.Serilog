@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using NServiceBus;
 using NServiceBus.Pipeline;
+using NServiceBus.Serilog;
 
 class InjectInvokeHandlerContextBehavior : Behavior<IInvokeHandlerContext>
 {
@@ -18,7 +19,11 @@ class InjectInvokeHandlerContextBehavior : Behavior<IInvokeHandlerContext>
 
     public override async Task Invoke(IInvokeHandlerContext context, Func<Task> next)
     {
-        var forContext = context.Logger().ForContext("Handler", context.HandlerName());
+        var handlerName = context.HandlerName();
+        var exceptionLogState = context.Extensions.Get<ExceptionLogState>();
+        exceptionLogState.HandlerName = handlerName;
+        exceptionLogState.Message = context.MessageBeingHandled;
+        var forContext = context.Logger().ForContext("Handler", handlerName);
         try
         {
             context.Extensions.Set("SerilogHandlerLogger", forContext);

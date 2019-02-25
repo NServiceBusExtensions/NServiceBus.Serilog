@@ -70,6 +70,7 @@ class InjectIncomingMessageBehavior : Behavior<IIncomingPhysicalMessageContext>
         }
 
         var loggerForContext = logger.ForContext(properties);
+        context.Extensions.Set(exceptionLogState);
         context.Extensions.Set(loggerForContext);
 
         try

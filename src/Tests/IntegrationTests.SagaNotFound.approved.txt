@@ -458,6 +458,18 @@
         ConversationId: {
           Value: 'Guid 4'
         },
+        HandlerName: {
+          Value: 'NotFoundSaga'
+        },
+        Message: {
+          TypeTag: 'NotFoundSagaMessage',
+          Properties: [
+            {
+              Name: 'Property',
+              Value: {}
+            }
+          ]
+        },
         SourceContext: {
           Value: 'NServiceBus.RecoverabilityExecutor'
         },
@@ -517,6 +529,18 @@
         },
         ConversationId: {
           Value: 'Guid 4'
+        },
+        HandlerName: {
+          Value: 'NotFoundSaga'
+        },
+        Message: {
+          TypeTag: 'NotFoundSagaMessage',
+          Properties: [
+            {
+              Name: 'Property',
+              Value: {}
+            }
+          ]
         },
         SourceContext: {
           Value: 'NServiceBus.RecoverabilityExecutor'
@@ -578,6 +602,18 @@
         ConversationId: {
           Value: 'Guid 4'
         },
+        HandlerName: {
+          Value: 'NotFoundSaga'
+        },
+        Message: {
+          TypeTag: 'NotFoundSagaMessage',
+          Properties: [
+            {
+              Name: 'Property',
+              Value: {}
+            }
+          ]
+        },
         SourceContext: {
           Value: 'NServiceBus.RecoverabilityExecutor'
         },
@@ -637,6 +673,18 @@
         },
         ConversationId: {
           Value: 'Guid 4'
+        },
+        HandlerName: {
+          Value: 'NotFoundSaga'
+        },
+        Message: {
+          TypeTag: 'NotFoundSagaMessage',
+          Properties: [
+            {
+              Name: 'Property',
+              Value: {}
+            }
+          ]
         },
         SourceContext: {
           Value: 'NServiceBus.RecoverabilityExecutor'

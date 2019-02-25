@@ -11,5 +11,7 @@ namespace NServiceBus.Serilog
         public string MessageType;
         public string CorrelationId;
         public string ConversationId;
+        public string HandlerName;
+        public object Message;
     }
 }
