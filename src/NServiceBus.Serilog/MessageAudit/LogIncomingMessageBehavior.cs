@@ -8,9 +8,9 @@ using Serilog.Parsing;
 
 class LogIncomingMessageBehavior : Behavior<IIncomingLogicalMessageContext>
 {
-    MessageTemplate messageTemplate;
+    static MessageTemplate messageTemplate;
 
-    public LogIncomingMessageBehavior()
+    static LogIncomingMessageBehavior()
     {
         var templateParser = new MessageTemplateParser();
         messageTemplate = templateParser.Parse("Receive message {MessageType} {MessageId}.");
