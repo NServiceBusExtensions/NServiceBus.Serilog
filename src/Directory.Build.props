@@ -5,7 +5,8 @@
     <LangVersion>latest</LangVersion>
     <AssemblyOriginatorKeyFile>$(SolutionDir)key.snk</AssemblyOriginatorKeyFile>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-    <Version>6.2.3</Version>
+    <Version>6.2.4</Version>
+    <Description>Add support for sending NServiceBus logging through Serilog</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Copyright>Copyright $([System.DateTime]::UtcNow.ToString(yyyy)). All rights reserved</Copyright>
     <PackageIconUrl>https://raw.github.com/NServiceBusExtensions/NServiceBus.Serilog/master/src/icon.png</PackageIconUrl>
