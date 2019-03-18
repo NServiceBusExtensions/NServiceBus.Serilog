@@ -24,14 +24,14 @@ class CaptureSagaStateBehavior : Behavior<IInvokeHandlerContext>
         if (!(context.MessageHandler.Instance is Saga))
         {
             // Message was not handled by the saga
-            await next().ConfigureAwait(false);
+            await next();
             return;
         }
 
         var logger = context.Logger();
         if (!logger.IsEnabled(LogEventLevel.Information))
         {
-            await next().ConfigureAwait(false);
+            await next();
             return;
         }
 
@@ -40,8 +40,7 @@ class CaptureSagaStateBehavior : Behavior<IInvokeHandlerContext>
             StartTime = DateTimeOffset.UtcNow
         };
         context.Extensions.Set(sagaAudit);
-        await next()
-            .ConfigureAwait(false);
+        await next();
 
         if (context.Extensions.TryGet(out ActiveSagaInstance activeSagaInstance))
         {

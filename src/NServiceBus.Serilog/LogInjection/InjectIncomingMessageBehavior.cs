@@ -76,7 +76,7 @@ class InjectIncomingMessageBehavior : Behavior<IIncomingPhysicalMessageContext>
 
         try
         {
-            await next().ConfigureAwait(false);
+            await next();
         }
         catch (Exception exception)
         {

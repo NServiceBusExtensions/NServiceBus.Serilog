@@ -27,7 +27,7 @@ class InjectInvokeHandlerContextBehavior : Behavior<IInvokeHandlerContext>
         try
         {
             context.Extensions.Set("SerilogHandlerLogger", forContext);
-            await next().ConfigureAwait(false);
+            await next();
         }
         finally
         {
