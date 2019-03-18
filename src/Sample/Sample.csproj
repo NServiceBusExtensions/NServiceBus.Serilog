@@ -7,12 +7,12 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="ConfigureAwait.Fody" Version="3.0.0" />
-    <PackageReference Include="Fody" Version="4.1.0-beta.6">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
+    <PackageReference Include="Fody" Version="4.1.0-beta.6" />
     <PackageReference Include="Serilog.Sinks.Console" Version="3.1.1" />
     <PackageReference Include="Serilog.Sinks.File" Version="4.0.0" />
+    <PackageReference Include="Serilog.Formatting.Compact" Version="1.*" />
+    <PackageReference Include="Serilog.Sinks.PeriodicBatching" Version="2.1.1" />
+    <PackageReference Include="Serilog.Sinks.Seq" Version="4.0.0" />
     <PackageReference Include="NServiceBus" Version="7.1.6" />
     <PackageReference Include="Serilog" Version="2.8.0" />
     <ProjectReference Include="..\NServiceBus.Serilog\NServiceBus.Serilog.csproj" />
