@@ -2,33 +2,7 @@
   logsForTarget: [
     {
       MessageTemplate: {
-        Text: 'Receive message {IncomingMessageType} {IncomingMessageId}.',
-        Tokens: [
-          {
-            Length: 16,
-            Text: 'Receive message '
-          },
-          {
-            Length: 21,
-            PropertyName: 'IncomingMessageType',
-            StartIndex: 16
-          },
-          {
-            Length: 1,
-            Text: ' ',
-            StartIndex: 37
-          },
-          {
-            Length: 19,
-            PropertyName: 'IncomingMessageId',
-            StartIndex: 38
-          },
-          {
-            Length: 1,
-            Text: '.',
-            StartIndex: 57
-          }
-        ]
+        Text: 'Receive message {IncomingMessageType} {IncomingMessageId}.'
       },
       Level: 'Information',
       Properties: {
@@ -80,33 +54,7 @@
     },
     {
       MessageTemplate: {
-        Text: 'Receive message {IncomingMessageType} {IncomingMessageId}.',
-        Tokens: [
-          {
-            Length: 16,
-            Text: 'Receive message '
-          },
-          {
-            Length: 21,
-            PropertyName: 'IncomingMessageType',
-            StartIndex: 16
-          },
-          {
-            Length: 1,
-            Text: ' ',
-            StartIndex: 37
-          },
-          {
-            Length: 19,
-            PropertyName: 'IncomingMessageId',
-            StartIndex: 38
-          },
-          {
-            Length: 1,
-            Text: '.',
-            StartIndex: 57
-          }
-        ]
+        Text: 'Receive message {IncomingMessageType} {IncomingMessageId}.'
       },
       Level: 'Information',
       Properties: {
@@ -158,33 +106,7 @@
     },
     {
       MessageTemplate: {
-        Text: 'Receive message {IncomingMessageType} {IncomingMessageId}.',
-        Tokens: [
-          {
-            Length: 16,
-            Text: 'Receive message '
-          },
-          {
-            Length: 21,
-            PropertyName: 'IncomingMessageType',
-            StartIndex: 16
-          },
-          {
-            Length: 1,
-            Text: ' ',
-            StartIndex: 37
-          },
-          {
-            Length: 19,
-            PropertyName: 'IncomingMessageId',
-            StartIndex: 38
-          },
-          {
-            Length: 1,
-            Text: '.',
-            StartIndex: 57
-          }
-        ]
+        Text: 'Receive message {IncomingMessageType} {IncomingMessageId}.'
       },
       Level: 'Information',
       Properties: {
@@ -242,33 +164,7 @@
     },
     {
       MessageTemplate: {
-        Text: 'Receive message {IncomingMessageType} {IncomingMessageId}.',
-        Tokens: [
-          {
-            Length: 16,
-            Text: 'Receive message '
-          },
-          {
-            Length: 21,
-            PropertyName: 'IncomingMessageType',
-            StartIndex: 16
-          },
-          {
-            Length: 1,
-            Text: ' ',
-            StartIndex: 37
-          },
-          {
-            Length: 19,
-            PropertyName: 'IncomingMessageId',
-            StartIndex: 38
-          },
-          {
-            Length: 1,
-            Text: '.',
-            StartIndex: 57
-          }
-        ]
+        Text: 'Receive message {IncomingMessageType} {IncomingMessageId}.'
       },
       Level: 'Information',
       Properties: {
@@ -326,33 +222,7 @@
     },
     {
       MessageTemplate: {
-        Text: 'Sent message {OutgoingMessageType} {OutgoingMessageId}.',
-        Tokens: [
-          {
-            Length: 13,
-            Text: 'Sent message '
-          },
-          {
-            Length: 21,
-            PropertyName: 'OutgoingMessageType',
-            StartIndex: 13
-          },
-          {
-            Length: 1,
-            Text: ' ',
-            StartIndex: 34
-          },
-          {
-            Length: 19,
-            PropertyName: 'OutgoingMessageId',
-            StartIndex: 35
-          },
-          {
-            Length: 1,
-            Text: '.',
-            StartIndex: 54
-          }
-        ]
+        Text: 'Sent message {OutgoingMessageType} {OutgoingMessageId}.'
       },
       Level: 'Information',
       Properties: {

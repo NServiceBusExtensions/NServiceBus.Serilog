@@ -2,30 +2,7 @@
   logsForTarget: [
     {
       MessageTemplate: {
-        Text: 'Hello from {@Saga}. Message: {@Message}',
-        Tokens: [
-          {
-            Length: 11,
-            Text: 'Hello from '
-          },
-          {
-            Length: 7,
-            PropertyName: 'Saga',
-            Destructuring: 'Destructure',
-            StartIndex: 11
-          },
-          {
-            Length: 11,
-            Text: '. Message: ',
-            StartIndex: 18
-          },
-          {
-            Length: 10,
-            PropertyName: 'Message',
-            Destructuring: 'Destructure',
-            StartIndex: 29
-          }
-        ]
+        Text: 'Hello from {@Saga}. Message: {@Message}'
       },
       Level: 'Information',
       Properties: {
@@ -68,33 +45,7 @@
     },
     {
       MessageTemplate: {
-        Text: 'Receive message {IncomingMessageType} {IncomingMessageId}.',
-        Tokens: [
-          {
-            Length: 16,
-            Text: 'Receive message '
-          },
-          {
-            Length: 21,
-            PropertyName: 'IncomingMessageType',
-            StartIndex: 16
-          },
-          {
-            Length: 1,
-            Text: ' ',
-            StartIndex: 37
-          },
-          {
-            Length: 19,
-            PropertyName: 'IncomingMessageId',
-            StartIndex: 38
-          },
-          {
-            Length: 1,
-            Text: '.',
-            StartIndex: 57
-          }
-        ]
+        Text: 'Receive message {IncomingMessageType} {IncomingMessageId}.'
       },
       Level: 'Information',
       Properties: {
@@ -146,33 +97,7 @@
     },
     {
       MessageTemplate: {
-        Text: 'Saga execution \'{SagaType}\' \'{SagaId}\'.',
-        Tokens: [
-          {
-            Length: 16,
-            Text: 'Saga execution \''
-          },
-          {
-            Length: 10,
-            PropertyName: 'SagaType',
-            StartIndex: 16
-          },
-          {
-            Length: 3,
-            Text: '\' \'',
-            StartIndex: 26
-          },
-          {
-            Length: 8,
-            PropertyName: 'SagaId',
-            StartIndex: 29
-          },
-          {
-            Length: 2,
-            Text: '\'.',
-            StartIndex: 37
-          }
-        ]
+        Text: 'Saga execution \'{SagaType}\' \'{SagaId}\'.'
       },
       Level: 'Information',
       Properties: {
@@ -325,33 +250,7 @@
     },
     {
       MessageTemplate: {
-        Text: 'Sent message {OutgoingMessageType} {OutgoingMessageId}.',
-        Tokens: [
-          {
-            Length: 13,
-            Text: 'Sent message '
-          },
-          {
-            Length: 21,
-            PropertyName: 'OutgoingMessageType',
-            StartIndex: 13
-          },
-          {
-            Length: 1,
-            Text: ' ',
-            StartIndex: 34
-          },
-          {
-            Length: 19,
-            PropertyName: 'OutgoingMessageId',
-            StartIndex: 35
-          },
-          {
-            Length: 1,
-            Text: '.',
-            StartIndex: 54
-          }
-        ]
+        Text: 'Sent message {OutgoingMessageType} {OutgoingMessageId}.'
       },
       Level: 'Information',
       Properties: {
@@ -410,33 +309,7 @@
     },
     {
       MessageTemplate: {
-        Text: 'Sent message {OutgoingMessageType} {OutgoingMessageId}.',
-        Tokens: [
-          {
-            Length: 13,
-            Text: 'Sent message '
-          },
-          {
-            Length: 21,
-            PropertyName: 'OutgoingMessageType',
-            StartIndex: 13
-          },
-          {
-            Length: 1,
-            Text: ' ',
-            StartIndex: 34
-          },
-          {
-            Length: 19,
-            PropertyName: 'OutgoingMessageId',
-            StartIndex: 35
-          },
-          {
-            Length: 1,
-            Text: '.',
-            StartIndex: 54
-          }
-        ]
+        Text: 'Sent message {OutgoingMessageType} {OutgoingMessageId}.'
       },
       Level: 'Information',
       Properties: {
