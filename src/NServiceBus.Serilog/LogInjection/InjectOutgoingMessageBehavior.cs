@@ -5,7 +5,8 @@ using NServiceBus;
 using NServiceBus.Pipeline;
 using Serilog.Core.Enrichers;
 
-class InjectOutgoingMessageBehavior : Behavior<IOutgoingLogicalMessageContext>
+class InjectOutgoingMessageBehavior :
+    Behavior<IOutgoingLogicalMessageContext>
 {
     LogBuilder logBuilder;
 
@@ -43,7 +44,8 @@ class InjectOutgoingMessageBehavior : Behavior<IOutgoingLogicalMessageContext>
         return next();
     }
 
-    public class Registration : RegisterStep
+    public class Registration :
+        RegisterStep
     {
         public Registration(LogBuilder logBuilder)
             : base(
