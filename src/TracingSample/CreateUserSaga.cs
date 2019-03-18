@@ -2,7 +2,8 @@
 using System.Threading.Tasks;
 using NServiceBus;
 
-public class CreateUserSaga : Saga<MySagaData>,
+public class CreateUserSaga :
+    Saga<MySagaData>,
     IAmStartedByMessages<CreateUser>,
     IHandleTimeouts<SagaTimeout>
 {

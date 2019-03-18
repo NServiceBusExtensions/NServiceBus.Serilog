@@ -8,7 +8,8 @@ using NServiceBus.Serilog;
 using Serilog.Events;
 using Serilog.Parsing;
 
-class CaptureSagaStateBehavior : Behavior<IInvokeHandlerContext>
+class CaptureSagaStateBehavior :
+    Behavior<IInvokeHandlerContext>
 {
     SagaUpdatedMessage sagaAudit;
     MessageTemplate messageTemplate;

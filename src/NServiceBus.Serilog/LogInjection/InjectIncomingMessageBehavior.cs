@@ -6,7 +6,8 @@ using NServiceBus.Pipeline;
 using NServiceBus.Serilog;
 using Serilog.Core.Enrichers;
 
-class InjectIncomingMessageBehavior : Behavior<IIncomingPhysicalMessageContext>
+class InjectIncomingMessageBehavior :
+    Behavior<IIncomingPhysicalMessageContext>
 {
     LogBuilder logBuilder;
     string endpoint;
@@ -17,7 +18,8 @@ class InjectIncomingMessageBehavior : Behavior<IIncomingPhysicalMessageContext>
         this.endpoint = endpoint;
     }
 
-    public class Registration : RegisterStep
+    public class Registration :
+        RegisterStep
     {
         public Registration(LogBuilder logBuilder, string endpoint)
             : base(

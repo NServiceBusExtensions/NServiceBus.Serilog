@@ -1,6 +1,7 @@
 ﻿using NServiceBus.Features;
 
-class SagaTracingFeature : Feature
+class SagaTracingFeature :
+    Feature
 {
     public SagaTracingFeature()
     {

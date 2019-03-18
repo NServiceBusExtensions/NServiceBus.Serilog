@@ -6,7 +6,8 @@ using NServiceBus.Pipeline;
 using Serilog.Events;
 using Serilog.Parsing;
 
-class LogIncomingMessageBehavior : Behavior<IIncomingLogicalMessageContext>
+class LogIncomingMessageBehavior :
+    Behavior<IIncomingLogicalMessageContext>
 {
     static MessageTemplate messageTemplate;
 
@@ -16,7 +17,8 @@ class LogIncomingMessageBehavior : Behavior<IIncomingLogicalMessageContext>
         messageTemplate = templateParser.Parse("Receive message {IncomingMessageType} {IncomingMessageId}.");
     }
 
-    public class Registration : RegisterStep
+    public class Registration :
+        RegisterStep
     {
         public Registration()
             : base(

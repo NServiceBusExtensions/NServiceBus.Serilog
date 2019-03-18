@@ -4,9 +4,11 @@ using NServiceBus;
 using NServiceBus.Pipeline;
 using NServiceBus.Serilog;
 
-class InjectInvokeHandlerContextBehavior : Behavior<IInvokeHandlerContext>
+class InjectInvokeHandlerContextBehavior :
+    Behavior<IInvokeHandlerContext>
 {
-    public class Registration : RegisterStep
+    public class Registration :
+        RegisterStep
     {
         public Registration()
             : base(

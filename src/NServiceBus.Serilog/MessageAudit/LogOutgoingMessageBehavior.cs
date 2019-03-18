@@ -8,7 +8,8 @@ using Serilog;
 using Serilog.Events;
 using Serilog.Parsing;
 
-class LogOutgoingMessageBehavior : Behavior<IOutgoingLogicalMessageContext>
+class LogOutgoingMessageBehavior :
+    Behavior<IOutgoingLogicalMessageContext>
 {
     MessageTemplate messageTemplate;
 

@@ -3,7 +3,8 @@ using System;
 using NServiceBus.Pipeline;
 using NServiceBus.Serilog;
 
-class CaptureSagaResultingMessagesBehavior : Behavior<IOutgoingLogicalMessageContext>
+class CaptureSagaResultingMessagesBehavior :
+    Behavior<IOutgoingLogicalMessageContext>
 {
     SagaUpdatedMessage sagaUpdatedMessage;
 
@@ -37,7 +38,8 @@ class CaptureSagaResultingMessagesBehavior : Behavior<IOutgoingLogicalMessageCon
         sagaUpdatedMessage.ResultingMessages.Add(sagaResultingMessage);
     }
 
-    public class Registration : RegisterStep
+    public class Registration :
+        RegisterStep
     {
         public Registration()
             : base(
