@@ -22,7 +22,7 @@ class InjectInvokeHandlerContextBehavior : Behavior<IInvokeHandlerContext>
         var handler = context.HandlerType();
         var exceptionLogState = context.Extensions.Get<ExceptionLogState>();
         exceptionLogState.HandlerType = handler;
-        exceptionLogState.Message = context.MessageBeingHandled;
+        exceptionLogState.IncomingMessage = context.MessageBeingHandled;
         var forContext = context.Logger().ForContext("Handler", handler);
         try
         {

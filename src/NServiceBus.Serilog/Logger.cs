@@ -57,7 +57,7 @@ class Logger : ILog
             }
         }
 
-        if (logger.BindProperty("Headers", logState.Headers, out var headersProperty))
+        if (logger.BindProperty("IncomingHeaders", logState.IncomingHeaders, out var headersProperty))
         {
             properties.Add(headersProperty);
         }

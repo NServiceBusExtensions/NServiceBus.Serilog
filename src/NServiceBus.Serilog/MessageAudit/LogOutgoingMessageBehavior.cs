@@ -15,7 +15,7 @@ class LogOutgoingMessageBehavior : Behavior<IOutgoingLogicalMessageContext>
     public LogOutgoingMessageBehavior()
     {
         var templateParser = new MessageTemplateParser();
-        messageTemplate = templateParser.Parse("Sent message {MessageType} {MessageId}.");
+        messageTemplate = templateParser.Parse("Sent message {OutgoingMessageType} {OutgoingMessageId}.");
     }
 
     public override Task Invoke(IOutgoingLogicalMessageContext context, Func<Task> next)
@@ -29,7 +29,7 @@ class LogOutgoingMessageBehavior : Behavior<IOutgoingLogicalMessageContext>
     {
         var logProperties = new List<LogEventProperty>();
 
-        if (forContext.BindProperty("Message", message, out var messageProperty))
+        if (forContext.BindProperty("OutgoingMessage", message, out var messageProperty))
         {
             logProperties.Add(messageProperty);
         }
@@ -41,7 +41,10 @@ class LogOutgoingMessageBehavior : Behavior<IOutgoingLogicalMessageContext>
             logProperties.Add(new LogEventProperty("UnicastRoutes", sequence));
         }
 
-        logProperties.AddRange(forContext.BuildHeaders(context.Headers));
+        if (forContext.BindProperty("OutgoingHeaders", context.Headers, out var headersProperty))
+        {
+            logProperties.Add(headersProperty);
+        }
         forContext.WriteInfo(messageTemplate, logProperties);
     }
 

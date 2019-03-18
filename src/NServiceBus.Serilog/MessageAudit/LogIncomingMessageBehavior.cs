@@ -13,7 +13,7 @@ class LogIncomingMessageBehavior : Behavior<IIncomingLogicalMessageContext>
     static LogIncomingMessageBehavior()
     {
         var templateParser = new MessageTemplateParser();
-        messageTemplate = templateParser.Parse("Receive message {MessageType} {MessageId}.");
+        messageTemplate = templateParser.Parse("Receive message {IncomingMessageType} {IncomingMessageId}.");
     }
 
     public class Registration : RegisterStep
@@ -34,12 +34,15 @@ class LogIncomingMessageBehavior : Behavior<IIncomingLogicalMessageContext>
         var properties = new List<LogEventProperty>();
 
         var logger = context.Logger();
-        if (logger.BindProperty("Message", message.Instance, out var messageProperty))
+        if (logger.BindProperty("IncomingMessage", message.Instance, out var property))
         {
-            properties.Add(messageProperty);
+            properties.Add(property);
         }
 
-        properties.AddRange(logger.BuildHeaders(context.Headers));
+        if (logger.BindProperty("IncomingHeaders", context.Headers, out var headersProperty))
+        {
+            properties.Add(headersProperty);
+        }
         logger.WriteInfo(messageTemplate, properties);
         return next();
     }
