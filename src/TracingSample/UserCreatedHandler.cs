@@ -2,7 +2,8 @@
 using System.Threading.Tasks;
 using NServiceBus;
 
-public class UserCreatedHandler : IHandleMessages<UserCreated>
+public class UserCreatedHandler :
+    IHandleMessages<UserCreated>
 {
     public Task Handle(UserCreated message, IMessageHandlerContext context)
     {
