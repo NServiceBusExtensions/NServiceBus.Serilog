@@ -14,10 +14,7 @@ public class CustomContractResolverEx : CustomContractResolver
         var property = base.CreateProperty(member, memberSerialization);
 
         var propertyName = property.PropertyName;
-        if (
-            propertyName == "HandleCurrentMessageLaterWasCalled" ||
-            propertyName == "Tokens"
-            )
+        if (propertyName == "HandleCurrentMessageLaterWasCalled")
         {
             property.ShouldSerialize = instance => false;
         }

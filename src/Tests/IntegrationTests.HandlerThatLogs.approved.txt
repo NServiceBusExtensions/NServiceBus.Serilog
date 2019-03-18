@@ -1,9 +1,7 @@
 ﻿{
   logsForTarget: [
     {
-      MessageTemplate: {
-        Text: 'Receive message {IncomingMessageType} {IncomingMessageId}.'
-      },
+      MessageTemplate: 'Receive message {IncomingMessageType} {IncomingMessageId}.',
       Level: 'Information',
       Properties: {
         IncomingMessage: {
@@ -24,9 +22,7 @@
       }
     },
     {
-      MessageTemplate: {
-        Text: 'Sent message {OutgoingMessageType} {OutgoingMessageId}.'
-      },
+      MessageTemplate: 'Sent message {OutgoingMessageType} {OutgoingMessageId}.',
       Level: 'Information',
       Properties: {
         OutgoingMessage: {
@@ -54,9 +50,7 @@
   ],
   logsWithExceptions: [
     {
-      MessageTemplate: {
-        Text: 'The message'
-      },
+      MessageTemplate: 'The message',
       Level: 'Error',
       Properties: {
         SourceContext: 'TheHandlerThatThrows',
@@ -68,18 +62,6 @@
             "Source": null
           }
         }
-      },
-      Exception: {
-        ClassName: 'System.Exception',
-        Message: null,
-        Data: {},
-        InnerException: null,
-        HelpURL: null,
-        RemoteStackIndex: 0,
-        ExceptionMethod: null,
-        HResult: -2146233088,
-        Source: null,
-        WatsonBuckets: null
       }
     }
   ]

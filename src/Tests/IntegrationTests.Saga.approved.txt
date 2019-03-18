@@ -1,9 +1,7 @@
 ﻿{
   logsForTarget: [
     {
-      MessageTemplate: {
-        Text: 'Hello from {@Saga}. Message: {@Message}'
-      },
+      MessageTemplate: 'Hello from {@Saga}. Message: {@Message}',
       Level: 'Information',
       Properties: {
         Saga: 'TheSaga',
@@ -25,9 +23,7 @@
       }
     },
     {
-      MessageTemplate: {
-        Text: 'Receive message {IncomingMessageType} {IncomingMessageId}.'
-      },
+      MessageTemplate: 'Receive message {IncomingMessageType} {IncomingMessageId}.',
       Level: 'Information',
       Properties: {
         IncomingMessage: {
@@ -52,9 +48,7 @@
       }
     },
     {
-      MessageTemplate: {
-        Text: 'Saga execution \'{SagaType}\' \'{SagaId}\'.'
-      },
+      MessageTemplate: 'Saga execution \'{SagaType}\' \'{SagaId}\'.',
       Level: 'Information',
       Properties: {
         SagaType: 'TheSaga',
@@ -136,9 +130,7 @@
       }
     },
     {
-      MessageTemplate: {
-        Text: 'Sent message {OutgoingMessageType} {OutgoingMessageId}.'
-      },
+      MessageTemplate: 'Sent message {OutgoingMessageType} {OutgoingMessageId}.',
       Level: 'Information',
       Properties: {
         OutgoingMessage: {
@@ -168,9 +160,7 @@
       }
     },
     {
-      MessageTemplate: {
-        Text: 'Sent message {OutgoingMessageType} {OutgoingMessageId}.'
-      },
+      MessageTemplate: 'Sent message {OutgoingMessageType} {OutgoingMessageId}.',
       Level: 'Information',
       Properties: {
         OutgoingMessage: {

@@ -9,6 +9,7 @@ public class TestBase
         {
             settings.ContractResolver = new CustomContractResolverEx();
             settings.Converters.Add(new LogEventPropertyConverter());
+            settings.Converters.Add(new LogEventConverter());
             settings.Converters.Add(new ScalarValueConverter());
         };
         StringScrubber.AddExtraDatetimeFormat("yyyy-MM-dd HH:mm:ss:ffffff Z");
