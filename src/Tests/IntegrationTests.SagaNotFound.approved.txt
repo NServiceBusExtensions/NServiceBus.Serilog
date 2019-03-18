@@ -1,9 +1,7 @@
 ﻿{
   logsForTarget: [
     {
-      MessageTemplate: {
-        Text: 'Receive message {IncomingMessageType} {IncomingMessageId}.'
-      },
+      MessageTemplate: 'Receive message {IncomingMessageType} {IncomingMessageId}.',
       Level: 'Information',
       Properties: {
         IncomingMessage: {
@@ -30,9 +28,7 @@
       }
     },
     {
-      MessageTemplate: {
-        Text: 'Receive message {IncomingMessageType} {IncomingMessageId}.'
-      },
+      MessageTemplate: 'Receive message {IncomingMessageType} {IncomingMessageId}.',
       Level: 'Information',
       Properties: {
         IncomingMessage: {
@@ -59,40 +55,7 @@
       }
     },
     {
-      MessageTemplate: {
-        Text: 'Receive message {IncomingMessageType} {IncomingMessageId}.'
-      },
-      Level: 'Information',
-      Properties: {
-        IncomingMessage: {
-          TypeTag: 'NotFoundSagaMessage',
-          Properties: [
-            {
-              Property: null
-            }
-          ]
-        },
-        OriginatingHostId: 'Guid 1',
-        MessageIntent: 'Send',
-        OriginatingEndpoint: 'SerilogTestsNotFoundSagaMessage',
-        OriginatingMachine: 'MachineName',
-        ReplyToAddress: 'SerilogTestsNotFoundSagaMessage',
-        Retries: '1',
-        Retries.Timestamp: 'DateTime 1',
-        SagaId: 'Guid 2',
-        SagaType: 'TheSaga',
-        IncomingMessageId: 'Guid 3',
-        IncomingMessageType: 'NotFoundSagaMessage',
-        CorrelationId: 'Guid 3',
-        ConversationId: 'Guid 4',
-        SourceContext: 'NotFoundSagaMessage',
-        ProcessingEndpoint: 'SerilogTestsNotFoundSagaMessage'
-      }
-    },
-    {
-      MessageTemplate: {
-        Text: 'Receive message {IncomingMessageType} {IncomingMessageId}.'
-      },
+      MessageTemplate: 'Receive message {IncomingMessageType} {IncomingMessageId}.',
       Level: 'Information',
       Properties: {
         IncomingMessage: {
@@ -121,9 +84,36 @@
       }
     },
     {
-      MessageTemplate: {
-        Text: 'Sent message {OutgoingMessageType} {OutgoingMessageId}.'
-      },
+      MessageTemplate: 'Receive message {IncomingMessageType} {IncomingMessageId}.',
+      Level: 'Information',
+      Properties: {
+        IncomingMessage: {
+          TypeTag: 'NotFoundSagaMessage',
+          Properties: [
+            {
+              Property: null
+            }
+          ]
+        },
+        OriginatingHostId: 'Guid 1',
+        MessageIntent: 'Send',
+        OriginatingEndpoint: 'SerilogTestsNotFoundSagaMessage',
+        OriginatingMachine: 'MachineName',
+        ReplyToAddress: 'SerilogTestsNotFoundSagaMessage',
+        Retries: '1',
+        Retries.Timestamp: 'DateTime 1',
+        SagaId: 'Guid 2',
+        SagaType: 'TheSaga',
+        IncomingMessageId: 'Guid 3',
+        IncomingMessageType: 'NotFoundSagaMessage',
+        CorrelationId: 'Guid 3',
+        ConversationId: 'Guid 4',
+        SourceContext: 'NotFoundSagaMessage',
+        ProcessingEndpoint: 'SerilogTestsNotFoundSagaMessage'
+      }
+    },
+    {
+      MessageTemplate: 'Sent message {OutgoingMessageType} {OutgoingMessageId}.',
       Level: 'Information',
       Properties: {
         OutgoingMessage: {
@@ -157,9 +147,7 @@
   ],
   logsWithExceptions: [
     {
-      MessageTemplate: {
-        Text: 'Immediate Retry is going to retry message \'00000000-0000-0000-0000-000000000001\' because of an exception:'
-      },
+      MessageTemplate: 'Immediate Retry is going to retry message \'00000000-0000-0000-0000-000000000001\' because of an exception:',
       Level: 'Information',
       Properties: {
         ProcessingEndpoint: 'SerilogTestsNotFoundSagaMessage',
@@ -203,24 +191,10 @@
             "Source": 'NServiceBus.Core'
           }
         }
-      },
-      Exception: {
-        ClassName: 'System.NullReferenceException',
-        Message: 'Object reference not set to an instance of an object.',
-        Data: {},
-        InnerException: null,
-        HelpURL: null,
-        RemoteStackIndex: 0,
-        ExceptionMethod: null,
-        HResult: -2147467261,
-        Source: 'NServiceBus.Core',
-        WatsonBuckets: null
       }
     },
     {
-      MessageTemplate: {
-        Text: 'Delayed Retry will reschedule message \'00000000-0000-0000-0000-000000000001\' after a delay of 00:00:00.0010000 because of an exception:'
-      },
+      MessageTemplate: 'Delayed Retry will reschedule message \'00000000-0000-0000-0000-000000000001\' after a delay of 00:00:00.0010000 because of an exception:',
       Level: 'Warning',
       Properties: {
         ProcessingEndpoint: 'SerilogTestsNotFoundSagaMessage',
@@ -264,24 +238,10 @@
             "Source": 'NServiceBus.Core'
           }
         }
-      },
-      Exception: {
-        ClassName: 'System.NullReferenceException',
-        Message: 'Object reference not set to an instance of an object.',
-        Data: {},
-        InnerException: null,
-        HelpURL: null,
-        RemoteStackIndex: 0,
-        ExceptionMethod: null,
-        HResult: -2147467261,
-        Source: 'NServiceBus.Core',
-        WatsonBuckets: null
       }
     },
     {
-      MessageTemplate: {
-        Text: 'Immediate Retry is going to retry message \'00000000-0000-0000-0000-000000000001\' because of an exception:'
-      },
+      MessageTemplate: 'Immediate Retry is going to retry message \'00000000-0000-0000-0000-000000000001\' because of an exception:',
       Level: 'Information',
       Properties: {
         ProcessingEndpoint: 'SerilogTestsNotFoundSagaMessage',
@@ -327,24 +287,10 @@
             "Source": 'NServiceBus.Core'
           }
         }
-      },
-      Exception: {
-        ClassName: 'System.NullReferenceException',
-        Message: 'Object reference not set to an instance of an object.',
-        Data: {},
-        InnerException: null,
-        HelpURL: null,
-        RemoteStackIndex: 0,
-        ExceptionMethod: null,
-        HResult: -2147467261,
-        Source: 'NServiceBus.Core',
-        WatsonBuckets: null
       }
     },
     {
-      MessageTemplate: {
-        Text: 'Moving message \'00000000-0000-0000-0000-000000000001\' to the error queue \'error\' because processing failed due to an exception:'
-      },
+      MessageTemplate: 'Moving message \'00000000-0000-0000-0000-000000000001\' to the error queue \'error\' because processing failed due to an exception:',
       Level: 'Error',
       Properties: {
         ProcessingEndpoint: 'SerilogTestsNotFoundSagaMessage',
@@ -390,18 +336,6 @@
             "Source": 'NServiceBus.Core'
           }
         }
-      },
-      Exception: {
-        ClassName: 'System.NullReferenceException',
-        Message: 'Object reference not set to an instance of an object.',
-        Data: {},
-        InnerException: null,
-        HelpURL: null,
-        RemoteStackIndex: 0,
-        ExceptionMethod: null,
-        HResult: -2147467261,
-        Source: 'NServiceBus.Core',
-        WatsonBuckets: null
       }
     }
   ]
