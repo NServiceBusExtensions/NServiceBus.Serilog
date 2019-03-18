@@ -2,37 +2,37 @@
   logsForTarget: [
     {
       MessageTemplate: {
-        Text: 'Receive message {MessageType} {MessageId}.',
+        Text: 'Receive message {IncomingMessageType} {IncomingMessageId}.',
         Tokens: [
           {
             Length: 16,
             Text: 'Receive message '
           },
           {
-            Length: 13,
-            PropertyName: 'MessageType',
+            Length: 21,
+            PropertyName: 'IncomingMessageType',
             StartIndex: 16
           },
           {
             Length: 1,
             Text: ' ',
-            StartIndex: 29
+            StartIndex: 37
           },
           {
-            Length: 11,
-            PropertyName: 'MessageId',
-            StartIndex: 30
+            Length: 19,
+            PropertyName: 'IncomingMessageId',
+            StartIndex: 38
           },
           {
             Length: 1,
             Text: '.',
-            StartIndex: 41
+            StartIndex: 57
           }
         ]
       },
       Level: 'Information',
       Properties: {
-        Message: {
+        IncomingMessage: {
           TypeTag: 'NotFoundSagaMessage',
           Properties: [
             {
@@ -62,10 +62,10 @@
         SagaType: {
           Value: 'TheSaga'
         },
-        MessageId: {
+        IncomingMessageId: {
           Value: 'Guid 3'
         },
-        MessageType: {
+        IncomingMessageType: {
           Value: 'NotFoundSagaMessage'
         },
         CorrelationId: {
@@ -84,37 +84,37 @@
     },
     {
       MessageTemplate: {
-        Text: 'Receive message {MessageType} {MessageId}.',
+        Text: 'Receive message {IncomingMessageType} {IncomingMessageId}.',
         Tokens: [
           {
             Length: 16,
             Text: 'Receive message '
           },
           {
-            Length: 13,
-            PropertyName: 'MessageType',
+            Length: 21,
+            PropertyName: 'IncomingMessageType',
             StartIndex: 16
           },
           {
             Length: 1,
             Text: ' ',
-            StartIndex: 29
+            StartIndex: 37
           },
           {
-            Length: 11,
-            PropertyName: 'MessageId',
-            StartIndex: 30
+            Length: 19,
+            PropertyName: 'IncomingMessageId',
+            StartIndex: 38
           },
           {
             Length: 1,
             Text: '.',
-            StartIndex: 41
+            StartIndex: 57
           }
         ]
       },
       Level: 'Information',
       Properties: {
-        Message: {
+        IncomingMessage: {
           TypeTag: 'NotFoundSagaMessage',
           Properties: [
             {
@@ -144,10 +144,10 @@
         SagaType: {
           Value: 'TheSaga'
         },
-        MessageId: {
+        IncomingMessageId: {
           Value: 'Guid 3'
         },
-        MessageType: {
+        IncomingMessageType: {
           Value: 'NotFoundSagaMessage'
         },
         CorrelationId: {
@@ -166,125 +166,37 @@
     },
     {
       MessageTemplate: {
-        Text: 'Receive message {MessageType} {MessageId}.',
+        Text: 'Receive message {IncomingMessageType} {IncomingMessageId}.',
         Tokens: [
           {
             Length: 16,
             Text: 'Receive message '
           },
           {
-            Length: 13,
-            PropertyName: 'MessageType',
+            Length: 21,
+            PropertyName: 'IncomingMessageType',
             StartIndex: 16
           },
           {
             Length: 1,
             Text: ' ',
-            StartIndex: 29
+            StartIndex: 37
           },
           {
-            Length: 11,
-            PropertyName: 'MessageId',
-            StartIndex: 30
+            Length: 19,
+            PropertyName: 'IncomingMessageId',
+            StartIndex: 38
           },
           {
             Length: 1,
             Text: '.',
-            StartIndex: 41
+            StartIndex: 57
           }
         ]
       },
       Level: 'Information',
       Properties: {
-        Message: {
-          TypeTag: 'NotFoundSagaMessage',
-          Properties: [
-            {
-              Name: 'Property',
-              Value: {}
-            }
-          ]
-        },
-        OriginatingHostId: {
-          Value: 'Guid 1'
-        },
-        MessageIntent: {
-          Value: 'Send'
-        },
-        OriginatingEndpoint: {
-          Value: 'SerilogTestsNotFoundSagaMessage'
-        },
-        OriginatingMachine: {
-          Value: 'MachineName'
-        },
-        ReplyToAddress: {
-          Value: 'SerilogTestsNotFoundSagaMessage'
-        },
-        Retries: {
-          Value: '1'
-        },
-        Retries.Timestamp: {
-          Value: 'DateTime 1'
-        },
-        SagaId: {
-          Value: 'Guid 2'
-        },
-        SagaType: {
-          Value: 'TheSaga'
-        },
-        MessageId: {
-          Value: 'Guid 3'
-        },
-        MessageType: {
-          Value: 'NotFoundSagaMessage'
-        },
-        CorrelationId: {
-          Value: 'Guid 3'
-        },
-        ConversationId: {
-          Value: 'Guid 4'
-        },
-        SourceContext: {
-          Value: 'NotFoundSagaMessage'
-        },
-        ProcessingEndpoint: {
-          Value: 'SerilogTestsNotFoundSagaMessage'
-        }
-      }
-    },
-    {
-      MessageTemplate: {
-        Text: 'Receive message {MessageType} {MessageId}.',
-        Tokens: [
-          {
-            Length: 16,
-            Text: 'Receive message '
-          },
-          {
-            Length: 13,
-            PropertyName: 'MessageType',
-            StartIndex: 16
-          },
-          {
-            Length: 1,
-            Text: ' ',
-            StartIndex: 29
-          },
-          {
-            Length: 11,
-            PropertyName: 'MessageId',
-            StartIndex: 30
-          },
-          {
-            Length: 1,
-            Text: '.',
-            StartIndex: 41
-          }
-        ]
-      },
-      Level: 'Information',
-      Properties: {
-        Message: {
+        IncomingMessage: {
           TypeTag: 'NotFoundSagaMessage',
           Properties: [
             {
@@ -320,10 +232,10 @@
         SagaType: {
           Value: 'TheSaga'
         },
-        MessageId: {
+        IncomingMessageId: {
           Value: 'Guid 3'
         },
-        MessageType: {
+        IncomingMessageType: {
           Value: 'NotFoundSagaMessage'
         },
         CorrelationId: {
@@ -342,37 +254,125 @@
     },
     {
       MessageTemplate: {
-        Text: 'Sent message {MessageType} {MessageId}.',
+        Text: 'Receive message {IncomingMessageType} {IncomingMessageId}.',
+        Tokens: [
+          {
+            Length: 16,
+            Text: 'Receive message '
+          },
+          {
+            Length: 21,
+            PropertyName: 'IncomingMessageType',
+            StartIndex: 16
+          },
+          {
+            Length: 1,
+            Text: ' ',
+            StartIndex: 37
+          },
+          {
+            Length: 19,
+            PropertyName: 'IncomingMessageId',
+            StartIndex: 38
+          },
+          {
+            Length: 1,
+            Text: '.',
+            StartIndex: 57
+          }
+        ]
+      },
+      Level: 'Information',
+      Properties: {
+        IncomingMessage: {
+          TypeTag: 'NotFoundSagaMessage',
+          Properties: [
+            {
+              Name: 'Property',
+              Value: {}
+            }
+          ]
+        },
+        OriginatingHostId: {
+          Value: 'Guid 1'
+        },
+        MessageIntent: {
+          Value: 'Send'
+        },
+        OriginatingEndpoint: {
+          Value: 'SerilogTestsNotFoundSagaMessage'
+        },
+        OriginatingMachine: {
+          Value: 'MachineName'
+        },
+        ReplyToAddress: {
+          Value: 'SerilogTestsNotFoundSagaMessage'
+        },
+        Retries: {
+          Value: '1'
+        },
+        Retries.Timestamp: {
+          Value: 'DateTime 1'
+        },
+        SagaId: {
+          Value: 'Guid 2'
+        },
+        SagaType: {
+          Value: 'TheSaga'
+        },
+        IncomingMessageId: {
+          Value: 'Guid 3'
+        },
+        IncomingMessageType: {
+          Value: 'NotFoundSagaMessage'
+        },
+        CorrelationId: {
+          Value: 'Guid 3'
+        },
+        ConversationId: {
+          Value: 'Guid 4'
+        },
+        SourceContext: {
+          Value: 'NotFoundSagaMessage'
+        },
+        ProcessingEndpoint: {
+          Value: 'SerilogTestsNotFoundSagaMessage'
+        }
+      }
+    },
+    {
+      MessageTemplate: {
+        Text: 'Sent message {OutgoingMessageType} {OutgoingMessageId}.',
         Tokens: [
           {
             Length: 13,
             Text: 'Sent message '
           },
           {
-            Length: 13,
-            PropertyName: 'MessageType',
+            Length: 21,
+            PropertyName: 'OutgoingMessageType',
             StartIndex: 13
           },
           {
             Length: 1,
             Text: ' ',
-            StartIndex: 26
+            StartIndex: 34
           },
           {
-            Length: 11,
-            PropertyName: 'MessageId',
-            StartIndex: 27
+            Length: 19,
+            PropertyName: 'OutgoingMessageId',
+            StartIndex: 35
           },
           {
             Length: 1,
             Text: '.',
-            StartIndex: 38
+            StartIndex: 54
           }
         ]
       },
       Level: 'Information',
       Properties: {
-        Message: {
+        OutgoingMessage: {
           TypeTag: 'NotFoundSagaMessage',
           Properties: [
             {
@@ -409,10 +409,10 @@
         SagaType: {
           Value: 'TheSaga'
         },
-        MessageId: {
+        OutgoingMessageId: {
           Value: 'Guid 3'
         },
-        MessageType: {
+        OutgoingMessageType: {
           Value: 'NotFoundSagaMessage'
         },
         CorrelationId: {
@@ -446,10 +446,10 @@
         ProcessingEndpoint: {
           Value: 'SerilogTestsNotFoundSagaMessage'
         },
-        MessageId: {
+        IncomingMessageId: {
           Value: 'Guid 3'
         },
-        MessageType: {
+        IncomingMessageType: {
           Value: 'NotFoundSagaMessage'
         },
         CorrelationId: {
@@ -461,7 +461,7 @@
         HandlerType: {
           Value: 'NotFoundSaga'
         },
-        Message: {
+        IncomingMessage: {
           TypeTag: 'NotFoundSagaMessage',
           Properties: [
             {
@@ -470,7 +470,7 @@
             }
           ]
         },
-        Headers: {
+        IncomingHeaders: {
           Elements: {
             "NServiceBus.SagaId": {
               Value: 'Guid 2'
@@ -564,10 +564,10 @@
         ProcessingEndpoint: {
           Value: 'SerilogTestsNotFoundSagaMessage'
         },
-        MessageId: {
+        IncomingMessageId: {
           Value: 'Guid 3'
         },
-        MessageType: {
+        IncomingMessageType: {
           Value: 'NotFoundSagaMessage'
         },
         CorrelationId: {
@@ -579,7 +579,7 @@
         HandlerType: {
           Value: 'NotFoundSaga'
         },
-        Message: {
+        IncomingMessage: {
           TypeTag: 'NotFoundSagaMessage',
           Properties: [
             {
@@ -588,7 +588,7 @@
             }
           ]
         },
-        Headers: {
+        IncomingHeaders: {
           Elements: {
             "NServiceBus.SagaId": {
               Value: 'Guid 2'
@@ -682,10 +682,10 @@
         ProcessingEndpoint: {
           Value: 'SerilogTestsNotFoundSagaMessage'
         },
-        MessageId: {
+        IncomingMessageId: {
           Value: 'Guid 3'
         },
-        MessageType: {
+        IncomingMessageType: {
           Value: 'NotFoundSagaMessage'
         },
         CorrelationId: {
@@ -697,7 +697,7 @@
         HandlerType: {
           Value: 'NotFoundSaga'
         },
-        Message: {
+        IncomingMessage: {
           TypeTag: 'NotFoundSagaMessage',
           Properties: [
             {
@@ -706,7 +706,7 @@
             }
           ]
         },
-        Headers: {
+        IncomingHeaders: {
           Elements: {
             "NServiceBus.SagaId": {
               Value: 'Guid 2'
@@ -806,10 +806,10 @@
         ProcessingEndpoint: {
           Value: 'SerilogTestsNotFoundSagaMessage'
         },
-        MessageId: {
+        IncomingMessageId: {
           Value: 'Guid 3'
         },
-        MessageType: {
+        IncomingMessageType: {
           Value: 'NotFoundSagaMessage'
         },
         CorrelationId: {
@@ -821,7 +821,7 @@
         HandlerType: {
           Value: 'NotFoundSaga'
         },
-        Message: {
+        IncomingMessage: {
           TypeTag: 'NotFoundSagaMessage',
           Properties: [
             {
@@ -830,7 +830,7 @@
             }
           ]
         },
-        Headers: {
+        IncomingHeaders: {
           Elements: {
             "NServiceBus.SagaId": {
               Value: 'Guid 2'

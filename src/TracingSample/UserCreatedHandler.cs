@@ -8,7 +8,7 @@ public class UserCreatedHandler :
     public Task Handle(UserCreated message, IMessageHandlerContext context)
     {
         context.Logger().Information("Hello from UserCreatedHandler");
-        throw new Exception("SDfsd");
+        throw new Exception("The error");
      //   return Task.FromResult(0);
     }
 }

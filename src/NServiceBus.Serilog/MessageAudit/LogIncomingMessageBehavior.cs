@@ -38,11 +38,7 @@ class LogIncomingMessageBehavior : Behavior<IIncomingLogicalMessageContext>
         {
             properties.Add(property);
         }
-
-        if (logger.BindProperty("IncomingHeaders", context.Headers, out var headersProperty))
-        {
-            properties.Add(headersProperty);
-        }
+        properties.AddRange(logger.BuildHeaders(context.Headers));
         logger.WriteInfo(messageTemplate, properties);
         return next();
     }

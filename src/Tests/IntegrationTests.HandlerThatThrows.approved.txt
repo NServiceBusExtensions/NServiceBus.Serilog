@@ -2,37 +2,37 @@
   logsForTarget: [
     {
       MessageTemplate: {
-        Text: 'Receive message {MessageType} {MessageId}.',
+        Text: 'Receive message {IncomingMessageType} {IncomingMessageId}.',
         Tokens: [
           {
             Length: 16,
             Text: 'Receive message '
           },
           {
-            Length: 13,
-            PropertyName: 'MessageType',
+            Length: 21,
+            PropertyName: 'IncomingMessageType',
             StartIndex: 16
           },
           {
             Length: 1,
             Text: ' ',
-            StartIndex: 29
+            StartIndex: 37
           },
           {
-            Length: 11,
-            PropertyName: 'MessageId',
-            StartIndex: 30
+            Length: 19,
+            PropertyName: 'IncomingMessageId',
+            StartIndex: 38
           },
           {
             Length: 1,
             Text: '.',
-            StartIndex: 41
+            StartIndex: 57
           }
         ]
       },
       Level: 'Information',
       Properties: {
-        Message: {
+        IncomingMessage: {
           TypeTag: 'StartHandlerThatThrows',
           Properties: [
             {
@@ -58,10 +58,10 @@
         ReplyToAddress: {
           Value: 'SerilogTestsStartHandlerThatThrows'
         },
-        MessageId: {
+        IncomingMessageId: {
           Value: 'Guid 2'
         },
-        MessageType: {
+        IncomingMessageType: {
           Value: 'StartHandlerThatThrows'
         },
         CorrelationId: {
@@ -80,37 +80,37 @@
     },
     {
       MessageTemplate: {
-        Text: 'Receive message {MessageType} {MessageId}.',
+        Text: 'Receive message {IncomingMessageType} {IncomingMessageId}.',
         Tokens: [
           {
             Length: 16,
             Text: 'Receive message '
           },
           {
-            Length: 13,
-            PropertyName: 'MessageType',
+            Length: 21,
+            PropertyName: 'IncomingMessageType',
             StartIndex: 16
           },
           {
             Length: 1,
             Text: ' ',
-            StartIndex: 29
+            StartIndex: 37
           },
           {
-            Length: 11,
-            PropertyName: 'MessageId',
-            StartIndex: 30
+            Length: 19,
+            PropertyName: 'IncomingMessageId',
+            StartIndex: 38
           },
           {
             Length: 1,
             Text: '.',
-            StartIndex: 41
+            StartIndex: 57
           }
         ]
       },
       Level: 'Information',
       Properties: {
-        Message: {
+        IncomingMessage: {
           TypeTag: 'StartHandlerThatThrows',
           Properties: [
             {
@@ -136,10 +136,10 @@
         ReplyToAddress: {
           Value: 'SerilogTestsStartHandlerThatThrows'
         },
-        MessageId: {
+        IncomingMessageId: {
           Value: 'Guid 2'
         },
-        MessageType: {
+        IncomingMessageType: {
           Value: 'StartHandlerThatThrows'
         },
         CorrelationId: {
@@ -158,121 +158,37 @@
     },
     {
       MessageTemplate: {
-        Text: 'Receive message {MessageType} {MessageId}.',
+        Text: 'Receive message {IncomingMessageType} {IncomingMessageId}.',
         Tokens: [
           {
             Length: 16,
             Text: 'Receive message '
           },
           {
-            Length: 13,
-            PropertyName: 'MessageType',
+            Length: 21,
+            PropertyName: 'IncomingMessageType',
             StartIndex: 16
           },
           {
             Length: 1,
             Text: ' ',
-            StartIndex: 29
+            StartIndex: 37
           },
           {
-            Length: 11,
-            PropertyName: 'MessageId',
-            StartIndex: 30
+            Length: 19,
+            PropertyName: 'IncomingMessageId',
+            StartIndex: 38
           },
           {
             Length: 1,
             Text: '.',
-            StartIndex: 41
+            StartIndex: 57
           }
         ]
       },
       Level: 'Information',
       Properties: {
-        Message: {
-          TypeTag: 'StartHandlerThatThrows',
-          Properties: [
-            {
-              Name: 'Property',
-              Value: {
-                Value: 'TheProperty'
-              }
-            }
-          ]
-        },
-        OriginatingHostId: {
-          Value: 'Guid 1'
-        },
-        MessageIntent: {
-          Value: 'Send'
-        },
-        OriginatingEndpoint: {
-          Value: 'SerilogTestsStartHandlerThatThrows'
-        },
-        OriginatingMachine: {
-          Value: 'MachineName'
-        },
-        ReplyToAddress: {
-          Value: 'SerilogTestsStartHandlerThatThrows'
-        },
-        Retries: {
-          Value: '1'
-        },
-        Retries.Timestamp: {
-          Value: 'DateTime 1'
-        },
-        MessageId: {
-          Value: 'Guid 2'
-        },
-        MessageType: {
-          Value: 'StartHandlerThatThrows'
-        },
-        CorrelationId: {
-          Value: 'Guid 2'
-        },
-        ConversationId: {
-          Value: 'Guid 3'
-        },
-        SourceContext: {
-          Value: 'StartHandlerThatThrows'
-        },
-        ProcessingEndpoint: {
-          Value: 'SerilogTestsStartHandlerThatThrows'
-        }
-      }
-    },
-    {
-      MessageTemplate: {
-        Text: 'Receive message {MessageType} {MessageId}.',
-        Tokens: [
-          {
-            Length: 16,
-            Text: 'Receive message '
-          },
-          {
-            Length: 13,
-            PropertyName: 'MessageType',
-            StartIndex: 16
-          },
-          {
-            Length: 1,
-            Text: ' ',
-            StartIndex: 29
-          },
-          {
-            Length: 11,
-            PropertyName: 'MessageId',
-            StartIndex: 30
-          },
-          {
-            Length: 1,
-            Text: '.',
-            StartIndex: 41
-          }
-        ]
-      },
-      Level: 'Information',
-      Properties: {
-        Message: {
+        IncomingMessage: {
           TypeTag: 'StartHandlerThatThrows',
           Properties: [
             {
@@ -304,10 +220,10 @@
         Retries.Timestamp: {
           Value: 'DateTime 1'
         },
-        MessageId: {
+        IncomingMessageId: {
           Value: 'Guid 2'
         },
-        MessageType: {
+        IncomingMessageType: {
           Value: 'StartHandlerThatThrows'
         },
         CorrelationId: {
@@ -326,37 +242,121 @@
     },
     {
       MessageTemplate: {
-        Text: 'Sent message {MessageType} {MessageId}.',
+        Text: 'Receive message {IncomingMessageType} {IncomingMessageId}.',
+        Tokens: [
+          {
+            Length: 16,
+            Text: 'Receive message '
+          },
+          {
+            Length: 21,
+            PropertyName: 'IncomingMessageType',
+            StartIndex: 16
+          },
+          {
+            Length: 1,
+            Text: ' ',
+            StartIndex: 37
+          },
+          {
+            Length: 19,
+            PropertyName: 'IncomingMessageId',
+            StartIndex: 38
+          },
+          {
+            Length: 1,
+            Text: '.',
+            StartIndex: 57
+          }
+        ]
+      },
+      Level: 'Information',
+      Properties: {
+        IncomingMessage: {
+          TypeTag: 'StartHandlerThatThrows',
+          Properties: [
+            {
+              Name: 'Property',
+              Value: {
+                Value: 'TheProperty'
+              }
+            }
+          ]
+        },
+        OriginatingHostId: {
+          Value: 'Guid 1'
+        },
+        MessageIntent: {
+          Value: 'Send'
+        },
+        OriginatingEndpoint: {
+          Value: 'SerilogTestsStartHandlerThatThrows'
+        },
+        OriginatingMachine: {
+          Value: 'MachineName'
+        },
+        ReplyToAddress: {
+          Value: 'SerilogTestsStartHandlerThatThrows'
+        },
+        Retries: {
+          Value: '1'
+        },
+        Retries.Timestamp: {
+          Value: 'DateTime 1'
+        },
+        IncomingMessageId: {
+          Value: 'Guid 2'
+        },
+        IncomingMessageType: {
+          Value: 'StartHandlerThatThrows'
+        },
+        CorrelationId: {
+          Value: 'Guid 2'
+        },
+        ConversationId: {
+          Value: 'Guid 3'
+        },
+        SourceContext: {
+          Value: 'StartHandlerThatThrows'
+        },
+        ProcessingEndpoint: {
+          Value: 'SerilogTestsStartHandlerThatThrows'
+        }
+      }
+    },
+    {
+      MessageTemplate: {
+        Text: 'Sent message {OutgoingMessageType} {OutgoingMessageId}.',
         Tokens: [
           {
             Length: 13,
             Text: 'Sent message '
           },
           {
-            Length: 13,
-            PropertyName: 'MessageType',
+            Length: 21,
+            PropertyName: 'OutgoingMessageType',
             StartIndex: 13
           },
           {
             Length: 1,
             Text: ' ',
-            StartIndex: 26
+            StartIndex: 34
           },
           {
-            Length: 11,
-            PropertyName: 'MessageId',
-            StartIndex: 27
+            Length: 19,
+            PropertyName: 'OutgoingMessageId',
+            StartIndex: 35
           },
           {
             Length: 1,
             Text: '.',
-            StartIndex: 38
+            StartIndex: 54
           }
         ]
       },
       Level: 'Information',
       Properties: {
-        Message: {
+        OutgoingMessage: {
           TypeTag: 'StartHandlerThatThrows',
           Properties: [
             {
@@ -389,10 +389,10 @@
         ReplyToAddress: {
           Value: 'SerilogTestsStartHandlerThatThrows'
         },
-        MessageId: {
+        OutgoingMessageId: {
           Value: 'Guid 2'
         },
-        MessageType: {
+        OutgoingMessageType: {
           Value: 'StartHandlerThatThrows'
         },
         CorrelationId: {

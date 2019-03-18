@@ -27,25 +27,22 @@ class LogOutgoingMessageBehavior : Behavior<IOutgoingLogicalMessageContext>
 
     void LogMessage(IOutgoingLogicalMessageContext context, ILogger forContext, object message)
     {
-        var logProperties = new List<LogEventProperty>();
+        var properties = new List<LogEventProperty>();
 
         if (forContext.BindProperty("OutgoingMessage", message, out var messageProperty))
         {
-            logProperties.Add(messageProperty);
+            properties.Add(messageProperty);
         }
 
         var addresses = context.UnicastAddresses();
         if (addresses.Count > 0)
         {
             var sequence = new SequenceValue(addresses.Select(x => new ScalarValue(x)));
-            logProperties.Add(new LogEventProperty("UnicastRoutes", sequence));
+            properties.Add(new LogEventProperty("UnicastRoutes", sequence));
         }
 
-        if (forContext.BindProperty("OutgoingHeaders", context.Headers, out var headersProperty))
-        {
-            logProperties.Add(headersProperty);
-        }
-        forContext.WriteInfo(messageTemplate, logProperties);
+        properties.AddRange(forContext.BuildHeaders(context.Headers));
+        forContext.WriteInfo(messageTemplate, properties);
     }
 
     public class Registration : RegisterStep
