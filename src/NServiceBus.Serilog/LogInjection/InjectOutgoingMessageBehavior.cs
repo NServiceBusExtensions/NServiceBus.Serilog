@@ -15,7 +15,7 @@ class InjectOutgoingMessageBehavior :
         this.logBuilder = logBuilder;
     }
 
-    public override async Task Invoke(IOutgoingLogicalMessageContext context, Func<Task> next)
+    public override Task Invoke(IOutgoingLogicalMessageContext context, Func<Task> next)
     {
         var headers = context.Headers;
 
@@ -39,15 +39,9 @@ class InjectOutgoingMessageBehavior :
         }
 
         var forContext = logger.ForContext(properties);
-        try
-        {
-            context.Extensions.Set("SerilogOutgoingLogger", forContext);
-            await next();
-        }
-        finally
-        {
-            context.Extensions.Remove("SerilogOutgoingLogger");
-        }
+        context.Extensions.Set(forContext);
+
+        return next();
     }
 
     public class Registration :

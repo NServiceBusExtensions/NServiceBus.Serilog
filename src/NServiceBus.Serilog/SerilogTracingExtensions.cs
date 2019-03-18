@@ -39,11 +39,7 @@ namespace NServiceBus
         {
             Guard.AgainstNull(context, nameof(context));
             var bag = context.Extensions;
-            if (bag.TryGet("SerilogOutgoingLogger", out ILogger logger))
-            {
-                return logger;
-            }
-            if (bag.TryGet("SerilogHandlerLogger", out logger))
+            if (bag.TryGet("SerilogHandlerLogger", out ILogger logger))
             {
                 return logger;
             }
