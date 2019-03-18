@@ -10,50 +10,23 @@
           TypeTag: 'NotFoundSagaMessage',
           Properties: [
             {
-              Name: 'Property',
-              Value: {}
+              Property: null
             }
           ]
         },
-        OriginatingHostId: {
-          Value: 'Guid 1'
-        },
-        MessageIntent: {
-          Value: 'Send'
-        },
-        OriginatingEndpoint: {
-          Value: 'SerilogTestsNotFoundSagaMessage'
-        },
-        OriginatingMachine: {
-          Value: 'MachineName'
-        },
-        ReplyToAddress: {
-          Value: 'SerilogTestsNotFoundSagaMessage'
-        },
-        SagaId: {
-          Value: 'Guid 2'
-        },
-        SagaType: {
-          Value: 'TheSaga'
-        },
-        IncomingMessageId: {
-          Value: 'Guid 3'
-        },
-        IncomingMessageType: {
-          Value: 'NotFoundSagaMessage'
-        },
-        CorrelationId: {
-          Value: 'Guid 3'
-        },
-        ConversationId: {
-          Value: 'Guid 4'
-        },
-        SourceContext: {
-          Value: 'NotFoundSagaMessage'
-        },
-        ProcessingEndpoint: {
-          Value: 'SerilogTestsNotFoundSagaMessage'
-        }
+        OriginatingHostId: 'Guid 1',
+        MessageIntent: 'Send',
+        OriginatingEndpoint: 'SerilogTestsNotFoundSagaMessage',
+        OriginatingMachine: 'MachineName',
+        ReplyToAddress: 'SerilogTestsNotFoundSagaMessage',
+        SagaId: 'Guid 2',
+        SagaType: 'TheSaga',
+        IncomingMessageId: 'Guid 3',
+        IncomingMessageType: 'NotFoundSagaMessage',
+        CorrelationId: 'Guid 3',
+        ConversationId: 'Guid 4',
+        SourceContext: 'NotFoundSagaMessage',
+        ProcessingEndpoint: 'SerilogTestsNotFoundSagaMessage'
       }
     },
     {
@@ -66,50 +39,23 @@
           TypeTag: 'NotFoundSagaMessage',
           Properties: [
             {
-              Name: 'Property',
-              Value: {}
+              Property: null
             }
           ]
         },
-        OriginatingHostId: {
-          Value: 'Guid 1'
-        },
-        MessageIntent: {
-          Value: 'Send'
-        },
-        OriginatingEndpoint: {
-          Value: 'SerilogTestsNotFoundSagaMessage'
-        },
-        OriginatingMachine: {
-          Value: 'MachineName'
-        },
-        ReplyToAddress: {
-          Value: 'SerilogTestsNotFoundSagaMessage'
-        },
-        SagaId: {
-          Value: 'Guid 2'
-        },
-        SagaType: {
-          Value: 'TheSaga'
-        },
-        IncomingMessageId: {
-          Value: 'Guid 3'
-        },
-        IncomingMessageType: {
-          Value: 'NotFoundSagaMessage'
-        },
-        CorrelationId: {
-          Value: 'Guid 3'
-        },
-        ConversationId: {
-          Value: 'Guid 4'
-        },
-        SourceContext: {
-          Value: 'NotFoundSagaMessage'
-        },
-        ProcessingEndpoint: {
-          Value: 'SerilogTestsNotFoundSagaMessage'
-        }
+        OriginatingHostId: 'Guid 1',
+        MessageIntent: 'Send',
+        OriginatingEndpoint: 'SerilogTestsNotFoundSagaMessage',
+        OriginatingMachine: 'MachineName',
+        ReplyToAddress: 'SerilogTestsNotFoundSagaMessage',
+        SagaId: 'Guid 2',
+        SagaType: 'TheSaga',
+        IncomingMessageId: 'Guid 3',
+        IncomingMessageType: 'NotFoundSagaMessage',
+        CorrelationId: 'Guid 3',
+        ConversationId: 'Guid 4',
+        SourceContext: 'NotFoundSagaMessage',
+        ProcessingEndpoint: 'SerilogTestsNotFoundSagaMessage'
       }
     },
     {
@@ -122,56 +68,25 @@
           TypeTag: 'NotFoundSagaMessage',
           Properties: [
             {
-              Name: 'Property',
-              Value: {}
+              Property: null
             }
           ]
         },
-        OriginatingHostId: {
-          Value: 'Guid 1'
-        },
-        MessageIntent: {
-          Value: 'Send'
-        },
-        OriginatingEndpoint: {
-          Value: 'SerilogTestsNotFoundSagaMessage'
-        },
-        OriginatingMachine: {
-          Value: 'MachineName'
-        },
-        ReplyToAddress: {
-          Value: 'SerilogTestsNotFoundSagaMessage'
-        },
-        Retries: {
-          Value: '1'
-        },
-        Retries.Timestamp: {
-          Value: 'DateTime 1'
-        },
-        SagaId: {
-          Value: 'Guid 2'
-        },
-        SagaType: {
-          Value: 'TheSaga'
-        },
-        IncomingMessageId: {
-          Value: 'Guid 3'
-        },
-        IncomingMessageType: {
-          Value: 'NotFoundSagaMessage'
-        },
-        CorrelationId: {
-          Value: 'Guid 3'
-        },
-        ConversationId: {
-          Value: 'Guid 4'
-        },
-        SourceContext: {
-          Value: 'NotFoundSagaMessage'
-        },
-        ProcessingEndpoint: {
-          Value: 'SerilogTestsNotFoundSagaMessage'
-        }
+        OriginatingHostId: 'Guid 1',
+        MessageIntent: 'Send',
+        OriginatingEndpoint: 'SerilogTestsNotFoundSagaMessage',
+        OriginatingMachine: 'MachineName',
+        ReplyToAddress: 'SerilogTestsNotFoundSagaMessage',
+        Retries: '1',
+        Retries.Timestamp: 'DateTime 1',
+        SagaId: 'Guid 2',
+        SagaType: 'TheSaga',
+        IncomingMessageId: 'Guid 3',
+        IncomingMessageType: 'NotFoundSagaMessage',
+        CorrelationId: 'Guid 3',
+        ConversationId: 'Guid 4',
+        SourceContext: 'NotFoundSagaMessage',
+        ProcessingEndpoint: 'SerilogTestsNotFoundSagaMessage'
       }
     },
     {
@@ -184,56 +99,25 @@
           TypeTag: 'NotFoundSagaMessage',
           Properties: [
             {
-              Name: 'Property',
-              Value: {}
+              Property: null
             }
           ]
         },
-        OriginatingHostId: {
-          Value: 'Guid 1'
-        },
-        MessageIntent: {
-          Value: 'Send'
-        },
-        OriginatingEndpoint: {
-          Value: 'SerilogTestsNotFoundSagaMessage'
-        },
-        OriginatingMachine: {
-          Value: 'MachineName'
-        },
-        ReplyToAddress: {
-          Value: 'SerilogTestsNotFoundSagaMessage'
-        },
-        Retries: {
-          Value: '1'
-        },
-        Retries.Timestamp: {
-          Value: 'DateTime 1'
-        },
-        SagaId: {
-          Value: 'Guid 2'
-        },
-        SagaType: {
-          Value: 'TheSaga'
-        },
-        IncomingMessageId: {
-          Value: 'Guid 3'
-        },
-        IncomingMessageType: {
-          Value: 'NotFoundSagaMessage'
-        },
-        CorrelationId: {
-          Value: 'Guid 3'
-        },
-        ConversationId: {
-          Value: 'Guid 4'
-        },
-        SourceContext: {
-          Value: 'NotFoundSagaMessage'
-        },
-        ProcessingEndpoint: {
-          Value: 'SerilogTestsNotFoundSagaMessage'
-        }
+        OriginatingHostId: 'Guid 1',
+        MessageIntent: 'Send',
+        OriginatingEndpoint: 'SerilogTestsNotFoundSagaMessage',
+        OriginatingMachine: 'MachineName',
+        ReplyToAddress: 'SerilogTestsNotFoundSagaMessage',
+        Retries: '1',
+        Retries.Timestamp: 'DateTime 1',
+        SagaId: 'Guid 2',
+        SagaType: 'TheSaga',
+        IncomingMessageId: 'Guid 3',
+        IncomingMessageType: 'NotFoundSagaMessage',
+        CorrelationId: 'Guid 3',
+        ConversationId: 'Guid 4',
+        SourceContext: 'NotFoundSagaMessage',
+        ProcessingEndpoint: 'SerilogTestsNotFoundSagaMessage'
       }
     },
     {
@@ -246,57 +130,28 @@
           TypeTag: 'NotFoundSagaMessage',
           Properties: [
             {
-              Name: 'Property',
-              Value: {}
+              Property: null
             }
           ]
         },
         UnicastRoutes: {
           Elements: [
-            {
-              Value: 'SerilogTestsNotFoundSagaMessage'
-            }
+            'SerilogTestsNotFoundSagaMessage'
           ]
         },
-        OriginatingHostId: {
-          Value: 'Guid 1'
-        },
-        MessageIntent: {
-          Value: 'Send'
-        },
-        OriginatingEndpoint: {
-          Value: 'SerilogTestsNotFoundSagaMessage'
-        },
-        OriginatingMachine: {
-          Value: 'MachineName'
-        },
-        ReplyToAddress: {
-          Value: 'SerilogTestsNotFoundSagaMessage'
-        },
-        SagaId: {
-          Value: 'Guid 2'
-        },
-        SagaType: {
-          Value: 'TheSaga'
-        },
-        OutgoingMessageId: {
-          Value: 'Guid 3'
-        },
-        OutgoingMessageType: {
-          Value: 'NotFoundSagaMessage'
-        },
-        CorrelationId: {
-          Value: 'Guid 3'
-        },
-        ConversationId: {
-          Value: 'Guid 4'
-        },
-        SourceContext: {
-          Value: 'NotFoundSagaMessage'
-        },
-        ProcessingEndpoint: {
-          Value: 'SerilogTestsNotFoundSagaMessage'
-        }
+        OriginatingHostId: 'Guid 1',
+        MessageIntent: 'Send',
+        OriginatingEndpoint: 'SerilogTestsNotFoundSagaMessage',
+        OriginatingMachine: 'MachineName',
+        ReplyToAddress: 'SerilogTestsNotFoundSagaMessage',
+        SagaId: 'Guid 2',
+        SagaType: 'TheSaga',
+        OutgoingMessageId: 'Guid 3',
+        OutgoingMessageType: 'NotFoundSagaMessage',
+        CorrelationId: 'Guid 3',
+        ConversationId: 'Guid 4',
+        SourceContext: 'NotFoundSagaMessage',
+        ProcessingEndpoint: 'SerilogTestsNotFoundSagaMessage'
       }
     }
   ],
@@ -307,96 +162,45 @@
       },
       Level: 'Information',
       Properties: {
-        ProcessingEndpoint: {
-          Value: 'SerilogTestsNotFoundSagaMessage'
-        },
-        IncomingMessageId: {
-          Value: 'Guid 3'
-        },
-        IncomingMessageType: {
-          Value: 'NotFoundSagaMessage'
-        },
-        CorrelationId: {
-          Value: 'Guid 3'
-        },
-        ConversationId: {
-          Value: 'Guid 4'
-        },
-        HandlerType: {
-          Value: 'NotFoundSaga'
-        },
+        ProcessingEndpoint: 'SerilogTestsNotFoundSagaMessage',
+        IncomingMessageId: 'Guid 3',
+        IncomingMessageType: 'NotFoundSagaMessage',
+        CorrelationId: 'Guid 3',
+        ConversationId: 'Guid 4',
+        HandlerType: 'NotFoundSaga',
         IncomingMessage: {
           TypeTag: 'NotFoundSagaMessage',
           Properties: [
             {
-              Name: 'Property',
-              Value: {}
+              Property: null
             }
           ]
         },
         IncomingHeaders: {
           Elements: {
-            "NServiceBus.SagaId": {
-              Value: 'Guid 2'
-            },
-            "NServiceBus.SagaType": {
-              Value: 'TheSaga'
-            },
-            "NServiceBus.MessageId": {
-              Value: 'Guid 3'
-            },
-            "NServiceBus.MessageIntent": {
-              Value: 'Send'
-            },
-            "NServiceBus.ConversationId": {
-              Value: 'Guid 4'
-            },
-            "NServiceBus.CorrelationId": {
-              Value: 'Guid 3'
-            },
-            "NServiceBus.OriginatingMachine": {
-              Value: 'MachineName'
-            },
-            "NServiceBus.OriginatingEndpoint": {
-              Value: 'SerilogTestsNotFoundSagaMessage'
-            },
-            "$.diagnostics.originating.hostid": {
-              Value: 'Guid 1'
-            },
-            "NServiceBus.ReplyToAddress": {
-              Value: 'SerilogTestsNotFoundSagaMessage'
-            },
-            "NServiceBus.ContentType": {
-              Value: 'text/xml'
-            },
-            "NServiceBus.EnclosedMessageTypes": {
-              Value: 'NotFoundSagaMessage, Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6'
-            },
-            "NServiceBus.Version": {
-              Value: '7.1.6'
-            },
-            "NServiceBus.TimeSent": {
-              Value: 'DateTime 2'
-            }
+            "NServiceBus.SagaId": 'Guid 2',
+            "NServiceBus.SagaType": 'TheSaga',
+            "NServiceBus.MessageId": 'Guid 3',
+            "NServiceBus.MessageIntent": 'Send',
+            "NServiceBus.ConversationId": 'Guid 4',
+            "NServiceBus.CorrelationId": 'Guid 3',
+            "NServiceBus.OriginatingMachine": 'MachineName',
+            "NServiceBus.OriginatingEndpoint": 'SerilogTestsNotFoundSagaMessage',
+            "$.diagnostics.originating.hostid": 'Guid 1',
+            "NServiceBus.ReplyToAddress": 'SerilogTestsNotFoundSagaMessage',
+            "NServiceBus.ContentType": 'text/xml',
+            "NServiceBus.EnclosedMessageTypes": 'NotFoundSagaMessage, Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6',
+            "NServiceBus.Version": '7.1.6',
+            "NServiceBus.TimeSent": 'DateTime 2'
           }
         },
-        SourceContext: {
-          Value: 'NServiceBus.RecoverabilityExecutor'
-        },
+        SourceContext: 'NServiceBus.RecoverabilityExecutor',
         ExceptionDetail: {
           Elements: {
-            "Type": {
-              Value: 'System.NullReferenceException'
-            },
-            "HResult": {
-              Value: -2147467261
-            },
-            "Message": {
-              Value: 'Object reference not set to an instance of an object.'
-            },
-            "Source": {
-              Value: 'NServiceBus.Core'
-            }
+            "Type": 'System.NullReferenceException',
+            "HResult": -2147467261,
+            "Message": 'Object reference not set to an instance of an object.',
+            "Source": 'NServiceBus.Core'
           }
         }
       },
@@ -419,96 +223,45 @@
       },
       Level: 'Warning',
       Properties: {
-        ProcessingEndpoint: {
-          Value: 'SerilogTestsNotFoundSagaMessage'
-        },
-        IncomingMessageId: {
-          Value: 'Guid 3'
-        },
-        IncomingMessageType: {
-          Value: 'NotFoundSagaMessage'
-        },
-        CorrelationId: {
-          Value: 'Guid 3'
-        },
-        ConversationId: {
-          Value: 'Guid 4'
-        },
-        HandlerType: {
-          Value: 'NotFoundSaga'
-        },
+        ProcessingEndpoint: 'SerilogTestsNotFoundSagaMessage',
+        IncomingMessageId: 'Guid 3',
+        IncomingMessageType: 'NotFoundSagaMessage',
+        CorrelationId: 'Guid 3',
+        ConversationId: 'Guid 4',
+        HandlerType: 'NotFoundSaga',
         IncomingMessage: {
           TypeTag: 'NotFoundSagaMessage',
           Properties: [
             {
-              Name: 'Property',
-              Value: {}
+              Property: null
             }
           ]
         },
         IncomingHeaders: {
           Elements: {
-            "NServiceBus.SagaId": {
-              Value: 'Guid 2'
-            },
-            "NServiceBus.SagaType": {
-              Value: 'TheSaga'
-            },
-            "NServiceBus.MessageId": {
-              Value: 'Guid 3'
-            },
-            "NServiceBus.MessageIntent": {
-              Value: 'Send'
-            },
-            "NServiceBus.ConversationId": {
-              Value: 'Guid 4'
-            },
-            "NServiceBus.CorrelationId": {
-              Value: 'Guid 3'
-            },
-            "NServiceBus.OriginatingMachine": {
-              Value: 'MachineName'
-            },
-            "NServiceBus.OriginatingEndpoint": {
-              Value: 'SerilogTestsNotFoundSagaMessage'
-            },
-            "$.diagnostics.originating.hostid": {
-              Value: 'Guid 1'
-            },
-            "NServiceBus.ReplyToAddress": {
-              Value: 'SerilogTestsNotFoundSagaMessage'
-            },
-            "NServiceBus.ContentType": {
-              Value: 'text/xml'
-            },
-            "NServiceBus.EnclosedMessageTypes": {
-              Value: 'NotFoundSagaMessage, Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6'
-            },
-            "NServiceBus.Version": {
-              Value: '7.1.6'
-            },
-            "NServiceBus.TimeSent": {
-              Value: 'DateTime 2'
-            }
+            "NServiceBus.SagaId": 'Guid 2',
+            "NServiceBus.SagaType": 'TheSaga',
+            "NServiceBus.MessageId": 'Guid 3',
+            "NServiceBus.MessageIntent": 'Send',
+            "NServiceBus.ConversationId": 'Guid 4',
+            "NServiceBus.CorrelationId": 'Guid 3',
+            "NServiceBus.OriginatingMachine": 'MachineName',
+            "NServiceBus.OriginatingEndpoint": 'SerilogTestsNotFoundSagaMessage',
+            "$.diagnostics.originating.hostid": 'Guid 1',
+            "NServiceBus.ReplyToAddress": 'SerilogTestsNotFoundSagaMessage',
+            "NServiceBus.ContentType": 'text/xml',
+            "NServiceBus.EnclosedMessageTypes": 'NotFoundSagaMessage, Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6',
+            "NServiceBus.Version": '7.1.6',
+            "NServiceBus.TimeSent": 'DateTime 2'
           }
         },
-        SourceContext: {
-          Value: 'NServiceBus.RecoverabilityExecutor'
-        },
+        SourceContext: 'NServiceBus.RecoverabilityExecutor',
         ExceptionDetail: {
           Elements: {
-            "Type": {
-              Value: 'System.NullReferenceException'
-            },
-            "HResult": {
-              Value: -2147467261
-            },
-            "Message": {
-              Value: 'Object reference not set to an instance of an object.'
-            },
-            "Source": {
-              Value: 'NServiceBus.Core'
-            }
+            "Type": 'System.NullReferenceException',
+            "HResult": -2147467261,
+            "Message": 'Object reference not set to an instance of an object.',
+            "Source": 'NServiceBus.Core'
           }
         }
       },
@@ -531,102 +284,47 @@
       },
       Level: 'Information',
       Properties: {
-        ProcessingEndpoint: {
-          Value: 'SerilogTestsNotFoundSagaMessage'
-        },
-        IncomingMessageId: {
-          Value: 'Guid 3'
-        },
-        IncomingMessageType: {
-          Value: 'NotFoundSagaMessage'
-        },
-        CorrelationId: {
-          Value: 'Guid 3'
-        },
-        ConversationId: {
-          Value: 'Guid 4'
-        },
-        HandlerType: {
-          Value: 'NotFoundSaga'
-        },
+        ProcessingEndpoint: 'SerilogTestsNotFoundSagaMessage',
+        IncomingMessageId: 'Guid 3',
+        IncomingMessageType: 'NotFoundSagaMessage',
+        CorrelationId: 'Guid 3',
+        ConversationId: 'Guid 4',
+        HandlerType: 'NotFoundSaga',
         IncomingMessage: {
           TypeTag: 'NotFoundSagaMessage',
           Properties: [
             {
-              Name: 'Property',
-              Value: {}
+              Property: null
             }
           ]
         },
         IncomingHeaders: {
           Elements: {
-            "NServiceBus.SagaId": {
-              Value: 'Guid 2'
-            },
-            "NServiceBus.SagaType": {
-              Value: 'TheSaga'
-            },
-            "NServiceBus.MessageId": {
-              Value: 'Guid 3'
-            },
-            "NServiceBus.MessageIntent": {
-              Value: 'Send'
-            },
-            "NServiceBus.ConversationId": {
-              Value: 'Guid 4'
-            },
-            "NServiceBus.CorrelationId": {
-              Value: 'Guid 3'
-            },
-            "NServiceBus.OriginatingMachine": {
-              Value: 'MachineName'
-            },
-            "NServiceBus.OriginatingEndpoint": {
-              Value: 'SerilogTestsNotFoundSagaMessage'
-            },
-            "$.diagnostics.originating.hostid": {
-              Value: 'Guid 1'
-            },
-            "NServiceBus.ReplyToAddress": {
-              Value: 'SerilogTestsNotFoundSagaMessage'
-            },
-            "NServiceBus.ContentType": {
-              Value: 'text/xml'
-            },
-            "NServiceBus.EnclosedMessageTypes": {
-              Value: 'NotFoundSagaMessage, Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6'
-            },
-            "NServiceBus.Version": {
-              Value: '7.1.6'
-            },
-            "NServiceBus.TimeSent": {
-              Value: 'DateTime 2'
-            },
-            "NServiceBus.Retries": {
-              Value: '1'
-            },
-            "NServiceBus.Retries.Timestamp": {
-              Value: 'DateTime 1'
-            }
+            "NServiceBus.SagaId": 'Guid 2',
+            "NServiceBus.SagaType": 'TheSaga',
+            "NServiceBus.MessageId": 'Guid 3',
+            "NServiceBus.MessageIntent": 'Send',
+            "NServiceBus.ConversationId": 'Guid 4',
+            "NServiceBus.CorrelationId": 'Guid 3',
+            "NServiceBus.OriginatingMachine": 'MachineName',
+            "NServiceBus.OriginatingEndpoint": 'SerilogTestsNotFoundSagaMessage',
+            "$.diagnostics.originating.hostid": 'Guid 1',
+            "NServiceBus.ReplyToAddress": 'SerilogTestsNotFoundSagaMessage',
+            "NServiceBus.ContentType": 'text/xml',
+            "NServiceBus.EnclosedMessageTypes": 'NotFoundSagaMessage, Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6',
+            "NServiceBus.Version": '7.1.6',
+            "NServiceBus.TimeSent": 'DateTime 2',
+            "NServiceBus.Retries": '1',
+            "NServiceBus.Retries.Timestamp": 'DateTime 1'
           }
         },
-        SourceContext: {
-          Value: 'NServiceBus.RecoverabilityExecutor'
-        },
+        SourceContext: 'NServiceBus.RecoverabilityExecutor',
         ExceptionDetail: {
           Elements: {
-            "Type": {
-              Value: 'System.NullReferenceException'
-            },
-            "HResult": {
-              Value: -2147467261
-            },
-            "Message": {
-              Value: 'Object reference not set to an instance of an object.'
-            },
-            "Source": {
-              Value: 'NServiceBus.Core'
-            }
+            "Type": 'System.NullReferenceException',
+            "HResult": -2147467261,
+            "Message": 'Object reference not set to an instance of an object.',
+            "Source": 'NServiceBus.Core'
           }
         }
       },
@@ -649,102 +347,47 @@
       },
       Level: 'Error',
       Properties: {
-        ProcessingEndpoint: {
-          Value: 'SerilogTestsNotFoundSagaMessage'
-        },
-        IncomingMessageId: {
-          Value: 'Guid 3'
-        },
-        IncomingMessageType: {
-          Value: 'NotFoundSagaMessage'
-        },
-        CorrelationId: {
-          Value: 'Guid 3'
-        },
-        ConversationId: {
-          Value: 'Guid 4'
-        },
-        HandlerType: {
-          Value: 'NotFoundSaga'
-        },
+        ProcessingEndpoint: 'SerilogTestsNotFoundSagaMessage',
+        IncomingMessageId: 'Guid 3',
+        IncomingMessageType: 'NotFoundSagaMessage',
+        CorrelationId: 'Guid 3',
+        ConversationId: 'Guid 4',
+        HandlerType: 'NotFoundSaga',
         IncomingMessage: {
           TypeTag: 'NotFoundSagaMessage',
           Properties: [
             {
-              Name: 'Property',
-              Value: {}
+              Property: null
             }
           ]
         },
         IncomingHeaders: {
           Elements: {
-            "NServiceBus.SagaId": {
-              Value: 'Guid 2'
-            },
-            "NServiceBus.SagaType": {
-              Value: 'TheSaga'
-            },
-            "NServiceBus.MessageId": {
-              Value: 'Guid 3'
-            },
-            "NServiceBus.MessageIntent": {
-              Value: 'Send'
-            },
-            "NServiceBus.ConversationId": {
-              Value: 'Guid 4'
-            },
-            "NServiceBus.CorrelationId": {
-              Value: 'Guid 3'
-            },
-            "NServiceBus.OriginatingMachine": {
-              Value: 'MachineName'
-            },
-            "NServiceBus.OriginatingEndpoint": {
-              Value: 'SerilogTestsNotFoundSagaMessage'
-            },
-            "$.diagnostics.originating.hostid": {
-              Value: 'Guid 1'
-            },
-            "NServiceBus.ReplyToAddress": {
-              Value: 'SerilogTestsNotFoundSagaMessage'
-            },
-            "NServiceBus.ContentType": {
-              Value: 'text/xml'
-            },
-            "NServiceBus.EnclosedMessageTypes": {
-              Value: 'NotFoundSagaMessage, Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6'
-            },
-            "NServiceBus.Version": {
-              Value: '7.1.6'
-            },
-            "NServiceBus.TimeSent": {
-              Value: 'DateTime 2'
-            },
-            "NServiceBus.Retries": {
-              Value: '1'
-            },
-            "NServiceBus.Retries.Timestamp": {
-              Value: 'DateTime 1'
-            }
+            "NServiceBus.SagaId": 'Guid 2',
+            "NServiceBus.SagaType": 'TheSaga',
+            "NServiceBus.MessageId": 'Guid 3',
+            "NServiceBus.MessageIntent": 'Send',
+            "NServiceBus.ConversationId": 'Guid 4',
+            "NServiceBus.CorrelationId": 'Guid 3',
+            "NServiceBus.OriginatingMachine": 'MachineName',
+            "NServiceBus.OriginatingEndpoint": 'SerilogTestsNotFoundSagaMessage',
+            "$.diagnostics.originating.hostid": 'Guid 1',
+            "NServiceBus.ReplyToAddress": 'SerilogTestsNotFoundSagaMessage',
+            "NServiceBus.ContentType": 'text/xml',
+            "NServiceBus.EnclosedMessageTypes": 'NotFoundSagaMessage, Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6',
+            "NServiceBus.Version": '7.1.6',
+            "NServiceBus.TimeSent": 'DateTime 2',
+            "NServiceBus.Retries": '1',
+            "NServiceBus.Retries.Timestamp": 'DateTime 1'
           }
         },
-        SourceContext: {
-          Value: 'NServiceBus.RecoverabilityExecutor'
-        },
+        SourceContext: 'NServiceBus.RecoverabilityExecutor',
         ExceptionDetail: {
           Elements: {
-            "Type": {
-              Value: 'System.NullReferenceException'
-            },
-            "HResult": {
-              Value: -2147467261
-            },
-            "Message": {
-              Value: 'Object reference not set to an instance of an object.'
-            },
-            "Source": {
-              Value: 'NServiceBus.Core'
-            }
+            "Type": 'System.NullReferenceException',
+            "HResult": -2147467261,
+            "Message": 'Object reference not set to an instance of an object.',
+            "Source": 'NServiceBus.Core'
           }
         }
       },

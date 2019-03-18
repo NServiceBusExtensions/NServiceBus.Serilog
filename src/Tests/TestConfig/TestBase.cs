@@ -8,6 +8,8 @@ public class TestBase
         SerializerBuilder.ExtraSettings = settings =>
         {
             settings.ContractResolver = new CustomContractResolverEx();
+            settings.Converters.Add(new LogEventPropertyConverter());
+            settings.Converters.Add(new ScalarValueConverter());
         };
         StringScrubber.AddExtraDatetimeFormat("yyyy-MM-dd HH:mm:ss:ffffff Z");
     }

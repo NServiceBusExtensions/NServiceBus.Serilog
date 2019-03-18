@@ -6,41 +6,22 @@
       },
       Level: 'Information',
       Properties: {
-        Saga: {
-          Value: 'TheSaga'
-        },
+        Saga: 'TheSaga',
         Message: {
           TypeTag: 'StartSaga',
           Properties: [
             {
-              Name: 'Property',
-              Value: {
-                Value: 'TheProperty'
-              }
+              Property: 'TheProperty'
             }
           ]
         },
-        Handler: {
-          Value: 'TheSaga'
-        },
-        IncomingMessageId: {
-          Value: 'Guid 1'
-        },
-        IncomingMessageType: {
-          Value: 'StartSaga'
-        },
-        CorrelationId: {
-          Value: 'Guid 1'
-        },
-        ConversationId: {
-          Value: 'Guid 2'
-        },
-        SourceContext: {
-          Value: 'StartSaga'
-        },
-        ProcessingEndpoint: {
-          Value: 'SerilogTestsStartSaga'
-        }
+        Handler: 'TheSaga',
+        IncomingMessageId: 'Guid 1',
+        IncomingMessageType: 'StartSaga',
+        CorrelationId: 'Guid 1',
+        ConversationId: 'Guid 2',
+        SourceContext: 'StartSaga',
+        ProcessingEndpoint: 'SerilogTestsStartSaga'
       }
     },
     {
@@ -53,46 +34,21 @@
           TypeTag: 'StartSaga',
           Properties: [
             {
-              Name: 'Property',
-              Value: {
-                Value: 'TheProperty'
-              }
+              Property: 'TheProperty'
             }
           ]
         },
-        OriginatingHostId: {
-          Value: 'Guid 3'
-        },
-        MessageIntent: {
-          Value: 'Send'
-        },
-        OriginatingEndpoint: {
-          Value: 'SerilogTestsStartSaga'
-        },
-        OriginatingMachine: {
-          Value: 'MachineName'
-        },
-        ReplyToAddress: {
-          Value: 'SerilogTestsStartSaga'
-        },
-        IncomingMessageId: {
-          Value: 'Guid 1'
-        },
-        IncomingMessageType: {
-          Value: 'StartSaga'
-        },
-        CorrelationId: {
-          Value: 'Guid 1'
-        },
-        ConversationId: {
-          Value: 'Guid 2'
-        },
-        SourceContext: {
-          Value: 'StartSaga'
-        },
-        ProcessingEndpoint: {
-          Value: 'SerilogTestsStartSaga'
-        }
+        OriginatingHostId: 'Guid 3',
+        MessageIntent: 'Send',
+        OriginatingEndpoint: 'SerilogTestsStartSaga',
+        OriginatingMachine: 'MachineName',
+        ReplyToAddress: 'SerilogTestsStartSaga',
+        IncomingMessageId: 'Guid 1',
+        IncomingMessageType: 'StartSaga',
+        CorrelationId: 'Guid 1',
+        ConversationId: 'Guid 2',
+        SourceContext: 'StartSaga',
+        ProcessingEndpoint: 'SerilogTestsStartSaga'
       }
     },
     {
@@ -101,68 +57,35 @@
       },
       Level: 'Information',
       Properties: {
-        SagaType: {
-          Value: 'TheSaga'
-        },
-        SagaId: {
-          Value: 'Guid 4'
-        },
-        StartTime: {
-          Value: 'DateTimeOffset 1'
-        },
-        FinishTime: {
-          Value: 'DateTimeOffset 2'
-        },
-        IsCompleted: {
-          Value: false
-        },
-        IsNew: {
-          Value: true
-        },
+        SagaType: 'TheSaga',
+        SagaId: 'Guid 4',
+        StartTime: 'DateTimeOffset 1',
+        FinishTime: 'DateTimeOffset 2',
+        IsCompleted: false,
+        IsNew: true,
         Initiator: {
           TypeTag: 'SagaChangeInitiator',
           Properties: [
             {
-              Name: 'InitiatingMessageId',
-              Value: {
-                Value: 'Guid 1'
-              }
+              InitiatingMessageId: 'Guid 1'
             },
             {
-              Name: 'MessageType',
-              Value: {
-                Value: 'StartSaga'
-              }
+              MessageType: 'StartSaga'
             },
             {
-              Name: 'IsSagaTimeoutMessage',
-              Value: {
-                Value: false
-              }
+              IsSagaTimeoutMessage: false
             },
             {
-              Name: 'TimeSent',
-              Value: {
-                Value: 'DateTime 1'
-              }
+              TimeSent: 'DateTime 1'
             },
             {
-              Name: 'OriginatingMachine',
-              Value: {
-                Value: 'MachineName'
-              }
+              OriginatingMachine: 'MachineName'
             },
             {
-              Name: 'OriginatingEndpoint',
-              Value: {
-                Value: 'SerilogTestsStartSaga'
-              }
+              OriginatingEndpoint: 'SerilogTestsStartSaga'
             },
             {
-              Name: 'Intent',
-              Value: {
-                Value: 'Send'
-              }
+              Intent: 'Send'
             }
           ]
         },
@@ -172,28 +95,16 @@
               TypeTag: 'SagaChangeOutput',
               Properties: [
                 {
-                  Name: 'MessageType',
-                  Value: {
-                    Value: 'BackIntoSaga'
-                  }
+                  MessageType: 'BackIntoSaga'
                 },
                 {
-                  Name: 'Destination',
-                  Value: {
-                    Value: 'SerilogTestsStartSaga'
-                  }
+                  Destination: 'SerilogTestsStartSaga'
                 },
                 {
-                  Name: 'ResultingMessageId',
-                  Value: {
-                    Value: 'Guid 5'
-                  }
+                  ResultingMessageId: 'Guid 5'
                 },
                 {
-                  Name: 'MessageIntent',
-                  Value: {
-                    Value: 'Send'
-                  }
+                  MessageIntent: 'Send'
                 }
               ]
             }
@@ -203,49 +114,25 @@
           TypeTag: 'TheSagaData',
           Properties: [
             {
-              Name: 'Property',
-              Value: {
-                Value: 'TheProperty'
-              }
+              Property: 'TheProperty'
             },
             {
-              Name: 'Id',
-              Value: {
-                Value: 'Guid 4'
-              }
+              Id: 'Guid 4'
             },
             {
-              Name: 'Originator',
-              Value: {
-                Value: 'SerilogTestsStartSaga'
-              }
+              Originator: 'SerilogTestsStartSaga'
             },
             {
-              Name: 'OriginalMessageId',
-              Value: {
-                Value: 'Guid 1'
-              }
+              OriginalMessageId: 'Guid 1'
             }
           ]
         },
-        IncomingMessageId: {
-          Value: 'Guid 1'
-        },
-        IncomingMessageType: {
-          Value: 'StartSaga'
-        },
-        CorrelationId: {
-          Value: 'Guid 1'
-        },
-        ConversationId: {
-          Value: 'Guid 2'
-        },
-        SourceContext: {
-          Value: 'StartSaga'
-        },
-        ProcessingEndpoint: {
-          Value: 'SerilogTestsStartSaga'
-        }
+        IncomingMessageId: 'Guid 1',
+        IncomingMessageType: 'StartSaga',
+        CorrelationId: 'Guid 1',
+        ConversationId: 'Guid 2',
+        SourceContext: 'StartSaga',
+        ProcessingEndpoint: 'SerilogTestsStartSaga'
       }
     },
     {
@@ -258,53 +145,26 @@
           TypeTag: 'StartSaga',
           Properties: [
             {
-              Name: 'Property',
-              Value: {
-                Value: 'TheProperty'
-              }
+              Property: 'TheProperty'
             }
           ]
         },
         UnicastRoutes: {
           Elements: [
-            {
-              Value: 'SerilogTestsStartSaga'
-            }
+            'SerilogTestsStartSaga'
           ]
         },
-        OriginatingHostId: {
-          Value: 'Guid 3'
-        },
-        MessageIntent: {
-          Value: 'Send'
-        },
-        OriginatingEndpoint: {
-          Value: 'SerilogTestsStartSaga'
-        },
-        OriginatingMachine: {
-          Value: 'MachineName'
-        },
-        ReplyToAddress: {
-          Value: 'SerilogTestsStartSaga'
-        },
-        OutgoingMessageId: {
-          Value: 'Guid 1'
-        },
-        OutgoingMessageType: {
-          Value: 'StartSaga'
-        },
-        CorrelationId: {
-          Value: 'Guid 1'
-        },
-        ConversationId: {
-          Value: 'Guid 2'
-        },
-        SourceContext: {
-          Value: 'StartSaga'
-        },
-        ProcessingEndpoint: {
-          Value: 'SerilogTestsStartSaga'
-        }
+        OriginatingHostId: 'Guid 3',
+        MessageIntent: 'Send',
+        OriginatingEndpoint: 'SerilogTestsStartSaga',
+        OriginatingMachine: 'MachineName',
+        ReplyToAddress: 'SerilogTestsStartSaga',
+        OutgoingMessageId: 'Guid 1',
+        OutgoingMessageType: 'StartSaga',
+        CorrelationId: 'Guid 1',
+        ConversationId: 'Guid 2',
+        SourceContext: 'StartSaga',
+        ProcessingEndpoint: 'SerilogTestsStartSaga'
       }
     },
     {
@@ -317,65 +177,30 @@
           TypeTag: 'BackIntoSaga',
           Properties: [
             {
-              Name: 'Property',
-              Value: {
-                Value: 'TheProperty'
-              }
+              Property: 'TheProperty'
             }
           ]
         },
         UnicastRoutes: {
           Elements: [
-            {
-              Value: 'SerilogTestsStartSaga'
-            }
+            'SerilogTestsStartSaga'
           ]
         },
-        OriginatingHostId: {
-          Value: 'Guid 3'
-        },
-        MessageIntent: {
-          Value: 'Send'
-        },
-        OriginatingEndpoint: {
-          Value: 'SerilogTestsStartSaga'
-        },
-        OriginatingMachine: {
-          Value: 'MachineName'
-        },
-        OriginatingSagaId: {
-          Value: 'Guid 4'
-        },
-        OriginatingSagaType: {
-          Value: 'TheSaga, Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6'
-        },
-        RelatedTo: {
-          Value: 'Guid 1'
-        },
-        ReplyToAddress: {
-          Value: 'SerilogTestsStartSaga'
-        },
-        Handler: {
-          Value: 'TheSaga'
-        },
-        IncomingMessageId: {
-          Value: 'Guid 1'
-        },
-        IncomingMessageType: {
-          Value: 'StartSaga'
-        },
-        CorrelationId: {
-          Value: 'Guid 1'
-        },
-        ConversationId: {
-          Value: 'Guid 2'
-        },
-        SourceContext: {
-          Value: 'StartSaga'
-        },
-        ProcessingEndpoint: {
-          Value: 'SerilogTestsStartSaga'
-        }
+        OriginatingHostId: 'Guid 3',
+        MessageIntent: 'Send',
+        OriginatingEndpoint: 'SerilogTestsStartSaga',
+        OriginatingMachine: 'MachineName',
+        OriginatingSagaId: 'Guid 4',
+        OriginatingSagaType: 'TheSaga, Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6',
+        RelatedTo: 'Guid 1',
+        ReplyToAddress: 'SerilogTestsStartSaga',
+        Handler: 'TheSaga',
+        IncomingMessageId: 'Guid 1',
+        IncomingMessageType: 'StartSaga',
+        CorrelationId: 'Guid 1',
+        ConversationId: 'Guid 2',
+        SourceContext: 'StartSaga',
+        ProcessingEndpoint: 'SerilogTestsStartSaga'
       }
     }
   ]

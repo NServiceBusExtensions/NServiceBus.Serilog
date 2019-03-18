@@ -6,27 +6,13 @@
       },
       Level: 'Information',
       Properties: {
-        Handler: {
-          Value: 'TheHandler'
-        },
-        IncomingMessageId: {
-          Value: 'Guid 1'
-        },
-        IncomingMessageType: {
-          Value: 'StartHandler'
-        },
-        CorrelationId: {
-          Value: 'Guid 1'
-        },
-        ConversationId: {
-          Value: 'Guid 2'
-        },
-        SourceContext: {
-          Value: 'StartHandler'
-        },
-        ProcessingEndpoint: {
-          Value: 'SerilogTestsStartHandler'
-        }
+        Handler: 'TheHandler',
+        IncomingMessageId: 'Guid 1',
+        IncomingMessageType: 'StartHandler',
+        CorrelationId: 'Guid 1',
+        ConversationId: 'Guid 2',
+        SourceContext: 'StartHandler',
+        ProcessingEndpoint: 'SerilogTestsStartHandler'
       }
     },
     {
@@ -39,46 +25,21 @@
           TypeTag: 'StartHandler',
           Properties: [
             {
-              Name: 'Property',
-              Value: {
-                Value: 'TheProperty'
-              }
+              Property: 'TheProperty'
             }
           ]
         },
-        OriginatingHostId: {
-          Value: 'Guid 3'
-        },
-        MessageIntent: {
-          Value: 'Send'
-        },
-        OriginatingEndpoint: {
-          Value: 'SerilogTestsStartHandler'
-        },
-        OriginatingMachine: {
-          Value: 'MachineName'
-        },
-        ReplyToAddress: {
-          Value: 'SerilogTestsStartHandler'
-        },
-        IncomingMessageId: {
-          Value: 'Guid 1'
-        },
-        IncomingMessageType: {
-          Value: 'StartHandler'
-        },
-        CorrelationId: {
-          Value: 'Guid 1'
-        },
-        ConversationId: {
-          Value: 'Guid 2'
-        },
-        SourceContext: {
-          Value: 'StartHandler'
-        },
-        ProcessingEndpoint: {
-          Value: 'SerilogTestsStartHandler'
-        }
+        OriginatingHostId: 'Guid 3',
+        MessageIntent: 'Send',
+        OriginatingEndpoint: 'SerilogTestsStartHandler',
+        OriginatingMachine: 'MachineName',
+        ReplyToAddress: 'SerilogTestsStartHandler',
+        IncomingMessageId: 'Guid 1',
+        IncomingMessageType: 'StartHandler',
+        CorrelationId: 'Guid 1',
+        ConversationId: 'Guid 2',
+        SourceContext: 'StartHandler',
+        ProcessingEndpoint: 'SerilogTestsStartHandler'
       }
     },
     {
@@ -91,53 +52,26 @@
           TypeTag: 'StartHandler',
           Properties: [
             {
-              Name: 'Property',
-              Value: {
-                Value: 'TheProperty'
-              }
+              Property: 'TheProperty'
             }
           ]
         },
         UnicastRoutes: {
           Elements: [
-            {
-              Value: 'SerilogTestsStartHandler'
-            }
+            'SerilogTestsStartHandler'
           ]
         },
-        OriginatingHostId: {
-          Value: 'Guid 3'
-        },
-        MessageIntent: {
-          Value: 'Send'
-        },
-        OriginatingEndpoint: {
-          Value: 'SerilogTestsStartHandler'
-        },
-        OriginatingMachine: {
-          Value: 'MachineName'
-        },
-        ReplyToAddress: {
-          Value: 'SerilogTestsStartHandler'
-        },
-        OutgoingMessageId: {
-          Value: 'Guid 1'
-        },
-        OutgoingMessageType: {
-          Value: 'StartHandler'
-        },
-        CorrelationId: {
-          Value: 'Guid 1'
-        },
-        ConversationId: {
-          Value: 'Guid 2'
-        },
-        SourceContext: {
-          Value: 'StartHandler'
-        },
-        ProcessingEndpoint: {
-          Value: 'SerilogTestsStartHandler'
-        }
+        OriginatingHostId: 'Guid 3',
+        MessageIntent: 'Send',
+        OriginatingEndpoint: 'SerilogTestsStartHandler',
+        OriginatingMachine: 'MachineName',
+        ReplyToAddress: 'SerilogTestsStartHandler',
+        OutgoingMessageId: 'Guid 1',
+        OutgoingMessageType: 'StartHandler',
+        CorrelationId: 'Guid 1',
+        ConversationId: 'Guid 2',
+        SourceContext: 'StartHandler',
+        ProcessingEndpoint: 'SerilogTestsStartHandler'
       }
     }
   ]

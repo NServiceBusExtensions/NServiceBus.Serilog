@@ -10,39 +10,17 @@
           TypeTag: 'StartHandlerThatLogs',
           Properties: []
         },
-        OriginatingHostId: {
-          Value: 'Guid 1'
-        },
-        MessageIntent: {
-          Value: 'Send'
-        },
-        OriginatingEndpoint: {
-          Value: 'SerilogTestsStartHandlerThatLogs'
-        },
-        OriginatingMachine: {
-          Value: 'MachineName'
-        },
-        ReplyToAddress: {
-          Value: 'SerilogTestsStartHandlerThatLogs'
-        },
-        IncomingMessageId: {
-          Value: 'Guid 2'
-        },
-        IncomingMessageType: {
-          Value: 'StartHandlerThatLogs'
-        },
-        CorrelationId: {
-          Value: 'Guid 2'
-        },
-        ConversationId: {
-          Value: 'Guid 3'
-        },
-        SourceContext: {
-          Value: 'StartHandlerThatLogs'
-        },
-        ProcessingEndpoint: {
-          Value: 'SerilogTestsStartHandlerThatLogs'
-        }
+        OriginatingHostId: 'Guid 1',
+        MessageIntent: 'Send',
+        OriginatingEndpoint: 'SerilogTestsStartHandlerThatLogs',
+        OriginatingMachine: 'MachineName',
+        ReplyToAddress: 'SerilogTestsStartHandlerThatLogs',
+        IncomingMessageId: 'Guid 2',
+        IncomingMessageType: 'StartHandlerThatLogs',
+        CorrelationId: 'Guid 2',
+        ConversationId: 'Guid 3',
+        SourceContext: 'StartHandlerThatLogs',
+        ProcessingEndpoint: 'SerilogTestsStartHandlerThatLogs'
       }
     },
     {
@@ -57,44 +35,20 @@
         },
         UnicastRoutes: {
           Elements: [
-            {
-              Value: 'SerilogTestsStartHandlerThatLogs'
-            }
+            'SerilogTestsStartHandlerThatLogs'
           ]
         },
-        OriginatingHostId: {
-          Value: 'Guid 1'
-        },
-        MessageIntent: {
-          Value: 'Send'
-        },
-        OriginatingEndpoint: {
-          Value: 'SerilogTestsStartHandlerThatLogs'
-        },
-        OriginatingMachine: {
-          Value: 'MachineName'
-        },
-        ReplyToAddress: {
-          Value: 'SerilogTestsStartHandlerThatLogs'
-        },
-        OutgoingMessageId: {
-          Value: 'Guid 2'
-        },
-        OutgoingMessageType: {
-          Value: 'StartHandlerThatLogs'
-        },
-        CorrelationId: {
-          Value: 'Guid 2'
-        },
-        ConversationId: {
-          Value: 'Guid 3'
-        },
-        SourceContext: {
-          Value: 'StartHandlerThatLogs'
-        },
-        ProcessingEndpoint: {
-          Value: 'SerilogTestsStartHandlerThatLogs'
-        }
+        OriginatingHostId: 'Guid 1',
+        MessageIntent: 'Send',
+        OriginatingEndpoint: 'SerilogTestsStartHandlerThatLogs',
+        OriginatingMachine: 'MachineName',
+        ReplyToAddress: 'SerilogTestsStartHandlerThatLogs',
+        OutgoingMessageId: 'Guid 2',
+        OutgoingMessageType: 'StartHandlerThatLogs',
+        CorrelationId: 'Guid 2',
+        ConversationId: 'Guid 3',
+        SourceContext: 'StartHandlerThatLogs',
+        ProcessingEndpoint: 'SerilogTestsStartHandlerThatLogs'
       }
     }
   ],
@@ -105,21 +59,13 @@
       },
       Level: 'Error',
       Properties: {
-        SourceContext: {
-          Value: 'TheHandlerThatThrows'
-        },
+        SourceContext: 'TheHandlerThatThrows',
         ExceptionDetail: {
           Elements: {
-            "Type": {
-              Value: 'System.Exception'
-            },
-            "HResult": {
-              Value: -2146233088
-            },
-            "Message": {
-              Value: 'Exception of type \'System.Exception\' was thrown.'
-            },
-            "Source": {}
+            "Type": 'System.Exception',
+            "HResult": -2146233088,
+            "Message": 'Exception of type \'System.Exception\' was thrown.',
+            "Source": null
           }
         }
       },
