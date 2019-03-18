@@ -46,16 +46,16 @@ class InjectIncomingMessageBehavior : Behavior<IIncomingPhysicalMessageContext>
         var logger = logBuilder.GetLogger(messageTypeName);
         var properties = new List<PropertyEnricher>
         {
-            new PropertyEnricher("MessageId", context.MessageId),
-            new PropertyEnricher("MessageType", messageTypeName)
+            new PropertyEnricher("IncomingMessageId", context.MessageId),
+            new PropertyEnricher("IncomingMessageType", messageTypeName)
         };
 
         var exceptionLogState = new ExceptionLogState
         {
             ProcessingEndpoint = endpoint,
-            MessageId = context.MessageId,
-            MessageType = messageTypeName,
-            Headers = context.MessageHeaders,
+            IncomingMessageId = context.MessageId,
+            IncomingMessageType = messageTypeName,
+            IncomingHeaders = context.MessageHeaders,
         };
 
         if (headers.TryGetValue(Headers.CorrelationId, out var correlationId))

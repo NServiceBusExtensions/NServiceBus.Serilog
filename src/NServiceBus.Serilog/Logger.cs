@@ -31,8 +31,8 @@ class Logger : ILog
         var properties = new List<LogEventProperty>
         {
             new LogEventProperty("ProcessingEndpoint", new ScalarValue(logState.ProcessingEndpoint)),
-            new LogEventProperty("MessageId", new ScalarValue(logState.MessageId)),
-            new LogEventProperty("MessageType", new ScalarValue(logState.MessageType))
+            new LogEventProperty("IncomingMessageId", new ScalarValue(logState.IncomingMessageId)),
+            new LogEventProperty("IncomingMessageType", new ScalarValue(logState.IncomingMessageType))
         };
         if (logState.CorrelationId != null)
         {
@@ -49,15 +49,15 @@ class Logger : ILog
             properties.Add(new LogEventProperty("HandlerType", new ScalarValue(logState.HandlerType)));
         }
 
-        if (logState.Message != null)
+        if (logState.IncomingMessage != null)
         {
-            if (logger.BindProperty("Message", logState.Message, out var messageProperty))
+            if (logger.BindProperty("IncomingMessage", logState.IncomingMessage, out var messageProperty))
             {
                 properties.Add(messageProperty);
             }
         }
 
-        if (logger.BindProperty("Headers", logState.Headers, out var headersProperty))
+        if (logger.BindProperty("IncomingHeaders", logState.IncomingHeaders, out var headersProperty))
         {
             properties.Add(headersProperty);
         }

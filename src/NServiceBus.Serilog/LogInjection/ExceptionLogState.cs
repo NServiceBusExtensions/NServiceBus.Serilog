@@ -9,12 +9,12 @@ namespace NServiceBus.Serilog
     public class ExceptionLogState
     {
         public string ProcessingEndpoint;
-        public string MessageId;
-        public string MessageType;
+        public string IncomingMessageId;
+        public string IncomingMessageType;
         public string CorrelationId;
         public string ConversationId;
         public string HandlerType;
-        public object Message;
-        public IReadOnlyDictionary<string, string> Headers;
+        public object IncomingMessage;
+        public IReadOnlyDictionary<string, string> IncomingHeaders;
     }
 }

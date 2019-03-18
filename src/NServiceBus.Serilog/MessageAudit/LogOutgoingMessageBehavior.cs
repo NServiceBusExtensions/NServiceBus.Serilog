@@ -15,7 +15,7 @@ class LogOutgoingMessageBehavior : Behavior<IOutgoingLogicalMessageContext>
     public LogOutgoingMessageBehavior()
     {
         var templateParser = new MessageTemplateParser();
-        messageTemplate = templateParser.Parse("Sent message {MessageType} {MessageId}.");
+        messageTemplate = templateParser.Parse("Sent message {OutgoingMessageType} {OutgoingMessageId}.");
     }
 
     public override Task Invoke(IOutgoingLogicalMessageContext context, Func<Task> next)
@@ -27,22 +27,22 @@ class LogOutgoingMessageBehavior : Behavior<IOutgoingLogicalMessageContext>
 
     void LogMessage(IOutgoingLogicalMessageContext context, ILogger forContext, object message)
     {
-        var logProperties = new List<LogEventProperty>();
+        var properties = new List<LogEventProperty>();
 
-        if (forContext.BindProperty("Message", message, out var messageProperty))
+        if (forContext.BindProperty("OutgoingMessage", message, out var messageProperty))
         {
-            logProperties.Add(messageProperty);
+            properties.Add(messageProperty);
         }
 
         var addresses = context.UnicastAddresses();
         if (addresses.Count > 0)
         {
             var sequence = new SequenceValue(addresses.Select(x => new ScalarValue(x)));
-            logProperties.Add(new LogEventProperty("UnicastRoutes", sequence));
+            properties.Add(new LogEventProperty("UnicastRoutes", sequence));
         }
 
-        logProperties.AddRange(forContext.BuildHeaders(context.Headers));
-        forContext.WriteInfo(messageTemplate, logProperties);
+        properties.AddRange(forContext.BuildHeaders(context.Headers));
+        forContext.WriteInfo(messageTemplate, properties);
     }
 
     public class Registration : RegisterStep
