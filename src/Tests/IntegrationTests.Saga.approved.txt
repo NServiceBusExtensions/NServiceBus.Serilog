@@ -184,11 +184,12 @@
         OriginatingSagaType: 'TheSaga, Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6',
         RelatedTo: 'Guid 1',
         ReplyToAddress: 'SerilogTestsStartSaga',
-        Handler: 'TheSaga',
-        IncomingMessageId: 'Guid 1',
-        IncomingMessageType: 'StartSaga',
+        OutgoingMessageId: 'Guid 5',
+        OutgoingMessageType: 'BackIntoSaga',
         CorrelationId: 'Guid 1',
         ConversationId: 'Guid 2',
+        IncomingMessageId: 'Guid 1',
+        IncomingMessageType: 'StartSaga',
         SourceContext: 'StartSaga',
         ProcessingEndpoint: 'SerilogTestsStartSaga'
       }

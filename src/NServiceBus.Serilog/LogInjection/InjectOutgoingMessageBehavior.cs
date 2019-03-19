@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using NServiceBus;
 using NServiceBus.Pipeline;
+using Serilog;
 using Serilog.Core.Enrichers;
 
 class InjectOutgoingMessageBehavior :
@@ -19,8 +20,13 @@ class InjectOutgoingMessageBehavior :
     {
         var headers = context.Headers;
 
+        var bag = context.Extensions;
         var messageTypeName = context.Message.Instance.GetType().FullName;
-        var logger = logBuilder.GetLogger(messageTypeName);
+        if (!bag.TryGet<ILogger>(out var logger))
+        {
+            // if it a raw session send (ie no handler/saga, there will be no current logger)
+            logger = logBuilder.GetLogger(messageTypeName);
+        }
 
         var properties = new List<PropertyEnricher>
         {
@@ -41,12 +47,12 @@ class InjectOutgoingMessageBehavior :
         var forContext = logger.ForContext(properties);
         try
         {
-            context.Extensions.Set("SerilogOutgoingLogger", forContext);
+            bag.Set("SerilogOutgoingLogger", forContext);
             await next();
         }
         finally
         {
-            context.Extensions.Remove("SerilogOutgoingLogger");
+            bag.Remove("SerilogOutgoingLogger");
         }
     }
 
