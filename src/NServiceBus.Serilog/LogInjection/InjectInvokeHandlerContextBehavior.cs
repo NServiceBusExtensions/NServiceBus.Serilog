@@ -22,18 +22,19 @@ class InjectInvokeHandlerContextBehavior :
     public override async Task Invoke(IInvokeHandlerContext context, Func<Task> next)
     {
         var handler = context.HandlerType();
-        var exceptionLogState = context.Extensions.Get<ExceptionLogState>();
+        var bag = context.Extensions;
+        var exceptionLogState = bag.Get<ExceptionLogState>();
         exceptionLogState.HandlerType = handler;
         exceptionLogState.IncomingMessage = context.MessageBeingHandled;
         var forContext = context.Logger().ForContext("Handler", handler);
         try
         {
-            context.Extensions.Set("SerilogHandlerLogger", forContext);
+            bag.Set("SerilogHandlerLogger", forContext);
             await next();
         }
         finally
         {
-            context.Extensions.Remove("SerilogHandlerLogger");
+            bag.Remove("SerilogHandlerLogger");
         }
     }
 }
