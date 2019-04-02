@@ -1,8 +1,10 @@
 ﻿using System;
 
-class ConfigurationException : Exception
+class ConfigurationException :
+    Exception
 {
-    public ConfigurationException(string message) : base(message)
+    public ConfigurationException(string message) :
+        base(message)
     {
     }
 }

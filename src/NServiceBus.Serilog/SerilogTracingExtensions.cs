@@ -24,7 +24,8 @@ namespace NServiceBus
         {
             Guard.AgainstNull(configuration, nameof(configuration));
             Guard.AgainstNull(logger, nameof(logger));
-            configuration.Recoverability().AddUnrecoverableException<ConfigurationException>();
+            var recoverability = configuration.Recoverability();
+            recoverability.AddUnrecoverableException<ConfigurationException>();
             configuration.EnableFeature<TracingFeature>();
             var settings = configuration.GetSettings();
             var attachments = new SerilogTracingSettings(logger,configuration);
