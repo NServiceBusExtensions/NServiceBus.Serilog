@@ -1,8 +1,14 @@
 ﻿using ObjectApproval;
 using Xunit.Abstractions;
 
-public class TestBase
+public class TestBase:
+    XunitLoggingBase
 {
+    public TestBase(ITestOutputHelper output) :
+        base(output)
+    {
+    }
+
     static TestBase()
     {
         SerializerBuilder.ExtraSettings = settings =>
@@ -14,11 +20,4 @@ public class TestBase
         };
         StringScrubber.AddExtraDatetimeFormat("yyyy-MM-dd HH:mm:ss:ffffff Z");
     }
-
-    public TestBase(ITestOutputHelper output)
-    {
-        Output = output;
-    }
-
-    protected readonly ITestOutputHelper Output;
 }
