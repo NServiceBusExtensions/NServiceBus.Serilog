@@ -13,7 +13,6 @@ public class TestBase:
     {
         SerializerBuilder.ExtraSettings = settings =>
         {
-            settings.ContractResolver = new CustomContractResolverEx();
             settings.Converters.Add(new LogEventPropertyConverter());
             settings.Converters.Add(new LogEventConverter());
             settings.Converters.Add(new ScalarValueConverter());
