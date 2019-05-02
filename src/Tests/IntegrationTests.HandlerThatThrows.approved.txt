@@ -12,15 +12,15 @@
             }
           ]
         },
-        OriginatingHostId: 'Guid 1',
+        OriginatingHostId: Guid_1,
         MessageIntent: 'Send',
         OriginatingEndpoint: 'SerilogTestsStartHandlerThatThrows',
         OriginatingMachine: 'MachineName',
         ReplyToAddress: 'SerilogTestsStartHandlerThatThrows',
-        IncomingMessageId: 'Guid 2',
+        IncomingMessageId: Guid_2,
         IncomingMessageType: 'StartHandlerThatThrows',
-        CorrelationId: 'Guid 2',
-        ConversationId: 'Guid 3',
+        CorrelationId: Guid_2,
+        ConversationId: Guid_3,
         SourceContext: 'StartHandlerThatThrows',
         ProcessingEndpoint: 'SerilogTestsStartHandlerThatThrows'
       }
@@ -37,15 +37,15 @@
             }
           ]
         },
-        OriginatingHostId: 'Guid 1',
+        OriginatingHostId: Guid_1,
         MessageIntent: 'Send',
         OriginatingEndpoint: 'SerilogTestsStartHandlerThatThrows',
         OriginatingMachine: 'MachineName',
         ReplyToAddress: 'SerilogTestsStartHandlerThatThrows',
-        IncomingMessageId: 'Guid 2',
+        IncomingMessageId: Guid_2,
         IncomingMessageType: 'StartHandlerThatThrows',
-        CorrelationId: 'Guid 2',
-        ConversationId: 'Guid 3',
+        CorrelationId: Guid_2,
+        ConversationId: Guid_3,
         SourceContext: 'StartHandlerThatThrows',
         ProcessingEndpoint: 'SerilogTestsStartHandlerThatThrows'
       }
@@ -62,17 +62,17 @@
             }
           ]
         },
-        OriginatingHostId: 'Guid 1',
+        OriginatingHostId: Guid_1,
         MessageIntent: 'Send',
         OriginatingEndpoint: 'SerilogTestsStartHandlerThatThrows',
         OriginatingMachine: 'MachineName',
         ReplyToAddress: 'SerilogTestsStartHandlerThatThrows',
         Retries: '1',
-        Retries.Timestamp: 'DateTime 1',
-        IncomingMessageId: 'Guid 2',
+        Retries.Timestamp: DateTime_1,
+        IncomingMessageId: Guid_2,
         IncomingMessageType: 'StartHandlerThatThrows',
-        CorrelationId: 'Guid 2',
-        ConversationId: 'Guid 3',
+        CorrelationId: Guid_2,
+        ConversationId: Guid_3,
         SourceContext: 'StartHandlerThatThrows',
         ProcessingEndpoint: 'SerilogTestsStartHandlerThatThrows'
       }
@@ -89,17 +89,17 @@
             }
           ]
         },
-        OriginatingHostId: 'Guid 1',
+        OriginatingHostId: Guid_1,
         MessageIntent: 'Send',
         OriginatingEndpoint: 'SerilogTestsStartHandlerThatThrows',
         OriginatingMachine: 'MachineName',
         ReplyToAddress: 'SerilogTestsStartHandlerThatThrows',
         Retries: '1',
-        Retries.Timestamp: 'DateTime 1',
-        IncomingMessageId: 'Guid 2',
+        Retries.Timestamp: DateTime_1,
+        IncomingMessageId: Guid_2,
         IncomingMessageType: 'StartHandlerThatThrows',
-        CorrelationId: 'Guid 2',
-        ConversationId: 'Guid 3',
+        CorrelationId: Guid_2,
+        ConversationId: Guid_3,
         SourceContext: 'StartHandlerThatThrows',
         ProcessingEndpoint: 'SerilogTestsStartHandlerThatThrows'
       }
@@ -121,15 +121,15 @@
             'SerilogTestsStartHandlerThatThrows'
           ]
         },
-        OriginatingHostId: 'Guid 1',
+        OriginatingHostId: Guid_1,
         MessageIntent: 'Send',
         OriginatingEndpoint: 'SerilogTestsStartHandlerThatThrows',
         OriginatingMachine: 'MachineName',
         ReplyToAddress: 'SerilogTestsStartHandlerThatThrows',
-        OutgoingMessageId: 'Guid 2',
+        OutgoingMessageId: Guid_2,
         OutgoingMessageType: 'StartHandlerThatThrows',
-        CorrelationId: 'Guid 2',
-        ConversationId: 'Guid 3',
+        CorrelationId: Guid_2,
+        ConversationId: Guid_3,
         SourceContext: 'StartHandlerThatThrows',
         ProcessingEndpoint: 'SerilogTestsStartHandlerThatThrows'
       }

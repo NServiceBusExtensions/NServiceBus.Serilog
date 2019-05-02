@@ -5,10 +5,10 @@
       Level: 'Information',
       Properties: {
         Handler: 'TheHandler',
-        IncomingMessageId: 'Guid 1',
+        IncomingMessageId: Guid_1,
         IncomingMessageType: 'StartHandler',
-        CorrelationId: 'Guid 1',
-        ConversationId: 'Guid 2',
+        CorrelationId: Guid_1,
+        ConversationId: Guid_2,
         SourceContext: 'StartHandler',
         ProcessingEndpoint: 'SerilogTestsStartHandler'
       }
@@ -25,15 +25,15 @@
             }
           ]
         },
-        OriginatingHostId: 'Guid 3',
+        OriginatingHostId: Guid_3,
         MessageIntent: 'Send',
         OriginatingEndpoint: 'SerilogTestsStartHandler',
         OriginatingMachine: 'MachineName',
         ReplyToAddress: 'SerilogTestsStartHandler',
-        IncomingMessageId: 'Guid 1',
+        IncomingMessageId: Guid_1,
         IncomingMessageType: 'StartHandler',
-        CorrelationId: 'Guid 1',
-        ConversationId: 'Guid 2',
+        CorrelationId: Guid_1,
+        ConversationId: Guid_2,
         SourceContext: 'StartHandler',
         ProcessingEndpoint: 'SerilogTestsStartHandler'
       }
@@ -55,15 +55,15 @@
             'SerilogTestsStartHandler'
           ]
         },
-        OriginatingHostId: 'Guid 3',
+        OriginatingHostId: Guid_3,
         MessageIntent: 'Send',
         OriginatingEndpoint: 'SerilogTestsStartHandler',
         OriginatingMachine: 'MachineName',
         ReplyToAddress: 'SerilogTestsStartHandler',
-        OutgoingMessageId: 'Guid 1',
+        OutgoingMessageId: Guid_1,
         OutgoingMessageType: 'StartHandler',
-        CorrelationId: 'Guid 1',
-        ConversationId: 'Guid 2',
+        CorrelationId: Guid_1,
+        ConversationId: Guid_2,
         SourceContext: 'StartHandler',
         ProcessingEndpoint: 'SerilogTestsStartHandler'
       }

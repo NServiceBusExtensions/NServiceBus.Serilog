@@ -14,10 +14,10 @@
           ]
         },
         Handler: 'TheSaga',
-        IncomingMessageId: 'Guid 1',
+        IncomingMessageId: Guid_1,
         IncomingMessageType: 'StartSaga',
-        CorrelationId: 'Guid 1',
-        ConversationId: 'Guid 2',
+        CorrelationId: Guid_1,
+        ConversationId: Guid_2,
         SourceContext: 'StartSaga',
         ProcessingEndpoint: 'SerilogTestsStartSaga'
       }
@@ -34,15 +34,15 @@
             }
           ]
         },
-        OriginatingHostId: 'Guid 3',
+        OriginatingHostId: Guid_3,
         MessageIntent: 'Send',
         OriginatingEndpoint: 'SerilogTestsStartSaga',
         OriginatingMachine: 'MachineName',
         ReplyToAddress: 'SerilogTestsStartSaga',
-        IncomingMessageId: 'Guid 1',
+        IncomingMessageId: Guid_1,
         IncomingMessageType: 'StartSaga',
-        CorrelationId: 'Guid 1',
-        ConversationId: 'Guid 2',
+        CorrelationId: Guid_1,
+        ConversationId: Guid_2,
         SourceContext: 'StartSaga',
         ProcessingEndpoint: 'SerilogTestsStartSaga'
       }
@@ -52,16 +52,16 @@
       Level: 'Information',
       Properties: {
         SagaType: 'TheSaga',
-        SagaId: 'Guid 4',
-        StartTime: 'DateTimeOffset 1',
-        FinishTime: 'DateTimeOffset 2',
+        SagaId: Guid_4,
+        StartTime: DateTimeOffset_1,
+        FinishTime: DateTimeOffset_2,
         IsCompleted: false,
         IsNew: true,
         Initiator: {
           TypeTag: 'SagaChangeInitiator',
           Properties: [
             {
-              InitiatingMessageId: 'Guid 1'
+              InitiatingMessageId: Guid_1
             },
             {
               MessageType: 'StartSaga'
@@ -70,7 +70,7 @@
               IsSagaTimeoutMessage: false
             },
             {
-              TimeSent: 'DateTime 1'
+              TimeSent: DateTime_1
             },
             {
               OriginatingMachine: 'MachineName'
@@ -95,7 +95,7 @@
                   Destination: 'SerilogTestsStartSaga'
                 },
                 {
-                  ResultingMessageId: 'Guid 5'
+                  ResultingMessageId: Guid_5
                 },
                 {
                   MessageIntent: 'Send'
@@ -111,20 +111,20 @@
               Property: 'TheProperty'
             },
             {
-              Id: 'Guid 4'
+              Id: Guid_4
             },
             {
               Originator: 'SerilogTestsStartSaga'
             },
             {
-              OriginalMessageId: 'Guid 1'
+              OriginalMessageId: Guid_1
             }
           ]
         },
-        IncomingMessageId: 'Guid 1',
+        IncomingMessageId: Guid_1,
         IncomingMessageType: 'StartSaga',
-        CorrelationId: 'Guid 1',
-        ConversationId: 'Guid 2',
+        CorrelationId: Guid_1,
+        ConversationId: Guid_2,
         SourceContext: 'StartSaga',
         ProcessingEndpoint: 'SerilogTestsStartSaga'
       }
@@ -146,15 +146,15 @@
             'SerilogTestsStartSaga'
           ]
         },
-        OriginatingHostId: 'Guid 3',
+        OriginatingHostId: Guid_3,
         MessageIntent: 'Send',
         OriginatingEndpoint: 'SerilogTestsStartSaga',
         OriginatingMachine: 'MachineName',
         ReplyToAddress: 'SerilogTestsStartSaga',
-        OutgoingMessageId: 'Guid 1',
+        OutgoingMessageId: Guid_1,
         OutgoingMessageType: 'StartSaga',
-        CorrelationId: 'Guid 1',
-        ConversationId: 'Guid 2',
+        CorrelationId: Guid_1,
+        ConversationId: Guid_2,
         SourceContext: 'StartSaga',
         ProcessingEndpoint: 'SerilogTestsStartSaga'
       }
@@ -176,19 +176,19 @@
             'SerilogTestsStartSaga'
           ]
         },
-        OriginatingHostId: 'Guid 3',
+        OriginatingHostId: Guid_3,
         MessageIntent: 'Send',
         OriginatingEndpoint: 'SerilogTestsStartSaga',
         OriginatingMachine: 'MachineName',
-        OriginatingSagaId: 'Guid 4',
+        OriginatingSagaId: Guid_4,
         OriginatingSagaType: 'TheSaga, Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6',
-        RelatedTo: 'Guid 1',
+        RelatedTo: Guid_1,
         ReplyToAddress: 'SerilogTestsStartSaga',
-        OutgoingMessageId: 'Guid 5',
+        OutgoingMessageId: Guid_5,
         OutgoingMessageType: 'BackIntoSaga',
-        CorrelationId: 'Guid 1',
-        ConversationId: 'Guid 2',
-        IncomingMessageId: 'Guid 1',
+        CorrelationId: Guid_1,
+        ConversationId: Guid_2,
+        IncomingMessageId: Guid_1,
         IncomingMessageType: 'StartSaga',
         SourceContext: 'StartSaga',
         ProcessingEndpoint: 'SerilogTestsStartSaga'

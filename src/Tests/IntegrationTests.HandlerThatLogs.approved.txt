@@ -8,15 +8,15 @@
           TypeTag: 'StartHandlerThatLogs',
           Properties: []
         },
-        OriginatingHostId: 'Guid 1',
+        OriginatingHostId: Guid_1,
         MessageIntent: 'Send',
         OriginatingEndpoint: 'SerilogTestsStartHandlerThatLogs',
         OriginatingMachine: 'MachineName',
         ReplyToAddress: 'SerilogTestsStartHandlerThatLogs',
-        IncomingMessageId: 'Guid 2',
+        IncomingMessageId: Guid_2,
         IncomingMessageType: 'StartHandlerThatLogs',
-        CorrelationId: 'Guid 2',
-        ConversationId: 'Guid 3',
+        CorrelationId: Guid_2,
+        ConversationId: Guid_3,
         SourceContext: 'StartHandlerThatLogs',
         ProcessingEndpoint: 'SerilogTestsStartHandlerThatLogs'
       }
@@ -34,15 +34,15 @@
             'SerilogTestsStartHandlerThatLogs'
           ]
         },
-        OriginatingHostId: 'Guid 1',
+        OriginatingHostId: Guid_1,
         MessageIntent: 'Send',
         OriginatingEndpoint: 'SerilogTestsStartHandlerThatLogs',
         OriginatingMachine: 'MachineName',
         ReplyToAddress: 'SerilogTestsStartHandlerThatLogs',
-        OutgoingMessageId: 'Guid 2',
+        OutgoingMessageId: Guid_2,
         OutgoingMessageType: 'StartHandlerThatLogs',
-        CorrelationId: 'Guid 2',
-        ConversationId: 'Guid 3',
+        CorrelationId: Guid_2,
+        ConversationId: Guid_3,
         SourceContext: 'StartHandlerThatLogs',
         ProcessingEndpoint: 'SerilogTestsStartHandlerThatLogs'
       }
