@@ -52,7 +52,9 @@ namespace NServiceBus
             {
                 return logger;
             }
-            throw new ConfigurationException($"Expected to find a {nameof(ILogger)} in the pipeline context. It is possible a call to {nameof(SerilogTracingExtensions)}.{nameof(EnableSerilogTracing)} is missing.");
+            throw new ConfigurationException($@"Expected to find a {nameof(ILogger)} in the pipeline context.
+ * If this is a production exception, it is possible NServiceBus.Serilog has not been enabled using a call to {nameof(SerilogTracingExtensions)}.{nameof(EnableSerilogTracing)}().
+ * If this is a unit test exception, it is possible an {nameof(ILogger)} has not been injected into the test context. eg context.Extensions.Set(Log.Logger);.");
         }
     }
 }
