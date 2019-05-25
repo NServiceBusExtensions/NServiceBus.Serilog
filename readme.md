@@ -24,7 +24,7 @@ Thanks to all the backing developers! Support this project by [becoming a patron
 
 <a href="#" id="endofbacking"></a>
 
-## The NuGet package [![NuGet Status](http://img.shields.io/nuget/v/NServiceBus.Serilog.svg?style=flat)](https://www.nuget.org/packages/NServiceBus.Serilog/)
+## The NuGet package [![NuGet Status](http://img.shields.io/nuget/v/NServiceBus.Serilog.svg)](https://www.nuget.org/packages/NServiceBus.Serilog/)
 
 https://nuget.org/packages/NServiceBus.Serilog/
 
