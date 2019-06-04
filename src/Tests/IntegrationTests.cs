@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -84,6 +85,8 @@ public class IntegrationTests : TestBase
     static void Verify<T>(List<LogEventEx> logEvents)
     {
         var logsForTarget = logEvents.LogsForType<T>().ToList();
+        var nsbVersion = FileVersionInfo.GetVersionInfo(typeof(NServiceBus.Endpoint).Assembly.Location);
+        var nsbVersionString = $"{nsbVersion.FileMajorPart}.{nsbVersion.FileMinorPart}.{nsbVersion.FileBuildPart}";
         ObjectApprover.VerifyWithJson(
             new
             {
@@ -92,7 +95,9 @@ public class IntegrationTests : TestBase
                 logsWithExceptions = logEvents.LogsWithExceptions().ToList()
             },
             jsonSerializerSettings: null,
-            scrubber: s => s.Replace(Environment.MachineName, "MachineName")
+            scrubber: s => s
+                .Replace(Environment.MachineName, "MachineName")
+                .Replace(nsbVersionString, "NsbVersion")
                 .RemoveLinesContaining("StackTraceString"));
     }
 

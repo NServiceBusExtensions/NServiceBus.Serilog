@@ -178,7 +178,7 @@
             "NServiceBus.ReplyToAddress": 'SerilogTestsNotFoundSagaMessage',
             "NServiceBus.ContentType": 'text/xml',
             "NServiceBus.EnclosedMessageTypes": 'NotFoundSagaMessage, Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6',
-            "NServiceBus.Version": '7.1.8',
+            "NServiceBus.Version": 'NsbVersion',
             "NServiceBus.TimeSent": DateTime_2
           }
         },
@@ -225,7 +225,7 @@
             "NServiceBus.ReplyToAddress": 'SerilogTestsNotFoundSagaMessage',
             "NServiceBus.ContentType": 'text/xml',
             "NServiceBus.EnclosedMessageTypes": 'NotFoundSagaMessage, Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6',
-            "NServiceBus.Version": '7.1.8',
+            "NServiceBus.Version": 'NsbVersion',
             "NServiceBus.TimeSent": DateTime_2
           }
         },
@@ -272,7 +272,7 @@
             "NServiceBus.ReplyToAddress": 'SerilogTestsNotFoundSagaMessage',
             "NServiceBus.ContentType": 'text/xml',
             "NServiceBus.EnclosedMessageTypes": 'NotFoundSagaMessage, Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6',
-            "NServiceBus.Version": '7.1.8',
+            "NServiceBus.Version": 'NsbVersion',
             "NServiceBus.TimeSent": DateTime_2,
             "NServiceBus.Retries": '1',
             "NServiceBus.Retries.Timestamp": DateTime_1
@@ -321,7 +321,7 @@
             "NServiceBus.ReplyToAddress": 'SerilogTestsNotFoundSagaMessage',
             "NServiceBus.ContentType": 'text/xml',
             "NServiceBus.EnclosedMessageTypes": 'NotFoundSagaMessage, Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6',
-            "NServiceBus.Version": '7.1.8',
+            "NServiceBus.Version": 'NsbVersion',
             "NServiceBus.TimeSent": DateTime_2,
             "NServiceBus.Retries": '1',
             "NServiceBus.Retries.Timestamp": DateTime_1
