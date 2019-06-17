@@ -1,13 +1,17 @@
-﻿static class TypeHelper
+﻿namespace NServiceBus.Serilog
 {
-    public static string GetShortTypeName(string messageType)
+    public static class TypeHelper
     {
-        var indexOf = messageType.IndexOf(',');
-        if (indexOf == -1)
+        public static string GetShortTypeName(string messageType)
         {
-            return messageType;
-        }
+            Guard.AgainstNullOrEmpty(messageType, nameof(messageType));
+            var indexOf = messageType.IndexOf(',');
+            if (indexOf == -1)
+            {
+                return messageType;
+            }
 
-        return messageType.Substring(0, indexOf);
+            return messageType.Substring(0, indexOf);
+        }
     }
 }
