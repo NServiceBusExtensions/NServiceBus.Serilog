@@ -7,4 +7,9 @@ class ConfigurationException :
         base(message)
     {
     }
+
+    public override string ToString()
+    {
+        return Message;
+    }
 }

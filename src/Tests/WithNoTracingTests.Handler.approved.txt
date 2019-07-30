@@ -1,3 +1,3 @@
-﻿Expected to find a ILogger in the pipeline context.
- * If this is a production exception, it is possible NServiceBus.Serilog has not been enabled using a call to SerilogTracingExtensions.EnableSerilogTracing().
- * If this is a unit test exception, it is possible an ILogger has not been injected into the test context. eg context.Extensions.Set(Log.Logger);.
+﻿Expected to find a `ILogger` in the pipeline context.
+ * If this is a production exception, it is possible NServiceBus.Serilog has not been enabled using a call to `SerilogTracingExtensions.EnableSerilogTracing()`.
+ * If this is a unit test exception, it is possible an `ILogger` has not been injected into the test context. eg `context.Extensions.Set(Log.Logger);`.
