@@ -10,7 +10,7 @@
   <ItemGroup>
     <PackageReference Include="ApprovalTests" Version="4.0.0" />
     <PackageReference Include="NServiceBus.Testing" Version="7.1.0" />
-    <PackageReference Include="ObjectApproval" Version="9.1.0" />
+    <PackageReference Include="ObjectApproval" Version="9.2.0" />
     <PackageReference Include="Serilog.Exceptions" Version="5.3.1" />
     <PackageReference Include="Xunit" Version="2.4.1" />
     <PackageReference Include="XunitLogger" Version="2.4.0" />
