@@ -87,7 +87,7 @@ public class IntegrationTests : TestBase
         var logsForTarget = logEvents.LogsForType<T>().ToList();
         var nsbVersion = FileVersionInfo.GetVersionInfo(typeof(Endpoint).Assembly.Location);
         var nsbVersionString = $"{nsbVersion.FileMajorPart}.{nsbVersion.FileMinorPart}.{nsbVersion.FileBuildPart}";
-        ObjectApprover.VerifyWithJson(
+        ObjectApprover.Verify(
             new
             {
                 logsForTarget,
