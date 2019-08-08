@@ -2,9 +2,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
-    <Optimize>false</Optimize>
-    <DebugType>full</DebugType>
-    <DebugSymbols>true</DebugSymbols>
     <Version>1.0.0</Version>
   </PropertyGroup>
   <ItemGroup>
@@ -19,5 +16,6 @@
     <PackageReference Include="NServiceBus" Version="7.1.10" />
     <PackageReference Include="Serilog" Version="2.8.0" />
     <ProjectReference Include="..\NServiceBus.Serilog\NServiceBus.Serilog.csproj" />
+    <PackageReference Include="ProjectDefaults" Version="1.0.8" PrivateAssets="All" />
   </ItemGroup>
 </Project>
