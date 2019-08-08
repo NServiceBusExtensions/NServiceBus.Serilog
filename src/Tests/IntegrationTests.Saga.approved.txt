@@ -181,7 +181,7 @@
         OriginatingEndpoint: 'SerilogTestsStartSaga',
         OriginatingMachine: 'MachineName',
         OriginatingSagaId: Guid_4,
-        OriginatingSagaType: 'TheSaga, Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6',
+        OriginatingSagaType: 'TheSaga, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6',
         RelatedTo: Guid_1,
         ReplyToAddress: 'SerilogTestsStartSaga',
         OutgoingMessageId: Guid_5,
