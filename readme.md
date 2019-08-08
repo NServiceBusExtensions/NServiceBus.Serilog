@@ -1,4 +1,4 @@
-<img src="https://raw.github.com/NServiceBusExtensions/NServiceBus.Serilog/master/src/icon.png" height="25px"> Add support for sending [NServiceBus](http://particular.net/NServiceBus) logging through [Serilog](http://serilog.net/)
+<img src="/src/icon.png" height="25px"> Add support for sending [NServiceBus](http://particular.net/NServiceBus) logging through [Serilog](http://serilog.net/)
 <!--- StartOpenCollectiveBackers -->
 
 [Already a Patron? skip past this section](#endofbacking)
@@ -24,9 +24,9 @@ Thanks to all the backing developers! Support this project by [becoming a patron
 
 <a href="#" id="endofbacking"></a>
 
-## The NuGet package [![NuGet Status](http://img.shields.io/nuget/v/NServiceBus.Serilog.svg)](https://www.nuget.org/packages/NServiceBus.Serilog/)
+## NuGet package
 
-https://nuget.org/packages/NServiceBus.Serilog/
+https://nuget.org/packages/NServiceBus.Serilog/ [![NuGet Status](http://img.shields.io/nuget/v/NServiceBus.Serilog.svg)](https://www.nuget.org/packages/NServiceBus.Serilog/)
 
 
 ## Standard Logging Library
@@ -58,4 +58,4 @@ serilogFactory.WithLogger(logger);
 
 ## Icon
 
-<a href="http://thenounproject.com/noun/brain/#icon-No10411" target="_blank">Brain</a> designed by <a href="http://thenounproject.com/catalarem" target="_blank">Rémy Médard</a> from The Noun Project
+[Brain](https://thenounproject.com/noun/brain/#icon-No10411) designed by [Rémy Médard](https://thenounproject.com/catalarem) from [The Noun Project](https://thenounproject.com).
