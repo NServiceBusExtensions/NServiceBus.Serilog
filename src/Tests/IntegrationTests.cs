@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 using NServiceBus;
 using NServiceBus.Logging;
 using NServiceBus.Serilog;
-using ObjectApproval;
 using Serilog;
 using Serilog.Events;
 using Serilog.Exceptions;
