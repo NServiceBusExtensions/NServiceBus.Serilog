@@ -5,8 +5,7 @@
       Level: 'Information',
       Properties: {
         IncomingMessage: {
-          TypeTag: 'StartHandlerThatLogs',
-          Properties: []
+          TypeTag: 'StartHandlerThatLogs'
         },
         OriginatingHostId: Guid_1,
         MessageIntent: 'Send',
@@ -26,8 +25,7 @@
       Level: 'Information',
       Properties: {
         OutgoingMessage: {
-          TypeTag: 'StartHandlerThatLogs',
-          Properties: []
+          TypeTag: 'StartHandlerThatLogs'
         },
         UnicastRoutes: {
           Elements: [
