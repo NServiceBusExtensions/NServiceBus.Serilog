@@ -26,7 +26,7 @@ Thanks to all the backing developers! Support this project by [becoming a patron
 
 ## NuGet package
 
-https://nuget.org/packages/NServiceBus.Serilog/ [![NuGet Status](http://img.shields.io/nuget/v/NServiceBus.Serilog.svg)](https://www.nuget.org/packages/NServiceBus.Serilog/)
+https://nuget.org/packages/NServiceBus.Serilog/ [![NuGet Status](https://img.shields.io/nuget/v/NServiceBus.Serilog.svg)](https://www.nuget.org/packages/NServiceBus.Serilog/)
 
 
 ## Standard Logging Library
