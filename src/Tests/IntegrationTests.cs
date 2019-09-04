@@ -101,7 +101,7 @@ public class IntegrationTests : TestBase
                 .RemoveLinesContaining("StackTraceString"));
     }
 
-    async Task<IEnumerable<LogEventEx>> Send(object message, Action<SendOptions> optionsAction=null)
+    static async Task<IEnumerable<LogEventEx>> Send(object message, Action<SendOptions> optionsAction = null)
     {
         var logs = new List<LogEvent>();
         var eventSink = new EventSink
