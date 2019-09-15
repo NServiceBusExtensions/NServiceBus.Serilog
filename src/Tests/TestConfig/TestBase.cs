@@ -1,4 +1,5 @@
-﻿using Xunit.Abstractions;
+﻿using System.Runtime.CompilerServices;
+using Xunit.Abstractions;
 using ObjectApproval;
 
 public class TestBase:
