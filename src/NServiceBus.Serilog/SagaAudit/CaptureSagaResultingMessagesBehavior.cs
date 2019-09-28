@@ -29,12 +29,12 @@ class CaptureSagaResultingMessagesBehavior :
         }
 
         var sagaResultingMessage = new SagaChangeOutput
-        {
-            ResultingMessageId = context.MessageId,
-            MessageType = logicalMessage.MessageType.ToString(),
-            Destination = context.GetDestinationForUnicastMessages(),
-            MessageIntent = context.MessageIntent()
-        };
+        (
+            resultingMessageId: context.MessageId,
+            messageType: logicalMessage.MessageType.ToString(),
+            destination: context.GetDestinationForUnicastMessages(),
+            messageIntent: context.MessageIntent()
+        );
         sagaUpdatedMessage.ResultingMessages.Add(sagaResultingMessage);
     }
 
