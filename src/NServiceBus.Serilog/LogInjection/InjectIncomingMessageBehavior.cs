@@ -52,25 +52,26 @@ class InjectIncomingMessageBehavior :
             new PropertyEnricher("IncomingMessageType", messageTypeName)
         };
 
-        var exceptionLogState = new ExceptionLogState
-        {
-            ProcessingEndpoint = endpoint,
-            IncomingMessageId = context.MessageId,
-            IncomingMessageType = messageTypeName,
-            IncomingHeaders = context.MessageHeaders,
-        };
 
         if (headers.TryGetValue(Headers.CorrelationId, out var correlationId))
         {
-            exceptionLogState.CorrelationId = correlationId;
             properties.Add(new PropertyEnricher("CorrelationId", correlationId));
         }
 
         if (headers.TryGetValue(Headers.ConversationId, out var conversationId))
         {
-            exceptionLogState.ConversationId = conversationId;
             properties.Add(new PropertyEnricher("ConversationId", conversationId));
         }
+
+        var exceptionLogState = new ExceptionLogState
+        (
+            processingEndpoint: endpoint,
+            incomingMessageId: context.MessageId,
+            incomingMessageType: messageTypeName,
+            incomingHeaders: context.MessageHeaders,
+            correlationId: correlationId,
+            conversationId: conversationId
+        );
 
         var loggerForContext = logger.ForContext(properties);
         context.Extensions.Set(exceptionLogState);

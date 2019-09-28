@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <NoWarn>NU5105</NoWarn>
+    <Nullable Condition="$(Configuration) == 'Debug'">enable</Nullable>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="ConfigureAwait.Fody" Version="3.2.0" PrivateAssets="All" />
