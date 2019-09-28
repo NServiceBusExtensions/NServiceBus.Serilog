@@ -71,15 +71,15 @@ class CaptureSagaStateBehavior :
         var intent = context.MessageIntent();
 
         var initiator = new SagaChangeInitiator
-        {
-            IsSagaTimeoutMessage = context.IsTimeoutMessage(),
-            InitiatingMessageId = messageId,
-            OriginatingMachine = context.OriginatingMachine(),
-            OriginatingEndpoint = context.OriginatingEndpoint(),
-            MessageType = context.MessageType(),
-            TimeSent = context.TimeSent(),
-            Intent = intent
-        };
+        (
+            isSagaTimeoutMessage: context.IsTimeoutMessage(),
+            initiatingMessageId: messageId,
+            originatingMachine: context.OriginatingMachine(),
+            originatingEndpoint: context.OriginatingEndpoint(),
+            messageType: context.MessageType(),
+            timeSent: context.TimeSent(),
+            intent: intent
+        );
         sagaAudit.IsNew = activeSagaInstance.IsNew;
         sagaAudit.IsCompleted = saga.Completed;
         sagaAudit.SagaId = saga.Entity.Id;
