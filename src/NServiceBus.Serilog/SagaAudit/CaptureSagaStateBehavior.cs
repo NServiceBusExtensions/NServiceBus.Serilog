@@ -11,7 +11,6 @@ using Serilog.Parsing;
 class CaptureSagaStateBehavior :
     Behavior<IInvokeHandlerContext>
 {
-    SagaUpdatedMessage sagaAudit;
     MessageTemplate messageTemplate;
 
     public CaptureSagaStateBehavior()
@@ -36,7 +35,7 @@ class CaptureSagaStateBehavior :
             return;
         }
 
-        sagaAudit = new SagaUpdatedMessage
+        var sagaAudit = new SagaUpdatedMessage
         {
             StartTime = DateTimeOffset.UtcNow
         };
@@ -48,11 +47,11 @@ class CaptureSagaStateBehavior :
             sagaAudit.SagaType = activeSagaInstance.Instance.GetType().FullName;
 
             sagaAudit.FinishTime = DateTimeOffset.UtcNow;
-            AuditSaga(activeSagaInstance, context);
+            AuditSaga(activeSagaInstance, context, sagaAudit);
         }
     }
 
-    void AuditSaga(ActiveSagaInstance activeSagaInstance, IInvokeHandlerContext context)
+    void AuditSaga(ActiveSagaInstance activeSagaInstance, IInvokeHandlerContext context, SagaUpdatedMessage sagaAudit)
     {
         var saga = activeSagaInstance.Instance;
 
@@ -84,7 +83,7 @@ class CaptureSagaStateBehavior :
         sagaAudit.IsCompleted = saga.Completed;
         sagaAudit.SagaId = saga.Entity.Id;
 
-        AssignSagaStateChangeCausedByMessage(context);
+        AssignSagaStateChangeCausedByMessage(context, sagaAudit);
 
         var properties = new List<LogEventProperty>
         {
@@ -116,7 +115,7 @@ class CaptureSagaStateBehavior :
         logger.WriteInfo(messageTemplate, properties);
     }
 
-    void AssignSagaStateChangeCausedByMessage(IInvokeHandlerContext context)
+    void AssignSagaStateChangeCausedByMessage(IInvokeHandlerContext context, SagaUpdatedMessage sagaAudit)
     {
         if (!context.Headers.TryGetValue("NServiceBus.Serilog.SagaStateChange", out var sagaStateChange))
         {
