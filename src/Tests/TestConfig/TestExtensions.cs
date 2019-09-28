@@ -39,7 +39,7 @@ public static class TestExtensions
             .OrderBy(x => x.StringSourceContext());
     }
 
-    public static string StringSourceContext(this LogEventEx log)
+    public static string? StringSourceContext(this LogEventEx log)
     {
         if (log.Properties.TryGetValue("SourceContext", out var sourceContext))
         {

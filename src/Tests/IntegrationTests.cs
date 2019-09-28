@@ -16,12 +16,10 @@ using Xunit.Abstractions;
 
 public class IntegrationTests : TestBase
 {
-    public static ManualResetEvent resetEvent;
 
     public IntegrationTests(ITestOutputHelper output) : base(output)
     {
         HeaderAppender.excludeHeaders.Add(Headers.TimeSent);
-        resetEvent = new ManualResetEvent(false);
     }
 
     [Fact]
@@ -101,13 +99,13 @@ public class IntegrationTests : TestBase
                 .RemoveLinesContaining("StackTraceString"));
     }
 
-    static async Task<IEnumerable<LogEventEx>> Send(object message, Action<SendOptions> optionsAction = null)
+    static async Task<IEnumerable<LogEventEx>> Send(object message, Action<SendOptions>? optionsAction = null)
     {
         var logs = new List<LogEvent>();
         var eventSink = new EventSink
-        {
-            Action = logs.Add
-        };
+        (
+            action: logs.Add
+        );
 
         var loggerConfiguration = new LoggerConfiguration();
         loggerConfiguration.Enrich.WithExceptionDetails();
@@ -120,6 +118,8 @@ public class IntegrationTests : TestBase
         var serilogTracing = configuration.EnableSerilogTracing();
         serilogTracing.EnableSagaTracing();
         serilogTracing.EnableMessageTracing();
+        var resetEvent = new ManualResetEvent(false);
+        configuration.RegisterComponents(components => components.RegisterSingleton(resetEvent));
 
         var recoverability = configuration.Recoverability();
         recoverability.Delayed(settings =>
@@ -148,11 +148,11 @@ public class IntegrationTests : TestBase
 
         return logs.Select(x =>
             new LogEventEx
-            {
-                MessageTemplate = x.MessageTemplate,
-                Level = x.Level,
-                Properties = x.Properties,
-                Exception = x.Exception,
-            });
+            (
+                messageTemplate: x.MessageTemplate,
+                level: x.Level,
+                properties: x.Properties,
+                exception: x.Exception
+            ));
     }
 }

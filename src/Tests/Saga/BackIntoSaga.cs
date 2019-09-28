@@ -3,5 +3,5 @@
 public class BackIntoSaga :
     IMessage
 {
-    public string Property { get; set; }
+    public string? Property { get; set; }
 }

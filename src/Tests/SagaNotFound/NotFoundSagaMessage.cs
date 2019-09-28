@@ -1,6 +1,7 @@
 ﻿using NServiceBus;
 
-public class NotFoundSagaMessage : IMessage
+public class NotFoundSagaMessage :
+    IMessage
 {
-    public string Property { get; set; }
+    public string? Property { get; set; }
 }

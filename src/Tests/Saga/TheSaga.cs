@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Threading;
+using System.Threading.Tasks;
 using NServiceBus;
 
 public class TheSaga :
@@ -6,6 +7,13 @@ public class TheSaga :
     IAmStartedByMessages<StartSaga>,
     IAmStartedByMessages<BackIntoSaga>
 {
+    ManualResetEvent resetEvent;
+
+    public TheSaga(ManualResetEvent resetEvent)
+    {
+        this.resetEvent = resetEvent;
+    }
+
     protected override void ConfigureHowToFindSaga(SagaPropertyMapper<TheSagaData> mapper)
     {
         mapper.ConfigureMapping<StartSaga>(m => m.Property)
@@ -30,12 +38,13 @@ public class TheSaga :
         var logger = context.Logger();
         logger.Information("Hello from {@Saga}. Message: {@Message}", nameof(TheSaga), message);
         MarkAsComplete();
-        IntegrationTests.resetEvent.Set();
+        resetEvent.Set();
         return Task.CompletedTask;
     }
 
-    public class TheSagaData : ContainSagaData
+    public class TheSagaData : 
+        ContainSagaData
     {
-        public string Property { get; set; }
+        public string? Property { get; set; }
     }
 }

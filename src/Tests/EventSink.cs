@@ -2,11 +2,18 @@
 using Serilog.Core;
 using Serilog.Events;
 
-public class EventSink : ILogEventSink
+public class EventSink : 
+    ILogEventSink
 {
-    public Action<LogEvent> Action;
+    Action<LogEvent> action;
+
+    public EventSink(Action<LogEvent> action)
+    {
+        this.action = action;
+    }
+
     public void Emit(LogEvent logEvent)
     {
-        Action(logEvent);
+        action(logEvent);
     }
 }

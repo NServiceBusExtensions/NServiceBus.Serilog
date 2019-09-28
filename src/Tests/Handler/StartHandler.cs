@@ -1,6 +1,7 @@
 ﻿using NServiceBus;
 
-public class StartHandler : IMessage
+public class StartHandler :
+    IMessage
 {
-    public string Property { get; set; }
+    public string? Property { get; set; }
 }

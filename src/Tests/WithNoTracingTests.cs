@@ -8,16 +8,15 @@ using Xunit.Abstractions;
 
 public class WithNoTracingTests : TestBase
 {
-    static ManualResetEvent resetEvent;
-    static Exception exception;
 
     [Fact]
     public async Task Handler()
     {
-        resetEvent = new ManualResetEvent(false);
+        Exception? exception = null;
+        var resetEvent = new ManualResetEvent(false);
         var configuration = ConfigBuilder.BuildDefaultConfig("WithNoTracingTests");
         configuration.DisableRetries();
-
+        configuration.RegisterComponents(components => components.RegisterSingleton(resetEvent));
         configuration.Notifications.Errors.MessageSentToErrorQueue +=
             (sender, retry) =>
             {
@@ -33,10 +32,11 @@ public class WithNoTracingTests : TestBase
         }
 
         await endpoint.Stop();
-        Approvals.Verify(exception.Message);
+        Approvals.Verify(exception?.Message);
     }
 
-    public WithNoTracingTests(ITestOutputHelper output) : base(output)
+    public WithNoTracingTests(ITestOutputHelper output) :
+        base(output)
     {
     }
 }

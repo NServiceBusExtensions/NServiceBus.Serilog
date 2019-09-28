@@ -12,9 +12,10 @@ public class NotFoundSaga :
             .ToSaga(s => s.Property);
     }
 
-    public class TheSagaData : ContainSagaData
+    public class TheSagaData :
+        ContainSagaData
     {
-        public string Property { get; set; }
+        public string? Property { get; set; }
     }
 
     public Task Handle(NotFoundSagaMessage message, IMessageHandlerContext context)
