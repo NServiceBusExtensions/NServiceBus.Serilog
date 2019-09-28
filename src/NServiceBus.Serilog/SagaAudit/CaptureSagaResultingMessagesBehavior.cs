@@ -6,8 +6,6 @@ using NServiceBus.Serilog;
 class CaptureSagaResultingMessagesBehavior :
     Behavior<IOutgoingLogicalMessageContext>
 {
-    SagaUpdatedMessage sagaUpdatedMessage;
-
     public override Task Invoke(IOutgoingLogicalMessageContext context, Func<Task> next)
     {
         AppendMessageToState(context);
@@ -16,7 +14,7 @@ class CaptureSagaResultingMessagesBehavior :
 
     void AppendMessageToState(IOutgoingLogicalMessageContext context)
     {
-        if (!context.Extensions.TryGet(out sagaUpdatedMessage))
+        if (!context.Extensions.TryGet(out SagaUpdatedMessage sagaUpdatedMessage))
         {
             return;
         }

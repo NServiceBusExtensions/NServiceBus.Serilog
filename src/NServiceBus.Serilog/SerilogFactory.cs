@@ -8,7 +8,7 @@ namespace NServiceBus.Serilog
     /// </summary>
     public class SerilogFactory : LoggingFactoryDefinition
     {
-        ILogger loggerToUse;
+        ILogger? loggerToUse;
 
         /// <summary>
         /// <see cref="LoggingFactoryDefinition.GetLoggingFactory"/>.

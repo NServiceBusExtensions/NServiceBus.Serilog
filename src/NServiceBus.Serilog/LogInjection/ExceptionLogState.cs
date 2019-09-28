@@ -13,8 +13,8 @@ namespace NServiceBus.Serilog
         public readonly string IncomingMessageType;
         public readonly string CorrelationId;
         public readonly string ConversationId;
-        public string HandlerType;
-        public object IncomingMessage;
+        public string? HandlerType;
+        public object? IncomingMessage;
         public readonly IReadOnlyDictionary<string, string> IncomingHeaders;
 
         public ExceptionLogState(string processingEndpoint, string incomingMessageId, string incomingMessageType, IReadOnlyDictionary<string, string> incomingHeaders, string correlationId, string conversationId)

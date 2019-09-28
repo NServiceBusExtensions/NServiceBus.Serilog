@@ -35,10 +35,7 @@ class CaptureSagaStateBehavior :
             return;
         }
 
-        var sagaAudit = new SagaUpdatedMessage
-        {
-            StartTime = DateTimeOffset.UtcNow
-        };
+        var sagaAudit = new SagaUpdatedMessage(DateTimeOffset.UtcNow);
         context.Extensions.Set(sagaAudit);
         await next();
 

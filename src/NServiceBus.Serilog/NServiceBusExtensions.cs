@@ -82,7 +82,7 @@ static class NServiceBusExtensions
         return false;
     }
 
-    public static string GetDestinationForUnicastMessages(this IOutgoingLogicalMessageContext context)
+    public static string? GetDestinationForUnicastMessages(this IOutgoingLogicalMessageContext context)
     {
         var sendAddressTags = context.RoutingStrategies
             .OfType<UnicastRoutingStrategy>()

@@ -2,7 +2,7 @@
 {
     class SagaChangeOutput
     {
-        public SagaChangeOutput(string resultingMessageId, string messageType, string destination, string messageIntent)
+        public SagaChangeOutput(string resultingMessageId, string messageType, string? destination, string messageIntent)
         {
             ResultingMessageId = resultingMessageId;
             MessageType = messageType;
@@ -11,7 +11,7 @@
         }
 
         public string MessageType { get; }
-        public string Destination { get; }
+        public string? Destination { get; }
         public string ResultingMessageId { get; }
         public string MessageIntent { get; }
     }
