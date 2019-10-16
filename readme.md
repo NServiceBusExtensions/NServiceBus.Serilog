@@ -280,6 +280,16 @@ Log.Logger = new LoggerConfiguration()
     .CreateLogger();
 ```
 <sup>[snippet source](/src/Sample/Program.cs#L13-L17) / [anchor](#snippet-configureserilog)</sup>
+<a id='snippet-configureserilog-1'/></a>
+```cs
+var tracingLog = new LoggerConfiguration()
+    .WriteTo.Seq("http://localhost:5341")
+    .MinimumLevel.Information()
+    .CreateLogger();
+var serilogFactory = LogManager.Use<SerilogFactory>();
+serilogFactory.WithLogger(tracingLog);
+```
+<sup>[snippet source](/src/SeqSample/Program.cs#L13-L20) / [anchor](#snippet-configureserilog-1)</sup>
 <!-- endsnippet -->
 
 
@@ -293,6 +303,14 @@ LogManager.Use<SerilogFactory>();
 var endpointConfiguration = new EndpointConfiguration("Samples.Logging.SerilogCustom");
 ```
 <sup>[snippet source](/src/Sample/Program.cs#L19-L24) / [anchor](#snippet-useconfig)</sup>
+<a id='snippet-useconfig-1'/></a>
+```cs
+var endpointConfiguration = new EndpointConfiguration("Samples.Logging.SerilogTracing");
+var serilogTracing = endpointConfiguration.EnableSerilogTracing(tracingLog);
+serilogTracing.EnableSagaTracing();
+serilogTracing.EnableMessageTracing();
+```
+<sup>[snippet source](/src/SeqSample/Program.cs#L22-L29) / [anchor](#snippet-useconfig-1)</sup>
 <!-- endsnippet -->
 
 
@@ -306,6 +324,87 @@ await endpointInstance.Stop()
 Log.CloseAndFlush();
 ```
 <sup>[snippet source](/src/Sample/Program.cs#L36-L40) / [anchor](#snippet-cleanup)</sup>
+<a id='snippet-cleanup-1'/></a>
+```cs
+await endpointInstance.Stop()
+    .ConfigureAwait(false);
+Log.CloseAndFlush();
+```
+<sup>[snippet source](/src/SeqSample/Program.cs#L47-L51) / [anchor](#snippet-cleanup-1)</sup>
+<!-- endsnippet -->
+
+
+## Seq Sample
+
+Illustrates customizing [Serilog](https://serilog.net/) usage to log to [Seq](https://getseq.net/).
+
+
+### Prerequisites
+
+An instance of [Seq](https://getseq.net/) running one `http://localhost:5341`.
+
+
+### Configure Serilog
+
+<!-- snippet: ConfigureSerilog -->
+<a id='snippet-configureserilog'/></a>
+```cs
+Log.Logger = new LoggerConfiguration()
+    .WriteTo.Console()
+    .CreateLogger();
+```
+<sup>[snippet source](/src/Sample/Program.cs#L13-L17) / [anchor](#snippet-configureserilog)</sup>
+<a id='snippet-configureserilog-1'/></a>
+```cs
+var tracingLog = new LoggerConfiguration()
+    .WriteTo.Seq("http://localhost:5341")
+    .MinimumLevel.Information()
+    .CreateLogger();
+var serilogFactory = LogManager.Use<SerilogFactory>();
+serilogFactory.WithLogger(tracingLog);
+```
+<sup>[snippet source](/src/SeqSample/Program.cs#L13-L20) / [anchor](#snippet-configureserilog-1)</sup>
+<!-- endsnippet -->
+
+
+### Pass that configuration to NServiceBus
+
+<!-- snippet: UseConfig -->
+<a id='snippet-useconfig'/></a>
+```cs
+LogManager.Use<SerilogFactory>();
+
+var endpointConfiguration = new EndpointConfiguration("Samples.Logging.SerilogCustom");
+```
+<sup>[snippet source](/src/Sample/Program.cs#L19-L24) / [anchor](#snippet-useconfig)</sup>
+<a id='snippet-useconfig-1'/></a>
+```cs
+var endpointConfiguration = new EndpointConfiguration("Samples.Logging.SerilogTracing");
+var serilogTracing = endpointConfiguration.EnableSerilogTracing(tracingLog);
+serilogTracing.EnableSagaTracing();
+serilogTracing.EnableMessageTracing();
+```
+<sup>[snippet source](/src/SeqSample/Program.cs#L22-L29) / [anchor](#snippet-useconfig-1)</sup>
+<!-- endsnippet -->
+
+
+### Ensure logging is flushed on shutdown
+
+<!-- snippet: Cleanup -->
+<a id='snippet-cleanup'/></a>
+```cs
+await endpointInstance.Stop()
+    .ConfigureAwait(false);
+Log.CloseAndFlush();
+```
+<sup>[snippet source](/src/Sample/Program.cs#L36-L40) / [anchor](#snippet-cleanup)</sup>
+<a id='snippet-cleanup-1'/></a>
+```cs
+await endpointInstance.Stop()
+    .ConfigureAwait(false);
+Log.CloseAndFlush();
+```
+<sup>[snippet source](/src/SeqSample/Program.cs#L47-L51) / [anchor](#snippet-cleanup-1)</sup>
 <!-- endsnippet -->
 
 
