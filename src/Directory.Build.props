@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project>
   <PropertyGroup>
-    <Version>6.4.1</Version>
+    <Version>6.4.2</Version>
     <Description>Add support for sending NServiceBus logging through Serilog</Description>
-    <PackageProjectUrl>https://docs.particular.net/nuget/NServiceBus.Serilog</PackageProjectUrl>
   </PropertyGroup>
 </Project>
