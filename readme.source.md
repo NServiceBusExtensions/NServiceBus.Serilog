@@ -151,6 +151,26 @@ To log to [Seq](https://getseq.net/):
 snippet: SerilogTracingSeq
 
 
+## Sample
+
+The sample illustrates how to customize logging by configuring Serilog targets and rules.
+
+
+### Configure Serilog
+
+snippet: ConfigureSerilog
+
+
+### Pass the configuration to NServiceBus
+
+snippet: UseConfig
+
+
+### Ensure logging is flushed on shutdown
+
+snippet: Cleanup
+
+
 ## Icon
 
 [Brain](https://thenounproject.com/noun/brain/#icon-No10411) designed by [Rémy Médard](https://thenounproject.com/catalarem) from [The Noun Project](https://thenounproject.com).

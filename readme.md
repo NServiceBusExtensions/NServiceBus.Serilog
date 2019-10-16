@@ -47,7 +47,7 @@ Log.Logger = new LoggerConfiguration()
 
 LogManager.Use<SerilogFactory>();
 ```
-<sup>[snippet source](/src/Tests/Snippets/Usage.cs#L11-L19) / [anchor](#snippet-serilogincode)</sup>
+<sup>[snippet source](/src/Tests/Snippets/Usage.cs#L10-L18) / [anchor](#snippet-serilogincode)</sup>
 <!-- endsnippet -->
 
 
@@ -65,7 +65,7 @@ Log.Logger = new LoggerConfiguration()
 
 LogManager.Use<SerilogFactory>();
 ```
-<sup>[snippet source](/src/Tests/Snippets/Usage.cs#L24-L33) / [anchor](#snippet-serilogseq)</sup>
+<sup>[snippet source](/src/Tests/Snippets/Usage.cs#L23-L32) / [anchor](#snippet-serilogseq)</sup>
 <!-- endsnippet -->
 
 
@@ -217,7 +217,7 @@ if (data.Contains("ExceptionLogState"))
     var incomingMessage = logState.IncomingMessage;
 }
 ```
-<sup>[snippet source](/src/Tests/Snippets/Usage.cs#L38-L54) / [anchor](#snippet-exceptionlogstate)</sup>
+<sup>[snippet source](/src/Tests/Snippets/Usage.cs#L37-L53) / [anchor](#snippet-exceptionlogstate)</sup>
 <!-- endsnippet -->
 
 When routing the NServiceBus log event with `LogManager.Use<SerilogFactory>();`, the above properties will be promoted to the log event.
@@ -262,6 +262,50 @@ var tracingLog = new LoggerConfiguration()
     .CreateLogger();
 ```
 <sup>[snippet source](/src/Tests/Snippets/TracingUsage.cs#L49-L56) / [anchor](#snippet-serilogtracingseq)</sup>
+<!-- endsnippet -->
+
+
+## Sample
+
+The sample illustrates how to customize logging by configuring Serilog targets and rules.
+
+
+### Configure Serilog
+
+<!-- snippet: ConfigureSerilog -->
+<a id='snippet-configureserilog'/></a>
+```cs
+Log.Logger = new LoggerConfiguration()
+    .WriteTo.Console()
+    .CreateLogger();
+```
+<sup>[snippet source](/src/Sample/Program.cs#L13-L17) / [anchor](#snippet-configureserilog)</sup>
+<!-- endsnippet -->
+
+
+### Pass the configuration to NServiceBus
+
+<!-- snippet: UseConfig -->
+<a id='snippet-useconfig'/></a>
+```cs
+LogManager.Use<SerilogFactory>();
+
+var endpointConfiguration = new EndpointConfiguration("Samples.Logging.SerilogCustom");
+```
+<sup>[snippet source](/src/Sample/Program.cs#L19-L24) / [anchor](#snippet-useconfig)</sup>
+<!-- endsnippet -->
+
+
+### Ensure logging is flushed on shutdown
+
+<!-- snippet: Cleanup -->
+<a id='snippet-cleanup'/></a>
+```cs
+await endpointInstance.Stop()
+    .ConfigureAwait(false);
+Log.CloseAndFlush();
+```
+<sup>[snippet source](/src/Sample/Program.cs#L36-L40) / [anchor](#snippet-cleanup)</sup>
 <!-- endsnippet -->
 
 

@@ -5,42 +5,38 @@ using NServiceBus.Logging;
 using NServiceBus.Serilog;
 using Serilog;
 
-class Program
+static class Program
 {
     static async Task Main()
     {
-        //Setup Serilog
-        var loggerConfiguration = new LoggerConfiguration();
-        loggerConfiguration.WriteTo.Console();
-        loggerConfiguration.MinimumLevel.Information();
-        loggerConfiguration.WriteTo.File("logFile.txt");
-        var logger = loggerConfiguration.CreateLogger();
-        Log.Logger = logger;
+        Console.Title = "Samples.Logging.SerilogCustom";
+        #region ConfigureSerilog
+        Log.Logger = new LoggerConfiguration()
+            .WriteTo.Console()
+            .CreateLogger();
+        #endregion
 
-        //Set NServiceBus to log to Serilog
-        var serilogFactory = LogManager.Use<SerilogFactory>();
-        serilogFactory.WithLogger(logger);
+        #region UseConfig
+        LogManager.Use<SerilogFactory>();
 
-        //Start using NServiceBus
-        var configuration = new EndpointConfiguration("SerilogSample");
-        configuration.EnableInstallers();
-        configuration.SendFailedMessagesTo("error");
-        configuration.UsePersistence<InMemoryPersistence>();
-        configuration.UseTransport<LearningTransport>();
+        var endpointConfiguration = new EndpointConfiguration("Samples.Logging.SerilogCustom");
 
-        var serilogTracing = configuration.EnableSerilogTracing();
-        serilogTracing.EnableMessageTracing();
+        #endregion
 
-        var endpoint = await Endpoint.Start(configuration);
-        var createUser = new CreateUser
-        {
-            UserName = "jsmith",
-            FamilyName = "Smith",
-            GivenNames = "John",
-        };
-        await endpoint.SendLocal(createUser);
-      //  await endpoint.ScheduleEvery(TimeSpan.FromSeconds(5), context => context.SendLocal(createUser));
-        Console.WriteLine("Press any key to stop program");
-        Console.Read();
+        endpointConfiguration.UsePersistence<LearningPersistence>();
+        endpointConfiguration.UseTransport<LearningTransport>();
+
+        var endpointInstance = await Endpoint.Start(endpointConfiguration)
+            .ConfigureAwait(false);
+        var myMessage = new MyMessage();
+        await endpointInstance.SendLocal(myMessage)
+            .ConfigureAwait(false);
+        Console.WriteLine("Press any key to exit");
+        Console.ReadKey();
+        #region Cleanup
+        await endpointInstance.Stop()
+            .ConfigureAwait(false);
+        Log.CloseAndFlush();
+        #endregion
     }
 }
