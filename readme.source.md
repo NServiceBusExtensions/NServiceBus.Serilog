@@ -38,13 +38,6 @@ Thanks to all the backing developers! Support this project by [becoming a patron
 snippet: SerilogInCode
 
 
-## Seq
-
-To log to [Seq](https://getseq.net/):
-
-snippet: SerilogSeq
-
-
 ## Filtering
 
 NServiceBus can write a significant amount of information to the log. To limit this information use the filtering features of the underlying logging framework.
@@ -148,7 +141,7 @@ Both incoming and outgoing messages will be logged at the [Information level](ht
 snippet: EnableMessageTracing
 
 
-## Seq
+## Logging to Seq
 
 To log to [Seq](https://getseq.net/):
 

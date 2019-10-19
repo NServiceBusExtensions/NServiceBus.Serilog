@@ -5,7 +5,41 @@ Source File: /readme.source.md
 To change this file edit the source file and then run MarkdownSnippets.
 -->
 
-<img src="/src/icon.png" height="25px"> Add support for sending [NServiceBus](http://particular.net/NServiceBus) logging through [Serilog](http://serilog.net/)
+# <img src="/src/icon.png" height="30px"> NServiceBus.Serilog
+
+[![Build status](https://ci.appveyor.com/api/projects/status/nmcughyrado8smay/branch/master?svg=true)](https://ci.appveyor.com/project/SimonCropp/nservicebus-Serilog)
+[![NuGet Status](https://img.shields.io/nuget/v/NServiceBus.Serilog.svg?cacheSeconds=86400)](https://www.nuget.org/packages/NServiceBus.Serilog/)
+
+Add support for sending [NServiceBus](http://particular.net/NServiceBus) logging through [Serilog](http://serilog.net/)
+
+<!-- toc -->
+## Contents
+
+  * [Community backed](#community-backed)
+    * [Sponsors](#sponsors)
+    * [Patrons](#patrons)
+  * [Usage](#usage)
+  * [Filtering](#filtering)
+  * [Tracing](#tracing)
+    * [Create an instance of a Serilog logger](#create-an-instance-of-a-serilog-logger)
+    * [Configure the tracing feature to use that logger](#configure-the-tracing-feature-to-use-that-logger)
+    * [Contextual logger](#contextual-logger)
+    * [Exception enrichment](#exception-enrichment)
+    * [Saga tracing](#saga-tracing)
+    * [Message tracing](#message-tracing)
+  * [Logging to Seq](#logging-to-seq)
+  * [Sample](#sample)
+    * [Configure Serilog](#configure-serilog)
+    * [Pass the configuration to NServiceBus](#pass-the-configuration-to-nservicebus)
+    * [Ensure logging is flushed on shutdown](#ensure-logging-is-flushed-on-shutdown)
+  * [Seq Sample](#seq-sample)
+    * [Prerequisites](#prerequisites)
+    * [Configure Serilog](#configure-serilog-1)
+    * [Pass that configuration to NServiceBus](#pass-that-configuration-to-nservicebus)
+    * [Ensure logging is flushed on shutdown](#ensure-logging-is-flushed-on-shutdown-1)
+<!-- endtoc -->
+
+
 <!--- StartOpenCollectiveBackers -->
 
 [Already a Patron? skip past this section](#endofbacking)
@@ -31,10 +65,6 @@ Thanks to all the backing developers! Support this project by [becoming a patron
 
 <a href="#" id="endofbacking"></a>
 
-## NuGet package
-
-https://nuget.org/packages/NServiceBus.Serilog/ [![NuGet Status](https://img.shields.io/nuget/v/NServiceBus.Serilog.svg)](https://www.nuget.org/packages/NServiceBus.Serilog/)
-
 
 ## Usage
 
@@ -48,24 +78,6 @@ Log.Logger = new LoggerConfiguration()
 LogManager.Use<SerilogFactory>();
 ```
 <sup>[snippet source](/src/Tests/Snippets/Usage.cs#L10-L18) / [anchor](#snippet-serilogincode)</sup>
-<!-- endsnippet -->
-
-
-## Seq
-
-To log to [Seq](https://getseq.net/):
-
-<!-- snippet: SerilogSeq -->
-<a id='snippet-serilogseq'/></a>
-```cs
-Log.Logger = new LoggerConfiguration()
-    .WriteTo.Seq("http://localhost:5341")
-    .MinimumLevel.Information()
-    .CreateLogger();
-
-LogManager.Use<SerilogFactory>();
-```
-<sup>[snippet source](/src/Tests/Snippets/Usage.cs#L23-L32) / [anchor](#snippet-serilogseq)</sup>
 <!-- endsnippet -->
 
 
@@ -97,7 +109,7 @@ LogManager.Use<SerilogFactory>();
 
 ## Tracing
 
-Writing diagnostic log entries to [Serilog](https://serilog.net/). Plugs into the low level [pipeline](/nservicebus/pipeline) to give more detailed diagnostics.
+Writing diagnostic log entries to [Serilog](https://serilog.net/). Plugs into the low level [pipeline](https://docs.particular.net/nservicebus/pipeline) to give more detailed diagnostics.
 
 When using Serilog for tracing, it is optional to use Serilog as the main NServiceBus logger. i.e. there is no need to include `LogManager.Use<SerilogFactory>();`.
 
@@ -139,17 +151,17 @@ There are several layers of enrichment based on the pipeline phase.
 
 #### Endpoint enrichment
 
-All loggers for an endpoint will have the the property `ProcessingEndpoint` added that contains the current [endpoint name](/nservicebus/endpoints/specify-endpoint-name.md).
+All loggers for an endpoint will have the the property `ProcessingEndpoint` added that contains the current [endpoint name](https://docs.particular.net/nservicebus/endpoints/specify-endpoint-name.md).
 
 
 #### Incoming message enrichment
 
 When a message is received, the following enrichment properties are added:
 
- * [SourceContext](https://github.com/serilog/serilog/wiki/Writing-Log-Events#source-contexts) will be the message type [FullName](https://docs.microsoft.com/de-de/dotnet/api/system.type.fullname) extracted from the [EnclosedMessageTypes header](/nservicebus/messaging/headers.md#serialization-headers-nservicebus-enclosedmessagetypes). `UnknownMessageType` will be used if no header exists. The same value will be added to a property named `MessageType`.
- * `MessageId` will be the value of the [MessageId header](/nservicebus/messaging/headers.md#messaging-interaction-headers-nservicebus-messageid).
- * `CorrelationId` will be the value of the [CorrelationId header](/nservicebus/messaging/headers.md#messaging-interaction-headers-nservicebus-correlationid) if it exists.
- * `ConversationId` will be the value of the [ConversationId header](/nservicebus/messaging/headers.md#messaging-interaction-headers-nservicebus-conversationid) if it exists.
+ * [SourceContext](https://github.com/serilog/serilog/wiki/Writing-Log-Events#source-contexts) will be the message type [FullName](https://docs.microsoft.com/de-de/dotnet/api/system.type.fullname) extracted from the [EnclosedMessageTypes header](https://docs.particular.net/nservicebus/messaging/headers.md#serialization-headers-nservicebus-enclosedmessagetypes). `UnknownMessageType` will be used if no header exists. The same value will be added to a property named `MessageType`.
+ * `MessageId` will be the value of the [MessageId header](https://docs.particular.net/nservicebus/messaging/headers.md#messaging-interaction-headers-nservicebus-messageid).
+ * `CorrelationId` will be the value of the [CorrelationId header](https://docs.particular.net/nservicebus/messaging/headers.md#messaging-interaction-headers-nservicebus-correlationid) if it exists.
+ * `ConversationId` will be the value of the [ConversationId header](https://docs.particular.net/nservicebus/messaging/headers.md#messaging-interaction-headers-nservicebus-conversationid) if it exists.
 
 
 #### Handler enrichment
@@ -189,12 +201,12 @@ When an exception occurs in the message processing pipeline, the current pipelin
 
 The type added to the exception data is `ExceptionLogState`. It contains the following data:
 
- * `ProcessingEndpoint` will be the current [endpoint name](/nservicebus/endpoints/specify-endpoint-name.md).
- * `MessageId` will be the value of the [MessageId header](/nservicebus/messaging/headers.md#messaging-interaction-headers-nservicebus-messageid).
- * `Headers` will be the value of the [Message headers](/nservicebus/messaging/headers.md).
- * `MessageType` will be the message type [FullName](https://docs.microsoft.com/de-de/dotnet/api/system.type.fullname) extracted from the [EnclosedMessageTypes header](/nservicebus/messaging/headers.md#serialization-headers-nservicebus-enclosedmessagetypes). `UnknownMessageType` will be used if no header exists.
- * `CorrelationId` will be the value of the [CorrelationId header](/nservicebus/messaging/headers.md#messaging-interaction-headers-nservicebus-correlationid) if it exists.
- * `ConversationId` will be the value of the [ConversationId header](/nservicebus/messaging/headers.md#messaging-interaction-headers-nservicebus-conversationid) if it exists.
+ * `ProcessingEndpoint` will be the current [endpoint name](https://docs.particular.net/nservicebus/endpoints/specify-endpoint-name.md).
+ * `MessageId` will be the value of the [MessageId header](https://docs.particular.net/nservicebus/messaging/headers.md#messaging-interaction-headers-nservicebus-messageid).
+ * `Headers` will be the value of the [Message headers](https://docs.particular.net/nservicebus/messaging/headers.md).
+ * `MessageType` will be the message type [FullName](https://docs.microsoft.com/de-de/dotnet/api/system.type.fullname) extracted from the [EnclosedMessageTypes header](https://docs.particular.net/nservicebus/messaging/headers.md#serialization-headers-nservicebus-enclosedmessagetypes). `UnknownMessageType` will be used if no header exists.
+ * `CorrelationId` will be the value of the [CorrelationId header](https://docs.particular.net/nservicebus/messaging/headers.md#messaging-interaction-headers-nservicebus-correlationid) if it exists.
+ * `ConversationId` will be the value of the [ConversationId header](https://docs.particular.net/nservicebus/messaging/headers.md#messaging-interaction-headers-nservicebus-conversationid) if it exists.
  * `HandlerType` will be type name for the current handler if it exists.
  * `Message` will be the value of current logical message if it exists.
 
@@ -249,7 +261,7 @@ serilogTracing.EnableMessageTracing();
 <!-- endsnippet -->
 
 
-## Seq
+## Logging to Seq
 
 To log to [Seq](https://getseq.net/):
 
@@ -406,6 +418,11 @@ Log.CloseAndFlush();
 ```
 <sup>[snippet source](/src/SeqSample/Program.cs#L47-L51) / [anchor](#snippet-cleanup-1)</sup>
 <!-- endsnippet -->
+
+
+## Release Notes
+
+See [closed milestones](../../milestones?state=closed).
 
 
 ## Icon
