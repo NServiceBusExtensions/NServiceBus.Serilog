@@ -17,12 +17,14 @@ public class WithNoTracingTests : TestBase
         var configuration = ConfigBuilder.BuildDefaultConfig("WithNoTracingTests");
         configuration.DisableRetries();
         configuration.RegisterComponents(components => components.RegisterSingleton(resetEvent));
-        configuration.Notifications.Errors.MessageSentToErrorQueue +=
-            (sender, retry) =>
+
+        configuration.Recoverability().Failed(_ => _
+            .OnMessageSentToErrorQueue(message =>
             {
-                exception = retry.Exception;
+                exception = message.Exception;
                 resetEvent.Set();
-            };
+                return Task.CompletedTask;
+            }));
 
         var endpoint = await Endpoint.Start(configuration);
         await endpoint.SendLocal(new StartHandler());

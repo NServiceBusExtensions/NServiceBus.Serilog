@@ -41,8 +41,8 @@ public class IntegrationTests : TestBase
             new NotFoundSagaMessage(),
             options =>
             {
-                options.SetHeader(Headers.SagaId,Guid.NewGuid().ToString());
-                options.SetHeader(Headers.SagaType,typeof(TheSaga).FullName);
+                options.SetHeader(Headers.SagaId, Guid.NewGuid().ToString());
+                options.SetHeader(Headers.SagaType, typeof(TheSaga).FullName);
             });
         var logEvents = events.ToList();
         Verify<NotFoundSagaMessage>(logEvents);
@@ -114,7 +114,7 @@ public class IntegrationTests : TestBase
         Log.Logger = loggerConfiguration.CreateLogger();
         LogManager.Use<SerilogFactory>();
 
-        var configuration = ConfigBuilder.BuildDefaultConfig("SerilogTests"+message.GetType().Name);
+        var configuration = ConfigBuilder.BuildDefaultConfig("SerilogTests" + message.GetType().Name);
         var serilogTracing = configuration.EnableSerilogTracing();
         serilogTracing.EnableSagaTracing();
         serilogTracing.EnableMessageTracing();
@@ -129,8 +129,12 @@ public class IntegrationTests : TestBase
         });
         recoverability.Immediate(settings => { settings.NumberOfRetries(1); });
 
-        configuration.Notifications.Errors.MessageSentToErrorQueue +=
-            (sender, retry) => { resetEvent.Set(); };
+        recoverability.Failed(_ => _
+            .OnMessageSentToErrorQueue(_ =>
+            {
+                resetEvent.Set();
+                return Task.CompletedTask;
+            }));
 
         var endpoint = await Endpoint.Start(configuration);
         var sendOptions = new SendOptions();

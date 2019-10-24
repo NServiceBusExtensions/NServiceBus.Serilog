@@ -186,6 +186,12 @@
         ExceptionDetail: {
           Elements: {
             "Type": 'System.NullReferenceException',
+            "Data": {
+              Elements: {
+                "Message ID": Guid_3,
+                "Transport message ID": Guid_5
+              }
+            },
             "HResult": -2147467261,
             "Message": 'Object reference not set to an instance of an object.',
             "Source": 'NServiceBus.Core'
@@ -233,6 +239,12 @@
         ExceptionDetail: {
           Elements: {
             "Type": 'System.NullReferenceException',
+            "Data": {
+              Elements: {
+                "Message ID": Guid_3,
+                "Transport message ID": Guid_5
+              }
+            },
             "HResult": -2147467261,
             "Message": 'Object reference not set to an instance of an object.',
             "Source": 'NServiceBus.Core'
@@ -282,6 +294,12 @@
         ExceptionDetail: {
           Elements: {
             "Type": 'System.NullReferenceException',
+            "Data": {
+              Elements: {
+                "Message ID": Guid_3,
+                "Transport message ID": Guid_6
+              }
+            },
             "HResult": -2147467261,
             "Message": 'Object reference not set to an instance of an object.',
             "Source": 'NServiceBus.Core'
@@ -331,6 +349,12 @@
         ExceptionDetail: {
           Elements: {
             "Type": 'System.NullReferenceException',
+            "Data": {
+              Elements: {
+                "Message ID": Guid_3,
+                "Transport message ID": Guid_6
+              }
+            },
             "HResult": -2147467261,
             "Message": 'Object reference not set to an instance of an object.',
             "Source": 'NServiceBus.Core'
