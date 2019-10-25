@@ -9,7 +9,7 @@ static class Program
 {
     static async Task Main()
     {
-        Console.Title = "Samples.Logging.SerilogTracing";
+        Console.Title = "SeqSample";
         #region ConfigureSerilog
         var tracingLog = new LoggerConfiguration()
             .WriteTo.Seq("http://localhost:5341")
@@ -21,17 +21,17 @@ static class Program
 
         #region UseConfig
 
-        var endpointConfiguration = new EndpointConfiguration("Samples.Logging.SerilogTracing");
-        var serilogTracing = endpointConfiguration.EnableSerilogTracing(tracingLog);
+        var configuration = new EndpointConfiguration("SeqSample");
+        var serilogTracing = configuration.EnableSerilogTracing(tracingLog);
         serilogTracing.EnableSagaTracing();
         serilogTracing.EnableMessageTracing();
 
         #endregion
 
-        endpointConfiguration.UsePersistence<LearningPersistence>();
-        endpointConfiguration.UseTransport<LearningTransport>();
+        configuration.UsePersistence<LearningPersistence>();
+        configuration.UseTransport<LearningTransport>();
 
-        var endpointInstance = await Endpoint.Start(endpointConfiguration)
+        var endpoint = await Endpoint.Start(configuration)
             .ConfigureAwait(false);
         var createUser = new CreateUser
         {
@@ -39,13 +39,13 @@ static class Program
             FamilyName = "Smith",
             GivenNames = "John",
         };
-        await endpointInstance.SendLocal(createUser)
+        await endpoint.SendLocal(createUser)
             .ConfigureAwait(false);
         Console.WriteLine("Message sent");
         Console.WriteLine("Press any key to exit");
         Console.ReadKey();
         #region Cleanup
-        await endpointInstance.Stop()
+        await endpoint.Stop()
             .ConfigureAwait(false);
         Log.CloseAndFlush();
         #endregion

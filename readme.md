@@ -313,13 +313,13 @@ serilogFactory.WithLogger(tracingLog);
 ```cs
 LogManager.Use<SerilogFactory>();
 
-var endpointConfiguration = new EndpointConfiguration("Samples.Logging.SerilogCustom");
+var configuration = new EndpointConfiguration("SerilogSample");
 ```
 <sup>[snippet source](/src/Sample/Program.cs#L19-L24) / [anchor](#snippet-useconfig)</sup>
 <a id='snippet-useconfig-1'/></a>
 ```cs
-var endpointConfiguration = new EndpointConfiguration("Samples.Logging.SerilogTracing");
-var serilogTracing = endpointConfiguration.EnableSerilogTracing(tracingLog);
+var configuration = new EndpointConfiguration("SeqSample");
+var serilogTracing = configuration.EnableSerilogTracing(tracingLog);
 serilogTracing.EnableSagaTracing();
 serilogTracing.EnableMessageTracing();
 ```
@@ -332,14 +332,14 @@ serilogTracing.EnableMessageTracing();
 <!-- snippet: Cleanup -->
 <a id='snippet-cleanup'/></a>
 ```cs
-await endpointInstance.Stop()
+await endpoint.Stop()
     .ConfigureAwait(false);
 Log.CloseAndFlush();
 ```
 <sup>[snippet source](/src/Sample/Program.cs#L36-L40) / [anchor](#snippet-cleanup)</sup>
 <a id='snippet-cleanup-1'/></a>
 ```cs
-await endpointInstance.Stop()
+await endpoint.Stop()
     .ConfigureAwait(false);
 Log.CloseAndFlush();
 ```
@@ -387,13 +387,13 @@ serilogFactory.WithLogger(tracingLog);
 ```cs
 LogManager.Use<SerilogFactory>();
 
-var endpointConfiguration = new EndpointConfiguration("Samples.Logging.SerilogCustom");
+var configuration = new EndpointConfiguration("SerilogSample");
 ```
 <sup>[snippet source](/src/Sample/Program.cs#L19-L24) / [anchor](#snippet-useconfig)</sup>
 <a id='snippet-useconfig-1'/></a>
 ```cs
-var endpointConfiguration = new EndpointConfiguration("Samples.Logging.SerilogTracing");
-var serilogTracing = endpointConfiguration.EnableSerilogTracing(tracingLog);
+var configuration = new EndpointConfiguration("SeqSample");
+var serilogTracing = configuration.EnableSerilogTracing(tracingLog);
 serilogTracing.EnableSagaTracing();
 serilogTracing.EnableMessageTracing();
 ```
@@ -406,14 +406,14 @@ serilogTracing.EnableMessageTracing();
 <!-- snippet: Cleanup -->
 <a id='snippet-cleanup'/></a>
 ```cs
-await endpointInstance.Stop()
+await endpoint.Stop()
     .ConfigureAwait(false);
 Log.CloseAndFlush();
 ```
 <sup>[snippet source](/src/Sample/Program.cs#L36-L40) / [anchor](#snippet-cleanup)</sup>
 <a id='snippet-cleanup-1'/></a>
 ```cs
-await endpointInstance.Stop()
+await endpoint.Stop()
     .ConfigureAwait(false);
 Log.CloseAndFlush();
 ```

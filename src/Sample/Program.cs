@@ -9,7 +9,7 @@ static class Program
 {
     static async Task Main()
     {
-        Console.Title = "Samples.Logging.SerilogCustom";
+        Console.Title = "SerilogSample";
         #region ConfigureSerilog
         Log.Logger = new LoggerConfiguration()
             .WriteTo.Console()
@@ -19,22 +19,22 @@ static class Program
         #region UseConfig
         LogManager.Use<SerilogFactory>();
 
-        var endpointConfiguration = new EndpointConfiguration("Samples.Logging.SerilogCustom");
+        var configuration = new EndpointConfiguration("SerilogSample");
 
         #endregion
 
-        endpointConfiguration.UsePersistence<LearningPersistence>();
-        endpointConfiguration.UseTransport<LearningTransport>();
+        configuration.UsePersistence<LearningPersistence>();
+        configuration.UseTransport<LearningTransport>();
 
-        var endpointInstance = await Endpoint.Start(endpointConfiguration)
+        var endpoint = await Endpoint.Start(configuration)
             .ConfigureAwait(false);
         var myMessage = new MyMessage();
-        await endpointInstance.SendLocal(myMessage)
+        await endpoint.SendLocal(myMessage)
             .ConfigureAwait(false);
         Console.WriteLine("Press any key to exit");
         Console.ReadKey();
         #region Cleanup
-        await endpointInstance.Stop()
+        await endpoint.Stop()
             .ConfigureAwait(false);
         Log.CloseAndFlush();
         #endregion
