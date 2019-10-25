@@ -155,7 +155,6 @@
         ProcessingEndpoint: 'SerilogTestsNotFoundSagaMessage',
         CorrelationId: Guid_3,
         ConversationId: Guid_4,
-        HandlerType: 'NotFoundSaga',
         IncomingMessage: {
           TypeTag: 'NotFoundSagaMessage',
           Properties: [
@@ -202,7 +201,6 @@
         ProcessingEndpoint: 'SerilogTestsNotFoundSagaMessage',
         CorrelationId: Guid_3,
         ConversationId: Guid_4,
-        HandlerType: 'NotFoundSaga',
         IncomingMessage: {
           TypeTag: 'NotFoundSagaMessage',
           Properties: [
@@ -249,7 +247,6 @@
         ProcessingEndpoint: 'SerilogTestsNotFoundSagaMessage',
         CorrelationId: Guid_3,
         ConversationId: Guid_4,
-        HandlerType: 'NotFoundSaga',
         IncomingMessage: {
           TypeTag: 'NotFoundSagaMessage',
           Properties: [
@@ -298,7 +295,6 @@
         ProcessingEndpoint: 'SerilogTestsNotFoundSagaMessage',
         CorrelationId: Guid_3,
         ConversationId: Guid_4,
-        HandlerType: 'NotFoundSaga',
         IncomingMessage: {
           TypeTag: 'NotFoundSagaMessage',
           Properties: [

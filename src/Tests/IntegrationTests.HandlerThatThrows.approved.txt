@@ -145,10 +145,10 @@
         IncomingTransportMessageId: Guid_4,
         HandlerStartTime: DateTime_2,
         HandlerFailureTime: DateTime_3,
+        HandlerType: 'TheHandlerThatThrows',
         ProcessingEndpoint: 'SerilogTestsStartHandlerThatThrows',
         CorrelationId: Guid_2,
         ConversationId: Guid_3,
-        HandlerType: 'TheHandlerThatThrows',
         IncomingMessage: {
           TypeTag: 'StartHandlerThatThrows',
           Properties: [
@@ -177,11 +177,6 @@
         ExceptionDetail: {
           Elements: {
             "Type": 'System.Exception',
-            "Data": {
-              Elements: {
-                "Handler type": 'TheHandlerThatThrows'
-              }
-            },
             "HResult": -2146233088,
             "Message": 'Exception of type \'System.Exception\' was thrown.',
             "Source": 'Tests'
@@ -198,10 +193,10 @@
         IncomingTransportMessageId: Guid_4,
         HandlerStartTime: DateTime_5,
         HandlerFailureTime: DateTime_6,
+        HandlerType: 'TheHandlerThatThrows',
         ProcessingEndpoint: 'SerilogTestsStartHandlerThatThrows',
         CorrelationId: Guid_2,
         ConversationId: Guid_3,
-        HandlerType: 'TheHandlerThatThrows',
         IncomingMessage: {
           TypeTag: 'StartHandlerThatThrows',
           Properties: [
@@ -230,11 +225,6 @@
         ExceptionDetail: {
           Elements: {
             "Type": 'System.Exception',
-            "Data": {
-              Elements: {
-                "Handler type": 'TheHandlerThatThrows'
-              }
-            },
             "HResult": -2146233088,
             "Message": 'Exception of type \'System.Exception\' was thrown.',
             "Source": 'Tests'
@@ -251,10 +241,10 @@
         IncomingTransportMessageId: Guid_5,
         HandlerStartTime: DateTime_7,
         HandlerFailureTime: DateTime_8,
+        HandlerType: 'TheHandlerThatThrows',
         ProcessingEndpoint: 'SerilogTestsStartHandlerThatThrows',
         CorrelationId: Guid_2,
         ConversationId: Guid_3,
-        HandlerType: 'TheHandlerThatThrows',
         IncomingMessage: {
           TypeTag: 'StartHandlerThatThrows',
           Properties: [
@@ -285,11 +275,6 @@
         ExceptionDetail: {
           Elements: {
             "Type": 'System.Exception',
-            "Data": {
-              Elements: {
-                "Handler type": 'TheHandlerThatThrows'
-              }
-            },
             "HResult": -2146233088,
             "Message": 'Exception of type \'System.Exception\' was thrown.',
             "Source": 'Tests'
@@ -306,10 +291,10 @@
         IncomingTransportMessageId: Guid_5,
         HandlerStartTime: DateTime_9,
         HandlerFailureTime: DateTime_10,
+        HandlerType: 'TheHandlerThatThrows',
         ProcessingEndpoint: 'SerilogTestsStartHandlerThatThrows',
         CorrelationId: Guid_2,
         ConversationId: Guid_3,
-        HandlerType: 'TheHandlerThatThrows',
         IncomingMessage: {
           TypeTag: 'StartHandlerThatThrows',
           Properties: [
@@ -340,11 +325,6 @@
         ExceptionDetail: {
           Elements: {
             "Type": 'System.Exception',
-            "Data": {
-              Elements: {
-                "Handler type": 'TheHandlerThatThrows'
-              }
-            },
             "HResult": -2146233088,
             "Message": 'Exception of type \'System.Exception\' was thrown.',
             "Source": 'Tests'
