@@ -83,3 +83,5 @@ Fody/.DS_Store
 *.userprefs
 Sample/logFile.txt
 *.lnk
+
+*.received.txt
