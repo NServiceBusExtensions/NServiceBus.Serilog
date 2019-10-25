@@ -9,17 +9,6 @@ public static class ConfigBuilder
         configuration.UsePersistence<InMemoryPersistence>();
         configuration.UseTransport<LearningTransport>();
         configuration.PurgeOnStartup(true);
-        var recoverability = configuration.Recoverability();
-        recoverability.Delayed(
-            customizations: settings =>
-            {
-                settings.NumberOfRetries(0);
-            });
-        recoverability.Immediate(
-            customizations: settings =>
-            {
-                settings.NumberOfRetries(0);
-            });
         return configuration;
     }
 }
