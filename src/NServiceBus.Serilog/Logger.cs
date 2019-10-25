@@ -41,6 +41,10 @@ class Logger :
         {
             properties.Add(new LogEventProperty("HandlerFailureTime", new ScalarValue(handlerFailureTime)));
         }
+        if (exception.TryReadData("Handler type", out Type handlerType))
+        {
+            properties.Add(new LogEventProperty("HandlerType", new ScalarValue(handlerType.FullName)));
+        }
 
         if (exception.TryReadData("ExceptionLogState", out ExceptionLogState logState))
         {
@@ -53,11 +57,6 @@ class Logger :
             if (logState.ConversationId != null)
             {
                 properties.Add(new LogEventProperty("ConversationId", new ScalarValue(logState.ConversationId)));
-            }
-
-            if (logState.HandlerType != null)
-            {
-                properties.Add(new LogEventProperty("HandlerType", new ScalarValue(logState.HandlerType)));
             }
 
             if (logState.IncomingMessage != null)

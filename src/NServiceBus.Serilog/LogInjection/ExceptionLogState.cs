@@ -9,7 +9,6 @@ class ExceptionLogState
     public readonly string ProcessingEndpoint;
     public readonly string? CorrelationId;
     public readonly string? ConversationId;
-    public string? HandlerType;
     public object? IncomingMessage;
     public readonly IReadOnlyDictionary<string, string> IncomingHeaders;
 
