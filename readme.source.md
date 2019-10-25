@@ -111,7 +111,7 @@ snippet: ContextualLoggerUsage
 
 When an exception occurs in the message processing pipeline, the current pipeline state is added to the exception. When that exception is logged that state can be add to the log entry.
 
-When a pipelein exception is logged, it will be enriched with the following properties:
+When a pipeline exception is logged, it will be enriched with the following properties:
 
  * `ProcessingEndpoint` will be the current [endpoint name](https://docs.particular.net/nservicebus/endpoints/specify-endpoint-name).
  * `IncomingMessageId` will be the value of the [MessageId header](https://docs.particular.net/nservicebus/messaging/headers#messaging-interaction-headers-nservicebus-messageid).
@@ -122,6 +122,8 @@ When a pipelein exception is logged, it will be enriched with the following prop
  * `ConversationId` will be the value of the [ConversationId header](https://docs.particular.net/nservicebus/messaging/headers#messaging-interaction-headers-nservicebus-conversationid) if it exists.
  * `HandlerType` will be type name for the current handler if it exists.
  * `IncomingMessage` will be the value of current logical message if it exists.
+ * `HandlerStartTime` the UTC timestamp for when the handler started.
+ * `HandlerFailureTime` the UTC timestamp for when the handler threw the exception.
 
 
 ### Saga tracing

@@ -33,6 +33,14 @@ class Logger :
         {
             properties.Add(new LogEventProperty("IncomingTransportMessageId", new ScalarValue(incomingTransportMessageId)));
         }
+        if (exception.TryReadData("Handler start time", out DateTime handlerStartTime))
+        {
+            properties.Add(new LogEventProperty("HandlerStartTime", new ScalarValue(handlerStartTime)));
+        }
+        if (exception.TryReadData("Handler failure time", out DateTime handlerFailureTime))
+        {
+            properties.Add(new LogEventProperty("HandlerFailureTime", new ScalarValue(handlerFailureTime)));
+        }
 
         if (exception.TryReadData("ExceptionLogState", out ExceptionLogState logState))
         {
