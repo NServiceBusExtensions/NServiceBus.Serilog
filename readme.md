@@ -230,6 +230,7 @@ if (ExceptionLogState.TryReadFromException(exception, out var logState))
 <!-- endsnippet -->
 
 When routing the NServiceBus log event with `LogManager.Use<SerilogFactory>();`, the above properties will be promoted to the log event.
+ * `IncomingMessage` will be the value of current logical message if it exists.
 
 
 ### Saga tracing
