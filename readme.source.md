@@ -121,7 +121,6 @@ The type added to the exception data is `ExceptionLogState`. It contains the fol
  * `CorrelationId` will be the value of the [CorrelationId header](https://docs.particular.net/nservicebus/messaging/headers#messaging-interaction-headers-nservicebus-correlationid) if it exists.
  * `ConversationId` will be the value of the [ConversationId header](https://docs.particular.net/nservicebus/messaging/headers#messaging-interaction-headers-nservicebus-conversationid) if it exists.
  * `HandlerType` will be type name for the current handler if it exists.
- * `Message` will be the value of current logical message if it exists.
  * `IncomingMessage` will be the value of current logical message if it exists.
 
 
