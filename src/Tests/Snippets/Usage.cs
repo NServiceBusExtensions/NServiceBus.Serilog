@@ -32,14 +32,12 @@ class Usage
         #endregion
     }
 
-    void ExceptionLogState(Exception exception)
+    void ExceptionLogStateUse(Exception exception)
     {
         #region ExceptionLogState
 
-        var data = exception.Data;
-        if (data.Contains("ExceptionLogState"))
+        if (ExceptionLogState.TryReadFromException(exception, out var logState))
         {
-            var logState = (ExceptionLogState) data["ExceptionLogState"]!;
             var endpoint = logState.ProcessingEndpoint;
             var incomingMessageId = logState.IncomingMessageId;
             var incomingMessageType = logState.IncomingMessageType;

@@ -19,12 +19,33 @@ namespace NServiceBus.Serilog
 
         public ExceptionLogState(string processingEndpoint, string incomingMessageId, string incomingMessageType, IReadOnlyDictionary<string, string> incomingHeaders, string correlationId, string conversationId)
         {
+            Guard.AgainstNull(processingEndpoint, nameof(processingEndpoint));
+            Guard.AgainstNull(incomingMessageId, nameof(incomingMessageId));
+            Guard.AgainstNull(incomingMessageType, nameof(incomingMessageType));
+            Guard.AgainstNull(correlationId, nameof(correlationId));
+            Guard.AgainstNull(conversationId, nameof(conversationId));
             ProcessingEndpoint = processingEndpoint;
             IncomingMessageId = incomingMessageId;
             IncomingMessageType = incomingMessageType;
             IncomingHeaders = incomingHeaders;
             CorrelationId = correlationId;
             ConversationId = conversationId;
+        }
+
+
+        public static bool TryReadFromException(Exception exception, out ExceptionLogState state)
+        {
+            var data = exception.Data;
+            if (data.Contains("ExceptionLogState"))
+            {
+                state = (ExceptionLogState) data["ExceptionLogState"];
+                return true;
+            }
+
+#pragma warning disable CS8625
+            state = null;
+#pragma warning restore CS8625
+            return false;
         }
     }
 }
