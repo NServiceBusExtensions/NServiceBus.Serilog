@@ -21,46 +21,41 @@ class Logger :
     void WriteExceptionEvent(string message, Exception exception, LogEventLevel level)
     {
         var data = exception.Data;
-        if (!data.Contains("ExceptionLogState"))
+        var properties = new List<LogEventProperty>();
+        if (data.Contains("ExceptionLogState"))
         {
-            logger.Write(level, exception, message);
-            return;
-        }
-
-        var logState = (ExceptionLogState) data["ExceptionLogState"];
-        data.Remove("ExceptionLogState");
-        var properties = new List<LogEventProperty>
-        {
-            new LogEventProperty("ProcessingEndpoint", new ScalarValue(logState.ProcessingEndpoint)),
-            new LogEventProperty("IncomingMessageId", new ScalarValue(logState.IncomingMessageId)),
-            new LogEventProperty("IncomingMessageType", new ScalarValue(logState.IncomingMessageType))
-        };
-        if (logState.CorrelationId != null)
-        {
-            properties.Add(new LogEventProperty("CorrelationId", new ScalarValue(logState.CorrelationId)));
-        }
-
-        if (logState.ConversationId != null)
-        {
-            properties.Add(new LogEventProperty("ConversationId", new ScalarValue(logState.ConversationId)));
-        }
-
-        if (logState.HandlerType != null)
-        {
-            properties.Add(new LogEventProperty("HandlerType", new ScalarValue(logState.HandlerType)));
-        }
-
-        if (logState.IncomingMessage != null)
-        {
-            if (logger.BindProperty("IncomingMessage", logState.IncomingMessage, out var messageProperty))
+            var logState = (ExceptionLogState) data["ExceptionLogState"];
+            data.Remove("ExceptionLogState");
+            properties.Add(new LogEventProperty("ProcessingEndpoint", new ScalarValue(logState.ProcessingEndpoint)));
+            properties.Add(new LogEventProperty("IncomingMessageId", new ScalarValue(logState.IncomingMessageId)));
+            properties.Add(new LogEventProperty("IncomingMessageType", new ScalarValue(logState.IncomingMessageType)));
+            if (logState.CorrelationId != null)
             {
-                properties.Add(messageProperty);
+                properties.Add(new LogEventProperty("CorrelationId", new ScalarValue(logState.CorrelationId)));
             }
-        }
 
-        if (logger.BindProperty("IncomingHeaders", logState.IncomingHeaders, out var headersProperty))
-        {
-            properties.Add(headersProperty);
+            if (logState.ConversationId != null)
+            {
+                properties.Add(new LogEventProperty("ConversationId", new ScalarValue(logState.ConversationId)));
+            }
+
+            if (logState.HandlerType != null)
+            {
+                properties.Add(new LogEventProperty("HandlerType", new ScalarValue(logState.HandlerType)));
+            }
+
+            if (logState.IncomingMessage != null)
+            {
+                if (logger.BindProperty("IncomingMessage", logState.IncomingMessage, out var messageProperty))
+                {
+                    properties.Add(messageProperty);
+                }
+            }
+
+            if (logger.BindProperty("IncomingHeaders", logState.IncomingHeaders, out var headersProperty))
+            {
+                properties.Add(headersProperty);
+            }
         }
 
         var messageTemplate = templateParser.Parse(message);
