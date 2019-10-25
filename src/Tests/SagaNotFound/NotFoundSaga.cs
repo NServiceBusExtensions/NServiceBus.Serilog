@@ -1,5 +1,4 @@
-﻿using System.Diagnostics;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using NServiceBus;
 
 public class NotFoundSaga :
@@ -20,7 +19,6 @@ public class NotFoundSaga :
 
     public Task Handle(NotFoundSagaMessage message, IMessageHandlerContext context)
     {
-        Debug.WriteLine("sdf");
         return Task.CompletedTask;
     }
 }
