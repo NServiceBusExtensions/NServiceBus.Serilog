@@ -111,7 +111,7 @@ snippet: ContextualLoggerUsage
 
 When an exception occurs in the message processing pipeline, the current pipeline state is added to the exception. When that exception is logged that state can be add to the log entry.
 
-The type added to the exception data is `ExceptionLogState`. It contains the following data:
+When a pipelein exception is logged, it will be enriched with the following properties:
 
  * `ProcessingEndpoint` will be the current [endpoint name](https://docs.particular.net/nservicebus/endpoints/specify-endpoint-name).
  * `IncomingMessageId` will be the value of the [MessageId header](https://docs.particular.net/nservicebus/messaging/headers#messaging-interaction-headers-nservicebus-messageid).

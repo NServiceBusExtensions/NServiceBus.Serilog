@@ -77,7 +77,7 @@ Log.Logger = new LoggerConfiguration()
 
 LogManager.Use<SerilogFactory>();
 ```
-<sup>[snippet source](/src/Tests/Snippets/Usage.cs#L10-L18) / [anchor](#snippet-serilogincode)</sup>
+<sup>[snippet source](/src/Tests/Snippets/Usage.cs#L9-L17) / [anchor](#snippet-serilogincode)</sup>
 <!-- endsnippet -->
 
 
@@ -200,7 +200,7 @@ public class SimpleHandler :
 
 When an exception occurs in the message processing pipeline, the current pipeline state is added to the exception. When that exception is logged that state can be add to the log entry.
 
-The type added to the exception data is `ExceptionLogState`. It contains the following data:
+When a pipelein exception is logged, it will be enriched with the following properties:
 
  * `ProcessingEndpoint` will be the current [endpoint name](https://docs.particular.net/nservicebus/endpoints/specify-endpoint-name).
  * `IncomingMessageId` will be the value of the [MessageId header](https://docs.particular.net/nservicebus/messaging/headers#messaging-interaction-headers-nservicebus-messageid).
@@ -210,26 +210,6 @@ The type added to the exception data is `ExceptionLogState`. It contains the fol
  * `CorrelationId` will be the value of the [CorrelationId header](https://docs.particular.net/nservicebus/messaging/headers#messaging-interaction-headers-nservicebus-correlationid) if it exists.
  * `ConversationId` will be the value of the [ConversationId header](https://docs.particular.net/nservicebus/messaging/headers#messaging-interaction-headers-nservicebus-conversationid) if it exists.
  * `HandlerType` will be type name for the current handler if it exists.
-
-The instance of `ExceptionLogState` can be accessed using the following.
-
-<!-- snippet: ExceptionLogState -->
-<a id='snippet-exceptionlogstate'/></a>
-```cs
-if (ExceptionLogState.TryReadFromException(exception, out var logState))
-{
-    var endpoint = logState.ProcessingEndpoint;
-    var correlationId = logState.CorrelationId;
-    var conversationId = logState.ConversationId;
-    var handlerType = logState.HandlerType;
-    var incomingHeaders = logState.IncomingHeaders;
-    var incomingMessage = logState.IncomingMessage;
-}
-```
-<sup>[snippet source](/src/Tests/Snippets/Usage.cs#L37-L49) / [anchor](#snippet-exceptionlogstate)</sup>
-<!-- endsnippet -->
-
-When routing the NServiceBus log event with `LogManager.Use<SerilogFactory>();`, the above properties will be promoted to the log event.
  * `IncomingMessage` will be the value of current logical message if it exists.
 
 

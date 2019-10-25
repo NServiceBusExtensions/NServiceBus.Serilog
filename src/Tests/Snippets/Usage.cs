@@ -1,5 +1,4 @@
-﻿using System;
-using NServiceBus.Logging;
+﻿using NServiceBus.Logging;
 using NServiceBus.Serilog;
 using Serilog;
 
@@ -28,23 +27,6 @@ class Usage
             .CreateLogger();
 
         LogManager.Use<SerilogFactory>();
-
-        #endregion
-    }
-
-    void ExceptionLogStateUse(Exception exception)
-    {
-        #region ExceptionLogState
-
-        if (ExceptionLogState.TryReadFromException(exception, out var logState))
-        {
-            var endpoint = logState.ProcessingEndpoint;
-            var correlationId = logState.CorrelationId;
-            var conversationId = logState.ConversationId;
-            var handlerType = logState.HandlerType;
-            var incomingHeaders = logState.IncomingHeaders;
-            var incomingMessage = logState.IncomingMessage;
-        }
 
         #endregion
     }

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using NServiceBus.Logging;
-using NServiceBus.Serilog;
 using Serilog;
 using Serilog.Events;
 using Serilog.Parsing;
