@@ -17,10 +17,29 @@ using Xunit.Abstractions;
 public class IntegrationTests :
     TestBase
 {
+    static List<LogEvent> logs;
+
+    static IntegrationTests()
+    {
+        logs = new List<LogEvent>();
+        var eventSink = new EventSink
+        (
+            action: logs.Add
+        );
+
+        var loggerConfiguration = new LoggerConfiguration();
+        loggerConfiguration.Enrich.WithExceptionDetails();
+        loggerConfiguration.MinimumLevel.Verbose();
+        loggerConfiguration.WriteTo.Sink(eventSink);
+        Log.Logger = loggerConfiguration.CreateLogger();
+        LogManager.Use<SerilogFactory>();
+    }
+
     public IntegrationTests(ITestOutputHelper output) :
         base(output)
     {
         HeaderAppender.excludeHeaders.Add(Headers.TimeSent);
+        logs.Clear();
     }
 
     [Fact]
@@ -102,19 +121,6 @@ public class IntegrationTests :
 
     static async Task<IEnumerable<LogEventEx>> Send(object message, Action<SendOptions>? optionsAction = null)
     {
-        var logs = new List<LogEvent>();
-        var eventSink = new EventSink
-        (
-            action: logs.Add
-        );
-
-        var loggerConfiguration = new LoggerConfiguration();
-        loggerConfiguration.Enrich.WithExceptionDetails();
-        loggerConfiguration.MinimumLevel.Verbose();
-        loggerConfiguration.WriteTo.Sink(eventSink);
-        Log.Logger = loggerConfiguration.CreateLogger();
-        LogManager.Use<SerilogFactory>();
-
         var configuration = ConfigBuilder.BuildDefaultConfig("SerilogTests" + message.GetType().Name);
         var serilogTracing = configuration.EnableSerilogTracing();
         serilogTracing.EnableSagaTracing();
@@ -149,7 +155,6 @@ public class IntegrationTests :
         }
 
         await endpoint.Stop();
-        Log.CloseAndFlush();
 
         return logs.Select(x =>
             new LogEventEx

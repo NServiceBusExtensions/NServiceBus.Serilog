@@ -134,5 +134,231 @@
         ProcessingEndpoint: 'SerilogTestsStartHandlerThatThrows'
       }
     }
+  ],
+  logsWithExceptions: [
+    {
+      MessageTemplate: 'Immediate Retry is going to retry message \'00000000-0000-0000-0000-000000000001\' because of an exception:',
+      Level: 'Information',
+      Properties: {
+        ProcessingEndpoint: 'SerilogTestsStartHandlerThatThrows',
+        IncomingMessageId: Guid_2,
+        IncomingMessageType: 'StartHandlerThatThrows',
+        CorrelationId: Guid_2,
+        ConversationId: Guid_3,
+        HandlerType: 'TheHandlerThatThrows',
+        IncomingMessage: {
+          TypeTag: 'StartHandlerThatThrows',
+          Properties: [
+            {
+              Property: 'TheProperty'
+            }
+          ]
+        },
+        IncomingHeaders: {
+          Elements: {
+            "NServiceBus.MessageId": Guid_2,
+            "NServiceBus.MessageIntent": 'Send',
+            "NServiceBus.ConversationId": Guid_3,
+            "NServiceBus.CorrelationId": Guid_2,
+            "NServiceBus.OriginatingMachine": 'MachineName',
+            "NServiceBus.OriginatingEndpoint": 'SerilogTestsStartHandlerThatThrows',
+            "$.diagnostics.originating.hostid": Guid_1,
+            "NServiceBus.ReplyToAddress": 'SerilogTestsStartHandlerThatThrows',
+            "NServiceBus.ContentType": 'text/xml',
+            "NServiceBus.EnclosedMessageTypes": 'StartHandlerThatThrows, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6',
+            "NServiceBus.Version": 'NsbVersion',
+            "NServiceBus.TimeSent": DateTime_2
+          }
+        },
+        SourceContext: 'NServiceBus.RecoverabilityExecutor',
+        ExceptionDetail: {
+          Elements: {
+            "Type": 'System.Exception',
+            "Data": {
+              Elements: {
+                "Message type": 'StartHandlerThatThrows',
+                "Handler type": 'TheHandlerThatThrows',
+                "Handler start time": DateTime_3,
+                "Handler failure time": DateTime_4,
+                "Message ID": Guid_2,
+                "Transport message ID": Guid_4
+              }
+            },
+            "HResult": -2146233088,
+            "Message": 'Exception of type \'System.Exception\' was thrown.',
+            "Source": 'Tests'
+          }
+        }
+      }
+    },
+    {
+      MessageTemplate: 'Delayed Retry will reschedule message \'00000000-0000-0000-0000-000000000001\' after a delay of 00:00:00.0010000 because of an exception:',
+      Level: 'Warning',
+      Properties: {
+        ProcessingEndpoint: 'SerilogTestsStartHandlerThatThrows',
+        IncomingMessageId: Guid_2,
+        IncomingMessageType: 'StartHandlerThatThrows',
+        CorrelationId: Guid_2,
+        ConversationId: Guid_3,
+        HandlerType: 'TheHandlerThatThrows',
+        IncomingMessage: {
+          TypeTag: 'StartHandlerThatThrows',
+          Properties: [
+            {
+              Property: 'TheProperty'
+            }
+          ]
+        },
+        IncomingHeaders: {
+          Elements: {
+            "NServiceBus.MessageId": Guid_2,
+            "NServiceBus.MessageIntent": 'Send',
+            "NServiceBus.ConversationId": Guid_3,
+            "NServiceBus.CorrelationId": Guid_2,
+            "NServiceBus.OriginatingMachine": 'MachineName',
+            "NServiceBus.OriginatingEndpoint": 'SerilogTestsStartHandlerThatThrows',
+            "$.diagnostics.originating.hostid": Guid_1,
+            "NServiceBus.ReplyToAddress": 'SerilogTestsStartHandlerThatThrows',
+            "NServiceBus.ContentType": 'text/xml',
+            "NServiceBus.EnclosedMessageTypes": 'StartHandlerThatThrows, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6',
+            "NServiceBus.Version": 'NsbVersion',
+            "NServiceBus.TimeSent": DateTime_2
+          }
+        },
+        SourceContext: 'NServiceBus.RecoverabilityExecutor',
+        ExceptionDetail: {
+          Elements: {
+            "Type": 'System.Exception',
+            "Data": {
+              Elements: {
+                "Message type": 'StartHandlerThatThrows',
+                "Handler type": 'TheHandlerThatThrows',
+                "Handler start time": DateTime_5,
+                "Handler failure time": DateTime_6,
+                "Message ID": Guid_2,
+                "Transport message ID": Guid_4
+              }
+            },
+            "HResult": -2146233088,
+            "Message": 'Exception of type \'System.Exception\' was thrown.',
+            "Source": 'Tests'
+          }
+        }
+      }
+    },
+    {
+      MessageTemplate: 'Immediate Retry is going to retry message \'00000000-0000-0000-0000-000000000001\' because of an exception:',
+      Level: 'Information',
+      Properties: {
+        ProcessingEndpoint: 'SerilogTestsStartHandlerThatThrows',
+        IncomingMessageId: Guid_2,
+        IncomingMessageType: 'StartHandlerThatThrows',
+        CorrelationId: Guid_2,
+        ConversationId: Guid_3,
+        HandlerType: 'TheHandlerThatThrows',
+        IncomingMessage: {
+          TypeTag: 'StartHandlerThatThrows',
+          Properties: [
+            {
+              Property: 'TheProperty'
+            }
+          ]
+        },
+        IncomingHeaders: {
+          Elements: {
+            "NServiceBus.MessageId": Guid_2,
+            "NServiceBus.MessageIntent": 'Send',
+            "NServiceBus.ConversationId": Guid_3,
+            "NServiceBus.CorrelationId": Guid_2,
+            "NServiceBus.OriginatingMachine": 'MachineName',
+            "NServiceBus.OriginatingEndpoint": 'SerilogTestsStartHandlerThatThrows',
+            "$.diagnostics.originating.hostid": Guid_1,
+            "NServiceBus.ReplyToAddress": 'SerilogTestsStartHandlerThatThrows',
+            "NServiceBus.ContentType": 'text/xml',
+            "NServiceBus.EnclosedMessageTypes": 'StartHandlerThatThrows, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6',
+            "NServiceBus.Version": 'NsbVersion',
+            "NServiceBus.TimeSent": DateTime_2,
+            "NServiceBus.Retries": '1',
+            "NServiceBus.Retries.Timestamp": DateTime_1
+          }
+        },
+        SourceContext: 'NServiceBus.RecoverabilityExecutor',
+        ExceptionDetail: {
+          Elements: {
+            "Type": 'System.Exception',
+            "Data": {
+              Elements: {
+                "Message type": 'StartHandlerThatThrows',
+                "Handler type": 'TheHandlerThatThrows',
+                "Handler start time": DateTime_7,
+                "Handler failure time": DateTime_8,
+                "Message ID": Guid_2,
+                "Transport message ID": Guid_5
+              }
+            },
+            "HResult": -2146233088,
+            "Message": 'Exception of type \'System.Exception\' was thrown.',
+            "Source": 'Tests'
+          }
+        }
+      }
+    },
+    {
+      MessageTemplate: 'Moving message \'00000000-0000-0000-0000-000000000001\' to the error queue \'error\' because processing failed due to an exception:',
+      Level: 'Error',
+      Properties: {
+        ProcessingEndpoint: 'SerilogTestsStartHandlerThatThrows',
+        IncomingMessageId: Guid_2,
+        IncomingMessageType: 'StartHandlerThatThrows',
+        CorrelationId: Guid_2,
+        ConversationId: Guid_3,
+        HandlerType: 'TheHandlerThatThrows',
+        IncomingMessage: {
+          TypeTag: 'StartHandlerThatThrows',
+          Properties: [
+            {
+              Property: 'TheProperty'
+            }
+          ]
+        },
+        IncomingHeaders: {
+          Elements: {
+            "NServiceBus.MessageId": Guid_2,
+            "NServiceBus.MessageIntent": 'Send',
+            "NServiceBus.ConversationId": Guid_3,
+            "NServiceBus.CorrelationId": Guid_2,
+            "NServiceBus.OriginatingMachine": 'MachineName',
+            "NServiceBus.OriginatingEndpoint": 'SerilogTestsStartHandlerThatThrows',
+            "$.diagnostics.originating.hostid": Guid_1,
+            "NServiceBus.ReplyToAddress": 'SerilogTestsStartHandlerThatThrows',
+            "NServiceBus.ContentType": 'text/xml',
+            "NServiceBus.EnclosedMessageTypes": 'StartHandlerThatThrows, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6',
+            "NServiceBus.Version": 'NsbVersion',
+            "NServiceBus.TimeSent": DateTime_2,
+            "NServiceBus.Retries": '1',
+            "NServiceBus.Retries.Timestamp": DateTime_1
+          }
+        },
+        SourceContext: 'NServiceBus.RecoverabilityExecutor',
+        ExceptionDetail: {
+          Elements: {
+            "Type": 'System.Exception',
+            "Data": {
+              Elements: {
+                "Message type": 'StartHandlerThatThrows',
+                "Handler type": 'TheHandlerThatThrows',
+                "Handler start time": DateTime_9,
+                "Handler failure time": DateTime_10,
+                "Message ID": Guid_2,
+                "Transport message ID": Guid_5
+              }
+            },
+            "HResult": -2146233088,
+            "Message": 'Exception of type \'System.Exception\' was thrown.',
+            "Source": 'Tests'
+          }
+        }
+      }
+    }
   ]
 }
