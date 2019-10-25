@@ -11,19 +11,17 @@ namespace NServiceBus.Serilog
         public readonly string ProcessingEndpoint;
         public readonly string IncomingMessageId;
         public readonly string IncomingMessageType;
-        public readonly string CorrelationId;
-        public readonly string ConversationId;
+        public readonly string? CorrelationId;
+        public readonly string? ConversationId;
         public string? HandlerType;
         public object? IncomingMessage;
         public readonly IReadOnlyDictionary<string, string> IncomingHeaders;
 
-        public ExceptionLogState(string processingEndpoint, string incomingMessageId, string incomingMessageType, IReadOnlyDictionary<string, string> incomingHeaders, string correlationId, string conversationId)
+        public ExceptionLogState(string processingEndpoint, string incomingMessageId, string incomingMessageType, IReadOnlyDictionary<string, string> incomingHeaders, string? correlationId, string? conversationId)
         {
             Guard.AgainstNull(processingEndpoint, nameof(processingEndpoint));
             Guard.AgainstNull(incomingMessageId, nameof(incomingMessageId));
             Guard.AgainstNull(incomingMessageType, nameof(incomingMessageType));
-            Guard.AgainstNull(correlationId, nameof(correlationId));
-            Guard.AgainstNull(conversationId, nameof(conversationId));
             ProcessingEndpoint = processingEndpoint;
             IncomingMessageId = incomingMessageId;
             IncomingMessageType = incomingMessageType;
