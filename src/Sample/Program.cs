@@ -26,16 +26,13 @@ static class Program
         configuration.UsePersistence<LearningPersistence>();
         configuration.UseTransport<LearningTransport>();
 
-        var endpoint = await Endpoint.Start(configuration)
-            .ConfigureAwait(false);
+        var endpoint = await Endpoint.Start(configuration);
         var myMessage = new MyMessage();
-        await endpoint.SendLocal(myMessage)
-            .ConfigureAwait(false);
+        await endpoint.SendLocal(myMessage);
         Console.WriteLine("Press any key to exit");
         Console.ReadKey();
         #region Cleanup
-        await endpoint.Stop()
-            .ConfigureAwait(false);
+        await endpoint.Stop();
         Log.CloseAndFlush();
         #endregion
     }

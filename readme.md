@@ -332,18 +332,16 @@ serilogTracing.EnableMessageTracing();
 <!-- snippet: Cleanup -->
 <a id='snippet-cleanup'/></a>
 ```cs
-await endpoint.Stop()
-    .ConfigureAwait(false);
+await endpoint.Stop();
 Log.CloseAndFlush();
 ```
-<sup>[snippet source](/src/Sample/Program.cs#L36-L40) / [anchor](#snippet-cleanup)</sup>
+<sup>[snippet source](/src/Sample/Program.cs#L34-L37) / [anchor](#snippet-cleanup)</sup>
 <a id='snippet-cleanup-1'/></a>
 ```cs
-await endpoint.Stop()
-    .ConfigureAwait(false);
+await endpoint.Stop();
 Log.CloseAndFlush();
 ```
-<sup>[snippet source](/src/SeqSample/Program.cs#L47-L51) / [anchor](#snippet-cleanup-1)</sup>
+<sup>[snippet source](/src/SeqSample/Program.cs#L45-L48) / [anchor](#snippet-cleanup-1)</sup>
 <!-- endsnippet -->
 
 
@@ -406,18 +404,16 @@ serilogTracing.EnableMessageTracing();
 <!-- snippet: Cleanup -->
 <a id='snippet-cleanup'/></a>
 ```cs
-await endpoint.Stop()
-    .ConfigureAwait(false);
+await endpoint.Stop();
 Log.CloseAndFlush();
 ```
-<sup>[snippet source](/src/Sample/Program.cs#L36-L40) / [anchor](#snippet-cleanup)</sup>
+<sup>[snippet source](/src/Sample/Program.cs#L34-L37) / [anchor](#snippet-cleanup)</sup>
 <a id='snippet-cleanup-1'/></a>
 ```cs
-await endpoint.Stop()
-    .ConfigureAwait(false);
+await endpoint.Stop();
 Log.CloseAndFlush();
 ```
-<sup>[snippet source](/src/SeqSample/Program.cs#L47-L51) / [anchor](#snippet-cleanup-1)</sup>
+<sup>[snippet source](/src/SeqSample/Program.cs#L45-L48) / [anchor](#snippet-cleanup-1)</sup>
 <!-- endsnippet -->
 
 
