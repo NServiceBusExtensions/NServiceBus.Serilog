@@ -143,6 +143,8 @@
         IncomingMessageType: 'StartHandlerThatThrows',
         IncomingMessageId: Guid_2,
         IncomingTransportMessageId: Guid_4,
+        HandlerStartTime: DateTime_2,
+        HandlerFailureTime: DateTime_3,
         ProcessingEndpoint: 'SerilogTestsStartHandlerThatThrows',
         CorrelationId: Guid_2,
         ConversationId: Guid_3,
@@ -168,7 +170,7 @@
             "NServiceBus.ContentType": 'text/xml',
             "NServiceBus.EnclosedMessageTypes": 'StartHandlerThatThrows, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6',
             "NServiceBus.Version": 'NsbVersion',
-            "NServiceBus.TimeSent": DateTime_2
+            "NServiceBus.TimeSent": DateTime_4
           }
         },
         SourceContext: 'NServiceBus.RecoverabilityExecutor',
@@ -177,9 +179,7 @@
             "Type": 'System.Exception',
             "Data": {
               Elements: {
-                "Handler type": 'TheHandlerThatThrows',
-                "Handler start time": DateTime_3,
-                "Handler failure time": DateTime_4
+                "Handler type": 'TheHandlerThatThrows'
               }
             },
             "HResult": -2146233088,
@@ -196,6 +196,8 @@
         IncomingMessageType: 'StartHandlerThatThrows',
         IncomingMessageId: Guid_2,
         IncomingTransportMessageId: Guid_4,
+        HandlerStartTime: DateTime_5,
+        HandlerFailureTime: DateTime_6,
         ProcessingEndpoint: 'SerilogTestsStartHandlerThatThrows',
         CorrelationId: Guid_2,
         ConversationId: Guid_3,
@@ -221,7 +223,7 @@
             "NServiceBus.ContentType": 'text/xml',
             "NServiceBus.EnclosedMessageTypes": 'StartHandlerThatThrows, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6',
             "NServiceBus.Version": 'NsbVersion',
-            "NServiceBus.TimeSent": DateTime_2
+            "NServiceBus.TimeSent": DateTime_4
           }
         },
         SourceContext: 'NServiceBus.RecoverabilityExecutor',
@@ -230,9 +232,7 @@
             "Type": 'System.Exception',
             "Data": {
               Elements: {
-                "Handler type": 'TheHandlerThatThrows',
-                "Handler start time": DateTime_5,
-                "Handler failure time": DateTime_6
+                "Handler type": 'TheHandlerThatThrows'
               }
             },
             "HResult": -2146233088,
@@ -249,6 +249,8 @@
         IncomingMessageType: 'StartHandlerThatThrows',
         IncomingMessageId: Guid_2,
         IncomingTransportMessageId: Guid_5,
+        HandlerStartTime: DateTime_7,
+        HandlerFailureTime: DateTime_8,
         ProcessingEndpoint: 'SerilogTestsStartHandlerThatThrows',
         CorrelationId: Guid_2,
         ConversationId: Guid_3,
@@ -274,7 +276,7 @@
             "NServiceBus.ContentType": 'text/xml',
             "NServiceBus.EnclosedMessageTypes": 'StartHandlerThatThrows, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6',
             "NServiceBus.Version": 'NsbVersion',
-            "NServiceBus.TimeSent": DateTime_2,
+            "NServiceBus.TimeSent": DateTime_4,
             "NServiceBus.Retries": '1',
             "NServiceBus.Retries.Timestamp": DateTime_1
           }
@@ -285,9 +287,7 @@
             "Type": 'System.Exception',
             "Data": {
               Elements: {
-                "Handler type": 'TheHandlerThatThrows',
-                "Handler start time": DateTime_7,
-                "Handler failure time": DateTime_8
+                "Handler type": 'TheHandlerThatThrows'
               }
             },
             "HResult": -2146233088,
@@ -304,6 +304,8 @@
         IncomingMessageType: 'StartHandlerThatThrows',
         IncomingMessageId: Guid_2,
         IncomingTransportMessageId: Guid_5,
+        HandlerStartTime: DateTime_9,
+        HandlerFailureTime: DateTime_10,
         ProcessingEndpoint: 'SerilogTestsStartHandlerThatThrows',
         CorrelationId: Guid_2,
         ConversationId: Guid_3,
@@ -329,7 +331,7 @@
             "NServiceBus.ContentType": 'text/xml',
             "NServiceBus.EnclosedMessageTypes": 'StartHandlerThatThrows, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6',
             "NServiceBus.Version": 'NsbVersion',
-            "NServiceBus.TimeSent": DateTime_2,
+            "NServiceBus.TimeSent": DateTime_4,
             "NServiceBus.Retries": '1',
             "NServiceBus.Retries.Timestamp": DateTime_1
           }
@@ -340,9 +342,7 @@
             "Type": 'System.Exception',
             "Data": {
               Elements: {
-                "Handler type": 'TheHandlerThatThrows',
-                "Handler start time": DateTime_9,
-                "Handler failure time": DateTime_10
+                "Handler type": 'TheHandlerThatThrows'
               }
             },
             "HResult": -2146233088,
