@@ -150,9 +150,9 @@
       MessageTemplate: 'Immediate Retry is going to retry message \'00000000-0000-0000-0000-000000000001\' because of an exception:',
       Level: 'Information',
       Properties: {
-        ProcessingEndpoint: 'SerilogTestsNotFoundSagaMessage',
         IncomingMessageId: Guid_3,
-        IncomingMessageType: 'NotFoundSagaMessage',
+        IncomingTransportMessageId: Guid_5,
+        ProcessingEndpoint: 'SerilogTestsNotFoundSagaMessage',
         CorrelationId: Guid_3,
         ConversationId: Guid_4,
         HandlerType: 'NotFoundSaga',
@@ -186,12 +186,6 @@
         ExceptionDetail: {
           Elements: {
             "Type": 'System.NullReferenceException',
-            "Data": {
-              Elements: {
-                "Message ID": Guid_3,
-                "Transport message ID": Guid_5
-              }
-            },
             "HResult": -2147467261,
             "Message": 'Object reference not set to an instance of an object.',
             "Source": 'NServiceBus.Core'
@@ -203,9 +197,9 @@
       MessageTemplate: 'Delayed Retry will reschedule message \'00000000-0000-0000-0000-000000000001\' after a delay of 00:00:00.0010000 because of an exception:',
       Level: 'Warning',
       Properties: {
-        ProcessingEndpoint: 'SerilogTestsNotFoundSagaMessage',
         IncomingMessageId: Guid_3,
-        IncomingMessageType: 'NotFoundSagaMessage',
+        IncomingTransportMessageId: Guid_5,
+        ProcessingEndpoint: 'SerilogTestsNotFoundSagaMessage',
         CorrelationId: Guid_3,
         ConversationId: Guid_4,
         HandlerType: 'NotFoundSaga',
@@ -239,12 +233,6 @@
         ExceptionDetail: {
           Elements: {
             "Type": 'System.NullReferenceException',
-            "Data": {
-              Elements: {
-                "Message ID": Guid_3,
-                "Transport message ID": Guid_5
-              }
-            },
             "HResult": -2147467261,
             "Message": 'Object reference not set to an instance of an object.',
             "Source": 'NServiceBus.Core'
@@ -256,9 +244,9 @@
       MessageTemplate: 'Immediate Retry is going to retry message \'00000000-0000-0000-0000-000000000001\' because of an exception:',
       Level: 'Information',
       Properties: {
-        ProcessingEndpoint: 'SerilogTestsNotFoundSagaMessage',
         IncomingMessageId: Guid_3,
-        IncomingMessageType: 'NotFoundSagaMessage',
+        IncomingTransportMessageId: Guid_6,
+        ProcessingEndpoint: 'SerilogTestsNotFoundSagaMessage',
         CorrelationId: Guid_3,
         ConversationId: Guid_4,
         HandlerType: 'NotFoundSaga',
@@ -294,12 +282,6 @@
         ExceptionDetail: {
           Elements: {
             "Type": 'System.NullReferenceException',
-            "Data": {
-              Elements: {
-                "Message ID": Guid_3,
-                "Transport message ID": Guid_6
-              }
-            },
             "HResult": -2147467261,
             "Message": 'Object reference not set to an instance of an object.',
             "Source": 'NServiceBus.Core'
@@ -311,9 +293,9 @@
       MessageTemplate: 'Moving message \'00000000-0000-0000-0000-000000000001\' to the error queue \'error\' because processing failed due to an exception:',
       Level: 'Error',
       Properties: {
-        ProcessingEndpoint: 'SerilogTestsNotFoundSagaMessage',
         IncomingMessageId: Guid_3,
-        IncomingMessageType: 'NotFoundSagaMessage',
+        IncomingTransportMessageId: Guid_6,
+        ProcessingEndpoint: 'SerilogTestsNotFoundSagaMessage',
         CorrelationId: Guid_3,
         ConversationId: Guid_4,
         HandlerType: 'NotFoundSaga',
@@ -349,12 +331,6 @@
         ExceptionDetail: {
           Elements: {
             "Type": 'System.NullReferenceException',
-            "Data": {
-              Elements: {
-                "Message ID": Guid_3,
-                "Transport message ID": Guid_6
-              }
-            },
             "HResult": -2147467261,
             "Message": 'Object reference not set to an instance of an object.',
             "Source": 'NServiceBus.Core'

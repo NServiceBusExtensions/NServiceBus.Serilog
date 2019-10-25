@@ -219,8 +219,6 @@ The instance of `ExceptionLogState` can be accessed using the following.
 if (ExceptionLogState.TryReadFromException(exception, out var logState))
 {
     var endpoint = logState.ProcessingEndpoint;
-    var incomingMessageId = logState.IncomingMessageId;
-    var incomingMessageType = logState.IncomingMessageType;
     var correlationId = logState.CorrelationId;
     var conversationId = logState.ConversationId;
     var handlerType = logState.HandlerType;
@@ -228,7 +226,7 @@ if (ExceptionLogState.TryReadFromException(exception, out var logState))
     var incomingMessage = logState.IncomingMessage;
 }
 ```
-<sup>[snippet source](/src/Tests/Snippets/Usage.cs#L37-L51) / [anchor](#snippet-exceptionlogstate)</sup>
+<sup>[snippet source](/src/Tests/Snippets/Usage.cs#L37-L49) / [anchor](#snippet-exceptionlogstate)</sup>
 <!-- endsnippet -->
 
 When routing the NServiceBus log event with `LogManager.Use<SerilogFactory>();`, the above properties will be promoted to the log event.

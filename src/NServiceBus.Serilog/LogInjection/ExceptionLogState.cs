@@ -9,27 +9,20 @@ namespace NServiceBus.Serilog
     public class ExceptionLogState
     {
         public readonly string ProcessingEndpoint;
-        public readonly string IncomingMessageId;
-        public readonly string IncomingMessageType;
         public readonly string? CorrelationId;
         public readonly string? ConversationId;
         public string? HandlerType;
         public object? IncomingMessage;
         public readonly IReadOnlyDictionary<string, string> IncomingHeaders;
 
-        public ExceptionLogState(string processingEndpoint, string incomingMessageId, string incomingMessageType, IReadOnlyDictionary<string, string> incomingHeaders, string? correlationId, string? conversationId)
+        public ExceptionLogState(string processingEndpoint, IReadOnlyDictionary<string, string> incomingHeaders, string? correlationId, string? conversationId)
         {
             Guard.AgainstNull(processingEndpoint, nameof(processingEndpoint));
-            Guard.AgainstNull(incomingMessageId, nameof(incomingMessageId));
-            Guard.AgainstNull(incomingMessageType, nameof(incomingMessageType));
             ProcessingEndpoint = processingEndpoint;
-            IncomingMessageId = incomingMessageId;
-            IncomingMessageType = incomingMessageType;
             IncomingHeaders = incomingHeaders;
             CorrelationId = correlationId;
             ConversationId = conversationId;
         }
-
 
         public static bool TryReadFromException(Exception exception, out ExceptionLogState state)
         {

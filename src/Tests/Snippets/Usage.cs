@@ -39,8 +39,6 @@ class Usage
         if (ExceptionLogState.TryReadFromException(exception, out var logState))
         {
             var endpoint = logState.ProcessingEndpoint;
-            var incomingMessageId = logState.IncomingMessageId;
-            var incomingMessageType = logState.IncomingMessageType;
             var correlationId = logState.CorrelationId;
             var conversationId = logState.ConversationId;
             var handlerType = logState.HandlerType;

@@ -22,13 +22,22 @@ class Logger :
     {
         var data = exception.Data;
         var properties = new List<LogEventProperty>();
-        if (data.Contains("ExceptionLogState"))
+        if (exception.TryReadData("Message type", out string messageType))
         {
-            var logState = (ExceptionLogState) data["ExceptionLogState"];
-            data.Remove("ExceptionLogState");
+            properties.Add(new LogEventProperty("IncomingMessageType", new ScalarValue(messageType)));
+        }
+        if (exception.TryReadData("Message ID", out string incomingMessageId))
+        {
+            properties.Add(new LogEventProperty("IncomingMessageId", new ScalarValue(incomingMessageId)));
+        }
+        if (exception.TryReadData("Transport message ID", out string incomingTransportMessageId))
+        {
+            properties.Add(new LogEventProperty("IncomingTransportMessageId", new ScalarValue(incomingTransportMessageId)));
+        }
+
+        if (exception.TryReadData("ExceptionLogState", out ExceptionLogState logState))
+        {
             properties.Add(new LogEventProperty("ProcessingEndpoint", new ScalarValue(logState.ProcessingEndpoint)));
-            properties.Add(new LogEventProperty("IncomingMessageId", new ScalarValue(logState.IncomingMessageId)));
-            properties.Add(new LogEventProperty("IncomingMessageType", new ScalarValue(logState.IncomingMessageType)));
             if (logState.CorrelationId != null)
             {
                 properties.Add(new LogEventProperty("CorrelationId", new ScalarValue(logState.CorrelationId)));

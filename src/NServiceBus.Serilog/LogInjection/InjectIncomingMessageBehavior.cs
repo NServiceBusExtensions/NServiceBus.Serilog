@@ -66,8 +66,6 @@ class InjectIncomingMessageBehavior :
         var exceptionLogState = new ExceptionLogState
         (
             processingEndpoint: endpoint,
-            incomingMessageId: context.MessageId,
-            incomingMessageType: messageTypeName,
             incomingHeaders: context.MessageHeaders,
             correlationId: correlationId,
             conversationId: conversationId
