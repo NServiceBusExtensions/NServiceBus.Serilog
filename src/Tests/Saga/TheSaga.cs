@@ -42,7 +42,7 @@ public class TheSaga :
         return Task.CompletedTask;
     }
 
-    public class TheSagaData : 
+    public class TheSagaData :
         ContainSagaData
     {
         public string? Property { get; set; }

@@ -46,10 +46,11 @@ class LogOutgoingMessageBehavior :
         forContext.WriteInfo(messageTemplate, properties);
     }
 
-    public class Registration : RegisterStep
+    public class Registration :
+        RegisterStep
     {
-        public Registration()
-            : base(
+        public Registration() :
+            base(
                 stepId: $"Serilog{nameof(LogOutgoingMessageBehavior)}",
                 behavior: typeof(LogOutgoingMessageBehavior),
                 description: "Logs outgoing messages")

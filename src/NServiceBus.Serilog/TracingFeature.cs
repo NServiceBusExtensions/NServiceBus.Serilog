@@ -2,7 +2,8 @@
 using NServiceBus.Features;
 using NServiceBus.Serilog;
 
-class TracingFeature : Feature
+class TracingFeature :
+    Feature
 {
     protected override void Setup(FeatureConfigurationContext context)
     {

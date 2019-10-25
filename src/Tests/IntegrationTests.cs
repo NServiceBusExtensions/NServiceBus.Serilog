@@ -14,10 +14,11 @@ using Serilog.Exceptions;
 using Xunit;
 using Xunit.Abstractions;
 
-public class IntegrationTests : TestBase
+public class IntegrationTests :
+    TestBase
 {
-
-    public IntegrationTests(ITestOutputHelper output) : base(output)
+    public IntegrationTests(ITestOutputHelper output) :
+        base(output)
     {
         HeaderAppender.excludeHeaders.Add(Headers.TimeSent);
     }
@@ -129,8 +130,8 @@ public class IntegrationTests : TestBase
         });
         recoverability.Immediate(settings => { settings.NumberOfRetries(1); });
 
-        recoverability.Failed(_ => _
-            .OnMessageSentToErrorQueue(_ =>
+        recoverability.Failed(settings => settings
+            .OnMessageSentToErrorQueue(failedMessage =>
             {
                 resetEvent.Set();
                 return Task.CompletedTask;

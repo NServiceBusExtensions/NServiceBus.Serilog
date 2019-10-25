@@ -1,7 +1,8 @@
 ﻿using System;
 using Newtonsoft.Json;
 
-class LogEventConverter : JsonConverter
+class LogEventConverter :
+    JsonConverter
 {
     public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
     {

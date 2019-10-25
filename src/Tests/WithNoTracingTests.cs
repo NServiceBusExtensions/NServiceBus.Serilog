@@ -6,9 +6,9 @@ using NServiceBus;
 using Xunit;
 using Xunit.Abstractions;
 
-public class WithNoTracingTests : TestBase
+public class WithNoTracingTests :
+    TestBase
 {
-
     [Fact]
     public async Task Handler()
     {
@@ -18,7 +18,8 @@ public class WithNoTracingTests : TestBase
         configuration.DisableRetries();
         configuration.RegisterComponents(components => components.RegisterSingleton(resetEvent));
 
-        configuration.Recoverability().Failed(_ => _
+        var recoverability = configuration.Recoverability();
+        recoverability.Failed(settings => settings
             .OnMessageSentToErrorQueue(message =>
             {
                 exception = message.Exception;

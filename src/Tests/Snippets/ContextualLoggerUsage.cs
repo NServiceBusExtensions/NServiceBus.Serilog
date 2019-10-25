@@ -3,7 +3,8 @@ using NServiceBus;
 
 #region ContextualLoggerUsage
 
-public class SimpleHandler : IHandleMessages<TheMessage>
+public class SimpleHandler :
+    IHandleMessages<TheMessage>
 {
     public Task Handle(TheMessage message, IMessageHandlerContext context)
     {

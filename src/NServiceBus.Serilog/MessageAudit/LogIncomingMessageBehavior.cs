@@ -20,8 +20,8 @@ class LogIncomingMessageBehavior :
     public class Registration :
         RegisterStep
     {
-        public Registration()
-            : base(
+        public Registration() :
+            base(
                 stepId: $"Serilog{nameof(LogIncomingMessageBehavior)}",
                 behavior: typeof(LogIncomingMessageBehavior),
                 description: "Logs incoming messages")

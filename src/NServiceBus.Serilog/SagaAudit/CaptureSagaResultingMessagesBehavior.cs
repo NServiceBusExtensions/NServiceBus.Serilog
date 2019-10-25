@@ -39,8 +39,8 @@ class CaptureSagaResultingMessagesBehavior :
     public class Registration :
         RegisterStep
     {
-        public Registration()
-            : base(
+        public Registration() :
+            base(
                 stepId: $"Serilog{nameof(CaptureSagaResultingMessagesBehavior)}",
                 behavior: typeof(CaptureSagaResultingMessagesBehavior),
                 description: "Reports messages outgoing from a saga to Serilog")

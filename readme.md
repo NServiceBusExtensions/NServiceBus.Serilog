@@ -181,7 +181,8 @@ The contextual logger instance can be accessed from anywhere in the pipeline via
 <!-- snippet: ContextualLoggerUsage -->
 <a id='snippet-contextualloggerusage'/></a>
 ```cs
-public class SimpleHandler : IHandleMessages<TheMessage>
+public class SimpleHandler :
+    IHandleMessages<TheMessage>
 {
     public Task Handle(TheMessage message, IMessageHandlerContext context)
     {
@@ -191,7 +192,7 @@ public class SimpleHandler : IHandleMessages<TheMessage>
     }
 }
 ```
-<sup>[snippet source](/src/Tests/Snippets/ContextualLoggerUsage.cs#L4-L15) / [anchor](#snippet-contextualloggerusage)</sup>
+<sup>[snippet source](/src/Tests/Snippets/ContextualLoggerUsage.cs#L4-L16) / [anchor](#snippet-contextualloggerusage)</sup>
 <!-- endsnippet -->
 
 

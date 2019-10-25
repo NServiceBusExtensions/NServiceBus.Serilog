@@ -1,5 +1,6 @@
 ﻿using NServiceBus;
 
-public class StartHandlerUsingContextLogger : IMessage
+public class StartHandlerUsingContextLogger :
+    IMessage
 {
 }

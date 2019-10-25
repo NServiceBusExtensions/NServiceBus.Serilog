@@ -140,10 +140,11 @@ class CaptureSagaStateBehavior :
         context.Headers["NServiceBus.Serilog.SagaStateChange"] = sagaStateChange;
     }
 
-    public class Registration : RegisterStep
+    public class Registration :
+        RegisterStep
     {
-        public Registration()
-            : base(
+        public Registration() :
+            base(
                 stepId: $"Serilog{nameof(CaptureSagaStateBehavior)}",
                 behavior: typeof(CaptureSagaStateBehavior),
                 description: "Records saga state changes")

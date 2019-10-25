@@ -6,7 +6,8 @@ using Serilog;
 using Serilog.Events;
 using Serilog.Parsing;
 
-class Logger : ILog
+class Logger :
+    ILog
 {
     ILogger logger;
     MessageTemplateParser templateParser;

@@ -10,8 +10,8 @@ class InjectInvokeHandlerContextBehavior :
     public class Registration :
         RegisterStep
     {
-        public Registration()
-            : base(
+        public Registration() :
+            base(
                 stepId: $"Serilog{nameof(InjectInvokeHandlerContextBehavior)}",
                 behavior: typeof(InjectInvokeHandlerContextBehavior),
                 description: "Injects handler type into the logger")

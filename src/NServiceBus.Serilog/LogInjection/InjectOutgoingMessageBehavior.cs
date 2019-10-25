@@ -59,8 +59,8 @@ class InjectOutgoingMessageBehavior :
     public class Registration :
         RegisterStep
     {
-        public Registration(LogBuilder logBuilder)
-            : base(
+        public Registration(LogBuilder logBuilder) :
+            base(
                 stepId: $"Serilog{nameof(InjectOutgoingMessageBehavior)}",
                 behavior: typeof(InjectOutgoingMessageBehavior),
                 description: "Injects a logger into the outgoing context",
