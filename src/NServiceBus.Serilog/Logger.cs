@@ -19,7 +19,6 @@ class Logger :
 
     void WriteExceptionEvent(string message, Exception exception, LogEventLevel level)
     {
-        var data = exception.Data;
         var properties = new List<LogEventProperty>();
         if (exception.TryReadData("Message type", out string messageType))
         {

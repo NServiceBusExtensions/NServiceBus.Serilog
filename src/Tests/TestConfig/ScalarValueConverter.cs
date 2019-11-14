@@ -5,13 +5,13 @@ using Serilog.Events;
 class ScalarValueConverter :
     JsonConverter
 {
-    public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
+    public override void WriteJson(JsonWriter writer, object? value, JsonSerializer serializer)
     {
-        var property = (ScalarValue) value;
+        var property = (ScalarValue) value!;
         serializer.Serialize(writer, property.Value);
     }
 
-    public override object ReadJson(JsonReader reader, Type type, object value, JsonSerializer serializer)
+    public override object ReadJson(JsonReader reader, Type type, object? value, JsonSerializer serializer)
     {
         throw new NotImplementedException();
     }

@@ -4,9 +4,9 @@ using Newtonsoft.Json;
 class LogEventConverter :
     JsonConverter
 {
-    public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
+    public override void WriteJson(JsonWriter writer, object? value, JsonSerializer serializer)
     {
-        var logEvent = (LogEventEx) value;
+        var logEvent = (LogEventEx) value!;
         writer.WriteStartObject();
         writer.WritePropertyName("MessageTemplate");
         serializer.Serialize(writer, logEvent.MessageTemplate.Text);
@@ -17,7 +17,7 @@ class LogEventConverter :
         writer.WriteEndObject();
     }
 
-    public override object ReadJson(JsonReader reader, Type type, object value, JsonSerializer serializer)
+    public override object ReadJson(JsonReader reader, Type type, object? value, JsonSerializer serializer)
     {
         throw new NotImplementedException();
     }
