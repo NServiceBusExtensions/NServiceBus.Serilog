@@ -5,7 +5,7 @@
     <Version>1.0.0</Version>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="ApprovalTests" Version="4.2.2" />
+    <PackageReference Include="ApprovalTests" Version="4.3.0" />
     <PackageReference Include="NServiceBus.Testing" Version="7.2.0" />
     <PackageReference Include="ObjectApproval" Version="11.2.1" />
     <PackageReference Include="Serilog.Exceptions" Version="5.3.1" />
