@@ -1,5 +1,6 @@
 ﻿using NServiceBus.Configuration.AdvancedExtensibility;
 using NServiceBus.Serilog;
+using NServiceBus.Settings;
 using Serilog;
 
 namespace NServiceBus
@@ -28,9 +29,14 @@ namespace NServiceBus
             recoverability.AddUnrecoverableException<ConfigurationException>();
             configuration.EnableFeature<TracingFeature>();
             var settings = configuration.GetSettings();
-            var attachments = new SerilogTracingSettings(logger,configuration);
-            settings.Set(attachments);
-            return attachments;
+            var serilogTracing = new SerilogTracingSettings(logger, configuration);
+            settings.Set(serilogTracing);
+            return serilogTracing;
+        }
+
+        internal static SerilogTracingSettings TracingSettings(this ReadOnlySettings settings)
+        {
+            return settings.Get<SerilogTracingSettings>();
         }
 
         /// <summary>

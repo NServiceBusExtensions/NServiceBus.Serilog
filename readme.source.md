@@ -138,6 +138,13 @@ Both incoming and outgoing messages will be logged at the [Information level](ht
 snippet: EnableMessageTracing
 
 
+### Startup diagnostics
+
+[Startup diagnostics](https://docs.particular.net/nservicebus/hosting/startup-diagnostics) is, in addition to its default file location, also written to Serilog with the level of `Warning`.
+
+snippet: WriteStartupDiagnostics
+
+
 ## Logging to Seq
 
 To log to [Seq](https://getseq.net/):
@@ -188,6 +195,7 @@ snippet: UseConfig
 ### Ensure logging is flushed on shutdown
 
 snippet: Cleanup
+
 
 
 ## Release Notes

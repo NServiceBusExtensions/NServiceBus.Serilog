@@ -5,21 +5,22 @@ using Serilog.Core.Enrichers;
 
 class LogBuilder
 {
-    ILogger logger;
     ConcurrentDictionary<string, ILogger> loggers = new ConcurrentDictionary<string, ILogger>();
 
     public LogBuilder(ILogger logger, string endpointName)
     {
-        this.logger = logger
+        Logger = logger
             .ForContext(new[]
             {
                 new PropertyEnricher("ProcessingEndpoint", endpointName)
             });
     }
 
+    public ILogger Logger { get; }
+
     public ILogger GetLogger(string key)
     {
-        return loggers.GetOrAdd(key, s => logger
+        return loggers.GetOrAdd(key, s => Logger
             .ForContext(Constants.SourceContextPropertyName, key));
     }
 }
