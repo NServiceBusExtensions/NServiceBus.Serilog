@@ -12,6 +12,7 @@ public static class GlobalSetup
         var nsbVersionString = $"{nsbVersion.FileMajorPart}.{nsbVersion.FileMinorPart}.{nsbVersion.FileBuildPart}";
         Global.AddScrubber(x => x.RemoveLinesContaining("StackTraceString"));
         Global.AddScrubber(x => x.Replace(nsbVersionString, "NsbVersion"));
+        Global.ScrubMachineName();
         Global.ModifySerialization(settings =>
         {
             settings.AddExtraSettings(newtonsoft =>
