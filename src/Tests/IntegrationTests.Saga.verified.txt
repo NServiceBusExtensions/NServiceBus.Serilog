@@ -1,4 +1,4 @@
-﻿{
+{
   logsForTarget: [
     {
       MessageTemplate: 'Hello from {@Saga}. Message: {@Message}',
@@ -37,7 +37,7 @@
         OriginatingHostId: Guid_3,
         MessageIntent: 'Send',
         OriginatingEndpoint: 'SerilogTestsStartSaga',
-        OriginatingMachine: 'MachineName',
+        OriginatingMachine: 'MACPRO',
         ReplyToAddress: 'SerilogTestsStartSaga',
         IncomingMessageId: Guid_1,
         IncomingMessageType: 'StartSaga',
@@ -73,7 +73,7 @@
               TimeSent: DateTime_1
             },
             {
-              OriginatingMachine: 'MachineName'
+              OriginatingMachine: 'MACPRO'
             },
             {
               OriginatingEndpoint: 'SerilogTestsStartSaga'
@@ -149,7 +149,7 @@
         OriginatingHostId: Guid_3,
         MessageIntent: 'Send',
         OriginatingEndpoint: 'SerilogTestsStartSaga',
-        OriginatingMachine: 'MachineName',
+        OriginatingMachine: 'MACPRO',
         ReplyToAddress: 'SerilogTestsStartSaga',
         OutgoingMessageId: Guid_1,
         OutgoingMessageType: 'StartSaga',
@@ -179,7 +179,7 @@
         OriginatingHostId: Guid_3,
         MessageIntent: 'Send',
         OriginatingEndpoint: 'SerilogTestsStartSaga',
-        OriginatingMachine: 'MachineName',
+        OriginatingMachine: 'MACPRO',
         OriginatingSagaId: Guid_4,
         OriginatingSagaType: 'TheSaga, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6',
         RelatedTo: Guid_1,

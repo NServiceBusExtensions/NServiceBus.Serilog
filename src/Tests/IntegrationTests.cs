@@ -1,21 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using NServiceBus;
 using NServiceBus.Logging;
 using NServiceBus.Serilog;
-using ObjectApproval;
 using Serilog;
 using Serilog.Events;
 using Serilog.Exceptions;
+using VerifyXunit;
 using Xunit;
 using Xunit.Abstractions;
 
 public class IntegrationTests :
-    TestBase
+    VerifyBase
 {
     static List<LogEvent> logs;
 
@@ -51,7 +50,7 @@ public class IntegrationTests :
                 Property = "TheProperty"
             });
         var logEvents = events.ToList();
-        Verify<StartHandler>(logEvents);
+       await Verify<StartHandler>(logEvents);
     }
 
     [Fact]
@@ -65,7 +64,7 @@ public class IntegrationTests :
                 options.SetHeader(Headers.SagaType, typeof(TheSaga).FullName);
             });
         var logEvents = events.ToList();
-        Verify<NotFoundSagaMessage>(logEvents);
+     await   Verify<NotFoundSagaMessage>(logEvents);
     }
 
     [Fact]
@@ -73,7 +72,7 @@ public class IntegrationTests :
     {
         var events = await Send(new StartHandlerThatLogs());
         var logEvents = events.ToList();
-        Verify<StartHandlerThatLogs>(logEvents);
+     await   Verify<StartHandlerThatLogs>(logEvents);
     }
 
     [Fact]
@@ -85,7 +84,7 @@ public class IntegrationTests :
                 Property = "TheProperty"
             });
         var logEvents = events.ToList();
-        Verify<StartHandlerThatThrows>(logEvents);
+     await   Verify<StartHandlerThatThrows>(logEvents);
     }
 
     [Fact]
@@ -97,26 +96,19 @@ public class IntegrationTests :
                 Property = "TheProperty"
             });
         var logEvents = events.ToList();
-        Verify<StartSaga>(logEvents);
+      await  Verify<StartSaga>(logEvents);
     }
 
-    static void Verify<T>(List<LogEventEx> logEvents)
+    Task Verify<T>(List<LogEventEx> logEvents)
     {
         var logsForTarget = logEvents.LogsForType<T>().ToList();
-        var nsbVersion = FileVersionInfo.GetVersionInfo(typeof(Endpoint).Assembly.Location);
-        var nsbVersionString = $"{nsbVersion.FileMajorPart}.{nsbVersion.FileMinorPart}.{nsbVersion.FileBuildPart}";
-        ObjectApprover.Verify(
+        return Verify(
             new
             {
                 logsForTarget,
                 logsForNsbSerilog = logEvents.LogsForNsbSerilog().ToList(),
                 logsWithExceptions = logEvents.LogsWithExceptions().ToList()
-            },
-            jsonSerializerSettings: null,
-            scrubber: s => s
-                .Replace(Environment.MachineName, "MachineName")
-                .Replace(nsbVersionString, "NsbVersion")
-                .RemoveLinesContaining("StackTraceString"));
+            });
     }
 
     static async Task<IEnumerable<LogEventEx>> Send(object message, Action<SendOptions>? optionsAction = null)

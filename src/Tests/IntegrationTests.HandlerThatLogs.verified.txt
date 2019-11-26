@@ -1,4 +1,4 @@
-﻿{
+{
   logsForTarget: [
     {
       MessageTemplate: 'Receive message {IncomingMessageType} {IncomingMessageId}.',
@@ -10,7 +10,7 @@
         OriginatingHostId: Guid_1,
         MessageIntent: 'Send',
         OriginatingEndpoint: 'SerilogTestsStartHandlerThatLogs',
-        OriginatingMachine: 'MachineName',
+        OriginatingMachine: 'MACPRO',
         ReplyToAddress: 'SerilogTestsStartHandlerThatLogs',
         IncomingMessageId: Guid_2,
         IncomingMessageType: 'StartHandlerThatLogs',
@@ -35,7 +35,7 @@
         OriginatingHostId: Guid_1,
         MessageIntent: 'Send',
         OriginatingEndpoint: 'SerilogTestsStartHandlerThatLogs',
-        OriginatingMachine: 'MachineName',
+        OriginatingMachine: 'MACPRO',
         ReplyToAddress: 'SerilogTestsStartHandlerThatLogs',
         OutgoingMessageId: Guid_2,
         OutgoingMessageType: 'StartHandlerThatLogs',

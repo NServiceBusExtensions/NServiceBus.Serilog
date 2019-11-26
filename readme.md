@@ -27,6 +27,7 @@ Add support for sending [NServiceBus](http://particular.net/NServiceBus) logging
     * [Exception enrichment](#exception-enrichment)
     * [Saga tracing](#saga-tracing)
     * [Message tracing](#message-tracing)
+    * [Startup diagnostics](#startup-diagnostics)
   * [Logging to Seq](#logging-to-seq)
   * [Sample](#sample)
     * [Configure Serilog](#configure-serilog)
@@ -37,7 +38,6 @@ Add support for sending [NServiceBus](http://particular.net/NServiceBus) logging
     * [Configure Serilog](#configure-serilog-1)
     * [Pass that configuration to NServiceBus](#pass-that-configuration-to-nservicebus)
     * [Ensure logging is flushed on shutdown](#ensure-logging-is-flushed-on-shutdown-1)
-  * [Startup diagnostics](#startup-diagnostics)
 <!-- endtoc -->
 
 
@@ -242,6 +242,67 @@ serilogTracing.EnableMessageTracing();
 <!-- endsnippet -->
 
 
+### Startup diagnostics
+
+[Startup diagnostics](https://docs.particular.net/nservicebus/hosting/startup-diagnostics) is, in addition to its default file location, also written to Serilog with the level of `Warning`.
+
+<!-- snippet: WriteStartupDiagnostics -->
+<a id='snippet-writestartupdiagnostics'/></a>
+```cs
+class WriteStartupDiagnostics :
+    FeatureStartupTask
+{
+    public WriteStartupDiagnostics(ReadOnlySettings settings, ILogger logger)
+    {
+        this.settings = settings;
+        this.logger = logger;
+    }
+
+    protected override Task OnStart(IMessageSession session)
+    {
+        var properties = BuildProperties(settings, logger);
+
+        var templateParser = new MessageTemplateParser();
+        var messageTemplate = templateParser.Parse("DiagnosticEntries");
+        var logEvent = new LogEvent(
+            timestamp: DateTimeOffset.Now,
+            level: LogEventLevel.Warning,
+            exception: null,
+            messageTemplate: messageTemplate,
+            properties: properties);
+        logger.Write(logEvent);
+        return Task.CompletedTask;
+    }
+
+    static IEnumerable<LogEventProperty> BuildProperties(ReadOnlySettings readOnlySettings, ILogger logger)
+    {
+        var entries = readOnlySettings.ReadStartupDiagnosticEntries();
+        foreach (var entry in entries)
+        {
+            if (entry.Name == "Features")
+            {
+                continue;
+            }
+            if (logger.BindProperty(entry.Name, entry.Data, out var property))
+            {
+                yield return property!;
+            }
+        }
+    }
+
+    protected override Task OnStop(IMessageSession session)
+    {
+        return Task.CompletedTask;
+    }
+
+    ReadOnlySettings settings;
+    private readonly ILogger logger;
+}
+```
+<sup>[snippet source](/src/NServiceBus.Serilog/StartupDiagnostics/WriteStartupDiagnostics.cs#L11-L61) / [anchor](#snippet-writestartupdiagnostics)</sup>
+<!-- endsnippet -->
+
+
 ## Logging to Seq
 
 To log to [Seq](https://getseq.net/):
@@ -396,66 +457,6 @@ Log.CloseAndFlush();
 <sup>[snippet source](/src/SeqSample/Program.cs#L45-L48) / [anchor](#snippet-cleanup-1)</sup>
 <!-- endsnippet -->
 
-
-## Startup diagnostics
-
-[Startup diagnostics](https://docs.particular.net/nservicebus/hosting/startup-diagnostics) is, in addition to its default file location, also written to Serilog with the level of `Warning`.
-
-<!-- snippet: WriteStartupDiagnostics -->
-<a id='snippet-writestartupdiagnostics'/></a>
-```cs
-class WriteStartupDiagnostics :
-    FeatureStartupTask
-{
-    public WriteStartupDiagnostics(ReadOnlySettings settings, ILogger logger)
-    {
-        this.settings = settings;
-        this.logger = logger;
-    }
-
-    protected override Task OnStart(IMessageSession session)
-    {
-        var properties = BuildProperties(settings, logger);
-
-        var templateParser = new MessageTemplateParser();
-        var messageTemplate = templateParser.Parse("DiagnosticEntries");
-        var logEvent = new LogEvent(
-            timestamp: DateTimeOffset.Now,
-            level: LogEventLevel.Warning,
-            exception: null,
-            messageTemplate: messageTemplate,
-            properties: properties);
-        logger.Write(logEvent);
-        return Task.CompletedTask;
-    }
-
-    static IEnumerable<LogEventProperty> BuildProperties(ReadOnlySettings readOnlySettings, ILogger logger)
-    {
-        var entries = readOnlySettings.ReadStartupDiagnosticEntries();
-        foreach (var entry in entries)
-        {
-            if (entry.Name == "Features")
-            {
-                continue;
-            }
-            if (logger.BindProperty(entry.Name, entry.Data, out var property))
-            {
-                yield return property!;
-            }
-        }
-    }
-
-    protected override Task OnStop(IMessageSession session)
-    {
-        return Task.CompletedTask;
-    }
-
-    ReadOnlySettings settings;
-    private readonly ILogger logger;
-}
-```
-<sup>[snippet source](/src/NServiceBus.Serilog/StartupDiagnostics/WriteStartupDiagnostics.cs#L11-L61) / [anchor](#snippet-writestartupdiagnostics)</sup>
-<!-- endsnippet -->
 
 
 ## Release Notes
