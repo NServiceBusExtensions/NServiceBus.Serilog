@@ -7,7 +7,7 @@
   <ItemGroup>
     <PackageReference Include="NServiceBus.Testing" Version="7.2.0" />
     <PackageReference Include="XunitContext" Version="1.5.1" />
-    <PackageReference Include="Verify.Xunit" Version="1.0.0-beta.31" />
+    <PackageReference Include="Verify.Xunit" Version="1.0.0-beta.32" />
     <PackageReference Include="Serilog.Exceptions" Version="5.3.1" />
     <PackageReference Include="Xunit" Version="2.4.1" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.1" />
@@ -17,6 +17,6 @@
     <PackageReference Include="Serilog.Sinks.Seq" Version="4.0.0" />
     <PackageReference Include="Serilog" Version="2.9.0" />
     <ProjectReference Include="..\NServiceBus.Serilog\NServiceBus.Serilog.csproj" />
-    <PackageReference Include="ProjectDefaults" Version="1.0.33" PrivateAssets="All" />
+    <PackageReference Include="ProjectDefaults" Version="1.0.34" PrivateAssets="All" />
   </ItemGroup>
 </Project>
