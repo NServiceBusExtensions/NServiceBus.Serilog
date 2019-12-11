@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 using NServiceBus;
-using VerifyXunit;
+using Verify;
 using Xunit;
 
 [GlobalSetUp]
