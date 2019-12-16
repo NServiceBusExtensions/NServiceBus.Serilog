@@ -10,10 +10,10 @@ public static class GlobalSetup
     {
         var nsbVersion = FileVersionInfo.GetVersionInfo(typeof(Endpoint).Assembly.Location);
         var nsbVersionString = $"{nsbVersion.FileMajorPart}.{nsbVersion.FileMinorPart}.{nsbVersion.FileBuildPart}";
-        Global.AddScrubber(x => x.RemoveLinesContaining("StackTraceString"));
-        Global.AddScrubber(x => x.Replace(nsbVersionString, "NsbVersion"));
-        Global.ScrubMachineName();
-        Global.ModifySerialization(settings =>
+        SharedVerifySettings.AddScrubber(x => x.RemoveLinesContaining("StackTraceString"));
+        SharedVerifySettings.AddScrubber(x => x.Replace(nsbVersionString, "NsbVersion"));
+        SharedVerifySettings.ScrubMachineName();
+        SharedVerifySettings.ModifySerialization(settings =>
         {
             settings.AddExtraSettings(newtonsoft =>
             {
@@ -21,7 +21,7 @@ public static class GlobalSetup
                 newtonsoft.Converters.Add(new LogEventConverter());
                 newtonsoft.Converters.Add(new ScalarValueConverter());
             });
-            StringScrubbingConverter.AddExtraDatetimeFormat("yyyy-MM-dd HH:mm:ss:ffffff Z");
         });
+        SharedVerifySettings.AddExtraDatetimeFormat("yyyy-MM-dd HH:mm:ss:ffffff Z");
     }
 }
