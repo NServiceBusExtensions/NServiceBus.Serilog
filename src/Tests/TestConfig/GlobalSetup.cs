@@ -10,7 +10,7 @@ public static class GlobalSetup
     {
         var nsbVersion = FileVersionInfo.GetVersionInfo(typeof(Endpoint).Assembly.Location);
         var nsbVersionString = $"{nsbVersion.FileMajorPart}.{nsbVersion.FileMinorPart}.{nsbVersion.FileBuildPart}";
-        SharedVerifySettings.AddScrubber(x => x.RemoveLinesContaining("StackTraceString"));
+        SharedVerifySettings.ScrubLinesContaining("StackTraceString");
         SharedVerifySettings.AddScrubber(x => x.Replace(nsbVersionString, "NsbVersion"));
         SharedVerifySettings.ScrubMachineName();
         SharedVerifySettings.ModifySerialization(settings =>
