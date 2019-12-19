@@ -1,7 +1,7 @@
 # <img src="/src/icon.png" height="30px"> NServiceBus.Serilog
 
 [![Build status](https://ci.appveyor.com/api/projects/status/nmcughyrado8smay/branch/master?svg=true)](https://ci.appveyor.com/project/SimonCropp/nservicebus-Serilog)
-[![NuGet Status](https://img.shields.io/nuget/v/NServiceBus.Serilog.svg?cacheSeconds=86400)](https://www.nuget.org/packages/NServiceBus.Serilog/)
+[![NuGet Status](https://img.shields.io/nuget/v/NServiceBus.Serilog.svg)](https://www.nuget.org/packages/NServiceBus.Serilog/)
 
 Add support for sending [NServiceBus](http://particular.net/NServiceBus) logging through [Serilog](http://serilog.net/)
 
