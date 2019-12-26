@@ -272,9 +272,11 @@ class WriteStartupDiagnostics :
         return Task.CompletedTask;
     }
 
-    static IEnumerable<LogEventProperty> BuildProperties(ReadOnlySettings readOnlySettings, ILogger logger)
+    static IEnumerable<LogEventProperty> BuildProperties(
+        ReadOnlySettings settings,
+        ILogger logger)
     {
-        var entries = readOnlySettings.ReadStartupDiagnosticEntries();
+        var entries = settings.ReadStartupDiagnosticEntries();
         foreach (var entry in entries)
         {
             if (entry.Name == "Features")
@@ -297,7 +299,7 @@ class WriteStartupDiagnostics :
     private readonly ILogger logger;
 }
 ```
-<sup><a href='/src/NServiceBus.Serilog/StartupDiagnostics/WriteStartupDiagnostics.cs#L11-L61' title='File snippet `writestartupdiagnostics` was extracted from'>snippet source</a> | <a href='#snippet-writestartupdiagnostics' title='Navigate to start of snippet `writestartupdiagnostics`'>anchor</a></sup>
+<sup><a href='/src/NServiceBus.Serilog/StartupDiagnostics/WriteStartupDiagnostics.cs#L11-L63' title='File snippet `writestartupdiagnostics` was extracted from'>snippet source</a> | <a href='#snippet-writestartupdiagnostics' title='Navigate to start of snippet `writestartupdiagnostics`'>anchor</a></sup>
 <!-- endsnippet -->
 
 

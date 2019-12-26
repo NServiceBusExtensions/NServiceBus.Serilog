@@ -34,9 +34,11 @@ class WriteStartupDiagnostics :
         return Task.CompletedTask;
     }
 
-    static IEnumerable<LogEventProperty> BuildProperties(ReadOnlySettings readOnlySettings, ILogger logger)
+    static IEnumerable<LogEventProperty> BuildProperties(
+        ReadOnlySettings settings,
+        ILogger logger)
     {
-        var entries = readOnlySettings.ReadStartupDiagnosticEntries();
+        var entries = settings.ReadStartupDiagnosticEntries();
         foreach (var entry in entries)
         {
             if (entry.Name == "Features")
