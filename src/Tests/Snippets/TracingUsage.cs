@@ -15,31 +15,31 @@ class TracingUsage
 
         #endregion
 
-        var endpointConfiguration = new EndpointConfiguration("EndpointName");
+        var configuration = new EndpointConfiguration("EndpointName");
 
         #region SerilogTracingPassLoggerToFeature
 
-        var serilogTracing = endpointConfiguration.EnableSerilogTracing(tracingLog);
+        var serilogTracing = configuration.EnableSerilogTracing(tracingLog);
         serilogTracing.EnableMessageTracing();
 
         #endregion
     }
 
-    void EnableSagaTracing(EndpointConfiguration endpointConfiguration, ILogger logger)
+    void EnableSagaTracing(EndpointConfiguration configuration, ILogger logger)
     {
         #region EnableSagaTracing
 
-        var serilogTracing = endpointConfiguration.EnableSerilogTracing(logger);
+        var serilogTracing = configuration.EnableSerilogTracing(logger);
         serilogTracing.EnableSagaTracing();
 
         #endregion
     }
 
-    void EnableMessageTracing(EndpointConfiguration endpointConfiguration, ILogger logger)
+    void EnableMessageTracing(EndpointConfiguration configuration, ILogger logger)
     {
         #region EnableMessageTracing
 
-        var serilogTracing = endpointConfiguration.EnableSerilogTracing(logger);
+        var serilogTracing = configuration.EnableSerilogTracing(logger);
         serilogTracing.EnableMessageTracing();
 
         #endregion
