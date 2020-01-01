@@ -46,7 +46,7 @@ Add support for sending [NServiceBus](http://particular.net/NServiceBus) logging
 
 ## Community backed
 
-**It is expected that all developers [become a Patron](https://opencollective.com/nservicebusextensions/order/6976) to use any of these libraries. [Go to licensing FAQ](https://github.com/NServiceBusExtensions/Home/blob/master/readme.md#licensingpatron-faq)**
+**It is expected that all developers [become a Patron](https://opencollective.com/nservicebusextensions/order/6976) to use any of these libraries. [Go to licensing FAQ](https://github.com/NServiceBusExtensions/Home/#licensingpatron-faq)**
 
 
 ### Sponsors
@@ -63,6 +63,11 @@ Thanks to all the backing developers! Support this project by [becoming a patron
 <!--- EndOpenCollectiveBackers -->
 
 <a href="#" id="endofbacking"></a>
+
+
+## NuGet package
+
+https://nuget.org/packages/NServiceBus.Serilog/
 
 
 ## Usage
@@ -132,7 +137,7 @@ var tracingLog = new LoggerConfiguration()
 <!-- snippet: SerilogTracingPassLoggerToFeature -->
 <a id='snippet-serilogtracingpassloggertofeature'/></a>
 ```cs
-var serilogTracing = endpointConfiguration.EnableSerilogTracing(tracingLog);
+var serilogTracing = configuration.EnableSerilogTracing(tracingLog);
 serilogTracing.EnableMessageTracing();
 ```
 <sup><a href='/src/Tests/Snippets/TracingUsage.cs#L20-L25' title='File snippet `serilogtracingpassloggertofeature` was extracted from'>snippet source</a> | <a href='#snippet-serilogtracingpassloggertofeature' title='Navigate to start of snippet `serilogtracingpassloggertofeature`'>anchor</a></sup>
@@ -219,7 +224,7 @@ When a pipeline exception is logged, it will be enriched with the following prop
 <!-- snippet: EnableSagaTracing -->
 <a id='snippet-enablesagatracing'/></a>
 ```cs
-var serilogTracing = endpointConfiguration.EnableSerilogTracing(logger);
+var serilogTracing = configuration.EnableSerilogTracing(logger);
 serilogTracing.EnableSagaTracing();
 ```
 <sup><a href='/src/Tests/Snippets/TracingUsage.cs#L30-L35' title='File snippet `enablesagatracing` was extracted from'>snippet source</a> | <a href='#snippet-enablesagatracing' title='Navigate to start of snippet `enablesagatracing`'>anchor</a></sup>
@@ -233,7 +238,7 @@ Both incoming and outgoing messages will be logged at the [Information level](ht
 <!-- snippet: EnableMessageTracing -->
 <a id='snippet-enablemessagetracing'/></a>
 ```cs
-var serilogTracing = endpointConfiguration.EnableSerilogTracing(logger);
+var serilogTracing = configuration.EnableSerilogTracing(logger);
 serilogTracing.EnableMessageTracing();
 ```
 <sup><a href='/src/Tests/Snippets/TracingUsage.cs#L40-L45' title='File snippet `enablemessagetracing` was extracted from'>snippet source</a> | <a href='#snippet-enablemessagetracing' title='Navigate to start of snippet `enablemessagetracing`'>anchor</a></sup>

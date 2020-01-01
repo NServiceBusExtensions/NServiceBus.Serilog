@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project>
   <PropertyGroup>
-    <Version>6.5.0</Version>
+    <Version>6.5.1</Version>
     <Description>Add support for sending NServiceBus logging through Serilog</Description>
+    <PackageLicenseFile>license.txt</PackageLicenseFile>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
   </PropertyGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileFullPath)\..\..\license.txt"
+          Pack="true"
+          PackagePath="license.txt"/>
+  </ItemGroup>
 </Project>
