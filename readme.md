@@ -35,7 +35,8 @@ Add support for sending [NServiceBus](http://particular.net/NServiceBus) logging
     * [Prerequisites](#prerequisites)
     * [Configure Serilog](#configure-serilog-1)
     * [Pass that configuration to NServiceBus](#pass-that-configuration-to-nservicebus)
-    * [Ensure logging is flushed on shutdown](#ensure-logging-is-flushed-on-shutdown-1)<!-- endtoc -->
+    * [Ensure logging is flushed on shutdown](#ensure-logging-is-flushed-on-shutdown-1)
+  * [Security contact information](#security-contact-information)<!-- endtoc -->
 
 <!--- StartOpenCollectiveBackers -->
 
@@ -453,10 +454,9 @@ Log.CloseAndFlush();
 <!-- endsnippet -->
 
 
+## Security contact information
 
-## Release Notes
-
-See [closed milestones](../../milestones?state=closed).
+To report a security vulnerability, use the [Tidelift security contact](https://tidelift.com/security). Tidelift will coordinate the fix and disclosure.
 
 
 ## Icon
