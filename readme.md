@@ -16,6 +16,8 @@ Add support for sending [NServiceBus](http://particular.net/NServiceBus) logging
 ## Contents
 
   * [Community backed](#community-backed)
+    * [Sponsors](#sponsors)
+    * [Patrons](#patrons)
   * [Usage](#usage)
   * [Filtering](#filtering)
   * [Tracing](#tracing)
