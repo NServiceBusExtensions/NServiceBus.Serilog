@@ -18,6 +18,7 @@ Add support for sending [NServiceBus](http://particular.net/NServiceBus) logging
   * [Community backed](#community-backed)
     * [Sponsors](#sponsors)
     * [Patrons](#patrons)
+  * [Support via TideLift](#support-via-tidelift)
   * [Usage](#usage)
   * [Filtering](#filtering)
   * [Tracing](#tracing)
@@ -47,7 +48,7 @@ Add support for sending [NServiceBus](http://particular.net/NServiceBus) logging
 
 ## Community backed
 
-**It is expected that all developers [become a Patron](https://opencollective.com/nservicebusextensions/contribute/patron-6976) to use NServiceBusExtensions. [Go to licensing FAQ](https://github.com/NServiceBusExtensions/Home/#licensingpatron-faq)**
+**It is expected that all developers either [become a Patron](https://opencollective.com/nservicebusextensions/contribute/patron-6976) or have a [Tidelift Subscription](#support-via-tidelift) to use NServiceBusExtensions. [Go to licensing FAQ](https://github.com/NServiceBusExtensions/Home/#licensingpatron-faq)**
 
 
 ### Sponsors
@@ -64,6 +65,11 @@ Thanks to all the backing developers! Support this project by [becoming a patron
 <a href="#" id="endofbacking"></a>
 
 <!--- EndOpenCollectiveBackers -->
+
+
+## Support via TideLift
+
+Support is available via a [Tidelift Subscription](https://tidelift.com/subscription/pkg/nuget-nservicebus.serilog?utm_source=nuget-nservicebus.serilog&utm_medium=referral&utm_campaign=enterprise).
 
 
 ## NuGet package
