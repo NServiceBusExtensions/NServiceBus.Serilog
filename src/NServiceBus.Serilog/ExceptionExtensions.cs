@@ -14,9 +14,9 @@ static class ExceptionExtensions
             return true;
         }
 
-#pragma warning disable CS8653
+#pragma warning disable CS8653, CS8601
         state = default;
-#pragma warning restore CS8653
+#pragma warning restore
         return false;
     }
 }
