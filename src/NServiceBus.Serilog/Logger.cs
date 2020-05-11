@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using NServiceBus;
 using NServiceBus.Logging;
 using Serilog;
 using Serilog.Events;
@@ -32,17 +33,17 @@ class Logger :
         {
             properties.Add(new LogEventProperty("IncomingTransportMessageId", new ScalarValue(incomingTransportMessageId)));
         }
-        if (exception.TryReadData("Handler start time", out DateTime handlerStartTime))
+        if (exception.TryReadData("Handler start time", out string handlerStartTime))
         {
-            properties.Add(new LogEventProperty("HandlerStartTime", new ScalarValue(handlerStartTime)));
+            properties.Add(new LogEventProperty("HandlerStartTime", new ScalarValue(DateTimeExtensions.ToUtcDateTime(handlerStartTime))));
         }
-        if (exception.TryReadData("Handler failure time", out DateTime handlerFailureTime))
+        if (exception.TryReadData("Handler failure time", out string handlerFailureTime))
         {
-            properties.Add(new LogEventProperty("HandlerFailureTime", new ScalarValue(handlerFailureTime)));
+            properties.Add(new LogEventProperty("HandlerFailureTime", new ScalarValue(DateTimeExtensions.ToUtcDateTime(handlerFailureTime))));
         }
-        if (exception.TryReadData("Handler type", out Type handlerType))
+        if (exception.TryReadData("Handler type", out string handlerType))
         {
-            properties.Add(new LogEventProperty("HandlerType", new ScalarValue(handlerType.FullName)));
+            properties.Add(new LogEventProperty("HandlerType", new ScalarValue(handlerType)));
         }
 
         if (exception.TryReadData("ExceptionLogState", out ExceptionLogState logState))

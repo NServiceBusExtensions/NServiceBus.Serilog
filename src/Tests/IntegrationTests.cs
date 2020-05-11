@@ -50,7 +50,7 @@ public class IntegrationTests :
                 Property = "TheProperty"
             });
         var logEvents = events.ToList();
-       await Verify<StartHandler>(logEvents);
+        await Verify<StartHandler>(logEvents);
     }
 
     [Fact]
@@ -64,7 +64,7 @@ public class IntegrationTests :
                 options.SetHeader(Headers.SagaType, typeof(TheSaga).FullName);
             });
         var logEvents = events.ToList();
-     await   Verify<NotFoundSagaMessage>(logEvents);
+        await Verify<NotFoundSagaMessage>(logEvents);
     }
 
     [Fact]
@@ -72,7 +72,7 @@ public class IntegrationTests :
     {
         var events = await Send(new StartHandlerThatLogs());
         var logEvents = events.ToList();
-     await   Verify<StartHandlerThatLogs>(logEvents);
+        await Verify<StartHandlerThatLogs>(logEvents);
     }
 
     [Fact]
@@ -84,7 +84,7 @@ public class IntegrationTests :
                 Property = "TheProperty"
             });
         var logEvents = events.ToList();
-     await   Verify<StartHandlerThatThrows>(logEvents);
+        await Verify<StartHandlerThatThrows>(logEvents);
     }
 
     [Fact]
@@ -96,7 +96,7 @@ public class IntegrationTests :
                 Property = "TheProperty"
             });
         var logEvents = events.ToList();
-      await  Verify<StartSaga>(logEvents);
+        await Verify<StartSaga>(logEvents);
     }
 
     Task Verify<T>(List<LogEventEx> logEvents)
@@ -141,7 +141,7 @@ public class IntegrationTests :
         sendOptions.SetMessageId("00000000-0000-0000-0000-000000000001");
         sendOptions.RouteToThisEndpoint();
         await endpoint.Send(message, sendOptions);
-        if (!resetEvent.WaitOne(TimeSpan.FromSeconds(5)))
+        if (!resetEvent.WaitOne(TimeSpan.FromSeconds(10)))
         {
             throw new Exception("No Set received.");
         }

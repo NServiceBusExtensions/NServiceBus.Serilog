@@ -55,6 +55,8 @@ class LogOutgoingMessageBehavior :
                 behavior: typeof(LogOutgoingMessageBehavior),
                 description: "Logs outgoing messages")
         {
+            InsertAfterIfExists("ApplyReplyToAddressBehavior");
+            InsertAfter("AddHostInfoHeaders");
         }
     }
 }
