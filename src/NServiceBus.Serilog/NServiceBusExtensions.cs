@@ -59,7 +59,7 @@ static class NServiceBusExtensions
 
     static Dictionary<string, string> emptyDictionary = new Dictionary<string, string>();
 
-    public static List<string> UnicastAddresses(this IOutgoingLogicalMessageContext context)
+    public static List<string> UnicastAddresses(this IOutgoingPhysicalMessageContext context)
     {
         return context.RoutingStrategies
             .OfType<UnicastRoutingStrategy>()

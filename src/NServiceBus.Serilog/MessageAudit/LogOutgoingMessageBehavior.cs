@@ -9,7 +9,7 @@ using Serilog.Events;
 using Serilog.Parsing;
 
 class LogOutgoingMessageBehavior :
-    Behavior<IOutgoingLogicalMessageContext>
+    Behavior<IOutgoingPhysicalMessageContext>
 {
     MessageTemplate messageTemplate;
 
@@ -19,14 +19,14 @@ class LogOutgoingMessageBehavior :
         messageTemplate = templateParser.Parse("Sent message {OutgoingMessageType} {OutgoingMessageId}.");
     }
 
-    public override Task Invoke(IOutgoingLogicalMessageContext context, Func<Task> next)
+    public override Task Invoke(IOutgoingPhysicalMessageContext context, Func<Task> next)
     {
-        var message = context.Message.Instance;
+        var message = context.Extensions.Get<OutgoingLogicalMessage>().Instance;
         LogMessage(context, context.Logger(), message);
         return next();
     }
 
-    void LogMessage(IOutgoingLogicalMessageContext context, ILogger forContext, object message)
+    void LogMessage(IOutgoingPhysicalMessageContext context, ILogger forContext, object message)
     {
         var properties = new List<LogEventProperty>();
 
@@ -55,8 +55,6 @@ class LogOutgoingMessageBehavior :
                 behavior: typeof(LogOutgoingMessageBehavior),
                 description: "Logs outgoing messages")
         {
-            InsertAfterIfExists("ApplyReplyToAddressBehavior");
-            InsertAfter("AddHostInfoHeaders");
         }
     }
 }
