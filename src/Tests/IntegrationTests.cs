@@ -11,10 +11,9 @@ using Serilog.Events;
 using Serilog.Exceptions;
 using VerifyXunit;
 using Xunit;
-using Xunit.Abstractions;
 
-public class IntegrationTests :
-    VerifyBase
+[UsesVerify]
+public class IntegrationTests
 {
     static List<LogEvent> logs;
 
@@ -32,13 +31,6 @@ public class IntegrationTests :
         loggerConfiguration.WriteTo.Sink(eventSink);
         Log.Logger = loggerConfiguration.CreateLogger();
         LogManager.Use<SerilogFactory>();
-    }
-
-    public IntegrationTests(ITestOutputHelper output) :
-        base(output)
-    {
-        HeaderAppender.excludeHeaders.Add(Headers.TimeSent);
-        logs.Clear();
     }
 
     [Fact]
@@ -102,7 +94,7 @@ public class IntegrationTests :
     Task Verify<T>(List<LogEventEx> logEvents)
     {
         var logsForTarget = logEvents.LogsForType<T>().ToList();
-        return Verify(
+        return Verifier.Verify(
             new
             {
                 logsForTarget,

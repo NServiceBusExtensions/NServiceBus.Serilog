@@ -3,10 +3,9 @@ using NServiceBus;
 using NServiceBus.Settings;
 using VerifyXunit;
 using Xunit;
-using Xunit.Abstractions;
 
-public class WriteStartupDiagnosticsTests :
-    VerifyBase
+[UsesVerify]
+public class WriteStartupDiagnosticsTests
 {
     [Fact]
     public Task Can_extract_settings()
@@ -15,11 +14,6 @@ public class WriteStartupDiagnosticsTests :
         var diagnosticEntries = new StartupDiagnosticEntries();
         diagnosticEntries.Add("Name", "Value");
         settings.Set(diagnosticEntries);
-        return Verify(settings.ReadStartupDiagnosticEntries());
-    }
-
-    public WriteStartupDiagnosticsTests(ITestOutputHelper output) :
-        base(output)
-    {
+        return Verifier.Verify(settings.ReadStartupDiagnosticEntries());
     }
 }

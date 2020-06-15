@@ -1,19 +1,17 @@
 ﻿using System.Diagnostics;
 using NServiceBus;
-using Verify;
-using Xunit;
+using VerifyTests;
 
-[GlobalSetUp]
-public static class GlobalSetup
+public static class ModuleInitializer
 {
-    public static void Setup()
+    public static void Initialize()
     {
         var nsbVersion = FileVersionInfo.GetVersionInfo(typeof(Endpoint).Assembly.Location);
         var nsbVersionString = $"{nsbVersion.FileMajorPart}.{nsbVersion.FileMinorPart}.{nsbVersion.FileBuildPart}";
-        SharedVerifySettings.ScrubLinesContaining("StackTraceString");
-        SharedVerifySettings.AddScrubber(x => x.Replace(nsbVersionString, "NsbVersion"));
-        SharedVerifySettings.ScrubMachineName();
-        SharedVerifySettings.ModifySerialization(settings =>
+        VerifierSettings.ScrubLinesContaining("StackTraceString");
+        VerifierSettings.AddScrubber(x => x.Replace(nsbVersionString, "NsbVersion"));
+        VerifierSettings.ScrubMachineName();
+        VerifierSettings.ModifySerialization(settings =>
         {
             settings.AddExtraSettings(newtonsoft =>
             {
@@ -22,6 +20,6 @@ public static class GlobalSetup
                 newtonsoft.Converters.Add(new ScalarValueConverter());
             });
         });
-        SharedVerifySettings.AddExtraDatetimeFormat("yyyy-MM-dd HH:mm:ss:ffffff Z");
+        VerifierSettings.AddExtraDatetimeFormat("yyyy-MM-dd HH:mm:ss:ffffff Z");
     }
 }

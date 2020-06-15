@@ -1,12 +1,9 @@
 ﻿using System.Threading.Tasks;
 using NServiceBus.Testing;
 using Serilog;
-using VerifyXunit;
 using Xunit;
-using Xunit.Abstractions;
 
-public class HandlerUsingContextLoggerTests :
-    VerifyBase
+public class HandlerUsingContextLoggerTests
 {
     [Fact]
     public Task Simple()
@@ -15,10 +12,5 @@ public class HandlerUsingContextLoggerTests :
         var context = new TestableMessageHandlerContext();
         context.Extensions.Set(Log.Logger);
         return handler.Handle(new StartHandlerUsingContextLogger(), context);
-    }
-
-    public HandlerUsingContextLoggerTests(ITestOutputHelper output) :
-        base(output)
-    {
     }
 }

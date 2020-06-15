@@ -4,10 +4,9 @@ using System.Threading.Tasks;
 using VerifyXunit;
 using NServiceBus;
 using Xunit;
-using Xunit.Abstractions;
 
-public class WithNoTracingTests :
-    VerifyBase
+[UsesVerify]
+public class WithNoTracingTests
 {
     [Fact]
     public async Task Handler()
@@ -35,11 +34,6 @@ public class WithNoTracingTests :
         }
 
         await endpoint.Stop();
-        await Verify(exception!.Message);
-    }
-
-    public WithNoTracingTests(ITestOutputHelper output) :
-        base(output)
-    {
+        await Verifier.Verify(exception!.Message);
     }
 }

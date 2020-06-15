@@ -19,6 +19,7 @@
         ReplyToAddress: 'SerilogTestsNotFoundSagaMessage',
         SagaId: Guid_2,
         SagaType: 'TheSaga',
+        TimeSent: DateTime_1,
         IncomingMessageId: Guid_3,
         IncomingMessageType: 'NotFoundSagaMessage',
         CorrelationId: Guid_3,
@@ -46,35 +47,7 @@
         ReplyToAddress: 'SerilogTestsNotFoundSagaMessage',
         SagaId: Guid_2,
         SagaType: 'TheSaga',
-        IncomingMessageId: Guid_3,
-        IncomingMessageType: 'NotFoundSagaMessage',
-        CorrelationId: Guid_3,
-        ConversationId: Guid_4,
-        SourceContext: 'NotFoundSagaMessage',
-        ProcessingEndpoint: 'SerilogTestsNotFoundSagaMessage'
-      }
-    },
-    {
-      MessageTemplate: 'Receive message {IncomingMessageType} {IncomingMessageId}.',
-      Level: 'Information',
-      Properties: {
-        IncomingMessage: {
-          TypeTag: 'NotFoundSagaMessage',
-          Properties: [
-            {
-              Property: null
-            }
-          ]
-        },
-        OriginatingHostId: Guid_1,
-        MessageIntent: 'Send',
-        OriginatingEndpoint: 'SerilogTestsNotFoundSagaMessage',
-        OriginatingMachine: 'TheMachineName',
-        ReplyToAddress: 'SerilogTestsNotFoundSagaMessage',
-        Retries: '1',
-        Retries.Timestamp: DateTime_1,
-        SagaId: Guid_2,
-        SagaType: 'TheSaga',
+        TimeSent: DateTime_1,
         IncomingMessageId: Guid_3,
         IncomingMessageType: 'NotFoundSagaMessage',
         CorrelationId: Guid_3,
@@ -101,9 +74,40 @@
         OriginatingMachine: 'TheMachineName',
         ReplyToAddress: 'SerilogTestsNotFoundSagaMessage',
         Retries: '1',
-        Retries.Timestamp: DateTime_1,
+        Retries.Timestamp: DateTime_2,
         SagaId: Guid_2,
         SagaType: 'TheSaga',
+        TimeSent: DateTime_1,
+        IncomingMessageId: Guid_3,
+        IncomingMessageType: 'NotFoundSagaMessage',
+        CorrelationId: Guid_3,
+        ConversationId: Guid_4,
+        SourceContext: 'NotFoundSagaMessage',
+        ProcessingEndpoint: 'SerilogTestsNotFoundSagaMessage'
+      }
+    },
+    {
+      MessageTemplate: 'Receive message {IncomingMessageType} {IncomingMessageId}.',
+      Level: 'Information',
+      Properties: {
+        IncomingMessage: {
+          TypeTag: 'NotFoundSagaMessage',
+          Properties: [
+            {
+              Property: null
+            }
+          ]
+        },
+        OriginatingHostId: Guid_1,
+        MessageIntent: 'Send',
+        OriginatingEndpoint: 'SerilogTestsNotFoundSagaMessage',
+        OriginatingMachine: 'TheMachineName',
+        ReplyToAddress: 'SerilogTestsNotFoundSagaMessage',
+        Retries: '1',
+        Retries.Timestamp: DateTime_2,
+        SagaId: Guid_2,
+        SagaType: 'TheSaga',
+        TimeSent: DateTime_1,
         IncomingMessageId: Guid_3,
         IncomingMessageType: 'NotFoundSagaMessage',
         CorrelationId: Guid_3,
@@ -178,7 +182,7 @@
             "NServiceBus.ContentType": 'text/xml',
             "NServiceBus.EnclosedMessageTypes": 'NotFoundSagaMessage, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6',
             "NServiceBus.Version": 'NsbVersion',
-            "NServiceBus.TimeSent": DateTime_2
+            "NServiceBus.TimeSent": DateTime_3
           }
         },
         SourceContext: 'NServiceBus.RecoverabilityExecutor',
@@ -224,7 +228,7 @@
             "NServiceBus.ContentType": 'text/xml',
             "NServiceBus.EnclosedMessageTypes": 'NotFoundSagaMessage, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6',
             "NServiceBus.Version": 'NsbVersion',
-            "NServiceBus.TimeSent": DateTime_2
+            "NServiceBus.TimeSent": DateTime_3
           }
         },
         SourceContext: 'NServiceBus.RecoverabilityExecutor',
@@ -270,9 +274,9 @@
             "NServiceBus.ContentType": 'text/xml',
             "NServiceBus.EnclosedMessageTypes": 'NotFoundSagaMessage, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6',
             "NServiceBus.Version": 'NsbVersion',
-            "NServiceBus.TimeSent": DateTime_2,
+            "NServiceBus.TimeSent": DateTime_3,
             "NServiceBus.Retries": '1',
-            "NServiceBus.Retries.Timestamp": DateTime_1
+            "NServiceBus.Retries.Timestamp": DateTime_2
           }
         },
         SourceContext: 'NServiceBus.RecoverabilityExecutor',
@@ -318,9 +322,9 @@
             "NServiceBus.ContentType": 'text/xml',
             "NServiceBus.EnclosedMessageTypes": 'NotFoundSagaMessage, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6',
             "NServiceBus.Version": 'NsbVersion',
-            "NServiceBus.TimeSent": DateTime_2,
+            "NServiceBus.TimeSent": DateTime_3,
             "NServiceBus.Retries": '1',
-            "NServiceBus.Retries.Timestamp": DateTime_1
+            "NServiceBus.Retries.Timestamp": DateTime_2
           }
         },
         SourceContext: 'NServiceBus.RecoverabilityExecutor',
