@@ -9,6 +9,9 @@ public static class ModuleInitializer
         var nsbVersion = FileVersionInfo.GetVersionInfo(typeof(Endpoint).Assembly.Location);
         var nsbVersionString = $"{nsbVersion.FileMajorPart}.{nsbVersion.FileMinorPart}.{nsbVersion.FileBuildPart}";
         VerifierSettings.ScrubLinesContaining("StackTraceString");
+        VerifierSettings.ScrubLinesContaining("NServiceBus.TimeSent");
+        VerifierSettings.ScrubLinesContaining("HandlerStartTime");
+        VerifierSettings.ScrubLinesContaining("HandlerFailureTime");
         VerifierSettings.AddScrubber(x => x.Replace(nsbVersionString, "NsbVersion"));
         VerifierSettings.ScrubMachineName();
         VerifierSettings.ModifySerialization(settings =>

@@ -95,15 +95,13 @@ public class IntegrationTests
     Task Verify<T>(List<LogEventEx> logEvents)
     {
         var logsForTarget = logEvents.LogsForType<T>().ToList();
-        var settings = new VerifySettings();
-        settings.ScrubLinesContaining("NServiceBus.TimeSent");
         return Verifier.Verify(
             new
             {
                 logsForTarget,
                 logsForNsbSerilog = logEvents.LogsForNsbSerilog().ToList(),
                 logsWithExceptions = logEvents.LogsWithExceptions().ToList()
-            },settings);
+            });
     }
 
     static async Task<IEnumerable<LogEventEx>> Send(object message, Action<SendOptions>? optionsAction = null)
