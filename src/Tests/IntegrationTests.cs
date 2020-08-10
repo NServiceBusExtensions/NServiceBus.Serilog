@@ -9,7 +9,6 @@ using NServiceBus.Serilog;
 using Serilog;
 using Serilog.Events;
 using Serilog.Exceptions;
-using VerifyTests;
 using VerifyXunit;
 using Xunit;
 
