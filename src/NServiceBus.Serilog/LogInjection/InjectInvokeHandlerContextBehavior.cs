@@ -13,7 +13,7 @@ class InjectInvokeHandlerContextBehavior :
             base(
                 stepId: $"Serilog{nameof(InjectInvokeHandlerContextBehavior)}",
                 behavior: typeof(InjectInvokeHandlerContextBehavior),
-                description: "Injects handler type into the logger")
+                description: "Injects logger into the handler context")
         {
         }
     }
