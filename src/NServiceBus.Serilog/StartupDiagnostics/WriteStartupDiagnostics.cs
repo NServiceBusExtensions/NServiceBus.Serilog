@@ -9,6 +9,7 @@ using Serilog.Events;
 using Serilog.Parsing;
 
 #region WriteStartupDiagnostics
+
 class WriteStartupDiagnostics :
     FeatureStartupTask
 {
@@ -45,11 +46,23 @@ class WriteStartupDiagnostics :
             {
                 continue;
             }
-            if (logger.BindProperty(entry.Name, entry.Data, out var property))
+
+            var name = CleanEntry(entry.Name);
+            if (logger.BindProperty(name, entry.Data, out var property))
             {
                 yield return property!;
             }
         }
+    }
+
+    internal static string CleanEntry(string entry)
+    {
+        if (entry.StartsWith("NServiceBus."))
+        {
+            return entry.Substring(12);
+        }
+
+        return entry;
     }
 
     protected override Task OnStop(IMessageSession session)
@@ -58,6 +71,7 @@ class WriteStartupDiagnostics :
     }
 
     ReadOnlySettings settings;
-    private readonly ILogger logger;
+    ILogger logger;
 }
+
 #endregion

@@ -295,11 +295,23 @@ class WriteStartupDiagnostics :
             {
                 continue;
             }
-            if (logger.BindProperty(entry.Name, entry.Data, out var property))
+
+            var name = CleanEntry(entry.Name);
+            if (logger.BindProperty(name, entry.Data, out var property))
             {
                 yield return property!;
             }
         }
+    }
+
+    internal static string CleanEntry(string entry)
+    {
+        if (entry.StartsWith("NServiceBus."))
+        {
+            return entry.Substring(12);
+        }
+
+        return entry;
     }
 
     protected override Task OnStop(IMessageSession session)
@@ -308,10 +320,10 @@ class WriteStartupDiagnostics :
     }
 
     ReadOnlySettings settings;
-    private readonly ILogger logger;
+    ILogger logger;
 }
 ```
-<sup><a href='/src/NServiceBus.Serilog/StartupDiagnostics/WriteStartupDiagnostics.cs#L11-L63' title='File snippet `writestartupdiagnostics` was extracted from'>snippet source</a> | <a href='#snippet-writestartupdiagnostics' title='Navigate to start of snippet `writestartupdiagnostics`'>anchor</a></sup>
+<sup><a href='/src/NServiceBus.Serilog/StartupDiagnostics/WriteStartupDiagnostics.cs#L11-L77' title='File snippet `writestartupdiagnostics` was extracted from'>snippet source</a> | <a href='#snippet-writestartupdiagnostics' title='Navigate to start of snippet `writestartupdiagnostics`'>anchor</a></sup>
 <!-- endsnippet -->
 
 
