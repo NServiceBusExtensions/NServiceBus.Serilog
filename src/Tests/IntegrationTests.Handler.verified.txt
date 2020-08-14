@@ -108,9 +108,9 @@
         SourceContext: 'NServiceBus.RecoverabilityExecutor',
         ExceptionDetail: {
           Elements: {
-            "Type": 'System.NullReferenceException',
-            "HResult": -2147467261,
-            "Message": 'Object reference not set to an instance of an object.',
+            "Type": 'System.Exception',
+            "HResult": -2146233088,
+            "Message": 'The correlated property \'Property\' on saga \'NotFoundSaga\' does not have a value.\nA correlated property must have a non-null value assigned when a new saga instance is created.',
             "Source": 'NServiceBus.Core'
           }
         }
@@ -153,9 +153,9 @@
         SourceContext: 'NServiceBus.RecoverabilityExecutor',
         ExceptionDetail: {
           Elements: {
-            "Type": 'System.NullReferenceException',
-            "HResult": -2147467261,
-            "Message": 'Object reference not set to an instance of an object.',
+            "Type": 'System.Exception',
+            "HResult": -2146233088,
+            "Message": 'The correlated property \'Property\' on saga \'NotFoundSaga\' does not have a value.\nA correlated property must have a non-null value assigned when a new saga instance is created.',
             "Source": 'NServiceBus.Core'
           }
         }
@@ -200,9 +200,9 @@
         SourceContext: 'NServiceBus.RecoverabilityExecutor',
         ExceptionDetail: {
           Elements: {
-            "Type": 'System.NullReferenceException',
-            "HResult": -2147467261,
-            "Message": 'Object reference not set to an instance of an object.',
+            "Type": 'System.Exception',
+            "HResult": -2146233088,
+            "Message": 'The correlated property \'Property\' on saga \'NotFoundSaga\' does not have a value.\nA correlated property must have a non-null value assigned when a new saga instance is created.',
             "Source": 'NServiceBus.Core'
           }
         }
@@ -247,9 +247,9 @@
         SourceContext: 'NServiceBus.RecoverabilityExecutor',
         ExceptionDetail: {
           Elements: {
-            "Type": 'System.NullReferenceException',
-            "HResult": -2147467261,
-            "Message": 'Object reference not set to an instance of an object.',
+            "Type": 'System.Exception',
+            "HResult": -2146233088,
+            "Message": 'The correlated property \'Property\' on saga \'NotFoundSaga\' does not have a value.\nA correlated property must have a non-null value assigned when a new saga instance is created.',
             "Source": 'NServiceBus.Core'
           }
         }
