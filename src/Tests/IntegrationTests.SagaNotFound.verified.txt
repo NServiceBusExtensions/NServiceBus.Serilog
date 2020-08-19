@@ -151,7 +151,7 @@
   ],
   logsWithExceptions: [
     {
-      MessageTemplate: 'Immediate Retry is going to retry message \'00000000-0000-0000-0000-000000000001\' because of an exception:',
+      MessageTemplate: "Immediate Retry is going to retry message '00000000-0000-0000-0000-000000000001' because of an exception:",
       Level: 'Information',
       Properties: {
         IncomingMessageId: Guid_3,
@@ -189,14 +189,14 @@
           Elements: {
             "Type": 'System.Exception',
             "HResult": -2146233088,
-            "Message": 'The correlated property \'Property\' on saga \'NotFoundSaga\' does not have a value.\nA correlated property must have a non-null value assigned when a new saga instance is created.',
+            "Message": "The correlated property 'Property' on saga 'NotFoundSaga' does not have a value.\nA correlated property must have a non-null value assigned when a new saga instance is created.",
             "Source": 'NServiceBus.Core'
           }
         }
       }
     },
     {
-      MessageTemplate: 'Delayed Retry will reschedule message \'00000000-0000-0000-0000-000000000001\' after a delay of 00:00:00.0010000 because of an exception:',
+      MessageTemplate: "Delayed Retry will reschedule message '00000000-0000-0000-0000-000000000001' after a delay of 00:00:00.0010000 because of an exception:",
       Level: 'Warning',
       Properties: {
         IncomingMessageId: Guid_3,
@@ -234,14 +234,14 @@
           Elements: {
             "Type": 'System.Exception',
             "HResult": -2146233088,
-            "Message": 'The correlated property \'Property\' on saga \'NotFoundSaga\' does not have a value.\nA correlated property must have a non-null value assigned when a new saga instance is created.',
+            "Message": "The correlated property 'Property' on saga 'NotFoundSaga' does not have a value.\nA correlated property must have a non-null value assigned when a new saga instance is created.",
             "Source": 'NServiceBus.Core'
           }
         }
       }
     },
     {
-      MessageTemplate: 'Immediate Retry is going to retry message \'00000000-0000-0000-0000-000000000001\' because of an exception:',
+      MessageTemplate: "Immediate Retry is going to retry message '00000000-0000-0000-0000-000000000001' because of an exception:",
       Level: 'Information',
       Properties: {
         IncomingMessageId: Guid_3,
@@ -281,14 +281,14 @@
           Elements: {
             "Type": 'System.Exception',
             "HResult": -2146233088,
-            "Message": 'The correlated property \'Property\' on saga \'NotFoundSaga\' does not have a value.\nA correlated property must have a non-null value assigned when a new saga instance is created.',
+            "Message": "The correlated property 'Property' on saga 'NotFoundSaga' does not have a value.\nA correlated property must have a non-null value assigned when a new saga instance is created.",
             "Source": 'NServiceBus.Core'
           }
         }
       }
     },
     {
-      MessageTemplate: 'Moving message \'00000000-0000-0000-0000-000000000001\' to the error queue \'error\' because processing failed due to an exception:',
+      MessageTemplate: "Moving message '00000000-0000-0000-0000-000000000001' to the error queue 'error' because processing failed due to an exception:",
       Level: 'Error',
       Properties: {
         IncomingMessageId: Guid_3,
@@ -328,7 +328,7 @@
           Elements: {
             "Type": 'System.Exception',
             "HResult": -2146233088,
-            "Message": 'The correlated property \'Property\' on saga \'NotFoundSaga\' does not have a value.\nA correlated property must have a non-null value assigned when a new saga instance is created.',
+            "Message": "The correlated property 'Property' on saga 'NotFoundSaga' does not have a value.\nA correlated property must have a non-null value assigned when a new saga instance is created.",
             "Source": 'NServiceBus.Core'
           }
         }
