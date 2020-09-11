@@ -141,11 +141,21 @@ When a pipeline exception is logged, it will be enriched with the following prop
 snippet: EnableSagaTracing
 
 
+#### Example Logs
+
+snippet: IntegrationTests.Saga.verified.txt
+
+
 ### Message tracing
 
 Both incoming and outgoing messages will be logged at the [Information level](https://github.com/serilog/serilog/wiki/Writing-Log-Events#the-role-of-the-information-level). The current message will be included in a property named `Message`. For outgoing messages any unicast routes will be included in a property named `UnicastRoutes`.
 
 snippet: EnableMessageTracing
+
+
+#### Example Logs
+
+snippet: IntegrationTests.Handler.verified.txt
 
 
 ### Startup diagnostics

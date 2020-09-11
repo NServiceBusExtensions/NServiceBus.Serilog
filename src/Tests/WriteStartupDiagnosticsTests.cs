@@ -20,8 +20,8 @@ public class WriteStartupDiagnosticsTests
     [Fact]
     public void CleanEntry()
     {
-        Assert.Equal("Persistence.Sql.SqlDialect", WriteStartupDiagnostics.CleanEntry("NServiceBus.Persistence.Sql.SqlDialect"));
-        Assert.Equal("Transport.SqlServer.CircuitBreaker", WriteStartupDiagnostics.CleanEntry("NServiceBus.Transport.SqlServer.CircuitBreaker"));
-        Assert.Equal("Foo", WriteStartupDiagnostics.CleanEntry("Foo"));
+        Assert.Equal("Persistence.Sql.SqlDialect", StartupDiagnostics.CleanEntry("NServiceBus.Persistence.Sql.SqlDialect"));
+        Assert.Equal("Transport.SqlServer.CircuitBreaker", StartupDiagnostics.CleanEntry("NServiceBus.Transport.SqlServer.CircuitBreaker"));
+        Assert.Equal("Foo", StartupDiagnostics.CleanEntry("Foo"));
     }
 }

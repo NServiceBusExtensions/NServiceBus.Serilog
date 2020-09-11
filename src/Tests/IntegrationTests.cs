@@ -33,6 +33,19 @@ public class IntegrationTests
         LogManager.Use<SerilogFactory>();
     }
 
+#if NETCOREAPP3_1
+    [Fact]
+    public async Task WriteStartupDiagnostics()
+    {
+        var events = await Send(
+            new StartHandler
+            {
+                Property = "TheProperty"
+            });
+        await Verify<StartupDiagnostics>(events);
+    }
+#endif
+
     [Fact]
     public async Task Handler()
     {
@@ -41,8 +54,7 @@ public class IntegrationTests
             {
                 Property = "TheProperty"
             });
-        var logEvents = events.ToList();
-        await Verify<StartHandler>(logEvents);
+        await Verify<StartHandler>(events);
     }
 
     [Fact]
@@ -55,16 +67,14 @@ public class IntegrationTests
                 options.SetHeader(Headers.SagaId, Guid.NewGuid().ToString());
                 options.SetHeader(Headers.SagaType, typeof(TheSaga).FullName);
             });
-        var logEvents = events.ToList();
-        await Verify<NotFoundSagaMessage>(logEvents);
+        await Verify<NotFoundSagaMessage>(events);
     }
 
     [Fact]
     public async Task HandlerThatLogs()
     {
         var events = await Send(new StartHandlerThatLogs());
-        var logEvents = events.ToList();
-        await Verify<StartHandlerThatLogs>(logEvents);
+        await Verify<StartHandlerThatLogs>(events);
     }
 
     [Fact]
@@ -75,8 +85,7 @@ public class IntegrationTests
             {
                 Property = "TheProperty"
             });
-        var logEvents = events.ToList();
-        await Verify<StartHandlerThatThrows>(logEvents);
+        await Verify<StartHandlerThatThrows>(events);
     }
 
     [Fact]
@@ -91,15 +100,16 @@ public class IntegrationTests
         await Verify<StartSaga>(logEvents);
     }
 
-    Task Verify<T>(List<LogEventEx> logEvents)
+    Task Verify<T>(IEnumerable<LogEventEx> logEvents)
     {
-        var logsForTarget = logEvents.LogsForType<T>().ToList();
+        var list = logEvents.ToList();
+        var logsForTarget = list.LogsForType<T>().ToList();
         return Verifier.Verify(
             new
             {
                 logsForTarget,
-                logsForNsbSerilog = logEvents.LogsForNsbSerilog().ToList(),
-                logsWithExceptions = logEvents.LogsWithExceptions().ToList()
+                logsForNsbSerilog = list.LogsForNsbSerilog().ToList(),
+                logsWithExceptions = list.LogsWithExceptions().ToList()
             });
     }
 

@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using Serilog.Events;
 
+[DebuggerDisplay("Source {StringSourceContext}")]
 public class LogEventEx
 {
     public readonly MessageTemplate MessageTemplate;
@@ -15,5 +17,24 @@ public class LogEventEx
         Level = level;
         Properties = properties;
         Exception = exception;
+    }
+
+    public string? StringSourceContext
+    {
+        get
+        {
+            if (Properties.TryGetValue("SourceContext", out var sourceContext))
+            {
+                if (sourceContext is ScalarValue scalarValue)
+                {
+                    if (scalarValue.Value is string temp)
+                    {
+                        return temp;
+                    }
+                }
+            }
+
+            return null;
+        }
     }
 }

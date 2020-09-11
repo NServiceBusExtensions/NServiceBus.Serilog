@@ -238,6 +238,401 @@ serilogTracing.EnableSagaTracing();
 <!-- endSnippet -->
 
 
+#### Example Logs
+
+<!-- snippet: IntegrationTests.Saga.verified.txt -->
+<a id='snippet-IntegrationTests.Saga.verified.txt'></a>
+```txt
+{
+  logsForTarget: [
+    {
+      MessageTemplate: 'Hello from {@Saga}. Message: {@Message}',
+      Level: 'Information',
+      Properties: {
+        Saga: 'TheSaga',
+        Message: {
+          TypeTag: 'StartSaga',
+          Properties: [
+            {
+              Property: 'TheProperty'
+            }
+          ]
+        },
+        Handler: 'TheSaga',
+        IncomingMessageId: Guid_1,
+        IncomingMessageType: 'StartSaga',
+        CorrelationId: Guid_1,
+        ConversationId: Guid_2,
+        SourceContext: 'StartSaga',
+        ProcessingEndpoint: 'SerilogTestsStartSaga'
+      }
+    },
+    {
+      MessageTemplate: 'Receive message {IncomingMessageType} {IncomingMessageId}.',
+      Level: 'Information',
+      Properties: {
+        IncomingMessage: {
+          TypeTag: 'StartSaga',
+          Properties: [
+            {
+              Property: 'TheProperty'
+            }
+          ]
+        },
+        OriginatingHostId: Guid_3,
+        MessageIntent: 'Send',
+        OriginatingEndpoint: 'SerilogTestsStartSaga',
+        OriginatingMachine: 'TheMachineName',
+        ReplyToAddress: 'SerilogTestsStartSaga',
+        TimeSent: DateTime_1,
+        IncomingMessageId: Guid_1,
+        IncomingMessageType: 'StartSaga',
+        CorrelationId: Guid_1,
+        ConversationId: Guid_2,
+        SourceContext: 'StartSaga',
+        ProcessingEndpoint: 'SerilogTestsStartSaga'
+      }
+    },
+    {
+      MessageTemplate: "Saga execution '{SagaType}' '{SagaId}'.",
+      Level: 'Information',
+      Properties: {
+        SagaType: 'TheSaga',
+        SagaId: Guid_4,
+        StartTime: DateTimeOffset_1,
+        FinishTime: DateTimeOffset_2,
+        IsCompleted: false,
+        IsNew: true,
+        Initiator: {
+          TypeTag: 'SagaChangeInitiator',
+          Properties: [
+            {
+              InitiatingMessageId: Guid_1
+            },
+            {
+              MessageType: 'StartSaga'
+            },
+            {
+              IsSagaTimeoutMessage: false
+            },
+            {
+              TimeSent: DateTime_1
+            },
+            {
+              OriginatingMachine: 'TheMachineName'
+            },
+            {
+              OriginatingEndpoint: 'SerilogTestsStartSaga'
+            },
+            {
+              Intent: 'Send'
+            }
+          ]
+        },
+        ResultingMessages: {
+          Elements: [
+            {
+              TypeTag: 'SagaChangeOutput',
+              Properties: [
+                {
+                  MessageType: 'BackIntoSaga'
+                },
+                {
+                  Destination: 'SerilogTestsStartSaga'
+                },
+                {
+                  ResultingMessageId: Guid_5
+                },
+                {
+                  MessageIntent: 'Send'
+                }
+              ]
+            }
+          ]
+        },
+        Entity: {
+          TypeTag: 'TheSagaData',
+          Properties: [
+            {
+              Property: 'TheProperty'
+            },
+            {
+              Id: Guid_4
+            },
+            {
+              Originator: 'SerilogTestsStartSaga'
+            },
+            {
+              OriginalMessageId: Guid_1
+            }
+          ]
+        },
+        IncomingMessageId: Guid_1,
+        IncomingMessageType: 'StartSaga',
+        CorrelationId: Guid_1,
+        ConversationId: Guid_2,
+        SourceContext: 'StartSaga',
+        ProcessingEndpoint: 'SerilogTestsStartSaga'
+      }
+    },
+    {
+      MessageTemplate: 'Sent message {OutgoingMessageType} {OutgoingMessageId}.',
+      Level: 'Information',
+      Properties: {
+        OutgoingMessage: {
+          TypeTag: 'StartSaga',
+          Properties: [
+            {
+              Property: 'TheProperty'
+            }
+          ]
+        },
+        UnicastRoutes: {
+          Elements: [
+            'SerilogTestsStartSaga'
+          ]
+        },
+        OriginatingHostId: Guid_3,
+        MessageIntent: 'Send',
+        OriginatingEndpoint: 'SerilogTestsStartSaga',
+        OriginatingMachine: 'TheMachineName',
+        ReplyToAddress: 'SerilogTestsStartSaga',
+        OutgoingMessageId: Guid_1,
+        OutgoingMessageType: 'StartSaga',
+        CorrelationId: Guid_1,
+        ConversationId: Guid_2,
+        SourceContext: 'StartSaga',
+        ProcessingEndpoint: 'SerilogTestsStartSaga'
+      }
+    },
+    {
+      MessageTemplate: 'Sent message {OutgoingMessageType} {OutgoingMessageId}.',
+      Level: 'Information',
+      Properties: {
+        OutgoingMessage: {
+          TypeTag: 'BackIntoSaga',
+          Properties: [
+            {
+              Property: 'TheProperty'
+            }
+          ]
+        },
+        UnicastRoutes: {
+          Elements: [
+            'SerilogTestsStartSaga'
+          ]
+        },
+        OriginatingHostId: Guid_3,
+        MessageIntent: 'Send',
+        OriginatingEndpoint: 'SerilogTestsStartSaga',
+        OriginatingMachine: 'TheMachineName',
+        OriginatingSagaId: Guid_4,
+        OriginatingSagaType: 'TheSaga, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6',
+        RelatedTo: Guid_1,
+        ReplyToAddress: 'SerilogTestsStartSaga',
+        OutgoingMessageId: Guid_5,
+        OutgoingMessageType: 'BackIntoSaga',
+        CorrelationId: Guid_1,
+        ConversationId: Guid_2,
+        IncomingMessageId: Guid_1,
+        IncomingMessageType: 'StartSaga',
+        SourceContext: 'StartSaga',
+        ProcessingEndpoint: 'SerilogTestsStartSaga'
+      }
+    }
+  ],
+  logsWithExceptions: [
+    {
+      MessageTemplate: "Immediate Retry is going to retry message '00000000-0000-0000-0000-000000000001' because of an exception:",
+      Level: 'Information',
+      Properties: {
+        IncomingMessageId: Guid_1,
+        IncomingTransportMessageId: Guid_6,
+        ProcessingEndpoint: 'SerilogTestsNotFoundSagaMessage',
+        CorrelationId: Guid_1,
+        ConversationId: Guid_7,
+        IncomingMessage: {
+          TypeTag: 'NotFoundSagaMessage',
+          Properties: [
+            {
+              Property: null
+            }
+          ]
+        },
+        IncomingHeaders: {
+          Elements: {
+            "NServiceBus.SagaId": Guid_8,
+            "NServiceBus.SagaType": 'TheSaga',
+            "NServiceBus.MessageId": Guid_1,
+            "NServiceBus.MessageIntent": 'Send',
+            "NServiceBus.ConversationId": Guid_7,
+            "NServiceBus.CorrelationId": Guid_1,
+            "NServiceBus.ReplyToAddress": 'SerilogTestsNotFoundSagaMessage',
+            "NServiceBus.OriginatingMachine": 'TheMachineName',
+            "NServiceBus.OriginatingEndpoint": 'SerilogTestsNotFoundSagaMessage',
+            "$.diagnostics.originating.hostid": Guid_3,
+            "NServiceBus.ContentType": 'text/xml',
+            "NServiceBus.EnclosedMessageTypes": 'NotFoundSagaMessage, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6',
+            "NServiceBus.Version": 'NsbVersion',
+          }
+        },
+        SourceContext: 'NServiceBus.RecoverabilityExecutor',
+        ExceptionDetail: {
+          Elements: {
+            "Type": 'System.Exception',
+            "HResult": -2146233088,
+            "Message": "The correlated property 'Property' on saga 'NotFoundSaga' does not have a value.\nA correlated property must have a non-null value assigned when a new saga instance is created.",
+            "Source": 'NServiceBus.Core'
+          }
+        }
+      }
+    },
+    {
+      MessageTemplate: "Delayed Retry will reschedule message '00000000-0000-0000-0000-000000000001' after a delay of 00:00:00.0010000 because of an exception:",
+      Level: 'Warning',
+      Properties: {
+        IncomingMessageId: Guid_1,
+        IncomingTransportMessageId: Guid_6,
+        ProcessingEndpoint: 'SerilogTestsNotFoundSagaMessage',
+        CorrelationId: Guid_1,
+        ConversationId: Guid_7,
+        IncomingMessage: {
+          TypeTag: 'NotFoundSagaMessage',
+          Properties: [
+            {
+              Property: null
+            }
+          ]
+        },
+        IncomingHeaders: {
+          Elements: {
+            "NServiceBus.SagaId": Guid_8,
+            "NServiceBus.SagaType": 'TheSaga',
+            "NServiceBus.MessageId": Guid_1,
+            "NServiceBus.MessageIntent": 'Send',
+            "NServiceBus.ConversationId": Guid_7,
+            "NServiceBus.CorrelationId": Guid_1,
+            "NServiceBus.ReplyToAddress": 'SerilogTestsNotFoundSagaMessage',
+            "NServiceBus.OriginatingMachine": 'TheMachineName',
+            "NServiceBus.OriginatingEndpoint": 'SerilogTestsNotFoundSagaMessage',
+            "$.diagnostics.originating.hostid": Guid_3,
+            "NServiceBus.ContentType": 'text/xml',
+            "NServiceBus.EnclosedMessageTypes": 'NotFoundSagaMessage, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6',
+            "NServiceBus.Version": 'NsbVersion',
+          }
+        },
+        SourceContext: 'NServiceBus.RecoverabilityExecutor',
+        ExceptionDetail: {
+          Elements: {
+            "Type": 'System.Exception',
+            "HResult": -2146233088,
+            "Message": "The correlated property 'Property' on saga 'NotFoundSaga' does not have a value.\nA correlated property must have a non-null value assigned when a new saga instance is created.",
+            "Source": 'NServiceBus.Core'
+          }
+        }
+      }
+    },
+    {
+      MessageTemplate: "Immediate Retry is going to retry message '00000000-0000-0000-0000-000000000001' because of an exception:",
+      Level: 'Information',
+      Properties: {
+        IncomingMessageId: Guid_1,
+        IncomingTransportMessageId: Guid_9,
+        ProcessingEndpoint: 'SerilogTestsNotFoundSagaMessage',
+        CorrelationId: Guid_1,
+        ConversationId: Guid_7,
+        IncomingMessage: {
+          TypeTag: 'NotFoundSagaMessage',
+          Properties: [
+            {
+              Property: null
+            }
+          ]
+        },
+        IncomingHeaders: {
+          Elements: {
+            "NServiceBus.SagaId": Guid_8,
+            "NServiceBus.SagaType": 'TheSaga',
+            "NServiceBus.MessageId": Guid_1,
+            "NServiceBus.MessageIntent": 'Send',
+            "NServiceBus.ConversationId": Guid_7,
+            "NServiceBus.CorrelationId": Guid_1,
+            "NServiceBus.ReplyToAddress": 'SerilogTestsNotFoundSagaMessage',
+            "NServiceBus.OriginatingMachine": 'TheMachineName',
+            "NServiceBus.OriginatingEndpoint": 'SerilogTestsNotFoundSagaMessage',
+            "$.diagnostics.originating.hostid": Guid_3,
+            "NServiceBus.ContentType": 'text/xml',
+            "NServiceBus.EnclosedMessageTypes": 'NotFoundSagaMessage, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6',
+            "NServiceBus.Version": 'NsbVersion',
+            "NServiceBus.Retries": '1',
+            "NServiceBus.Retries.Timestamp": DateTime_3
+          }
+        },
+        SourceContext: 'NServiceBus.RecoverabilityExecutor',
+        ExceptionDetail: {
+          Elements: {
+            "Type": 'System.Exception',
+            "HResult": -2146233088,
+            "Message": "The correlated property 'Property' on saga 'NotFoundSaga' does not have a value.\nA correlated property must have a non-null value assigned when a new saga instance is created.",
+            "Source": 'NServiceBus.Core'
+          }
+        }
+      }
+    },
+    {
+      MessageTemplate: "Moving message '00000000-0000-0000-0000-000000000001' to the error queue 'error' because processing failed due to an exception:",
+      Level: 'Error',
+      Properties: {
+        IncomingMessageId: Guid_1,
+        IncomingTransportMessageId: Guid_9,
+        ProcessingEndpoint: 'SerilogTestsNotFoundSagaMessage',
+        CorrelationId: Guid_1,
+        ConversationId: Guid_7,
+        IncomingMessage: {
+          TypeTag: 'NotFoundSagaMessage',
+          Properties: [
+            {
+              Property: null
+            }
+          ]
+        },
+        IncomingHeaders: {
+          Elements: {
+            "NServiceBus.SagaId": Guid_8,
+            "NServiceBus.SagaType": 'TheSaga',
+            "NServiceBus.MessageId": Guid_1,
+            "NServiceBus.MessageIntent": 'Send',
+            "NServiceBus.ConversationId": Guid_7,
+            "NServiceBus.CorrelationId": Guid_1,
+            "NServiceBus.ReplyToAddress": 'SerilogTestsNotFoundSagaMessage',
+            "NServiceBus.OriginatingMachine": 'TheMachineName',
+            "NServiceBus.OriginatingEndpoint": 'SerilogTestsNotFoundSagaMessage',
+            "$.diagnostics.originating.hostid": Guid_3,
+            "NServiceBus.ContentType": 'text/xml',
+            "NServiceBus.EnclosedMessageTypes": 'NotFoundSagaMessage, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6',
+            "NServiceBus.Version": 'NsbVersion',
+            "NServiceBus.Retries": '1',
+            "NServiceBus.Retries.Timestamp": DateTime_3
+          }
+        },
+        SourceContext: 'NServiceBus.RecoverabilityExecutor',
+        ExceptionDetail: {
+          Elements: {
+            "Type": 'System.Exception',
+            "HResult": -2146233088,
+            "Message": "The correlated property 'Property' on saga 'NotFoundSaga' does not have a value.\nA correlated property must have a non-null value assigned when a new saga instance is created.",
+            "Source": 'NServiceBus.Core'
+          }
+        }
+      }
+    }
+  ]
+}
+```
+<sup><a href='/src/Tests/IntegrationTests.Saga.verified.txt#L1-L385' title='File snippet `IntegrationTests.Saga.verified.txt` was extracted from'>snippet source</a> | <a href='#snippet-IntegrationTests.Saga.verified.txt' title='Navigate to start of snippet `IntegrationTests.Saga.verified.txt`'>anchor</a></sup>
+<!-- endSnippet -->
+
+
 ### Message tracing
 
 Both incoming and outgoing messages will be logged at the [Information level](https://github.com/serilog/serilog/wiki/Writing-Log-Events#the-role-of-the-information-level). The current message will be included in a property named `Message`. For outgoing messages any unicast routes will be included in a property named `UnicastRoutes`.
@@ -252,6 +647,275 @@ serilogTracing.EnableMessageTracing();
 <!-- endSnippet -->
 
 
+#### Example Logs
+
+<!-- snippet: IntegrationTests.Handler.verified.txt -->
+<a id='snippet-IntegrationTests.Handler.verified.txt'></a>
+```txt
+{
+  logsForTarget: [
+    {
+      MessageTemplate: 'Hello from {@Handler}.',
+      Level: 'Information',
+      Properties: {
+        Handler: 'TheHandler',
+        IncomingMessageId: Guid_1,
+        IncomingMessageType: 'StartHandler',
+        CorrelationId: Guid_1,
+        ConversationId: Guid_2,
+        SourceContext: 'StartHandler',
+        ProcessingEndpoint: 'SerilogTestsStartHandler'
+      }
+    },
+    {
+      MessageTemplate: 'Receive message {IncomingMessageType} {IncomingMessageId}.',
+      Level: 'Information',
+      Properties: {
+        IncomingMessage: {
+          TypeTag: 'StartHandler',
+          Properties: [
+            {
+              Property: 'TheProperty'
+            }
+          ]
+        },
+        OriginatingHostId: Guid_3,
+        MessageIntent: 'Send',
+        OriginatingEndpoint: 'SerilogTestsStartHandler',
+        OriginatingMachine: 'TheMachineName',
+        ReplyToAddress: 'SerilogTestsStartHandler',
+        TimeSent: DateTime_1,
+        IncomingMessageId: Guid_1,
+        IncomingMessageType: 'StartHandler',
+        CorrelationId: Guid_1,
+        ConversationId: Guid_2,
+        SourceContext: 'StartHandler',
+        ProcessingEndpoint: 'SerilogTestsStartHandler'
+      }
+    },
+    {
+      MessageTemplate: 'Sent message {OutgoingMessageType} {OutgoingMessageId}.',
+      Level: 'Information',
+      Properties: {
+        OutgoingMessage: {
+          TypeTag: 'StartHandler',
+          Properties: [
+            {
+              Property: 'TheProperty'
+            }
+          ]
+        },
+        UnicastRoutes: {
+          Elements: [
+            'SerilogTestsStartHandler'
+          ]
+        },
+        OriginatingHostId: Guid_3,
+        MessageIntent: 'Send',
+        OriginatingEndpoint: 'SerilogTestsStartHandler',
+        OriginatingMachine: 'TheMachineName',
+        ReplyToAddress: 'SerilogTestsStartHandler',
+        OutgoingMessageId: Guid_1,
+        OutgoingMessageType: 'StartHandler',
+        CorrelationId: Guid_1,
+        ConversationId: Guid_2,
+        SourceContext: 'StartHandler',
+        ProcessingEndpoint: 'SerilogTestsStartHandler'
+      }
+    }
+  ],
+  logsWithExceptions: [
+    {
+      MessageTemplate: "Immediate Retry is going to retry message '00000000-0000-0000-0000-000000000001' because of an exception:",
+      Level: 'Information',
+      Properties: {
+        IncomingMessageId: Guid_1,
+        IncomingTransportMessageId: Guid_4,
+        ProcessingEndpoint: 'SerilogTestsNotFoundSagaMessage',
+        CorrelationId: Guid_1,
+        ConversationId: Guid_5,
+        IncomingMessage: {
+          TypeTag: 'NotFoundSagaMessage',
+          Properties: [
+            {
+              Property: null
+            }
+          ]
+        },
+        IncomingHeaders: {
+          Elements: {
+            "NServiceBus.SagaId": Guid_6,
+            "NServiceBus.SagaType": 'TheSaga',
+            "NServiceBus.MessageId": Guid_1,
+            "NServiceBus.MessageIntent": 'Send',
+            "NServiceBus.ConversationId": Guid_5,
+            "NServiceBus.CorrelationId": Guid_1,
+            "NServiceBus.ReplyToAddress": 'SerilogTestsNotFoundSagaMessage',
+            "NServiceBus.OriginatingMachine": 'TheMachineName',
+            "NServiceBus.OriginatingEndpoint": 'SerilogTestsNotFoundSagaMessage',
+            "$.diagnostics.originating.hostid": Guid_3,
+            "NServiceBus.ContentType": 'text/xml',
+            "NServiceBus.EnclosedMessageTypes": 'NotFoundSagaMessage, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6',
+            "NServiceBus.Version": 'NsbVersion',
+          }
+        },
+        SourceContext: 'NServiceBus.RecoverabilityExecutor',
+        ExceptionDetail: {
+          Elements: {
+            "Type": 'System.Exception',
+            "HResult": -2146233088,
+            "Message": "The correlated property 'Property' on saga 'NotFoundSaga' does not have a value.\nA correlated property must have a non-null value assigned when a new saga instance is created.",
+            "Source": 'NServiceBus.Core'
+          }
+        }
+      }
+    },
+    {
+      MessageTemplate: "Delayed Retry will reschedule message '00000000-0000-0000-0000-000000000001' after a delay of 00:00:00.0010000 because of an exception:",
+      Level: 'Warning',
+      Properties: {
+        IncomingMessageId: Guid_1,
+        IncomingTransportMessageId: Guid_4,
+        ProcessingEndpoint: 'SerilogTestsNotFoundSagaMessage',
+        CorrelationId: Guid_1,
+        ConversationId: Guid_5,
+        IncomingMessage: {
+          TypeTag: 'NotFoundSagaMessage',
+          Properties: [
+            {
+              Property: null
+            }
+          ]
+        },
+        IncomingHeaders: {
+          Elements: {
+            "NServiceBus.SagaId": Guid_6,
+            "NServiceBus.SagaType": 'TheSaga',
+            "NServiceBus.MessageId": Guid_1,
+            "NServiceBus.MessageIntent": 'Send',
+            "NServiceBus.ConversationId": Guid_5,
+            "NServiceBus.CorrelationId": Guid_1,
+            "NServiceBus.ReplyToAddress": 'SerilogTestsNotFoundSagaMessage',
+            "NServiceBus.OriginatingMachine": 'TheMachineName',
+            "NServiceBus.OriginatingEndpoint": 'SerilogTestsNotFoundSagaMessage',
+            "$.diagnostics.originating.hostid": Guid_3,
+            "NServiceBus.ContentType": 'text/xml',
+            "NServiceBus.EnclosedMessageTypes": 'NotFoundSagaMessage, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6',
+            "NServiceBus.Version": 'NsbVersion',
+          }
+        },
+        SourceContext: 'NServiceBus.RecoverabilityExecutor',
+        ExceptionDetail: {
+          Elements: {
+            "Type": 'System.Exception',
+            "HResult": -2146233088,
+            "Message": "The correlated property 'Property' on saga 'NotFoundSaga' does not have a value.\nA correlated property must have a non-null value assigned when a new saga instance is created.",
+            "Source": 'NServiceBus.Core'
+          }
+        }
+      }
+    },
+    {
+      MessageTemplate: "Immediate Retry is going to retry message '00000000-0000-0000-0000-000000000001' because of an exception:",
+      Level: 'Information',
+      Properties: {
+        IncomingMessageId: Guid_1,
+        IncomingTransportMessageId: Guid_7,
+        ProcessingEndpoint: 'SerilogTestsNotFoundSagaMessage',
+        CorrelationId: Guid_1,
+        ConversationId: Guid_5,
+        IncomingMessage: {
+          TypeTag: 'NotFoundSagaMessage',
+          Properties: [
+            {
+              Property: null
+            }
+          ]
+        },
+        IncomingHeaders: {
+          Elements: {
+            "NServiceBus.SagaId": Guid_6,
+            "NServiceBus.SagaType": 'TheSaga',
+            "NServiceBus.MessageId": Guid_1,
+            "NServiceBus.MessageIntent": 'Send',
+            "NServiceBus.ConversationId": Guid_5,
+            "NServiceBus.CorrelationId": Guid_1,
+            "NServiceBus.ReplyToAddress": 'SerilogTestsNotFoundSagaMessage',
+            "NServiceBus.OriginatingMachine": 'TheMachineName',
+            "NServiceBus.OriginatingEndpoint": 'SerilogTestsNotFoundSagaMessage',
+            "$.diagnostics.originating.hostid": Guid_3,
+            "NServiceBus.ContentType": 'text/xml',
+            "NServiceBus.EnclosedMessageTypes": 'NotFoundSagaMessage, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6',
+            "NServiceBus.Version": 'NsbVersion',
+            "NServiceBus.Retries": '1',
+            "NServiceBus.Retries.Timestamp": DateTime_3
+          }
+        },
+        SourceContext: 'NServiceBus.RecoverabilityExecutor',
+        ExceptionDetail: {
+          Elements: {
+            "Type": 'System.Exception',
+            "HResult": -2146233088,
+            "Message": "The correlated property 'Property' on saga 'NotFoundSaga' does not have a value.\nA correlated property must have a non-null value assigned when a new saga instance is created.",
+            "Source": 'NServiceBus.Core'
+          }
+        }
+      }
+    },
+    {
+      MessageTemplate: "Moving message '00000000-0000-0000-0000-000000000001' to the error queue 'error' because processing failed due to an exception:",
+      Level: 'Error',
+      Properties: {
+        IncomingMessageId: Guid_1,
+        IncomingTransportMessageId: Guid_7,
+        ProcessingEndpoint: 'SerilogTestsNotFoundSagaMessage',
+        CorrelationId: Guid_1,
+        ConversationId: Guid_5,
+        IncomingMessage: {
+          TypeTag: 'NotFoundSagaMessage',
+          Properties: [
+            {
+              Property: null
+            }
+          ]
+        },
+        IncomingHeaders: {
+          Elements: {
+            "NServiceBus.SagaId": Guid_6,
+            "NServiceBus.SagaType": 'TheSaga',
+            "NServiceBus.MessageId": Guid_1,
+            "NServiceBus.MessageIntent": 'Send',
+            "NServiceBus.ConversationId": Guid_5,
+            "NServiceBus.CorrelationId": Guid_1,
+            "NServiceBus.ReplyToAddress": 'SerilogTestsNotFoundSagaMessage',
+            "NServiceBus.OriginatingMachine": 'TheMachineName',
+            "NServiceBus.OriginatingEndpoint": 'SerilogTestsNotFoundSagaMessage',
+            "$.diagnostics.originating.hostid": Guid_3,
+            "NServiceBus.ContentType": 'text/xml',
+            "NServiceBus.EnclosedMessageTypes": 'NotFoundSagaMessage, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6',
+            "NServiceBus.Version": 'NsbVersion',
+            "NServiceBus.Retries": '1',
+            "NServiceBus.Retries.Timestamp": DateTime_3
+          }
+        },
+        SourceContext: 'NServiceBus.RecoverabilityExecutor',
+        ExceptionDetail: {
+          Elements: {
+            "Type": 'System.Exception',
+            "HResult": -2146233088,
+            "Message": "The correlated property 'Property' on saga 'NotFoundSaga' does not have a value.\nA correlated property must have a non-null value assigned when a new saga instance is created.",
+            "Source": 'NServiceBus.Core'
+          }
+        }
+      }
+    }
+  ]
+}
+```
+<sup><a href='/src/Tests/IntegrationTests.Handler.verified.txt#L1-L259' title='File snippet `IntegrationTests.Handler.verified.txt` was extracted from'>snippet source</a> | <a href='#snippet-IntegrationTests.Handler.verified.txt' title='Navigate to start of snippet `IntegrationTests.Handler.verified.txt`'>anchor</a></sup>
+<!-- endSnippet -->
+
+
 ### Startup diagnostics
 
 [Startup diagnostics](https://docs.particular.net/nservicebus/hosting/startup-diagnostics) is, in addition to its default file location, also written to Serilog with the level of `Warning`.
@@ -259,13 +923,13 @@ serilogTracing.EnableMessageTracing();
 <!-- snippet: WriteStartupDiagnostics -->
 <a id='snippet-writestartupdiagnostics'></a>
 ```cs
-class WriteStartupDiagnostics :
+class StartupDiagnostics :
     FeatureStartupTask
 {
-    public WriteStartupDiagnostics(ReadOnlySettings settings, ILogger logger)
+    public StartupDiagnostics(ReadOnlySettings settings, ILogger logger)
     {
         this.settings = settings;
-        this.logger = logger;
+        this.logger = logger.ForContext<StartupDiagnostics>();
     }
 
     protected override Task OnStart(IMessageSession session)

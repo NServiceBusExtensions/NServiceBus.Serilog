@@ -10,13 +10,13 @@ using Serilog.Parsing;
 
 #region WriteStartupDiagnostics
 
-class WriteStartupDiagnostics :
+class StartupDiagnostics :
     FeatureStartupTask
 {
-    public WriteStartupDiagnostics(ReadOnlySettings settings, ILogger logger)
+    public StartupDiagnostics(ReadOnlySettings settings, ILogger logger)
     {
         this.settings = settings;
-        this.logger = logger;
+        this.logger = logger.ForContext<StartupDiagnostics>();
     }
 
     protected override Task OnStart(IMessageSession session)
