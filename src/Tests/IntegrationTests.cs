@@ -33,18 +33,18 @@ public class IntegrationTests
         LogManager.Use<SerilogFactory>();
     }
 
-#if NETCOREAPP3_1
-    [Fact]
-    public async Task WriteStartupDiagnostics()
-    {
-        var events = await Send(
-            new StartHandler
-            {
-                Property = "TheProperty"
-            });
-        await Verify<StartupDiagnostics>(events);
-    }
-#endif
+//#if NETCOREAPP3_1
+//    [Fact]
+//    public async Task WriteStartupDiagnostics()
+//    {
+//        var events = await Send(
+//            new StartHandler
+//            {
+//                Property = "TheProperty"
+//            });
+//        await Verify<StartupDiagnostics>(events);
+//    }
+//#endif
 
     [Fact]
     public async Task Handler()
@@ -57,18 +57,18 @@ public class IntegrationTests
         await Verify<StartHandler>(events);
     }
 
-    [Fact]
-    public async Task SagaNotFound()
-    {
-        var events = await Send(
-            new NotFoundSagaMessage(),
-            options =>
-            {
-                options.SetHeader(Headers.SagaId, Guid.NewGuid().ToString());
-                options.SetHeader(Headers.SagaType, typeof(TheSaga).FullName);
-            });
-        await Verify<NotFoundSagaMessage>(events);
-    }
+    //[Fact]
+    //public async Task SagaNotFound()
+    //{
+    //    var events = await Send(
+    //        new NotFoundSagaMessage(),
+    //        options =>
+    //        {
+    //            options.SetHeader(Headers.SagaId, Guid.NewGuid().ToString());
+    //            options.SetHeader(Headers.SagaType, typeof(NotFoundSaga).FullName);
+    //        });
+    //    await Verify<NotFoundSagaMessage>(events);
+    //}
 
     [Fact]
     public async Task HandlerThatLogs()
