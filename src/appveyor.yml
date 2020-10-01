@@ -3,17 +3,6 @@ skip_commits:
 image:
 #- macos
 - Visual Studio 2019 Preview
-for:
-  -
-    matrix:
-      only:
-        - image: macos
-    install:
-      - appveyor DownloadFile https://dot.net/v1/dotnet-install.sh
-      - bash dotnet-install.sh --version 5.0.100-rc.1.20452.10
-      - sudo mkdir /Users/appveyor/.local/share/NuGet
-      - sudo mkdir /Users/appveyor/.local/share/ParticularSoftware
-      - sudo chmod -R a+rwx /Users/appveyor/.local/share/
 build_script:
   - dotnet build src --configuration Release
   - dotnet test src --configuration Release --no-build --no-restore
