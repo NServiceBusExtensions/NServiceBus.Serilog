@@ -5,17 +5,14 @@
     <Version>1.0.0</Version>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Fody" Version="6.2.6">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
+    <PackageReference Include="Fody" Version="6.2.6" />
     <PackageReference Include="ModuleInit.Fody" Version="2.1.1" />
     <PackageReference Include="NServiceBus.Testing" Version="7.2.0" />
-    <PackageReference Include="Verify.Xunit" Version="6.22.1" />
+    <PackageReference Include="Verify.Xunit" Version="6.23.0" />
     <PackageReference Include="Serilog.Exceptions" Version="5.6.0" />
     <PackageReference Include="Xunit" Version="2.4.1" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.3" />
-    <PackageReference Include="MarkdownSnippets.MsBuild" Version="21.0.6" />
+    <PackageReference Include="MarkdownSnippets.MsBuild" Version="21.0.7" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.7.1" />
     <PackageReference Include="NServiceBus" Version="7.4.3" />
     <PackageReference Include="Serilog.Sinks.Seq" Version="4.0.0" />
