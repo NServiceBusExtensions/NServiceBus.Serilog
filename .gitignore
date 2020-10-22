@@ -84,4 +84,4 @@ Fody/.DS_Store
 Sample/logFile.txt
 *.lnk
 
-*.received.txt
+*.received.*
