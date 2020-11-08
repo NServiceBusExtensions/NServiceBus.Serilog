@@ -1,340 +1,340 @@
 {
   logsForTarget: [
     {
-      MessageTemplate: 'Receive message {IncomingMessageType} {IncomingMessageId}.',
-      Level: 'Information',
+      MessageTemplate: Receive message {IncomingMessageType} {IncomingMessageId}.,
+      Level: Information,
       Properties: {
         IncomingMessage: {
-          TypeTag: 'StartHandlerThatThrows',
+          TypeTag: StartHandlerThatThrows,
           Properties: [
             {
-              Property: 'TheProperty'
+              Property: TheProperty
             }
           ]
         },
         OriginatingHostId: Guid_1,
-        MessageIntent: 'Send',
-        OriginatingEndpoint: 'SerilogTestsStartHandlerThatThrows',
-        OriginatingMachine: 'TheMachineName',
-        ReplyToAddress: 'SerilogTestsStartHandlerThatThrows',
+        MessageIntent: Send,
+        OriginatingEndpoint: SerilogTestsStartHandlerThatThrows,
+        OriginatingMachine: TheMachineName,
+        ReplyToAddress: SerilogTestsStartHandlerThatThrows,
         TimeSent: DateTime_1,
         IncomingMessageId: Guid_2,
-        IncomingMessageType: 'StartHandlerThatThrows',
+        IncomingMessageType: StartHandlerThatThrows,
         CorrelationId: Guid_2,
         ConversationId: Guid_3,
-        SourceContext: 'StartHandlerThatThrows',
-        ProcessingEndpoint: 'SerilogTestsStartHandlerThatThrows'
+        SourceContext: StartHandlerThatThrows,
+        ProcessingEndpoint: SerilogTestsStartHandlerThatThrows
       }
     },
     {
-      MessageTemplate: 'Receive message {IncomingMessageType} {IncomingMessageId}.',
-      Level: 'Information',
+      MessageTemplate: Receive message {IncomingMessageType} {IncomingMessageId}.,
+      Level: Information,
       Properties: {
         IncomingMessage: {
-          TypeTag: 'StartHandlerThatThrows',
+          TypeTag: StartHandlerThatThrows,
           Properties: [
             {
-              Property: 'TheProperty'
+              Property: TheProperty
             }
           ]
         },
         OriginatingHostId: Guid_1,
-        MessageIntent: 'Send',
-        OriginatingEndpoint: 'SerilogTestsStartHandlerThatThrows',
-        OriginatingMachine: 'TheMachineName',
-        ReplyToAddress: 'SerilogTestsStartHandlerThatThrows',
+        MessageIntent: Send,
+        OriginatingEndpoint: SerilogTestsStartHandlerThatThrows,
+        OriginatingMachine: TheMachineName,
+        ReplyToAddress: SerilogTestsStartHandlerThatThrows,
         TimeSent: DateTime_1,
         IncomingMessageId: Guid_2,
-        IncomingMessageType: 'StartHandlerThatThrows',
+        IncomingMessageType: StartHandlerThatThrows,
         CorrelationId: Guid_2,
         ConversationId: Guid_3,
-        SourceContext: 'StartHandlerThatThrows',
-        ProcessingEndpoint: 'SerilogTestsStartHandlerThatThrows'
+        SourceContext: StartHandlerThatThrows,
+        ProcessingEndpoint: SerilogTestsStartHandlerThatThrows
       }
     },
     {
-      MessageTemplate: 'Receive message {IncomingMessageType} {IncomingMessageId}.',
-      Level: 'Information',
+      MessageTemplate: Receive message {IncomingMessageType} {IncomingMessageId}.,
+      Level: Information,
       Properties: {
         IncomingMessage: {
-          TypeTag: 'StartHandlerThatThrows',
+          TypeTag: StartHandlerThatThrows,
           Properties: [
             {
-              Property: 'TheProperty'
+              Property: TheProperty
             }
           ]
         },
         OriginatingHostId: Guid_1,
-        MessageIntent: 'Send',
-        OriginatingEndpoint: 'SerilogTestsStartHandlerThatThrows',
-        OriginatingMachine: 'TheMachineName',
-        ReplyToAddress: 'SerilogTestsStartHandlerThatThrows',
-        Retries: '1',
+        MessageIntent: Send,
+        OriginatingEndpoint: SerilogTestsStartHandlerThatThrows,
+        OriginatingMachine: TheMachineName,
+        ReplyToAddress: SerilogTestsStartHandlerThatThrows,
+        Retries: 1,
         Retries.Timestamp: DateTime_2,
         TimeSent: DateTime_1,
         IncomingMessageId: Guid_2,
-        IncomingMessageType: 'StartHandlerThatThrows',
+        IncomingMessageType: StartHandlerThatThrows,
         CorrelationId: Guid_2,
         ConversationId: Guid_3,
-        SourceContext: 'StartHandlerThatThrows',
-        ProcessingEndpoint: 'SerilogTestsStartHandlerThatThrows'
+        SourceContext: StartHandlerThatThrows,
+        ProcessingEndpoint: SerilogTestsStartHandlerThatThrows
       }
     },
     {
-      MessageTemplate: 'Receive message {IncomingMessageType} {IncomingMessageId}.',
-      Level: 'Information',
+      MessageTemplate: Receive message {IncomingMessageType} {IncomingMessageId}.,
+      Level: Information,
       Properties: {
         IncomingMessage: {
-          TypeTag: 'StartHandlerThatThrows',
+          TypeTag: StartHandlerThatThrows,
           Properties: [
             {
-              Property: 'TheProperty'
+              Property: TheProperty
             }
           ]
         },
         OriginatingHostId: Guid_1,
-        MessageIntent: 'Send',
-        OriginatingEndpoint: 'SerilogTestsStartHandlerThatThrows',
-        OriginatingMachine: 'TheMachineName',
-        ReplyToAddress: 'SerilogTestsStartHandlerThatThrows',
-        Retries: '1',
+        MessageIntent: Send,
+        OriginatingEndpoint: SerilogTestsStartHandlerThatThrows,
+        OriginatingMachine: TheMachineName,
+        ReplyToAddress: SerilogTestsStartHandlerThatThrows,
+        Retries: 1,
         Retries.Timestamp: DateTime_2,
         TimeSent: DateTime_1,
         IncomingMessageId: Guid_2,
-        IncomingMessageType: 'StartHandlerThatThrows',
+        IncomingMessageType: StartHandlerThatThrows,
         CorrelationId: Guid_2,
         ConversationId: Guid_3,
-        SourceContext: 'StartHandlerThatThrows',
-        ProcessingEndpoint: 'SerilogTestsStartHandlerThatThrows'
+        SourceContext: StartHandlerThatThrows,
+        ProcessingEndpoint: SerilogTestsStartHandlerThatThrows
       }
     },
     {
-      MessageTemplate: 'Sent message {OutgoingMessageType} {OutgoingMessageId}.',
-      Level: 'Information',
+      MessageTemplate: Sent message {OutgoingMessageType} {OutgoingMessageId}.,
+      Level: Information,
       Properties: {
         OutgoingMessage: {
-          TypeTag: 'StartHandlerThatThrows',
+          TypeTag: StartHandlerThatThrows,
           Properties: [
             {
-              Property: 'TheProperty'
+              Property: TheProperty
             }
           ]
         },
         UnicastRoutes: {
           Elements: [
-            'SerilogTestsStartHandlerThatThrows'
+            SerilogTestsStartHandlerThatThrows
           ]
         },
         OriginatingHostId: Guid_1,
-        MessageIntent: 'Send',
-        OriginatingEndpoint: 'SerilogTestsStartHandlerThatThrows',
-        OriginatingMachine: 'TheMachineName',
-        ReplyToAddress: 'SerilogTestsStartHandlerThatThrows',
+        MessageIntent: Send,
+        OriginatingEndpoint: SerilogTestsStartHandlerThatThrows,
+        OriginatingMachine: TheMachineName,
+        ReplyToAddress: SerilogTestsStartHandlerThatThrows,
         OutgoingMessageId: Guid_2,
-        OutgoingMessageType: 'StartHandlerThatThrows',
+        OutgoingMessageType: StartHandlerThatThrows,
         CorrelationId: Guid_2,
         ConversationId: Guid_3,
-        SourceContext: 'StartHandlerThatThrows',
-        ProcessingEndpoint: 'SerilogTestsStartHandlerThatThrows'
+        SourceContext: StartHandlerThatThrows,
+        ProcessingEndpoint: SerilogTestsStartHandlerThatThrows
       }
     }
   ],
   logsWithExceptions: [
     {
-      MessageTemplate: 'The message',
-      Level: 'Error',
+      MessageTemplate: The message,
+      Level: Error,
       Properties: {
-        SourceContext: 'TheHandlerThatThrows',
+        SourceContext: TheHandlerThatThrows,
         ExceptionDetail: {
           Elements: {
-            "Type": 'System.Exception',
+            "Type": System.Exception,
             "HResult": -2146233088,
-            "Message": "Exception of type 'System.Exception' was thrown.",
+            "Message": Exception of type 'System.Exception' was thrown.,
             "Source": null
           }
         }
       }
     },
     {
-      MessageTemplate: "Immediate Retry is going to retry message '00000000-0000-0000-0000-000000000001' because of an exception:",
-      Level: 'Information',
+      MessageTemplate: Immediate Retry is going to retry message '00000000-0000-0000-0000-000000000001' because of an exception:,
+      Level: Information,
       Properties: {
-        IncomingMessageType: 'StartHandlerThatThrows',
+        IncomingMessageType: StartHandlerThatThrows,
         IncomingMessageId: Guid_2,
         IncomingTransportMessageId: Guid_4,
-        HandlerType: 'TheHandlerThatThrows',
-        ProcessingEndpoint: 'SerilogTestsStartHandlerThatThrows',
+        HandlerType: TheHandlerThatThrows,
+        ProcessingEndpoint: SerilogTestsStartHandlerThatThrows,
         CorrelationId: Guid_2,
         ConversationId: Guid_3,
         IncomingMessage: {
-          TypeTag: 'StartHandlerThatThrows',
+          TypeTag: StartHandlerThatThrows,
           Properties: [
             {
-              Property: 'TheProperty'
+              Property: TheProperty
             }
           ]
         },
         IncomingHeaders: {
           Elements: {
             "NServiceBus.MessageId": Guid_2,
-            "NServiceBus.MessageIntent": 'Send',
+            "NServiceBus.MessageIntent": Send,
             "NServiceBus.ConversationId": Guid_3,
             "NServiceBus.CorrelationId": Guid_2,
-            "NServiceBus.ReplyToAddress": 'SerilogTestsStartHandlerThatThrows',
-            "NServiceBus.OriginatingMachine": 'TheMachineName',
-            "NServiceBus.OriginatingEndpoint": 'SerilogTestsStartHandlerThatThrows',
+            "NServiceBus.ReplyToAddress": SerilogTestsStartHandlerThatThrows,
+            "NServiceBus.OriginatingMachine": TheMachineName,
+            "NServiceBus.OriginatingEndpoint": SerilogTestsStartHandlerThatThrows,
             "$.diagnostics.originating.hostid": Guid_1,
-            "NServiceBus.ContentType": 'text/xml',
-            "NServiceBus.EnclosedMessageTypes": 'StartHandlerThatThrows, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6',
-            "NServiceBus.Version": 'NsbVersion',
+            "NServiceBus.ContentType": text/xml,
+            "NServiceBus.EnclosedMessageTypes": StartHandlerThatThrows, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
+            "NServiceBus.Version": NsbVersion,
           }
         },
-        SourceContext: 'NServiceBus.RecoverabilityExecutor',
+        SourceContext: NServiceBus.RecoverabilityExecutor,
         ExceptionDetail: {
           Elements: {
-            "Type": 'System.Exception',
+            "Type": System.Exception,
             "HResult": -2146233088,
-            "Message": "Exception of type 'System.Exception' was thrown.",
-            "Source": 'Tests'
+            "Message": Exception of type 'System.Exception' was thrown.,
+            "Source": Tests
           }
         }
       }
     },
     {
-      MessageTemplate: "Delayed Retry will reschedule message '00000000-0000-0000-0000-000000000001' after a delay of 00:00:00.0010000 because of an exception:",
-      Level: 'Warning',
+      MessageTemplate: Delayed Retry will reschedule message '00000000-0000-0000-0000-000000000001' after a delay of 00:00:00.0010000 because of an exception:,
+      Level: Warning,
       Properties: {
-        IncomingMessageType: 'StartHandlerThatThrows',
+        IncomingMessageType: StartHandlerThatThrows,
         IncomingMessageId: Guid_2,
         IncomingTransportMessageId: Guid_4,
-        HandlerType: 'TheHandlerThatThrows',
-        ProcessingEndpoint: 'SerilogTestsStartHandlerThatThrows',
+        HandlerType: TheHandlerThatThrows,
+        ProcessingEndpoint: SerilogTestsStartHandlerThatThrows,
         CorrelationId: Guid_2,
         ConversationId: Guid_3,
         IncomingMessage: {
-          TypeTag: 'StartHandlerThatThrows',
+          TypeTag: StartHandlerThatThrows,
           Properties: [
             {
-              Property: 'TheProperty'
+              Property: TheProperty
             }
           ]
         },
         IncomingHeaders: {
           Elements: {
             "NServiceBus.MessageId": Guid_2,
-            "NServiceBus.MessageIntent": 'Send',
+            "NServiceBus.MessageIntent": Send,
             "NServiceBus.ConversationId": Guid_3,
             "NServiceBus.CorrelationId": Guid_2,
-            "NServiceBus.ReplyToAddress": 'SerilogTestsStartHandlerThatThrows',
-            "NServiceBus.OriginatingMachine": 'TheMachineName',
-            "NServiceBus.OriginatingEndpoint": 'SerilogTestsStartHandlerThatThrows',
+            "NServiceBus.ReplyToAddress": SerilogTestsStartHandlerThatThrows,
+            "NServiceBus.OriginatingMachine": TheMachineName,
+            "NServiceBus.OriginatingEndpoint": SerilogTestsStartHandlerThatThrows,
             "$.diagnostics.originating.hostid": Guid_1,
-            "NServiceBus.ContentType": 'text/xml',
-            "NServiceBus.EnclosedMessageTypes": 'StartHandlerThatThrows, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6',
-            "NServiceBus.Version": 'NsbVersion',
+            "NServiceBus.ContentType": text/xml,
+            "NServiceBus.EnclosedMessageTypes": StartHandlerThatThrows, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
+            "NServiceBus.Version": NsbVersion,
           }
         },
-        SourceContext: 'NServiceBus.RecoverabilityExecutor',
+        SourceContext: NServiceBus.RecoverabilityExecutor,
         ExceptionDetail: {
           Elements: {
-            "Type": 'System.Exception',
+            "Type": System.Exception,
             "HResult": -2146233088,
-            "Message": "Exception of type 'System.Exception' was thrown.",
-            "Source": 'Tests'
+            "Message": Exception of type 'System.Exception' was thrown.,
+            "Source": Tests
           }
         }
       }
     },
     {
-      MessageTemplate: "Immediate Retry is going to retry message '00000000-0000-0000-0000-000000000001' because of an exception:",
-      Level: 'Information',
+      MessageTemplate: Immediate Retry is going to retry message '00000000-0000-0000-0000-000000000001' because of an exception:,
+      Level: Information,
       Properties: {
-        IncomingMessageType: 'StartHandlerThatThrows',
+        IncomingMessageType: StartHandlerThatThrows,
         IncomingMessageId: Guid_2,
         IncomingTransportMessageId: Guid_5,
-        HandlerType: 'TheHandlerThatThrows',
-        ProcessingEndpoint: 'SerilogTestsStartHandlerThatThrows',
+        HandlerType: TheHandlerThatThrows,
+        ProcessingEndpoint: SerilogTestsStartHandlerThatThrows,
         CorrelationId: Guid_2,
         ConversationId: Guid_3,
         IncomingMessage: {
-          TypeTag: 'StartHandlerThatThrows',
+          TypeTag: StartHandlerThatThrows,
           Properties: [
             {
-              Property: 'TheProperty'
+              Property: TheProperty
             }
           ]
         },
         IncomingHeaders: {
           Elements: {
             "NServiceBus.MessageId": Guid_2,
-            "NServiceBus.MessageIntent": 'Send',
+            "NServiceBus.MessageIntent": Send,
             "NServiceBus.ConversationId": Guid_3,
             "NServiceBus.CorrelationId": Guid_2,
-            "NServiceBus.ReplyToAddress": 'SerilogTestsStartHandlerThatThrows',
-            "NServiceBus.OriginatingMachine": 'TheMachineName',
-            "NServiceBus.OriginatingEndpoint": 'SerilogTestsStartHandlerThatThrows',
+            "NServiceBus.ReplyToAddress": SerilogTestsStartHandlerThatThrows,
+            "NServiceBus.OriginatingMachine": TheMachineName,
+            "NServiceBus.OriginatingEndpoint": SerilogTestsStartHandlerThatThrows,
             "$.diagnostics.originating.hostid": Guid_1,
-            "NServiceBus.ContentType": 'text/xml',
-            "NServiceBus.EnclosedMessageTypes": 'StartHandlerThatThrows, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6',
-            "NServiceBus.Version": 'NsbVersion',
-            "NServiceBus.Retries": '1',
+            "NServiceBus.ContentType": text/xml,
+            "NServiceBus.EnclosedMessageTypes": StartHandlerThatThrows, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
+            "NServiceBus.Version": NsbVersion,
+            "NServiceBus.Retries": 1,
             "NServiceBus.Retries.Timestamp": DateTime_2
           }
         },
-        SourceContext: 'NServiceBus.RecoverabilityExecutor',
+        SourceContext: NServiceBus.RecoverabilityExecutor,
         ExceptionDetail: {
           Elements: {
-            "Type": 'System.Exception',
+            "Type": System.Exception,
             "HResult": -2146233088,
-            "Message": "Exception of type 'System.Exception' was thrown.",
-            "Source": 'Tests'
+            "Message": Exception of type 'System.Exception' was thrown.,
+            "Source": Tests
           }
         }
       }
     },
     {
-      MessageTemplate: "Moving message '00000000-0000-0000-0000-000000000001' to the error queue 'error' because processing failed due to an exception:",
-      Level: 'Error',
+      MessageTemplate: Moving message '00000000-0000-0000-0000-000000000001' to the error queue 'error' because processing failed due to an exception:,
+      Level: Error,
       Properties: {
-        IncomingMessageType: 'StartHandlerThatThrows',
+        IncomingMessageType: StartHandlerThatThrows,
         IncomingMessageId: Guid_2,
         IncomingTransportMessageId: Guid_5,
-        HandlerType: 'TheHandlerThatThrows',
-        ProcessingEndpoint: 'SerilogTestsStartHandlerThatThrows',
+        HandlerType: TheHandlerThatThrows,
+        ProcessingEndpoint: SerilogTestsStartHandlerThatThrows,
         CorrelationId: Guid_2,
         ConversationId: Guid_3,
         IncomingMessage: {
-          TypeTag: 'StartHandlerThatThrows',
+          TypeTag: StartHandlerThatThrows,
           Properties: [
             {
-              Property: 'TheProperty'
+              Property: TheProperty
             }
           ]
         },
         IncomingHeaders: {
           Elements: {
             "NServiceBus.MessageId": Guid_2,
-            "NServiceBus.MessageIntent": 'Send',
+            "NServiceBus.MessageIntent": Send,
             "NServiceBus.ConversationId": Guid_3,
             "NServiceBus.CorrelationId": Guid_2,
-            "NServiceBus.ReplyToAddress": 'SerilogTestsStartHandlerThatThrows',
-            "NServiceBus.OriginatingMachine": 'TheMachineName',
-            "NServiceBus.OriginatingEndpoint": 'SerilogTestsStartHandlerThatThrows',
+            "NServiceBus.ReplyToAddress": SerilogTestsStartHandlerThatThrows,
+            "NServiceBus.OriginatingMachine": TheMachineName,
+            "NServiceBus.OriginatingEndpoint": SerilogTestsStartHandlerThatThrows,
             "$.diagnostics.originating.hostid": Guid_1,
-            "NServiceBus.ContentType": 'text/xml',
-            "NServiceBus.EnclosedMessageTypes": 'StartHandlerThatThrows, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6',
-            "NServiceBus.Version": 'NsbVersion',
-            "NServiceBus.Retries": '1',
+            "NServiceBus.ContentType": text/xml,
+            "NServiceBus.EnclosedMessageTypes": StartHandlerThatThrows, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
+            "NServiceBus.Version": NsbVersion,
+            "NServiceBus.Retries": 1,
             "NServiceBus.Retries.Timestamp": DateTime_2
           }
         },
-        SourceContext: 'NServiceBus.RecoverabilityExecutor',
+        SourceContext: NServiceBus.RecoverabilityExecutor,
         ExceptionDetail: {
           Elements: {
-            "Type": 'System.Exception',
+            "Type": System.Exception,
             "HResult": -2146233088,
-            "Message": "Exception of type 'System.Exception' was thrown.",
-            "Source": 'Tests'
+            "Message": Exception of type 'System.Exception' was thrown.,
+            "Source": Tests
           }
         }
       }

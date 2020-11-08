@@ -1,63 +1,63 @@
 {
   logsForTarget: [
     {
-      MessageTemplate: 'Receive message {IncomingMessageType} {IncomingMessageId}.',
-      Level: 'Information',
+      MessageTemplate: Receive message {IncomingMessageType} {IncomingMessageId}.,
+      Level: Information,
       Properties: {
         IncomingMessage: {
-          TypeTag: 'StartHandlerThatLogs'
+          TypeTag: StartHandlerThatLogs
         },
         OriginatingHostId: Guid_1,
-        MessageIntent: 'Send',
-        OriginatingEndpoint: 'SerilogTestsStartHandlerThatLogs',
-        OriginatingMachine: 'TheMachineName',
-        ReplyToAddress: 'SerilogTestsStartHandlerThatLogs',
+        MessageIntent: Send,
+        OriginatingEndpoint: SerilogTestsStartHandlerThatLogs,
+        OriginatingMachine: TheMachineName,
+        ReplyToAddress: SerilogTestsStartHandlerThatLogs,
         TimeSent: DateTime_1,
         IncomingMessageId: Guid_2,
-        IncomingMessageType: 'StartHandlerThatLogs',
+        IncomingMessageType: StartHandlerThatLogs,
         CorrelationId: Guid_2,
         ConversationId: Guid_3,
-        SourceContext: 'StartHandlerThatLogs',
-        ProcessingEndpoint: 'SerilogTestsStartHandlerThatLogs'
+        SourceContext: StartHandlerThatLogs,
+        ProcessingEndpoint: SerilogTestsStartHandlerThatLogs
       }
     },
     {
-      MessageTemplate: 'Sent message {OutgoingMessageType} {OutgoingMessageId}.',
-      Level: 'Information',
+      MessageTemplate: Sent message {OutgoingMessageType} {OutgoingMessageId}.,
+      Level: Information,
       Properties: {
         OutgoingMessage: {
-          TypeTag: 'StartHandlerThatLogs'
+          TypeTag: StartHandlerThatLogs
         },
         UnicastRoutes: {
           Elements: [
-            'SerilogTestsStartHandlerThatLogs'
+            SerilogTestsStartHandlerThatLogs
           ]
         },
         OriginatingHostId: Guid_1,
-        MessageIntent: 'Send',
-        OriginatingEndpoint: 'SerilogTestsStartHandlerThatLogs',
-        OriginatingMachine: 'TheMachineName',
-        ReplyToAddress: 'SerilogTestsStartHandlerThatLogs',
+        MessageIntent: Send,
+        OriginatingEndpoint: SerilogTestsStartHandlerThatLogs,
+        OriginatingMachine: TheMachineName,
+        ReplyToAddress: SerilogTestsStartHandlerThatLogs,
         OutgoingMessageId: Guid_2,
-        OutgoingMessageType: 'StartHandlerThatLogs',
+        OutgoingMessageType: StartHandlerThatLogs,
         CorrelationId: Guid_2,
         ConversationId: Guid_3,
-        SourceContext: 'StartHandlerThatLogs',
-        ProcessingEndpoint: 'SerilogTestsStartHandlerThatLogs'
+        SourceContext: StartHandlerThatLogs,
+        ProcessingEndpoint: SerilogTestsStartHandlerThatLogs
       }
     }
   ],
   logsWithExceptions: [
     {
-      MessageTemplate: 'The message',
-      Level: 'Error',
+      MessageTemplate: The message,
+      Level: Error,
       Properties: {
-        SourceContext: 'TheHandlerThatThrows',
+        SourceContext: TheHandlerThatThrows,
         ExceptionDetail: {
           Elements: {
-            "Type": 'System.Exception',
+            "Type": System.Exception,
             "HResult": -2146233088,
-            "Message": "Exception of type 'System.Exception' was thrown.",
+            "Message": Exception of type 'System.Exception' was thrown.,
             "Source": null
           }
         }

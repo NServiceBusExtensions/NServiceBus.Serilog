@@ -1,71 +1,71 @@
 {
   logsForTarget: [
     {
-      MessageTemplate: 'Hello from {@Saga}. Message: {@Message}',
-      Level: 'Information',
+      MessageTemplate: Hello from {@Saga}. Message: {@Message},
+      Level: Information,
       Properties: {
-        Saga: 'TheSaga',
+        Saga: TheSaga,
         Message: {
-          TypeTag: 'StartSaga',
+          TypeTag: StartSaga,
           Properties: [
             {
-              Property: 'TheProperty'
+              Property: TheProperty
             }
           ]
         },
-        Handler: 'TheSaga',
+        Handler: TheSaga,
         IncomingMessageId: Guid_1,
-        IncomingMessageType: 'StartSaga',
+        IncomingMessageType: StartSaga,
         CorrelationId: Guid_1,
         ConversationId: Guid_2,
-        SourceContext: 'StartSaga',
-        ProcessingEndpoint: 'SerilogTestsStartSaga'
+        SourceContext: StartSaga,
+        ProcessingEndpoint: SerilogTestsStartSaga
       }
     },
     {
-      MessageTemplate: 'Receive message {IncomingMessageType} {IncomingMessageId}.',
-      Level: 'Information',
+      MessageTemplate: Receive message {IncomingMessageType} {IncomingMessageId}.,
+      Level: Information,
       Properties: {
         IncomingMessage: {
-          TypeTag: 'StartSaga',
+          TypeTag: StartSaga,
           Properties: [
             {
-              Property: 'TheProperty'
+              Property: TheProperty
             }
           ]
         },
         OriginatingHostId: Guid_3,
-        MessageIntent: 'Send',
-        OriginatingEndpoint: 'SerilogTestsStartSaga',
-        OriginatingMachine: 'TheMachineName',
-        ReplyToAddress: 'SerilogTestsStartSaga',
+        MessageIntent: Send,
+        OriginatingEndpoint: SerilogTestsStartSaga,
+        OriginatingMachine: TheMachineName,
+        ReplyToAddress: SerilogTestsStartSaga,
         TimeSent: DateTime_1,
         IncomingMessageId: Guid_1,
-        IncomingMessageType: 'StartSaga',
+        IncomingMessageType: StartSaga,
         CorrelationId: Guid_1,
         ConversationId: Guid_2,
-        SourceContext: 'StartSaga',
-        ProcessingEndpoint: 'SerilogTestsStartSaga'
+        SourceContext: StartSaga,
+        ProcessingEndpoint: SerilogTestsStartSaga
       }
     },
     {
-      MessageTemplate: "Saga execution '{SagaType}' '{SagaId}'.",
-      Level: 'Information',
+      MessageTemplate: Saga execution '{SagaType}' '{SagaId}'.,
+      Level: Information,
       Properties: {
-        SagaType: 'TheSaga',
+        SagaType: TheSaga,
         SagaId: Guid_4,
         StartTime: DateTimeOffset_1,
         FinishTime: DateTimeOffset_2,
         IsCompleted: false,
         IsNew: true,
         Initiator: {
-          TypeTag: 'SagaChangeInitiator',
+          TypeTag: SagaChangeInitiator,
           Properties: [
             {
               InitiatingMessageId: Guid_1
             },
             {
-              MessageType: 'StartSaga'
+              MessageType: StartSaga
             },
             {
               IsSagaTimeoutMessage: false
@@ -74,48 +74,48 @@
               TimeSent: DateTime_1
             },
             {
-              OriginatingMachine: 'TheMachineName'
+              OriginatingMachine: TheMachineName
             },
             {
-              OriginatingEndpoint: 'SerilogTestsStartSaga'
+              OriginatingEndpoint: SerilogTestsStartSaga
             },
             {
-              Intent: 'Send'
+              Intent: Send
             }
           ]
         },
         ResultingMessages: {
           Elements: [
             {
-              TypeTag: 'SagaChangeOutput',
+              TypeTag: SagaChangeOutput,
               Properties: [
                 {
-                  MessageType: 'BackIntoSaga'
+                  MessageType: BackIntoSaga
                 },
                 {
-                  Destination: 'SerilogTestsStartSaga'
+                  Destination: SerilogTestsStartSaga
                 },
                 {
                   ResultingMessageId: Guid_5
                 },
                 {
-                  MessageIntent: 'Send'
+                  MessageIntent: Send
                 }
               ]
             }
           ]
         },
         Entity: {
-          TypeTag: 'TheSagaData',
+          TypeTag: TheSagaData,
           Properties: [
             {
-              Property: 'TheProperty'
+              Property: TheProperty
             },
             {
               Id: Guid_4
             },
             {
-              Originator: 'SerilogTestsStartSaga'
+              Originator: SerilogTestsStartSaga
             },
             {
               OriginalMessageId: Guid_1
@@ -123,76 +123,76 @@
           ]
         },
         IncomingMessageId: Guid_1,
-        IncomingMessageType: 'StartSaga',
+        IncomingMessageType: StartSaga,
         CorrelationId: Guid_1,
         ConversationId: Guid_2,
-        SourceContext: 'StartSaga',
-        ProcessingEndpoint: 'SerilogTestsStartSaga'
+        SourceContext: StartSaga,
+        ProcessingEndpoint: SerilogTestsStartSaga
       }
     },
     {
-      MessageTemplate: 'Sent message {OutgoingMessageType} {OutgoingMessageId}.',
-      Level: 'Information',
+      MessageTemplate: Sent message {OutgoingMessageType} {OutgoingMessageId}.,
+      Level: Information,
       Properties: {
         OutgoingMessage: {
-          TypeTag: 'StartSaga',
+          TypeTag: StartSaga,
           Properties: [
             {
-              Property: 'TheProperty'
+              Property: TheProperty
             }
           ]
         },
         UnicastRoutes: {
           Elements: [
-            'SerilogTestsStartSaga'
+            SerilogTestsStartSaga
           ]
         },
         OriginatingHostId: Guid_3,
-        MessageIntent: 'Send',
-        OriginatingEndpoint: 'SerilogTestsStartSaga',
-        OriginatingMachine: 'TheMachineName',
-        ReplyToAddress: 'SerilogTestsStartSaga',
+        MessageIntent: Send,
+        OriginatingEndpoint: SerilogTestsStartSaga,
+        OriginatingMachine: TheMachineName,
+        ReplyToAddress: SerilogTestsStartSaga,
         OutgoingMessageId: Guid_1,
-        OutgoingMessageType: 'StartSaga',
+        OutgoingMessageType: StartSaga,
         CorrelationId: Guid_1,
         ConversationId: Guid_2,
-        SourceContext: 'StartSaga',
-        ProcessingEndpoint: 'SerilogTestsStartSaga'
+        SourceContext: StartSaga,
+        ProcessingEndpoint: SerilogTestsStartSaga
       }
     },
     {
-      MessageTemplate: 'Sent message {OutgoingMessageType} {OutgoingMessageId}.',
-      Level: 'Information',
+      MessageTemplate: Sent message {OutgoingMessageType} {OutgoingMessageId}.,
+      Level: Information,
       Properties: {
         OutgoingMessage: {
-          TypeTag: 'BackIntoSaga',
+          TypeTag: BackIntoSaga,
           Properties: [
             {
-              Property: 'TheProperty'
+              Property: TheProperty
             }
           ]
         },
         UnicastRoutes: {
           Elements: [
-            'SerilogTestsStartSaga'
+            SerilogTestsStartSaga
           ]
         },
         OriginatingHostId: Guid_3,
-        MessageIntent: 'Send',
-        OriginatingEndpoint: 'SerilogTestsStartSaga',
-        OriginatingMachine: 'TheMachineName',
+        MessageIntent: Send,
+        OriginatingEndpoint: SerilogTestsStartSaga,
+        OriginatingMachine: TheMachineName,
         OriginatingSagaId: Guid_4,
-        OriginatingSagaType: 'TheSaga, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6',
+        OriginatingSagaType: TheSaga, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
         RelatedTo: Guid_1,
-        ReplyToAddress: 'SerilogTestsStartSaga',
+        ReplyToAddress: SerilogTestsStartSaga,
         OutgoingMessageId: Guid_5,
-        OutgoingMessageType: 'BackIntoSaga',
+        OutgoingMessageType: BackIntoSaga,
         CorrelationId: Guid_1,
         ConversationId: Guid_2,
         IncomingMessageId: Guid_1,
-        IncomingMessageType: 'StartSaga',
-        SourceContext: 'StartSaga',
-        ProcessingEndpoint: 'SerilogTestsStartSaga'
+        IncomingMessageType: StartSaga,
+        SourceContext: StartSaga,
+        ProcessingEndpoint: SerilogTestsStartSaga
       }
     }
   ]

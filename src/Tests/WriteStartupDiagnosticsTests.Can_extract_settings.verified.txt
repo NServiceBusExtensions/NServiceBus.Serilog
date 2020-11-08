@@ -1,6 +1,6 @@
 [
   {
-    Name: 'Name',
-    Data: 'Value'
+    Name: Name,
+    Data: Value
   }
 ]
