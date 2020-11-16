@@ -26,7 +26,7 @@ class InjectIncomingMessageBehavior :
                 stepId: $"Serilog{nameof(InjectIncomingMessageBehavior)}",
                 behavior: typeof(InjectIncomingMessageBehavior),
                 description: "Injects a logger into the incoming context",
-                factoryMethod: builder => new InjectIncomingMessageBehavior(logBuilder, endpoint)
+                factoryMethod: _ => new InjectIncomingMessageBehavior(logBuilder, endpoint)
             )
         {
         }

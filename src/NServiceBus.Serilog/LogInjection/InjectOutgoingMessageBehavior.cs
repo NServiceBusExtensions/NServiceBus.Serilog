@@ -64,7 +64,7 @@ class InjectOutgoingMessageBehavior :
                 stepId: $"Serilog{nameof(InjectOutgoingMessageBehavior)}",
                 behavior: typeof(InjectOutgoingMessageBehavior),
                 description: "Injects a logger into the outgoing context",
-                factoryMethod: builder => new InjectOutgoingMessageBehavior(logBuilder))
+                factoryMethod: _ => new InjectOutgoingMessageBehavior(logBuilder))
         {
         }
     }

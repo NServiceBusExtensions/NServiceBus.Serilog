@@ -131,7 +131,7 @@ public class IntegrationTests
         recoverability.Immediate(settings => { settings.NumberOfRetries(1); });
 
         recoverability.Failed(settings => settings
-            .OnMessageSentToErrorQueue(failedMessage =>
+            .OnMessageSentToErrorQueue(_ =>
             {
                 resetEvent.Set();
                 return Task.CompletedTask;

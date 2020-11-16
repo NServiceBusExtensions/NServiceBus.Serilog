@@ -5,7 +5,7 @@ using Serilog.Core.Enrichers;
 
 class LogBuilder
 {
-    ConcurrentDictionary<string, ILogger> loggers = new ConcurrentDictionary<string, ILogger>();
+    ConcurrentDictionary<string, ILogger> loggers = new();
 
     public LogBuilder(ILogger logger, string endpointName)
     {
@@ -20,7 +20,7 @@ class LogBuilder
 
     public ILogger GetLogger(string key)
     {
-        return loggers.GetOrAdd(key, s => Logger
-            .ForContext(Constants.SourceContextPropertyName, key));
+        return loggers.GetOrAdd(key, x => Logger
+            .ForContext(Constants.SourceContextPropertyName, x));
     }
 }
