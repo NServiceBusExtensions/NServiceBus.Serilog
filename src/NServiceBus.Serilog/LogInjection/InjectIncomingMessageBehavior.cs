@@ -48,8 +48,8 @@ class InjectIncomingMessageBehavior :
         var logger = logBuilder.GetLogger(messageTypeName);
         var properties = new List<PropertyEnricher>
         {
-            new PropertyEnricher("IncomingMessageId", context.MessageId),
-            new PropertyEnricher("IncomingMessageType", messageTypeName)
+            new("IncomingMessageId", context.MessageId),
+            new("IncomingMessageType", messageTypeName)
         };
 
 

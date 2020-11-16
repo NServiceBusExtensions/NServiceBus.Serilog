@@ -6,7 +6,7 @@ using Serilog.Events;
 
 static class HeaderAppender
 {
-    internal static List<string> excludeHeaders = new List<string>
+    internal static List<string> excludeHeaders = new
     {
         Headers.EnclosedMessageTypes,
         Headers.ProcessingEndpoint,

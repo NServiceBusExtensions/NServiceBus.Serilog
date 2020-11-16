@@ -84,13 +84,13 @@ class CaptureSagaStateBehavior :
 
         var properties = new List<LogEventProperty>
         {
-            new LogEventProperty("SagaType", new ScalarValue(sagaAudit.SagaType)),
-            new LogEventProperty("SagaId", new ScalarValue(sagaAudit.SagaId)),
-            new LogEventProperty("StartTime", new ScalarValue(sagaAudit.StartTime)),
-            new LogEventProperty("FinishTime", new ScalarValue(sagaAudit.FinishTime)),
-            new LogEventProperty("IsCompleted", new ScalarValue(sagaAudit.IsCompleted)),
-            new LogEventProperty("IsNew", new ScalarValue(sagaAudit.IsNew)),
-            new LogEventProperty("SagaType", new ScalarValue(sagaAudit.SagaType)),
+            new("SagaType", new ScalarValue(sagaAudit.SagaType)),
+            new("SagaId", new ScalarValue(sagaAudit.SagaId)),
+            new("StartTime", new ScalarValue(sagaAudit.StartTime)),
+            new("FinishTime", new ScalarValue(sagaAudit.FinishTime)),
+            new("IsCompleted", new ScalarValue(sagaAudit.IsCompleted)),
+            new("IsNew", new ScalarValue(sagaAudit.IsNew)),
+            new("SagaType", new ScalarValue(sagaAudit.SagaType)),
         };
 
         var logger = context.Logger();

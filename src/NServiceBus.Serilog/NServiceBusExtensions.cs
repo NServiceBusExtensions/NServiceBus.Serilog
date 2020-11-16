@@ -57,7 +57,7 @@ static class NServiceBusExtensions
         return "Send";
     }
 
-    static Dictionary<string, string> emptyDictionary = new Dictionary<string, string>();
+    static Dictionary<string, string> emptyDictionary = new();
 
     public static List<string> UnicastAddresses(this IOutgoingPhysicalMessageContext context)
     {
