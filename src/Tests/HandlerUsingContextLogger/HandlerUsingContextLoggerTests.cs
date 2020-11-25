@@ -7,8 +7,8 @@ public class HandlerUsingContextLoggerTests
     [Fact]
     public Task Simple()
     {
-        var handler = new HandlerUsingContextLogger();
-        var context = new TestableMessageHandlerContext();
+        HandlerUsingContextLogger handler = new();
+        TestableMessageHandlerContext context = new();
         return handler.Handle(new StartHandlerUsingContextLogger(), context);
     }
 }

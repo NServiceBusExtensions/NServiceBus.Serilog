@@ -27,7 +27,7 @@ static class Program
         configuration.UseTransport<LearningTransport>();
 
         var endpoint = await Endpoint.Start(configuration);
-        var myMessage = new MyMessage();
+        MyMessage myMessage = new();
         await endpoint.SendLocal(myMessage);
         Console.WriteLine("Press any key to exit");
         Console.ReadKey();

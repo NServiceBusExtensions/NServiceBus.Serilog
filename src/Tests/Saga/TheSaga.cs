@@ -26,7 +26,7 @@ public class TheSaga :
     {
         var logger = context.Logger();
         logger.Information("Hello from {@Saga}. Message: {@Message}", nameof(TheSaga), message);
-        var backIntoSaga = new BackIntoSaga
+        BackIntoSaga backIntoSaga = new()
         {
             Property = message.Property
         };

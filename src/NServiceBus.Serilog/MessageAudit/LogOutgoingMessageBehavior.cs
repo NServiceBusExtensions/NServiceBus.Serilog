@@ -15,7 +15,7 @@ class LogOutgoingMessageBehavior :
 
     public LogOutgoingMessageBehavior()
     {
-        var templateParser = new MessageTemplateParser();
+        MessageTemplateParser templateParser = new();
         messageTemplate = templateParser.Parse("Sent message {OutgoingMessageType} {OutgoingMessageId}.");
     }
 
@@ -28,7 +28,7 @@ class LogOutgoingMessageBehavior :
 
     void LogMessage(IOutgoingPhysicalMessageContext context, ILogger forContext, object message)
     {
-        var properties = new List<LogEventProperty>();
+        List<LogEventProperty> properties = new();
 
         if (forContext.BindProperty("OutgoingMessage", message, out var messageProperty))
         {

@@ -19,7 +19,7 @@ static class HeaderAppender
 
     public static IEnumerable<LogEventProperty> BuildHeaders(this ILogger logger, IReadOnlyDictionary<string, string> headers)
     {
-        var otherHeaders = new Dictionary<string, string>();
+        Dictionary<string, string> otherHeaders = new();
         foreach (var header in headers
             .Where(x => !excludeHeaders.Contains(x.Key))
             .OrderBy(x => x.Key))
@@ -28,30 +28,30 @@ static class HeaderAppender
             var value = header.Value;
             if (key == Headers.TimeSent)
             {
-                yield return new LogEventProperty(key.Substring(12), new ScalarValue(DateTimeExtensions.ToUtcDateTime(value)));
+                yield return new(key.Substring(12), new ScalarValue(DateTimeExtensions.ToUtcDateTime(value)));
                 continue;
             }
             if (key.StartsWith("NServiceBus."))
             {
-                yield return new LogEventProperty(key.Substring(12), new ScalarValue(value));
+                yield return new(key.Substring(12), new ScalarValue(value));
                 continue;
             }
 
             if (key == Headers.OriginatingHostId)
             {
-                yield return new LogEventProperty(nameof(Headers.OriginatingHostId), new ScalarValue(value));
+                yield return new(nameof(Headers.OriginatingHostId), new ScalarValue(value));
                 continue;
             }
 
             if (key == Headers.HostDisplayName)
             {
-                yield return new LogEventProperty(nameof(Headers.HostDisplayName), new ScalarValue(value));
+                yield return new(nameof(Headers.HostDisplayName), new ScalarValue(value));
                 continue;
             }
 
             if (key == Headers.HostId)
             {
-                yield return new LogEventProperty(nameof(Headers.HostId), new ScalarValue(value));
+                yield return new(nameof(Headers.HostId), new ScalarValue(value));
                 continue;
             }
 

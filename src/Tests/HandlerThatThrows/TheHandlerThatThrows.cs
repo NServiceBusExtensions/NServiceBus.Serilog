@@ -1,5 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using NServiceBus;
 
 public class TheHandlerThatThrows :
@@ -7,6 +6,6 @@ public class TheHandlerThatThrows :
 {
     public Task Handle(StartHandlerThatThrows message, IMessageHandlerContext context)
     {
-        throw new Exception();
+        throw new();
     }
 }

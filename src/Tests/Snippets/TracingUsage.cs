@@ -15,7 +15,7 @@ class TracingUsage
 
         #endregion
 
-        var configuration = new EndpointConfiguration("EndpointName");
+        EndpointConfiguration configuration = new("EndpointName");
 
         #region SerilogTracingPassLoggerToFeature
 

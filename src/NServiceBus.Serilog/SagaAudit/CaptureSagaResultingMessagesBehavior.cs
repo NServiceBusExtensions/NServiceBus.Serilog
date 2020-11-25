@@ -26,7 +26,7 @@ class CaptureSagaResultingMessagesBehavior :
             return;
         }
 
-        var sagaResultingMessage = new SagaChangeOutput
+        SagaChangeOutput sagaResultingMessage = new
         (
             resultingMessageId: context.MessageId,
             messageType: logicalMessage.MessageType.ToString(),

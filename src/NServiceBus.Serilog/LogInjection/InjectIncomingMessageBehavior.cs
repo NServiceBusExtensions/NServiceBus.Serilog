@@ -46,7 +46,7 @@ class InjectIncomingMessageBehavior :
         }
 
         var logger = logBuilder.GetLogger(messageTypeName);
-        var properties = new List<PropertyEnricher>
+        List<PropertyEnricher> properties = new()
         {
             new("IncomingMessageId", context.MessageId),
             new("IncomingMessageType", messageTypeName)
@@ -63,7 +63,7 @@ class InjectIncomingMessageBehavior :
             properties.Add(new PropertyEnricher("ConversationId", conversationId));
         }
 
-        var exceptionLogState = new ExceptionLogState
+        ExceptionLogState exceptionLogState = new
         (
             processingEndpoint: endpoint,
             incomingHeaders: context.MessageHeaders,

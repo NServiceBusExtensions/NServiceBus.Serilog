@@ -15,7 +15,7 @@ class CaptureSagaStateBehavior :
 
     public CaptureSagaStateBehavior()
     {
-        var templateParser = new MessageTemplateParser();
+        MessageTemplateParser templateParser = new();
         messageTemplate = templateParser.Parse("Saga execution '{SagaType}' '{SagaId}'.");
     }
 
@@ -66,7 +66,7 @@ class CaptureSagaStateBehavior :
 
         var intent = context.MessageIntent();
 
-        var initiator = new SagaChangeInitiator
+        SagaChangeInitiator initiator = new
         (
             isSagaTimeoutMessage: context.IsTimeoutMessage(),
             initiatingMessageId: messageId,
@@ -82,7 +82,7 @@ class CaptureSagaStateBehavior :
 
         AssignSagaStateChangeCausedByMessage(context, sagaAudit);
 
-        var properties = new List<LogEventProperty>
+        List<LogEventProperty> properties = new()
         {
             new("SagaType", new ScalarValue(sagaAudit.SagaType)),
             new("SagaId", new ScalarValue(sagaAudit.SagaId)),

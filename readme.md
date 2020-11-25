@@ -564,9 +564,9 @@ class StartupDiagnostics :
     {
         var properties = BuildProperties(settings, logger);
 
-        var templateParser = new MessageTemplateParser();
+        MessageTemplateParser templateParser = new();
         var messageTemplate = templateParser.Parse("DiagnosticEntries");
-        var logEvent = new LogEvent(
+        LogEvent logEvent = new(
             timestamp: DateTimeOffset.Now,
             level: LogEventLevel.Warning,
             exception: null,
@@ -675,7 +675,7 @@ var configuration = new EndpointConfiguration("SerilogSample");
 <sup><a href='/src/Sample/Program.cs#L19-L24' title='Snippet source file'>snippet source</a> | <a href='#snippet-useconfig' title='Start of snippet'>anchor</a></sup>
 <a id='snippet-useconfig-1'></a>
 ```cs
-var configuration = new EndpointConfiguration("SeqSample");
+EndpointConfiguration configuration = new("SeqSample");
 var serilogTracing = configuration.EnableSerilogTracing(tracingLog);
 serilogTracing.EnableSagaTracing();
 serilogTracing.EnableMessageTracing();
@@ -747,7 +747,7 @@ var configuration = new EndpointConfiguration("SerilogSample");
 <sup><a href='/src/Sample/Program.cs#L19-L24' title='Snippet source file'>snippet source</a> | <a href='#snippet-useconfig' title='Start of snippet'>anchor</a></sup>
 <a id='snippet-useconfig-1'></a>
 ```cs
-var configuration = new EndpointConfiguration("SeqSample");
+EndpointConfiguration configuration = new("SeqSample");
 var serilogTracing = configuration.EnableSerilogTracing(tracingLog);
 serilogTracing.EnableSagaTracing();
 serilogTracing.EnableMessageTracing();

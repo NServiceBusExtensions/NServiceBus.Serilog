@@ -23,9 +23,9 @@ class StartupDiagnostics :
     {
         var properties = BuildProperties(settings, logger);
 
-        var templateParser = new MessageTemplateParser();
+        MessageTemplateParser templateParser = new();
         var messageTemplate = templateParser.Parse("DiagnosticEntries");
-        var logEvent = new LogEvent(
+        LogEvent logEvent = new(
             timestamp: DateTimeOffset.Now,
             level: LogEventLevel.Warning,
             exception: null,

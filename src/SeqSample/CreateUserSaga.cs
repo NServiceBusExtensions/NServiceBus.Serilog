@@ -18,7 +18,7 @@ public class CreateUserSaga :
     {
         Data.UserName = message.UserName;
         log.Information("User Created {@Message}", message);
-        var userCreated = new UserCreated
+        UserCreated userCreated = new()
         {
             UserName = message.UserName
         };

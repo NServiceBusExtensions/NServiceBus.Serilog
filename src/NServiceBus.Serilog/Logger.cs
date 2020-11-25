@@ -20,43 +20,43 @@ class Logger :
 
     void WriteExceptionEvent(string message, Exception exception, LogEventLevel level)
     {
-        var properties = new List<LogEventProperty>();
+        List<LogEventProperty> properties = new();
         if (exception.TryReadData("Message type", out string messageType))
         {
-            properties.Add(new LogEventProperty("IncomingMessageType", new ScalarValue(messageType)));
+            properties.Add(new("IncomingMessageType", new ScalarValue(messageType)));
         }
         if (exception.TryReadData("Message ID", out string incomingMessageId))
         {
-            properties.Add(new LogEventProperty("IncomingMessageId", new ScalarValue(incomingMessageId)));
+            properties.Add(new("IncomingMessageId", new ScalarValue(incomingMessageId)));
         }
         if (exception.TryReadData("Transport message ID", out string incomingTransportMessageId))
         {
-            properties.Add(new LogEventProperty("IncomingTransportMessageId", new ScalarValue(incomingTransportMessageId)));
+            properties.Add(new("IncomingTransportMessageId", new ScalarValue(incomingTransportMessageId)));
         }
         if (exception.TryReadData("Handler start time", out string handlerStartTime))
         {
-            properties.Add(new LogEventProperty("HandlerStartTime", new ScalarValue(DateTimeExtensions.ToUtcDateTime(handlerStartTime))));
+            properties.Add(new("HandlerStartTime", new ScalarValue(DateTimeExtensions.ToUtcDateTime(handlerStartTime))));
         }
         if (exception.TryReadData("Handler failure time", out string handlerFailureTime))
         {
-            properties.Add(new LogEventProperty("HandlerFailureTime", new ScalarValue(DateTimeExtensions.ToUtcDateTime(handlerFailureTime))));
+            properties.Add(new("HandlerFailureTime", new ScalarValue(DateTimeExtensions.ToUtcDateTime(handlerFailureTime))));
         }
         if (exception.TryReadData("Handler type", out string handlerType))
         {
-            properties.Add(new LogEventProperty("HandlerType", new ScalarValue(handlerType)));
+            properties.Add(new("HandlerType", new ScalarValue(handlerType)));
         }
 
         if (exception.TryReadData("ExceptionLogState", out ExceptionLogState logState))
         {
-            properties.Add(new LogEventProperty("ProcessingEndpoint", new ScalarValue(logState.ProcessingEndpoint)));
+            properties.Add(new("ProcessingEndpoint", new ScalarValue(logState.ProcessingEndpoint)));
             if (logState.CorrelationId != null)
             {
-                properties.Add(new LogEventProperty("CorrelationId", new ScalarValue(logState.CorrelationId)));
+                properties.Add(new("CorrelationId", new ScalarValue(logState.CorrelationId)));
             }
 
             if (logState.ConversationId != null)
             {
-                properties.Add(new LogEventProperty("ConversationId", new ScalarValue(logState.ConversationId)));
+                properties.Add(new("ConversationId", new ScalarValue(logState.ConversationId)));
             }
 
             if (logState.IncomingMessage != null)
@@ -74,7 +74,7 @@ class Logger :
         }
 
         var messageTemplate = templateParser.Parse(message);
-        var logEvent = new LogEvent(DateTimeOffset.Now, level, exception, messageTemplate, properties);
+        LogEvent logEvent = new(DateTimeOffset.Now, level, exception, messageTemplate, properties);
         logger.Write(logEvent);
     }
 

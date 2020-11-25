@@ -12,7 +12,7 @@ public class WithNoTracingTests
     public async Task Handler()
     {
         Exception? exception = null;
-        var resetEvent = new ManualResetEvent(false);
+        ManualResetEvent resetEvent = new(false);
         var configuration = ConfigBuilder.BuildDefaultConfig("WithNoTracingTests");
         configuration.DisableRetries();
         configuration.RegisterComponents(components => components.RegisterSingleton(resetEvent));

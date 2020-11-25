@@ -21,7 +21,7 @@ static class Program
 
         #region UseConfig
 
-        var configuration = new EndpointConfiguration("SeqSample");
+        EndpointConfiguration configuration = new("SeqSample");
         var serilogTracing = configuration.EnableSerilogTracing(tracingLog);
         serilogTracing.EnableSagaTracing();
         serilogTracing.EnableMessageTracing();
@@ -32,7 +32,7 @@ static class Program
         configuration.UseTransport<LearningTransport>();
 
         var endpoint = await Endpoint.Start(configuration);
-        var createUser = new CreateUser
+        CreateUser createUser = new()
         {
             UserName = "jsmith",
             FamilyName = "Smith",
