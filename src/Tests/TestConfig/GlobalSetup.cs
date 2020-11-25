@@ -1,9 +1,11 @@
 ﻿using System.Diagnostics;
 using NServiceBus;
+using System.Runtime.CompilerServices;
 using VerifyTests;
 
-public static class ModuleInitializer
+public static class GlobalSetup
 {
+    [ModuleInitializer]
     public static void Initialize()
     {
         var nsbVersion = FileVersionInfo.GetVersionInfo(typeof(Endpoint).Assembly.Location);
