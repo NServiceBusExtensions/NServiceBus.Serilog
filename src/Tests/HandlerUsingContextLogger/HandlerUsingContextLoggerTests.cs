@@ -11,4 +11,18 @@ public class HandlerUsingContextLoggerTests
         TestableMessageHandlerContext context = new();
         return handler.Handle(new StartHandlerUsingContextLogger(), context);
     }
+
+    [Fact]
+    public Task Inherited()
+    {
+        HandlerUsingContextLogger handler = new();
+        InheritedTestableMessageHandlerContext context = new();
+        return handler.Handle(new StartHandlerUsingContextLogger(), context);
+    }
+
+    class InheritedTestableMessageHandlerContext :
+        TestableMessageHandlerContext
+    {
+
+    }
 }

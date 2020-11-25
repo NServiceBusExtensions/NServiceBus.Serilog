@@ -59,13 +59,23 @@ namespace NServiceBus
                 return logger;
             }
 
-            if (context.GetType().Name == "TestableMessageHandlerContext")
+            var type = context.GetType();
+            while (true)
             {
-                context.Extensions.Set(Log.Logger);
-                return Log.Logger;
+                if (type.Name == "TestableMessageHandlerContext")
+                {
+                    context.Extensions.Set(Log.Logger);
+                    return Log.Logger;
+                }
+
+                type = type.BaseType;
+                if (type == null)
+                {
+                    break;
+                }
             }
 
-            throw new ConfigurationException($@"Expected to find a `{nameof(ILogger)}` in the pipeline context.
+            throw new($@"Expected to find a `{nameof(ILogger)}` in the pipeline context.
 It is possible NServiceBus.Serilog has not been enabled using a call to `{nameof(SerilogTracingExtensions)}.{nameof(EnableSerilogTracing)}()`.");
         }
     }
