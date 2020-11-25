@@ -62,7 +62,7 @@ namespace NServiceBus
             if (context.GetType().Name == "TestableMessageHandlerContext")
             {
                 context.Extensions.Set(Log.Logger);
-                return logger;
+                return Log.Logger;
             }
 
             throw new ConfigurationException($@"Expected to find a `{nameof(ILogger)}` in the pipeline context.
