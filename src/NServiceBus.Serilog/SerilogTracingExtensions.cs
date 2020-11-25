@@ -58,9 +58,15 @@ namespace NServiceBus
             {
                 return logger;
             }
+
+            if (context.GetType().Name == "TestableMessageHandlerContext")
+            {
+                context.Extensions.Set(Log.Logger);
+                return logger;
+            }
+
             throw new ConfigurationException($@"Expected to find a `{nameof(ILogger)}` in the pipeline context.
- * If this is a production exception, it is possible NServiceBus.Serilog has not been enabled using a call to `{nameof(SerilogTracingExtensions)}.{nameof(EnableSerilogTracing)}()`.
- * If this is a unit test exception, it is possible an `{nameof(ILogger)}` has not been injected into the test context. eg `context.Extensions.Set(Log.Logger);`.");
+It is possible NServiceBus.Serilog has not been enabled using a call to `{nameof(SerilogTracingExtensions)}.{nameof(EnableSerilogTracing)}()`.");
         }
     }
 }

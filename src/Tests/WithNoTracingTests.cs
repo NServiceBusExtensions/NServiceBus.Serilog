@@ -30,7 +30,7 @@ public class WithNoTracingTests
         await endpoint.SendLocal(new StartHandler());
         if (!resetEvent.WaitOne(TimeSpan.FromSeconds(2)))
         {
-            throw new Exception("No Set received.");
+            throw new("No Set received.");
         }
 
         await endpoint.Stop();
