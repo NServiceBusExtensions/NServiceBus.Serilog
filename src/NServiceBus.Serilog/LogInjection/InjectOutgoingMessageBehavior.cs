@@ -22,7 +22,8 @@ class InjectOutgoingMessageBehavior :
 
         var bag = context.Extensions;
 
-        var messageTypeName = TypeNameConverter.GetName(context.Message.Instance.GetType());
+        var type = context.Message.Instance.GetType();
+        var messageTypeName = TypeNameConverter.GetName(type);
         if (!bag.TryGet<ILogger>(out var logger))
         {
             // if it a raw session send (ie no handler/saga, there will be no current logger)
@@ -32,7 +33,8 @@ class InjectOutgoingMessageBehavior :
         var properties = new List<PropertyEnricher>
         {
             new("OutgoingMessageId", context.MessageId),
-            new("OutgoingMessageType", messageTypeName),
+            new("OutgoingMessageType", type.FullName),
+            new("OutgoingMessageTypeShort", messageTypeName),
         };
 
         if (headers.TryGetValue(Headers.CorrelationId, out var correlationId))

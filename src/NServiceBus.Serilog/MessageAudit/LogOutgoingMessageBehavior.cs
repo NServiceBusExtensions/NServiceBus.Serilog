@@ -16,7 +16,7 @@ class LogOutgoingMessageBehavior :
     public LogOutgoingMessageBehavior()
     {
         MessageTemplateParser templateParser = new();
-        messageTemplate = templateParser.Parse("Sent message {OutgoingMessageType} {OutgoingMessageId}.");
+        messageTemplate = templateParser.Parse("Sent message {OutgoingMessageTypeShort} {OutgoingMessageId}.");
     }
 
     public override Task Invoke(IOutgoingPhysicalMessageContext context, Func<Task> next)

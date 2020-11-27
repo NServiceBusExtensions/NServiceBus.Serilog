@@ -7,13 +7,39 @@ using Microsoft.CSharp;
 
 static class TypeNameConverter
 {
-    static ConcurrentDictionary<Type, string> cacheDictionary = new();
+    static ConcurrentDictionary<Type, string> typeToNameCache = new();
+    static ConcurrentDictionary<string, string> longNameToNameCache = new();
 
     static CSharpCodeProvider codeDomProvider = new();
 
+    public static string GetName(string longName)
+    {
+        return longNameToNameCache.GetOrAdd(longName, Inner);
+    }
+
+    static string Inner(string longName)
+    {
+        Type? type;
+        try
+        {
+            type = Type.GetType(longName);
+        }
+        catch
+        {
+            return longName;
+        }
+
+        if (type == null)
+        {
+            return longName;
+        }
+
+        return GetName(type);
+    }
+
     public static string GetName(Type type)
     {
-        return cacheDictionary.GetOrAdd(type, Inner);
+        return typeToNameCache.GetOrAdd(type, Inner);
     }
 
     static string Inner(Type type)

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using NServiceBus;
 using NServiceBus.Pipeline;
-using NServiceBus.Serilog;
 using Serilog.Core.Enrichers;
 
 class InjectIncomingMessageBehavior :
@@ -38,7 +37,7 @@ class InjectIncomingMessageBehavior :
         var headers = context.MessageHeaders;
         if (headers.TryGetValue(Headers.EnclosedMessageTypes, out var messageType))
         {
-            messageTypeName = TypeHelper.GetShortTypeName(messageType);
+            messageTypeName = TypeNameConverter.GetName(messageType);
         }
         else
         {
@@ -49,7 +48,8 @@ class InjectIncomingMessageBehavior :
         List<PropertyEnricher> properties = new()
         {
             new("IncomingMessageId", context.MessageId),
-            new("IncomingMessageType", messageTypeName)
+            new("IncomingMessageType", messageType),
+            new("IncomingMessageTypeShort", messageTypeName)
         };
 
 
