@@ -21,7 +21,8 @@ class InjectOutgoingMessageBehavior :
         var headers = context.Headers;
 
         var bag = context.Extensions;
-        var messageTypeName = context.Message.Instance.GetType().FullName;
+
+        var messageTypeName = TypeNameConverter.GetName(context.Message.Instance.GetType());
         if (!bag.TryGet<ILogger>(out var logger))
         {
             // if it a raw session send (ie no handler/saga, there will be no current logger)
