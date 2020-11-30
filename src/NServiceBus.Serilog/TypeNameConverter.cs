@@ -7,6 +7,9 @@ using Microsoft.CSharp;
 
 namespace NServiceBus.Serilog
 {
+    /// <summary>
+    /// Converts a <see cref="Type"/> or a long type name to a short type name.
+    /// </summary>
     public static class TypeNameConverter
     {
         static ConcurrentDictionary<Type, string> typeToNameCache = new();
@@ -14,6 +17,9 @@ namespace NServiceBus.Serilog
 
         static CSharpCodeProvider codeDomProvider = new();
 
+        /// <summary>
+        /// Get a short type name from a long type name.
+        /// </summary>
         public static string GetName(string longName)
         {
             return longNameToNameCache.GetOrAdd(longName, Inner);
@@ -39,6 +45,9 @@ namespace NServiceBus.Serilog
             return GetName(type);
         }
 
+        /// <summary>
+        /// Get a short type name from a type.
+        /// </summary>
         public static string GetName(Type type)
         {
             return typeToNameCache.GetOrAdd(type, Inner);
