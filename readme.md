@@ -658,7 +658,7 @@ Log.Logger = new LoggerConfiguration()
     .WriteTo.Console()
     .CreateLogger();
 ```
-<sup><a href='/src/Sample/Program.cs#L13-L17' title='Snippet source file'>snippet source</a> | <a href='#snippet-configureserilog' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Sample/Program.cs#L8-L12' title='Snippet source file'>snippet source</a> | <a href='#snippet-configureserilog' title='Start of snippet'>anchor</a></sup>
 <a id='snippet-configureserilog-1'></a>
 ```cs
 var tracingLog = new LoggerConfiguration()
@@ -668,7 +668,7 @@ var tracingLog = new LoggerConfiguration()
 var serilogFactory = LogManager.Use<SerilogFactory>();
 serilogFactory.WithLogger(tracingLog);
 ```
-<sup><a href='/src/SeqSample/Program.cs#L13-L20' title='Snippet source file'>snippet source</a> | <a href='#snippet-configureserilog-1' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/SeqSample/Program.cs#L8-L15' title='Snippet source file'>snippet source</a> | <a href='#snippet-configureserilog-1' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -681,7 +681,7 @@ LogManager.Use<SerilogFactory>();
 
 var configuration = new EndpointConfiguration("SerilogSample");
 ```
-<sup><a href='/src/Sample/Program.cs#L19-L24' title='Snippet source file'>snippet source</a> | <a href='#snippet-useconfig' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Sample/Program.cs#L14-L19' title='Snippet source file'>snippet source</a> | <a href='#snippet-useconfig' title='Start of snippet'>anchor</a></sup>
 <a id='snippet-useconfig-1'></a>
 ```cs
 EndpointConfiguration configuration = new("SeqSample");
@@ -689,7 +689,7 @@ var serilogTracing = configuration.EnableSerilogTracing(tracingLog);
 serilogTracing.EnableSagaTracing();
 serilogTracing.EnableMessageTracing();
 ```
-<sup><a href='/src/SeqSample/Program.cs#L22-L29' title='Snippet source file'>snippet source</a> | <a href='#snippet-useconfig-1' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/SeqSample/Program.cs#L17-L24' title='Snippet source file'>snippet source</a> | <a href='#snippet-useconfig-1' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -701,13 +701,13 @@ serilogTracing.EnableMessageTracing();
 await endpoint.Stop();
 Log.CloseAndFlush();
 ```
-<sup><a href='/src/Sample/Program.cs#L34-L37' title='Snippet source file'>snippet source</a> | <a href='#snippet-cleanup' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Sample/Program.cs#L29-L32' title='Snippet source file'>snippet source</a> | <a href='#snippet-cleanup' title='Start of snippet'>anchor</a></sup>
 <a id='snippet-cleanup-1'></a>
 ```cs
 await endpoint.Stop();
 Log.CloseAndFlush();
 ```
-<sup><a href='/src/SeqSample/Program.cs#L45-L48' title='Snippet source file'>snippet source</a> | <a href='#snippet-cleanup-1' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/SeqSample/Program.cs#L40-L43' title='Snippet source file'>snippet source</a> | <a href='#snippet-cleanup-1' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -730,7 +730,7 @@ Log.Logger = new LoggerConfiguration()
     .WriteTo.Console()
     .CreateLogger();
 ```
-<sup><a href='/src/Sample/Program.cs#L13-L17' title='Snippet source file'>snippet source</a> | <a href='#snippet-configureserilog' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Sample/Program.cs#L8-L12' title='Snippet source file'>snippet source</a> | <a href='#snippet-configureserilog' title='Start of snippet'>anchor</a></sup>
 <a id='snippet-configureserilog-1'></a>
 ```cs
 var tracingLog = new LoggerConfiguration()
@@ -740,7 +740,7 @@ var tracingLog = new LoggerConfiguration()
 var serilogFactory = LogManager.Use<SerilogFactory>();
 serilogFactory.WithLogger(tracingLog);
 ```
-<sup><a href='/src/SeqSample/Program.cs#L13-L20' title='Snippet source file'>snippet source</a> | <a href='#snippet-configureserilog-1' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/SeqSample/Program.cs#L8-L15' title='Snippet source file'>snippet source</a> | <a href='#snippet-configureserilog-1' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -753,7 +753,7 @@ LogManager.Use<SerilogFactory>();
 
 var configuration = new EndpointConfiguration("SerilogSample");
 ```
-<sup><a href='/src/Sample/Program.cs#L19-L24' title='Snippet source file'>snippet source</a> | <a href='#snippet-useconfig' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Sample/Program.cs#L14-L19' title='Snippet source file'>snippet source</a> | <a href='#snippet-useconfig' title='Start of snippet'>anchor</a></sup>
 <a id='snippet-useconfig-1'></a>
 ```cs
 EndpointConfiguration configuration = new("SeqSample");
@@ -761,7 +761,7 @@ var serilogTracing = configuration.EnableSerilogTracing(tracingLog);
 serilogTracing.EnableSagaTracing();
 serilogTracing.EnableMessageTracing();
 ```
-<sup><a href='/src/SeqSample/Program.cs#L22-L29' title='Snippet source file'>snippet source</a> | <a href='#snippet-useconfig-1' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/SeqSample/Program.cs#L17-L24' title='Snippet source file'>snippet source</a> | <a href='#snippet-useconfig-1' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -773,13 +773,13 @@ serilogTracing.EnableMessageTracing();
 await endpoint.Stop();
 Log.CloseAndFlush();
 ```
-<sup><a href='/src/Sample/Program.cs#L34-L37' title='Snippet source file'>snippet source</a> | <a href='#snippet-cleanup' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Sample/Program.cs#L29-L32' title='Snippet source file'>snippet source</a> | <a href='#snippet-cleanup' title='Start of snippet'>anchor</a></sup>
 <a id='snippet-cleanup-1'></a>
 ```cs
 await endpoint.Stop();
 Log.CloseAndFlush();
 ```
-<sup><a href='/src/SeqSample/Program.cs#L45-L48' title='Snippet source file'>snippet source</a> | <a href='#snippet-cleanup-1' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/SeqSample/Program.cs#L40-L43' title='Snippet source file'>snippet source</a> | <a href='#snippet-cleanup-1' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 

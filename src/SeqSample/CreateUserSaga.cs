@@ -1,13 +1,10 @@
 ﻿using System.Threading.Tasks;
 using NServiceBus;
-using Serilog;
 
 public class CreateUserSaga :
     Saga<CreateUserSagaData>,
     IAmStartedByMessages<CreateUser>
 {
-    static ILogger log = Log.ForContext<CreateUserSaga>();
-
     protected override void ConfigureHowToFindSaga(SagaPropertyMapper<CreateUserSagaData> mapper)
     {
         mapper.ConfigureMapping<CreateUser>(message => message.UserName)
@@ -17,7 +14,7 @@ public class CreateUserSaga :
     public Task Handle(CreateUser message, IMessageHandlerContext context)
     {
         Data.UserName = message.UserName;
-        log.Information("User Created {@Message}", message);
+        context.Logger().Information("User Created {@Message}", message);
         UserCreated userCreated = new()
         {
             UserName = message.UserName
