@@ -260,8 +260,8 @@ serilogTracing.EnableSagaTracing();
         },
         Handler: TheSaga,
         IncomingMessageId: Guid_1,
-        IncomingMessageType: StartSaga, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
-        IncomingMessageTypeShort: StartSaga,
+        IncomingMessageType: StartSaga,
+        IncomingMessageTypeFull: StartSaga, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
         CorrelationId: Guid_1,
         ConversationId: Guid_2,
         SourceContext: StartSaga,
@@ -269,7 +269,7 @@ serilogTracing.EnableSagaTracing();
       }
     },
     {
-      MessageTemplate: Receive message {IncomingMessageTypeShort} {IncomingMessageId}.,
+      MessageTemplate: Receive message {IncomingMessageType} {IncomingMessageId}.,
       Level: Information,
       Properties: {
         IncomingMessage: {
@@ -287,8 +287,8 @@ serilogTracing.EnableSagaTracing();
         ReplyToAddress: SerilogTestsStartSaga,
         TimeSent: DateTime_1,
         IncomingMessageId: Guid_1,
-        IncomingMessageType: StartSaga, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
-        IncomingMessageTypeShort: StartSaga,
+        IncomingMessageType: StartSaga,
+        IncomingMessageTypeFull: StartSaga, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
         CorrelationId: Guid_1,
         ConversationId: Guid_2,
         SourceContext: StartSaga,
@@ -370,8 +370,8 @@ serilogTracing.EnableSagaTracing();
           ]
         },
         IncomingMessageId: Guid_1,
-        IncomingMessageType: StartSaga, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
-        IncomingMessageTypeShort: StartSaga,
+        IncomingMessageType: StartSaga,
+        IncomingMessageTypeFull: StartSaga, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
         CorrelationId: Guid_1,
         ConversationId: Guid_2,
         SourceContext: StartSaga,
@@ -379,7 +379,7 @@ serilogTracing.EnableSagaTracing();
       }
     },
     {
-      MessageTemplate: Sent message {OutgoingMessageTypeShort} {OutgoingMessageId}.,
+      MessageTemplate: Sent message {OutgoingMessageType} {OutgoingMessageId}.,
       Level: Information,
       Properties: {
         OutgoingMessage: {
@@ -402,7 +402,7 @@ serilogTracing.EnableSagaTracing();
         ReplyToAddress: SerilogTestsStartSaga,
         OutgoingMessageId: Guid_1,
         OutgoingMessageType: StartSaga,
-        OutgoingMessageTypeShort: StartSaga,
+        OutgoingMessageTypeFull: StartSaga,
         CorrelationId: Guid_1,
         ConversationId: Guid_2,
         SourceContext: StartSaga,
@@ -410,7 +410,7 @@ serilogTracing.EnableSagaTracing();
       }
     },
     {
-      MessageTemplate: Sent message {OutgoingMessageTypeShort} {OutgoingMessageId}.,
+      MessageTemplate: Sent message {OutgoingMessageType} {OutgoingMessageId}.,
       Level: Information,
       Properties: {
         OutgoingMessage: {
@@ -436,12 +436,12 @@ serilogTracing.EnableSagaTracing();
         ReplyToAddress: SerilogTestsStartSaga,
         OutgoingMessageId: Guid_5,
         OutgoingMessageType: BackIntoSaga,
-        OutgoingMessageTypeShort: BackIntoSaga,
+        OutgoingMessageTypeFull: BackIntoSaga,
         CorrelationId: Guid_1,
         ConversationId: Guid_2,
         IncomingMessageId: Guid_1,
-        IncomingMessageType: StartSaga, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
-        IncomingMessageTypeShort: StartSaga,
+        IncomingMessageType: StartSaga,
+        IncomingMessageTypeFull: StartSaga, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
         SourceContext: StartSaga,
         ProcessingEndpoint: SerilogTestsStartSaga
       }
@@ -480,8 +480,8 @@ serilogTracing.EnableMessageTracing();
       Properties: {
         Handler: TheHandler,
         IncomingMessageId: Guid_1,
-        IncomingMessageType: StartHandler, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
-        IncomingMessageTypeShort: StartHandler,
+        IncomingMessageType: StartHandler,
+        IncomingMessageTypeFull: StartHandler, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
         CorrelationId: Guid_1,
         ConversationId: Guid_2,
         SourceContext: StartHandler,
@@ -489,7 +489,7 @@ serilogTracing.EnableMessageTracing();
       }
     },
     {
-      MessageTemplate: Receive message {IncomingMessageTypeShort} {IncomingMessageId}.,
+      MessageTemplate: Receive message {IncomingMessageType} {IncomingMessageId}.,
       Level: Information,
       Properties: {
         IncomingMessage: {
@@ -507,8 +507,8 @@ serilogTracing.EnableMessageTracing();
         ReplyToAddress: SerilogTestsStartHandler,
         TimeSent: DateTime_1,
         IncomingMessageId: Guid_1,
-        IncomingMessageType: StartHandler, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
-        IncomingMessageTypeShort: StartHandler,
+        IncomingMessageType: StartHandler,
+        IncomingMessageTypeFull: StartHandler, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
         CorrelationId: Guid_1,
         ConversationId: Guid_2,
         SourceContext: StartHandler,
@@ -516,7 +516,7 @@ serilogTracing.EnableMessageTracing();
       }
     },
     {
-      MessageTemplate: Sent message {OutgoingMessageTypeShort} {OutgoingMessageId}.,
+      MessageTemplate: Sent message {OutgoingMessageType} {OutgoingMessageId}.,
       Level: Information,
       Properties: {
         OutgoingMessage: {
@@ -539,7 +539,7 @@ serilogTracing.EnableMessageTracing();
         ReplyToAddress: SerilogTestsStartHandler,
         OutgoingMessageId: Guid_1,
         OutgoingMessageType: StartHandler,
-        OutgoingMessageTypeShort: StartHandler,
+        OutgoingMessageTypeFull: StartHandler,
         CorrelationId: Guid_1,
         ConversationId: Guid_2,
         SourceContext: StartHandler,
@@ -679,7 +679,7 @@ serilogFactory.WithLogger(tracingLog);
 ```cs
 LogManager.Use<SerilogFactory>();
 
-var configuration = new EndpointConfiguration("SerilogSample");
+EndpointConfiguration configuration = new("SerilogSample");
 ```
 <sup><a href='/src/Sample/Program.cs#L14-L19' title='Snippet source file'>snippet source</a> | <a href='#snippet-useconfig' title='Start of snippet'>anchor</a></sup>
 <a id='snippet-useconfig-1'></a>
@@ -751,7 +751,7 @@ serilogFactory.WithLogger(tracingLog);
 ```cs
 LogManager.Use<SerilogFactory>();
 
-var configuration = new EndpointConfiguration("SerilogSample");
+EndpointConfiguration configuration = new("SerilogSample");
 ```
 <sup><a href='/src/Sample/Program.cs#L14-L19' title='Snippet source file'>snippet source</a> | <a href='#snippet-useconfig' title='Start of snippet'>anchor</a></sup>
 <a id='snippet-useconfig-1'></a>

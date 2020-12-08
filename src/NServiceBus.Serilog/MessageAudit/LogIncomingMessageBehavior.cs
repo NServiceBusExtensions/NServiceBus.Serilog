@@ -14,7 +14,7 @@ class LogIncomingMessageBehavior :
     static LogIncomingMessageBehavior()
     {
         MessageTemplateParser templateParser = new();
-        messageTemplate = templateParser.Parse("Receive message {IncomingMessageTypeShort} {IncomingMessageId}.");
+        messageTemplate = templateParser.Parse("Receive message {IncomingMessageType} {IncomingMessageId}.");
     }
 
     public class Registration :

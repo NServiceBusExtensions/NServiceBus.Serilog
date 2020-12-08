@@ -15,8 +15,8 @@
         },
         Handler: TheSaga,
         IncomingMessageId: Guid_1,
-        IncomingMessageType: StartSaga, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
-        IncomingMessageTypeShort: StartSaga,
+        IncomingMessageType: StartSaga,
+        IncomingMessageTypeFull: StartSaga, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
         CorrelationId: Guid_1,
         ConversationId: Guid_2,
         SourceContext: StartSaga,
@@ -24,7 +24,7 @@
       }
     },
     {
-      MessageTemplate: Receive message {IncomingMessageTypeShort} {IncomingMessageId}.,
+      MessageTemplate: Receive message {IncomingMessageType} {IncomingMessageId}.,
       Level: Information,
       Properties: {
         IncomingMessage: {
@@ -42,8 +42,8 @@
         ReplyToAddress: SerilogTestsStartSaga,
         TimeSent: DateTime_1,
         IncomingMessageId: Guid_1,
-        IncomingMessageType: StartSaga, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
-        IncomingMessageTypeShort: StartSaga,
+        IncomingMessageType: StartSaga,
+        IncomingMessageTypeFull: StartSaga, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
         CorrelationId: Guid_1,
         ConversationId: Guid_2,
         SourceContext: StartSaga,
@@ -125,8 +125,8 @@
           ]
         },
         IncomingMessageId: Guid_1,
-        IncomingMessageType: StartSaga, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
-        IncomingMessageTypeShort: StartSaga,
+        IncomingMessageType: StartSaga,
+        IncomingMessageTypeFull: StartSaga, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
         CorrelationId: Guid_1,
         ConversationId: Guid_2,
         SourceContext: StartSaga,
@@ -134,7 +134,7 @@
       }
     },
     {
-      MessageTemplate: Sent message {OutgoingMessageTypeShort} {OutgoingMessageId}.,
+      MessageTemplate: Sent message {OutgoingMessageType} {OutgoingMessageId}.,
       Level: Information,
       Properties: {
         OutgoingMessage: {
@@ -157,7 +157,7 @@
         ReplyToAddress: SerilogTestsStartSaga,
         OutgoingMessageId: Guid_1,
         OutgoingMessageType: StartSaga,
-        OutgoingMessageTypeShort: StartSaga,
+        OutgoingMessageTypeFull: StartSaga,
         CorrelationId: Guid_1,
         ConversationId: Guid_2,
         SourceContext: StartSaga,
@@ -165,7 +165,7 @@
       }
     },
     {
-      MessageTemplate: Sent message {OutgoingMessageTypeShort} {OutgoingMessageId}.,
+      MessageTemplate: Sent message {OutgoingMessageType} {OutgoingMessageId}.,
       Level: Information,
       Properties: {
         OutgoingMessage: {
@@ -191,12 +191,12 @@
         ReplyToAddress: SerilogTestsStartSaga,
         OutgoingMessageId: Guid_5,
         OutgoingMessageType: BackIntoSaga,
-        OutgoingMessageTypeShort: BackIntoSaga,
+        OutgoingMessageTypeFull: BackIntoSaga,
         CorrelationId: Guid_1,
         ConversationId: Guid_2,
         IncomingMessageId: Guid_1,
-        IncomingMessageType: StartSaga, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
-        IncomingMessageTypeShort: StartSaga,
+        IncomingMessageType: StartSaga,
+        IncomingMessageTypeFull: StartSaga, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
         SourceContext: StartSaga,
         ProcessingEndpoint: SerilogTestsStartSaga
       }

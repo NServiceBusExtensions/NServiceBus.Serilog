@@ -34,8 +34,8 @@ class InjectOutgoingMessageBehavior :
         var properties = new List<PropertyEnricher>
         {
             new("OutgoingMessageId", context.MessageId),
-            new("OutgoingMessageType", type.FullName),
-            new("OutgoingMessageTypeShort", messageTypeName),
+            new("OutgoingMessageType", messageTypeName),
+            new("OutgoingMessageTypeFull", type.FullName),
         };
 
         if (headers.TryGetValue(Headers.CorrelationId, out var correlationId))

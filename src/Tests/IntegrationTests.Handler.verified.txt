@@ -6,8 +6,8 @@
       Properties: {
         Handler: TheHandler,
         IncomingMessageId: Guid_1,
-        IncomingMessageType: StartHandler, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
-        IncomingMessageTypeShort: StartHandler,
+        IncomingMessageType: StartHandler,
+        IncomingMessageTypeFull: StartHandler, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
         CorrelationId: Guid_1,
         ConversationId: Guid_2,
         SourceContext: StartHandler,
@@ -15,7 +15,7 @@
       }
     },
     {
-      MessageTemplate: Receive message {IncomingMessageTypeShort} {IncomingMessageId}.,
+      MessageTemplate: Receive message {IncomingMessageType} {IncomingMessageId}.,
       Level: Information,
       Properties: {
         IncomingMessage: {
@@ -33,8 +33,8 @@
         ReplyToAddress: SerilogTestsStartHandler,
         TimeSent: DateTime_1,
         IncomingMessageId: Guid_1,
-        IncomingMessageType: StartHandler, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
-        IncomingMessageTypeShort: StartHandler,
+        IncomingMessageType: StartHandler,
+        IncomingMessageTypeFull: StartHandler, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
         CorrelationId: Guid_1,
         ConversationId: Guid_2,
         SourceContext: StartHandler,
@@ -42,7 +42,7 @@
       }
     },
     {
-      MessageTemplate: Sent message {OutgoingMessageTypeShort} {OutgoingMessageId}.,
+      MessageTemplate: Sent message {OutgoingMessageType} {OutgoingMessageId}.,
       Level: Information,
       Properties: {
         OutgoingMessage: {
@@ -65,7 +65,7 @@
         ReplyToAddress: SerilogTestsStartHandler,
         OutgoingMessageId: Guid_1,
         OutgoingMessageType: StartHandler,
-        OutgoingMessageTypeShort: StartHandler,
+        OutgoingMessageTypeFull: StartHandler,
         CorrelationId: Guid_1,
         ConversationId: Guid_2,
         SourceContext: StartHandler,

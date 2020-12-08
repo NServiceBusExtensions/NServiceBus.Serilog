@@ -49,8 +49,8 @@ class InjectIncomingMessageBehavior :
         List<PropertyEnricher> properties = new()
         {
             new("IncomingMessageId", context.MessageId),
-            new("IncomingMessageType", messageType),
-            new("IncomingMessageTypeShort", messageTypeName)
+            new("IncomingMessageType", messageTypeName),
+            new("IncomingMessageTypeFull", messageType)
         };
 
 

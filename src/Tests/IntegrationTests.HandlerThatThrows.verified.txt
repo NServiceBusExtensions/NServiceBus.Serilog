@@ -1,7 +1,7 @@
 {
   logsForTarget: [
     {
-      MessageTemplate: Receive message {IncomingMessageTypeShort} {IncomingMessageId}.,
+      MessageTemplate: Receive message {IncomingMessageType} {IncomingMessageId}.,
       Level: Information,
       Properties: {
         IncomingMessage: {
@@ -19,8 +19,8 @@
         ReplyToAddress: SerilogTestsStartHandlerThatThrows,
         TimeSent: DateTime_1,
         IncomingMessageId: Guid_2,
-        IncomingMessageType: StartHandlerThatThrows, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
-        IncomingMessageTypeShort: StartHandlerThatThrows,
+        IncomingMessageType: StartHandlerThatThrows,
+        IncomingMessageTypeFull: StartHandlerThatThrows, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
         CorrelationId: Guid_2,
         ConversationId: Guid_3,
         SourceContext: StartHandlerThatThrows,
@@ -28,7 +28,7 @@
       }
     },
     {
-      MessageTemplate: Receive message {IncomingMessageTypeShort} {IncomingMessageId}.,
+      MessageTemplate: Receive message {IncomingMessageType} {IncomingMessageId}.,
       Level: Information,
       Properties: {
         IncomingMessage: {
@@ -46,8 +46,8 @@
         ReplyToAddress: SerilogTestsStartHandlerThatThrows,
         TimeSent: DateTime_1,
         IncomingMessageId: Guid_2,
-        IncomingMessageType: StartHandlerThatThrows, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
-        IncomingMessageTypeShort: StartHandlerThatThrows,
+        IncomingMessageType: StartHandlerThatThrows,
+        IncomingMessageTypeFull: StartHandlerThatThrows, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
         CorrelationId: Guid_2,
         ConversationId: Guid_3,
         SourceContext: StartHandlerThatThrows,
@@ -55,36 +55,7 @@
       }
     },
     {
-      MessageTemplate: Receive message {IncomingMessageTypeShort} {IncomingMessageId}.,
-      Level: Information,
-      Properties: {
-        IncomingMessage: {
-          TypeTag: StartHandlerThatThrows,
-          Properties: [
-            {
-              Property: TheProperty
-            }
-          ]
-        },
-        OriginatingHostId: Guid_1,
-        MessageIntent: Send,
-        OriginatingEndpoint: SerilogTestsStartHandlerThatThrows,
-        OriginatingMachine: TheMachineName,
-        ReplyToAddress: SerilogTestsStartHandlerThatThrows,
-        Retries: 1,
-        Retries.Timestamp: DateTime_2,
-        TimeSent: DateTime_1,
-        IncomingMessageId: Guid_2,
-        IncomingMessageType: StartHandlerThatThrows, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
-        IncomingMessageTypeShort: StartHandlerThatThrows,
-        CorrelationId: Guid_2,
-        ConversationId: Guid_3,
-        SourceContext: StartHandlerThatThrows,
-        ProcessingEndpoint: SerilogTestsStartHandlerThatThrows
-      }
-    },
-    {
-      MessageTemplate: Receive message {IncomingMessageTypeShort} {IncomingMessageId}.,
+      MessageTemplate: Receive message {IncomingMessageType} {IncomingMessageId}.,
       Level: Information,
       Properties: {
         IncomingMessage: {
@@ -104,8 +75,8 @@
         Retries.Timestamp: DateTime_2,
         TimeSent: DateTime_1,
         IncomingMessageId: Guid_2,
-        IncomingMessageType: StartHandlerThatThrows, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
-        IncomingMessageTypeShort: StartHandlerThatThrows,
+        IncomingMessageType: StartHandlerThatThrows,
+        IncomingMessageTypeFull: StartHandlerThatThrows, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
         CorrelationId: Guid_2,
         ConversationId: Guid_3,
         SourceContext: StartHandlerThatThrows,
@@ -113,7 +84,36 @@
       }
     },
     {
-      MessageTemplate: Sent message {OutgoingMessageTypeShort} {OutgoingMessageId}.,
+      MessageTemplate: Receive message {IncomingMessageType} {IncomingMessageId}.,
+      Level: Information,
+      Properties: {
+        IncomingMessage: {
+          TypeTag: StartHandlerThatThrows,
+          Properties: [
+            {
+              Property: TheProperty
+            }
+          ]
+        },
+        OriginatingHostId: Guid_1,
+        MessageIntent: Send,
+        OriginatingEndpoint: SerilogTestsStartHandlerThatThrows,
+        OriginatingMachine: TheMachineName,
+        ReplyToAddress: SerilogTestsStartHandlerThatThrows,
+        Retries: 1,
+        Retries.Timestamp: DateTime_2,
+        TimeSent: DateTime_1,
+        IncomingMessageId: Guid_2,
+        IncomingMessageType: StartHandlerThatThrows,
+        IncomingMessageTypeFull: StartHandlerThatThrows, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
+        CorrelationId: Guid_2,
+        ConversationId: Guid_3,
+        SourceContext: StartHandlerThatThrows,
+        ProcessingEndpoint: SerilogTestsStartHandlerThatThrows
+      }
+    },
+    {
+      MessageTemplate: Sent message {OutgoingMessageType} {OutgoingMessageId}.,
       Level: Information,
       Properties: {
         OutgoingMessage: {
@@ -136,7 +136,7 @@
         ReplyToAddress: SerilogTestsStartHandlerThatThrows,
         OutgoingMessageId: Guid_2,
         OutgoingMessageType: StartHandlerThatThrows,
-        OutgoingMessageTypeShort: StartHandlerThatThrows,
+        OutgoingMessageTypeFull: StartHandlerThatThrows,
         CorrelationId: Guid_2,
         ConversationId: Guid_3,
         SourceContext: StartHandlerThatThrows,

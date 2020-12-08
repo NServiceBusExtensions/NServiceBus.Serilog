@@ -1,7 +1,7 @@
 {
   logsForTarget: [
     {
-      MessageTemplate: Receive message {IncomingMessageTypeShort} {IncomingMessageId}.,
+      MessageTemplate: Receive message {IncomingMessageType} {IncomingMessageId}.,
       Level: Information,
       Properties: {
         IncomingMessage: {
@@ -14,8 +14,8 @@
         ReplyToAddress: SerilogTestsStartHandlerThatLogs,
         TimeSent: DateTime_1,
         IncomingMessageId: Guid_2,
-        IncomingMessageType: StartHandlerThatLogs, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
-        IncomingMessageTypeShort: StartHandlerThatLogs,
+        IncomingMessageType: StartHandlerThatLogs,
+        IncomingMessageTypeFull: StartHandlerThatLogs, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
         CorrelationId: Guid_2,
         ConversationId: Guid_3,
         SourceContext: StartHandlerThatLogs,
@@ -23,7 +23,7 @@
       }
     },
     {
-      MessageTemplate: Sent message {OutgoingMessageTypeShort} {OutgoingMessageId}.,
+      MessageTemplate: Sent message {OutgoingMessageType} {OutgoingMessageId}.,
       Level: Information,
       Properties: {
         OutgoingMessage: {
@@ -41,7 +41,7 @@
         ReplyToAddress: SerilogTestsStartHandlerThatLogs,
         OutgoingMessageId: Guid_2,
         OutgoingMessageType: StartHandlerThatLogs,
-        OutgoingMessageTypeShort: StartHandlerThatLogs,
+        OutgoingMessageTypeFull: StartHandlerThatLogs,
         CorrelationId: Guid_2,
         ConversationId: Guid_3,
         SourceContext: StartHandlerThatLogs,
