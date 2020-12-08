@@ -55,11 +55,6 @@ namespace NServiceBus.Serilog
 
         static string Inner(Type type)
         {
-            if (IsAnonType(type))
-            {
-                return "dynamic";
-            }
-
             if (type.Name.StartsWith("<") ||
                 type.IsNested && type.DeclaringType == typeof(Enumerable))
             {
@@ -69,11 +64,6 @@ namespace NServiceBus.Serilog
                         x.GetGenericTypeDefinition() == typeof(IEnumerable<>));
                 if (singleOrDefault != null)
                 {
-                    if (singleOrDefault.GetGenericArguments().Single().IsAnonType())
-                    {
-                        return "IEnumerable<dynamic>";
-                    }
-
                     return GetName(singleOrDefault);
                 }
             }
@@ -100,11 +90,6 @@ namespace NServiceBus.Serilog
             }
 
             return type.FullName.Replace(type.Namespace + ".", "");
-        }
-
-        static bool IsAnonType(this Type type)
-        {
-            return type.Name.Contains("AnonymousType");
         }
 
         static void AllGenericArgumentNamespace(Type type, List<string> list)
