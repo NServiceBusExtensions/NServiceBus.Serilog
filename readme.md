@@ -679,7 +679,7 @@ serilogFactory.WithLogger(tracingLog);
 ```cs
 LogManager.Use<SerilogFactory>();
 
-var configuration = new EndpointConfiguration("SerilogSample");
+EndpointConfiguration configuration = new("SerilogSample");
 ```
 <sup><a href='/src/Sample/Program.cs#L14-L19' title='Snippet source file'>snippet source</a> | <a href='#snippet-useconfig' title='Start of snippet'>anchor</a></sup>
 <a id='snippet-useconfig-1'></a>
@@ -751,7 +751,7 @@ serilogFactory.WithLogger(tracingLog);
 ```cs
 LogManager.Use<SerilogFactory>();
 
-var configuration = new EndpointConfiguration("SerilogSample");
+EndpointConfiguration configuration = new("SerilogSample");
 ```
 <sup><a href='/src/Sample/Program.cs#L14-L19' title='Snippet source file'>snippet source</a> | <a href='#snippet-useconfig' title='Start of snippet'>anchor</a></sup>
 <a id='snippet-useconfig-1'></a>
