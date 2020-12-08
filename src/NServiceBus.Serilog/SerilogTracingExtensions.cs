@@ -29,7 +29,7 @@ namespace NServiceBus
             recoverability.AddUnrecoverableException<ConfigurationException>();
             configuration.EnableFeature<TracingFeature>();
             var settings = configuration.GetSettings();
-            var serilogTracing = new SerilogTracingSettings(logger, configuration);
+            SerilogTracingSettings serilogTracing = new(logger, configuration);
             settings.Set(serilogTracing);
             return serilogTracing;
         }

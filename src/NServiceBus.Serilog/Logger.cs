@@ -15,7 +15,7 @@ class Logger :
     public Logger(ILogger logger)
     {
         this.logger = logger;
-        templateParser = new MessageTemplateParser();
+        templateParser = new();
     }
 
     void WriteExceptionEvent(string message, Exception exception, LogEventLevel level)

@@ -35,7 +35,7 @@ class CaptureSagaStateBehavior :
             return;
         }
 
-        var sagaAudit = new SagaUpdatedMessage(DateTimeOffset.UtcNow);
+        SagaUpdatedMessage sagaAudit = new(DateTimeOffset.UtcNow);
         context.Extensions.Set(sagaAudit);
         await next();
 
@@ -112,7 +112,7 @@ class CaptureSagaStateBehavior :
         logger.WriteInfo(messageTemplate, properties);
     }
 
-    void AssignSagaStateChangeCausedByMessage(IInvokeHandlerContext context, SagaUpdatedMessage sagaAudit)
+    static void AssignSagaStateChangeCausedByMessage(IInvokeHandlerContext context, SagaUpdatedMessage sagaAudit)
     {
         if (!context.Headers.TryGetValue("NServiceBus.Serilog.SagaStateChange", out var sagaStateChange))
         {

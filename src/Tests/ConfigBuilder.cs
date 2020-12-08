@@ -4,7 +4,7 @@ public static class ConfigBuilder
 {
     public static EndpointConfiguration BuildDefaultConfig(string endpointName)
     {
-        var configuration = new EndpointConfiguration(endpointName);
+        EndpointConfiguration configuration = new(endpointName);
         configuration.SendFailedMessagesTo("error");
         configuration.UsePersistence<InMemoryPersistence>();
         configuration.UseTransport<LearningTransport>();

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using NServiceBus;
 
 public class UserCreatedHandler :
@@ -8,7 +7,7 @@ public class UserCreatedHandler :
     public Task Handle(UserCreated message, IMessageHandlerContext context)
     {
         context.Logger().Information("Hello from UserCreatedHandler");
-        throw new Exception("The error");
+        throw new("The error");
      //   return Task.FromResult(0);
     }
 }

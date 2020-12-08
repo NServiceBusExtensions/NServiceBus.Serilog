@@ -12,7 +12,7 @@ class CaptureSagaResultingMessagesBehavior :
         return next();
     }
 
-    void AppendMessageToState(IOutgoingLogicalMessageContext context)
+    static void AppendMessageToState(IOutgoingLogicalMessageContext context)
     {
         if (!context.Extensions.TryGet(out SagaUpdatedMessage sagaUpdatedMessage))
         {

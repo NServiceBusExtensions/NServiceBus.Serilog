@@ -14,7 +14,7 @@ Log.Logger = new LoggerConfiguration()
 #region UseConfig
 LogManager.Use<SerilogFactory>();
 
-var configuration = new EndpointConfiguration("SerilogSample");
+EndpointConfiguration configuration = new("SerilogSample");
 
 #endregion
 

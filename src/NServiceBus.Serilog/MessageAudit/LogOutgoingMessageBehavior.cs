@@ -38,8 +38,8 @@ class LogOutgoingMessageBehavior :
         var addresses = context.UnicastAddresses();
         if (addresses.Count > 0)
         {
-            var sequence = new SequenceValue(addresses.Select(x => new ScalarValue(x)));
-            properties.Add(new LogEventProperty("UnicastRoutes", sequence));
+            SequenceValue sequence = new(addresses.Select(x => new ScalarValue(x)));
+            properties.Add(new("UnicastRoutes", sequence));
         }
 
         properties.AddRange(forContext.BuildHeaders(context.Headers));

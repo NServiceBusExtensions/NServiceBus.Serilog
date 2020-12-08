@@ -9,7 +9,7 @@ public class HandlerUsingContextLoggerTests
     {
         HandlerUsingContextLogger handler = new();
         TestableMessageHandlerContext context = new();
-        return handler.Handle(new StartHandlerUsingContextLogger(), context);
+        return handler.Handle(new(), context);
     }
 
     [Fact]
@@ -17,7 +17,7 @@ public class HandlerUsingContextLoggerTests
     {
         HandlerUsingContextLogger handler = new();
         InheritedTestableMessageHandlerContext context = new();
-        return handler.Handle(new StartHandlerUsingContextLogger(), context);
+        return handler.Handle(new(), context);
     }
 
     class InheritedTestableMessageHandlerContext :

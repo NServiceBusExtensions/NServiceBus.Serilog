@@ -9,7 +9,7 @@ class TracingFeature :
         var settings = context.Settings.TracingSettings();
 
         var endpoint = context.Settings.EndpointName();
-        var logBuilder = new LogBuilder(settings.Logger, endpoint);
+        LogBuilder logBuilder = new(settings.Logger, endpoint);
 
         var pipeline = context.Pipeline;
         pipeline.Register(new InjectIncomingMessageBehavior.Registration(logBuilder, endpoint));

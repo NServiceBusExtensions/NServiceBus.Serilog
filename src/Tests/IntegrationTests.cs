@@ -19,13 +19,12 @@ public class IntegrationTests
 
     static IntegrationTests()
     {
-        logs = new List<LogEvent>();
-        var eventSink = new EventSink
-        (
+        logs = new();
+        EventSink eventSink = new(
             action: logs.Add
         );
 
-        var loggerConfiguration = new LoggerConfiguration();
+        LoggerConfiguration loggerConfiguration = new();
         loggerConfiguration.Enrich.WithExceptionDetails();
         loggerConfiguration.MinimumLevel.Verbose();
         loggerConfiguration.WriteTo.Sink(eventSink);
@@ -100,7 +99,7 @@ public class IntegrationTests
         await Verify<StartSaga>(logEvents);
     }
 
-    Task Verify<T>(IEnumerable<LogEventEx> logEvents)
+    static Task Verify<T>(IEnumerable<LogEventEx> logEvents)
     {
         var list = logEvents.ToList();
         var logsForTarget = list.LogsForType<T>().ToList();
@@ -119,7 +118,7 @@ public class IntegrationTests
         var serilogTracing = configuration.EnableSerilogTracing();
         serilogTracing.EnableSagaTracing();
         serilogTracing.EnableMessageTracing();
-        var resetEvent = new ManualResetEvent(false);
+        ManualResetEvent resetEvent = new(false);
         configuration.RegisterComponents(components => components.RegisterSingleton(resetEvent));
 
         var recoverability = configuration.Recoverability();
@@ -138,14 +137,14 @@ public class IntegrationTests
             }));
 
         var endpoint = await Endpoint.Start(configuration);
-        var sendOptions = new SendOptions();
+        SendOptions sendOptions = new();
         optionsAction?.Invoke(sendOptions);
         sendOptions.SetMessageId("00000000-0000-0000-0000-000000000001");
         sendOptions.RouteToThisEndpoint();
         await endpoint.Send(message, sendOptions);
         if (!resetEvent.WaitOne(TimeSpan.FromSeconds(10)))
         {
-            throw new Exception("No Set received.");
+            throw new("No Set received.");
         }
 
         await endpoint.Stop();
