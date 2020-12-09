@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using NServiceBus;
+using NServiceBus.Serilog;
 using Serilog;
 using Serilog.Events;
 
@@ -17,7 +18,7 @@ static class HeaderAppender
         Headers.MessageId
     };
 
-    public static IEnumerable<LogEventProperty> BuildHeaders(this ILogger logger, IReadOnlyDictionary<string, string> headers)
+    public static IEnumerable<LogEventProperty> BuildHeaders(this ILogger logger, bool useFullTypeName, IReadOnlyDictionary<string, string> headers)
     {
         Dictionary<string, string> otherHeaders = new();
         foreach (var header in headers
@@ -26,11 +27,21 @@ static class HeaderAppender
         {
             var key = header.Key;
             var value = header.Value;
+
             if (key == Headers.TimeSent)
             {
                 yield return new(key.Substring(12), new ScalarValue(DateTimeExtensions.ToUtcDateTime(value)));
                 continue;
             }
+
+            if (key == Headers.OriginatingSagaType &&
+                useFullTypeName)
+            {
+                value = TypeNameConverter.GetName(value);
+                yield return new(nameof(Headers.OriginatingSagaType), new ScalarValue(value));
+                continue;
+            }
+
             if (key.StartsWith("NServiceBus."))
             {
                 yield return new(key.Substring(12), new ScalarValue(value));

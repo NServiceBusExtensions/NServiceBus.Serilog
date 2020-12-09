@@ -11,22 +11,24 @@ class InjectIncomingMessageBehavior :
 {
     LogBuilder logBuilder;
     string endpoint;
+    bool useFullTypeName;
 
-    public InjectIncomingMessageBehavior(LogBuilder logBuilder, string endpoint)
+    public InjectIncomingMessageBehavior(LogBuilder logBuilder, string endpoint, bool useFullTypeName)
     {
         this.logBuilder = logBuilder;
         this.endpoint = endpoint;
+        this.useFullTypeName = useFullTypeName;
     }
 
     public class Registration :
         RegisterStep
     {
-        public Registration(LogBuilder logBuilder, string endpoint) :
+        public Registration(LogBuilder logBuilder, string endpoint, bool useFullTypeName) :
             base(
                 stepId: $"Serilog{nameof(InjectIncomingMessageBehavior)}",
                 behavior: typeof(InjectIncomingMessageBehavior),
                 description: "Injects a logger into the incoming context",
-                factoryMethod: _ => new InjectIncomingMessageBehavior(logBuilder, endpoint)
+                factoryMethod: _ => new InjectIncomingMessageBehavior(logBuilder, endpoint, useFullTypeName)
             )
         {
         }
@@ -48,10 +50,16 @@ class InjectIncomingMessageBehavior :
         var logger = logBuilder.GetLogger(messageTypeName);
         List<PropertyEnricher> properties = new()
         {
-            new("IncomingMessageId", context.MessageId),
-            new("IncomingMessageType", messageTypeName),
-            new("IncomingMessageTypeFull", messageType)
+            new("IncomingMessageId", context.MessageId)
         };
+        if (useFullTypeName)
+        {
+            properties.Add(new("IncomingMessageType", messageType));
+        }
+        else
+        {
+            properties.Add(new("IncomingMessageType", messageTypeName));
+        }
 
 
         if (headers.TryGetValue(Headers.CorrelationId, out var correlationId))

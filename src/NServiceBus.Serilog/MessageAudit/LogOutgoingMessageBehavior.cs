@@ -11,10 +11,12 @@ using Serilog.Parsing;
 class LogOutgoingMessageBehavior :
     Behavior<IOutgoingPhysicalMessageContext>
 {
+    bool useFullTypeName;
     MessageTemplate messageTemplate;
 
-    public LogOutgoingMessageBehavior()
+    public LogOutgoingMessageBehavior(bool useFullTypeName)
     {
+        this.useFullTypeName = useFullTypeName;
         MessageTemplateParser templateParser = new();
         messageTemplate = templateParser.Parse("Sent message {OutgoingMessageType} {OutgoingMessageId}.");
     }
@@ -42,18 +44,19 @@ class LogOutgoingMessageBehavior :
             properties.Add(new("UnicastRoutes", sequence));
         }
 
-        properties.AddRange(forContext.BuildHeaders(context.Headers));
+        properties.AddRange(forContext.BuildHeaders(useFullTypeName, context.Headers));
         forContext.WriteInfo(messageTemplate, properties);
     }
 
     public class Registration :
         RegisterStep
     {
-        public Registration() :
+        public Registration(bool useFullTypeName) :
             base(
                 stepId: $"Serilog{nameof(LogOutgoingMessageBehavior)}",
                 behavior: typeof(LogOutgoingMessageBehavior),
-                description: "Logs outgoing messages")
+                description: "Logs outgoing messages",
+                factoryMethod: _ => new LogOutgoingMessageBehavior(useFullTypeName))
         {
         }
     }

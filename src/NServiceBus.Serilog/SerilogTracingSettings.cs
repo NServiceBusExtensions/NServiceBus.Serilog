@@ -9,6 +9,7 @@ namespace NServiceBus.Serilog
     {
         internal ILogger Logger;
         EndpointConfiguration configuration;
+        internal bool useFullTypeName;
 
         internal SerilogTracingSettings(ILogger logger, EndpointConfiguration configuration)
         {
@@ -22,6 +23,14 @@ namespace NServiceBus.Serilog
         public void EnableSagaTracing()
         {
             configuration.EnableFeature<SagaTracingFeature>();
+        }
+
+        /// <summary>
+        /// Use fully assembly qualified name for types.
+        /// </summary>
+        public void UseFullTypeName()
+        {
+            useFullTypeName = true;
         }
 
         /// <summary>
