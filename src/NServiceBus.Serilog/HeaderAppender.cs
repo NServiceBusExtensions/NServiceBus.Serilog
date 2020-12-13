@@ -34,10 +34,13 @@ static class HeaderAppender
                 continue;
             }
 
-            if (key == Headers.OriginatingSagaType &&
-                useFullTypeName)
+            if (key == Headers.OriginatingSagaType)
             {
-                value = TypeNameConverter.GetName(value);
+                if (!useFullTypeName)
+                {
+                    value = TypeNameConverter.GetName(value);
+                }
+
                 yield return new(nameof(Headers.OriginatingSagaType), new ScalarValue(value));
                 continue;
             }
