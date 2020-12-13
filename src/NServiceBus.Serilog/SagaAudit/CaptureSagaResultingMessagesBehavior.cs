@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using System;
+using System.Collections.Generic;
 using NServiceBus.Pipeline;
 using NServiceBus.Serilog;
 
@@ -43,13 +44,13 @@ class CaptureSagaResultingMessagesBehavior :
             messageType = logicalMessage.MessageType.Name;
         }
 
-        SagaChangeOutput sagaResultingMessage = new
-        (
-            resultingMessageId: context.MessageId,
-            messageType: messageType,
-            destination: context.GetDestinationForUnicastMessages(),
-            messageIntent: context.MessageIntent()
-        );
+        Dictionary<string, string?> sagaResultingMessage = new()
+        {
+            {"Id", context.MessageId},
+            {"Type", messageType},
+            {"Destination", context.GetDestinationForUnicastMessages()},
+            {"Intent", context.MessageIntent()}
+        };
         sagaUpdatedMessage.ResultingMessages.Add(sagaResultingMessage);
     }
 
