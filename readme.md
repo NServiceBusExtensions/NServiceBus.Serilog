@@ -332,21 +332,12 @@ serilogTracing.EnableSagaTracing();
         ResultingMessages: {
           Elements: [
             {
-              TypeTag: SagaChangeOutput,
-              Properties: [
-                {
-                  MessageType: BackIntoSaga
-                },
-                {
-                  Destination: SerilogTestsStartSaga
-                },
-                {
-                  ResultingMessageId: Guid_5
-                },
-                {
-                  MessageIntent: Send
-                }
-              ]
+              Elements: {
+                "Id": Guid_5,
+                "Type": BackIntoSaga,
+                "Destination": SerilogTestsStartSaga,
+                "Intent": Send
+              }
             }
           ]
         },
@@ -443,7 +434,7 @@ serilogTracing.EnableSagaTracing();
   ]
 }
 ```
-<sup><a href='/src/Tests/IntegrationTests.Saga.verified.txt#L1-L199' title='Snippet source file'>snippet source</a> | <a href='#snippet-IntegrationTests.Saga.verified.txt' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/IntegrationTests.Saga.verified.txt#L1-L190' title='Snippet source file'>snippet source</a> | <a href='#snippet-IntegrationTests.Saga.verified.txt' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
