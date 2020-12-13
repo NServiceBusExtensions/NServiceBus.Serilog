@@ -87,21 +87,12 @@
         ResultingMessages: {
           Elements: [
             {
-              TypeTag: SagaChangeOutput,
-              Properties: [
-                {
-                  MessageType: BackIntoSaga
-                },
-                {
-                  Destination: SerilogTestsStartSaga
-                },
-                {
-                  ResultingMessageId: Guid_5
-                },
-                {
-                  MessageIntent: Send
-                }
-              ]
+              Elements: {
+                "Id": Guid_5,
+                "Type": BackIntoSaga,
+                "Destination": SerilogTestsStartSaga,
+                "Intent": Send
+              }
             }
           ]
         },
