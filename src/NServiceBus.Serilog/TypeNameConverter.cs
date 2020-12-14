@@ -20,22 +20,27 @@ namespace NServiceBus.Serilog
 
         static string Inner(string longName)
         {
-            Type? type;
             try
             {
-                type = Type.GetType(longName);
-            }
-            catch
-            {
-                return longName;
-            }
+                var name = longName;
+                var commaIndex = name.IndexOf(',');
+                if (commaIndex > -1)
+                {
+                    name = name.Substring(0, commaIndex);
+                }
 
-            if (type == null)
-            {
-                return longName;
-            }
+                var dotIndex = name.IndexOf('.');
+                if (dotIndex > -1)
+                {
+                    name = name.Substring(dotIndex+1, name.Length - dotIndex -1);
+                }
 
-            return type.Name;
+                return name;
+            }
+            catch (Exception exception)
+            {
+                throw new($"Could not convert to short type name. longName: {longName}", exception);
+            }
         }
     }
 }
