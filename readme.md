@@ -320,8 +320,8 @@ serilogTracing.EnableSagaTracing();
               Elements: {
                 "Id": Guid_5,
                 "Type": BackIntoSaga,
-                "Destination": SerilogTestsStartSaga,
-                "Intent": Send
+                "Intent": Send,
+                "Destination": SerilogTestsStartSaga
               }
             }
           ]

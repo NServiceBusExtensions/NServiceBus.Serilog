@@ -19,7 +19,7 @@ class CaptureSagaStateBehavior :
     {
         this.useFullTypeName = useFullTypeName;
         MessageTemplateParser templateParser = new();
-        messageTemplate = templateParser.Parse("Saga execution '{SagaType}' '{SagaId}'.");
+        messageTemplate = templateParser.Parse("Saga execution {SagaType} {SagaId}.");
     }
 
     public override async Task Invoke(IInvokeHandlerContext context, Func<Task> next)
