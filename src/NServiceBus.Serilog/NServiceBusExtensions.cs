@@ -19,9 +19,9 @@ static class NServiceBusExtensions
 
     public static string OriginatingEndpoint(this IInvokeHandlerContext context)
     {
-        if (context.Headers.TryGetValue(Headers.OriginatingEndpoint, out var intent))
+        if (context.Headers.TryGetValue(Headers.OriginatingEndpoint, out var endpoint))
         {
-            return intent;
+            return endpoint;
         }
 
         return string.Empty;

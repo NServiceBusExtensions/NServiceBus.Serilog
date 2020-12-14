@@ -44,13 +44,18 @@ class CaptureSagaResultingMessagesBehavior :
             messageType = logicalMessage.MessageType.Name;
         }
 
-        Dictionary<string, string?> sagaResultingMessage = new()
+        Dictionary<string, string> sagaResultingMessage = new()
         {
             {"Id", context.MessageId},
             {"Type", messageType},
-            {"Destination", context.GetDestinationForUnicastMessages()},
             {"Intent", context.MessageIntent()}
         };
+        var destination = context.GetDestinationForUnicastMessages();
+        if (destination != null)
+        {
+            sagaResultingMessage.Add("Destination", destination);
+        }
+
         sagaUpdatedMessage.ResultingMessages.Add(sagaResultingMessage);
     }
 

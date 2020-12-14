@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using NServiceBus;
 using NServiceBus.Pipeline;
@@ -103,10 +104,12 @@ class CaptureSagaStateBehavior :
         };
         properties.Add(new LogEventProperty("Initiator", new DictionaryValue(initiator)));
 
-
-        if (logger.BindProperty("ResultingMessages", sagaAudit.ResultingMessages, out var resultingMessagesProperty))
+        if (sagaAudit.ResultingMessages.Any())
         {
-            properties.Add(resultingMessagesProperty);
+            if (logger.BindProperty("ResultingMessages", sagaAudit.ResultingMessages, out var resultingMessagesProperty))
+            {
+                properties.Add(resultingMessagesProperty);
+            }
         }
 
         if (logger.BindProperty("Entity", saga.Entity, out var sagaEntityProperty))

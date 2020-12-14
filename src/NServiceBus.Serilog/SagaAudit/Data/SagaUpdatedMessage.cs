@@ -11,7 +11,7 @@ namespace NServiceBus.Serilog
         }
 
         public Guid SagaId { get; set; }
-        public List<Dictionary<string, string?>> ResultingMessages { get; } = new();
+        public List<Dictionary<string, string>> ResultingMessages { get; } = new();
         public bool IsNew { get; set; }
         public bool IsCompleted { get; set; }
         public DateTimeOffset StartTime { get; }
