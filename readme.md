@@ -419,6 +419,9 @@ serilogTracing.EnableSagaTracing();
   ]
 }
 ```
+<sup><a href='/src/Tests/IntegrationTests.Saga.verified.txt#L1-L175' title='Snippet source file'>snippet source</a> | <a href='#snippet-IntegrationTests.Saga.verified.txt' title='Start of snippet'>anchor</a></sup>
+<!-- endSnippet -->
+
 
 ### Message tracing
 
