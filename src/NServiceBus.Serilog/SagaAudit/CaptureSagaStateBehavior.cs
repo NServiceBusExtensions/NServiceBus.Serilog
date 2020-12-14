@@ -11,10 +11,12 @@ using Serilog.Parsing;
 class CaptureSagaStateBehavior :
     Behavior<IInvokeHandlerContext>
 {
+    bool useFullTypeName;
     MessageTemplate messageTemplate;
 
-    public CaptureSagaStateBehavior()
+    public CaptureSagaStateBehavior(bool useFullTypeName)
     {
+        this.useFullTypeName = useFullTypeName;
         MessageTemplateParser templateParser = new();
         messageTemplate = templateParser.Parse("Saga execution '{SagaType}' '{SagaId}'.");
     }
@@ -66,16 +68,6 @@ class CaptureSagaStateBehavior :
 
         var intent = context.MessageIntent();
 
-        SagaChangeInitiator initiator = new
-        (
-            isSagaTimeoutMessage: context.IsTimeoutMessage(),
-            initiatingMessageId: messageId,
-            originatingMachine: context.OriginatingMachine(),
-            originatingEndpoint: context.OriginatingEndpoint(),
-            messageType: context.MessageType(),
-            timeSent: context.TimeSent(),
-            intent: intent
-        );
         sagaAudit.IsNew = activeSagaInstance.IsNew;
         sagaAudit.IsCompleted = saga.Completed;
         sagaAudit.SagaId = saga.Entity.Id;
@@ -89,15 +81,28 @@ class CaptureSagaStateBehavior :
             new("StartTime", new ScalarValue(sagaAudit.StartTime)),
             new("FinishTime", new ScalarValue(sagaAudit.FinishTime)),
             new("IsCompleted", new ScalarValue(sagaAudit.IsCompleted)),
-            new("IsNew", new ScalarValue(sagaAudit.IsNew)),
-            new("SagaType", new ScalarValue(sagaAudit.SagaType)),
+            new("IsNew", new ScalarValue(sagaAudit.IsNew))
         };
 
         var logger = context.Logger();
-        if (logger.BindProperty("Initiator", initiator, out var initiatorProperty))
+        var messageType = context.MessageType();
+        if (!useFullTypeName)
         {
-            properties.Add(initiatorProperty);
+            messageType = TypeNameConverter.GetName(messageType);
         }
+
+        Dictionary<ScalarValue, LogEventPropertyValue> initiator = new()
+        {
+            {new ScalarValue("IsSagaTimeout"), new ScalarValue(context.IsTimeoutMessage())},
+            {new ScalarValue("MessageId"), new ScalarValue(messageId)},
+            {new ScalarValue("OriginatingMachine"), new ScalarValue(context.OriginatingMachine())},
+            {new ScalarValue("OriginatingEndpoint"), new ScalarValue(context.OriginatingEndpoint())},
+            {new ScalarValue("MessageType"), new ScalarValue(messageType)},
+            {new ScalarValue("TimeSent"), new ScalarValue(context.TimeSent())},
+            {new ScalarValue("Intent"), new ScalarValue(intent)}
+        };
+        properties.Add(new LogEventProperty("Initiator", new DictionaryValue(initiator)));
+
 
         if (logger.BindProperty("ResultingMessages", sagaAudit.ResultingMessages, out var resultingMessagesProperty))
         {
@@ -143,11 +148,12 @@ class CaptureSagaStateBehavior :
     public class Registration :
         RegisterStep
     {
-        public Registration() :
+        public Registration(bool useFullTypeName) :
             base(
                 stepId: $"Serilog{nameof(CaptureSagaStateBehavior)}",
                 behavior: typeof(CaptureSagaStateBehavior),
-                description: "Records saga state changes")
+                description: "Records saga state changes",
+                factoryMethod: _ => new CaptureSagaStateBehavior(useFullTypeName))
         {
             InsertBefore("InvokeSaga");
         }

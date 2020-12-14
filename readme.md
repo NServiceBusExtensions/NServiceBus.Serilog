@@ -304,49 +304,25 @@ serilogTracing.EnableSagaTracing();
         IsCompleted: false,
         IsNew: true,
         Initiator: {
-          TypeTag: SagaChangeInitiator,
-          Properties: [
-            {
-              InitiatingMessageId: Guid_1
-            },
-            {
-              MessageType: StartSaga
-            },
-            {
-              IsSagaTimeoutMessage: false
-            },
-            {
-              TimeSent: DateTime_1
-            },
-            {
-              OriginatingMachine: TheMachineName
-            },
-            {
-              OriginatingEndpoint: SerilogTestsStartSaga
-            },
-            {
-              Intent: Send
-            }
-          ]
+          Elements: {
+            "IsSagaTimeout": false,
+            "MessageId": Guid_1,
+            "OriginatingMachine": TheMachineName,
+            "OriginatingEndpoint": SerilogTestsStartSaga,
+            "MessageType": StartSaga,
+            "TimeSent": DateTime_1,
+            "Intent": Send
+          }
         },
         ResultingMessages: {
           Elements: [
             {
-              TypeTag: SagaChangeOutput,
-              Properties: [
-                {
-                  MessageType: BackIntoSaga
-                },
-                {
-                  Destination: SerilogTestsStartSaga
-                },
-                {
-                  ResultingMessageId: Guid_5
-                },
-                {
-                  MessageIntent: Send
-                }
-              ]
+              Elements: {
+                "Id": Guid_5,
+                "Type": BackIntoSaga,
+                "Destination": SerilogTestsStartSaga,
+                "Intent": Send
+              }
             }
           ]
         },
@@ -443,7 +419,7 @@ serilogTracing.EnableSagaTracing();
   ]
 }
 ```
-<sup><a href='/src/Tests/IntegrationTests.Saga.verified.txt#L1-L199' title='Snippet source file'>snippet source</a> | <a href='#snippet-IntegrationTests.Saga.verified.txt' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/IntegrationTests.Saga.verified.txt#L1-L175' title='Snippet source file'>snippet source</a> | <a href='#snippet-IntegrationTests.Saga.verified.txt' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 

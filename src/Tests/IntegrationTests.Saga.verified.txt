@@ -59,30 +59,15 @@
         IsCompleted: false,
         IsNew: true,
         Initiator: {
-          TypeTag: SagaChangeInitiator,
-          Properties: [
-            {
-              InitiatingMessageId: Guid_1
-            },
-            {
-              MessageType: StartSaga
-            },
-            {
-              IsSagaTimeoutMessage: false
-            },
-            {
-              TimeSent: DateTime_1
-            },
-            {
-              OriginatingMachine: TheMachineName
-            },
-            {
-              OriginatingEndpoint: SerilogTestsStartSaga
-            },
-            {
-              Intent: Send
-            }
-          ]
+          Elements: {
+            "IsSagaTimeout": false,
+            "MessageId": Guid_1,
+            "OriginatingMachine": TheMachineName,
+            "OriginatingEndpoint": SerilogTestsStartSaga,
+            "MessageType": StartSaga,
+            "TimeSent": DateTime_1,
+            "Intent": Send
+          }
         },
         ResultingMessages: {
           Elements: [
