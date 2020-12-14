@@ -294,7 +294,7 @@ serilogTracing.EnableSagaTracing();
       }
     },
     {
-      MessageTemplate: Saga execution '{SagaType}' '{SagaId}'.,
+      MessageTemplate: Saga execution {SagaType} {SagaId}.,
       Level: Information,
       Properties: {
         SagaType: TheSaga,
