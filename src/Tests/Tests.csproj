@@ -10,7 +10,7 @@
     <PackageReference Include="Serilog.Exceptions" Version="6.0.0" />
     <PackageReference Include="Xunit" Version="2.4.1" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.3" />
-    <PackageReference Include="MarkdownSnippets.MsBuild" Version="22.0.0" />
+    <PackageReference Include="MarkdownSnippets.MsBuild" Version="22.0.1" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.8.3" />
     <PackageReference Include="NServiceBus" Version="7.4.4" />
     <PackageReference Include="Serilog.Sinks.Seq" Version="4.0.0" />
