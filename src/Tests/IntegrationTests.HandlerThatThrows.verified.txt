@@ -141,21 +141,6 @@
   ],
   logsWithExceptions: [
     {
-      MessageTemplate: The message,
-      Level: Error,
-      Properties: {
-        SourceContext: TheHandlerThatThrows,
-        ExceptionDetail: {
-          Elements: {
-            "Type": System.Exception,
-            "HResult": -2146233088,
-            "Message": Exception of type 'System.Exception' was thrown.,
-            "Source": null
-          }
-        }
-      }
-    },
-    {
       MessageTemplate: Immediate Retry is going to retry message '00000000-0000-0000-0000-000000000001' because of an exception:,
       Level: Information,
       Properties: {

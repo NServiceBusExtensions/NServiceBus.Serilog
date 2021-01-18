@@ -1,0 +1,75 @@
+{
+  logsForTarget: [
+    {
+      MessageTemplate: Hello from {@Handler}.,
+      Level: Information,
+      Properties: {
+        Handler: TheHandler,
+        IncomingMessageId: Guid_1,
+        IncomingMessageType: StartHandler,
+        CorrelationId: Guid_1,
+        ConversationId: Guid_2,
+        SourceContext: StartHandler,
+        ProcessingEndpoint: SerilogTestsStartHandler
+      }
+    },
+    {
+      MessageTemplate: Receive message {IncomingMessageType} {IncomingMessageId}.,
+      Level: Information,
+      Properties: {
+        IncomingMessage: {
+          TypeTag: StartHandler,
+          Properties: [
+            {
+              Property: TheProperty
+            }
+          ]
+        },
+        OriginatingHostId: Guid_3,
+        NewKey: newValue,
+        MessageIntent: Send,
+        OriginatingEndpoint: SerilogTestsStartHandler,
+        OriginatingMachine: TheMachineName,
+        ReplyToAddress: SerilogTestsStartHandler,
+        TimeSent: DateTime_1,
+        IncomingMessageId: Guid_1,
+        IncomingMessageType: StartHandler,
+        CorrelationId: Guid_1,
+        ConversationId: Guid_2,
+        SourceContext: StartHandler,
+        ProcessingEndpoint: SerilogTestsStartHandler
+      }
+    },
+    {
+      MessageTemplate: Sent message {OutgoingMessageType} {OutgoingMessageId}.,
+      Level: Information,
+      Properties: {
+        OutgoingMessage: {
+          TypeTag: StartHandler,
+          Properties: [
+            {
+              Property: TheProperty
+            }
+          ]
+        },
+        UnicastRoutes: {
+          Elements: [
+            SerilogTestsStartHandler
+          ]
+        },
+        OriginatingHostId: Guid_3,
+        NewKey: newValue,
+        MessageIntent: Send,
+        OriginatingEndpoint: SerilogTestsStartHandler,
+        OriginatingMachine: TheMachineName,
+        ReplyToAddress: SerilogTestsStartHandler,
+        OutgoingMessageId: Guid_1,
+        OutgoingMessageType: StartHandler,
+        CorrelationId: Guid_1,
+        ConversationId: Guid_2,
+        SourceContext: StartHandler,
+        ProcessingEndpoint: SerilogTestsStartHandler
+      }
+    }
+  ]
+}

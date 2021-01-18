@@ -56,6 +56,29 @@ public class IntegrationTests
         await Verify<StartHandler>(events);
     }
 
+    [Fact]
+    public async Task WithCustomHeader()
+    {
+        var events = await Send(
+            new StartHandler
+            {
+                Property = "TheProperty"
+            },
+            options => options.SetHeader("CustomHeader", "CustomValue"));
+        await Verify<StartHandler>(events);
+    }
+
+    [Fact]
+    public async Task WithConvertedCustomHeader()
+    {
+        var events = await Send(
+            new StartHandler
+            {
+                Property = "TheProperty"
+            }, options => options.SetHeader("ConvertHeader", "CustomValue"));
+        await Verify<StartHandler>(events);
+    }
+
     //[Fact]
     //public async Task SagaNotFound()
     //{
@@ -114,9 +137,20 @@ public class IntegrationTests
 
     static async Task<IEnumerable<LogEventEx>> Send(object message, Action<SendOptions>? optionsAction = null)
     {
+        logs.Clear();
         var configuration = ConfigBuilder.BuildDefaultConfig("SerilogTests" + message.GetType().Name);
+        configuration.PurgeOnStartup(true);
         var serilogTracing = configuration.EnableSerilogTracing();
         serilogTracing.EnableSagaTracing();
+        serilogTracing.UseHeaderConversion((key, _) =>
+        {
+            if (key == "ConvertHeader")
+            {
+                return new LogEventProperty("NewKey", new ScalarValue("newValue"));
+            }
+
+            return null;
+        });
         serilogTracing.EnableMessageTracing();
         ManualResetEvent resetEvent = new(false);
         configuration.RegisterComponents(components => components.RegisterSingleton(resetEvent));
