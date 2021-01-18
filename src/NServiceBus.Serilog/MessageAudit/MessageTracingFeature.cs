@@ -13,7 +13,7 @@ class MessageTracingFeature :
     {
         var settings = context.Settings.TracingSettings();
         var pipeline = context.Pipeline;
-        pipeline.Register(new LogIncomingMessageBehavior.Registration(settings.useFullTypeName));
-        pipeline.Register(new LogOutgoingMessageBehavior.Registration(settings.useFullTypeName));
+        pipeline.Register(new LogIncomingBehavior.Registration(settings.useFullTypeName));
+        pipeline.Register(new LogOutgoingBehavior.Registration(settings.useFullTypeName));
     }
 }

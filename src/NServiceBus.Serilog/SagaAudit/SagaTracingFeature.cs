@@ -15,6 +15,6 @@ class SagaTracingFeature :
         var settings = context.Settings.TracingSettings();
         var pipeline = context.Pipeline;
         pipeline.Register(new CaptureSagaStateBehavior.Registration(settings.useFullTypeName));
-        pipeline.Register(new CaptureSagaResultingMessagesBehavior.Registration(settings.useFullTypeName));
+        pipeline.Register(new CaptureSagaResultingBehavior.Registration(settings.useFullTypeName));
     }
 }

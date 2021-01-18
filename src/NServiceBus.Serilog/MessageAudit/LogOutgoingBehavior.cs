@@ -8,13 +8,13 @@ using Serilog;
 using Serilog.Events;
 using Serilog.Parsing;
 
-class LogOutgoingMessageBehavior :
+class LogOutgoingBehavior :
     Behavior<IOutgoingPhysicalMessageContext>
 {
     bool useFullTypeName;
     MessageTemplate messageTemplate;
 
-    public LogOutgoingMessageBehavior(bool useFullTypeName)
+    public LogOutgoingBehavior(bool useFullTypeName)
     {
         this.useFullTypeName = useFullTypeName;
         MessageTemplateParser templateParser = new();
@@ -53,10 +53,10 @@ class LogOutgoingMessageBehavior :
     {
         public Registration(bool useFullTypeName) :
             base(
-                stepId: $"Serilog{nameof(LogOutgoingMessageBehavior)}",
-                behavior: typeof(LogOutgoingMessageBehavior),
+                stepId: $"Serilog{nameof(LogOutgoingBehavior)}",
+                behavior: typeof(LogOutgoingBehavior),
                 description: "Logs outgoing messages",
-                factoryMethod: _ => new LogOutgoingMessageBehavior(useFullTypeName))
+                factoryMethod: _ => new LogOutgoingBehavior(useFullTypeName))
         {
         }
     }

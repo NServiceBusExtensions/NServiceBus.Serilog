@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using NServiceBus;
 using NServiceBus.Pipeline;
 
-class InjectInvokeHandlerContextBehavior :
+class InjectHandlerContextBehavior :
     Behavior<IInvokeHandlerContext>
 {
     public class Registration :
@@ -11,8 +11,8 @@ class InjectInvokeHandlerContextBehavior :
     {
         public Registration() :
             base(
-                stepId: $"Serilog{nameof(InjectInvokeHandlerContextBehavior)}",
-                behavior: typeof(InjectInvokeHandlerContextBehavior),
+                stepId: $"Serilog{nameof(InjectHandlerContextBehavior)}",
+                behavior: typeof(InjectHandlerContextBehavior),
                 description: "Injects logger into the handler context")
         {
         }

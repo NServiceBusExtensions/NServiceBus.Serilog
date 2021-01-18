@@ -6,13 +6,13 @@ using NServiceBus.Pipeline;
 using Serilog;
 using Serilog.Core.Enrichers;
 
-class InjectOutgoingMessageBehavior :
+class InjectOutgoingBehavior :
     Behavior<IOutgoingLogicalMessageContext>
 {
     LogBuilder logBuilder;
     bool useFullTypeName;
 
-    public InjectOutgoingMessageBehavior(LogBuilder logBuilder, bool useFullTypeName)
+    public InjectOutgoingBehavior(LogBuilder logBuilder, bool useFullTypeName)
     {
         this.logBuilder = logBuilder;
         this.useFullTypeName = useFullTypeName;
@@ -72,10 +72,10 @@ class InjectOutgoingMessageBehavior :
     {
         public Registration(LogBuilder logBuilder, bool useFullTypeName) :
             base(
-                stepId: $"Serilog{nameof(InjectOutgoingMessageBehavior)}",
-                behavior: typeof(InjectOutgoingMessageBehavior),
+                stepId: $"Serilog{nameof(InjectOutgoingBehavior)}",
+                behavior: typeof(InjectOutgoingBehavior),
                 description: "Injects a logger into the outgoing context",
-                factoryMethod: _ => new InjectOutgoingMessageBehavior(logBuilder, useFullTypeName))
+                factoryMethod: _ => new InjectOutgoingBehavior(logBuilder, useFullTypeName))
         {
         }
     }

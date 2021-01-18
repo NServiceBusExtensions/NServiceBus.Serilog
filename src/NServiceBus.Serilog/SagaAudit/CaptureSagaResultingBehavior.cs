@@ -4,12 +4,12 @@ using System.Collections.Generic;
 using NServiceBus.Pipeline;
 using NServiceBus.Serilog;
 
-class CaptureSagaResultingMessagesBehavior :
+class CaptureSagaResultingBehavior :
     Behavior<IOutgoingLogicalMessageContext>
 {
     bool useFullTypeName;
 
-    public CaptureSagaResultingMessagesBehavior(bool useFullTypeName)
+    public CaptureSagaResultingBehavior(bool useFullTypeName)
     {
         this.useFullTypeName = useFullTypeName;
     }
@@ -64,10 +64,10 @@ class CaptureSagaResultingMessagesBehavior :
     {
         public Registration(bool useFullTypeName) :
             base(
-                stepId: $"Serilog{nameof(CaptureSagaResultingMessagesBehavior)}",
-                behavior: typeof(CaptureSagaResultingMessagesBehavior),
+                stepId: $"Serilog{nameof(CaptureSagaResultingBehavior)}",
+                behavior: typeof(CaptureSagaResultingBehavior),
                 description: "Reports messages outgoing from a saga to Serilog",
-                factoryMethod: _ => new CaptureSagaResultingMessagesBehavior(useFullTypeName))
+                factoryMethod: _ => new CaptureSagaResultingBehavior(useFullTypeName))
         {
         }
     }
