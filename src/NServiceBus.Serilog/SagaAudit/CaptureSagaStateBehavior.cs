@@ -94,13 +94,13 @@ class CaptureSagaStateBehavior :
 
         Dictionary<ScalarValue, LogEventPropertyValue> initiator = new()
         {
-            {new ScalarValue("IsSagaTimeout"), new ScalarValue(context.IsTimeoutMessage())},
-            {new ScalarValue("MessageId"), new ScalarValue(messageId)},
-            {new ScalarValue("OriginatingMachine"), new ScalarValue(context.OriginatingMachine())},
-            {new ScalarValue("OriginatingEndpoint"), new ScalarValue(context.OriginatingEndpoint())},
-            {new ScalarValue("MessageType"), new ScalarValue(messageType)},
-            {new ScalarValue("TimeSent"), new ScalarValue(context.TimeSent())},
-            {new ScalarValue("Intent"), new ScalarValue(intent)}
+            {new("IsSagaTimeout"), new ScalarValue(context.IsTimeoutMessage())},
+            {new("MessageId"), new ScalarValue(messageId)},
+            {new("OriginatingMachine"), new ScalarValue(context.OriginatingMachine())},
+            {new("OriginatingEndpoint"), new ScalarValue(context.OriginatingEndpoint())},
+            {new("MessageType"), new ScalarValue(messageType)},
+            {new("TimeSent"), new ScalarValue(context.TimeSent())},
+            {new("Intent"), new ScalarValue(intent)}
         };
         properties.Add(new LogEventProperty("Initiator", new DictionaryValue(initiator)));
 

@@ -13,7 +13,7 @@ class ScalarValueConverter :
 
     public override object ReadJson(JsonReader reader, Type type, object? value, JsonSerializer serializer)
     {
-        throw new NotImplementedException();
+        throw new();
     }
 
     public override bool CanConvert(Type type)
