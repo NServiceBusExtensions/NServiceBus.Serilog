@@ -34,6 +34,9 @@ namespace NServiceBus.Serilog
             useFullTypeName = true;
         }
 
+        /// <summary>
+        /// Allow a custom log property to be used to a specific header
+        /// </summary>
         public void UseHeaderConversion(ConvertHeader convertHeader)
         {
             Guard.AgainstNull(convertHeader, nameof(convertHeader));
