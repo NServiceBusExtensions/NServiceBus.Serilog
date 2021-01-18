@@ -12,11 +12,13 @@ class LogOutgoingBehavior :
     Behavior<IOutgoingPhysicalMessageContext>
 {
     bool useFullTypeName;
+    ConvertHeader convertHeader;
     MessageTemplate messageTemplate;
 
-    public LogOutgoingBehavior(bool useFullTypeName)
+    public LogOutgoingBehavior(bool useFullTypeName, ConvertHeader convertHeader)
     {
         this.useFullTypeName = useFullTypeName;
+        this.convertHeader = convertHeader;
         MessageTemplateParser templateParser = new();
         messageTemplate = templateParser.Parse("Sent message {OutgoingMessageType} {OutgoingMessageId}.");
     }
@@ -44,19 +46,19 @@ class LogOutgoingBehavior :
             properties.Add(new("UnicastRoutes", sequence));
         }
 
-        properties.AddRange(forContext.BuildHeaders(useFullTypeName, context.Headers));
+        properties.AddRange(forContext.BuildHeaders(useFullTypeName, context.Headers, convertHeader));
         forContext.WriteInfo(messageTemplate, properties);
     }
 
     public class Registration :
         RegisterStep
     {
-        public Registration(bool useFullTypeName) :
+        public Registration(bool useFullTypeName, ConvertHeader convertHeader) :
             base(
                 stepId: $"Serilog{nameof(LogOutgoingBehavior)}",
                 behavior: typeof(LogOutgoingBehavior),
                 description: "Logs outgoing messages",
-                factoryMethod: _ => new LogOutgoingBehavior(useFullTypeName))
+                factoryMethod: _ => new LogOutgoingBehavior(useFullTypeName, convertHeader))
         {
         }
     }

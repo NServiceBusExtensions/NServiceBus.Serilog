@@ -7,7 +7,7 @@ using Serilog.Events;
 
 static class HeaderAppender
 {
-    internal static List<string> excludeHeaders = new()
+    static List<string> excludeHeaders = new()
     {
         Headers.EnclosedMessageTypes,
         Headers.ProcessingEndpoint,
@@ -18,7 +18,7 @@ static class HeaderAppender
         Headers.MessageId
     };
 
-    public static IEnumerable<LogEventProperty> BuildHeaders(this ILogger logger, bool useFullTypeName, IReadOnlyDictionary<string, string> headers)
+    public static IEnumerable<LogEventProperty> BuildHeaders(this ILogger logger, bool useFullTypeName, IReadOnlyDictionary<string, string> headers, ConvertHeader convertHeader)
     {
         Dictionary<string, string> otherHeaders = new();
         foreach (var header in headers
@@ -27,6 +27,13 @@ static class HeaderAppender
         {
             var key = header.Key;
             var value = header.Value;
+
+            var converted = convertHeader(key, value);
+            if (converted != null)
+            {
+                yield return converted;
+                continue;
+            }
 
             if (key == Headers.TimeSent)
             {

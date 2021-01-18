@@ -10,6 +10,7 @@ namespace NServiceBus.Serilog
         internal ILogger Logger;
         EndpointConfiguration configuration;
         internal bool useFullTypeName;
+        internal ConvertHeader convertHeader = (_, _) => null;
 
         internal SerilogTracingSettings(ILogger logger, EndpointConfiguration configuration)
         {
@@ -31,6 +32,12 @@ namespace NServiceBus.Serilog
         public void UseFullTypeName()
         {
             useFullTypeName = true;
+        }
+
+        public void UseHeaderConversion(ConvertHeader convertHeader)
+        {
+            Guard.AgainstNull(convertHeader, nameof(convertHeader));
+            this.convertHeader = convertHeader;
         }
 
         /// <summary>
