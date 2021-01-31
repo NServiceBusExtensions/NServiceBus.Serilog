@@ -25,22 +25,27 @@ class Logger :
         {
             properties.Add(new("IncomingMessageType", new ScalarValue(messageType)));
         }
+
         if (exception.TryReadData("Message ID", out string incomingMessageId))
         {
             properties.Add(new("IncomingMessageId", new ScalarValue(incomingMessageId)));
         }
+
         if (exception.TryReadData("Transport message ID", out string incomingTransportMessageId))
         {
             properties.Add(new("IncomingTransportMessageId", new ScalarValue(incomingTransportMessageId)));
         }
+
         if (exception.TryReadData("Handler start time", out string handlerStartTime))
         {
             properties.Add(new("HandlerStartTime", new ScalarValue(DateTimeExtensions.ToUtcDateTime(handlerStartTime))));
         }
+
         if (exception.TryReadData("Handler failure time", out string handlerFailureTime))
         {
             properties.Add(new("HandlerFailureTime", new ScalarValue(DateTimeExtensions.ToUtcDateTime(handlerFailureTime))));
         }
+
         if (exception.TryReadData("Handler type", out string handlerType))
         {
             properties.Add(new("HandlerType", new ScalarValue(handlerType)));
