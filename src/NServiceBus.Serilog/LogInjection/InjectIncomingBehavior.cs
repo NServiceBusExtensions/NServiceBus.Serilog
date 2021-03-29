@@ -90,7 +90,12 @@ class InjectIncomingBehavior :
         }
         catch (Exception exception)
         {
-            exception.Data.Add("ExceptionLogState", exceptionLogState);
+            var data = exception.Data;
+            if (!data.Contains("ExceptionLogState"))
+            {
+                data.Add("ExceptionLogState", exceptionLogState);
+            }
+
             throw;
         }
     }
