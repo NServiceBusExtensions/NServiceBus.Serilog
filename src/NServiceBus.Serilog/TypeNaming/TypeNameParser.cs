@@ -48,7 +48,7 @@ static class TypeNameParser
         parsedName.Names.Add(UnescapeTypeName(name.Substring(name_start, pos - name_start)));
 
         var isbyref = false;
-        var isptr = false;
+        var isPointer = false;
         var rank = -1;
 
         var end = false;
@@ -61,7 +61,7 @@ static class TypeNameParser
                         return null;
                     pos++;
                     isbyref = true;
-                    isptr = false;
+                    isPointer = false;
                     parsedName.Modifiers.Add(0);
                     break;
                 case '*':
@@ -69,7 +69,7 @@ static class TypeNameParser
                         return null;
                     pos++;
                     parsedName.Modifiers.Add(-1);
-                    isptr = true;
+                    isPointer = true;
                     break;
                 case '[':
                     // An array or generic arguments
@@ -83,7 +83,7 @@ static class TypeNameParser
                     {
                         // Array
                         var bounded = false;
-                        isptr = false;
+                        isPointer = false;
                         rank = 1;
                         while (pos < name.Length)
                         {
@@ -136,12 +136,12 @@ static class TypeNameParser
                     else
                     {
                         // Generic args
-                        if (rank > 0 || isptr)
+                        if (rank > 0 || isPointer)
                         {
                             return null;
                         }
 
-                        isptr = false;
+                        isPointer = false;
                         while (pos < name.Length)
                         {
                             while (pos < name.Length && name[pos] == ' ')
