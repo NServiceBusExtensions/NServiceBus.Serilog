@@ -14,7 +14,7 @@ public class TypeNameConverterTests
     [Fact]
     public void NameAndNamespace()
     {
-        Assert.Equal("TheClass", TypeNameConverter.GetName("Namespace.TheClass"));
+        Assert.Equal("Namespace.TheClass", TypeNameConverter.GetName("Namespace.TheClass"));
     }
 
     [Fact]
