@@ -57,6 +57,17 @@ public class IntegrationTests
     }
 
     [Fact]
+    public async Task GenericHandler()
+    {
+        var events = await Send(
+            new StartGenericHandler<string>
+            {
+                Property = "TheProperty"
+            });
+        await Verify<StartGenericHandler<string>>(events);
+    }
+
+    [Fact]
     public async Task WithCustomHeader()
     {
         var events = await Send(
@@ -138,8 +149,12 @@ public class IntegrationTests
     static async Task<IEnumerable<LogEventEx>> Send(object message, Action<SendOptions>? optionsAction = null)
     {
         logs.Clear();
-        var configuration = ConfigBuilder.BuildDefaultConfig("SerilogTests" + message.GetType().Name);
+        var suffix = TypeNameConverter.GetName(message.GetType())
+            .Replace("<","_")
+            .Replace(">","_");
+        var configuration = ConfigBuilder.BuildDefaultConfig("SerilogTests" + suffix);
         configuration.PurgeOnStartup(true);
+
         var serilogTracing = configuration.EnableSerilogTracing();
         serilogTracing.EnableSagaTracing();
         serilogTracing.UseHeaderConversion((key, _) =>

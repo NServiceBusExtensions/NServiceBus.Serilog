@@ -1,0 +1,73 @@
+﻿{
+  logsForTarget: [
+    {
+      MessageTemplate: Hello from {@Handler}.,
+      Level: Information,
+      Properties: {
+        Handler: GenericHandler,
+        IncomingMessageId: Guid_1,
+        IncomingMessageType: StartGenericHandler<String>,
+        CorrelationId: Guid_1,
+        ConversationId: Guid_2,
+        SourceContext: StartGenericHandler<String>,
+        ProcessingEndpoint: SerilogTestsStartGenericHandler_String_
+      }
+    },
+    {
+      MessageTemplate: Receive message {IncomingMessageType} {IncomingMessageId}.,
+      Level: Information,
+      Properties: {
+        IncomingMessage: {
+          TypeTag: StartGenericHandler`1,
+          Properties: [
+            {
+              Property: TheProperty
+            }
+          ]
+        },
+        OriginatingHostId: Guid_3,
+        MessageIntent: Send,
+        OriginatingEndpoint: SerilogTestsStartGenericHandler_String_,
+        OriginatingMachine: TheMachineName,
+        ReplyToAddress: SerilogTestsStartGenericHandler_String_,
+        TimeSent: DateTime_1,
+        IncomingMessageId: Guid_1,
+        IncomingMessageType: StartGenericHandler<String>,
+        CorrelationId: Guid_1,
+        ConversationId: Guid_2,
+        SourceContext: StartGenericHandler<String>,
+        ProcessingEndpoint: SerilogTestsStartGenericHandler_String_
+      }
+    },
+    {
+      MessageTemplate: Sent message {OutgoingMessageType} {OutgoingMessageId}.,
+      Level: Information,
+      Properties: {
+        OutgoingMessage: {
+          TypeTag: StartGenericHandler`1,
+          Properties: [
+            {
+              Property: TheProperty
+            }
+          ]
+        },
+        UnicastRoutes: {
+          Elements: [
+            SerilogTestsStartGenericHandler_String_
+          ]
+        },
+        OriginatingHostId: Guid_3,
+        MessageIntent: Send,
+        OriginatingEndpoint: SerilogTestsStartGenericHandler_String_,
+        OriginatingMachine: TheMachineName,
+        ReplyToAddress: SerilogTestsStartGenericHandler_String_,
+        OutgoingMessageId: Guid_1,
+        OutgoingMessageType: StartGenericHandler<String>,
+        CorrelationId: Guid_1,
+        ConversationId: Guid_2,
+        SourceContext: StartGenericHandler<String>,
+        ProcessingEndpoint: SerilogTestsStartGenericHandler_String_
+      }
+    }
+  ]
+}

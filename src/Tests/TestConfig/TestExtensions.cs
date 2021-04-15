@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using NServiceBus;
+using NServiceBus.Serilog;
 
 public static class TestExtensions
 {
@@ -28,14 +29,13 @@ public static class TestExtensions
 
     public static IEnumerable<LogEventEx> LogsForType<T>(this IEnumerable<LogEventEx> logs)
     {
-        return LogsForName(logs, typeof(T).Name)
+        return LogsForName(logs, TypeNameConverter.GetName(typeof(T)))
             .OrderBy(x => x.MessageTemplate.Text);
     }
 
-    public static IEnumerable<LogEventEx> LogsForName(this IEnumerable<LogEventEx> logs, string name)
+    static IEnumerable<LogEventEx> LogsForName(this IEnumerable<LogEventEx> logs, string name)
     {
         return logs.Where(log => log.StringSourceContext == name)
             .OrderBy(x => x.StringSourceContext);
     }
-
 }

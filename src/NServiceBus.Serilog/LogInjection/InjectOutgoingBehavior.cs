@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using NServiceBus;
 using NServiceBus.Pipeline;
+using NServiceBus.Serilog;
 using Serilog;
 using Serilog.Core.Enrichers;
 
@@ -23,7 +24,7 @@ class InjectOutgoingBehavior :
         var bag = context.Extensions;
 
         var type = context.Message.Instance.GetType();
-        var messageTypeName = type.Name;
+        var messageTypeName = TypeNameConverter.GetName(type);
         if (!bag.TryGet<ILogger>(out var logger))
         {
             // if it a raw session send (ie no handler/saga, there will be no current logger)

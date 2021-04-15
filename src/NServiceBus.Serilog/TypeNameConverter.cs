@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Concurrent;
+using System.Text;
 
 namespace NServiceBus.Serilog
 {
@@ -9,37 +10,68 @@ namespace NServiceBus.Serilog
     public static class TypeNameConverter
     {
         static ConcurrentDictionary<string, string> longNameToNameCache = new();
+        static ConcurrentDictionary<Type, string> typeToNameCache = new();
 
         /// <summary>
         /// Get a short type name from a long type name.
         /// </summary>
         public static string GetName(string longName)
         {
-            return longNameToNameCache.GetOrAdd(longName, Inner);
+            return longNameToNameCache.GetOrAdd(longName, FormatForDisplay);
         }
 
-        static string Inner(string longName)
+        /// <summary>
+        /// Get a short type name from a long type name.
+        /// </summary>
+        public static string GetName(Type type)
         {
-            try
+            return typeToNameCache.GetOrAdd(type, FormatForDisplay);
+        }
+
+        static string FormatForDisplay(string typeName)
+        {
+            var type = Type.GetType(typeName);
+            if (type == null)
             {
-                var name = longName;
-                var commaIndex = name.IndexOf(',');
-                if (commaIndex > -1)
-                {
-                    name = name.Substring(0, commaIndex);
-                }
-
-                var dotIndex = name.IndexOf('.');
-                if (dotIndex > -1)
-                {
-                    name = name.Substring(dotIndex+1, name.Length - dotIndex -1);
-                }
-
-                return name;
+                return typeName;
             }
-            catch (Exception exception)
+
+            return FormatForDisplay(type);
+        }
+
+        static string FormatForDisplay(Type type)
+        {
+            StringBuilder builder = new();
+            FormatForDisplay(type, builder);
+            return builder.ToString();
+        }
+
+        static void FormatForDisplay(Type type, StringBuilder builder)
+        {
+            if (type.IsNested)
             {
-                throw new($"Could not convert to short type name. longName: {longName}", exception);
+                FormatForDisplay(type.DeclaringType!, builder);
+                builder.Append('+');
+            }
+
+            var typeName = type.Name;
+
+            var indexOfGenericDelimiter = typeName.IndexOf('`');
+            if (indexOfGenericDelimiter != -1)
+            {
+                typeName = typeName.Substring(0, indexOfGenericDelimiter);
+            }
+
+            builder.Append(typeName);
+            if (type.IsGenericType)
+            {
+                builder.Append('<');
+                foreach (var typeArgument in type.GenericTypeArguments)
+                {
+                    FormatForDisplay(typeArgument, builder);
+                }
+
+                builder.Append('>');
             }
         }
     }

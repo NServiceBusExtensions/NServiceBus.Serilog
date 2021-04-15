@@ -37,9 +37,9 @@ static class NServiceBusExtensions
         return context.MessageHandler.HandlerType.FullName;
     }
 
-    public static string MessageType(this IInvokeHandlerContext context)
+    public static Type MessageType(this IInvokeHandlerContext context)
     {
-        return context.MessageMetadata.MessageType.FullName;
+        return context.MessageMetadata.MessageType;
     }
 
     public static string MessageIntent(this IOutgoingLogicalMessageContext context)

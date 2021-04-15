@@ -1,6 +1,6 @@
-﻿using NServiceBus.Serilog;
-using VerifyXunit;
+﻿using VerifyXunit;
 using Xunit;
+using TypeNameConverter = NServiceBus.Serilog.TypeNameConverter;
 
 [UsesVerify]
 public class TypeNameConverterTests
@@ -8,24 +8,35 @@ public class TypeNameConverterTests
     [Fact]
     public void NameOnly()
     {
-        Assert.Equal("TheName", TypeNameConverter.GetName("TheName"));
+        Assert.Equal("TheClass", TypeNameConverter.GetName("TheClass"));
     }
 
     [Fact]
     public void NameAndNamespace()
     {
-        Assert.Equal("TheName", TypeNameConverter.GetName("Namespace.TheName"));
+        Assert.Equal("Namespace.TheClass", TypeNameConverter.GetName("Namespace.TheClass"));
+    }
+
+    [Fact]
+    public void NameAndNamespaceAndAssembly()
+    {
+        Assert.Equal("TheClass", TypeNameConverter.GetName("Namespace.TheClass, Tests"));
     }
 
     [Fact]
     public void AssemblyQualified()
     {
-        Assert.Equal("TheName", TypeNameConverter.GetName("Namespace.TheName, Assembly, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"));
+        Assert.Equal("TheClass", TypeNameConverter.GetName("Namespace.TheClass, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6"));
     }
 
     [Fact]
     public void AssemblyQualifiedWithNoVersion()
     {
-        Assert.Equal("TheName", TypeNameConverter.GetName("Namespace.TheName, Assembly"));
+        Assert.Equal("TheClass", TypeNameConverter.GetName("Namespace.TheClass, Tests"));
     }
+}
+
+namespace Namespace
+{
+    class TheClass{}
 }
