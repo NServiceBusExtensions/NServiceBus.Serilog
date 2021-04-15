@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using VerifyXunit;
 using Xunit;
@@ -41,6 +44,65 @@ public class TypeNameParserTests
                 Parse(type.AssemblyQualifiedName!);
             }
         }
+    }
+
+    [Fact]
+    public Task GenericArguments()
+    {
+        var type = typeof(IEnumerable<>)
+            .GetGenericArguments()
+            .First();
+        return Verify(type);
+    }
+
+    [Fact]
+    public Task Pointers()
+    {
+        var type = typeof(int*);
+        return Verify(type);
+    }
+
+    [Fact]
+    public Task Nullable()
+    {
+        return Verify(typeof(int?));
+    }
+
+    [Fact]
+    public Task Array()
+    {
+        return Verify(typeof(int[]));
+    }
+
+    [Fact]
+    public Task List()
+    {
+        return Verify(typeof(List<int>));
+    }
+
+    [Fact]
+    public Task Dynamic()
+    {
+        return Verify(new {Name = "foo"}.GetType());
+    }
+
+    static Task Verify(Type type, [CallerFilePath] string sourceFile = "")
+    {
+        var name = TypeNameParser.ParseName(type.Name, true, 0, out _);
+
+        ParsedName? fullName = null;
+        if (type.FullName != null)
+        {
+            fullName = TypeNameParser.ParseName(type.FullName, true, 0, out _);
+        }
+
+        ParsedName? assemblyQualifiedName = null;
+        if (type.AssemblyQualifiedName != null)
+        {
+            assemblyQualifiedName = TypeNameParser.ParseName(type.AssemblyQualifiedName, true, 0, out _);
+        }
+
+        return Verifier.Verify(new {name, fullName, assemblyQualifiedName}, sourceFile: sourceFile);
     }
 
     [Fact]

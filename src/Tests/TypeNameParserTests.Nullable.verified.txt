@@ -1,0 +1,33 @@
+﻿{
+  name: {
+    Names: [
+      Nullable`1
+    ]
+  },
+  fullName: {
+    Names: [
+      System.Nullable`1
+    ],
+    TypeArguments: [
+      {
+        Names: [
+          System.Int32
+        ],
+        AssemblyName: System.Private.CoreLib, Version=5.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e
+      }
+    ]
+  },
+  assemblyQualifiedName: {
+    Names: [
+      System.Nullable`1
+    ],
+    TypeArguments: [
+      {
+        Names: [
+          System.Int32
+        ],
+        AssemblyName: System.Private.CoreLib, Version=5.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e
+      }
+    ]
+  }
+}
