@@ -18,7 +18,7 @@ static class HeaderAppender
         Headers.MessageId
     };
 
-    public static IEnumerable<LogEventProperty> BuildHeaders(this ILogger logger, bool useFullTypeName, IReadOnlyDictionary<string, string> headers, ConvertHeader convertHeader)
+    public static IEnumerable<LogEventProperty> BuildHeaders(this ILogger logger, IReadOnlyDictionary<string, string> headers, ConvertHeader convertHeader)
     {
         Dictionary<string, string> otherHeaders = new();
         foreach (var header in headers
@@ -43,10 +43,7 @@ static class HeaderAppender
 
             if (key == Headers.OriginatingSagaType)
             {
-                if (!useFullTypeName)
-                {
-                    value = TypeNameConverter.GetName(value);
-                }
+                value = TypeNameConverter.GetName(value);
 
                 yield return new(nameof(Headers.OriginatingSagaType), new ScalarValue(value));
                 continue;

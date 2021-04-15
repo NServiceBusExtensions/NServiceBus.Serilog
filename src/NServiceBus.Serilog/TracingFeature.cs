@@ -12,9 +12,9 @@ class TracingFeature :
         LogBuilder logBuilder = new(settings.Logger, endpoint);
 
         var pipeline = context.Pipeline;
-        pipeline.Register(new InjectIncomingBehavior.Registration(logBuilder, endpoint, settings.useFullTypeName));
+        pipeline.Register(new InjectIncomingBehavior.Registration(logBuilder, endpoint));
         pipeline.Register(new InjectHandlerContextBehavior.Registration());
-        pipeline.Register(new InjectOutgoingBehavior.Registration(logBuilder, settings.useFullTypeName));
+        pipeline.Register(new InjectOutgoingBehavior.Registration(logBuilder));
         context.RegisterStartupTask(new StartupDiagnostics(context.Settings, logBuilder.Logger));
     }
 }

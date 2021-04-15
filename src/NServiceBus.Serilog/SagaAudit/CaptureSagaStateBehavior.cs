@@ -12,12 +12,10 @@ using Serilog.Parsing;
 class CaptureSagaStateBehavior :
     Behavior<IInvokeHandlerContext>
 {
-    bool useFullTypeName;
     MessageTemplate messageTemplate;
 
-    public CaptureSagaStateBehavior(bool useFullTypeName)
+    public CaptureSagaStateBehavior()
     {
-        this.useFullTypeName = useFullTypeName;
         MessageTemplateParser templateParser = new();
         messageTemplate = templateParser.Parse("Saga execution {SagaType} {SagaId}.");
     }
@@ -45,10 +43,7 @@ class CaptureSagaStateBehavior :
         if (context.Extensions.TryGet(out ActiveSagaInstance activeSagaInstance))
         {
             var sagaType = activeSagaInstance.Instance.GetType().Name;
-            if (!useFullTypeName)
-            {
                 sagaType = TypeNameConverter.GetName(sagaType);
-            }
 
             sagaAudit.SagaType = sagaType;
 
@@ -93,10 +88,7 @@ class CaptureSagaStateBehavior :
 
         var logger = context.Logger();
         var messageType = context.MessageType();
-        if (!useFullTypeName)
-        {
             messageType = TypeNameConverter.GetName(messageType);
-        }
 
         Dictionary<ScalarValue, LogEventPropertyValue> initiator = new()
         {
@@ -157,12 +149,12 @@ class CaptureSagaStateBehavior :
     public class Registration :
         RegisterStep
     {
-        public Registration(bool useFullTypeName) :
+        public Registration() :
             base(
                 stepId: $"Serilog{nameof(CaptureSagaStateBehavior)}",
                 behavior: typeof(CaptureSagaStateBehavior),
                 description: "Records saga state changes",
-                factoryMethod: _ => new CaptureSagaStateBehavior(useFullTypeName))
+                factoryMethod: _ => new CaptureSagaStateBehavior())
         {
             InsertBefore("InvokeSaga");
         }

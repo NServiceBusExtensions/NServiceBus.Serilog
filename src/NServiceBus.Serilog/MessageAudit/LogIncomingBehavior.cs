@@ -9,13 +9,11 @@ using Serilog.Parsing;
 class LogIncomingBehavior :
     Behavior<IIncomingLogicalMessageContext>
 {
-    bool useFullTypeName;
     ConvertHeader convertHeader;
     static MessageTemplate messageTemplate;
 
-    public LogIncomingBehavior(bool useFullTypeName, ConvertHeader convertHeader)
+    public LogIncomingBehavior(ConvertHeader convertHeader)
     {
-        this.useFullTypeName = useFullTypeName;
         this.convertHeader = convertHeader;
     }
 
@@ -28,12 +26,12 @@ class LogIncomingBehavior :
     public class Registration :
         RegisterStep
     {
-        public Registration(bool useFullTypeName, ConvertHeader convertHeader) :
+        public Registration(ConvertHeader convertHeader) :
             base(
                 stepId: $"Serilog{nameof(LogIncomingBehavior)}",
                 behavior: typeof(LogIncomingBehavior),
                 description: "Logs incoming messages",
-                factoryMethod: _ => new LogIncomingBehavior(useFullTypeName, convertHeader))
+                factoryMethod: _ => new LogIncomingBehavior(convertHeader))
         {
             InsertBefore("MutateIncomingMessages");
         }
@@ -50,7 +48,7 @@ class LogIncomingBehavior :
             properties.Add(property);
         }
 
-        properties.AddRange(logger.BuildHeaders(useFullTypeName, context.Headers, convertHeader));
+        properties.AddRange(logger.BuildHeaders(context.Headers, convertHeader));
         logger.WriteInfo(messageTemplate, properties);
         return next();
     }
