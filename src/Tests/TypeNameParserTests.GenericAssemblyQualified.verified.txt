@@ -1,0 +1,13 @@
+﻿{
+  Names: [
+    Namespace.MyMessage`1
+  ],
+  TypeArguments: [
+    {
+      Names: [
+        System.Int32
+      ],
+      AssemblyName: System.Private.CoreLib, Version=5.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e
+    }
+  ]
+}

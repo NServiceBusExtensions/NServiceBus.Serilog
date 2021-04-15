@@ -1,0 +1,12 @@
+﻿{
+  Names: [
+    Namespace.MyMessage`1
+  ],
+  TypeArguments: [
+    {
+      Names: [
+        System.Int32
+      ]
+    }
+  ]
+}
