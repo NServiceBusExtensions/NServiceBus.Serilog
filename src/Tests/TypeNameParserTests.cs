@@ -1,10 +1,55 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using VerifyXunit;
 using Xunit;
 
 [UsesVerify]
 public class TypeNameParserTests
 {
+    [Fact]
+    public void AllTypes()
+    {
+        void Parse(string name)
+        {
+            ParsedName? parsed;
+            try
+            {
+                parsed = TypeNameParser.ParseName(name, true, 0, out _);
+            }
+            catch (Exception exception)
+            {
+                throw new(name, exception);
+            }
+
+            if (parsed == null)
+            {
+                throw new(name);
+            }
+
+            if (parsed.Names == null)
+            {
+                throw new(name);
+            }
+        }
+
+        foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies())
+        {
+            foreach (var type in assembly.GetTypes())
+            {
+                Parse(type.Name);
+                Parse(type.FullName!);
+                Parse(type.AssemblyQualifiedName!);
+            }
+        }
+    }
+
+    [Fact]
+    public Task Nested()
+    {
+        var typeName = TypeNameParser.ParseName("Interop+Kernel32", true, 0, out _);
+        return Verifier.Verify(typeName);
+    }
+
     [Fact]
     public Task Simple()
     {
