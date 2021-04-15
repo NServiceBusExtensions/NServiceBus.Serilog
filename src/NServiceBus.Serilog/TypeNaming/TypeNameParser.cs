@@ -6,7 +6,7 @@ static class TypeNameParser
     // Entries to the Names list are unescaped to internal form while AssemblyName is not, in an effort to maintain
     // consistency with our native parser. Since this function is just called recursively, that should also be true
     // for ParsedNames in TypeArguments.
-    public static ParsedName? ParseName(string name, bool recursed, int pos, out int end_pos)
+    public static ParsedName? ParseName(string name, int pos, out int end_pos)
     {
         end_pos = 0;
 
@@ -155,7 +155,7 @@ static class TypeNameParser
                                 fqname = true;
                             }
 
-                            var arg = ParseName(name, true, pos, out pos);
+                            var arg = ParseName(name, pos, out pos);
                             if (arg == null)
                             {
                                 return null;
@@ -218,34 +218,13 @@ static class TypeNameParser
 
                     break;
                 case ']':
-                    if (recursed)
-                    {
-                        end = true;
-                        break;
-                    }
-
-                    return null;
-                case ',':
-                    if (recursed)
-                    {
-                        end = true;
-                        break;
-                    }
-
-                    pos++;
-                    while (pos < name.Length && char.IsWhiteSpace(name[pos]))
-                    {
-                        pos++;
-                    }
-
-                    if (pos == name.Length)
-                    {
-                        return null;
-                    }
-
-                    parsedName.AssemblyName = name.Substring(pos);
                     end = true;
                     break;
+
+                case ',':
+                    end = true;
+                    break;
+
                 default:
                     return null;
             }

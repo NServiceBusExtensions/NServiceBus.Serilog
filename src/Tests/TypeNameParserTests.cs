@@ -17,7 +17,7 @@ public class TypeNameParserTests
             ParsedName? parsed;
             try
             {
-                parsed = TypeNameParser.ParseName(name, true, 0, out _);
+                parsed = TypeNameParser.ParseName(name, 0, out _);
             }
             catch (Exception exception)
             {
@@ -88,18 +88,18 @@ public class TypeNameParserTests
 
     static Task Verify(Type type, [CallerFilePath] string sourceFile = "")
     {
-        var name = TypeNameParser.ParseName(type.Name, true, 0, out _);
+        var name = TypeNameParser.ParseName(type.Name, 0, out _);
 
         ParsedName? fullName = null;
         if (type.FullName != null)
         {
-            fullName = TypeNameParser.ParseName(type.FullName, true, 0, out _);
+            fullName = TypeNameParser.ParseName(type.FullName, 0, out _);
         }
 
         ParsedName? assemblyQualifiedName = null;
         if (type.AssemblyQualifiedName != null)
         {
-            assemblyQualifiedName = TypeNameParser.ParseName(type.AssemblyQualifiedName, true, 0, out _);
+            assemblyQualifiedName = TypeNameParser.ParseName(type.AssemblyQualifiedName, 0, out _);
         }
 
         return Verifier.Verify(new {name, fullName, assemblyQualifiedName}, sourceFile: sourceFile);
@@ -108,42 +108,42 @@ public class TypeNameParserTests
     [Fact]
     public Task Nested()
     {
-        var typeName = TypeNameParser.ParseName("Interop+Kernel32", true, 0, out _);
+        var typeName = TypeNameParser.ParseName("Interop+Kernel32", 0, out _);
         return Verifier.Verify(typeName);
     }
 
     [Fact]
     public Task Simple()
     {
-        var typeName = TypeNameParser.ParseName("TheName", true, 0, out _);
+        var typeName = TypeNameParser.ParseName("TheName", 0, out _);
         return Verifier.Verify(typeName);
     }
 
     [Fact]
     public Task Namespace()
     {
-        var typeName = TypeNameParser.ParseName("Namespace.TheName", true, 0, out _);
+        var typeName = TypeNameParser.ParseName("Namespace.TheName", 0, out _);
         return Verifier.Verify(typeName);
     }
 
     [Fact]
     public Task AssemblyQualified()
     {
-        var typeName = TypeNameParser.ParseName("Namespace.TheName, Assembly, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089", true, 0, out _);
+        var typeName = TypeNameParser.ParseName("Namespace.TheName, Assembly, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089", 0, out _);
         return Verifier.Verify(typeName);
     }
 
     [Fact]
     public Task GenericAssemblyQualified()
     {
-        var typeName = TypeNameParser.ParseName("Namespace.MyMessage`1[[System.Int32, System.Private.CoreLib, Version=5.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], Sample, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6", true, 0, out _);
+        var typeName = TypeNameParser.ParseName("Namespace.MyMessage`1[[System.Int32, System.Private.CoreLib, Version=5.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], Sample, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6", 0, out _);
         return Verifier.Verify(typeName);
     }
 
     [Fact]
     public Task Generic()
     {
-        var typeName = TypeNameParser.ParseName("Namespace.MyMessage`1[[System.Int32]], Sample", true, 0, out _);
+        var typeName = TypeNameParser.ParseName("Namespace.MyMessage`1[[System.Int32]], Sample", 0, out _);
         return Verifier.Verify(typeName);
     }
 }
