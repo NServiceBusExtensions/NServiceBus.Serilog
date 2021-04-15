@@ -10,12 +10,10 @@ class InjectOutgoingBehavior :
     Behavior<IOutgoingLogicalMessageContext>
 {
     LogBuilder logBuilder;
-    bool useFullTypeName;
 
-    public InjectOutgoingBehavior(LogBuilder logBuilder, bool useFullTypeName)
+    public InjectOutgoingBehavior(LogBuilder logBuilder)
     {
         this.logBuilder = logBuilder;
-        this.useFullTypeName = useFullTypeName;
     }
 
     public override async Task Invoke(IOutgoingLogicalMessageContext context, Func<Task> next)
@@ -32,18 +30,11 @@ class InjectOutgoingBehavior :
             logger = logBuilder.GetLogger(messageTypeName);
         }
 
-        var properties = new List<PropertyEnricher>
+        List<PropertyEnricher> properties = new()
         {
             new("OutgoingMessageId", context.MessageId),
+            new("OutgoingMessageType", messageTypeName)
         };
-        if (useFullTypeName)
-        {
-            properties.Add(new("OutgoingMessageType", type.FullName));
-        }
-        else
-        {
-            properties.Add(new("OutgoingMessageType", messageTypeName));
-        }
 
         if (headers.TryGetValue(Headers.CorrelationId, out var correlationId))
         {
@@ -70,12 +61,12 @@ class InjectOutgoingBehavior :
     public class Registration :
         RegisterStep
     {
-        public Registration(LogBuilder logBuilder, bool useFullTypeName) :
+        public Registration(LogBuilder logBuilder) :
             base(
                 stepId: $"Serilog{nameof(InjectOutgoingBehavior)}",
                 behavior: typeof(InjectOutgoingBehavior),
                 description: "Injects a logger into the outgoing context",
-                factoryMethod: _ => new InjectOutgoingBehavior(logBuilder, useFullTypeName))
+                factoryMethod: _ => new InjectOutgoingBehavior(logBuilder))
         {
         }
     }

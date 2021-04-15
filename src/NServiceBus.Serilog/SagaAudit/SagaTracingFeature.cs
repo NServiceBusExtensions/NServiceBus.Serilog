@@ -1,5 +1,4 @@
-﻿using NServiceBus;
-using NServiceBus.Features;
+﻿using NServiceBus.Features;
 
 class SagaTracingFeature :
     Feature
@@ -12,9 +11,8 @@ class SagaTracingFeature :
 
     protected override void Setup(FeatureConfigurationContext context)
     {
-        var settings = context.Settings.TracingSettings();
         var pipeline = context.Pipeline;
-        pipeline.Register(new CaptureSagaStateBehavior.Registration(settings.useFullTypeName));
-        pipeline.Register(new CaptureSagaResultingBehavior.Registration(settings.useFullTypeName));
+        pipeline.Register(new CaptureSagaStateBehavior.Registration());
+        pipeline.Register(new CaptureSagaResultingBehavior.Registration());
     }
 }
