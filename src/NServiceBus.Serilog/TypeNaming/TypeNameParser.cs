@@ -1,4 +1,5 @@
 ﻿using System.Text;
+
 //https://github.com/dotnet/runtime/blob/main/src/mono/System.Private.CoreLib/src/System/TypeNameParser.cs
 static class TypeNameParser
 {
@@ -15,7 +16,7 @@ static class TypeNameParser
             pos++;
         }
 
-        var parsedName = new ParsedName();
+        ParsedName parsedName = new();
 
         var name_start = pos;
         var in_modifiers = false;
@@ -239,11 +240,11 @@ static class TypeNameParser
         return parsedName;
     }
 
-    static readonly char[] SPECIAL_CHARS = {',', '[', ']', '&', '*', '+', '\\'};
+    static readonly char[] SpecialChars = {',', '[', ']', '&', '*', '+', '\\'};
 
     static string UnescapeTypeName(string name)
     {
-        if (name.IndexOfAny(SPECIAL_CHARS) < 0)
+        if (name.IndexOfAny(SpecialChars) < 0)
         {
             return name;
         }
