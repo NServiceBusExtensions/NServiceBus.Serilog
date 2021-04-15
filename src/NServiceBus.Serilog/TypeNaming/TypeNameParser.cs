@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Text;
+﻿using System.Text;
 //https://github.com/dotnet/runtime/blob/main/src/mono/System.Private.CoreLib/src/System/TypeNameParser.cs
 static class TypeNameParser
 {
@@ -16,8 +15,7 @@ static class TypeNameParser
             pos++;
         }
 
-        var names = new List<string>();
-        var res = new ParsedName();
+        var parsedName = new ParsedName();
 
         var name_start = pos;
         var in_modifiers = false;
@@ -26,7 +24,7 @@ static class TypeNameParser
             switch (name[pos])
             {
                 case '+':
-                    names.Add(UnescapeTypeName(name.Substring(name_start, pos - name_start)));
+                    parsedName.Names.Add(UnescapeTypeName(name.Substring(name_start, pos - name_start)));
                     name_start = pos + 1;
                     break;
                 case '\\':
@@ -46,7 +44,7 @@ static class TypeNameParser
             pos++;
         }
 
-        names.Add(UnescapeTypeName(name.Substring(name_start, pos - name_start)));
+        parsedName.Names.Add(UnescapeTypeName(name.Substring(name_start, pos - name_start)));
 
         var isbyref = false;
         var isptr = false;
@@ -63,23 +61,13 @@ static class TypeNameParser
                     pos++;
                     isbyref = true;
                     isptr = false;
-                    if (res.Modifiers == null)
-                    {
-                        res.Modifiers = new List<int>();
-                    }
-
-                    res.Modifiers.Add(0);
+                    parsedName.Modifiers.Add(0);
                     break;
                 case '*':
                     if (isbyref)
                         return null;
                     pos++;
-                    if (res.Modifiers == null)
-                    {
-                        res.Modifiers = new List<int>();
-                    }
-
-                    res.Modifiers.Add(-1);
+                    parsedName.Modifiers.Add(-1);
                     isptr = true;
                     break;
                 case '[':
@@ -137,17 +125,12 @@ static class TypeNameParser
                         }
 
                         /* n.b. bounded needs both modifiers: -2 == bounded, 1 == rank 1 array */
-                        if (res.Modifiers == null)
-                        {
-                            res.Modifiers = new List<int>();
-                        }
-
                         if (bounded)
                         {
-                            res.Modifiers.Add(-2);
+                            parsedName.Modifiers.Add(-2);
                         }
 
-                        res.Modifiers.Add(rank);
+                        parsedName.Modifiers.Add(rank);
                     }
                     else
                     {
@@ -158,7 +141,6 @@ static class TypeNameParser
                         }
 
                         isptr = false;
-                        res.TypeArguments = new List<ParsedName>();
                         while (pos < name.Length)
                         {
                             while (pos < name.Length && name[pos] == ' ')
@@ -179,7 +161,7 @@ static class TypeNameParser
                                 return null;
                             }
 
-                            res.TypeArguments.Add(arg);
+                            parsedName.TypeArguments.Add(arg);
 
                             /*MS is lenient on [] delimited parameters that aren't fqn - and F# uses them.*/
                             if (fqname && pos < name.Length && name[pos] != ']')
@@ -261,7 +243,7 @@ static class TypeNameParser
                         return null;
                     }
 
-                    res.AssemblyName = name.Substring(pos);
+                    parsedName.AssemblyName = name.Substring(pos);
                     end = true;
                     break;
                 default:
@@ -275,8 +257,7 @@ static class TypeNameParser
         }
 
         end_pos = pos;
-        res.Names = names;
-        return res;
+        return parsedName;
     }
 
     static readonly char[] SPECIAL_CHARS = {',', '[', ']', '&', '*', '+', '\\'};

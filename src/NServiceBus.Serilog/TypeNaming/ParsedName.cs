@@ -2,18 +2,8 @@
 
 public sealed class ParsedName
 {
-    public List<string>? Names;
-    public List<ParsedName>? TypeArguments;
-
-    public List<int>? Modifiers
-    {
-        get => modifiers;
-        set
-        {
-            modifiers = value;
-        }
-    }
-
-    public string? AssemblyName;
-    private List<int>? modifiers;
+    public List<string> Names { get; } = new();
+    public List<ParsedName> TypeArguments { get; } = new();
+    public List<int> Modifiers { get; } = new();
+    public string? AssemblyName{ get; set; }
 }
