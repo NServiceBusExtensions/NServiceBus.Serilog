@@ -12,13 +12,17 @@ static class TypeNameParser
         end_pos = 0;
 
         while (pos < name.Length && name[pos] == ' ')
+        {
             pos++;
+        }
 
-        var res = new ParsedName() {Names = new List<string>()};
+        var res = new ParsedName
+        {
+            Names = new List<string>()
+        };
 
-        int start = pos;
-        int name_start = pos;
-        bool in_modifiers = false;
+        var name_start = pos;
+        var in_modifiers = false;
         while (pos < name.Length)
         {
             switch (name[pos])
@@ -37,8 +41,6 @@ static class TypeNameParser
                 case ']':
                     in_modifiers = true;
                     break;
-                default:
-                    break;
             }
 
             if (in_modifiers)
@@ -48,11 +50,11 @@ static class TypeNameParser
 
         res.Names.Add(UnescapeTypeName(name.Substring(name_start, pos - name_start)));
 
-        bool isbyref = false;
-        bool isptr = false;
-        int rank = -1;
+        var isbyref = false;
+        var isptr = false;
+        var rank = -1;
 
-        bool end = false;
+        var end = false;
         while (pos < name.Length && !end)
         {
             switch (name[pos])
@@ -64,7 +66,10 @@ static class TypeNameParser
                     isbyref = true;
                     isptr = false;
                     if (res.Modifiers == null)
+                    {
                         res.Modifiers = new List<int>();
+                    }
+
                     res.Modifiers.Add(0);
                     break;
                 case '*':
@@ -72,7 +77,10 @@ static class TypeNameParser
                         return null;
                     pos++;
                     if (res.Modifiers == null)
+                    {
                         res.Modifiers = new List<int>();
+                    }
+
                     res.Modifiers.Add(-1);
                     isptr = true;
                     break;
@@ -87,75 +95,124 @@ static class TypeNameParser
                     if (name[pos] == ',' || name[pos] == '*' || name[pos] == ']')
                     {
                         // Array
-                        bool bounded = false;
+                        var bounded = false;
                         isptr = false;
                         rank = 1;
                         while (pos < name.Length)
                         {
                             if (name[pos] == ']')
+                            {
                                 break;
+                            }
+
                             if (name[pos] == ',')
+                            {
                                 rank++;
+                            }
                             else if (name[pos] == '*') /* '*' means unknown lower bound */
+                            {
                                 bounded = true;
+                            }
                             else
+                            {
                                 return null;
+                            }
+
                             pos++;
                         }
 
                         if (pos == name.Length)
+                        {
                             return null;
+                        }
+
                         if (name[pos] != ']')
+                        {
                             return null;
+                        }
+
                         pos++;
                         /* bounded only allowed when rank == 1 */
                         if (bounded && rank > 1)
+                        {
                             return null;
+                        }
+
                         /* n.b. bounded needs both modifiers: -2 == bounded, 1 == rank 1 array */
                         if (res.Modifiers == null)
+                        {
                             res.Modifiers = new List<int>();
+                        }
+
                         if (bounded)
+                        {
                             res.Modifiers.Add(-2);
+                        }
+
                         res.Modifiers.Add(rank);
                     }
                     else
                     {
                         // Generic args
                         if (rank > 0 || isptr)
+                        {
                             return null;
+                        }
+
                         isptr = false;
                         res.TypeArguments = new List<ParsedName>();
                         while (pos < name.Length)
                         {
                             while (pos < name.Length && name[pos] == ' ')
+                            {
                                 pos++;
-                            bool fqname = false;
+                            }
+
+                            var fqname = false;
                             if (pos < name.Length && name[pos] == '[')
                             {
                                 pos++;
                                 fqname = true;
                             }
 
-                            ParsedName? arg = ParseName(name, true, pos, out pos);
+                            var arg = ParseName(name, true, pos, out pos);
                             if (arg == null)
+                            {
                                 return null;
+                            }
+
                             res.TypeArguments.Add(arg);
 
                             /*MS is lenient on [] delimited parameters that aren't fqn - and F# uses them.*/
                             if (fqname && pos < name.Length && name[pos] != ']')
                             {
                                 if (name[pos] != ',')
+                                {
                                     return null;
+                                }
+
                                 pos++;
-                                int aname_start = pos;
+                                var aname_start = pos;
                                 while (pos < name.Length && name[pos] != ']')
+                                {
                                     pos++;
+                                }
+
                                 if (pos == name.Length)
+                                {
                                     return null;
+                                }
+
                                 while (char.IsWhiteSpace(name[aname_start]))
+                                {
                                     aname_start++;
+                                }
+
                                 if (aname_start == pos)
+                                {
                                     return null;
+                                }
+
                                 arg.AssemblyName = name.Substring(aname_start, pos - aname_start);
                                 pos++;
                             }
@@ -169,8 +226,11 @@ static class TypeNameParser
                                 pos++;
                                 break;
                             }
-                            else if (pos == name.Length)
+
+                            if (pos == name.Length)
+                            {
                                 return null;
+                            }
 
                             pos++;
                         }
@@ -194,9 +254,15 @@ static class TypeNameParser
 
                     pos++;
                     while (pos < name.Length && char.IsWhiteSpace(name[pos]))
+                    {
                         pos++;
+                    }
+
                     if (pos == name.Length)
+                    {
                         return null;
+                    }
+
                     res.AssemblyName = name.Substring(pos);
                     end = true;
                     break;
@@ -205,37 +271,35 @@ static class TypeNameParser
             }
 
             if (end)
+            {
                 break;
+            }
         }
 
         end_pos = pos;
         return res;
     }
 
-    private static readonly char[] SPECIAL_CHARS = {',', '[', ']', '&', '*', '+', '\\'};
+    static readonly char[] SPECIAL_CHARS = {',', '[', ']', '&', '*', '+', '\\'};
 
-    private static string UnescapeTypeName(string name)
+    static string UnescapeTypeName(string name)
     {
         if (name.IndexOfAny(SPECIAL_CHARS) < 0)
-            return name;
-
-        var sb = new StringBuilder(name.Length - 1);
-        for (int i = 0; i < name.Length; ++i)
         {
-            if (name[i] == '\\' && i + 1 < name.Length)
-                i++;
-            sb.Append(name[i]);
+            return name;
         }
 
-        return sb.ToString();
+        StringBuilder builder = new(name.Length - 1);
+        for (var i = 0; i < name.Length; ++i)
+        {
+            if (name[i] == '\\' && i + 1 < name.Length)
+            {
+                i++;
+            }
+
+            builder.Append(name[i]);
+        }
+
+        return builder.ToString();
     }
-
-}
-
-public sealed class ParsedName
-{
-    public List<string>? Names;
-    public List<ParsedName>? TypeArguments;
-    public List<int>? Modifiers;
-    public string? AssemblyName;
 }
