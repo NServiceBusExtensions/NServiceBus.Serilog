@@ -43,10 +43,7 @@ class CaptureSagaStateBehavior :
         if (context.Extensions.TryGet(out ActiveSagaInstance activeSagaInstance))
         {
             var sagaType = activeSagaInstance.Instance.GetType().Name;
-                sagaType = TypeNameConverter.GetName(sagaType);
-
             sagaAudit.SagaType = sagaType;
-
             sagaAudit.FinishTime = DateTimeOffset.UtcNow;
             AuditSaga(activeSagaInstance, context, sagaAudit);
         }
