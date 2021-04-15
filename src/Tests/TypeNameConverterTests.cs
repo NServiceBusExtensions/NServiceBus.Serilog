@@ -1,6 +1,6 @@
-﻿using NServiceBus.Serilog;
-using VerifyXunit;
+﻿using VerifyXunit;
 using Xunit;
+using TypeNameConverter = NServiceBus.Serilog.TypeNameConverter;
 
 [UsesVerify]
 public class TypeNameConverterTests
