@@ -84,8 +84,7 @@ class CaptureSagaStateBehavior :
         };
 
         var logger = context.Logger();
-        var messageType = context.MessageType();
-        messageType = TypeNameConverter.GetName(messageType);
+        var messageType = TypeNameConverter.GetName(context.MessageType());
 
         Dictionary<ScalarValue, LogEventPropertyValue> initiator = new()
         {

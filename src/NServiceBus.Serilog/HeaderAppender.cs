@@ -44,7 +44,6 @@ static class HeaderAppender
             if (key == Headers.OriginatingSagaType)
             {
                 value = TypeNameConverter.GetName(value);
-
                 yield return new(nameof(Headers.OriginatingSagaType), new ScalarValue(value));
                 continue;
             }
