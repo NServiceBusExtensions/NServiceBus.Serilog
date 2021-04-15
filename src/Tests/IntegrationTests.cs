@@ -57,6 +57,17 @@ public class IntegrationTests
     }
 
     [Fact]
+    public async Task GenericHandler()
+    {
+        var events = await Send(
+            new StartGenericHandler<string>
+            {
+                Property = "TheProperty"
+            });
+        await Verify<StartGenericHandler<string>>(events);
+    }
+
+    [Fact]
     public async Task WithCustomHeader()
     {
         var events = await Send(
