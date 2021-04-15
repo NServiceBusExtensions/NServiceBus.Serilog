@@ -16,10 +16,8 @@ static class TypeNameParser
             pos++;
         }
 
-        var res = new ParsedName
-        {
-            Names = new List<string>()
-        };
+        var names = new List<string>();
+        var res = new ParsedName();
 
         var name_start = pos;
         var in_modifiers = false;
@@ -28,7 +26,7 @@ static class TypeNameParser
             switch (name[pos])
             {
                 case '+':
-                    res.Names.Add(UnescapeTypeName(name.Substring(name_start, pos - name_start)));
+                    names.Add(UnescapeTypeName(name.Substring(name_start, pos - name_start)));
                     name_start = pos + 1;
                     break;
                 case '\\':
@@ -48,7 +46,7 @@ static class TypeNameParser
             pos++;
         }
 
-        res.Names.Add(UnescapeTypeName(name.Substring(name_start, pos - name_start)));
+        names.Add(UnescapeTypeName(name.Substring(name_start, pos - name_start)));
 
         var isbyref = false;
         var isptr = false;
@@ -277,6 +275,7 @@ static class TypeNameParser
         }
 
         end_pos = pos;
+        res.Names = names;
         return res;
     }
 
