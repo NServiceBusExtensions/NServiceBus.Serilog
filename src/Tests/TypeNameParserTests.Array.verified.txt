@@ -1,7 +1,9 @@
 ﻿{
   name: {
     Names: [
-      Int32
+      {
+        Name: Int32
+      }
     ],
     Modifiers: [
       1
@@ -9,7 +11,10 @@
   },
   fullName: {
     Names: [
-      System.Int32
+      {
+        Namespace: System,
+        Name: Int32
+      }
     ],
     Modifiers: [
       1
@@ -17,7 +22,10 @@
   },
   assemblyQualifiedName: {
     Names: [
-      System.Int32
+      {
+        Namespace: System,
+        Name: Int32
+      }
     ],
     Modifiers: [
       1

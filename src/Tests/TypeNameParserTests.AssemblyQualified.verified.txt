@@ -1,5 +1,8 @@
 ﻿{
   Names: [
-    Namespace.TheName
+    {
+      Namespace: Namespace,
+      Name: TheName
+    }
   ]
 }

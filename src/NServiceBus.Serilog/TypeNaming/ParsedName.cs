@@ -1,9 +1,21 @@
 ﻿using System.Collections.Generic;
 
-public sealed class ParsedName
+sealed class ParsedName
 {
-    public List<string> Names { get; } = new();
+    public List<TypeName> Names { get; } = new();
     public List<ParsedName> TypeArguments { get; } = new();
     public List<int> Modifiers { get; } = new();
     public string? AssemblyName{ get; set; }
+}
+
+class TypeName
+{
+    public string? Namespace { get; }
+    public string Name { get; }
+
+    public TypeName(string? @namespace, string name)
+    {
+        Namespace = @namespace;
+        Name = name;
+    }
 }

@@ -1,17 +1,25 @@
 ﻿{
   name: {
     Names: [
-      List`1
+      {
+        Name: List`1
+      }
     ]
   },
   fullName: {
     Names: [
-      System.Collections.Generic.List`1
+      {
+        Namespace: System.Collections.Generic,
+        Name: List`1
+      }
     ],
     TypeArguments: [
       {
         Names: [
-          System.Int32
+          {
+            Namespace: System,
+            Name: Int32
+          }
         ],
         AssemblyName: System.Private.CoreLib, Version=5.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e
       }
@@ -19,12 +27,18 @@
   },
   assemblyQualifiedName: {
     Names: [
-      System.Collections.Generic.List`1
+      {
+        Namespace: System.Collections.Generic,
+        Name: List`1
+      }
     ],
     TypeArguments: [
       {
         Names: [
-          System.Int32
+          {
+            Namespace: System,
+            Name: Int32
+          }
         ],
         AssemblyName: System.Private.CoreLib, Version=5.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e
       }

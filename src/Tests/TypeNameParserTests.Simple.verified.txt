@@ -1,5 +1,7 @@
 ﻿{
   Names: [
-    TheName
+    {
+      Name: TheName
+    }
   ]
 }

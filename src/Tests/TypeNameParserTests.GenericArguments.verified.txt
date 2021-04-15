@@ -1,7 +1,9 @@
 ﻿{
   name: {
     Names: [
-      T
+      {
+        Name: T
+      }
     ]
   }
 }

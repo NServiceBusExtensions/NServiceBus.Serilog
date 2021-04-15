@@ -25,7 +25,7 @@ static class TypeNameParser
             switch (name[pos])
             {
                 case '+':
-                    parsedName.Names.Add(UnescapeTypeName(name.Substring(name_start, pos - name_start)));
+                    parsedName.Names.Add(BuildTypeName(name.Substring(name_start, pos - name_start)));
                     name_start = pos + 1;
                     break;
                 case '\\':
@@ -45,7 +45,7 @@ static class TypeNameParser
             pos++;
         }
 
-        parsedName.Names.Add(UnescapeTypeName(name.Substring(name_start, pos - name_start)));
+        parsedName.Names.Add(BuildTypeName(name.Substring(name_start, pos - name_start)));
 
         var isbyref = false;
         var isPointer = false;
@@ -241,6 +241,33 @@ static class TypeNameParser
     }
 
     static readonly char[] SpecialChars = {',', '[', ']', '&', '*', '+', '\\'};
+
+    static TypeName BuildTypeName(string name)
+    {
+        var unescapeName = UnescapeTypeName(name);
+        var dotIndex = unescapeName.LastIndexOf('.');
+
+        string? ns;
+        string typeName;
+        if (dotIndex == -1)
+        {
+            ns = null;
+            typeName = name;
+        }
+        else
+        {
+            ns = name.Substring(0, dotIndex);
+            typeName = name.Substring(dotIndex + 1, name.Length - dotIndex - 1);
+        }
+
+        var indexOfGenericDelimiter = typeName.IndexOf('`');
+        if (indexOfGenericDelimiter != -1)
+        {
+            typeName = typeName.Substring(0, indexOfGenericDelimiter);
+        }
+
+        return new TypeName(ns,typeName);
+    }
 
     static string UnescapeTypeName(string name)
     {

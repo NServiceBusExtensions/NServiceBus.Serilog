@@ -1,6 +1,10 @@
 ﻿{
   Names: [
-    Interop,
-    Kernel32
+    {
+      Name: Interop
+    },
+    {
+      Name: Kernel32
+    }
   ]
 }

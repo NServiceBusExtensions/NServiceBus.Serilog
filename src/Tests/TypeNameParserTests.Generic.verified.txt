@@ -1,11 +1,17 @@
 ﻿{
   Names: [
-    Namespace.MyMessage`1
+    {
+      Namespace: Namespace,
+      Name: MyMessage`1
+    }
   ],
   TypeArguments: [
     {
       Names: [
-        System.Int32
+        {
+          Namespace: System,
+          Name: Int32
+        }
       ]
     }
   ]

@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Concurrent;
+using System.Linq;
+using System.Text;
 
 namespace NServiceBus.Serilog
 {
@@ -15,32 +17,34 @@ namespace NServiceBus.Serilog
         /// </summary>
         public static string GetName(string longName)
         {
-            return longNameToNameCache.GetOrAdd(longName, Inner);
+            return longNameToNameCache.GetOrAdd(longName, FormatForDisplay);
         }
 
-        static string Inner(string longName)
+        static string FormatForDisplay(string longName)
         {
-            try
-            {
-                var name = longName;
-                var commaIndex = name.IndexOf(',');
-                if (commaIndex > -1)
-                {
-                    name = name.Substring(0, commaIndex);
-                }
+            var parsedName = TypeNameParser.ParseName(longName,0,out _);
+            StringBuilder builder = new();
+            FormatForDisplay(parsedName!,builder);
+            builder.Remove(0, 1);
+            builder.Remove(builder.Length-1, 1);
+            var formatForDisplay = builder.ToString();
+            return formatForDisplay;
+        }
 
-                var dotIndex = name.IndexOf('.');
-                if (dotIndex > -1)
-                {
-                    name = name.Substring(dotIndex+1, name.Length - dotIndex -1);
-                }
-
-                return name;
-            }
-            catch (Exception exception)
+        static void FormatForDisplay(ParsedName name, StringBuilder builder)
+        {
+            builder.Append($"<{name.Names.First().Name}");
+            foreach (var typeName in name.Names.Skip(1))
             {
-                throw new($"Could not convert to short type name. longName: {longName}", exception);
+                builder.Append($"+{typeName.Name}");
             }
+
+            foreach (var typeArgument in name.TypeArguments)
+            {
+                FormatForDisplay(typeArgument, builder);
+            }
+
+            builder.Append(">");
         }
     }
 }
