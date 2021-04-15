@@ -19,7 +19,7 @@ static class TypeNameParser
         ParsedName parsedName = new();
 
         var name_start = pos;
-        var in_modifiers = false;
+        var inModifiers = false;
         while (pos < name.Length)
         {
             switch (name[pos])
@@ -36,11 +36,11 @@ static class TypeNameParser
                 case '[':
                 case ',':
                 case ']':
-                    in_modifiers = true;
+                    inModifiers = true;
                     break;
             }
 
-            if (in_modifiers)
+            if (inModifiers)
                 break;
             pos++;
         }
