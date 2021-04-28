@@ -1,0 +1,16 @@
+version: 2
+updates:
+- package-ecosystem: nuget
+  directory: "/src"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: MarkdownSnippets.MsBuild
+    versions:
+    - 23.1.1
+  - dependency-name: Verify.Xunit
+    versions:
+    - 10.7.0
+    - 10.9.0
+    - 11.0.3
