@@ -25,12 +25,9 @@ public class LogEventEx
         {
             if (Properties.TryGetValue("SourceContext", out var sourceContext))
             {
-                if (sourceContext is ScalarValue scalarValue)
+                if (sourceContext is ScalarValue {Value: string temp})
                 {
-                    if (scalarValue.Value is string temp)
-                    {
-                        return temp;
-                    }
+                    return temp;
                 }
             }
 

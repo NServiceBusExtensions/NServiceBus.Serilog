@@ -12,7 +12,7 @@ class LogIncomingBehavior :
     ConvertHeader convertHeader;
     static MessageTemplate messageTemplate;
 
-    public LogIncomingBehavior(ConvertHeader convertHeader)
+    LogIncomingBehavior(ConvertHeader convertHeader)
     {
         this.convertHeader = convertHeader;
     }

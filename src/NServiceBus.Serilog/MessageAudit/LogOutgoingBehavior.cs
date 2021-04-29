@@ -14,7 +14,7 @@ class LogOutgoingBehavior :
     ConvertHeader convertHeader;
     MessageTemplate messageTemplate;
 
-    public LogOutgoingBehavior(ConvertHeader convertHeader)
+    LogOutgoingBehavior(ConvertHeader convertHeader)
     {
         this.convertHeader = convertHeader;
         MessageTemplateParser templateParser = new();

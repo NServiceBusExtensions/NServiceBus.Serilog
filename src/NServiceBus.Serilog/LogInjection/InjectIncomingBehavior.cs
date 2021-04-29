@@ -12,7 +12,7 @@ class InjectIncomingBehavior :
     LogBuilder logBuilder;
     string endpoint;
 
-    public InjectIncomingBehavior(LogBuilder logBuilder, string endpoint)
+    InjectIncomingBehavior(LogBuilder logBuilder, string endpoint)
     {
         this.logBuilder = logBuilder;
         this.endpoint = endpoint;

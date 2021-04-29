@@ -14,7 +14,7 @@ class CaptureSagaStateBehavior :
 {
     MessageTemplate messageTemplate;
 
-    public CaptureSagaStateBehavior()
+    CaptureSagaStateBehavior()
     {
         MessageTemplateParser templateParser = new();
         messageTemplate = templateParser.Parse("Saga execution {SagaType} {SagaId}.");

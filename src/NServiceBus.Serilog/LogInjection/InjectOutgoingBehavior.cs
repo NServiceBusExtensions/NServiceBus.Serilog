@@ -12,7 +12,7 @@ class InjectOutgoingBehavior :
 {
     LogBuilder logBuilder;
 
-    public InjectOutgoingBehavior(LogBuilder logBuilder)
+    InjectOutgoingBehavior(LogBuilder logBuilder)
     {
         this.logBuilder = logBuilder;
     }
