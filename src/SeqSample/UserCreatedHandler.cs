@@ -6,7 +6,7 @@ public class UserCreatedHandler :
 {
     public Task Handle(UserCreated message, IMessageHandlerContext context)
     {
-        context.Logger().Information("Hello from {@Handler}", nameof(UserCreatedHandler));
+        context.LogInformation("Hello from {@Handler}", nameof(UserCreatedHandler));
         return Task.CompletedTask;
     }
 }

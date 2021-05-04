@@ -14,8 +14,7 @@ public class GenericHandler :
 
     public Task Handle(StartGenericHandler<string> message, IMessageHandlerContext context)
     {
-        var logger = context.Logger();
-        logger.Information("Hello from {@Handler}.");
+        context.LogInformation("Hello from {@Handler}.");
         resetEvent.Set();
         return Task.CompletedTask;
     }

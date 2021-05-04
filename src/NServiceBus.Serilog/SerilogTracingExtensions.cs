@@ -8,7 +8,7 @@ namespace NServiceBus
     /// <summary>
     /// Extensions to enable and configure Serilog Tracing.
     /// </summary>
-    public static class SerilogTracingExtensions
+    public static partial class SerilogTracingExtensions
     {
         /// <summary>
         /// Enable Serilog Tracing for this endpoint using <see cref="Log.Logger"/> as the logging target.

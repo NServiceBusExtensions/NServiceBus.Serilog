@@ -24,8 +24,7 @@ public class TheSaga :
 
     public Task Handle(StartSaga message, IMessageHandlerContext context)
     {
-        var logger = context.Logger();
-        logger.Information("Hello from {@Saga}. Message: {@Message}", nameof(TheSaga), message);
+        context.LogInformation("Hello from {@Saga}. Message: {@Message}", nameof(TheSaga), message);
         BackIntoSaga backIntoSaga = new()
         {
             Property = message.Property
@@ -35,8 +34,7 @@ public class TheSaga :
 
     public Task Handle(BackIntoSaga message, IMessageHandlerContext context)
     {
-        var logger = context.Logger();
-        logger.Information("Hello from {@Saga}. Message: {@Message}", nameof(TheSaga), message);
+        context.LogInformation("Hello from {@Saga}. Message: {@Message}", nameof(TheSaga), message);
         MarkAsComplete();
         resetEvent.Set();
         return Task.CompletedTask;

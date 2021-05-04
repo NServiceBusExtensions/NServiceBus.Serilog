@@ -16,7 +16,7 @@ public class CreateUserSaga :
     public Task Handle(CreateUser message, IMessageHandlerContext context)
     {
         Data.UserName = message.UserName;
-        context.Logger().Information("User created. Message: {@Message}", message);
+        context.LogInformation("User created. Message: {@Message}", message);
         UserCreated userCreated = new()
         {
             UserName = message.UserName
@@ -29,7 +29,7 @@ public class CreateUserSaga :
 
     public Task Timeout(SagaTimeout state, IMessageHandlerContext context)
     {
-        context.Logger().Information("Timeout received");
+        context.LogInformation("Timeout received");
         return Task.CompletedTask;
     }
 }

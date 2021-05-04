@@ -197,13 +197,12 @@ public class SimpleHandler :
 {
     public Task Handle(TheMessage message, IMessageHandlerContext context)
     {
-        var logger = context.Logger();
-        logger.Information("Hello from {@Handler}.");
+        context.LogInformation("Hello from {@Handler}.");
         return Task.CompletedTask;
     }
 }
 ```
-<sup><a href='/src/Tests/Snippets/ContextualLoggerUsage.cs#L4-L16' title='Snippet source file'>snippet source</a> | <a href='#snippet-contextualloggerusage' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Snippets/ContextualLoggerUsage.cs#L4-L15' title='Snippet source file'>snippet source</a> | <a href='#snippet-contextualloggerusage' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 

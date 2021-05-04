@@ -6,7 +6,7 @@ public class CreateUserHandler :
 {
     public Task Handle(CreateUser message, IMessageHandlerContext context)
     {
-        context.Logger().Information("Hello from {@Handler}.", nameof(CreateUserHandler));
+        context.LogInformation("Hello from {@Handler}.", nameof(CreateUserHandler));
         return Task.FromResult(0);
     }
 }
