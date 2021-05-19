@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using NServiceBus;
 using NServiceBus.Pipeline;
 using NServiceBus.Serilog;
+using Serilog;
 using Serilog.Core.Enrichers;
 
 class InjectIncomingBehavior :
@@ -12,7 +14,7 @@ class InjectIncomingBehavior :
     LogBuilder logBuilder;
     string endpoint;
 
-    InjectIncomingBehavior(LogBuilder logBuilder, string endpoint)
+    public InjectIncomingBehavior(LogBuilder logBuilder, string endpoint)
     {
         this.logBuilder = logBuilder;
         this.endpoint = endpoint;
@@ -34,24 +36,36 @@ class InjectIncomingBehavior :
 
     public override async Task Invoke(IIncomingPhysicalMessageContext context, Func<Task> next)
     {
-        string messageTypeName;
-        var headers = context.MessageHeaders;
-        if (headers.TryGetValue(Headers.EnclosedMessageTypes, out var messageType))
+        List<PropertyEnricher> properties = new()
         {
-            messageTypeName = TypeNameConverter.GetName(messageType);
+            new("IncomingMessageId", context.MessageId)
+        };
+
+        ILogger logger;
+        var headers = context.MessageHeaders;
+        if (headers.TryGetValue(Headers.EnclosedMessageTypes, out var enclosedMessageTypes))
+        {
+            var split = enclosedMessageTypes.Split(';');
+            if (split.Length == 1)
+            {
+                var messageTypeName = TypeNameConverter.GetName(split[0]);
+                properties.Add(new("IncomingMessageType", messageTypeName));
+                logger = logBuilder.GetLogger(messageTypeName);
+            }
+            else
+            {
+                var names = split.Select(TypeNameConverter.GetName).ToList();
+                properties.Add(new("IncomingMessageTypes", names));
+                var messageTypeName = string.Join(";", names);
+                logger = logBuilder.GetLogger(messageTypeName);
+            }
         }
         else
         {
-            messageTypeName = "UnknownMessageType";
+            properties.Add(new("IncomingMessageType", "UnknownMessageType"));
+
+            logger = logBuilder.GetLogger("UnknownMessageType");
         }
-
-        var logger = logBuilder.GetLogger(messageTypeName);
-        List<PropertyEnricher> properties = new()
-        {
-            new("IncomingMessageId", context.MessageId),
-            new("IncomingMessageType", messageTypeName)
-        };
-
 
         if (headers.TryGetValue(Headers.CorrelationId, out var correlationId))
         {
