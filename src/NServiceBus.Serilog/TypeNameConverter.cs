@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Concurrent;
+using System.Reflection;
 using System.Text;
 
 namespace NServiceBus.Serilog
@@ -30,7 +31,18 @@ namespace NServiceBus.Serilog
 
         static string FormatForDisplay(string typeName)
         {
-            var type = Type.GetType(typeName);
+            var type = Type.GetType(
+                typeName,
+                assemblyResolver: name => Assembly.Load(name.Name),
+                typeResolver: (assembly, name, ignoreCase) =>
+                {
+                    if (assembly is null)
+                    {
+                        return Type.GetType(typeName, false);
+                    }
+
+                    return assembly.GetType(name, false, ignoreCase);
+                });
             if (type == null)
             {
                 return typeName;

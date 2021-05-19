@@ -27,6 +27,7 @@ public class TypeNameConverterTests
     public void AssemblyQualified()
     {
         Assert.Equal("TheClass", TypeNameConverter.GetName("Namespace.TheClass, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6"));
+        Assert.Equal("TheClass", TypeNameConverter.GetName("Namespace.TheClass, Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6"));
     }
 
     [Fact]
