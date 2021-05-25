@@ -33,7 +33,17 @@ namespace NServiceBus.Serilog
         {
             var type = Type.GetType(
                 typeName,
-                assemblyResolver: name => Assembly.Load(name.Name),
+                assemblyResolver: name =>
+                {
+                    try
+                    {
+                        return Assembly.Load(name.Name);
+                    }
+                    catch
+                    {
+                        return null;
+                    }
+                },
                 typeResolver: (assembly, name, ignoreCase) =>
                 {
                     if (assembly is null)
@@ -45,6 +55,18 @@ namespace NServiceBus.Serilog
                 });
             if (type == null)
             {
+                var indexOfComma = typeName.IndexOf(',');
+                if (indexOfComma > -1)
+                {
+                    typeName = typeName.Substring(0, indexOfComma);
+                }
+
+                var indexOfPeriod = typeName.IndexOf('.');
+                if (indexOfPeriod > -1)
+                {
+                    typeName = typeName.Substring(indexOfPeriod + 1);
+                }
+
                 return typeName;
             }
 

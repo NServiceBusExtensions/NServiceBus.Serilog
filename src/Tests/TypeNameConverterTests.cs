@@ -14,7 +14,7 @@ public class TypeNameConverterTests
     [Fact]
     public void NameAndNamespace()
     {
-        Assert.Equal("Namespace.TheClass", TypeNameConverter.GetName("Namespace.TheClass"));
+        Assert.Equal("TheClass", TypeNameConverter.GetName("Namespace.TheClass"));
     }
 
     [Fact]
@@ -28,6 +28,7 @@ public class TypeNameConverterTests
     {
         Assert.Equal("TheClass", TypeNameConverter.GetName("Namespace.TheClass, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6"));
         Assert.Equal("TheClass", TypeNameConverter.GetName("Namespace.TheClass, Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6"));
+        Assert.Equal("TheClass", TypeNameConverter.GetName("Namespace.TheClass, Foo, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6"));
     }
 
     [Fact]
