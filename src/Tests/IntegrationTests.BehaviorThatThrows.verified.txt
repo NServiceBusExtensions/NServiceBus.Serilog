@@ -1,0 +1,180 @@
+﻿{
+  logsForTarget: [
+    {
+      MessageTemplate: Sent message {OutgoingMessageType} {OutgoingMessageId}.,
+      Level: Information,
+      Properties: {
+        OutgoingMessage: {
+          TypeTag: StartBehaviorThatThrows,
+          Properties: [
+            {
+              Property: TheProperty
+            }
+          ]
+        },
+        UnicastRoutes: {
+          Elements: [
+            SerilogTestsStartBehaviorThatThrows
+          ]
+        },
+        OriginatingHostId: Guid_1,
+        MessageIntent: Send,
+        OriginatingEndpoint: SerilogTestsStartBehaviorThatThrows,
+        OriginatingMachine: TheMachineName,
+        ReplyToAddress: SerilogTestsStartBehaviorThatThrows,
+        OutgoingMessageId: Guid_2,
+        OutgoingMessageType: StartBehaviorThatThrows,
+        CorrelationId: Guid_2,
+        ConversationId: Guid_3,
+        SourceContext: StartBehaviorThatThrows,
+        ProcessingEndpoint: SerilogTestsStartBehaviorThatThrows
+      }
+    }
+  ],
+  logsWithExceptions: [
+    {
+      MessageTemplate: Immediate Retry is going to retry message '00000000-0000-0000-0000-000000000001' because of an exception:,
+      Level: Information,
+      Properties: {
+        IncomingMessageId: Guid_2,
+        IncomingTransportMessageId: Guid_4,
+        ProcessingEndpoint: SerilogTestsStartBehaviorThatThrows,
+        CorrelationId: Guid_2,
+        ConversationId: Guid_3,
+        IncomingHeaders: {
+          Elements: {
+            "NServiceBus.MessageId": Guid_2,
+            "NServiceBus.MessageIntent": Send,
+            "NServiceBus.ConversationId": Guid_3,
+            "NServiceBus.CorrelationId": Guid_2,
+            "NServiceBus.ReplyToAddress": SerilogTestsStartBehaviorThatThrows,
+            "NServiceBus.OriginatingMachine": TheMachineName,
+            "NServiceBus.OriginatingEndpoint": SerilogTestsStartBehaviorThatThrows,
+            "$.diagnostics.originating.hostid": Guid_1,
+            "NServiceBus.ContentType": text/xml,
+            "NServiceBus.EnclosedMessageTypes": StartBehaviorThatThrows, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
+            "NServiceBus.Version": NsbVersion,
+          }
+        },
+        SourceContext: NServiceBus.RecoverabilityExecutor,
+        ExceptionDetail: {
+          Elements: {
+            "Type": System.Exception,
+            "HResult": -2146233088,
+            "Message": The Exception,
+            "Source": Tests
+          }
+        }
+      }
+    },
+    {
+      MessageTemplate: Delayed Retry will reschedule message '00000000-0000-0000-0000-000000000001' after a delay of 00:00:00.0010000 because of an exception:,
+      Level: Warning,
+      Properties: {
+        IncomingMessageId: Guid_2,
+        IncomingTransportMessageId: Guid_4,
+        ProcessingEndpoint: SerilogTestsStartBehaviorThatThrows,
+        CorrelationId: Guid_2,
+        ConversationId: Guid_3,
+        IncomingHeaders: {
+          Elements: {
+            "NServiceBus.MessageId": Guid_2,
+            "NServiceBus.MessageIntent": Send,
+            "NServiceBus.ConversationId": Guid_3,
+            "NServiceBus.CorrelationId": Guid_2,
+            "NServiceBus.ReplyToAddress": SerilogTestsStartBehaviorThatThrows,
+            "NServiceBus.OriginatingMachine": TheMachineName,
+            "NServiceBus.OriginatingEndpoint": SerilogTestsStartBehaviorThatThrows,
+            "$.diagnostics.originating.hostid": Guid_1,
+            "NServiceBus.ContentType": text/xml,
+            "NServiceBus.EnclosedMessageTypes": StartBehaviorThatThrows, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
+            "NServiceBus.Version": NsbVersion,
+          }
+        },
+        SourceContext: NServiceBus.RecoverabilityExecutor,
+        ExceptionDetail: {
+          Elements: {
+            "Type": System.Exception,
+            "HResult": -2146233088,
+            "Message": The Exception,
+            "Source": Tests
+          }
+        }
+      }
+    },
+    {
+      MessageTemplate: Immediate Retry is going to retry message '00000000-0000-0000-0000-000000000001' because of an exception:,
+      Level: Information,
+      Properties: {
+        IncomingMessageId: Guid_2,
+        IncomingTransportMessageId: Guid_5,
+        ProcessingEndpoint: SerilogTestsStartBehaviorThatThrows,
+        CorrelationId: Guid_2,
+        ConversationId: Guid_3,
+        IncomingHeaders: {
+          Elements: {
+            "NServiceBus.MessageId": Guid_2,
+            "NServiceBus.MessageIntent": Send,
+            "NServiceBus.ConversationId": Guid_3,
+            "NServiceBus.CorrelationId": Guid_2,
+            "NServiceBus.ReplyToAddress": SerilogTestsStartBehaviorThatThrows,
+            "NServiceBus.OriginatingMachine": TheMachineName,
+            "NServiceBus.OriginatingEndpoint": SerilogTestsStartBehaviorThatThrows,
+            "$.diagnostics.originating.hostid": Guid_1,
+            "NServiceBus.ContentType": text/xml,
+            "NServiceBus.EnclosedMessageTypes": StartBehaviorThatThrows, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
+            "NServiceBus.Version": NsbVersion,
+            "NServiceBus.Retries": 1,
+            "NServiceBus.Retries.Timestamp": DateTime_2
+          }
+        },
+        SourceContext: NServiceBus.RecoverabilityExecutor,
+        ExceptionDetail: {
+          Elements: {
+            "Type": System.Exception,
+            "HResult": -2146233088,
+            "Message": The Exception,
+            "Source": Tests
+          }
+        }
+      }
+    },
+    {
+      MessageTemplate: Moving message '00000000-0000-0000-0000-000000000001' to the error queue 'error' because processing failed due to an exception:,
+      Level: Error,
+      Properties: {
+        IncomingMessageId: Guid_2,
+        IncomingTransportMessageId: Guid_5,
+        ProcessingEndpoint: SerilogTestsStartBehaviorThatThrows,
+        CorrelationId: Guid_2,
+        ConversationId: Guid_3,
+        IncomingHeaders: {
+          Elements: {
+            "NServiceBus.MessageId": Guid_2,
+            "NServiceBus.MessageIntent": Send,
+            "NServiceBus.ConversationId": Guid_3,
+            "NServiceBus.CorrelationId": Guid_2,
+            "NServiceBus.ReplyToAddress": SerilogTestsStartBehaviorThatThrows,
+            "NServiceBus.OriginatingMachine": TheMachineName,
+            "NServiceBus.OriginatingEndpoint": SerilogTestsStartBehaviorThatThrows,
+            "$.diagnostics.originating.hostid": Guid_1,
+            "NServiceBus.ContentType": text/xml,
+            "NServiceBus.EnclosedMessageTypes": StartBehaviorThatThrows, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
+            "NServiceBus.Version": NsbVersion,
+            "NServiceBus.Retries": 1,
+            "NServiceBus.Retries.Timestamp": DateTime_2
+          }
+        },
+        SourceContext: NServiceBus.RecoverabilityExecutor,
+        ExceptionDetail: {
+          Elements: {
+            "Type": System.Exception,
+            "HResult": -2146233088,
+            "Message": The Exception,
+            "Source": Tests
+          }
+        }
+      }
+    }
+  ]
+}

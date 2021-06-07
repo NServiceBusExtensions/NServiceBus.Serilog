@@ -133,6 +133,19 @@ public class IntegrationTests
         await Verify<StartSaga>(logEvents);
     }
 
+    [Fact]
+    public async Task BehaviorThatThrows()
+    {
+        var events = await Send(
+            new StartBehaviorThatThrows
+            {
+                Property = "TheProperty"
+            },
+            extraConfiguration: _ => _.EnableFeature<BehaviorThatThrowsFeature>());
+        var logEvents = events.ToList();
+        await Verify<StartBehaviorThatThrows>(logEvents);
+    }
+
     static Task Verify<T>(IEnumerable<LogEventEx> logEvents)
     {
         var list = logEvents.ToList();
@@ -146,7 +159,10 @@ public class IntegrationTests
             });
     }
 
-    static async Task<IEnumerable<LogEventEx>> Send(object message, Action<SendOptions>? optionsAction = null)
+    static async Task<IEnumerable<LogEventEx>> Send(
+        object message,
+        Action<SendOptions>? optionsAction = null,
+        Action<EndpointConfiguration>? extraConfiguration = null)
     {
         logs.Clear();
         var suffix = TypeNameConverter.GetName(message.GetType())
@@ -154,6 +170,7 @@ public class IntegrationTests
             .Replace(">","_");
         var configuration = ConfigBuilder.BuildDefaultConfig("SerilogTests" + suffix);
         configuration.PurgeOnStartup(true);
+        extraConfiguration?.Invoke(configuration);
 
         var serilogTracing = configuration.EnableSerilogTracing();
         serilogTracing.EnableSagaTracing();
