@@ -22,6 +22,6 @@ class InjectMessageContextBehavior :
         var bag = context.Extensions;
         var state = bag.Get<ExceptionLogState>();
         state.IncomingMessage = context.Message.Instance;
-        return Task.CompletedTask;
+        return next();
     }
 }
