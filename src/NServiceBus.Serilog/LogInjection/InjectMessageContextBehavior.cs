@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using NServiceBus.Pipeline;
 
 class InjectMessageContextBehavior :
-    Behavior<IIncomingLogicalMessageContext >
+    Behavior<IIncomingLogicalMessageContext>
 {
     public class Registration :
         RegisterStep

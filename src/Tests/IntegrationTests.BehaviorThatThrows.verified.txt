@@ -1,6 +1,114 @@
 ﻿{
   logsForTarget: [
     {
+      MessageTemplate: Receive message {IncomingMessageType} {IncomingMessageId}.,
+      Level: Information,
+      Properties: {
+        IncomingMessage: {
+          TypeTag: StartBehaviorThatThrows,
+          Properties: [
+            {
+              Property: TheProperty
+            }
+          ]
+        },
+        OriginatingHostId: Guid_1,
+        MessageIntent: Send,
+        OriginatingEndpoint: SerilogTestsStartBehaviorThatThrows,
+        OriginatingMachine: TheMachineName,
+        ReplyToAddress: SerilogTestsStartBehaviorThatThrows,
+        TimeSent: DateTime_1,
+        IncomingMessageId: Guid_2,
+        IncomingMessageType: StartBehaviorThatThrows,
+        CorrelationId: Guid_2,
+        ConversationId: Guid_3,
+        SourceContext: StartBehaviorThatThrows,
+        ProcessingEndpoint: SerilogTestsStartBehaviorThatThrows
+      }
+    },
+    {
+      MessageTemplate: Receive message {IncomingMessageType} {IncomingMessageId}.,
+      Level: Information,
+      Properties: {
+        IncomingMessage: {
+          TypeTag: StartBehaviorThatThrows,
+          Properties: [
+            {
+              Property: TheProperty
+            }
+          ]
+        },
+        OriginatingHostId: Guid_1,
+        MessageIntent: Send,
+        OriginatingEndpoint: SerilogTestsStartBehaviorThatThrows,
+        OriginatingMachine: TheMachineName,
+        ReplyToAddress: SerilogTestsStartBehaviorThatThrows,
+        TimeSent: DateTime_1,
+        IncomingMessageId: Guid_2,
+        IncomingMessageType: StartBehaviorThatThrows,
+        CorrelationId: Guid_2,
+        ConversationId: Guid_3,
+        SourceContext: StartBehaviorThatThrows,
+        ProcessingEndpoint: SerilogTestsStartBehaviorThatThrows
+      }
+    },
+    {
+      MessageTemplate: Receive message {IncomingMessageType} {IncomingMessageId}.,
+      Level: Information,
+      Properties: {
+        IncomingMessage: {
+          TypeTag: StartBehaviorThatThrows,
+          Properties: [
+            {
+              Property: TheProperty
+            }
+          ]
+        },
+        OriginatingHostId: Guid_1,
+        MessageIntent: Send,
+        OriginatingEndpoint: SerilogTestsStartBehaviorThatThrows,
+        OriginatingMachine: TheMachineName,
+        ReplyToAddress: SerilogTestsStartBehaviorThatThrows,
+        Retries: 1,
+        Retries.Timestamp: DateTime_2,
+        TimeSent: DateTime_1,
+        IncomingMessageId: Guid_2,
+        IncomingMessageType: StartBehaviorThatThrows,
+        CorrelationId: Guid_2,
+        ConversationId: Guid_3,
+        SourceContext: StartBehaviorThatThrows,
+        ProcessingEndpoint: SerilogTestsStartBehaviorThatThrows
+      }
+    },
+    {
+      MessageTemplate: Receive message {IncomingMessageType} {IncomingMessageId}.,
+      Level: Information,
+      Properties: {
+        IncomingMessage: {
+          TypeTag: StartBehaviorThatThrows,
+          Properties: [
+            {
+              Property: TheProperty
+            }
+          ]
+        },
+        OriginatingHostId: Guid_1,
+        MessageIntent: Send,
+        OriginatingEndpoint: SerilogTestsStartBehaviorThatThrows,
+        OriginatingMachine: TheMachineName,
+        ReplyToAddress: SerilogTestsStartBehaviorThatThrows,
+        Retries: 1,
+        Retries.Timestamp: DateTime_2,
+        TimeSent: DateTime_1,
+        IncomingMessageId: Guid_2,
+        IncomingMessageType: StartBehaviorThatThrows,
+        CorrelationId: Guid_2,
+        ConversationId: Guid_3,
+        SourceContext: StartBehaviorThatThrows,
+        ProcessingEndpoint: SerilogTestsStartBehaviorThatThrows
+      }
+    },
+    {
       MessageTemplate: Sent message {OutgoingMessageType} {OutgoingMessageId}.,
       Level: Information,
       Properties: {
@@ -41,6 +149,14 @@
         ProcessingEndpoint: SerilogTestsStartBehaviorThatThrows,
         CorrelationId: Guid_2,
         ConversationId: Guid_3,
+        IncomingMessage: {
+          TypeTag: StartBehaviorThatThrows,
+          Properties: [
+            {
+              Property: TheProperty
+            }
+          ]
+        },
         IncomingHeaders: {
           Elements: {
             "NServiceBus.MessageId": Guid_2,
@@ -59,10 +175,10 @@
         SourceContext: NServiceBus.RecoverabilityExecutor,
         ExceptionDetail: {
           Elements: {
-            "Type": System.Exception,
-            "HResult": -2146233088,
-            "Message": The Exception,
-            "Source": Tests
+            "Type": System.InvalidOperationException,
+            "HResult": -2146233079,
+            "Message": No handlers could be found for message type: StartBehaviorThatThrows,
+            "Source": NServiceBus.Core
           }
         }
       }
@@ -76,6 +192,14 @@
         ProcessingEndpoint: SerilogTestsStartBehaviorThatThrows,
         CorrelationId: Guid_2,
         ConversationId: Guid_3,
+        IncomingMessage: {
+          TypeTag: StartBehaviorThatThrows,
+          Properties: [
+            {
+              Property: TheProperty
+            }
+          ]
+        },
         IncomingHeaders: {
           Elements: {
             "NServiceBus.MessageId": Guid_2,
@@ -94,10 +218,10 @@
         SourceContext: NServiceBus.RecoverabilityExecutor,
         ExceptionDetail: {
           Elements: {
-            "Type": System.Exception,
-            "HResult": -2146233088,
-            "Message": The Exception,
-            "Source": Tests
+            "Type": System.InvalidOperationException,
+            "HResult": -2146233079,
+            "Message": No handlers could be found for message type: StartBehaviorThatThrows,
+            "Source": NServiceBus.Core
           }
         }
       }
@@ -111,6 +235,14 @@
         ProcessingEndpoint: SerilogTestsStartBehaviorThatThrows,
         CorrelationId: Guid_2,
         ConversationId: Guid_3,
+        IncomingMessage: {
+          TypeTag: StartBehaviorThatThrows,
+          Properties: [
+            {
+              Property: TheProperty
+            }
+          ]
+        },
         IncomingHeaders: {
           Elements: {
             "NServiceBus.MessageId": Guid_2,
@@ -131,10 +263,10 @@
         SourceContext: NServiceBus.RecoverabilityExecutor,
         ExceptionDetail: {
           Elements: {
-            "Type": System.Exception,
-            "HResult": -2146233088,
-            "Message": The Exception,
-            "Source": Tests
+            "Type": System.InvalidOperationException,
+            "HResult": -2146233079,
+            "Message": No handlers could be found for message type: StartBehaviorThatThrows,
+            "Source": NServiceBus.Core
           }
         }
       }
@@ -148,6 +280,14 @@
         ProcessingEndpoint: SerilogTestsStartBehaviorThatThrows,
         CorrelationId: Guid_2,
         ConversationId: Guid_3,
+        IncomingMessage: {
+          TypeTag: StartBehaviorThatThrows,
+          Properties: [
+            {
+              Property: TheProperty
+            }
+          ]
+        },
         IncomingHeaders: {
           Elements: {
             "NServiceBus.MessageId": Guid_2,
@@ -168,10 +308,10 @@
         SourceContext: NServiceBus.RecoverabilityExecutor,
         ExceptionDetail: {
           Elements: {
-            "Type": System.Exception,
-            "HResult": -2146233088,
-            "Message": The Exception,
-            "Source": Tests
+            "Type": System.InvalidOperationException,
+            "HResult": -2146233079,
+            "Message": No handlers could be found for message type: StartBehaviorThatThrows,
+            "Source": NServiceBus.Core
           }
         }
       }
