@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using NServiceBus.Pipeline;
 
 class BehaviorThatThrows :
-    Behavior<IIncomingLogicalMessageContext >
+    Behavior<IInvokeHandlerContext>
 {
     public class Registration :
         RegisterStep
@@ -17,7 +17,7 @@ class BehaviorThatThrows :
         }
     }
 
-    public override Task Invoke(IIncomingLogicalMessageContext  context, Func<Task> next)
+    public override Task Invoke(IInvokeHandlerContext context, Func<Task> next)
     {
         throw new Exception("The Exception");
     }
