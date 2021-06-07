@@ -22,8 +22,6 @@ class InjectHandlerContextBehavior :
     {
         var handler = context.HandlerType();
         var bag = context.Extensions;
-        var exceptionLogState = bag.Get<ExceptionLogState>();
-        exceptionLogState.IncomingMessage = context.MessageBeingHandled;
         var forContext = context.Logger().ForContext("Handler", handler);
         try
         {

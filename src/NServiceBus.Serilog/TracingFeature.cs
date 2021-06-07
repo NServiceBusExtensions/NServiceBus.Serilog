@@ -14,6 +14,7 @@ class TracingFeature :
         var pipeline = context.Pipeline;
         pipeline.Register(new InjectIncomingBehavior.Registration(logBuilder, endpoint));
         pipeline.Register(new InjectHandlerContextBehavior.Registration());
+        pipeline.Register(new InjectMessageContextBehavior.Registration());
         pipeline.Register(new InjectOutgoingBehavior.Registration(logBuilder));
         context.RegisterStartupTask(new StartupDiagnostics(context.Settings, logBuilder.Logger));
     }
