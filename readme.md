@@ -239,7 +239,11 @@ serilogTracing.EnableSagaTracing();
       MessageTemplate: Hello from {@Saga}. Message: {@Message},
       Level: Information,
       Properties: {
-        Saga: TheSaga,
+        ConversationId: Guid_1,
+        CorrelationId: Guid_2,
+        Handler: TheSaga,
+        IncomingMessageId: Guid_2,
+        IncomingMessageType: StartSaga,
         Message: {
           TypeTag: StartSaga,
           Properties: [
@@ -248,19 +252,17 @@ serilogTracing.EnableSagaTracing();
             }
           ]
         },
-        Handler: TheSaga,
-        IncomingMessageId: Guid_1,
-        IncomingMessageType: StartSaga,
-        CorrelationId: Guid_1,
-        ConversationId: Guid_2,
-        SourceContext: StartSaga,
-        ProcessingEndpoint: SerilogTestsStartSaga
+        ProcessingEndpoint: SerilogTestsStartSaga,
+        Saga: TheSaga,
+        SourceContext: StartSaga
       }
     },
     {
       MessageTemplate: Receive message {IncomingMessageType} {IncomingMessageId}.,
       Level: Information,
       Properties: {
+        ConversationId: Guid_1,
+        CorrelationId: Guid_2,
         IncomingMessage: {
           TypeTag: StartSaga,
           Properties: [
@@ -269,53 +271,24 @@ serilogTracing.EnableSagaTracing();
             }
           ]
         },
-        OriginatingHostId: Guid_3,
+        IncomingMessageId: Guid_2,
+        IncomingMessageType: StartSaga,
         MessageIntent: Send,
         OriginatingEndpoint: SerilogTestsStartSaga,
+        OriginatingHostId: Guid_3,
         OriginatingMachine: TheMachineName,
+        ProcessingEndpoint: SerilogTestsStartSaga,
         ReplyToAddress: SerilogTestsStartSaga,
-        TimeSent: DateTime_1,
-        IncomingMessageId: Guid_1,
-        IncomingMessageType: StartSaga,
-        CorrelationId: Guid_1,
-        ConversationId: Guid_2,
         SourceContext: StartSaga,
-        ProcessingEndpoint: SerilogTestsStartSaga
+        TimeSent: DateTime_1
       }
     },
     {
       MessageTemplate: Saga execution {SagaType} {SagaId}.,
       Level: Information,
       Properties: {
-        SagaType: TheSaga,
-        SagaId: Guid_4,
-        StartTime: DateTimeOffset_1,
-        FinishTime: DateTimeOffset_2,
-        IsCompleted: false,
-        IsNew: true,
-        Initiator: {
-          Elements: {
-            "IsSagaTimeout": false,
-            "MessageId": Guid_1,
-            "OriginatingMachine": TheMachineName,
-            "OriginatingEndpoint": SerilogTestsStartSaga,
-            "MessageType": StartSaga,
-            "TimeSent": DateTime_1,
-            "Intent": Send
-          }
-        },
-        ResultingMessages: {
-          Elements: [
-            {
-              Elements: {
-                "Id": Guid_5,
-                "Type": BackIntoSaga,
-                "Intent": Send,
-                "Destination": SerilogTestsStartSaga
-              }
-            }
-          ]
-        },
+        ConversationId: Guid_1,
+        CorrelationId: Guid_2,
         Entity: {
           TypeTag: TheSagaData,
           Properties: [
@@ -329,22 +302,55 @@ serilogTracing.EnableSagaTracing();
               Originator: SerilogTestsStartSaga
             },
             {
-              OriginalMessageId: Guid_1
+              OriginalMessageId: Guid_2
             }
           ]
         },
-        IncomingMessageId: Guid_1,
+        FinishTime: DateTimeOffset_1,
+        IncomingMessageId: Guid_2,
         IncomingMessageType: StartSaga,
-        CorrelationId: Guid_1,
-        ConversationId: Guid_2,
+        Initiator: {
+          Elements: {
+            "IsSagaTimeout": false,
+            "MessageId": Guid_2,
+            "OriginatingMachine": TheMachineName,
+            "OriginatingEndpoint": SerilogTestsStartSaga,
+            "MessageType": StartSaga,
+            "TimeSent": DateTime_1,
+            "Intent": Send
+          }
+        },
+        IsCompleted: false,
+        IsNew: true,
+        ProcessingEndpoint: SerilogTestsStartSaga,
+        ResultingMessages: {
+          Elements: [
+            {
+              Elements: {
+                "Id": Guid_5,
+                "Type": BackIntoSaga,
+                "Intent": Send,
+                "Destination": SerilogTestsStartSaga
+              }
+            }
+          ]
+        },
+        SagaId: Guid_4,
+        SagaType: TheSaga,
         SourceContext: StartSaga,
-        ProcessingEndpoint: SerilogTestsStartSaga
+        StartTime: DateTimeOffset_2
       }
     },
     {
       MessageTemplate: Sent message {OutgoingMessageType} {OutgoingMessageId}.,
       Level: Information,
       Properties: {
+        ConversationId: Guid_1,
+        CorrelationId: Guid_2,
+        MessageIntent: Send,
+        OriginatingEndpoint: SerilogTestsStartSaga,
+        OriginatingHostId: Guid_3,
+        OriginatingMachine: TheMachineName,
         OutgoingMessage: {
           TypeTag: StartSaga,
           Properties: [
@@ -353,28 +359,32 @@ serilogTracing.EnableSagaTracing();
             }
           ]
         },
+        OutgoingMessageId: Guid_2,
+        OutgoingMessageType: StartSaga,
+        ProcessingEndpoint: SerilogTestsStartSaga,
+        ReplyToAddress: SerilogTestsStartSaga,
+        SourceContext: StartSaga,
         UnicastRoutes: {
           Elements: [
             SerilogTestsStartSaga
           ]
-        },
-        OriginatingHostId: Guid_3,
-        MessageIntent: Send,
-        OriginatingEndpoint: SerilogTestsStartSaga,
-        OriginatingMachine: TheMachineName,
-        ReplyToAddress: SerilogTestsStartSaga,
-        OutgoingMessageId: Guid_1,
-        OutgoingMessageType: StartSaga,
-        CorrelationId: Guid_1,
-        ConversationId: Guid_2,
-        SourceContext: StartSaga,
-        ProcessingEndpoint: SerilogTestsStartSaga
+        }
       }
     },
     {
       MessageTemplate: Sent message {OutgoingMessageType} {OutgoingMessageId}.,
       Level: Information,
       Properties: {
+        ConversationId: Guid_1,
+        CorrelationId: Guid_2,
+        IncomingMessageId: Guid_2,
+        IncomingMessageType: StartSaga,
+        MessageIntent: Send,
+        OriginatingEndpoint: SerilogTestsStartSaga,
+        OriginatingHostId: Guid_3,
+        OriginatingMachine: TheMachineName,
+        OriginatingSagaId: Guid_4,
+        OriginatingSagaType: TheSaga,
         OutgoingMessage: {
           TypeTag: BackIntoSaga,
           Properties: [
@@ -383,27 +393,17 @@ serilogTracing.EnableSagaTracing();
             }
           ]
         },
+        OutgoingMessageId: Guid_5,
+        OutgoingMessageType: BackIntoSaga,
+        ProcessingEndpoint: SerilogTestsStartSaga,
+        RelatedTo: Guid_2,
+        ReplyToAddress: SerilogTestsStartSaga,
+        SourceContext: StartSaga,
         UnicastRoutes: {
           Elements: [
             SerilogTestsStartSaga
           ]
-        },
-        OriginatingHostId: Guid_3,
-        MessageIntent: Send,
-        OriginatingEndpoint: SerilogTestsStartSaga,
-        OriginatingMachine: TheMachineName,
-        OriginatingSagaId: Guid_4,
-        OriginatingSagaType: TheSaga,
-        RelatedTo: Guid_1,
-        ReplyToAddress: SerilogTestsStartSaga,
-        OutgoingMessageId: Guid_5,
-        OutgoingMessageType: BackIntoSaga,
-        CorrelationId: Guid_1,
-        ConversationId: Guid_2,
-        IncomingMessageId: Guid_1,
-        IncomingMessageType: StartSaga,
-        SourceContext: StartSaga,
-        ProcessingEndpoint: SerilogTestsStartSaga
+        }
       }
     }
   ]
