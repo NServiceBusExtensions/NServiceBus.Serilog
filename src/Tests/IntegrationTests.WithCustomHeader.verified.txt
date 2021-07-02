@@ -1,22 +1,24 @@
-{
+﻿{
   logsForTarget: [
     {
       MessageTemplate: Hello from {@Handler}.,
       Level: Information,
       Properties: {
+        ConversationId: Guid_1,
+        CorrelationId: Guid_2,
         Handler: TheHandler,
-        IncomingMessageId: Guid_1,
+        IncomingMessageId: Guid_2,
         IncomingMessageType: StartHandler,
-        CorrelationId: Guid_1,
-        ConversationId: Guid_2,
-        SourceContext: StartHandler,
-        ProcessingEndpoint: SerilogTestsStartHandler
+        ProcessingEndpoint: SerilogTestsStartHandler,
+        SourceContext: StartHandler
       }
     },
     {
       MessageTemplate: Receive message {IncomingMessageType} {IncomingMessageId}.,
       Level: Information,
       Properties: {
+        ConversationId: Guid_1,
+        CorrelationId: Guid_2,
         IncomingMessage: {
           TypeTag: StartHandler,
           Properties: [
@@ -25,29 +27,38 @@
             }
           ]
         },
-        OriginatingHostId: Guid_3,
+        IncomingMessageId: Guid_2,
+        IncomingMessageType: StartHandler,
         MessageIntent: Send,
         OriginatingEndpoint: SerilogTestsStartHandler,
+        OriginatingHostId: Guid_3,
         OriginatingMachine: TheMachineName,
-        ReplyToAddress: SerilogTestsStartHandler,
-        TimeSent: DateTime_1,
         OtherHeaders: {
           Elements: {
             "CustomHeader": CustomValue
           }
         },
-        IncomingMessageId: Guid_1,
-        IncomingMessageType: StartHandler,
-        CorrelationId: Guid_1,
-        ConversationId: Guid_2,
+        ProcessingEndpoint: SerilogTestsStartHandler,
+        ReplyToAddress: SerilogTestsStartHandler,
         SourceContext: StartHandler,
-        ProcessingEndpoint: SerilogTestsStartHandler
+        TimeSent: DateTime_1
       }
     },
     {
       MessageTemplate: Sent message {OutgoingMessageType} {OutgoingMessageId}.,
       Level: Information,
       Properties: {
+        ConversationId: Guid_1,
+        CorrelationId: Guid_2,
+        MessageIntent: Send,
+        OriginatingEndpoint: SerilogTestsStartHandler,
+        OriginatingHostId: Guid_3,
+        OriginatingMachine: TheMachineName,
+        OtherHeaders: {
+          Elements: {
+            "CustomHeader": CustomValue
+          }
+        },
         OutgoingMessage: {
           TypeTag: StartHandler,
           Properties: [
@@ -56,27 +67,16 @@
             }
           ]
         },
+        OutgoingMessageId: Guid_2,
+        OutgoingMessageType: StartHandler,
+        ProcessingEndpoint: SerilogTestsStartHandler,
+        ReplyToAddress: SerilogTestsStartHandler,
+        SourceContext: StartHandler,
         UnicastRoutes: {
           Elements: [
             SerilogTestsStartHandler
           ]
-        },
-        OriginatingHostId: Guid_3,
-        MessageIntent: Send,
-        OriginatingEndpoint: SerilogTestsStartHandler,
-        OriginatingMachine: TheMachineName,
-        ReplyToAddress: SerilogTestsStartHandler,
-        OtherHeaders: {
-          Elements: {
-            "CustomHeader": CustomValue
-          }
-        },
-        OutgoingMessageId: Guid_1,
-        OutgoingMessageType: StartHandler,
-        CorrelationId: Guid_1,
-        ConversationId: Guid_2,
-        SourceContext: StartHandler,
-        ProcessingEndpoint: SerilogTestsStartHandler
+        }
       }
     }
   ]
