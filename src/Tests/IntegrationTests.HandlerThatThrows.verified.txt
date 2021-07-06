@@ -153,8 +153,6 @@
               Elements: {
                 "Message type": StartHandlerThatThrows,
                 "Handler type": TheHandlerThatThrows,
-                "Handler start time": DateTime_3,
-                "Handler failure time": DateTime_4,
                 "ExceptionLogState": {
                   TypeTag: ExceptionLogState
                 },
@@ -211,8 +209,6 @@
               Elements: {
                 "Message type": StartHandlerThatThrows,
                 "Handler type": TheHandlerThatThrows,
-                "Handler start time": DateTime_8,
-                "Handler failure time": DateTime_9,
                 "ExceptionLogState": {
                   TypeTag: ExceptionLogState
                 },
@@ -269,8 +265,6 @@
               Elements: {
                 "Message type": StartHandlerThatThrows,
                 "Handler type": TheHandlerThatThrows,
-                "Handler start time": DateTime_12,
-                "Handler failure time": DateTime_13,
                 "ExceptionLogState": {
                   TypeTag: ExceptionLogState
                 },
@@ -329,8 +323,6 @@
               Elements: {
                 "Message type": StartHandlerThatThrows,
                 "Handler type": TheHandlerThatThrows,
-                "Handler start time": DateTime_16,
-                "Handler failure time": DateTime_17,
                 "ExceptionLogState": {
                   TypeTag: ExceptionLogState
                 },

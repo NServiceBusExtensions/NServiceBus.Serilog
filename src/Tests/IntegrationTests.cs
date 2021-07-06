@@ -9,8 +9,10 @@ using NServiceBus.Serilog;
 using Serilog;
 using Serilog.Events;
 using Serilog.Exceptions;
+using VerifyTests;
 using VerifyXunit;
 using Xunit;
+using TypeNameConverter = NServiceBus.Serilog.TypeNameConverter;
 
 [UsesVerify]
 public class IntegrationTests
@@ -118,7 +120,10 @@ public class IntegrationTests
             {
                 Property = "TheProperty"
             });
-        await Verify<StartHandlerThatThrows>(events);
+        await Verify<StartHandlerThatThrows>(events)
+            .ScrubLinesContaining(
+                "Handler start time",
+                "Handler failure time");
     }
 
     [Fact]
@@ -146,7 +151,7 @@ public class IntegrationTests
         await Verify<StartBehaviorThatThrows>(logEvents);
     }
 
-    static Task Verify<T>(IEnumerable<LogEventEx> logEvents)
+    static SettingsTask Verify<T>(IEnumerable<LogEventEx> logEvents)
     {
         var list = logEvents.ToList();
         var logsForTarget = list.LogsForType<T>().ToList();
