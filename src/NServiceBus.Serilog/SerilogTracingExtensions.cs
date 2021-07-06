@@ -1,6 +1,7 @@
 ﻿using NServiceBus.Configuration.AdvancedExtensibility;
 using NServiceBus.Serilog;
 using NServiceBus.Settings;
+using System;
 using Serilog;
 using Serilog.Configuration;
 
@@ -19,6 +20,9 @@ namespace NServiceBus
             return configuration.EnableSerilogTracing(Log.Logger);
         }
 
+        /// <summary>
+        /// Take NSB specific info from <see cref="Exception.Data"/> and promotes it to Serilog properties.
+        /// </summary>
         public static LoggerEnrichmentConfiguration WithNsbExceptionDetails(this LoggerEnrichmentConfiguration configuration)
         {
             configuration.With<ExceptionEnricher>();
