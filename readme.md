@@ -627,7 +627,7 @@ Log.Logger = configuration.CreateLogger();
 ```cs
 var configuration = new LoggerConfiguration();
 configuration.Enrich.WithNsbExceptionDetails();
-configuration.WriteTo.Seq("https://seq-dfc.cloud9.cabnet");
+configuration.WriteTo.Seq("http://localhost:5341");
 configuration.MinimumLevel.Information();
 var logger = configuration.CreateLogger();
 var serilogFactory = LogManager.Use<SerilogFactory>();
@@ -701,7 +701,7 @@ Log.Logger = configuration.CreateLogger();
 ```cs
 var configuration = new LoggerConfiguration();
 configuration.Enrich.WithNsbExceptionDetails();
-configuration.WriteTo.Seq("https://seq-dfc.cloud9.cabnet");
+configuration.WriteTo.Seq("http://localhost:5341");
 configuration.MinimumLevel.Information();
 var logger = configuration.CreateLogger();
 var serilogFactory = LogManager.Use<SerilogFactory>();
