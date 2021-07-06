@@ -164,20 +164,27 @@
           }
         },
         IncomingHeaders: {
-          $.diagnostics.originating.hostid: Guid_3,
-          NServiceBus.ContentType: text/xml,
-          NServiceBus.ConversationId: Guid_1,
-          NServiceBus.CorrelationId: Guid_2,
-          NServiceBus.EnclosedMessageTypes: StartBehaviorThatThrows, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
-          NServiceBus.MessageId: Guid_2,
-          NServiceBus.MessageIntent: Send,
-          NServiceBus.OriginatingEndpoint: SerilogTestsStartBehaviorThatThrows,
-          NServiceBus.OriginatingMachine: TheMachineName,
-          NServiceBus.ReplyToAddress: SerilogTestsStartBehaviorThatThrows,
-          NServiceBus.Version: NsbVersion
+          Elements: {
+            "NServiceBus.MessageId": Guid_2,
+            "NServiceBus.MessageIntent": Send,
+            "NServiceBus.ConversationId": Guid_1,
+            "NServiceBus.CorrelationId": Guid_2,
+            "NServiceBus.ReplyToAddress": SerilogTestsStartBehaviorThatThrows,
+            "NServiceBus.OriginatingMachine": TheMachineName,
+            "NServiceBus.OriginatingEndpoint": SerilogTestsStartBehaviorThatThrows,
+            "$.diagnostics.originating.hostid": Guid_3,
+            "NServiceBus.ContentType": text/xml,
+            "NServiceBus.EnclosedMessageTypes": StartBehaviorThatThrows, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
+            "NServiceBus.Version": NsbVersion,
+          }
         },
         IncomingMessage: {
-          Property: TheProperty
+          TypeTag: StartBehaviorThatThrows,
+          Properties: [
+            {
+              Property: TheProperty
+            }
+          ]
         },
         IncomingMessageId: Guid_2,
         IncomingTransportMessageId: Guid_4,
@@ -209,20 +216,27 @@
           }
         },
         IncomingHeaders: {
-          $.diagnostics.originating.hostid: Guid_3,
-          NServiceBus.ContentType: text/xml,
-          NServiceBus.ConversationId: Guid_1,
-          NServiceBus.CorrelationId: Guid_2,
-          NServiceBus.EnclosedMessageTypes: StartBehaviorThatThrows, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
-          NServiceBus.MessageId: Guid_2,
-          NServiceBus.MessageIntent: Send,
-          NServiceBus.OriginatingEndpoint: SerilogTestsStartBehaviorThatThrows,
-          NServiceBus.OriginatingMachine: TheMachineName,
-          NServiceBus.ReplyToAddress: SerilogTestsStartBehaviorThatThrows,
-          NServiceBus.Version: NsbVersion
+          Elements: {
+            "NServiceBus.MessageId": Guid_2,
+            "NServiceBus.MessageIntent": Send,
+            "NServiceBus.ConversationId": Guid_1,
+            "NServiceBus.CorrelationId": Guid_2,
+            "NServiceBus.ReplyToAddress": SerilogTestsStartBehaviorThatThrows,
+            "NServiceBus.OriginatingMachine": TheMachineName,
+            "NServiceBus.OriginatingEndpoint": SerilogTestsStartBehaviorThatThrows,
+            "$.diagnostics.originating.hostid": Guid_3,
+            "NServiceBus.ContentType": text/xml,
+            "NServiceBus.EnclosedMessageTypes": StartBehaviorThatThrows, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
+            "NServiceBus.Version": NsbVersion,
+          }
         },
         IncomingMessage: {
-          Property: TheProperty
+          TypeTag: StartBehaviorThatThrows,
+          Properties: [
+            {
+              Property: TheProperty
+            }
+          ]
         },
         IncomingMessageId: Guid_2,
         IncomingTransportMessageId: Guid_4,
@@ -254,22 +268,29 @@
           }
         },
         IncomingHeaders: {
-          $.diagnostics.originating.hostid: Guid_3,
-          NServiceBus.ContentType: text/xml,
-          NServiceBus.ConversationId: Guid_1,
-          NServiceBus.CorrelationId: Guid_2,
-          NServiceBus.EnclosedMessageTypes: StartBehaviorThatThrows, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
-          NServiceBus.MessageId: Guid_2,
-          NServiceBus.MessageIntent: Send,
-          NServiceBus.OriginatingEndpoint: SerilogTestsStartBehaviorThatThrows,
-          NServiceBus.OriginatingMachine: TheMachineName,
-          NServiceBus.ReplyToAddress: SerilogTestsStartBehaviorThatThrows,
-          NServiceBus.Retries: 1,
-          NServiceBus.Retries.Timestamp: DateTime_2,
-          NServiceBus.Version: NsbVersion
+          Elements: {
+            "NServiceBus.MessageId": Guid_2,
+            "NServiceBus.MessageIntent": Send,
+            "NServiceBus.ConversationId": Guid_1,
+            "NServiceBus.CorrelationId": Guid_2,
+            "NServiceBus.ReplyToAddress": SerilogTestsStartBehaviorThatThrows,
+            "NServiceBus.OriginatingMachine": TheMachineName,
+            "NServiceBus.OriginatingEndpoint": SerilogTestsStartBehaviorThatThrows,
+            "$.diagnostics.originating.hostid": Guid_3,
+            "NServiceBus.ContentType": text/xml,
+            "NServiceBus.EnclosedMessageTypes": StartBehaviorThatThrows, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
+            "NServiceBus.Version": NsbVersion,
+            "NServiceBus.Retries": 1,
+            "NServiceBus.Retries.Timestamp": DateTime_2
+          }
         },
         IncomingMessage: {
-          Property: TheProperty
+          TypeTag: StartBehaviorThatThrows,
+          Properties: [
+            {
+              Property: TheProperty
+            }
+          ]
         },
         IncomingMessageId: Guid_2,
         IncomingTransportMessageId: Guid_5,
@@ -301,22 +322,29 @@
           }
         },
         IncomingHeaders: {
-          $.diagnostics.originating.hostid: Guid_3,
-          NServiceBus.ContentType: text/xml,
-          NServiceBus.ConversationId: Guid_1,
-          NServiceBus.CorrelationId: Guid_2,
-          NServiceBus.EnclosedMessageTypes: StartBehaviorThatThrows, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
-          NServiceBus.MessageId: Guid_2,
-          NServiceBus.MessageIntent: Send,
-          NServiceBus.OriginatingEndpoint: SerilogTestsStartBehaviorThatThrows,
-          NServiceBus.OriginatingMachine: TheMachineName,
-          NServiceBus.ReplyToAddress: SerilogTestsStartBehaviorThatThrows,
-          NServiceBus.Retries: 1,
-          NServiceBus.Retries.Timestamp: DateTime_2,
-          NServiceBus.Version: NsbVersion
+          Elements: {
+            "NServiceBus.MessageId": Guid_2,
+            "NServiceBus.MessageIntent": Send,
+            "NServiceBus.ConversationId": Guid_1,
+            "NServiceBus.CorrelationId": Guid_2,
+            "NServiceBus.ReplyToAddress": SerilogTestsStartBehaviorThatThrows,
+            "NServiceBus.OriginatingMachine": TheMachineName,
+            "NServiceBus.OriginatingEndpoint": SerilogTestsStartBehaviorThatThrows,
+            "$.diagnostics.originating.hostid": Guid_3,
+            "NServiceBus.ContentType": text/xml,
+            "NServiceBus.EnclosedMessageTypes": StartBehaviorThatThrows, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
+            "NServiceBus.Version": NsbVersion,
+            "NServiceBus.Retries": 1,
+            "NServiceBus.Retries.Timestamp": DateTime_2
+          }
         },
         IncomingMessage: {
-          Property: TheProperty
+          TypeTag: StartBehaviorThatThrows,
+          Properties: [
+            {
+              Property: TheProperty
+            }
+          ]
         },
         IncomingMessageId: Guid_2,
         IncomingTransportMessageId: Guid_5,
