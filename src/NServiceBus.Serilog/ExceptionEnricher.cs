@@ -1,4 +1,5 @@
 ﻿using NServiceBus;
+using Serilog;
 using Serilog.Core;
 using Serilog.Events;
 
@@ -58,10 +59,16 @@ class ExceptionEnricher :
 
             if (logState.IncomingMessage != null)
             {
-                logEvent.AddPropertyIfAbsent(new("IncomingMessage", new ScalarValue(logState.IncomingMessage)));
+                if (Log.BindProperty("IncomingMessage", logState.IncomingMessage, true, out var messageProperty))
+                {
+                    logEvent.AddPropertyIfAbsent(messageProperty);
+                }
             }
 
-            logEvent.AddPropertyIfAbsent(new("IncomingHeaders", new ScalarValue(logState.IncomingHeaders)));
+            if (Log.BindProperty("IncomingHeaders", logState.IncomingHeaders, true, out var headersProperty))
+            {
+                logEvent.AddPropertyIfAbsent(headersProperty);
+            }
         }
     }
 }
