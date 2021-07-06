@@ -10,8 +10,8 @@ public class WriteStartupDiagnosticsTests
     [Fact]
     public Task Can_extract_settings()
     {
-        SettingsHolder settings = new();
-        StartupDiagnosticEntries diagnosticEntries = new();
+        var settings = new SettingsHolder();
+        var diagnosticEntries = new StartupDiagnosticEntries();
         diagnosticEntries.Add("Name", "Value");
         settings.Set(diagnosticEntries);
         return Verifier.Verify(settings.ReadStartupDiagnosticEntries());

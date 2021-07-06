@@ -20,15 +20,15 @@ public class IntegrationTests
     static IntegrationTests()
     {
         logs = new();
-        EventSink eventSink = new(
-            action: logs.Add
-        );
+        var eventSink = new EventSink(logs.Add);
 
-        LoggerConfiguration loggerConfiguration = new();
-        loggerConfiguration.Enrich.WithExceptionDetails();
-        loggerConfiguration.MinimumLevel.Verbose();
-        loggerConfiguration.WriteTo.Sink(eventSink);
-        Log.Logger = loggerConfiguration.CreateLogger();
+        var configuration = new LoggerConfiguration();
+        var enrich = configuration.Enrich;
+        enrich.WithExceptionDetails();
+        enrich.WithNsbExceptionDetails();
+        configuration.MinimumLevel.Verbose();
+        configuration.WriteTo.Sink(eventSink);
+        Log.Logger = configuration.CreateLogger();
         LogManager.Use<SerilogFactory>();
     }
 
@@ -184,7 +184,7 @@ public class IntegrationTests
             return null;
         });
         serilogTracing.EnableMessageTracing();
-        ManualResetEvent resetEvent = new(false);
+        var resetEvent = new ManualResetEvent(false);
         configuration.RegisterComponents(components => components.RegisterSingleton(resetEvent));
 
         var recoverability = configuration.Recoverability();
@@ -203,7 +203,7 @@ public class IntegrationTests
             }));
 
         var endpoint = await Endpoint.Start(configuration);
-        SendOptions sendOptions = new();
+        var sendOptions = new SendOptions();
         optionsAction?.Invoke(sendOptions);
         sendOptions.SetMessageId("00000000-0000-0000-0000-000000000001");
         sendOptions.RouteToThisEndpoint();

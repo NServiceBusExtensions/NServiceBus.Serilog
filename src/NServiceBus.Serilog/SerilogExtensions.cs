@@ -20,7 +20,7 @@ static class SerilogExtensions
         MessageTemplate messageTemplate,
         IEnumerable<LogEventProperty> properties)
     {
-        LogEvent logEvent = new(
+        var logEvent = new LogEvent(
             timestamp: DateTimeOffset.Now,
             level: LogEventLevel.Information,
             exception: null,

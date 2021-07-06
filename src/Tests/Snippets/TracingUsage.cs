@@ -6,16 +6,9 @@ class TracingUsage
 {
     TracingUsage()
     {
-        #region SerilogTracingLogger
+        var tracingLog = SerilogTracingLogger();
 
-        var tracingLog = new LoggerConfiguration()
-            .WriteTo.File("log.txt")
-            .MinimumLevel.Information()
-            .CreateLogger();
-
-        #endregion
-
-        EndpointConfiguration configuration = new("EndpointName");
+        var configuration = new EndpointConfiguration("EndpointName");
 
         #region SerilogTracingPassLoggerToFeature
 
@@ -23,6 +16,21 @@ class TracingUsage
         serilogTracing.EnableMessageTracing();
 
         #endregion
+    }
+
+    private static Serilog.Core.Logger SerilogTracingLogger()
+    {
+        #region SerilogTracingLogger
+
+        var configuration = new LoggerConfiguration();
+        configuration.Enrich.WithNsbExceptionDetails();
+        configuration.WriteTo.File("log.txt");
+        configuration.MinimumLevel.Information();
+        var tracingLog = configuration.CreateLogger();
+
+        #endregion
+
+        return tracingLog;
     }
 
     void EnableSagaTracing(EndpointConfiguration configuration, ILogger logger)
@@ -49,10 +57,11 @@ class TracingUsage
     {
         #region SerilogTracingSeq
 
-        var tracingLog = new LoggerConfiguration()
-            .WriteTo.Seq("http://localhost:5341")
-            .MinimumLevel.Information()
-            .CreateLogger();
+        var configuration = new LoggerConfiguration();
+        configuration.Enrich.WithNsbExceptionDetails();
+        configuration.WriteTo.Seq("http://localhost:5341");
+        configuration.MinimumLevel.Information();
+        var tracingLog = configuration.CreateLogger();
 
         #endregion
     }

@@ -2,6 +2,7 @@
 using NServiceBus.Serilog;
 using NServiceBus.Settings;
 using Serilog;
+using Serilog.Configuration;
 
 namespace NServiceBus
 {
@@ -18,6 +19,12 @@ namespace NServiceBus
             return configuration.EnableSerilogTracing(Log.Logger);
         }
 
+        public static LoggerEnrichmentConfiguration WithNsbExceptionDetails(this LoggerEnrichmentConfiguration configuration)
+        {
+            configuration.With<ExceptionEnricher>();
+            return configuration;
+        }
+
         /// <summary>
         /// Enable Serilog Tracing for this endpoint.
         /// </summary>
@@ -29,7 +36,7 @@ namespace NServiceBus
             recoverability.AddUnrecoverableException<ConfigurationException>();
             configuration.EnableFeature<TracingFeature>();
             var settings = configuration.GetSettings();
-            SerilogTracingSettings serilogTracing = new(logger, configuration);
+            var serilogTracing = new SerilogTracingSettings(logger, configuration);
             settings.Set(serilogTracing);
             return serilogTracing;
         }

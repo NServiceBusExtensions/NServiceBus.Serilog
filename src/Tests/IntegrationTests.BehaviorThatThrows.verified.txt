@@ -149,33 +149,35 @@
         ExceptionDetail: {
           Elements: {
             "Type": System.InvalidOperationException,
+            "Data": {
+              Elements: {
+                "ExceptionLogState": {
+                  TypeTag: ExceptionLogState
+                },
+                "Message ID": Guid_2,
+                "Transport message ID": Guid_4
+              }
+            },
             "HResult": -2146233079,
             "Message": No handlers could be found for message type: StartBehaviorThatThrows,
             "Source": NServiceBus.Core
           }
         },
         IncomingHeaders: {
-          Elements: {
-            "NServiceBus.MessageId": Guid_2,
-            "NServiceBus.MessageIntent": Send,
-            "NServiceBus.ConversationId": Guid_1,
-            "NServiceBus.CorrelationId": Guid_2,
-            "NServiceBus.ReplyToAddress": SerilogTestsStartBehaviorThatThrows,
-            "NServiceBus.OriginatingMachine": TheMachineName,
-            "NServiceBus.OriginatingEndpoint": SerilogTestsStartBehaviorThatThrows,
-            "$.diagnostics.originating.hostid": Guid_3,
-            "NServiceBus.ContentType": text/xml,
-            "NServiceBus.EnclosedMessageTypes": StartBehaviorThatThrows, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
-            "NServiceBus.Version": NsbVersion,
-          }
+          $.diagnostics.originating.hostid: Guid_3,
+          NServiceBus.ContentType: text/xml,
+          NServiceBus.ConversationId: Guid_1,
+          NServiceBus.CorrelationId: Guid_2,
+          NServiceBus.EnclosedMessageTypes: StartBehaviorThatThrows, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
+          NServiceBus.MessageId: Guid_2,
+          NServiceBus.MessageIntent: Send,
+          NServiceBus.OriginatingEndpoint: SerilogTestsStartBehaviorThatThrows,
+          NServiceBus.OriginatingMachine: TheMachineName,
+          NServiceBus.ReplyToAddress: SerilogTestsStartBehaviorThatThrows,
+          NServiceBus.Version: NsbVersion
         },
         IncomingMessage: {
-          TypeTag: StartBehaviorThatThrows,
-          Properties: [
-            {
-              Property: TheProperty
-            }
-          ]
+          Property: TheProperty
         },
         IncomingMessageId: Guid_2,
         IncomingTransportMessageId: Guid_4,
@@ -192,33 +194,35 @@
         ExceptionDetail: {
           Elements: {
             "Type": System.InvalidOperationException,
+            "Data": {
+              Elements: {
+                "ExceptionLogState": {
+                  TypeTag: ExceptionLogState
+                },
+                "Message ID": Guid_2,
+                "Transport message ID": Guid_4
+              }
+            },
             "HResult": -2146233079,
             "Message": No handlers could be found for message type: StartBehaviorThatThrows,
             "Source": NServiceBus.Core
           }
         },
         IncomingHeaders: {
-          Elements: {
-            "NServiceBus.MessageId": Guid_2,
-            "NServiceBus.MessageIntent": Send,
-            "NServiceBus.ConversationId": Guid_1,
-            "NServiceBus.CorrelationId": Guid_2,
-            "NServiceBus.ReplyToAddress": SerilogTestsStartBehaviorThatThrows,
-            "NServiceBus.OriginatingMachine": TheMachineName,
-            "NServiceBus.OriginatingEndpoint": SerilogTestsStartBehaviorThatThrows,
-            "$.diagnostics.originating.hostid": Guid_3,
-            "NServiceBus.ContentType": text/xml,
-            "NServiceBus.EnclosedMessageTypes": StartBehaviorThatThrows, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
-            "NServiceBus.Version": NsbVersion,
-          }
+          $.diagnostics.originating.hostid: Guid_3,
+          NServiceBus.ContentType: text/xml,
+          NServiceBus.ConversationId: Guid_1,
+          NServiceBus.CorrelationId: Guid_2,
+          NServiceBus.EnclosedMessageTypes: StartBehaviorThatThrows, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
+          NServiceBus.MessageId: Guid_2,
+          NServiceBus.MessageIntent: Send,
+          NServiceBus.OriginatingEndpoint: SerilogTestsStartBehaviorThatThrows,
+          NServiceBus.OriginatingMachine: TheMachineName,
+          NServiceBus.ReplyToAddress: SerilogTestsStartBehaviorThatThrows,
+          NServiceBus.Version: NsbVersion
         },
         IncomingMessage: {
-          TypeTag: StartBehaviorThatThrows,
-          Properties: [
-            {
-              Property: TheProperty
-            }
-          ]
+          Property: TheProperty
         },
         IncomingMessageId: Guid_2,
         IncomingTransportMessageId: Guid_4,
@@ -235,35 +239,37 @@
         ExceptionDetail: {
           Elements: {
             "Type": System.InvalidOperationException,
+            "Data": {
+              Elements: {
+                "ExceptionLogState": {
+                  TypeTag: ExceptionLogState
+                },
+                "Message ID": Guid_2,
+                "Transport message ID": Guid_5
+              }
+            },
             "HResult": -2146233079,
             "Message": No handlers could be found for message type: StartBehaviorThatThrows,
             "Source": NServiceBus.Core
           }
         },
         IncomingHeaders: {
-          Elements: {
-            "NServiceBus.MessageId": Guid_2,
-            "NServiceBus.MessageIntent": Send,
-            "NServiceBus.ConversationId": Guid_1,
-            "NServiceBus.CorrelationId": Guid_2,
-            "NServiceBus.ReplyToAddress": SerilogTestsStartBehaviorThatThrows,
-            "NServiceBus.OriginatingMachine": TheMachineName,
-            "NServiceBus.OriginatingEndpoint": SerilogTestsStartBehaviorThatThrows,
-            "$.diagnostics.originating.hostid": Guid_3,
-            "NServiceBus.ContentType": text/xml,
-            "NServiceBus.EnclosedMessageTypes": StartBehaviorThatThrows, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
-            "NServiceBus.Version": NsbVersion,
-            "NServiceBus.Retries": 1,
-            "NServiceBus.Retries.Timestamp": DateTime_2
-          }
+          $.diagnostics.originating.hostid: Guid_3,
+          NServiceBus.ContentType: text/xml,
+          NServiceBus.ConversationId: Guid_1,
+          NServiceBus.CorrelationId: Guid_2,
+          NServiceBus.EnclosedMessageTypes: StartBehaviorThatThrows, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
+          NServiceBus.MessageId: Guid_2,
+          NServiceBus.MessageIntent: Send,
+          NServiceBus.OriginatingEndpoint: SerilogTestsStartBehaviorThatThrows,
+          NServiceBus.OriginatingMachine: TheMachineName,
+          NServiceBus.ReplyToAddress: SerilogTestsStartBehaviorThatThrows,
+          NServiceBus.Retries: 1,
+          NServiceBus.Retries.Timestamp: DateTime_2,
+          NServiceBus.Version: NsbVersion
         },
         IncomingMessage: {
-          TypeTag: StartBehaviorThatThrows,
-          Properties: [
-            {
-              Property: TheProperty
-            }
-          ]
+          Property: TheProperty
         },
         IncomingMessageId: Guid_2,
         IncomingTransportMessageId: Guid_5,
@@ -280,35 +286,37 @@
         ExceptionDetail: {
           Elements: {
             "Type": System.InvalidOperationException,
+            "Data": {
+              Elements: {
+                "ExceptionLogState": {
+                  TypeTag: ExceptionLogState
+                },
+                "Message ID": Guid_2,
+                "Transport message ID": Guid_5
+              }
+            },
             "HResult": -2146233079,
             "Message": No handlers could be found for message type: StartBehaviorThatThrows,
             "Source": NServiceBus.Core
           }
         },
         IncomingHeaders: {
-          Elements: {
-            "NServiceBus.MessageId": Guid_2,
-            "NServiceBus.MessageIntent": Send,
-            "NServiceBus.ConversationId": Guid_1,
-            "NServiceBus.CorrelationId": Guid_2,
-            "NServiceBus.ReplyToAddress": SerilogTestsStartBehaviorThatThrows,
-            "NServiceBus.OriginatingMachine": TheMachineName,
-            "NServiceBus.OriginatingEndpoint": SerilogTestsStartBehaviorThatThrows,
-            "$.diagnostics.originating.hostid": Guid_3,
-            "NServiceBus.ContentType": text/xml,
-            "NServiceBus.EnclosedMessageTypes": StartBehaviorThatThrows, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
-            "NServiceBus.Version": NsbVersion,
-            "NServiceBus.Retries": 1,
-            "NServiceBus.Retries.Timestamp": DateTime_2
-          }
+          $.diagnostics.originating.hostid: Guid_3,
+          NServiceBus.ContentType: text/xml,
+          NServiceBus.ConversationId: Guid_1,
+          NServiceBus.CorrelationId: Guid_2,
+          NServiceBus.EnclosedMessageTypes: StartBehaviorThatThrows, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
+          NServiceBus.MessageId: Guid_2,
+          NServiceBus.MessageIntent: Send,
+          NServiceBus.OriginatingEndpoint: SerilogTestsStartBehaviorThatThrows,
+          NServiceBus.OriginatingMachine: TheMachineName,
+          NServiceBus.ReplyToAddress: SerilogTestsStartBehaviorThatThrows,
+          NServiceBus.Retries: 1,
+          NServiceBus.Retries.Timestamp: DateTime_2,
+          NServiceBus.Version: NsbVersion
         },
         IncomingMessage: {
-          TypeTag: StartBehaviorThatThrows,
-          Properties: [
-            {
-              Property: TheProperty
-            }
-          ]
+          Property: TheProperty
         },
         IncomingMessageId: Guid_2,
         IncomingTransportMessageId: Guid_5,

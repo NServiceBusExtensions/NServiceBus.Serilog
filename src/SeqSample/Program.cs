@@ -3,20 +3,31 @@ using NServiceBus;
 using NServiceBus.Logging;
 using NServiceBus.Serilog;
 using Serilog;
+using Serilog.Core;
+
+Logger ConfigureSerilog()
+{
+    #region ConfigureSerilog
+
+    var configuration = new LoggerConfiguration();
+    configuration.Enrich.WithNsbExceptionDetails();
+    configuration.WriteTo.Seq("http://localhost:5341");
+    configuration.MinimumLevel.Information();
+    var logger = configuration.CreateLogger();
+    var serilogFactory = LogManager.Use<SerilogFactory>();
+    serilogFactory.WithLogger(logger);
+
+    #endregion
+
+    return logger;
+}
 
 Console.Title = "SeqSample";
-#region ConfigureSerilog
-var tracingLog = new LoggerConfiguration()
-    .WriteTo.Seq("http://localhost:5341")
-    .MinimumLevel.Information()
-    .CreateLogger();
-var serilogFactory = LogManager.Use<SerilogFactory>();
-serilogFactory.WithLogger(tracingLog);
-#endregion
+var tracingLog = ConfigureSerilog();
 
 #region UseConfig
 
-EndpointConfiguration configuration = new("SeqSample");
+var configuration = new EndpointConfiguration("SeqSample");
 var serilogTracing = configuration.EnableSerilogTracing(tracingLog);
 serilogTracing.EnableSagaTracing();
 serilogTracing.EnableMessageTracing();
@@ -27,7 +38,7 @@ configuration.UsePersistence<LearningPersistence>();
 configuration.UseTransport<LearningTransport>();
 
 var endpoint = await Endpoint.Start(configuration);
-CreateUser createUser = new()
+var createUser = new CreateUser
 {
     UserName = "jsmith",
     FamilyName = "Smith",

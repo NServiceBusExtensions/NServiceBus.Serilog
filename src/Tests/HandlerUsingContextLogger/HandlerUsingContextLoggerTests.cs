@@ -7,16 +7,16 @@ public class HandlerUsingContextLoggerTests
     [Fact]
     public Task Simple()
     {
-        HandlerUsingContextLogger handler = new();
-        TestableMessageHandlerContext context = new();
+        var handler = new HandlerUsingContextLogger();
+        TestableMessageHandlerContext context = new InheritedTestableMessageHandlerContext();
         return handler.Handle(new(), context);
     }
 
     [Fact]
     public Task Inherited()
     {
-        HandlerUsingContextLogger handler = new();
-        InheritedTestableMessageHandlerContext context = new();
+        var handler = new HandlerUsingContextLogger();
+        var context = new InheritedTestableMessageHandlerContext();
         return handler.Handle(new(), context);
     }
 

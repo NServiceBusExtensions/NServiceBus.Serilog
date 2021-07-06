@@ -75,7 +75,7 @@ namespace NServiceBus.Serilog
 
         static string FormatForDisplay(Type type)
         {
-            StringBuilder builder = new();
+            var builder = new StringBuilder();
             FormatForDisplay(type, builder);
             return builder.ToString();
         }

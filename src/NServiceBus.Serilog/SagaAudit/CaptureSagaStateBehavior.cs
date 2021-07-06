@@ -16,7 +16,7 @@ class CaptureSagaStateBehavior :
 
     CaptureSagaStateBehavior()
     {
-        MessageTemplateParser templateParser = new();
+        var templateParser = new MessageTemplateParser();
         messageTemplate = templateParser.Parse("Saga execution {SagaType} {SagaId}.");
     }
 
@@ -36,7 +36,7 @@ class CaptureSagaStateBehavior :
             return;
         }
 
-        SagaUpdatedMessage sagaAudit = new(DateTimeOffset.UtcNow);
+        var sagaAudit = new SagaUpdatedMessage(DateTimeOffset.UtcNow);
         context.Extensions.Set(sagaAudit);
         await next();
 
@@ -73,7 +73,7 @@ class CaptureSagaStateBehavior :
 
         AssignSagaStateChangeCausedByMessage(context, sagaAudit);
 
-        List<LogEventProperty> properties = new()
+        var properties = new List<LogEventProperty>
         {
             new("SagaType", new ScalarValue(sagaAudit.SagaType)),
             new("SagaId", new ScalarValue(sagaAudit.SagaId)),
@@ -86,7 +86,7 @@ class CaptureSagaStateBehavior :
         var logger = context.Logger();
         var messageType = TypeNameConverter.GetName(context.MessageType());
 
-        Dictionary<ScalarValue, LogEventPropertyValue> initiator = new()
+        var initiator = new Dictionary<ScalarValue, LogEventPropertyValue>
         {
             {new("IsSagaTimeout"), new ScalarValue(context.IsTimeoutMessage())},
             {new("MessageId"), new ScalarValue(messageId)},

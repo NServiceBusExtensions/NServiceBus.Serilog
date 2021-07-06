@@ -1,4 +1,5 @@
-﻿using NServiceBus.Logging;
+﻿using NServiceBus;
+using NServiceBus.Logging;
 using NServiceBus.Serilog;
 using Serilog;
 
@@ -8,9 +9,10 @@ class Usage
     {
         #region SerilogInCode
 
-        Log.Logger = new LoggerConfiguration()
-            .WriteTo.File("log.txt")
-            .CreateLogger();
+        var configuration = new LoggerConfiguration();
+        configuration.Enrich.WithNsbExceptionDetails();
+        configuration.WriteTo.File("log.txt");
+        Log.Logger = configuration.CreateLogger();
 
         LogManager.Use<SerilogFactory>();
 
@@ -21,10 +23,11 @@ class Usage
     {
         #region SerilogSeq
 
-        Log.Logger = new LoggerConfiguration()
-            .WriteTo.Seq("http://localhost:5341")
-            .MinimumLevel.Information()
-            .CreateLogger();
+        var configuration = new LoggerConfiguration();
+        configuration.Enrich.WithNsbExceptionDetails();
+        configuration.WriteTo.Seq("http://localhost:5341");
+        configuration.MinimumLevel.Information();
+        Log.Logger = configuration.CreateLogger();
 
         LogManager.Use<SerilogFactory>();
 

@@ -20,7 +20,7 @@ static class HeaderAppender
 
     public static IEnumerable<LogEventProperty> BuildHeaders(this ILogger logger, IReadOnlyDictionary<string, string> headers, ConvertHeader convertHeader)
     {
-        Dictionary<string, string> otherHeaders = new();
+        var otherHeaders = new Dictionary<string, string>();
         foreach (var header in headers
             .Where(x => !excludeHeaders.Contains(x.Key))
             .OrderBy(x => x.Key))

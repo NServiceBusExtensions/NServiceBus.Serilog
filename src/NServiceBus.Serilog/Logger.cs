@@ -1,86 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using NServiceBus;
 using NServiceBus.Logging;
 using Serilog;
 using Serilog.Events;
-using Serilog.Parsing;
 
 class Logger :
     ILog
 {
     ILogger logger;
-    MessageTemplateParser templateParser;
 
     public Logger(ILogger logger)
     {
         this.logger = logger;
-        templateParser = new();
-    }
-
-    void WriteExceptionEvent(string message, Exception exception, LogEventLevel level)
-    {
-        List<LogEventProperty> properties = new();
-        if (exception.TryReadData("Message type", out string messageType))
-        {
-            properties.Add(new("IncomingMessageType", new ScalarValue(messageType)));
-        }
-
-        if (exception.TryReadData("Message ID", out string incomingMessageId))
-        {
-            properties.Add(new("IncomingMessageId", new ScalarValue(incomingMessageId)));
-        }
-
-        if (exception.TryReadData("Transport message ID", out string incomingTransportMessageId))
-        {
-            properties.Add(new("IncomingTransportMessageId", new ScalarValue(incomingTransportMessageId)));
-        }
-
-        if (exception.TryReadData("Handler start time", out string handlerStartTime))
-        {
-            properties.Add(new("HandlerStartTime", new ScalarValue(DateTimeExtensions.ToUtcDateTime(handlerStartTime))));
-        }
-
-        if (exception.TryReadData("Handler failure time", out string handlerFailureTime))
-        {
-            properties.Add(new("HandlerFailureTime", new ScalarValue(DateTimeExtensions.ToUtcDateTime(handlerFailureTime))));
-        }
-
-        if (exception.TryReadData("Handler type", out string handlerType))
-        {
-            properties.Add(new("HandlerType", new ScalarValue(handlerType)));
-        }
-
-        if (exception.TryReadData("ExceptionLogState", out ExceptionLogState logState))
-        {
-            properties.Add(new("ProcessingEndpoint", new ScalarValue(logState.ProcessingEndpoint)));
-            if (logState.CorrelationId != null)
-            {
-                properties.Add(new("CorrelationId", new ScalarValue(logState.CorrelationId)));
-            }
-
-            if (logState.ConversationId != null)
-            {
-                properties.Add(new("ConversationId", new ScalarValue(logState.ConversationId)));
-            }
-
-            if (logState.IncomingMessage != null)
-            {
-                if (logger.BindProperty("IncomingMessage", logState.IncomingMessage, out var messageProperty))
-                {
-                    properties.Add(messageProperty);
-                }
-            }
-
-            if (logger.BindProperty("IncomingHeaders", logState.IncomingHeaders, out var headersProperty))
-            {
-                properties.Add(headersProperty);
-            }
-        }
-
-        var messageTemplate = templateParser.Parse(message);
-        LogEvent logEvent = new(DateTimeOffset.Now, level, exception, messageTemplate, properties);
-        logger.Write(logEvent);
     }
 
     public void Debug(string message)
@@ -90,7 +20,7 @@ class Logger :
 
     public void Debug(string message, Exception exception)
     {
-        WriteExceptionEvent(message, exception, LogEventLevel.Debug);
+        logger.Debug(exception, message);
     }
 
     public void DebugFormat(string format, params object[] args)
@@ -105,7 +35,7 @@ class Logger :
 
     public void Info(string message, Exception exception)
     {
-        WriteExceptionEvent(message, exception, LogEventLevel.Information);
+        logger.Information(exception, message);
     }
 
     public void InfoFormat(string format, params object[] args)
@@ -120,7 +50,7 @@ class Logger :
 
     public void Warn(string message, Exception exception)
     {
-        WriteExceptionEvent(message, exception, LogEventLevel.Warning);
+        logger.Warning(exception, message);
     }
 
     public void WarnFormat(string format, params object[] args)
@@ -135,7 +65,7 @@ class Logger :
 
     public void Error(string message, Exception exception)
     {
-        WriteExceptionEvent(message, exception, LogEventLevel.Error);
+        logger.Error(exception, message);
     }
 
     public void ErrorFormat(string format, params object[] args)
@@ -150,7 +80,7 @@ class Logger :
 
     public void Fatal(string message, Exception exception)
     {
-        WriteExceptionEvent(message, exception, LogEventLevel.Fatal);
+        logger.Fatal(exception, message);
     }
 
     public void FatalFormat(string format, params object[] args)

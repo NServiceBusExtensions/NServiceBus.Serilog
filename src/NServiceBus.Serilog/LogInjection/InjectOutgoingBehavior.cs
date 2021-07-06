@@ -31,7 +31,7 @@ class InjectOutgoingBehavior :
             logger = logBuilder.GetLogger(messageTypeName);
         }
 
-        List<PropertyEnricher> properties = new()
+        var properties = new List<PropertyEnricher>
         {
             new("OutgoingMessageId", context.MessageId),
             new("OutgoingMessageType", messageTypeName)

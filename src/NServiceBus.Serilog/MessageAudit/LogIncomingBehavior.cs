@@ -19,7 +19,7 @@ class LogIncomingBehavior :
 
     static LogIncomingBehavior()
     {
-        MessageTemplateParser templateParser = new();
+        var templateParser = new MessageTemplateParser();
         messageTemplate = templateParser.Parse("Receive message {IncomingMessageType} {IncomingMessageId}.");
     }
 
@@ -40,7 +40,7 @@ class LogIncomingBehavior :
     public override Task Invoke(IIncomingLogicalMessageContext context, Func<Task> next)
     {
         var message = context.Message;
-        List<LogEventProperty> properties = new();
+        var properties = new List<LogEventProperty>();
 
         var logger = context.Logger();
         if (logger.BindProperty("IncomingMessage", message.Instance, out var property))

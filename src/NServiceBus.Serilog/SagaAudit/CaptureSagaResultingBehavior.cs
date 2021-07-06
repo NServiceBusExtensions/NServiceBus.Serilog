@@ -29,7 +29,7 @@ class CaptureSagaResultingBehavior :
 
         var messageType = logicalMessage.MessageType.Name;
 
-        Dictionary<string, string> sagaResultingMessage = new()
+        var sagaResultingMessage = new Dictionary<string, string>
         {
             {"Id", context.MessageId},
             {"Type", messageType},

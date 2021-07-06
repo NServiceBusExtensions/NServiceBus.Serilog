@@ -36,7 +36,7 @@ class InjectIncomingBehavior :
 
     public override async Task Invoke(IIncomingPhysicalMessageContext context, Func<Task> next)
     {
-        List<PropertyEnricher> properties = new()
+        var properties = new List<PropertyEnricher>
         {
             new("IncomingMessageId", context.MessageId)
         };

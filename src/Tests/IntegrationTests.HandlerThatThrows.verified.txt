@@ -149,6 +149,19 @@
         ExceptionDetail: {
           Elements: {
             "Type": System.Exception,
+            "Data": {
+              Elements: {
+                "Message type": StartHandlerThatThrows,
+                "Handler type": TheHandlerThatThrows,
+                "Handler start time": DateTime_3,
+                "Handler failure time": DateTime_4,
+                "ExceptionLogState": {
+                  TypeTag: ExceptionLogState
+                },
+                "Message ID": Guid_2,
+                "Transport message ID": Guid_4
+              }
+            },
             "HResult": -2146233088,
             "Message": Exception of type 'System.Exception' was thrown.,
             "Source": Tests
@@ -156,27 +169,20 @@
         },
         HandlerType: TheHandlerThatThrows,
         IncomingHeaders: {
-          Elements: {
-            "NServiceBus.MessageId": Guid_2,
-            "NServiceBus.MessageIntent": Send,
-            "NServiceBus.ConversationId": Guid_1,
-            "NServiceBus.CorrelationId": Guid_2,
-            "NServiceBus.ReplyToAddress": SerilogTestsStartHandlerThatThrows,
-            "NServiceBus.OriginatingMachine": TheMachineName,
-            "NServiceBus.OriginatingEndpoint": SerilogTestsStartHandlerThatThrows,
-            "$.diagnostics.originating.hostid": Guid_3,
-            "NServiceBus.ContentType": text/xml,
-            "NServiceBus.EnclosedMessageTypes": StartHandlerThatThrows, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
-            "NServiceBus.Version": NsbVersion,
-          }
+          $.diagnostics.originating.hostid: Guid_3,
+          NServiceBus.ContentType: text/xml,
+          NServiceBus.ConversationId: Guid_1,
+          NServiceBus.CorrelationId: Guid_2,
+          NServiceBus.EnclosedMessageTypes: StartHandlerThatThrows, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
+          NServiceBus.MessageId: Guid_2,
+          NServiceBus.MessageIntent: Send,
+          NServiceBus.OriginatingEndpoint: SerilogTestsStartHandlerThatThrows,
+          NServiceBus.OriginatingMachine: TheMachineName,
+          NServiceBus.ReplyToAddress: SerilogTestsStartHandlerThatThrows,
+          NServiceBus.Version: NsbVersion
         },
         IncomingMessage: {
-          TypeTag: StartHandlerThatThrows,
-          Properties: [
-            {
-              Property: TheProperty
-            }
-          ]
+          Property: TheProperty
         },
         IncomingMessageId: Guid_2,
         IncomingMessageType: StartHandlerThatThrows,
@@ -194,6 +200,19 @@
         ExceptionDetail: {
           Elements: {
             "Type": System.Exception,
+            "Data": {
+              Elements: {
+                "Message type": StartHandlerThatThrows,
+                "Handler type": TheHandlerThatThrows,
+                "Handler start time": DateTime_8,
+                "Handler failure time": DateTime_9,
+                "ExceptionLogState": {
+                  TypeTag: ExceptionLogState
+                },
+                "Message ID": Guid_2,
+                "Transport message ID": Guid_4
+              }
+            },
             "HResult": -2146233088,
             "Message": Exception of type 'System.Exception' was thrown.,
             "Source": Tests
@@ -201,27 +220,20 @@
         },
         HandlerType: TheHandlerThatThrows,
         IncomingHeaders: {
-          Elements: {
-            "NServiceBus.MessageId": Guid_2,
-            "NServiceBus.MessageIntent": Send,
-            "NServiceBus.ConversationId": Guid_1,
-            "NServiceBus.CorrelationId": Guid_2,
-            "NServiceBus.ReplyToAddress": SerilogTestsStartHandlerThatThrows,
-            "NServiceBus.OriginatingMachine": TheMachineName,
-            "NServiceBus.OriginatingEndpoint": SerilogTestsStartHandlerThatThrows,
-            "$.diagnostics.originating.hostid": Guid_3,
-            "NServiceBus.ContentType": text/xml,
-            "NServiceBus.EnclosedMessageTypes": StartHandlerThatThrows, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
-            "NServiceBus.Version": NsbVersion,
-          }
+          $.diagnostics.originating.hostid: Guid_3,
+          NServiceBus.ContentType: text/xml,
+          NServiceBus.ConversationId: Guid_1,
+          NServiceBus.CorrelationId: Guid_2,
+          NServiceBus.EnclosedMessageTypes: StartHandlerThatThrows, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
+          NServiceBus.MessageId: Guid_2,
+          NServiceBus.MessageIntent: Send,
+          NServiceBus.OriginatingEndpoint: SerilogTestsStartHandlerThatThrows,
+          NServiceBus.OriginatingMachine: TheMachineName,
+          NServiceBus.ReplyToAddress: SerilogTestsStartHandlerThatThrows,
+          NServiceBus.Version: NsbVersion
         },
         IncomingMessage: {
-          TypeTag: StartHandlerThatThrows,
-          Properties: [
-            {
-              Property: TheProperty
-            }
-          ]
+          Property: TheProperty
         },
         IncomingMessageId: Guid_2,
         IncomingMessageType: StartHandlerThatThrows,
@@ -239,6 +251,19 @@
         ExceptionDetail: {
           Elements: {
             "Type": System.Exception,
+            "Data": {
+              Elements: {
+                "Message type": StartHandlerThatThrows,
+                "Handler type": TheHandlerThatThrows,
+                "Handler start time": DateTime_12,
+                "Handler failure time": DateTime_13,
+                "ExceptionLogState": {
+                  TypeTag: ExceptionLogState
+                },
+                "Message ID": Guid_2,
+                "Transport message ID": Guid_5
+              }
+            },
             "HResult": -2146233088,
             "Message": Exception of type 'System.Exception' was thrown.,
             "Source": Tests
@@ -246,29 +271,22 @@
         },
         HandlerType: TheHandlerThatThrows,
         IncomingHeaders: {
-          Elements: {
-            "NServiceBus.MessageId": Guid_2,
-            "NServiceBus.MessageIntent": Send,
-            "NServiceBus.ConversationId": Guid_1,
-            "NServiceBus.CorrelationId": Guid_2,
-            "NServiceBus.ReplyToAddress": SerilogTestsStartHandlerThatThrows,
-            "NServiceBus.OriginatingMachine": TheMachineName,
-            "NServiceBus.OriginatingEndpoint": SerilogTestsStartHandlerThatThrows,
-            "$.diagnostics.originating.hostid": Guid_3,
-            "NServiceBus.ContentType": text/xml,
-            "NServiceBus.EnclosedMessageTypes": StartHandlerThatThrows, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
-            "NServiceBus.Version": NsbVersion,
-            "NServiceBus.Retries": 1,
-            "NServiceBus.Retries.Timestamp": DateTime_2
-          }
+          $.diagnostics.originating.hostid: Guid_3,
+          NServiceBus.ContentType: text/xml,
+          NServiceBus.ConversationId: Guid_1,
+          NServiceBus.CorrelationId: Guid_2,
+          NServiceBus.EnclosedMessageTypes: StartHandlerThatThrows, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
+          NServiceBus.MessageId: Guid_2,
+          NServiceBus.MessageIntent: Send,
+          NServiceBus.OriginatingEndpoint: SerilogTestsStartHandlerThatThrows,
+          NServiceBus.OriginatingMachine: TheMachineName,
+          NServiceBus.ReplyToAddress: SerilogTestsStartHandlerThatThrows,
+          NServiceBus.Retries: 1,
+          NServiceBus.Retries.Timestamp: DateTime_2,
+          NServiceBus.Version: NsbVersion
         },
         IncomingMessage: {
-          TypeTag: StartHandlerThatThrows,
-          Properties: [
-            {
-              Property: TheProperty
-            }
-          ]
+          Property: TheProperty
         },
         IncomingMessageId: Guid_2,
         IncomingMessageType: StartHandlerThatThrows,
@@ -286,6 +304,19 @@
         ExceptionDetail: {
           Elements: {
             "Type": System.Exception,
+            "Data": {
+              Elements: {
+                "Message type": StartHandlerThatThrows,
+                "Handler type": TheHandlerThatThrows,
+                "Handler start time": DateTime_16,
+                "Handler failure time": DateTime_17,
+                "ExceptionLogState": {
+                  TypeTag: ExceptionLogState
+                },
+                "Message ID": Guid_2,
+                "Transport message ID": Guid_5
+              }
+            },
             "HResult": -2146233088,
             "Message": Exception of type 'System.Exception' was thrown.,
             "Source": Tests
@@ -293,29 +324,22 @@
         },
         HandlerType: TheHandlerThatThrows,
         IncomingHeaders: {
-          Elements: {
-            "NServiceBus.MessageId": Guid_2,
-            "NServiceBus.MessageIntent": Send,
-            "NServiceBus.ConversationId": Guid_1,
-            "NServiceBus.CorrelationId": Guid_2,
-            "NServiceBus.ReplyToAddress": SerilogTestsStartHandlerThatThrows,
-            "NServiceBus.OriginatingMachine": TheMachineName,
-            "NServiceBus.OriginatingEndpoint": SerilogTestsStartHandlerThatThrows,
-            "$.diagnostics.originating.hostid": Guid_3,
-            "NServiceBus.ContentType": text/xml,
-            "NServiceBus.EnclosedMessageTypes": StartHandlerThatThrows, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
-            "NServiceBus.Version": NsbVersion,
-            "NServiceBus.Retries": 1,
-            "NServiceBus.Retries.Timestamp": DateTime_2
-          }
+          $.diagnostics.originating.hostid: Guid_3,
+          NServiceBus.ContentType: text/xml,
+          NServiceBus.ConversationId: Guid_1,
+          NServiceBus.CorrelationId: Guid_2,
+          NServiceBus.EnclosedMessageTypes: StartHandlerThatThrows, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
+          NServiceBus.MessageId: Guid_2,
+          NServiceBus.MessageIntent: Send,
+          NServiceBus.OriginatingEndpoint: SerilogTestsStartHandlerThatThrows,
+          NServiceBus.OriginatingMachine: TheMachineName,
+          NServiceBus.ReplyToAddress: SerilogTestsStartHandlerThatThrows,
+          NServiceBus.Retries: 1,
+          NServiceBus.Retries.Timestamp: DateTime_2,
+          NServiceBus.Version: NsbVersion
         },
         IncomingMessage: {
-          TypeTag: StartHandlerThatThrows,
-          Properties: [
-            {
-              Property: TheProperty
-            }
-          ]
+          Property: TheProperty
         },
         IncomingMessageId: Guid_2,
         IncomingMessageType: StartHandlerThatThrows,

@@ -17,7 +17,7 @@ class LogOutgoingBehavior :
     LogOutgoingBehavior(ConvertHeader convertHeader)
     {
         this.convertHeader = convertHeader;
-        MessageTemplateParser templateParser = new();
+        var templateParser = new MessageTemplateParser();
         messageTemplate = templateParser.Parse("Sent message {OutgoingMessageType} {OutgoingMessageId}.");
     }
 
@@ -30,7 +30,7 @@ class LogOutgoingBehavior :
 
     void LogMessage(IOutgoingPhysicalMessageContext context, ILogger forContext, object message)
     {
-        List<LogEventProperty> properties = new();
+        var properties = new List<LogEventProperty>();
 
         if (forContext.BindProperty("OutgoingMessage", message, out var messageProperty))
         {
@@ -40,7 +40,7 @@ class LogOutgoingBehavior :
         var addresses = context.UnicastAddresses();
         if (addresses.Count > 0)
         {
-            SequenceValue sequence = new(addresses.Select(x => new ScalarValue(x)));
+            var sequence = new SequenceValue(addresses.Select(x => new ScalarValue(x)));
             properties.Add(new("UnicastRoutes", sequence));
         }
 

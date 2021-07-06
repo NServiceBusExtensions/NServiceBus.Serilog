@@ -25,7 +25,7 @@ public class TheSaga :
     public Task Handle(StartSaga message, IMessageHandlerContext context)
     {
         context.LogInformation("Hello from {@Saga}. Message: {@Message}", nameof(TheSaga), message);
-        BackIntoSaga backIntoSaga = new()
+        var backIntoSaga = new BackIntoSaga
         {
             Property = message.Property
         };

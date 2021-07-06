@@ -4,16 +4,16 @@ using NServiceBus.Logging;
 using NServiceBus.Serilog;
 using Serilog;
 
-LoggerConfiguration loggerConfiguration = new();
+var loggerConfiguration = new LoggerConfiguration();
 loggerConfiguration.WriteTo.Seq("http://localhost:5341");
-loggerConfiguration.MinimumLevel.Information();
 loggerConfiguration.WriteTo.File("logFile.txt");
+loggerConfiguration.MinimumLevel.Information();
 var tracingLog = loggerConfiguration.CreateLogger();
 //Set NServiceBus to log to Serilog
 var serilogFactory = LogManager.Use<SerilogFactory>();
 serilogFactory.WithLogger(tracingLog);
 
-EndpointConfiguration configuration = new("SeqSample");
+var configuration = new EndpointConfiguration("SeqSample");
 var serilogTracing = configuration.EnableSerilogTracing(tracingLog);
 serilogTracing.EnableSagaTracing();
 serilogTracing.EnableMessageTracing();
@@ -25,7 +25,7 @@ var recoverability = configuration.Recoverability();
 recoverability.Delayed(settings => { settings.NumberOfRetries(1); });
 recoverability.Immediate(settings => { settings.NumberOfRetries(1); });
 var endpoint = await Endpoint.Start(configuration);
-CreateUser createUser = new()
+var createUser = new CreateUser
 {
     UserName = "jsmith",
     FamilyName = "Smith",
