@@ -14,7 +14,6 @@ class ExceptionLogState
 
     public ExceptionLogState(string processingEndpoint, IReadOnlyDictionary<string, string> incomingHeaders, string? correlationId, string? conversationId)
     {
-        Guard.AgainstNull(processingEndpoint, nameof(processingEndpoint));
         ProcessingEndpoint = processingEndpoint;
         IncomingHeaders = incomingHeaders;
         CorrelationId = correlationId;

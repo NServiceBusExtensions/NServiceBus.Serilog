@@ -34,8 +34,6 @@ namespace NServiceBus
         /// </summary>
         public static SerilogTracingSettings EnableSerilogTracing(this EndpointConfiguration configuration, ILogger logger)
         {
-            Guard.AgainstNull(configuration, nameof(configuration));
-            Guard.AgainstNull(logger, nameof(logger));
             var recoverability = configuration.Recoverability();
             recoverability.AddUnrecoverableException<ConfigurationException>();
             configuration.EnableFeature<TracingFeature>();
@@ -55,7 +53,6 @@ namespace NServiceBus
         /// </summary>
         public static ILogger Logger(this IPipelineContext context)
         {
-            Guard.AgainstNull(context, nameof(context));
             var bag = context.Extensions;
             if (bag.TryGet("SerilogOutgoingLogger", out ILogger logger))
             {

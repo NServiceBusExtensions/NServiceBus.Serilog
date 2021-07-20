@@ -30,7 +30,6 @@ namespace NServiceBus.Serilog
         /// </summary>
         public void UseHeaderConversion(ConvertHeader convertHeader)
         {
-            Guard.AgainstNull(convertHeader, nameof(convertHeader));
             this.convertHeader = convertHeader;
         }
 

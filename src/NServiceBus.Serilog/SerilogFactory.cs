@@ -24,7 +24,6 @@ namespace NServiceBus.Serilog
         /// </summary>
         public void WithLogger(ILogger logger)
         {
-            Guard.AgainstNull(logger, "logger");
             loggerToUse = logger;
         }
     }
