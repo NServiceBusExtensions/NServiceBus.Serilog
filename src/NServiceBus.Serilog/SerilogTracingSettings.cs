@@ -26,7 +26,7 @@ namespace NServiceBus.Serilog
         }
 
         /// <summary>
-        /// Allow a custom log property to be used to a specific header
+        /// Allow a custom log property to be used to a specific header.
         /// </summary>
         public void UseHeaderConversion(ConvertHeader convertHeader)
         {
