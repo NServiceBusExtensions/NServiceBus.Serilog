@@ -48,14 +48,17 @@ class InjectIncomingBehavior :
             var split = enclosedMessageTypes.Split(';');
             if (split.Length == 1)
             {
-                var messageTypeName = TypeNameConverter.GetName(split[0]);
+                var longName = split[0];
+                var messageTypeName = TypeNameConverter.GetName(longName);
                 properties.Add(new("IncomingMessageType", messageTypeName));
+                properties.Add(new("IncomingMessageTypeLong", longName));
                 logger = logBuilder.GetLogger(messageTypeName);
             }
             else
             {
                 var names = split.Select(TypeNameConverter.GetName).ToList();
                 properties.Add(new("IncomingMessageTypes", names));
+                properties.Add(new("IncomingMessageTypesLong", split));
                 var messageTypeName = string.Join(";", names);
                 logger = logBuilder.GetLogger(messageTypeName);
             }

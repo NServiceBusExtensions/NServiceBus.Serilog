@@ -249,6 +249,7 @@ serilogTracing.EnableSagaTracing();
         Handler: TheSaga,
         IncomingMessageId: Guid_2,
         IncomingMessageType: StartSaga,
+        IncomingMessageTypeLong: StartSaga, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
         Message: {
           TypeTag: StartSaga,
           Properties: [
@@ -278,6 +279,7 @@ serilogTracing.EnableSagaTracing();
         },
         IncomingMessageId: Guid_2,
         IncomingMessageType: StartSaga,
+        IncomingMessageTypeLong: StartSaga, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
         MessageIntent: Send,
         OriginatingEndpoint: SerilogTestsStartSaga,
         OriginatingHostId: Guid_3,
@@ -314,6 +316,7 @@ serilogTracing.EnableSagaTracing();
         FinishTime: DateTimeOffset_1,
         IncomingMessageId: Guid_2,
         IncomingMessageType: StartSaga,
+        IncomingMessageTypeLong: StartSaga, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
         Initiator: {
           Elements: {
             "IsSagaTimeout": false,
@@ -384,6 +387,7 @@ serilogTracing.EnableSagaTracing();
         CorrelationId: Guid_2,
         IncomingMessageId: Guid_2,
         IncomingMessageType: StartSaga,
+        IncomingMessageTypeLong: StartSaga, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
         MessageIntent: Send,
         OriginatingEndpoint: SerilogTestsStartSaga,
         OriginatingHostId: Guid_3,
@@ -414,7 +418,7 @@ serilogTracing.EnableSagaTracing();
   ]
 }
 ```
-<sup><a href='/src/Tests/IntegrationTests.Saga.verified.txt#L1-L175' title='Snippet source file'>snippet source</a> | <a href='#snippet-IntegrationTests.Saga.verified.txt' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/IntegrationTests.Saga.verified.txt#L1-L179' title='Snippet source file'>snippet source</a> | <a href='#snippet-IntegrationTests.Saga.verified.txt' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -448,6 +452,7 @@ serilogTracing.EnableMessageTracing();
         Handler: TheHandler,
         IncomingMessageId: Guid_2,
         IncomingMessageType: StartHandler,
+        IncomingMessageTypeLong: StartHandler, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
         ProcessingEndpoint: SerilogTestsStartHandler,
         SourceContext: StartHandler
       }
@@ -468,6 +473,7 @@ serilogTracing.EnableMessageTracing();
         },
         IncomingMessageId: Guid_2,
         IncomingMessageType: StartHandler,
+        IncomingMessageTypeLong: StartHandler, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
         MessageIntent: Send,
         OriginatingEndpoint: SerilogTestsStartHandler,
         OriginatingHostId: Guid_3,
@@ -511,7 +517,7 @@ serilogTracing.EnableMessageTracing();
   ]
 }
 ```
-<sup><a href='/src/Tests/IntegrationTests.Handler.verified.txt#L1-L73' title='Snippet source file'>snippet source</a> | <a href='#snippet-IntegrationTests.Handler.verified.txt' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/IntegrationTests.Handler.verified.txt#L1-L75' title='Snippet source file'>snippet source</a> | <a href='#snippet-IntegrationTests.Handler.verified.txt' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 

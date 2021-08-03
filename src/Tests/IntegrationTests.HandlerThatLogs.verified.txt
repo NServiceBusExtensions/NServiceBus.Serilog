@@ -11,6 +11,7 @@
         },
         IncomingMessageId: Guid_2,
         IncomingMessageType: StartHandlerThatLogs,
+        IncomingMessageTypeLong: StartHandlerThatLogs, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
         MessageIntent: Send,
         OriginatingEndpoint: SerilogTestsStartHandlerThatLogs,
         OriginatingHostId: Guid_3,

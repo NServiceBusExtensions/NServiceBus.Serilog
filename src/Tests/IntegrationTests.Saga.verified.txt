@@ -9,6 +9,7 @@
         Handler: TheSaga,
         IncomingMessageId: Guid_2,
         IncomingMessageType: StartSaga,
+        IncomingMessageTypeLong: StartSaga, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
         Message: {
           TypeTag: StartSaga,
           Properties: [
@@ -38,6 +39,7 @@
         },
         IncomingMessageId: Guid_2,
         IncomingMessageType: StartSaga,
+        IncomingMessageTypeLong: StartSaga, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
         MessageIntent: Send,
         OriginatingEndpoint: SerilogTestsStartSaga,
         OriginatingHostId: Guid_3,
@@ -74,6 +76,7 @@
         FinishTime: DateTimeOffset_1,
         IncomingMessageId: Guid_2,
         IncomingMessageType: StartSaga,
+        IncomingMessageTypeLong: StartSaga, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
         Initiator: {
           Elements: {
             "IsSagaTimeout": false,
@@ -144,6 +147,7 @@
         CorrelationId: Guid_2,
         IncomingMessageId: Guid_2,
         IncomingMessageType: StartSaga,
+        IncomingMessageTypeLong: StartSaga, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
         MessageIntent: Send,
         OriginatingEndpoint: SerilogTestsStartSaga,
         OriginatingHostId: Guid_3,
