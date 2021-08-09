@@ -77,7 +77,7 @@ namespace NServiceBus
                 }
 
                 type = type.BaseType;
-                if (type == null)
+                if (type is null)
                 {
                     break;
                 }

@@ -21,7 +21,7 @@ class CaptureSagaResultingBehavior :
         }
 
         var logicalMessage = context.Message;
-        if (logicalMessage == null)
+        if (logicalMessage is null)
         {
             //this can happen on control messages
             return;
@@ -36,7 +36,7 @@ class CaptureSagaResultingBehavior :
             {"Intent", context.MessageIntent()}
         };
         var destination = context.GetDestinationForUnicastMessages();
-        if (destination != null)
+        if (destination is not null)
         {
             sagaResultingMessage.Add("Destination", destination);
         }

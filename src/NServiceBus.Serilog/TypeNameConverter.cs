@@ -53,7 +53,7 @@ namespace NServiceBus.Serilog
 
                     return assembly.GetType(name, false, ignoreCase);
                 });
-            if (type == null)
+            if (type is null)
             {
                 var indexOfComma = typeName.IndexOf(',');
                 if (indexOfComma > -1)

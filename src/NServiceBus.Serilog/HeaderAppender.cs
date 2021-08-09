@@ -29,7 +29,7 @@ static class HeaderAppender
             var value = header.Value;
 
             var converted = convertHeader(key, value);
-            if (converted != null)
+            if (converted is not null)
             {
                 yield return converted;
                 continue;

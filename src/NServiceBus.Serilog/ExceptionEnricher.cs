@@ -9,7 +9,7 @@ class ExceptionEnricher :
     public void Enrich(LogEvent logEvent, ILogEventPropertyFactory propertyFactory)
     {
         var exception = logEvent.Exception;
-        if (exception == null)
+        if (exception is null)
         {
             return;
         }
@@ -47,17 +47,17 @@ class ExceptionEnricher :
         if (exception.TryReadData("ExceptionLogState", out ExceptionLogState logState))
         {
             logEvent.AddPropertyIfAbsent(new("ProcessingEndpoint", new ScalarValue(logState.ProcessingEndpoint)));
-            if (logState.CorrelationId != null)
+            if (logState.CorrelationId is not null)
             {
                 logEvent.AddPropertyIfAbsent(new("CorrelationId", new ScalarValue(logState.CorrelationId)));
             }
 
-            if (logState.ConversationId != null)
+            if (logState.ConversationId is not null)
             {
                 logEvent.AddPropertyIfAbsent(new("ConversationId", new ScalarValue(logState.ConversationId)));
             }
 
-            if (logState.IncomingMessage != null)
+            if (logState.IncomingMessage is not null)
             {
                 if (Log.BindProperty("IncomingMessage", logState.IncomingMessage, true, out var messageProperty))
                 {

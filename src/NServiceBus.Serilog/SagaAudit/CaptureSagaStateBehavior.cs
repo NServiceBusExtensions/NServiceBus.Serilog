@@ -53,7 +53,7 @@ class CaptureSagaStateBehavior :
     {
         var saga = activeSagaInstance.Instance;
 
-        if (saga.Entity == null)
+        if (saga.Entity is null)
         {
             //this can happen if it is a timeout or for invoking "saga not found" logic
             return;

@@ -9,7 +9,7 @@ static class StartupDiagnosticsReader
     {
         var diagnosticEntries = readOnlySettings.Get<StartupDiagnosticEntries>();
         var field = diagnosticEntries.GetType().GetField("entries", BindingFlags.Instance | BindingFlags.NonPublic);
-        if (field == null)
+        if (field is null)
         {
             throw new($"Could not extract 'entries' field from {nameof(StartupDiagnosticEntries)}.");
         }

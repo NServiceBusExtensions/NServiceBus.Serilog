@@ -24,7 +24,7 @@ public static class TestExtensions
 
     public static IEnumerable<LogEventEx> LogsWithExceptions(this IEnumerable<LogEventEx> logs)
     {
-        return logs.Where(x => x.Exception != null);
+        return logs.Where(x => x.Exception is not null);
     }
 
     public static IEnumerable<LogEventEx> LogsForType<T>(this IEnumerable<LogEventEx> logs)
