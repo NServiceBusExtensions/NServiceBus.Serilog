@@ -10,4 +10,4 @@ on_failure:
   - ps: Get-ChildItem *.received.* -recurse | % { Push-AppveyorArtifact $_.FullName -FileName $_.Name }
 test: off
 artifacts:
-- path: nugets\**\*.nupkg
+- path: nugets\*.nupkg
