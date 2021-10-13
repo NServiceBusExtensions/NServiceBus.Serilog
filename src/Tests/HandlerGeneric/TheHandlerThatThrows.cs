@@ -1,6 +1,4 @@
-﻿using System.Threading;
-using System.Threading.Tasks;
-using NServiceBus;
+﻿using NServiceBus;
 
 public class GenericHandler :
     IHandleMessages<StartGenericHandler<string>>

@@ -1,7 +1,4 @@
-﻿using System.Threading.Tasks;
-using System;
-using System.Collections.Generic;
-using NServiceBus.Pipeline;
+﻿using NServiceBus.Pipeline;
 using NServiceBus.Serilog;
 
 class CaptureSagaResultingBehavior :

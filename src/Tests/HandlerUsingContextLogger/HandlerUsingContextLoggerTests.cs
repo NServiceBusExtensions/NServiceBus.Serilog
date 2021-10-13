@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using NServiceBus.Testing;
+﻿using NServiceBus.Testing;
 using Xunit;
 
 public class HandlerUsingContextLoggerTests

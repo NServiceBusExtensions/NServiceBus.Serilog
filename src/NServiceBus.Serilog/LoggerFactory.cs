@@ -1,5 +1,4 @@
-﻿using System;
-using NServiceBus.Logging;
+﻿using NServiceBus.Logging;
 using Serilog;
 
 class LoggerFactory :

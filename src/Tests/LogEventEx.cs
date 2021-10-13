@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using Serilog.Events;
+﻿using Serilog.Events;
 
 [DebuggerDisplay("Source {StringSourceContext}")]
 public class LogEventEx

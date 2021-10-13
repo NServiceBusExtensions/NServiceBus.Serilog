@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Serilog;
+﻿using Serilog;
 using Serilog.Core;
 using Serilog.Events;
 

@@ -172,7 +172,7 @@ public class HandlerUsingLogger :
     }
 }
 ```
-<sup><a href='/src/Tests/Snippets/ContextualLoggerUsage.cs#L4-L16' title='Snippet source file'>snippet source</a> | <a href='#snippet-contextualloggerusage' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Snippets/ContextualLoggerUsage.cs#L3-L15' title='Snippet source file'>snippet source</a> | <a href='#snippet-contextualloggerusage' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -193,7 +193,7 @@ public class HandlerUsingLog :
     }
 }
 ```
-<sup><a href='/src/Tests/Snippets/ContextualLoggerUsage.cs#L18-L29' title='Snippet source file'>snippet source</a> | <a href='#snippet-directlogusage' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Snippets/ContextualLoggerUsage.cs#L17-L28' title='Snippet source file'>snippet source</a> | <a href='#snippet-directlogusage' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -592,7 +592,7 @@ class StartupDiagnostics :
     ILogger logger;
 }
 ```
-<sup><a href='/src/NServiceBus.Serilog/StartupDiagnostics/WriteStartupDiagnostics.cs#L11-L77' title='Snippet source file'>snippet source</a> | <a href='#snippet-writestartupdiagnostics' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/NServiceBus.Serilog/StartupDiagnostics/WriteStartupDiagnostics.cs#L8-L74' title='Snippet source file'>snippet source</a> | <a href='#snippet-writestartupdiagnostics' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -628,7 +628,7 @@ configuration.Enrich.WithNsbExceptionDetails();
 configuration.WriteTo.Console();
 Log.Logger = configuration.CreateLogger();
 ```
-<sup><a href='/src/Sample/Program.cs#L9-L16' title='Snippet source file'>snippet source</a> | <a href='#snippet-configureserilog' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Sample/Program.cs#L8-L15' title='Snippet source file'>snippet source</a> | <a href='#snippet-configureserilog' title='Start of snippet'>anchor</a></sup>
 <a id='snippet-configureserilog-1'></a>
 ```cs
 var configuration = new LoggerConfiguration();
@@ -652,7 +652,7 @@ LogManager.Use<SerilogFactory>();
 
 var configuration = new EndpointConfiguration("SerilogSample");
 ```
-<sup><a href='/src/Sample/Program.cs#L22-L27' title='Snippet source file'>snippet source</a> | <a href='#snippet-useconfig' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Sample/Program.cs#L21-L26' title='Snippet source file'>snippet source</a> | <a href='#snippet-useconfig' title='Start of snippet'>anchor</a></sup>
 <a id='snippet-useconfig-1'></a>
 ```cs
 var configuration = new EndpointConfiguration("SeqSample");
@@ -672,7 +672,7 @@ serilogTracing.EnableMessageTracing();
 await endpoint.Stop();
 Log.CloseAndFlush();
 ```
-<sup><a href='/src/Sample/Program.cs#L37-L40' title='Snippet source file'>snippet source</a> | <a href='#snippet-cleanup' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Sample/Program.cs#L36-L39' title='Snippet source file'>snippet source</a> | <a href='#snippet-cleanup' title='Start of snippet'>anchor</a></sup>
 <a id='snippet-cleanup-1'></a>
 ```cs
 await endpoint.Stop();
@@ -702,7 +702,7 @@ configuration.Enrich.WithNsbExceptionDetails();
 configuration.WriteTo.Console();
 Log.Logger = configuration.CreateLogger();
 ```
-<sup><a href='/src/Sample/Program.cs#L9-L16' title='Snippet source file'>snippet source</a> | <a href='#snippet-configureserilog' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Sample/Program.cs#L8-L15' title='Snippet source file'>snippet source</a> | <a href='#snippet-configureserilog' title='Start of snippet'>anchor</a></sup>
 <a id='snippet-configureserilog-1'></a>
 ```cs
 var configuration = new LoggerConfiguration();
@@ -726,7 +726,7 @@ LogManager.Use<SerilogFactory>();
 
 var configuration = new EndpointConfiguration("SerilogSample");
 ```
-<sup><a href='/src/Sample/Program.cs#L22-L27' title='Snippet source file'>snippet source</a> | <a href='#snippet-useconfig' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Sample/Program.cs#L21-L26' title='Snippet source file'>snippet source</a> | <a href='#snippet-useconfig' title='Start of snippet'>anchor</a></sup>
 <a id='snippet-useconfig-1'></a>
 ```cs
 var configuration = new EndpointConfiguration("SeqSample");
@@ -746,7 +746,7 @@ serilogTracing.EnableMessageTracing();
 await endpoint.Stop();
 Log.CloseAndFlush();
 ```
-<sup><a href='/src/Sample/Program.cs#L37-L40' title='Snippet source file'>snippet source</a> | <a href='#snippet-cleanup' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Sample/Program.cs#L36-L39' title='Snippet source file'>snippet source</a> | <a href='#snippet-cleanup' title='Start of snippet'>anchor</a></sup>
 <a id='snippet-cleanup-1'></a>
 ```cs
 await endpoint.Stop();

@@ -1,5 +1,4 @@
-﻿using System.Collections.Concurrent;
-using Serilog;
+﻿using Serilog;
 using Serilog.Core;
 using Serilog.Core.Enrichers;
 

@@ -1,90 +1,88 @@
 ﻿using NServiceBus.Configuration.AdvancedExtensibility;
 using NServiceBus.Serilog;
 using NServiceBus.Settings;
-using System;
 using Serilog;
 using Serilog.Configuration;
 
-namespace NServiceBus
+namespace NServiceBus;
+
+/// <summary>
+/// Extensions to enable and configure Serilog Tracing.
+/// </summary>
+public static partial class SerilogTracingExtensions
 {
     /// <summary>
-    /// Extensions to enable and configure Serilog Tracing.
+    /// Enable Serilog Tracing for this endpoint using <see cref="Log.Logger"/> as the logging target.
     /// </summary>
-    public static partial class SerilogTracingExtensions
+    public static SerilogTracingSettings EnableSerilogTracing(this EndpointConfiguration configuration)
     {
-        /// <summary>
-        /// Enable Serilog Tracing for this endpoint using <see cref="Log.Logger"/> as the logging target.
-        /// </summary>
-        public static SerilogTracingSettings EnableSerilogTracing(this EndpointConfiguration configuration)
+        return configuration.EnableSerilogTracing(Log.Logger);
+    }
+
+    /// <summary>
+    /// Take NSB specific info from <see cref="Exception.Data"/> and promotes it to Serilog properties.
+    /// </summary>
+    public static LoggerEnrichmentConfiguration WithNsbExceptionDetails(this LoggerEnrichmentConfiguration configuration)
+    {
+        configuration.With<ExceptionEnricher>();
+        return configuration;
+    }
+
+    /// <summary>
+    /// Enable Serilog Tracing for this endpoint.
+    /// </summary>
+    public static SerilogTracingSettings EnableSerilogTracing(this EndpointConfiguration configuration, ILogger logger)
+    {
+        var recoverability = configuration.Recoverability();
+        recoverability.AddUnrecoverableException<ConfigurationException>();
+        configuration.EnableFeature<TracingFeature>();
+        var settings = configuration.GetSettings();
+        var serilogTracing = new SerilogTracingSettings(logger, configuration);
+        settings.Set(serilogTracing);
+        return serilogTracing;
+    }
+
+    internal static SerilogTracingSettings TracingSettings(this ReadOnlySettings settings)
+    {
+        return settings.Get<SerilogTracingSettings>();
+    }
+
+    /// <summary>
+    /// Get the current <see cref="ILogger"/> for this context.
+    /// </summary>
+    public static ILogger Logger(this IPipelineContext context)
+    {
+        var bag = context.Extensions;
+        if (bag.TryGet("SerilogOutgoingLogger", out ILogger logger))
         {
-            return configuration.EnableSerilogTracing(Log.Logger);
+            return logger;
+        }
+        if (bag.TryGet("SerilogHandlerLogger", out logger))
+        {
+            return logger;
+        }
+        if (bag.TryGet(out logger))
+        {
+            return logger;
         }
 
-        /// <summary>
-        /// Take NSB specific info from <see cref="Exception.Data"/> and promotes it to Serilog properties.
-        /// </summary>
-        public static LoggerEnrichmentConfiguration WithNsbExceptionDetails(this LoggerEnrichmentConfiguration configuration)
+        var type = context.GetType();
+        while (true)
         {
-            configuration.With<ExceptionEnricher>();
-            return configuration;
+            if (type.Name == "TestableMessageHandlerContext")
+            {
+                context.Extensions.Set(Log.Logger);
+                return Log.Logger;
+            }
+
+            type = type.BaseType;
+            if (type is null)
+            {
+                break;
+            }
         }
 
-        /// <summary>
-        /// Enable Serilog Tracing for this endpoint.
-        /// </summary>
-        public static SerilogTracingSettings EnableSerilogTracing(this EndpointConfiguration configuration, ILogger logger)
-        {
-            var recoverability = configuration.Recoverability();
-            recoverability.AddUnrecoverableException<ConfigurationException>();
-            configuration.EnableFeature<TracingFeature>();
-            var settings = configuration.GetSettings();
-            var serilogTracing = new SerilogTracingSettings(logger, configuration);
-            settings.Set(serilogTracing);
-            return serilogTracing;
-        }
-
-        internal static SerilogTracingSettings TracingSettings(this ReadOnlySettings settings)
-        {
-            return settings.Get<SerilogTracingSettings>();
-        }
-
-        /// <summary>
-        /// Get the current <see cref="ILogger"/> for this context.
-        /// </summary>
-        public static ILogger Logger(this IPipelineContext context)
-        {
-            var bag = context.Extensions;
-            if (bag.TryGet("SerilogOutgoingLogger", out ILogger logger))
-            {
-                return logger;
-            }
-            if (bag.TryGet("SerilogHandlerLogger", out logger))
-            {
-                return logger;
-            }
-            if (bag.TryGet(out logger))
-            {
-                return logger;
-            }
-
-            var type = context.GetType();
-            while (true)
-            {
-                if (type.Name == "TestableMessageHandlerContext")
-                {
-                    context.Extensions.Set(Log.Logger);
-                    return Log.Logger;
-                }
-
-                type = type.BaseType;
-                if (type is null)
-                {
-                    break;
-                }
-            }
-
-            throw new($@"Expected to find a `{nameof(ILogger)}` in the pipeline context.
+        throw new($@"Expected to find a `{nameof(ILogger)}` in the pipeline context.
 It is possible NServiceBus.Serilog has not been enabled using a call to `{nameof(SerilogTracingExtensions)}.{nameof(EnableSerilogTracing)}()`.");
-        }
     }
 }

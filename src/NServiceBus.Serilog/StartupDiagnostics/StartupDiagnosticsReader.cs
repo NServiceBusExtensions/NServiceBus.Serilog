@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Reflection;
-using NServiceBus;
+﻿using NServiceBus;
 using NServiceBus.Settings;
 
 static class StartupDiagnosticsReader

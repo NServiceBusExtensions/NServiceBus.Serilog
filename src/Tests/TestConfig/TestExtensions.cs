@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using NServiceBus;
+﻿using NServiceBus;
 using NServiceBus.Serilog;
 
 public static class TestExtensions

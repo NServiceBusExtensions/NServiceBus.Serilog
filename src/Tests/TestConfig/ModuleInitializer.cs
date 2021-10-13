@@ -1,6 +1,4 @@
-﻿using System.Diagnostics;
-using NServiceBus;
-using System.Runtime.CompilerServices;
+﻿using NServiceBus;
 using VerifyTests;
 
 public static class ModuleInitializer
