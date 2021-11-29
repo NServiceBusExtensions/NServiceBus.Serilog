@@ -178,7 +178,7 @@ public class IntegrationTests
         {
             if (key == "ConvertHeader")
             {
-                return new LogEventProperty("NewKey", new ScalarValue("newValue"));
+                return new("NewKey", new ScalarValue("newValue"));
             }
 
             return null;
