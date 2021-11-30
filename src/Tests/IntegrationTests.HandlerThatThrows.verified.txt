@@ -166,7 +166,8 @@
             },
             "HResult": -2146233088,
             "Message": Exception of type 'System.Exception' was thrown.,
-            "Source": Tests
+            "Source": Tests,
+            "TargetSite": System.Threading.Tasks.Task Handle(StartHandlerThatThrows, NServiceBus.IMessageHandlerContext)
           }
         },
         HandlerType: TheHandlerThatThrows,
@@ -222,7 +223,8 @@
             },
             "HResult": -2146233088,
             "Message": Exception of type 'System.Exception' was thrown.,
-            "Source": Tests
+            "Source": Tests,
+            "TargetSite": System.Threading.Tasks.Task Handle(StartHandlerThatThrows, NServiceBus.IMessageHandlerContext)
           }
         },
         HandlerType: TheHandlerThatThrows,
@@ -278,7 +280,8 @@
             },
             "HResult": -2146233088,
             "Message": Exception of type 'System.Exception' was thrown.,
-            "Source": Tests
+            "Source": Tests,
+            "TargetSite": System.Threading.Tasks.Task Handle(StartHandlerThatThrows, NServiceBus.IMessageHandlerContext)
           }
         },
         HandlerType: TheHandlerThatThrows,
@@ -336,7 +339,8 @@
             },
             "HResult": -2146233088,
             "Message": Exception of type 'System.Exception' was thrown.,
-            "Source": Tests
+            "Source": Tests,
+            "TargetSite": System.Threading.Tasks.Task Handle(StartHandlerThatThrows, NServiceBus.IMessageHandlerContext)
           }
         },
         HandlerType: TheHandlerThatThrows,

@@ -164,7 +164,8 @@
             },
             "HResult": -2146233079,
             "Message": No handlers could be found for message type: StartBehaviorThatThrows,
-            "Source": NServiceBus.Core
+            "Source": NServiceBus.Core,
+            "TargetSite": Void MoveNext()
           }
         },
         IncomingHeaders: {
@@ -216,7 +217,8 @@
             },
             "HResult": -2146233079,
             "Message": No handlers could be found for message type: StartBehaviorThatThrows,
-            "Source": NServiceBus.Core
+            "Source": NServiceBus.Core,
+            "TargetSite": Void MoveNext()
           }
         },
         IncomingHeaders: {
@@ -268,7 +270,8 @@
             },
             "HResult": -2146233079,
             "Message": No handlers could be found for message type: StartBehaviorThatThrows,
-            "Source": NServiceBus.Core
+            "Source": NServiceBus.Core,
+            "TargetSite": Void MoveNext()
           }
         },
         IncomingHeaders: {
@@ -322,7 +325,8 @@
             },
             "HResult": -2146233079,
             "Message": No handlers could be found for message type: StartBehaviorThatThrows,
-            "Source": NServiceBus.Core
+            "Source": NServiceBus.Core,
+            "TargetSite": Void MoveNext()
           }
         },
         IncomingHeaders: {
