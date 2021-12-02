@@ -92,7 +92,7 @@ class CaptureSagaStateBehavior :
             {new("TimeSent"), new ScalarValue(context.TimeSent())},
             {new("Intent"), new ScalarValue(intent)}
         };
-        properties.Add(new LogEventProperty("Initiator", new DictionaryValue(initiator)));
+        properties.Add(new("Initiator", new DictionaryValue(initiator)));
 
         if (sagaAudit.ResultingMessages.Any())
         {

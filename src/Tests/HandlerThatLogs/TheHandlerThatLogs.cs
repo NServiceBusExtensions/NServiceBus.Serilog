@@ -14,7 +14,7 @@ public class TheHandlerThatLogs :
     public Task Handle(StartHandlerThatLogs message, IMessageHandlerContext context)
     {
         var logger = LogManager.GetLogger<TheHandlerThatThrows>();
-        logger.Error("The message", new Exception());
+        logger.Error("The message", new());
         resetEvent.Set();
         return Task.CompletedTask;
     }

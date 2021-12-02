@@ -6,7 +6,7 @@ public class FakeLogger : ILogger
 {
     public void Write(LogEvent logEvent)
     {
-        throw new System.NotImplementedException();
+        throw new NotImplementedException();
     }
 
     public ILogger ForContext(IEnumerable<ILogEventEnricher> enrichers)

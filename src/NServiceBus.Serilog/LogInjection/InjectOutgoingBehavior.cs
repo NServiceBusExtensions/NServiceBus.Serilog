@@ -36,12 +36,12 @@ class InjectOutgoingBehavior :
 
         if (headers.TryGetValue(Headers.CorrelationId, out var correlationId))
         {
-            properties.Add(new PropertyEnricher("CorrelationId", correlationId));
+            properties.Add(new("CorrelationId", correlationId));
         }
 
         if (headers.TryGetValue(Headers.ConversationId, out var conversationId))
         {
-            properties.Add(new PropertyEnricher("ConversationId", conversationId));
+            properties.Add(new("ConversationId", conversationId));
         }
 
         var forContext = logger.ForContext(properties);
