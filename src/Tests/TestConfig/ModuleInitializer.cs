@@ -1,5 +1,4 @@
 ﻿using NServiceBus;
-using VerifyTests;
 
 public static class ModuleInitializer
 {

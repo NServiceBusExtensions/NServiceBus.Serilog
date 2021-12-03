@@ -1,7 +1,5 @@
 ﻿using NServiceBus;
 using NServiceBus.Settings;
-using VerifyXunit;
-using Xunit;
 
 [UsesVerify]
 public class WriteStartupDiagnosticsTests

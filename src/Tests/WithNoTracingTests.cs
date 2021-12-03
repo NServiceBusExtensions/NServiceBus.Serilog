@@ -1,6 +1,4 @@
-﻿using VerifyXunit;
-using NServiceBus;
-using Xunit;
+﻿using NServiceBus;
 
 [UsesVerify]
 public class WithNoTracingTests

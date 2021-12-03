@@ -1,5 +1,4 @@
 ﻿using NServiceBus.Testing;
-using Xunit;
 
 public class HandlerUsingContextLoggerTests
 {

@@ -1,7 +1,5 @@
 ﻿using NServiceBus;
 using NServiceBus.Testing;
-using VerifyXunit;
-using Xunit;
 
 [UsesVerify]
 public class InjectIncomingBehaviorTests
