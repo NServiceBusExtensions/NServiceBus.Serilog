@@ -11,7 +11,7 @@ public class InjectIncomingBehaviorTests
         var behavior = new InjectIncomingBehavior(logBuilder, "endpoint");
         var context = new TestableIncomingPhysicalMessageContext();
         await behavior.Invoke(context, () => Task.CompletedTask);
-        await Verifier.Verify(context);
+        await Verify(context);
     }
 
     [Fact]
@@ -22,7 +22,7 @@ public class InjectIncomingBehaviorTests
         var context = new TestableIncomingPhysicalMessageContext();
         context.MessageHeaders.Add(Headers.EnclosedMessageTypes, typeof(Message1).FullName);
         await behavior.Invoke(context, () => Task.CompletedTask);
-        await Verifier.Verify(context);
+        await Verify(context);
     }
 
     [Fact]
@@ -33,7 +33,7 @@ public class InjectIncomingBehaviorTests
         var context = new TestableIncomingPhysicalMessageContext();
         context.MessageHeaders.Add(Headers.EnclosedMessageTypes, typeof(Message1).AssemblyQualifiedName);
         await behavior.Invoke(context, () => Task.CompletedTask);
-        await Verifier.Verify(context);
+        await Verify(context);
     }
 
     [Fact]
@@ -44,7 +44,7 @@ public class InjectIncomingBehaviorTests
         var context = new TestableIncomingPhysicalMessageContext();
         context.MessageHeaders.Add(Headers.EnclosedMessageTypes, $"{typeof(Message1).FullName};{typeof(Message2).FullName}");
         await behavior.Invoke(context, () => Task.CompletedTask);
-        await Verifier.Verify(context);
+        await Verify(context);
     }
 
     [Fact]
@@ -55,7 +55,7 @@ public class InjectIncomingBehaviorTests
         var context = new TestableIncomingPhysicalMessageContext();
         context.MessageHeaders.Add(Headers.EnclosedMessageTypes, $"{typeof(Message1).AssemblyQualifiedName};{typeof(Message2).AssemblyQualifiedName}");
         await behavior.Invoke(context, () => Task.CompletedTask);
-        await Verifier.Verify(context);
+        await Verify(context);
     }
 
     class Message1

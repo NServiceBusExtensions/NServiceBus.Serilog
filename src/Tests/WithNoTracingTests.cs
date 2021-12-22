@@ -29,6 +29,6 @@ public class WithNoTracingTests
         }
 
         await endpoint.Stop();
-        await Verifier.Verify(exception!.Message);
+        await Verify(exception!.Message);
     }
 }

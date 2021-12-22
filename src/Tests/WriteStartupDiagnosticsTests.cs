@@ -11,7 +11,7 @@ public class WriteStartupDiagnosticsTests
         var diagnosticEntries = new StartupDiagnosticEntries();
         diagnosticEntries.Add("Name", "Value");
         settings.Set(diagnosticEntries);
-        return Verifier.Verify(settings.ReadStartupDiagnosticEntries());
+        return Verify(settings.ReadStartupDiagnosticEntries());
     }
 
     [Fact]

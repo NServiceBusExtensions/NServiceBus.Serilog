@@ -147,7 +147,7 @@ public class IntegrationTests
     {
         var list = logEvents.ToList();
         var logsForTarget = list.LogsForType<T>().ToList();
-        return Verifier.Verify(
+        return Verify(
             new
             {
                 logsForTarget,
