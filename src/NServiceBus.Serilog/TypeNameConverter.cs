@@ -32,7 +32,7 @@ public static class TypeNameConverter
             {
                 try
                 {
-                    return Assembly.Load(name.Name);
+                    return Assembly.Load(name.Name!);
                 }
                 catch
                 {

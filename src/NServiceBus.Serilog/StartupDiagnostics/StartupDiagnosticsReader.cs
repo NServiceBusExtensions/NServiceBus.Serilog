@@ -12,6 +12,6 @@ static class StartupDiagnosticsReader
             throw new($"Could not extract 'entries' field from {nameof(StartupDiagnosticEntries)}.");
         }
 
-        return (List<StartupDiagnosticEntries.StartupDiagnosticEntry>) field.GetValue(diagnosticEntries);
+        return (List<StartupDiagnosticEntries.StartupDiagnosticEntry>) field.GetValue(diagnosticEntries)!;
     }
 }

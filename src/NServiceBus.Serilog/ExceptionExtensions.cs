@@ -7,7 +7,7 @@ static class ExceptionExtensions
         var data = exception.Data;
         if (data.Contains(key))
         {
-            state = (T) data[key];
+            state = (T) data[key]!;
             data.Remove(key);
             return true;
         }
