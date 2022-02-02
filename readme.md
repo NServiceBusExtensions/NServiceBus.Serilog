@@ -563,7 +563,7 @@ class StartupDiagnostics :
             var name = CleanEntry(entry.Name);
             if (logger.BindProperty(name, entry.Data, out var property))
             {
-                yield return property!;
+                yield return property;
             }
         }
     }
