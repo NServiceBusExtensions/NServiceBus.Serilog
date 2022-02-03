@@ -45,6 +45,7 @@ class InjectIncomingBehavior :
             if (split.Length == 1)
             {
                 var longName = split[0];
+                longName = longName.Replace(", Culture=neutral", "").Replace(", PublicKeyToken=null", "");
                 var messageTypeName = TypeNameConverter.GetName(longName);
                 properties.Add(new("IncomingMessageType", messageTypeName));
                 properties.Add(new("IncomingMessageTypeLong", longName));
