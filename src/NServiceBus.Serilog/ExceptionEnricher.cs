@@ -1,8 +1,4 @@
-﻿using Serilog;
-using Serilog.Core;
-using Serilog.Events;
-
-class ExceptionEnricher :
+﻿class ExceptionEnricher :
     ILogEventEnricher
 {
     public void Enrich(LogEvent logEvent, ILogEventPropertyFactory propertyFactory)

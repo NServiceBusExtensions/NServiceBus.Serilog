@@ -1,6 +1,4 @@
-﻿using NServiceBus.Features;
-
-class MessageTracingFeature :
+﻿class MessageTracingFeature :
     Feature
 {
     public MessageTracingFeature() =>

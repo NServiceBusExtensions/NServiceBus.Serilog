@@ -1,6 +1,4 @@
-﻿using Serilog.Events;
-
-class ScalarValueConverter :
+﻿class ScalarValueConverter :
     WriteOnlyJsonConverter<ScalarValue>
 {
     public override void Write(VerifyJsonWriter writer, ScalarValue value) =>

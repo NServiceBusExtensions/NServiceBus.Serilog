@@ -1,7 +1,5 @@
 ﻿using NServiceBus.Pipeline;
-using NServiceBus.Sagas;
 using NServiceBus.Serilog;
-using Serilog.Events;
 using Serilog.Parsing;
 
 class CaptureSagaStateBehavior :

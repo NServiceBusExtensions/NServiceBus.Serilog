@@ -1,6 +1,4 @@
-﻿using NServiceBus.Settings;
-
-static class StartupDiagnosticsReader
+﻿static class StartupDiagnosticsReader
 {
     public static List<StartupDiagnosticEntries.StartupDiagnosticEntry> ReadStartupDiagnosticEntries(this ReadOnlySettings readOnlySettings)
     {

@@ -1,5 +1,4 @@
-﻿using Serilog;
-// ReSharper disable UnusedVariable
+﻿// ReSharper disable UnusedVariable
 
 class TracingUsage
 {

@@ -1,6 +1,4 @@
-﻿using NServiceBus.Features;
-
-class BehaviorThatThrowsFeature :
+﻿class BehaviorThatThrowsFeature :
     Feature
 {
     protected override void Setup(FeatureConfigurationContext context)

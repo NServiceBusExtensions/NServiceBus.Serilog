@@ -1,8 +1,4 @@
-﻿using NServiceBus.Features;
-using NServiceBus.Settings;
-using Serilog;
-using Serilog.Events;
-using Serilog.Parsing;
+﻿using Serilog.Parsing;
 
 #region WriteStartupDiagnostics
 

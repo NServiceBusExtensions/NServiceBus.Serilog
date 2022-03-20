@@ -1,6 +1,4 @@
-﻿using Serilog.Events;
-
-class LogEventPropertyConverter :
+﻿class LogEventPropertyConverter :
     WriteOnlyJsonConverter<LogEventProperty>
 {
     public override void Write(VerifyJsonWriter writer, LogEventProperty property)

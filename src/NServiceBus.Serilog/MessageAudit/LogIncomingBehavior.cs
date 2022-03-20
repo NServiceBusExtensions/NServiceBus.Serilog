@@ -1,5 +1,4 @@
 ﻿using NServiceBus.Pipeline;
-using Serilog.Events;
 using Serilog.Parsing;
 
 class LogIncomingBehavior :

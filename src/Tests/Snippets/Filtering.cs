@@ -1,8 +1,5 @@
 ﻿using NServiceBus.Logging;
 using NServiceBus.Serilog;
-using Serilog;
-using Serilog.Events;
-using Serilog.Filters;
 
 public class Filtering
 {

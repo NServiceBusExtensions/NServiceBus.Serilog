@@ -1,6 +1,4 @@
 ﻿using NServiceBus.Pipeline;
-using Serilog;
-using Serilog.Events;
 using Serilog.Parsing;
 
 class LogOutgoingBehavior :

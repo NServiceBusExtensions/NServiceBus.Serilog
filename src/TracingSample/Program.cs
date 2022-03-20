@@ -1,6 +1,5 @@
 ﻿using NServiceBus.Logging;
 using NServiceBus.Serilog;
-using Serilog;
 
 var loggerConfiguration = new LoggerConfiguration();
 loggerConfiguration.WriteTo.Seq("http://localhost:5341");

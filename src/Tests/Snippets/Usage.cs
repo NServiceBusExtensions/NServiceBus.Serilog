@@ -1,6 +1,5 @@
 ﻿using NServiceBus.Logging;
 using NServiceBus.Serilog;
-using Serilog;
 
 class Usage
 {

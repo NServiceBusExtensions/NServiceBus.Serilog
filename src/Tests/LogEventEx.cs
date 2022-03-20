@@ -1,6 +1,4 @@
-﻿using Serilog.Events;
-
-[DebuggerDisplay("Source {StringSourceContext}")]
+﻿[DebuggerDisplay("Source {StringSourceContext}")]
 public class LogEventEx
 {
     public readonly MessageTemplate MessageTemplate;

@@ -1,6 +1,4 @@
-﻿using Serilog;
-
-public class MyHandler :
+﻿public class MyHandler :
     IHandleMessages<MyMessage>
 {
     static ILogger log = Log.ForContext<MyHandler>();

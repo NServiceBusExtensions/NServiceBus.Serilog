@@ -1,6 +1,4 @@
 ﻿using System.Diagnostics.CodeAnalysis;
-using Serilog;
-using Serilog.Events;
 
 static class SerilogExtensions
 {

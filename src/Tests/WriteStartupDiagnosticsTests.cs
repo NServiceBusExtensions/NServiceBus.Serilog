@@ -1,6 +1,4 @@
-﻿using NServiceBus.Settings;
-
-[UsesVerify]
+﻿[UsesVerify]
 public class WriteStartupDiagnosticsTests
 {
     [Fact]

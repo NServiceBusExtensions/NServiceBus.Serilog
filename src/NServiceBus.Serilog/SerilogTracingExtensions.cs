@@ -1,8 +1,5 @@
 ﻿using NServiceBus.Configuration.AdvancedExtensibility;
 using NServiceBus.Serilog;
-using NServiceBus.Settings;
-using Serilog;
-using Serilog.Configuration;
 
 namespace NServiceBus;
 

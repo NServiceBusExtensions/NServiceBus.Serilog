@@ -1,7 +1,5 @@
 ﻿using NServiceBus.Pipeline;
 using NServiceBus.Serilog;
-using Serilog;
-using Serilog.Core.Enrichers;
 
 class InjectIncomingBehavior :
     Behavior<IIncomingPhysicalMessageContext>

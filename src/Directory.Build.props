@@ -8,5 +8,17 @@
 
   <ItemGroup>
     <Using Include="NServiceBus"/>
+    <Using Include="NServiceBus.Sagas"/>
+    <Using Include="NServiceBus.Features"/>
+    <Using Include="NServiceBus.Settings"/>
+    <Using Include="NServiceBus.Pipeline"/>
+    
+    <Using Include="Serilog"/>
+    <Using Include="Serilog.Core"/>
+    <Using Include="Serilog.Events"/>
+    <Using Include="Serilog.Core.Enrichers"/>
+    <Using Include="Serilog.Filters"/>
+    <Using Include="Serilog.Parsing"/>
+    <Using Include="Serilog.Configuration"/>    
   </ItemGroup>
 </Project>

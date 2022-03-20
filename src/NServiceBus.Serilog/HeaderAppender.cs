@@ -1,6 +1,4 @@
 using NServiceBus.Serilog;
-using Serilog;
-using Serilog.Events;
 
 static class HeaderAppender
 {

@@ -1,8 +1,4 @@
-﻿using Serilog;
-using Serilog.Core;
-using Serilog.Core.Enrichers;
-
-class LogBuilder
+﻿class LogBuilder
 {
     ConcurrentDictionary<string, ILogger> loggers = new();
 

@@ -1,8 +1,4 @@
-﻿using Serilog;
-using Serilog.Core;
-using Serilog.Events;
-
-public class FakeLogger : ILogger
+﻿public class FakeLogger : ILogger
 {
     public void Write(LogEvent logEvent) =>
         throw new NotImplementedException();

@@ -1,6 +1,4 @@
-﻿using NServiceBus.Features;
-
-class TracingFeature :
+﻿class TracingFeature :
     Feature
 {
     protected override void Setup(FeatureConfigurationContext context)

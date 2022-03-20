@@ -1,7 +1,5 @@
 ﻿using NServiceBus.Logging;
 using NServiceBus.Serilog;
-using Serilog;
-using Serilog.Events;
 using Serilog.Exceptions;
 using TypeNameConverter = NServiceBus.Serilog.TypeNameConverter;
 

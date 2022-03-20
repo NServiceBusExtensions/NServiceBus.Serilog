@@ -1,6 +1,4 @@
 ﻿using NServiceBus.Logging;
-using Serilog;
-using Serilog.Events;
 
 class Logger :
     ILog
