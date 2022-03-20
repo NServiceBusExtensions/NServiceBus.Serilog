@@ -6,13 +6,9 @@ public class EventSink :
 {
     Action<LogEvent> action;
 
-    public EventSink(Action<LogEvent> action)
-    {
+    public EventSink(Action<LogEvent> action) =>
         this.action = action;
-    }
 
-    public void Emit(LogEvent logEvent)
-    {
+    public void Emit(LogEvent logEvent) =>
         action(logEvent);
-    }
 }

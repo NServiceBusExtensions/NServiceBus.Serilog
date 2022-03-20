@@ -8,10 +8,8 @@ static class SerilogExtensions
         this ILogger logger,
         string name,
         object value,
-        [NotNullWhen(true)] out LogEventProperty? property)
-    {
-        return logger.BindProperty(name, value, true, out property);
-    }
+        [NotNullWhen(true)] out LogEventProperty? property) =>
+        logger.BindProperty(name, value, true, out property);
 
     public static void WriteInfo(
         this ILogger logger,

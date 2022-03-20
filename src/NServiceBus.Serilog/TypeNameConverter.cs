@@ -11,18 +11,14 @@ public static class TypeNameConverter
     /// <summary>
     /// Get a short type name from a long type name.
     /// </summary>
-    public static string GetName(string longName)
-    {
-        return longNameToNameCache.GetOrAdd(longName, FormatForDisplay);
-    }
+    public static string GetName(string longName) =>
+        longNameToNameCache.GetOrAdd(longName, FormatForDisplay);
 
     /// <summary>
     /// Get a short type name from a long type name.
     /// </summary>
-    public static string GetName(Type type)
-    {
-        return typeToNameCache.GetOrAdd(type, FormatForDisplay);
-    }
+    public static string GetName(Type type) =>
+        typeToNameCache.GetOrAdd(type, FormatForDisplay);
 
     static string FormatForDisplay(string typeName)
     {

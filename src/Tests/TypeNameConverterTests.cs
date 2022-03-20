@@ -4,22 +4,16 @@
 public class TypeNameConverterTests
 {
     [Fact]
-    public void NameOnly()
-    {
+    public void NameOnly() =>
         Assert.Equal("TheClass", TypeNameConverter.GetName("TheClass"));
-    }
 
     [Fact]
-    public void NameAndNamespace()
-    {
+    public void NameAndNamespace() =>
         Assert.Equal("TheClass", TypeNameConverter.GetName("Namespace.TheClass"));
-    }
 
     [Fact]
-    public void NameAndNamespaceAndAssembly()
-    {
+    public void NameAndNamespaceAndAssembly() =>
         Assert.Equal("TheClass", TypeNameConverter.GetName("Namespace.TheClass, Tests"));
-    }
 
     [Fact]
     public void AssemblyQualified()
@@ -30,10 +24,8 @@ public class TypeNameConverterTests
     }
 
     [Fact]
-    public void AssemblyQualifiedWithNoVersion()
-    {
+    public void AssemblyQualifiedWithNoVersion() =>
         Assert.Equal("TheClass", TypeNameConverter.GetName("Namespace.TheClass, Tests"));
-    }
 }
 
 namespace Namespace

@@ -24,25 +24,17 @@ static class NServiceBusExtensions
         return string.Empty;
     }
 
-    public static string MessageIntent(this IInvokeHandlerContext context)
-    {
-        return MessageIntent(context.Headers);
-    }
+    public static string MessageIntent(this IInvokeHandlerContext context) =>
+        MessageIntent(context.Headers);
 
-    public static string HandlerType(this IInvokeHandlerContext context)
-    {
-        return context.MessageHandler.HandlerType.FullName!;
-    }
+    public static string HandlerType(this IInvokeHandlerContext context) =>
+        context.MessageHandler.HandlerType.FullName!;
 
-    public static Type MessageType(this IInvokeHandlerContext context)
-    {
-        return context.MessageMetadata.MessageType;
-    }
+    public static Type MessageType(this IInvokeHandlerContext context) =>
+        context.MessageMetadata.MessageType;
 
-    public static string MessageIntent(this IOutgoingLogicalMessageContext context)
-    {
-        return MessageIntent(context.Headers);
-    }
+    public static string MessageIntent(this IOutgoingLogicalMessageContext context) =>
+        MessageIntent(context.Headers);
 
     static string MessageIntent(Dictionary<string, string> headers)
     {
@@ -56,18 +48,14 @@ static class NServiceBusExtensions
 
     static Dictionary<string, string> emptyDictionary = new();
 
-    public static List<string> UnicastAddresses(this IOutgoingPhysicalMessageContext context)
-    {
-        return context.RoutingStrategies
+    public static List<string> UnicastAddresses(this IOutgoingPhysicalMessageContext context) =>
+        context.RoutingStrategies
             .OfType<UnicastRoutingStrategy>()
             .Select(x => ((UnicastAddressTag) x.Apply(emptyDictionary)).Destination)
             .ToList();
-    }
 
-    public static DateTime TimeSent(this IInvokeHandlerContext context)
-    {
-        return DateTimeExtensions.ToUtcDateTime(context.Headers[Headers.TimeSent]);
-    }
+    public static DateTime TimeSent(this IInvokeHandlerContext context) =>
+        DateTimeExtensions.ToUtcDateTime(context.Headers[Headers.TimeSent]);
 
     public static bool IsTimeoutMessage(this IInvokeHandlerContext context)
     {

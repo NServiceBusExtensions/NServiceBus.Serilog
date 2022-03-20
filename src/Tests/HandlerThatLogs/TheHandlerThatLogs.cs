@@ -6,10 +6,8 @@ public class TheHandlerThatLogs :
 {
     ManualResetEvent resetEvent;
 
-    public TheHandlerThatLogs(ManualResetEvent resetEvent)
-    {
+    public TheHandlerThatLogs(ManualResetEvent resetEvent) =>
         this.resetEvent = resetEvent;
-    }
 
     public Task Handle(StartHandlerThatLogs message, IMessageHandlerContext context)
     {

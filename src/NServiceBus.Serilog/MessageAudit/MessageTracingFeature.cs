@@ -4,10 +4,8 @@ using NServiceBus.Features;
 class MessageTracingFeature :
     Feature
 {
-    public MessageTracingFeature()
-    {
+    public MessageTracingFeature() =>
         DependsOn<TracingFeature>();
-    }
 
     protected override void Setup(FeatureConfigurationContext context)
     {

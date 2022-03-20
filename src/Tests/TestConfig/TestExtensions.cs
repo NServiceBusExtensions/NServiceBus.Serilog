@@ -10,30 +10,22 @@ public static class TestExtensions
         recoverability.Immediate(settings => { settings.NumberOfRetries(0); });
     }
 
-    public static IEnumerable<LogEventEx> LogsForNsbSerilog(this IEnumerable<LogEventEx> logs)
-    {
-        return logs.Where(log =>
+    public static IEnumerable<LogEventEx> LogsForNsbSerilog(this IEnumerable<LogEventEx> logs) =>
+        logs.Where(log =>
             {
                 var sourceContext = log.StringSourceContext;
                 return sourceContext != null && sourceContext.StartsWith("NServiceBus.Serilog.");
             })
             .OrderBy(x => x.MessageTemplate.Text);
-    }
 
-    public static IEnumerable<LogEventEx> LogsWithExceptions(this IEnumerable<LogEventEx> logs)
-    {
-        return logs.Where(x => x.Exception is not null);
-    }
+    public static IEnumerable<LogEventEx> LogsWithExceptions(this IEnumerable<LogEventEx> logs) =>
+        logs.Where(x => x.Exception is not null);
 
-    public static IEnumerable<LogEventEx> LogsForType<T>(this IEnumerable<LogEventEx> logs)
-    {
-        return LogsForName(logs, TypeNameConverter.GetName(typeof(T)))
+    public static IEnumerable<LogEventEx> LogsForType<T>(this IEnumerable<LogEventEx> logs) =>
+        LogsForName(logs, TypeNameConverter.GetName(typeof(T)))
             .OrderBy(x => x.MessageTemplate.Text);
-    }
 
-    static IEnumerable<LogEventEx> LogsForName(this IEnumerable<LogEventEx> logs, string name)
-    {
-        return logs.Where(log => log.StringSourceContext == name)
+    static IEnumerable<LogEventEx> LogsForName(this IEnumerable<LogEventEx> logs, string name) =>
+        logs.Where(log => log.StringSourceContext == name)
             .OrderBy(x => x.StringSourceContext);
-    }
 }

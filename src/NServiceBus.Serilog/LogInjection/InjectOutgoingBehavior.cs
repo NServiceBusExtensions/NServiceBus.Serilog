@@ -9,10 +9,8 @@ class InjectOutgoingBehavior :
 {
     LogBuilder logBuilder;
 
-    InjectOutgoingBehavior(LogBuilder logBuilder)
-    {
+    InjectOutgoingBehavior(LogBuilder logBuilder) =>
         this.logBuilder = logBuilder;
-    }
 
     public override async Task Invoke(IOutgoingLogicalMessageContext context, Func<Task> next)
     {

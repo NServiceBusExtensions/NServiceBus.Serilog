@@ -146,9 +146,7 @@ class CaptureSagaStateBehavior :
                 stepId: $"Serilog{nameof(CaptureSagaStateBehavior)}",
                 behavior: typeof(CaptureSagaStateBehavior),
                 description: "Records saga state changes",
-                factoryMethod: _ => new CaptureSagaStateBehavior())
-        {
+                factoryMethod: _ => new CaptureSagaStateBehavior()) =>
             InsertBefore("InvokeSaga");
-        }
     }
 }

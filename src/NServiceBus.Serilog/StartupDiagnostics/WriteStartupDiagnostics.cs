@@ -62,10 +62,8 @@ class StartupDiagnostics :
         return entry;
     }
 
-    protected override Task OnStop(IMessageSession session)
-    {
-        return Task.CompletedTask;
-    }
+    protected override Task OnStop(IMessageSession session) =>
+        Task.CompletedTask;
 
     ReadOnlySettings settings;
     ILogger logger;

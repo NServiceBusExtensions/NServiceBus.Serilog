@@ -9,10 +9,8 @@ class LogIncomingBehavior :
     ConvertHeader convertHeader;
     static MessageTemplate messageTemplate;
 
-    LogIncomingBehavior(ConvertHeader convertHeader)
-    {
+    LogIncomingBehavior(ConvertHeader convertHeader) =>
         this.convertHeader = convertHeader;
-    }
 
     static LogIncomingBehavior()
     {
@@ -28,10 +26,8 @@ class LogIncomingBehavior :
                 stepId: $"Serilog{nameof(LogIncomingBehavior)}",
                 behavior: typeof(LogIncomingBehavior),
                 description: "Logs incoming messages",
-                factoryMethod: _ => new LogIncomingBehavior(convertHeader))
-        {
+                factoryMethod: _ => new LogIncomingBehavior(convertHeader)) =>
             InsertBefore("MutateIncomingMessages");
-        }
     }
 
     public override Task Invoke(IIncomingLogicalMessageContext context, Func<Task> next)

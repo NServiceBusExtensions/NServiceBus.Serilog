@@ -13,13 +13,9 @@ class LogEventPropertyConverter :
         writer.WriteEndObject();
     }
 
-    public override object ReadJson(JsonReader reader, Type type, object? value, JsonSerializer serializer)
-    {
+    public override object ReadJson(JsonReader reader, Type type, object? value, JsonSerializer serializer) =>
         throw new();
-    }
 
-    public override bool CanConvert(Type type)
-    {
-        return typeof(LogEventProperty).IsAssignableFrom(type);
-    }
+    public override bool CanConvert(Type type) =>
+        typeof(LogEventProperty).IsAssignableFrom(type);
 }

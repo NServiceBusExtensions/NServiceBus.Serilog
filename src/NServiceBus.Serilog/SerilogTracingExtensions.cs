@@ -14,10 +14,8 @@ public static partial class SerilogTracingExtensions
     /// <summary>
     /// Enable Serilog Tracing for this endpoint using <see cref="Log.Logger"/> as the logging target.
     /// </summary>
-    public static SerilogTracingSettings EnableSerilogTracing(this EndpointConfiguration configuration)
-    {
-        return configuration.EnableSerilogTracing(Log.Logger);
-    }
+    public static SerilogTracingSettings EnableSerilogTracing(this EndpointConfiguration configuration) =>
+        configuration.EnableSerilogTracing(Log.Logger);
 
     /// <summary>
     /// Take NSB specific info from <see cref="Exception.Data"/> and promotes it to Serilog properties.
@@ -42,10 +40,8 @@ public static partial class SerilogTracingExtensions
         return serilogTracing;
     }
 
-    internal static SerilogTracingSettings TracingSettings(this ReadOnlySettings settings)
-    {
-        return settings.Get<SerilogTracingSettings>();
-    }
+    internal static SerilogTracingSettings TracingSettings(this ReadOnlySettings settings) =>
+        settings.Get<SerilogTracingSettings>();
 
     /// <summary>
     /// Get the current <see cref="ILogger"/> for this context.

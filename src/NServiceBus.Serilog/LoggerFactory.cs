@@ -6,10 +6,8 @@ class LoggerFactory :
 {
     ILogger logger;
 
-    public LoggerFactory(ILogger logger)
-    {
+    public LoggerFactory(ILogger logger) =>
         this.logger = logger;
-    }
 
     public ILog GetLogger(Type type)
     {

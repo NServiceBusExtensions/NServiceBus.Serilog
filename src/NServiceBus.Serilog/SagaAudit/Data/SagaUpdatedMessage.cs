@@ -2,10 +2,8 @@ namespace NServiceBus.Serilog;
 
 class SagaUpdatedMessage
 {
-    public SagaUpdatedMessage(DateTimeOffset startTime)
-    {
+    public SagaUpdatedMessage(DateTimeOffset startTime) =>
         StartTime = startTime;
-    }
 
     public Guid SagaId { get; set; }
     public List<Dictionary<string, string>> ResultingMessages { get; } = new();

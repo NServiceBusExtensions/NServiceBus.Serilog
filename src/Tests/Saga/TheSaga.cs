@@ -7,10 +7,8 @@ public class TheSaga :
 {
     ManualResetEvent resetEvent;
 
-    public TheSaga(ManualResetEvent resetEvent)
-    {
+    public TheSaga(ManualResetEvent resetEvent) =>
         this.resetEvent = resetEvent;
-    }
 
     protected override void ConfigureHowToFindSaga(SagaPropertyMapper<TheSagaData> mapper)
     {

@@ -5,11 +5,9 @@ public class CreateUserSaga :
     IAmStartedByMessages<CreateUser>,
     IHandleTimeouts<SagaTimeout>
 {
-    protected override void ConfigureHowToFindSaga(SagaPropertyMapper<MySagaData> mapper)
-    {
+    protected override void ConfigureHowToFindSaga(SagaPropertyMapper<MySagaData> mapper) =>
         mapper.ConfigureMapping<CreateUser>(m => m.UserName)
             .ToSaga(s => s.UserName);
-    }
 
     public Task Handle(CreateUser message, IMessageHandlerContext context)
     {

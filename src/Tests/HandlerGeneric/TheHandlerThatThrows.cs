@@ -5,10 +5,8 @@ public class GenericHandler :
 {
     ManualResetEvent resetEvent;
 
-    public GenericHandler(ManualResetEvent resetEvent)
-    {
+    public GenericHandler(ManualResetEvent resetEvent) =>
         this.resetEvent = resetEvent;
-    }
 
     public Task Handle(StartGenericHandler<string> message, IMessageHandlerContext context)
     {

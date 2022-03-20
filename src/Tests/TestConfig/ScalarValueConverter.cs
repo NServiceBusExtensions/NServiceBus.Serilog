@@ -10,13 +10,9 @@ class ScalarValueConverter :
         serializer.Serialize(writer, property.Value);
     }
 
-    public override object ReadJson(JsonReader reader, Type type, object? value, JsonSerializer serializer)
-    {
+    public override object ReadJson(JsonReader reader, Type type, object? value, JsonSerializer serializer) =>
         throw new();
-    }
 
-    public override bool CanConvert(Type type)
-    {
-        return typeof(ScalarValue).IsAssignableFrom(type);
-    }
+    public override bool CanConvert(Type type) =>
+        typeof(ScalarValue).IsAssignableFrom(type);
 }

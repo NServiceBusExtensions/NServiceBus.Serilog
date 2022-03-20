@@ -20,24 +20,18 @@ public class SerilogTracingSettings
     /// <summary>
     /// Enable tracing of saga state. Measure the performance impact of this setting on the system.
     /// </summary>
-    public void EnableSagaTracing()
-    {
+    public void EnableSagaTracing() =>
         configuration.EnableFeature<SagaTracingFeature>();
-    }
 
     /// <summary>
     /// Allow a custom log property to be used to a specific header.
     /// </summary>
-    public void UseHeaderConversion(ConvertHeader convertHeader)
-    {
+    public void UseHeaderConversion(ConvertHeader convertHeader) =>
         this.convertHeader = convertHeader;
-    }
 
     /// <summary>
     /// Enable tracing of messages. Measure the performance impact of this setting on the system.
     /// </summary>
-    public void EnableMessageTracing()
-    {
+    public void EnableMessageTracing() =>
         configuration.EnableFeature<MessageTracingFeature>();
-    }
 }

@@ -15,8 +15,6 @@ class BehaviorThatThrows :
         }
     }
 
-    public override Task Invoke(IInvokeHandlerContext context, Func<Task> next)
-    {
+    public override Task Invoke(IInvokeHandlerContext context, Func<Task> next) =>
         throw new("The Exception");
-    }
 }

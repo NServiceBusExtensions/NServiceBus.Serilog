@@ -5,10 +5,8 @@ public class TheHandler :
 {
     ManualResetEvent resetEvent;
 
-    public TheHandler(ManualResetEvent resetEvent)
-    {
+    public TheHandler(ManualResetEvent resetEvent) =>
         this.resetEvent = resetEvent;
-    }
 
     public Task Handle(StartHandler message, IMessageHandlerContext context)
     {

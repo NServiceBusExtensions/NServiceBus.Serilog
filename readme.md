@@ -578,16 +578,14 @@ class StartupDiagnostics :
         return entry;
     }
 
-    protected override Task OnStop(IMessageSession session)
-    {
-        return Task.CompletedTask;
-    }
+    protected override Task OnStop(IMessageSession session) =>
+        Task.CompletedTask;
 
     ReadOnlySettings settings;
     ILogger logger;
 }
 ```
-<sup><a href='/src/NServiceBus.Serilog/StartupDiagnostics/WriteStartupDiagnostics.cs#L8-L74' title='Snippet source file'>snippet source</a> | <a href='#snippet-writestartupdiagnostics' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/NServiceBus.Serilog/StartupDiagnostics/WriteStartupDiagnostics.cs#L8-L72' title='Snippet source file'>snippet source</a> | <a href='#snippet-writestartupdiagnostics' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
