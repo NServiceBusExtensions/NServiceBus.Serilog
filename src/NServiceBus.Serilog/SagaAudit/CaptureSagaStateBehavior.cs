@@ -18,7 +18,7 @@ class CaptureSagaStateBehavior :
 
     public override async Task Invoke(IInvokeHandlerContext context, Func<Task> next)
     {
-        if (!(context.MessageHandler.Instance is Saga))
+        if (context.MessageHandler.Instance is not Saga)
         {
             // Message was not handled by the saga
             await next();
