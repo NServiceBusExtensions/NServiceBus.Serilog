@@ -48,7 +48,7 @@ Log.Logger = configuration.CreateLogger();
 
 LogManager.Use<SerilogFactory>();
 ```
-<sup><a href='/src/Tests/Snippets/Usage.cs#L8-L17' title='Snippet source file'>snippet source</a> | <a href='#snippet-serilogincode' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Snippets/Usage.cs#L5-L14' title='Snippet source file'>snippet source</a> | <a href='#snippet-serilogincode' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -77,7 +77,7 @@ Log.Logger = configuration.CreateLogger();
 
 LogManager.Use<SerilogFactory>();
 ```
-<sup><a href='/src/Tests/Snippets/Filtering.cs#L8-L24' title='Snippet source file'>snippet source</a> | <a href='#snippet-serilogfiltering' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Snippets/Filtering.cs#L5-L21' title='Snippet source file'>snippet source</a> | <a href='#snippet-serilogfiltering' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 

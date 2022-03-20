@@ -1,5 +1,3 @@
-using NServiceBus.Serilog;
-
 static class HeaderAppender
 {
     static List<string> excludeHeaders = new()

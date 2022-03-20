@@ -1,7 +1,4 @@
-﻿using NServiceBus.Logging;
-using NServiceBus.Serilog;
-
-public class Filtering
+﻿public class Filtering
 {
     public Filtering()
     {

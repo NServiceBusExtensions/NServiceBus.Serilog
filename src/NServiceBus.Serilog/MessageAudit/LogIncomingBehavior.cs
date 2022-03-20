@@ -1,7 +1,4 @@
-﻿using NServiceBus.Pipeline;
-using Serilog.Parsing;
-
-class LogIncomingBehavior :
+﻿class LogIncomingBehavior :
     Behavior<IIncomingLogicalMessageContext>
 {
     ConvertHeader convertHeader;

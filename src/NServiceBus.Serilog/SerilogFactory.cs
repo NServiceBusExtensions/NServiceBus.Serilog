@@ -1,6 +1,4 @@
-﻿using NServiceBus.Logging;
-
-namespace NServiceBus.Serilog;
+﻿namespace NServiceBus.Serilog;
 
 /// <summary>
 /// Configure NServiceBus logging messages to use Serilog.  Use by calling <see cref="LogManager.Use{T}"/> the T is <see cref="SerilogFactory"/>.

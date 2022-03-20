@@ -1,7 +1,4 @@
-﻿using NServiceBus.Configuration.AdvancedExtensibility;
-using NServiceBus.Serilog;
-
-namespace NServiceBus;
+﻿namespace NServiceBus;
 
 /// <summary>
 /// Extensions to enable and configure Serilog Tracing.

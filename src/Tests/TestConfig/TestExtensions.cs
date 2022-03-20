@@ -1,6 +1,4 @@
-﻿using NServiceBus.Serilog;
-
-public static class TestExtensions
+﻿public static class TestExtensions
 {
     public static void DisableRetries(this EndpointConfiguration configuration)
     {

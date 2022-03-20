@@ -1,6 +1,4 @@
-﻿using NServiceBus.Logging;
-
-class Logger :
+﻿class Logger :
     ILog
 {
     ILogger logger;

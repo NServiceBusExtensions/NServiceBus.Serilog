@@ -1,6 +1,4 @@
-﻿using NServiceBus.Pipeline;
-
-class InjectMessageContextBehavior :
+﻿class InjectMessageContextBehavior :
     Behavior<IIncomingLogicalMessageContext>
 {
     public class Registration :

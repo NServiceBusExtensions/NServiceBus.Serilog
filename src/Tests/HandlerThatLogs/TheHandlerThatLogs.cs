@@ -1,6 +1,4 @@
-﻿using NServiceBus.Logging;
-
-public class TheHandlerThatLogs :
+﻿public class TheHandlerThatLogs :
     IHandleMessages<StartHandlerThatLogs>
 {
     ManualResetEvent resetEvent;

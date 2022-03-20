@@ -1,7 +1,4 @@
-﻿using NServiceBus.Logging;
-using NServiceBus.Serilog;
-
-class Usage
+﻿class Usage
 {
     Usage()
     {

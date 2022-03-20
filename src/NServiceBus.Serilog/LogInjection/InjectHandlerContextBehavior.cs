@@ -1,6 +1,4 @@
-﻿using NServiceBus.Pipeline;
-
-class InjectHandlerContextBehavior :
+﻿class InjectHandlerContextBehavior :
     Behavior<IInvokeHandlerContext>
 {
     public class Registration :

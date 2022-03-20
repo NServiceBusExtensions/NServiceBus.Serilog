@@ -1,6 +1,4 @@
-﻿using NServiceBus.Logging;
-using NServiceBus.Serilog;
-using Serilog.Exceptions;
+﻿using Serilog.Exceptions;
 using TypeNameConverter = NServiceBus.Serilog.TypeNameConverter;
 
 [UsesVerify]

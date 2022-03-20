@@ -1,7 +1,4 @@
-﻿using NServiceBus.Logging;
-using NServiceBus.Serilog;
-
-void ConfigureSerilog()
+﻿void ConfigureSerilog()
 {
     #region ConfigureSerilog
 

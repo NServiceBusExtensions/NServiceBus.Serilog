@@ -1,6 +1,4 @@
 ﻿using System;
-using NServiceBus.Logging;
-using NServiceBus.Serilog;
 
 Logger ConfigureSerilog()
 {

@@ -1,8 +1,4 @@
-﻿using NServiceBus.Pipeline;
-using NServiceBus.Serilog;
-using Serilog.Parsing;
-
-class CaptureSagaStateBehavior :
+﻿class CaptureSagaStateBehavior :
     Behavior<IInvokeHandlerContext>
 {
     MessageTemplate messageTemplate;

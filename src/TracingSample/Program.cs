@@ -1,7 +1,4 @@
-﻿using NServiceBus.Logging;
-using NServiceBus.Serilog;
-
-var loggerConfiguration = new LoggerConfiguration();
+﻿var loggerConfiguration = new LoggerConfiguration();
 loggerConfiguration.WriteTo.Seq("http://localhost:5341");
 loggerConfiguration.WriteTo.File("logFile.txt");
 loggerConfiguration.MinimumLevel.Information();

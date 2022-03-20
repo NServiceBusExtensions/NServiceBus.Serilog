@@ -1,7 +1,4 @@
-﻿using NServiceBus.Pipeline;
-using NServiceBus.Serilog;
-
-class InjectOutgoingBehavior :
+﻿class InjectOutgoingBehavior :
     Behavior<IOutgoingLogicalMessageContext>
 {
     LogBuilder logBuilder;

@@ -1,6 +1,4 @@
-﻿using NServiceBus.Pipeline;
-
-class BehaviorThatThrows :
+﻿class BehaviorThatThrows :
     Behavior<IInvokeHandlerContext>
 {
     public class Registration :

@@ -1,6 +1,4 @@
-﻿using Serilog.Parsing;
-
-#region WriteStartupDiagnostics
+﻿#region WriteStartupDiagnostics
 
 class StartupDiagnostics :
     FeatureStartupTask

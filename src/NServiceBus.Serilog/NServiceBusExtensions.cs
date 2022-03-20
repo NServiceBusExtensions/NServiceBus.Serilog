@@ -1,7 +1,4 @@
-﻿using NServiceBus.Pipeline;
-using NServiceBus.Routing;
-
-static class NServiceBusExtensions
+﻿static class NServiceBusExtensions
 {
     public static string OriginatingMachine(this IInvokeHandlerContext context)
     {

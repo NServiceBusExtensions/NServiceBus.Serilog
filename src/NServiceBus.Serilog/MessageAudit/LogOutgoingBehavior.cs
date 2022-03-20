@@ -1,7 +1,4 @@
-﻿using NServiceBus.Pipeline;
-using Serilog.Parsing;
-
-class LogOutgoingBehavior :
+﻿class LogOutgoingBehavior :
     Behavior<IOutgoingPhysicalMessageContext>
 {
     ConvertHeader convertHeader;

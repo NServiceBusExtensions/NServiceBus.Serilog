@@ -1,7 +1,4 @@
-﻿using NServiceBus.Pipeline;
-using NServiceBus.Serilog;
-
-class CaptureSagaResultingBehavior :
+﻿class CaptureSagaResultingBehavior :
     Behavior<IOutgoingLogicalMessageContext>
 {
     public override Task Invoke(IOutgoingLogicalMessageContext context, Func<Task> next)
