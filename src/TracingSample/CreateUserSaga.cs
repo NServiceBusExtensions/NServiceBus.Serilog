@@ -1,6 +1,4 @@
-﻿using NServiceBus;
-
-public class CreateUserSaga :
+﻿public class CreateUserSaga :
     Saga<MySagaData>,
     IAmStartedByMessages<CreateUser>,
     IHandleTimeouts<SagaTimeout>

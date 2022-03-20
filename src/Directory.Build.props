@@ -5,4 +5,8 @@
     <AssemblyVersion>1.0.0</AssemblyVersion>
     <Description>Add support for sending NServiceBus logging through Serilog</Description>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Using Include="NServiceBus"/>
+  </ItemGroup>
 </Project>

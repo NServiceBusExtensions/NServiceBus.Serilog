@@ -1,5 +1,3 @@
-using NServiceBus;
-
 public class CreateUserSagaData :
     ContainSagaData
 {

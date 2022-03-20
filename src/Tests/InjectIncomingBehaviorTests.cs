@@ -1,5 +1,4 @@
-﻿using NServiceBus;
-using NServiceBus.Testing;
+﻿using NServiceBus.Testing;
 
 [UsesVerify]
 public class InjectIncomingBehaviorTests

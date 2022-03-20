@@ -1,18 +1,8 @@
-﻿using Newtonsoft.Json;
-using Serilog.Events;
+﻿using Serilog.Events;
 
 class ScalarValueConverter :
-    JsonConverter
+    WriteOnlyJsonConverter<ScalarValue>
 {
-    public override void WriteJson(JsonWriter writer, object? value, JsonSerializer serializer)
-    {
-        var property = (ScalarValue) value!;
-        serializer.Serialize(writer, property.Value);
-    }
-
-    public override object ReadJson(JsonReader reader, Type type, object? value, JsonSerializer serializer) =>
-        throw new();
-
-    public override bool CanConvert(Type type) =>
-        typeof(ScalarValue).IsAssignableFrom(type);
+    public override void Write(VerifyJsonWriter writer, ScalarValue value) =>
+        writer.Serialize(value.Value);
 }

@@ -1,4 +1,3 @@
-using NServiceBus;
 using NServiceBus.Serilog;
 using Serilog;
 using Serilog.Events;

@@ -1,5 +1,4 @@
-﻿using NServiceBus;
-using NServiceBus.Pipeline;
+﻿using NServiceBus.Pipeline;
 using Serilog.Events;
 using Serilog.Parsing;
 

@@ -1,6 +1,4 @@
-﻿using NServiceBus;
-
-public class UserCreated :
+﻿public class UserCreated :
     IMessage
 {
     public string UserName { get; set; }

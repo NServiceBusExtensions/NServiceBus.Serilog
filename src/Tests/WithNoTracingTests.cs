@@ -1,6 +1,4 @@
-﻿using NServiceBus;
-
-[UsesVerify]
+﻿[UsesVerify]
 public class WithNoTracingTests
 {
     [Fact]

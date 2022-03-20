@@ -1,6 +1,4 @@
-﻿using NServiceBus;
-
-public class CreateUserHandler :
+﻿public class CreateUserHandler :
     IHandleMessages<CreateUser>
 {
     public Task Handle(CreateUser message, IMessageHandlerContext context)

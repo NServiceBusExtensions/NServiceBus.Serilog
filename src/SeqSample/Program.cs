@@ -1,5 +1,4 @@
 ﻿using System;
-using NServiceBus;
 using NServiceBus.Logging;
 using NServiceBus.Serilog;
 using Serilog;

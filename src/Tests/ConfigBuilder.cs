@@ -1,6 +1,4 @@
-﻿using NServiceBus;
-
-public static class ConfigBuilder
+﻿public static class ConfigBuilder
 {
     public static EndpointConfiguration BuildDefaultConfig(string endpointName)
     {

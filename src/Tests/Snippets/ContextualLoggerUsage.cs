@@ -1,6 +1,4 @@
-﻿using NServiceBus;
-
-#region ContextualLoggerUsage
+﻿#region ContextualLoggerUsage
 
 public class HandlerUsingLogger :
     IHandleMessages<TheMessage>

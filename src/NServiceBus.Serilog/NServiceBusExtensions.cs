@@ -1,5 +1,4 @@
-﻿using NServiceBus;
-using NServiceBus.Pipeline;
+﻿using NServiceBus.Pipeline;
 using NServiceBus.Routing;
 
 static class NServiceBusExtensions

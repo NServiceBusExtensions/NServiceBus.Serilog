@@ -1,6 +1,4 @@
-﻿using NServiceBus;
-
-public class TheSaga :
+﻿public class TheSaga :
     Saga<TheSaga.TheSagaData>,
     IAmStartedByMessages<StartSaga>,
     IAmStartedByMessages<BackIntoSaga>

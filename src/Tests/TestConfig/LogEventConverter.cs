@@ -1,24 +1,15 @@
-﻿using Newtonsoft.Json;
-
-class LogEventConverter :
-    JsonConverter
+﻿class LogEventConverter :
+    WriteOnlyJsonConverter<LogEventEx>
 {
-    public override void WriteJson(JsonWriter writer, object? value, JsonSerializer serializer)
+    public override void Write(VerifyJsonWriter writer, LogEventEx logEvent)
     {
-        var logEvent = (LogEventEx) value!;
         writer.WriteStartObject();
         writer.WritePropertyName("MessageTemplate");
-        serializer.Serialize(writer, logEvent.MessageTemplate.Text);
+        writer.Serialize(logEvent.MessageTemplate.Text);
         writer.WritePropertyName("Level");
-        serializer.Serialize(writer, logEvent.Level);
+        writer.Serialize(logEvent.Level);
         writer.WritePropertyName("Properties");
-        serializer.Serialize(writer, logEvent.Properties);
+        writer.Serialize(logEvent.Properties);
         writer.WriteEndObject();
     }
-
-    public override object ReadJson(JsonReader reader, Type type, object? value, JsonSerializer serializer) =>
-        throw new();
-
-    public override bool CanConvert(Type type) =>
-        typeof(LogEventEx).IsAssignableFrom(type);
 }

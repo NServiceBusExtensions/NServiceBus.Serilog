@@ -1,21 +1,13 @@
-﻿using Newtonsoft.Json;
-using Serilog.Events;
+﻿using Serilog.Events;
 
 class LogEventPropertyConverter :
-    JsonConverter
+    WriteOnlyJsonConverter<LogEventProperty>
 {
-    public override void WriteJson(JsonWriter writer, object? value, JsonSerializer serializer)
+    public override void Write(VerifyJsonWriter writer, LogEventProperty property)
     {
-        var property = (LogEventProperty) value!;
         writer.WriteStartObject();
         writer.WritePropertyName(property.Name);
-        serializer.Serialize(writer, property.Value);
+        writer.Serialize(property.Value);
         writer.WriteEndObject();
     }
-
-    public override object ReadJson(JsonReader reader, Type type, object? value, JsonSerializer serializer) =>
-        throw new();
-
-    public override bool CanConvert(Type type) =>
-        typeof(LogEventProperty).IsAssignableFrom(type);
 }

@@ -1,6 +1,4 @@
-﻿using NServiceBus;
-
-public class GenericHandler :
+﻿public class GenericHandler :
     IHandleMessages<StartGenericHandler<string>>
 {
     ManualResetEvent resetEvent;

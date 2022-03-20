@@ -1,5 +1,4 @@
-﻿using NServiceBus;
-using Serilog;
+﻿using Serilog;
 
 public class MyHandler :
     IHandleMessages<MyMessage>

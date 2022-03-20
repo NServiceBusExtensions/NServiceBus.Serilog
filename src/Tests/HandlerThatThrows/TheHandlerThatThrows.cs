@@ -1,6 +1,4 @@
-﻿using NServiceBus;
-
-public class TheHandlerThatThrows :
+﻿public class TheHandlerThatThrows :
     IHandleMessages<StartHandlerThatThrows>
 {
     public Task Handle(StartHandlerThatThrows message, IMessageHandlerContext context) =>

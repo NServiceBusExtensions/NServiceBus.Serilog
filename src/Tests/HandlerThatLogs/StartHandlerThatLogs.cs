@@ -1,6 +1,4 @@
-﻿using NServiceBus;
-
-public class StartHandlerThatLogs :
+﻿public class StartHandlerThatLogs :
     IMessage
 {
 }

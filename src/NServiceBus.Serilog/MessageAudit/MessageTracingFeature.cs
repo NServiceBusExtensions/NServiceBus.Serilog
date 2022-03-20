@@ -1,5 +1,4 @@
-﻿using NServiceBus;
-using NServiceBus.Features;
+﻿using NServiceBus.Features;
 
 class MessageTracingFeature :
     Feature

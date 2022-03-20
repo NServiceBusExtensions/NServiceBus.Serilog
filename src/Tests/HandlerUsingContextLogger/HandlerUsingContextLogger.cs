@@ -1,6 +1,4 @@
-﻿using NServiceBus;
-
-public class HandlerUsingContextLogger :
+﻿public class HandlerUsingContextLogger :
     IHandleMessages<StartHandlerUsingContextLogger>
 {
     public Task Handle(StartHandlerUsingContextLogger message, IMessageHandlerContext context)

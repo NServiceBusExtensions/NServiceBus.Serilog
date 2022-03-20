@@ -1,5 +1,4 @@
-﻿using NServiceBus;
-using Serilog;
+﻿using Serilog;
 // ReSharper disable UnusedVariable
 
 class TracingUsage

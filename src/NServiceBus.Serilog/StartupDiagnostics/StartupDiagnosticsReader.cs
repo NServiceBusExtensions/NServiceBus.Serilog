@@ -1,5 +1,4 @@
-﻿using NServiceBus;
-using NServiceBus.Settings;
+﻿using NServiceBus.Settings;
 
 static class StartupDiagnosticsReader
 {

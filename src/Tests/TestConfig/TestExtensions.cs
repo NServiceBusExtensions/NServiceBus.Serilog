@@ -1,5 +1,4 @@
-﻿using NServiceBus;
-using NServiceBus.Serilog;
+﻿using NServiceBus.Serilog;
 
 public static class TestExtensions
 {

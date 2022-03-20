@@ -1,5 +1,4 @@
-﻿using NServiceBus;
-using NServiceBus.Features;
+﻿using NServiceBus.Features;
 using NServiceBus.Settings;
 using Serilog;
 using Serilog.Events;

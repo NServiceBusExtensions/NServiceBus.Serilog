@@ -1,6 +1,4 @@
-﻿using NServiceBus;
-
-public class NotFoundSaga :
+﻿public class NotFoundSaga :
     Saga<NotFoundSaga.TheSagaData>,
     IAmStartedByMessages<NotFoundSagaMessage>
 {
