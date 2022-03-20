@@ -1,6 +1,4 @@
-﻿using System.Threading.Tasks;
-
-public class CreateUserSaga :
+﻿public class CreateUserSaga :
     Saga<CreateUserSagaData>,
     IAmStartedByMessages<CreateUser>
 {

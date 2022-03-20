@@ -1,6 +1,4 @@
-﻿using System;
-
-Logger ConfigureSerilog()
+﻿Logger ConfigureSerilog()
 {
     #region ConfigureSerilog
 
