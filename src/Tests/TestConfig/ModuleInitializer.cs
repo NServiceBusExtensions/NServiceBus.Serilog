@@ -12,14 +12,11 @@
         VerifierSettings.ScrubLinesContaining("HandlerFailureTime");
         VerifierSettings.AddScrubber(x => x.Replace(nsbVersionString, "NsbVersion"));
         VerifierSettings.ScrubMachineName();
-        VerifierSettings.ModifySerialization(settings =>
-        {
-            settings.AddExtraSettings(newtonsoft =>
+        VerifierSettings.AddExtraSettings(newtonsoft =>
             {
                 newtonsoft.Converters.Add(new LogEventPropertyConverter());
                 newtonsoft.Converters.Add(new LogEventConverter());
                 newtonsoft.Converters.Add(new ScalarValueConverter());
-            });
         });
         VerifierSettings.AddExtraDatetimeFormat("yyyy-MM-dd HH:mm:ss:ffffff Z");
     }
