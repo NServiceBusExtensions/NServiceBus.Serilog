@@ -244,7 +244,7 @@ serilogTracing.EnableSagaTracing();
         Handler: TheSaga,
         IncomingMessageId: Guid_2,
         IncomingMessageType: StartSaga,
-        IncomingMessageTypeLong: StartSaga, Tests, Version=0.0.0.0, PublicKeyToken=ce8ec7717ba6fbb6,
+        IncomingMessageTypeLong: StartSaga, Tests, Version=0.0.0.0,
         Message: {
           TypeTag: StartSaga,
           Properties: [
@@ -274,7 +274,7 @@ serilogTracing.EnableSagaTracing();
         },
         IncomingMessageId: Guid_2,
         IncomingMessageType: StartSaga,
-        IncomingMessageTypeLong: StartSaga, Tests, Version=0.0.0.0, PublicKeyToken=ce8ec7717ba6fbb6,
+        IncomingMessageTypeLong: StartSaga, Tests, Version=0.0.0.0,
         MessageIntent: Send,
         OriginatingEndpoint: SerilogTestsStartSaga,
         OriginatingHostId: Guid_3,
@@ -311,7 +311,7 @@ serilogTracing.EnableSagaTracing();
         FinishTime: DateTimeOffset_1,
         IncomingMessageId: Guid_2,
         IncomingMessageType: StartSaga,
-        IncomingMessageTypeLong: StartSaga, Tests, Version=0.0.0.0, PublicKeyToken=ce8ec7717ba6fbb6,
+        IncomingMessageTypeLong: StartSaga, Tests, Version=0.0.0.0,
         Initiator: {
           Elements: {
             "IsSagaTimeout": false,
@@ -382,7 +382,7 @@ serilogTracing.EnableSagaTracing();
         CorrelationId: Guid_2,
         IncomingMessageId: Guid_2,
         IncomingMessageType: StartSaga,
-        IncomingMessageTypeLong: StartSaga, Tests, Version=0.0.0.0, PublicKeyToken=ce8ec7717ba6fbb6,
+        IncomingMessageTypeLong: StartSaga, Tests, Version=0.0.0.0,
         MessageIntent: Send,
         OriginatingEndpoint: SerilogTestsStartSaga,
         OriginatingHostId: Guid_3,
