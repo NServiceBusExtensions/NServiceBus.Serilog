@@ -9,7 +9,8 @@
         var logBuilder = new LogBuilder(settings.Logger, endpoint);
 
         var pipeline = context.Pipeline;
-        pipeline.Register(new InjectIncomingBehavior.Registration(logBuilder, endpoint));
+        pipeline.Register(new InjectIncomingPhysicalBehavior.Registration(logBuilder, endpoint));
+        pipeline.Register(new InjectIncomingLogicalBehavior.Registration(logBuilder));
         pipeline.Register(new InjectHandlerContextBehavior.Registration());
         pipeline.Register(new InjectMessageContextBehavior.Registration());
         pipeline.Register(new InjectOutgoingBehavior.Registration(logBuilder));

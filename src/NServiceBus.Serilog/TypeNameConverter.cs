@@ -1,4 +1,6 @@
-﻿namespace NServiceBus.Serilog;
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace NServiceBus.Serilog;
 
 /// <summary>
 /// Converts a <see cref="Type"/> or a long type name to a short type name.
@@ -22,7 +24,29 @@ public static class TypeNameConverter
 
     static string FormatForDisplay(string typeName)
     {
-        var type = Type.GetType(
+        if (TryGetType(typeName, out var type))
+        {
+            return FormatForDisplay(type);
+        }
+
+        var indexOfComma = typeName.IndexOf(',');
+        if (indexOfComma > -1)
+        {
+            typeName = typeName[..indexOfComma];
+        }
+
+        var indexOfPeriod = typeName.IndexOf('.');
+        if (indexOfPeriod > -1)
+        {
+            typeName = typeName[(indexOfPeriod + 1)..];
+        }
+
+        return typeName;
+    }
+
+    static bool TryGetType(string typeName, [NotNullWhen(true)] out Type? type)
+    {
+        type = Type.GetType(
             typeName,
             assemblyResolver: name =>
             {
@@ -44,24 +68,7 @@ public static class TypeNameConverter
 
                 return assembly.GetType(name, false, ignoreCase);
             });
-        if (type is null)
-        {
-            var indexOfComma = typeName.IndexOf(',');
-            if (indexOfComma > -1)
-            {
-                typeName = typeName[..indexOfComma];
-            }
-
-            var indexOfPeriod = typeName.IndexOf('.');
-            if (indexOfPeriod > -1)
-            {
-                typeName = typeName[(indexOfPeriod + 1)..];
-            }
-
-            return typeName;
-        }
-
-        return FormatForDisplay(type);
+        return type != null;
     }
 
     static string FormatForDisplay(Type type)

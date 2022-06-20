@@ -22,8 +22,11 @@
                 stepId: Name,
                 behavior: typeof(LogIncomingBehavior),
                 description: "Logs incoming messages",
-                factoryMethod: _ => new LogIncomingBehavior(convertHeader)) =>
+                factoryMethod: _ => new LogIncomingBehavior(convertHeader))
+        {
             InsertBefore("MutateIncomingMessages");
+            InsertAfter(InjectIncomingLogicalBehavior.Name);
+        }
     }
 
     public override Task Invoke(IIncomingLogicalMessageContext context, Func<Task> next)

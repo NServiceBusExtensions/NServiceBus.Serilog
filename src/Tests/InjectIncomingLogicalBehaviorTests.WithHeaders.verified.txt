@@ -1,0 +1,32 @@
+﻿{
+  Message: {
+    MessageType: InjectIncomingLogicalBehaviorTests.Message1,
+    Metadata: {
+      MessageType: InjectIncomingLogicalBehaviorTests.Message1
+    },
+    Instance: {}
+  },
+  MessageHandled: false,
+  Extensions: {
+    Serilog.ILogger: {
+      Enrichers: [
+        {
+          IncomingMessageId: Guid_1
+        },
+        {
+          IncomingMessageType: InjectIncomingLogicalBehaviorTests+Message1
+        },
+        {
+          IncomingMessageTypeLong: InjectIncomingLogicalBehaviorTests+Message1, Tests, Version=0.0.0.0
+        },
+        {
+          CorrelationId: Guid_2
+        },
+        {
+          ConversationId: Guid_3
+        }
+      ],
+      ContextKey: InjectIncomingLogicalBehaviorTests+Message1
+    }
+  }
+}

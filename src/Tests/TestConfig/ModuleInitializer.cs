@@ -17,6 +17,7 @@
             newtonsoft.Converters.Add(new LogEventPropertyConverter());
             newtonsoft.Converters.Add(new LogEventConverter());
             newtonsoft.Converters.Add(new ScalarValueConverter());
+            newtonsoft.Converters.Add(new PropertyEnricherConverter());
         });
         VerifierSettings.AddExtraDatetimeFormat("yyyy-MM-dd HH:mm:ss:ffffff Z");
     }

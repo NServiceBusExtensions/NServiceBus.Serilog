@@ -14,6 +14,21 @@
       }
     },
     Serilog.ILogger: {
+      Enrichers: [
+        {
+          IncomingMessageId: Guid_2
+        },
+        {
+          IncomingMessageTypes: [
+            InjectIncomingBehaviorTests+Message1
+          ]
+        },
+        {
+          IncomingMessageTypesLong: [
+            InjectIncomingBehaviorTests+Message1, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6
+          ]
+        }
+      ],
       ContextKey: InjectIncomingBehaviorTests+Message1
     }
   }

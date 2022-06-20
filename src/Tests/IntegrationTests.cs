@@ -99,6 +99,7 @@ public class IntegrationTests
         await Verify<StartHandlerThatLogs>(events);
     }
 
+
     [Fact]
     public async Task HandlerThatThrows()
     {
