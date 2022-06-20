@@ -79,10 +79,12 @@
 
     static void AddEntity(ILogger logger, Saga saga, List<LogEventProperty> properties)
     {
-        if (logger.BindProperty("Entity", saga.Entity, out var sagaEntityProperty))
+        if (!logger.BindProperty("Entity", saga.Entity, out var sagaEntityProperty))
         {
-            properties.Add(sagaEntityProperty);
+            return;
         }
+
+        properties.Add(sagaEntityProperty);
     }
 
     static void AddInitiator(IInvokeHandlerContext context, string messageId, List<LogEventProperty> properties)

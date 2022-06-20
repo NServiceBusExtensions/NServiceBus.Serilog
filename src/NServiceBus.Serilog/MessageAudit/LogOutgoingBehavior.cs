@@ -18,11 +18,11 @@
         return next();
     }
 
-    void LogMessage(IOutgoingPhysicalMessageContext context, ILogger forContext, object message)
+    void LogMessage(IOutgoingPhysicalMessageContext context, ILogger logger, object message)
     {
         var properties = new List<LogEventProperty>();
 
-        if (forContext.BindProperty("OutgoingMessage", message, out var messageProperty))
+        if (logger.BindProperty("OutgoingMessage", message, out var messageProperty))
         {
             properties.Add(messageProperty);
         }
@@ -34,8 +34,8 @@
             properties.Add(new("UnicastRoutes", sequence));
         }
 
-        properties.AddRange(forContext.BuildHeaders(context.Headers, convertHeader));
-        forContext.WriteInfo(messageTemplate, properties);
+        properties.AddRange(logger.BuildHeaders(context.Headers, convertHeader));
+        logger.WriteInfo(messageTemplate, properties);
     }
 
     public class Registration :
