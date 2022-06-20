@@ -9,7 +9,7 @@
 
     static void AppendMessageToState(IOutgoingLogicalMessageContext context)
     {
-        if (!context.Extensions.TryGet(out SagaUpdatedMessage sagaUpdatedMessage))
+        if (!context.Extensions.TryGet(out SagaUpdatedMessage updatedMessage))
         {
             return;
         }
@@ -23,7 +23,7 @@
 
         var messageType = logicalMessage.MessageType.Name;
 
-        var sagaResultingMessage = new Dictionary<string, string>
+        var resultingMessage = new Dictionary<string, string>
         {
             {"Id", context.MessageId},
             {"Type", messageType},
@@ -32,10 +32,10 @@
         var destination = context.GetDestinationForUnicastMessages();
         if (destination is not null)
         {
-            sagaResultingMessage.Add("Destination", destination);
+            resultingMessage.Add("Destination", destination);
         }
 
-        sagaUpdatedMessage.ResultingMessages.Add(sagaResultingMessage);
+        updatedMessage.ResultingMessages.Add(resultingMessage);
     }
 
     public class Registration :

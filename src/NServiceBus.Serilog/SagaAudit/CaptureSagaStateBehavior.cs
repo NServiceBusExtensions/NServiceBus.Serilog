@@ -25,21 +25,19 @@
             return;
         }
 
-        var sagaAudit = new SagaUpdatedMessage(DateTimeOffset.UtcNow);
+        var sagaAudit = new SagaUpdatedMessage();
         context.Extensions.Set(sagaAudit);
+        var startTime = DateTimeOffset.UtcNow;
+
         await next();
 
-        if (context.Extensions.TryGet(out ActiveSagaInstance activeSagaInstance))
-        {
-            var sagaType = activeSagaInstance.Instance.GetType().Name;
-            sagaAudit.SagaType = sagaType;
-            sagaAudit.FinishTime = DateTimeOffset.UtcNow;
-            AuditSaga(activeSagaInstance, context, sagaAudit);
-        }
-    }
+        var finishTime = DateTimeOffset.UtcNow;
 
-    void AuditSaga(ActiveSagaInstance activeSagaInstance, IInvokeHandlerContext context, SagaUpdatedMessage sagaAudit)
-    {
+        if (!context.Extensions.TryGet(out ActiveSagaInstance activeSagaInstance))
+        {
+            return;
+        }
+
         var saga = activeSagaInstance.Instance;
 
         if (saga.Entity is null)
@@ -54,56 +52,70 @@
             return;
         }
 
-        var intent = context.MessageIntent();
+        var isNew = activeSagaInstance.IsNew;
+        var isCompleted = saga.Completed;
+        var sagaId = saga.Entity.Id;
 
-        sagaAudit.IsNew = activeSagaInstance.IsNew;
-        sagaAudit.IsCompleted = saga.Completed;
-        sagaAudit.SagaId = saga.Entity.Id;
-
-        AssignSagaStateChangeCausedByMessage(context, sagaAudit);
+        AssignSagaStateChangeCausedByMessage(context, isNew, isCompleted, sagaId);
 
         var properties = new List<LogEventProperty>
         {
-            new("SagaType", new ScalarValue(sagaAudit.SagaType)),
-            new("SagaId", new ScalarValue(sagaAudit.SagaId)),
-            new("StartTime", new ScalarValue(sagaAudit.StartTime)),
-            new("FinishTime", new ScalarValue(sagaAudit.FinishTime)),
-            new("IsCompleted", new ScalarValue(sagaAudit.IsCompleted)),
-            new("IsNew", new ScalarValue(sagaAudit.IsNew))
+            new("SagaType", new ScalarValue(saga.GetType().Name)),
+            new("SagaId", new ScalarValue(sagaId)),
+            new("StartTime", new ScalarValue(startTime)),
+            new("FinishTime", new ScalarValue(finishTime)),
+            new("IsCompleted", new ScalarValue(isCompleted)),
+            new("IsNew", new ScalarValue(isNew))
         };
 
-        var logger = context.Logger();
-        var messageType = TypeNameConverter.GetName(context.MessageType());
+        AddInitiator(context, messageId, properties);
 
+        AddResultingMessages(sagaAudit, logger, properties);
+
+        AddEntity(logger, saga, properties);
+
+        logger.WriteInfo(messageTemplate, properties);
+    }
+
+    static void AddEntity(ILogger logger, Saga saga, List<LogEventProperty> properties)
+    {
+        if (logger.BindProperty("Entity", saga.Entity, out var sagaEntityProperty))
+        {
+            properties.Add(sagaEntityProperty);
+        }
+    }
+
+    static void AddInitiator(IInvokeHandlerContext context, string messageId, List<LogEventProperty> properties)
+    {
         var initiator = new Dictionary<ScalarValue, LogEventPropertyValue>
         {
             {new("IsSagaTimeout"), new ScalarValue(context.IsTimeoutMessage())},
             {new("MessageId"), new ScalarValue(messageId)},
             {new("OriginatingMachine"), new ScalarValue(context.OriginatingMachine())},
             {new("OriginatingEndpoint"), new ScalarValue(context.OriginatingEndpoint())},
-            {new("MessageType"), new ScalarValue(messageType)},
+            {new("MessageType"), new ScalarValue(TypeNameConverter.GetName(context.MessageType()))},
             {new("TimeSent"), new ScalarValue(context.TimeSent())},
-            {new("Intent"), new ScalarValue(intent)}
+            {new("Intent"), new ScalarValue(context.MessageIntent())}
         };
         properties.Add(new("Initiator", new DictionaryValue(initiator)));
-
-        if (sagaAudit.ResultingMessages.Any())
-        {
-            if (logger.BindProperty("ResultingMessages", sagaAudit.ResultingMessages, out var resultingMessagesProperty))
-            {
-                properties.Add(resultingMessagesProperty);
-            }
-        }
-
-        if (logger.BindProperty("Entity", saga.Entity, out var sagaEntityProperty))
-        {
-            properties.Add(sagaEntityProperty);
-        }
-
-        logger.WriteInfo(messageTemplate, properties);
     }
 
-    static void AssignSagaStateChangeCausedByMessage(IInvokeHandlerContext context, SagaUpdatedMessage sagaAudit)
+    static void AddResultingMessages(SagaUpdatedMessage sagaAudit, ILogger logger, List<LogEventProperty> properties)
+    {
+        if (!sagaAudit.ResultingMessages.Any())
+        {
+            return;
+        }
+
+        if (!logger.BindProperty("ResultingMessages", sagaAudit.ResultingMessages, out var resultingMessagesProperty))
+        {
+            return;
+        }
+
+        properties.Add(resultingMessagesProperty);
+    }
+
+    static void AssignSagaStateChangeCausedByMessage(IInvokeHandlerContext context, bool isNew, bool isCompleted, Guid sagaId)
     {
         if (!context.Headers.TryGetValue("NServiceBus.Serilog.SagaStateChange", out var sagaStateChange))
         {
@@ -111,12 +123,12 @@
         }
 
         var stateChange = "Updated";
-        if (sagaAudit.IsNew)
+        if (isNew)
         {
             stateChange = "New";
         }
 
-        if (sagaAudit.IsCompleted)
+        if (isCompleted)
         {
             stateChange = "Completed";
         }
@@ -126,7 +138,7 @@
             sagaStateChange += ";";
         }
 
-        sagaStateChange += $"{sagaAudit.SagaId}:{stateChange}";
+        sagaStateChange += $"{sagaId}:{stateChange}";
 
         context.Headers["NServiceBus.Serilog.SagaStateChange"] = sagaStateChange;
     }

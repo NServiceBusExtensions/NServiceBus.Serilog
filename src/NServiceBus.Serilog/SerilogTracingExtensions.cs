@@ -47,10 +47,12 @@ public static partial class SerilogTracingExtensions
         {
             return logger;
         }
+
         if (bag.TryGet("SerilogHandlerLogger", out logger))
         {
             return logger;
         }
+
         if (bag.TryGet(out logger))
         {
             return logger;
