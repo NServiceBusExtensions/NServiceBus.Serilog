@@ -71,7 +71,7 @@
             properties.Add(new("ConversationId", conversationId));
         }
 
-        ExceptionLogState exceptionLogState = new
+        var exceptionLogState = new ExceptionLogState
         (
             processingEndpoint: endpoint,
             incomingHeaders: context.MessageHeaders,
