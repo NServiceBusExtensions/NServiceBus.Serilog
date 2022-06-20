@@ -11,7 +11,7 @@
       ProcessingEndpoint: endpoint
     },
     Serilog.ILogger: {
-      ContextKey: UnknownMessageType
+      ContextKey: UnknownMessageTypes
     }
   }
 }
