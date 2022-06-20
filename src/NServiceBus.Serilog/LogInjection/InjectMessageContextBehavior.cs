@@ -8,9 +8,8 @@
             base(
                 stepId: $"Serilog{nameof(InjectMessageContextBehavior)}",
                 behavior: typeof(InjectMessageContextBehavior),
-                description: "Injects the message into the ExceptionLogState")
-        {
-        }
+                description: "Injects the message into the ExceptionLogState") =>
+            InsertBefore(LogIncomingBehavior.Name);
     }
 
     public override Task Invoke(IIncomingLogicalMessageContext context, Func<Task> next)

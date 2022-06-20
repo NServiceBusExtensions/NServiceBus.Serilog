@@ -13,12 +13,13 @@
         messageTemplate = templateParser.Parse("Receive message {IncomingMessageType} {IncomingMessageId}.");
     }
 
+    public static string Name = $"Serilog{nameof(LogIncomingBehavior)}";
     public class Registration :
         RegisterStep
     {
         public Registration(ConvertHeader convertHeader) :
             base(
-                stepId: $"Serilog{nameof(LogIncomingBehavior)}",
+                stepId: Name,
                 behavior: typeof(LogIncomingBehavior),
                 description: "Logs incoming messages",
                 factoryMethod: _ => new LogIncomingBehavior(convertHeader)) =>
