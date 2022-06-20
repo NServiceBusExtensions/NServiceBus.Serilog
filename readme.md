@@ -447,7 +447,7 @@ serilogTracing.EnableMessageTracing();
         Handler: TheHandler,
         IncomingMessageId: Guid_2,
         IncomingMessageType: StartHandler,
-        IncomingMessageTypeLong: StartHandler, Tests, Version=0.0.0.0, PublicKeyToken=ce8ec7717ba6fbb6,
+        IncomingMessageTypeLong: StartHandler, Tests, Version=0.0.0.0,
         ProcessingEndpoint: SerilogTestsStartHandler,
         SourceContext: StartHandler
       }
@@ -468,7 +468,7 @@ serilogTracing.EnableMessageTracing();
         },
         IncomingMessageId: Guid_2,
         IncomingMessageType: StartHandler,
-        IncomingMessageTypeLong: StartHandler, Tests, Version=0.0.0.0, PublicKeyToken=ce8ec7717ba6fbb6,
+        IncomingMessageTypeLong: StartHandler, Tests, Version=0.0.0.0,
         MessageIntent: Send,
         OriginatingEndpoint: SerilogTestsStartHandler,
         OriginatingHostId: Guid_3,

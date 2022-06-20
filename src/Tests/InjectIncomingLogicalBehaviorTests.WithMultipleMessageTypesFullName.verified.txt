@@ -1,0 +1,20 @@
+﻿{
+  Message: {
+    MessageId: Guid_1,
+    NativeMessageId: Guid_1,
+    Headers: {
+      NServiceBus.MessageId: Guid_1
+    }
+  },
+  Extensions: {
+    ExceptionLogState: {
+      ProcessingEndpoint: endpoint,
+      IncomingHeaders: {
+        NServiceBus.EnclosedMessageTypes: InjectIncomingBehaviorTests+Message1;InjectIncomingBehaviorTests+Message2
+      }
+    },
+    Serilog.ILogger: {
+      ContextKey: InjectIncomingBehaviorTests+Message1;InjectIncomingBehaviorTests+Message2
+    }
+  }
+}

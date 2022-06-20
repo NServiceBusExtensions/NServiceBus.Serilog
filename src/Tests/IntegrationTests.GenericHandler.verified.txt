@@ -9,7 +9,7 @@
         Handler: GenericHandler,
         IncomingMessageId: Guid_2,
         IncomingMessageType: StartGenericHandler<String>,
-        IncomingMessageTypeLong: StartGenericHandler`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, PublicKeyToken=7cec85d7bea7798e]], Tests, Version=0.0.0.0, PublicKeyToken=ce8ec7717ba6fbb6,
+        IncomingMessageTypeLong: StartGenericHandler<String>, Tests, Version=0.0.0.0,
         ProcessingEndpoint: SerilogTestsStartGenericHandler_String_,
         SourceContext: StartGenericHandler<String>
       }
@@ -30,7 +30,7 @@
         },
         IncomingMessageId: Guid_2,
         IncomingMessageType: StartGenericHandler<String>,
-        IncomingMessageTypeLong: StartGenericHandler`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, PublicKeyToken=7cec85d7bea7798e]], Tests, Version=0.0.0.0, PublicKeyToken=ce8ec7717ba6fbb6,
+        IncomingMessageTypeLong: StartGenericHandler<String>, Tests, Version=0.0.0.0,
         MessageIntent: Send,
         OriginatingEndpoint: SerilogTestsStartGenericHandler_String_,
         OriginatingHostId: Guid_3,

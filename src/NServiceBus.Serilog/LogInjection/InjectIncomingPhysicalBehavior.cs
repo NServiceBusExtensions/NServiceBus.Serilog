@@ -1,10 +1,10 @@
-﻿class InjectIncomingBehavior :
+﻿class InjectIncomingPhysicalBehavior :
     Behavior<IIncomingPhysicalMessageContext>
 {
     LogBuilder logBuilder;
     string endpoint;
 
-    public InjectIncomingBehavior(LogBuilder logBuilder, string endpoint)
+    public InjectIncomingPhysicalBehavior(LogBuilder logBuilder, string endpoint)
     {
         this.logBuilder = logBuilder;
         this.endpoint = endpoint;
@@ -15,10 +15,10 @@
     {
         public Registration(LogBuilder logBuilder, string endpoint) :
             base(
-                stepId: $"Serilog{nameof(InjectIncomingBehavior)}",
-                behavior: typeof(InjectIncomingBehavior),
-                description: "Injects a logger into the incoming context",
-                factoryMethod: _ => new InjectIncomingBehavior(logBuilder, endpoint)
+                stepId: $"Serilog{nameof(InjectIncomingPhysicalBehavior)}",
+                behavior: typeof(InjectIncomingPhysicalBehavior),
+                description: "Injects a logger into the incoming physical context",
+                factoryMethod: _ => new InjectIncomingPhysicalBehavior(logBuilder, endpoint)
             )
         {
         }
@@ -36,29 +36,18 @@
         if (headers.TryGetValue(Headers.EnclosedMessageTypes, out var enclosedMessageTypes))
         {
             var split = enclosedMessageTypes.Split(';');
-            if (split.Length == 1)
-            {
-                var longName = split[0];
-                longName = longName.Replace(", Culture=neutral", "").Replace(", PublicKeyToken=null", "");
-                var messageTypeName = TypeNameConverter.GetName(longName);
-                properties.Add(new("IncomingMessageType", messageTypeName));
-                properties.Add(new("IncomingMessageTypeLong", longName));
-                logger = logBuilder.GetLogger(messageTypeName);
-            }
-            else
-            {
-                var names = split.Select(TypeNameConverter.GetName).ToList();
-                properties.Add(new("IncomingMessageTypes", names));
-                properties.Add(new("IncomingMessageTypesLong", split));
-                var messageTypeName = string.Join(";", names);
-                logger = logBuilder.GetLogger(messageTypeName);
-            }
+            var names = split.Select(TypeNameConverter.GetName).ToList();
+            properties.Add(new("IncomingMessageTypes", names));
+            properties.Add(new("IncomingMessageTypesLong", split));
+            var messageTypeName = string.Join(";", names);
+            logger = logBuilder.GetLogger(messageTypeName);
         }
         else
         {
-            properties.Add(new("IncomingMessageType", "UnknownMessageType"));
+            properties.Add(new("IncomingMessageTypes", Array.Empty<string>()));
+            properties.Add(new("IncomingMessageTypesLong", Array.Empty<string>()));
 
-            logger = logBuilder.GetLogger("UnknownMessageType");
+            logger = logBuilder.GetLogger("UnknownMessageTypes");
         }
 
         if (headers.TryGetValue(Headers.CorrelationId, out var correlationId))
