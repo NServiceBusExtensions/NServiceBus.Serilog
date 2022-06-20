@@ -49,7 +49,7 @@ class StartupDiagnostics :
     {
         if (entry.StartsWith("NServiceBus."))
         {
-            return entry.Substring(12);
+            return entry[12..];
         }
 
         return entry;

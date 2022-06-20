@@ -49,13 +49,13 @@ public static class TypeNameConverter
             var indexOfComma = typeName.IndexOf(',');
             if (indexOfComma > -1)
             {
-                typeName = typeName.Substring(0, indexOfComma);
+                typeName = typeName[..indexOfComma];
             }
 
             var indexOfPeriod = typeName.IndexOf('.');
             if (indexOfPeriod > -1)
             {
-                typeName = typeName.Substring(indexOfPeriod + 1);
+                typeName = typeName[(indexOfPeriod + 1)..];
             }
 
             return typeName;
@@ -84,7 +84,7 @@ public static class TypeNameConverter
         var indexOfGenericDelimiter = typeName.IndexOf('`');
         if (indexOfGenericDelimiter != -1)
         {
-            typeName = typeName.Substring(0, indexOfGenericDelimiter);
+            typeName = typeName[..indexOfGenericDelimiter];
         }
 
         builder.Append(typeName);

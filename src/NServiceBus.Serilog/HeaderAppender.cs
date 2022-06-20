@@ -30,7 +30,7 @@ static class HeaderAppender
 
             if (key == Headers.TimeSent)
             {
-                yield return new(key.Substring(12), new ScalarValue(DateTimeExtensions.ToUtcDateTime(value)));
+                yield return new(key[12..], new ScalarValue(DateTimeExtensions.ToUtcDateTime(value)));
                 continue;
             }
 
@@ -43,7 +43,7 @@ static class HeaderAppender
 
             if (key.StartsWith("NServiceBus."))
             {
-                yield return new(key.Substring(12), new ScalarValue(value));
+                yield return new(key[12..], new ScalarValue(value));
                 continue;
             }
 

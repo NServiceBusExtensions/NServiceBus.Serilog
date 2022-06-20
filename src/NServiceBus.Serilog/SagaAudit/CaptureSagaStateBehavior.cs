@@ -104,12 +104,13 @@
 
     static void AddResultingMessages(SagaUpdatedMessage sagaAudit, ILogger logger, List<LogEventProperty> properties)
     {
-        if (!sagaAudit.ResultingMessages.Any())
+        var resultingMessages = sagaAudit.ResultingMessages;
+        if (!resultingMessages.Any())
         {
             return;
         }
 
-        if (!logger.BindProperty("ResultingMessages", sagaAudit.ResultingMessages, out var resultingMessagesProperty))
+        if (!logger.BindProperty("ResultingMessages", resultingMessages, out var resultingMessagesProperty))
         {
             return;
         }
