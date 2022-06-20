@@ -25,8 +25,6 @@ public static partial class SerilogTracingExtensions
     /// </summary>
     public static SerilogTracingSettings EnableSerilogTracing(this EndpointConfiguration configuration, ILogger logger)
     {
-        var recoverability = configuration.Recoverability();
-        recoverability.AddUnrecoverableException<ConfigurationException>();
         configuration.EnableFeature<TracingFeature>();
         var settings = configuration.GetSettings();
         var serilogTracing = new SerilogTracingSettings(logger, configuration);
