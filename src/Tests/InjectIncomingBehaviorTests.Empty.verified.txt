@@ -11,6 +11,17 @@
       ProcessingEndpoint: endpoint
     },
     Serilog.ILogger: {
+      Enrichers: [
+        {
+          IncomingMessageId: Guid_2
+        },
+        {
+          IncomingMessageTypes: []
+        },
+        {
+          IncomingMessageTypesLong: []
+        }
+      ],
       ContextKey: UnknownMessageTypes
     }
   }

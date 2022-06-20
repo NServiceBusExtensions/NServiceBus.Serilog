@@ -19,26 +19,4 @@
     <ProjectReference Include="..\NServiceBus.Serilog\NServiceBus.Serilog.csproj" />
     <PackageReference Include="ProjectDefaults" Version="1.0.78" PrivateAssets="all" />
   </ItemGroup>
-  <ItemGroup>
-    <None Update="InjectIncomingLogicalBehaviorTests.Empty.verified.txt">
-      <ParentFile>InjectIncomingBehaviorTests</ParentFile>
-      <DependentUpon>InjectIncomingLogicalBehaviorTests.cs</DependentUpon>
-    </None>
-    <None Update="InjectIncomingLogicalBehaviorTests.WithMessageTypeAssemblyQualifiedName.verified.txt">
-      <ParentFile>InjectIncomingBehaviorTests</ParentFile>
-      <DependentUpon>InjectIncomingLogicalBehaviorTests.cs</DependentUpon>
-    </None>
-    <None Update="InjectIncomingLogicalBehaviorTests.WithMessageTypeFullName.verified.txt">
-      <ParentFile>InjectIncomingBehaviorTests</ParentFile>
-      <DependentUpon>InjectIncomingLogicalBehaviorTests.cs</DependentUpon>
-    </None>
-    <None Update="InjectIncomingLogicalBehaviorTests.WithMultipleMessageTypesAssemblyQualifiedName.verified.txt">
-      <ParentFile>InjectIncomingBehaviorTests</ParentFile>
-      <DependentUpon>InjectIncomingLogicalBehaviorTests.cs</DependentUpon>
-    </None>
-    <None Update="InjectIncomingLogicalBehaviorTests.WithMultipleMessageTypesFullName.verified.txt">
-      <ParentFile>InjectIncomingBehaviorTests</ParentFile>
-      <DependentUpon>InjectIncomingLogicalBehaviorTests.cs</DependentUpon>
-    </None>
-  </ItemGroup>
 </Project>

@@ -24,6 +24,19 @@
 
     public override async Task Invoke(IIncomingLogicalMessageContext context, Func<Task> next)
     {
+        var previous = context.Extensions.Get<ILogger>();
+        try
+        {
+            await Inner(context, next);
+        }
+        finally
+        {
+            context.Extensions.Set(previous);
+        }
+    }
+
+    public Task Inner(IIncomingLogicalMessageContext context, Func<Task> next)
+    {
         var type = context.Message.MessageType;
         var messageTypeName = TypeNameConverter.GetName(type);
         var longName = GetLongName(type, messageTypeName);
@@ -47,17 +60,9 @@
         }
 
         var loggerForContext = logger.ForContext(properties);
-        var previous = context.Extensions.Get<ILogger>();
         context.Extensions.Set(loggerForContext);
 
-        try
-        {
-            await next();
-        }
-        finally
-        {
-            context.Extensions.Set(previous);
-        }
+        return next();
     }
 
     static string GetLongName(Type type, string messageTypeName)

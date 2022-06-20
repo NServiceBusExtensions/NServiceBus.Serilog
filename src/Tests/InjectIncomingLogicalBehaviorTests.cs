@@ -4,65 +4,34 @@
 public class InjectIncomingLogicalBehaviorTests
 {
     [Fact]
-    public async Task Empty()
+    public async Task Simple()
     {
         var logBuilder = new LogBuilder(new FakeLogger(), "endpoint");
         var behavior = new InjectIncomingLogicalBehavior(logBuilder);
-        var context = new TestableIncomingLogicalMessageContext();
-        await behavior.Invoke(context, () => Task.CompletedTask);
+        var context = BuildContext();
+        await behavior.Inner(context, () => Task.CompletedTask);
         await Verify(context);
     }
 
-    [Fact]
-    public async Task WithMessageTypeFullName()
-    {
-        var logBuilder = new LogBuilder(new FakeLogger(), "endpoint");
-        var behavior = new InjectIncomingLogicalBehavior(logBuilder);
-        var context = new TestableIncomingLogicalMessageContext();
-        context.MessageHeaders.Add(Headers.EnclosedMessageTypes, typeof(Message1).FullName);
-        await behavior.Invoke(context, () => Task.CompletedTask);
-        await Verify(context);
-    }
+    static TestableIncomingLogicalMessageContext BuildContext() =>
+        new()
+        {
+            Message = new(new(typeof(Message1)), new Message1())
+        };
 
     [Fact]
-    public async Task WithMessageTypeAssemblyQualifiedName()
+    public async Task WithHeaders()
     {
         var logBuilder = new LogBuilder(new FakeLogger(), "endpoint");
         var behavior = new InjectIncomingLogicalBehavior(logBuilder);
-        var context = new TestableIncomingLogicalMessageContext();
-        context.MessageHeaders.Add(Headers.EnclosedMessageTypes, typeof(Message1).AssemblyQualifiedName);
-        await behavior.Invoke(context, () => Task.CompletedTask);
-        await Verify(context);
-    }
-
-    [Fact]
-    public async Task WithMultipleMessageTypesFullName()
-    {
-        var logBuilder = new LogBuilder(new FakeLogger(), "endpoint");
-        var behavior = new InjectIncomingLogicalBehavior(logBuilder);
-        var context = new TestableIncomingLogicalMessageContext();
-        context.MessageHeaders.Add(Headers.EnclosedMessageTypes, $"{typeof(Message1).FullName};{typeof(Message2).FullName}");
-        await behavior.Invoke(context, () => Task.CompletedTask);
-        await Verify(context);
-    }
-
-    [Fact]
-    public async Task WithMultipleMessageTypesAssemblyQualifiedName()
-    {
-        var logBuilder = new LogBuilder(new FakeLogger(), "endpoint");
-        var behavior = new InjectIncomingLogicalBehavior(logBuilder);
-        var context = new TestableIncomingLogicalMessageContext();
-        context.MessageHeaders.Add(Headers.EnclosedMessageTypes, $"{typeof(Message1).AssemblyQualifiedName};{typeof(Message2).AssemblyQualifiedName}");
-        await behavior.Invoke(context, () => Task.CompletedTask);
+        var context = BuildContext();
+        context.MessageHeaders.Add(Headers.ConversationId, Guid.NewGuid().ToString());
+        context.MessageHeaders.Add(Headers.CorrelationId, Guid.NewGuid().ToString());
+        await behavior.Inner(context, () => Task.CompletedTask);
         await Verify(context);
     }
 
     class Message1
-    {
-
-    }
-
-    class Message2
     {
 
     }
