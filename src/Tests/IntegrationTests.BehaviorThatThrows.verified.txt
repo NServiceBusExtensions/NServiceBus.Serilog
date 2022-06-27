@@ -184,6 +184,7 @@
             "NServiceBus.ContentType": text/xml,
             "NServiceBus.EnclosedMessageTypes": StartBehaviorThatThrows, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
             "NServiceBus.Version": NsbVersion,
+            "NServiceBus.TimeSent": DateTimeOffset_1
           }
         },
         IncomingMessage: {
@@ -238,6 +239,7 @@
             "NServiceBus.ContentType": text/xml,
             "NServiceBus.EnclosedMessageTypes": StartBehaviorThatThrows, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
             "NServiceBus.Version": NsbVersion,
+            "NServiceBus.TimeSent": DateTimeOffset_1
           }
         },
         IncomingMessage: {
@@ -292,6 +294,7 @@
             "NServiceBus.ContentType": text/xml,
             "NServiceBus.EnclosedMessageTypes": StartBehaviorThatThrows, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
             "NServiceBus.Version": NsbVersion,
+            "NServiceBus.TimeSent": DateTimeOffset_1,
             "NServiceBus.Retries": 1,
             "NServiceBus.Retries.Timestamp": DateTimeOffset_3,
             "NServiceBus.DeliverAt": DateTimeOffset_2
@@ -349,6 +352,7 @@
             "NServiceBus.ContentType": text/xml,
             "NServiceBus.EnclosedMessageTypes": StartBehaviorThatThrows, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
             "NServiceBus.Version": NsbVersion,
+            "NServiceBus.TimeSent": DateTimeOffset_1,
             "NServiceBus.Retries": 1,
             "NServiceBus.Retries.Timestamp": DateTimeOffset_3,
             "NServiceBus.DeliverAt": DateTimeOffset_2

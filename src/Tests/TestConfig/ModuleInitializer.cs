@@ -6,10 +6,7 @@
         VerifyNServiceBus.Enable();
         var nsbVersion = FileVersionInfo.GetVersionInfo(typeof(Endpoint).Assembly.Location);
         var nsbVersionString = $"{nsbVersion.FileMajorPart}.{nsbVersion.FileMinorPart}.{nsbVersion.FileBuildPart}";
-        VerifierSettings.ScrubLinesContaining("StackTraceString");
-        VerifierSettings.ScrubLinesContaining("NServiceBus.TimeSent");
-        VerifierSettings.ScrubLinesContaining("HandlerStartTime");
-        VerifierSettings.ScrubLinesContaining("HandlerFailureTime");
+        VerifierSettings.IgnoreStackTrace();
         VerifierSettings.AddScrubber(x => x.Replace(nsbVersionString, "NsbVersion"));
         VerifierSettings.ScrubMachineName();
         VerifierSettings.AddExtraSettings(_ =>
