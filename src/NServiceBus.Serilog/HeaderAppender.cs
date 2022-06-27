@@ -30,7 +30,7 @@ static class HeaderAppender
 
             if (key == Headers.TimeSent)
             {
-                yield return new(key[12..], new ScalarValue(DateTimeExtensions.ToUtcDateTime(value)));
+                yield return new(key[12..], new ScalarValue(DateTimeOffsetHelper.ToDateTimeOffset(value)));
                 continue;
             }
 

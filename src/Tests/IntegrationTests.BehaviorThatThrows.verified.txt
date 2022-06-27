@@ -24,7 +24,7 @@
         ProcessingEndpoint: SerilogTestsStartBehaviorThatThrows,
         ReplyToAddress: SerilogTestsStartBehaviorThatThrows,
         SourceContext: StartBehaviorThatThrows,
-        TimeSent: DateTime_1
+        TimeSent: DateTimeOffset_1
       }
     },
     {
@@ -51,7 +51,7 @@
         ProcessingEndpoint: SerilogTestsStartBehaviorThatThrows,
         ReplyToAddress: SerilogTestsStartBehaviorThatThrows,
         SourceContext: StartBehaviorThatThrows,
-        TimeSent: DateTime_1
+        TimeSent: DateTimeOffset_1
       }
     },
     {
@@ -60,35 +60,7 @@
       Properties: {
         ConversationId: Guid_1,
         CorrelationId: Guid_2,
-        IncomingMessage: {
-          TypeTag: StartBehaviorThatThrows,
-          Properties: [
-            {
-              Property: TheProperty
-            }
-          ]
-        },
-        IncomingMessageId: Guid_2,
-        IncomingMessageType: StartBehaviorThatThrows,
-        IncomingMessageTypeLong: StartBehaviorThatThrows, Tests, Version=0.0.0.0,
-        MessageIntent: Send,
-        OriginatingEndpoint: SerilogTestsStartBehaviorThatThrows,
-        OriginatingHostId: Guid_3,
-        OriginatingMachine: TheMachineName,
-        ProcessingEndpoint: SerilogTestsStartBehaviorThatThrows,
-        ReplyToAddress: SerilogTestsStartBehaviorThatThrows,
-        Retries: 1,
-        Retries.Timestamp: DateTime_2,
-        SourceContext: StartBehaviorThatThrows,
-        TimeSent: DateTime_1
-      }
-    },
-    {
-      MessageTemplate: Receive message {IncomingMessageType} {IncomingMessageId}.,
-      Level: Information,
-      Properties: {
-        ConversationId: Guid_1,
-        CorrelationId: Guid_2,
+        DeliverAt: DateTimeOffset_2,
         IncomingMessage: {
           TypeTag: StartBehaviorThatThrows,
           Properties: [
@@ -107,9 +79,39 @@
         ProcessingEndpoint: SerilogTestsStartBehaviorThatThrows,
         ReplyToAddress: SerilogTestsStartBehaviorThatThrows,
         Retries: 1,
-        Retries.Timestamp: DateTime_2,
+        Retries.Timestamp: DateTimeOffset_3,
         SourceContext: StartBehaviorThatThrows,
-        TimeSent: DateTime_1
+        TimeSent: DateTimeOffset_1
+      }
+    },
+    {
+      MessageTemplate: Receive message {IncomingMessageType} {IncomingMessageId}.,
+      Level: Information,
+      Properties: {
+        ConversationId: Guid_1,
+        CorrelationId: Guid_2,
+        DeliverAt: DateTimeOffset_2,
+        IncomingMessage: {
+          TypeTag: StartBehaviorThatThrows,
+          Properties: [
+            {
+              Property: TheProperty
+            }
+          ]
+        },
+        IncomingMessageId: Guid_2,
+        IncomingMessageType: StartBehaviorThatThrows,
+        IncomingMessageTypeLong: StartBehaviorThatThrows, Tests, Version=0.0.0.0,
+        MessageIntent: Send,
+        OriginatingEndpoint: SerilogTestsStartBehaviorThatThrows,
+        OriginatingHostId: Guid_3,
+        OriginatingMachine: TheMachineName,
+        ProcessingEndpoint: SerilogTestsStartBehaviorThatThrows,
+        ReplyToAddress: SerilogTestsStartBehaviorThatThrows,
+        Retries: 1,
+        Retries.Timestamp: DateTimeOffset_3,
+        SourceContext: StartBehaviorThatThrows,
+        TimeSent: DateTimeOffset_1
       }
     },
     {
@@ -159,7 +161,8 @@
                   TypeTag: ExceptionLogState
                 },
                 "Message ID": Guid_2,
-                "Transport message ID": Guid_4
+                "Transport message ID": Guid_4,
+                "Pipeline canceled": false
               }
             },
             "HResult": -2146233079,
@@ -194,7 +197,7 @@
         IncomingMessageId: Guid_2,
         IncomingTransportMessageId: Guid_4,
         ProcessingEndpoint: SerilogTestsStartBehaviorThatThrows,
-        SourceContext: NServiceBus.RecoverabilityExecutor
+        SourceContext: NServiceBus.ImmediateRetry
       }
     },
     {
@@ -212,7 +215,8 @@
                   TypeTag: ExceptionLogState
                 },
                 "Message ID": Guid_2,
-                "Transport message ID": Guid_4
+                "Transport message ID": Guid_4,
+                "Pipeline canceled": false
               }
             },
             "HResult": -2146233079,
@@ -247,7 +251,7 @@
         IncomingMessageId: Guid_2,
         IncomingTransportMessageId: Guid_4,
         ProcessingEndpoint: SerilogTestsStartBehaviorThatThrows,
-        SourceContext: NServiceBus.RecoverabilityExecutor
+        SourceContext: NServiceBus.DelayedRetry
       }
     },
     {
@@ -265,7 +269,8 @@
                   TypeTag: ExceptionLogState
                 },
                 "Message ID": Guid_2,
-                "Transport message ID": Guid_5
+                "Transport message ID": Guid_5,
+                "Pipeline canceled": false
               }
             },
             "HResult": -2146233079,
@@ -288,7 +293,8 @@
             "NServiceBus.EnclosedMessageTypes": StartBehaviorThatThrows, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
             "NServiceBus.Version": NsbVersion,
             "NServiceBus.Retries": 1,
-            "NServiceBus.Retries.Timestamp": DateTime_2
+            "NServiceBus.Retries.Timestamp": DateTimeOffset_3,
+            "NServiceBus.DeliverAt": DateTimeOffset_2
           }
         },
         IncomingMessage: {
@@ -302,7 +308,7 @@
         IncomingMessageId: Guid_2,
         IncomingTransportMessageId: Guid_5,
         ProcessingEndpoint: SerilogTestsStartBehaviorThatThrows,
-        SourceContext: NServiceBus.RecoverabilityExecutor
+        SourceContext: NServiceBus.ImmediateRetry
       }
     },
     {
@@ -320,7 +326,8 @@
                   TypeTag: ExceptionLogState
                 },
                 "Message ID": Guid_2,
-                "Transport message ID": Guid_5
+                "Transport message ID": Guid_5,
+                "Pipeline canceled": false
               }
             },
             "HResult": -2146233079,
@@ -343,7 +350,8 @@
             "NServiceBus.EnclosedMessageTypes": StartBehaviorThatThrows, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
             "NServiceBus.Version": NsbVersion,
             "NServiceBus.Retries": 1,
-            "NServiceBus.Retries.Timestamp": DateTime_2
+            "NServiceBus.Retries.Timestamp": DateTimeOffset_3,
+            "NServiceBus.DeliverAt": DateTimeOffset_2
           }
         },
         IncomingMessage: {
@@ -357,7 +365,7 @@
         IncomingMessageId: Guid_2,
         IncomingTransportMessageId: Guid_5,
         ProcessingEndpoint: SerilogTestsStartBehaviorThatThrows,
-        SourceContext: NServiceBus.RecoverabilityExecutor
+        SourceContext: NServiceBus.MoveToError
       }
     }
   ]

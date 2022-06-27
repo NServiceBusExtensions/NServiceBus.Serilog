@@ -4,6 +4,9 @@
     NativeMessageId: Guid_1,
     Headers: {
       NServiceBus.MessageId: Guid_1
+    },
+    Body: {
+      IsEmpty: true
     }
   },
   Extensions: {

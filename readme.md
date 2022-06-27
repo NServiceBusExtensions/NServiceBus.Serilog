@@ -282,7 +282,7 @@ serilogTracing.EnableSagaTracing();
         ProcessingEndpoint: SerilogTestsStartSaga,
         ReplyToAddress: SerilogTestsStartSaga,
         SourceContext: StartSaga,
-        TimeSent: DateTime_1
+        TimeSent: DateTimeOffset_1
       }
     },
     {
@@ -308,7 +308,7 @@ serilogTracing.EnableSagaTracing();
             }
           ]
         },
-        FinishTime: DateTimeOffset_1,
+        FinishTime: DateTimeOffset_2,
         IncomingMessageId: Guid_2,
         IncomingMessageType: StartSaga,
         IncomingMessageTypeLong: StartSaga, Tests, Version=0.0.0.0,
@@ -319,7 +319,7 @@ serilogTracing.EnableSagaTracing();
             "OriginatingMachine": TheMachineName,
             "OriginatingEndpoint": SerilogTestsStartSaga,
             "MessageType": StartSaga,
-            "TimeSent": DateTime_1,
+            "TimeSent": DateTimeOffset_1,
             "Intent": Send
           }
         },
@@ -341,7 +341,7 @@ serilogTracing.EnableSagaTracing();
         SagaId: Guid_4,
         SagaType: TheSaga,
         SourceContext: StartSaga,
-        StartTime: DateTimeOffset_2
+        StartTime: DateTimeOffset_3
       }
     },
     {
@@ -526,13 +526,13 @@ serilogTracing.EnableMessageTracing();
 class StartupDiagnostics :
     FeatureStartupTask
 {
-    public StartupDiagnostics(ReadOnlySettings settings, ILogger logger)
+    public StartupDiagnostics(IReadOnlySettings settings, ILogger logger)
     {
         this.settings = settings;
         this.logger = logger.ForContext<StartupDiagnostics>();
     }
 
-    protected override Task OnStart(IMessageSession session)
+    protected override Task OnStart(IMessageSession session, CancellationToken cancellation = default)
     {
         var properties = BuildProperties(settings, logger);
 
@@ -549,7 +549,7 @@ class StartupDiagnostics :
     }
 
     static IEnumerable<LogEventProperty> BuildProperties(
-        ReadOnlySettings settings,
+        IReadOnlySettings settings,
         ILogger logger)
     {
         var entries = settings.ReadStartupDiagnosticEntries();
@@ -578,10 +578,10 @@ class StartupDiagnostics :
         return entry;
     }
 
-    protected override Task OnStop(IMessageSession session) =>
+    protected override Task OnStop(IMessageSession session, CancellationToken cancellation = default) =>
         Task.CompletedTask;
 
-    ReadOnlySettings settings;
+    IReadOnlySettings settings;
     ILogger logger;
 }
 ```

@@ -50,8 +50,8 @@
             .Select(x => ((UnicastAddressTag) x.Apply(emptyDictionary)).Destination)
             .ToList();
 
-    public static DateTime TimeSent(this IInvokeHandlerContext context) =>
-        DateTimeExtensions.ToUtcDateTime(context.Headers[Headers.TimeSent]);
+    public static DateTimeOffset TimeSent(this IInvokeHandlerContext context) =>
+        DateTimeOffsetHelper.ToDateTimeOffset(context.Headers[Headers.TimeSent]);
 
     public static bool IsTimeoutMessage(this IInvokeHandlerContext context)
     {

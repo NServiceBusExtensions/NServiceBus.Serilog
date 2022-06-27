@@ -4,7 +4,7 @@
     {
         var configuration = new EndpointConfiguration(endpointName);
         configuration.SendFailedMessagesTo("error");
-        configuration.UsePersistence<InMemoryPersistence>();
+        configuration.UsePersistence<NonDurablePersistence>();
         configuration.UseTransport<LearningTransport>();
         configuration.PurgeOnStartup(true);
         return configuration;

@@ -1,4 +1,6 @@
-﻿[UsesVerify]
+﻿using Microsoft.Extensions.DependencyInjection;
+
+[UsesVerify]
 public class WithNoTracingTests
 {
     [Fact]
@@ -8,11 +10,11 @@ public class WithNoTracingTests
         var resetEvent = new ManualResetEvent(false);
         var configuration = ConfigBuilder.BuildDefaultConfig("WithNoTracingTests");
         configuration.DisableRetries();
-        configuration.RegisterComponents(components => components.RegisterSingleton(resetEvent));
+        configuration.RegisterComponents(_ => _.AddSingleton(resetEvent));
 
         var recoverability = configuration.Recoverability();
-        recoverability.Failed(settings => settings
-            .OnMessageSentToErrorQueue(message =>
+        recoverability.Failed(_ => _
+            .OnMessageSentToErrorQueue((message, _) =>
             {
                 exception = message.Exception;
                 resetEvent.Set();

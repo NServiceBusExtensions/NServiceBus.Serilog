@@ -38,7 +38,7 @@
         ProcessingEndpoint: SerilogTestsStartGenericHandler_String_,
         ReplyToAddress: SerilogTestsStartGenericHandler_String_,
         SourceContext: StartGenericHandler<String>,
-        TimeSent: DateTime_1
+        TimeSent: DateTimeOffset_1
       }
     },
     {

@@ -47,7 +47,7 @@
         ProcessingEndpoint: SerilogTestsStartSaga,
         ReplyToAddress: SerilogTestsStartSaga,
         SourceContext: StartSaga,
-        TimeSent: DateTime_1
+        TimeSent: DateTimeOffset_1
       }
     },
     {
@@ -73,7 +73,7 @@
             }
           ]
         },
-        FinishTime: DateTimeOffset_1,
+        FinishTime: DateTimeOffset_2,
         IncomingMessageId: Guid_2,
         IncomingMessageType: StartSaga,
         IncomingMessageTypeLong: StartSaga, Tests, Version=0.0.0.0,
@@ -84,7 +84,7 @@
             "OriginatingMachine": TheMachineName,
             "OriginatingEndpoint": SerilogTestsStartSaga,
             "MessageType": StartSaga,
-            "TimeSent": DateTime_1,
+            "TimeSent": DateTimeOffset_1,
             "Intent": Send
           }
         },
@@ -106,7 +106,7 @@
         SagaId: Guid_4,
         SagaType: TheSaga,
         SourceContext: StartSaga,
-        StartTime: DateTimeOffset_2
+        StartTime: DateTimeOffset_3
       }
     },
     {

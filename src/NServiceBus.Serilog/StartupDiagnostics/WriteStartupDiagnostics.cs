@@ -3,13 +3,13 @@
 class StartupDiagnostics :
     FeatureStartupTask
 {
-    public StartupDiagnostics(ReadOnlySettings settings, ILogger logger)
+    public StartupDiagnostics(IReadOnlySettings settings, ILogger logger)
     {
         this.settings = settings;
         this.logger = logger.ForContext<StartupDiagnostics>();
     }
 
-    protected override Task OnStart(IMessageSession session)
+    protected override Task OnStart(IMessageSession session, CancellationToken cancellation = default)
     {
         var properties = BuildProperties(settings, logger);
 
@@ -26,7 +26,7 @@ class StartupDiagnostics :
     }
 
     static IEnumerable<LogEventProperty> BuildProperties(
-        ReadOnlySettings settings,
+        IReadOnlySettings settings,
         ILogger logger)
     {
         var entries = settings.ReadStartupDiagnosticEntries();
@@ -55,10 +55,10 @@ class StartupDiagnostics :
         return entry;
     }
 
-    protected override Task OnStop(IMessageSession session) =>
+    protected override Task OnStop(IMessageSession session, CancellationToken cancellation = default) =>
         Task.CompletedTask;
 
-    ReadOnlySettings settings;
+    IReadOnlySettings settings;
     ILogger logger;
 }
 

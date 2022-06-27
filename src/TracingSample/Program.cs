@@ -12,7 +12,7 @@ var serilogTracing = configuration.EnableSerilogTracing(tracingLog);
 serilogTracing.EnableSagaTracing();
 serilogTracing.EnableMessageTracing();
 configuration.EnableInstallers();
-configuration.UsePersistence<InMemoryPersistence>();
+configuration.UsePersistence<NonDurablePersistence>();
 configuration.UseTransport<LearningTransport>();
 configuration.SendFailedMessagesTo("error");
 var recoverability = configuration.Recoverability();

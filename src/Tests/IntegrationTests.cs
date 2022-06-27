@@ -1,4 +1,5 @@
-﻿using Serilog.Exceptions;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Serilog.Exceptions;
 using TypeNameConverter = NServiceBus.Serilog.TypeNameConverter;
 
 [UsesVerify]
@@ -159,8 +160,8 @@ public class IntegrationTests
     {
         logs.Clear();
         var suffix = TypeNameConverter.GetName(message.GetType())
-            .Replace("<","_")
-            .Replace(">","_");
+            .Replace("<", "_")
+            .Replace(">", "_");
         var configuration = ConfigBuilder.BuildDefaultConfig("SerilogTests" + suffix);
         configuration.PurgeOnStartup(true);
         extraConfiguration?.Invoke(configuration);
@@ -178,7 +179,7 @@ public class IntegrationTests
         });
         serilogTracing.EnableMessageTracing();
         var resetEvent = new ManualResetEvent(false);
-        configuration.RegisterComponents(components => components.RegisterSingleton(resetEvent));
+        configuration.RegisterComponents(_ => _.AddSingleton(resetEvent));
 
         var recoverability = configuration.Recoverability();
         recoverability.Delayed(settings =>
@@ -186,10 +187,13 @@ public class IntegrationTests
             settings.TimeIncrease(TimeSpan.FromMilliseconds(1));
             settings.NumberOfRetries(1);
         });
-        recoverability.Immediate(settings => { settings.NumberOfRetries(1); });
+        recoverability.Immediate(_ =>
+        {
+            _.NumberOfRetries(1);
+        });
 
-        recoverability.Failed(settings => settings
-            .OnMessageSentToErrorQueue(_ =>
+        recoverability.Failed(_ => _
+            .OnMessageSentToErrorQueue((_, _) =>
             {
                 resetEvent.Set();
                 return Task.CompletedTask;
@@ -208,13 +212,15 @@ public class IntegrationTests
 
         await endpoint.Stop();
 
-        return logs.Select(x =>
-            new LogEventEx
-            (
-                messageTemplate: x.MessageTemplate,
-                level: x.Level,
-                properties: x.Properties,
-                exception: x.Exception
-            ));
+        return logs
+            .Where(x => !x.MessageTemplate.Text.StartsWith("Operation canceled"))
+            .Select(x =>
+                new LogEventEx
+                (
+                    messageTemplate: x.MessageTemplate,
+                    level: x.Level,
+                    properties: x.Properties,
+                    exception: x.Exception
+                ));
     }
 }

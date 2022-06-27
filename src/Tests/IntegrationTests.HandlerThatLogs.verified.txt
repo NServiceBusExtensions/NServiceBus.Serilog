@@ -19,7 +19,7 @@
         ProcessingEndpoint: SerilogTestsStartHandlerThatLogs,
         ReplyToAddress: SerilogTestsStartHandlerThatLogs,
         SourceContext: StartHandlerThatLogs,
-        TimeSent: DateTime_1
+        TimeSent: DateTimeOffset_1
       }
     },
     {

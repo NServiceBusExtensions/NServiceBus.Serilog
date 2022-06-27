@@ -32,7 +32,7 @@ public static partial class SerilogTracingExtensions
         return serilogTracing;
     }
 
-    internal static SerilogTracingSettings TracingSettings(this ReadOnlySettings settings) =>
+    internal static SerilogTracingSettings TracingSettings(this IReadOnlySettings settings) =>
         settings.Get<SerilogTracingSettings>();
 
     /// <summary>

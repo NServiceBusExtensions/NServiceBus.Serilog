@@ -1,6 +1,6 @@
 ﻿static class StartupDiagnosticsReader
 {
-    public static List<StartupDiagnosticEntries.StartupDiagnosticEntry> ReadStartupDiagnosticEntries(this ReadOnlySettings readOnlySettings)
+    public static List<StartupDiagnosticEntries.StartupDiagnosticEntry> ReadStartupDiagnosticEntries(this IReadOnlySettings readOnlySettings)
     {
         var diagnosticEntries = readOnlySettings.Get<StartupDiagnosticEntries>();
         var field = diagnosticEntries.GetType().GetField("entries", BindingFlags.Instance | BindingFlags.NonPublic);
