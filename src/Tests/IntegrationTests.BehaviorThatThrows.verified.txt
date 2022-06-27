@@ -154,7 +154,7 @@
         CorrelationId: Guid_2,
         ExceptionDetail: {
           Elements: {
-            "Type": System.InvalidOperationException,
+            "Type": System.Exception,
             "Data": {
               Elements: {
                 "ExceptionLogState": {
@@ -165,10 +165,10 @@
                 "Pipeline canceled": false
               }
             },
-            "HResult": -2146233079,
-            "Message": No handlers could be found for message type: StartBehaviorThatThrows,
-            "Source": NServiceBus.Core,
-            "TargetSite": Void MoveNext()
+            "HResult": -2146233088,
+            "Message": The Exception,
+            "Source": Tests,
+            "TargetSite": System.Threading.Tasks.Task Invoke(NServiceBus.Pipeline.IInvokeHandlerContext, System.Func`1[System.Threading.Tasks.Task])
           }
         },
         IncomingHeaders: {
@@ -209,7 +209,7 @@
         CorrelationId: Guid_2,
         ExceptionDetail: {
           Elements: {
-            "Type": System.InvalidOperationException,
+            "Type": System.Exception,
             "Data": {
               Elements: {
                 "ExceptionLogState": {
@@ -220,10 +220,10 @@
                 "Pipeline canceled": false
               }
             },
-            "HResult": -2146233079,
-            "Message": No handlers could be found for message type: StartBehaviorThatThrows,
-            "Source": NServiceBus.Core,
-            "TargetSite": Void MoveNext()
+            "HResult": -2146233088,
+            "Message": The Exception,
+            "Source": Tests,
+            "TargetSite": System.Threading.Tasks.Task Invoke(NServiceBus.Pipeline.IInvokeHandlerContext, System.Func`1[System.Threading.Tasks.Task])
           }
         },
         IncomingHeaders: {
@@ -264,7 +264,7 @@
         CorrelationId: Guid_2,
         ExceptionDetail: {
           Elements: {
-            "Type": System.InvalidOperationException,
+            "Type": System.Exception,
             "Data": {
               Elements: {
                 "ExceptionLogState": {
@@ -275,10 +275,10 @@
                 "Pipeline canceled": false
               }
             },
-            "HResult": -2146233079,
-            "Message": No handlers could be found for message type: StartBehaviorThatThrows,
-            "Source": NServiceBus.Core,
-            "TargetSite": Void MoveNext()
+            "HResult": -2146233088,
+            "Message": The Exception,
+            "Source": Tests,
+            "TargetSite": System.Threading.Tasks.Task Invoke(NServiceBus.Pipeline.IInvokeHandlerContext, System.Func`1[System.Threading.Tasks.Task])
           }
         },
         IncomingHeaders: {
@@ -322,7 +322,7 @@
         CorrelationId: Guid_2,
         ExceptionDetail: {
           Elements: {
-            "Type": System.InvalidOperationException,
+            "Type": System.Exception,
             "Data": {
               Elements: {
                 "ExceptionLogState": {
@@ -333,10 +333,10 @@
                 "Pipeline canceled": false
               }
             },
-            "HResult": -2146233079,
-            "Message": No handlers could be found for message type: StartBehaviorThatThrows,
-            "Source": NServiceBus.Core,
-            "TargetSite": Void MoveNext()
+            "HResult": -2146233088,
+            "Message": The Exception,
+            "Source": Tests,
+            "TargetSite": System.Threading.Tasks.Task Invoke(NServiceBus.Pipeline.IInvokeHandlerContext, System.Func`1[System.Threading.Tasks.Task])
           }
         },
         IncomingHeaders: {
