@@ -109,10 +109,7 @@ public class IntegrationTests
             {
                 Property = "TheProperty"
             });
-        await Verify<StartHandlerThatThrows>(events)
-            .ScrubLinesContaining(
-                "Handler start time",
-                "Handler failure time");
+        await Verify<StartHandlerThatThrows>(events);
     }
 
     [Fact]

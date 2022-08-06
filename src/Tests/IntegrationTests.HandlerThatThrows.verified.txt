@@ -159,6 +159,8 @@
               Elements: {
                 "Message type": StartHandlerThatThrows,
                 "Handler type": TheHandlerThatThrows,
+                "Handler start time": DateTimeOffset_4,
+                "Handler failure time": DateTimeOffset_5,
                 "Handler canceled": false,
                 "ExceptionLogState": {
                   TypeTag: ExceptionLogState
@@ -221,6 +223,8 @@
               Elements: {
                 "Message type": StartHandlerThatThrows,
                 "Handler type": TheHandlerThatThrows,
+                "Handler start time": DateTimeOffset_6,
+                "Handler failure time": DateTimeOffset_7,
                 "Handler canceled": false,
                 "ExceptionLogState": {
                   TypeTag: ExceptionLogState
@@ -283,6 +287,8 @@
               Elements: {
                 "Message type": StartHandlerThatThrows,
                 "Handler type": TheHandlerThatThrows,
+                "Handler start time": DateTimeOffset_8,
+                "Handler failure time": DateTimeOffset_9,
                 "Handler canceled": false,
                 "ExceptionLogState": {
                   TypeTag: ExceptionLogState
@@ -348,6 +354,8 @@
               Elements: {
                 "Message type": StartHandlerThatThrows,
                 "Handler type": TheHandlerThatThrows,
+                "Handler start time": DateTimeOffset_10,
+                "Handler failure time": DateTimeOffset_11,
                 "Handler canceled": false,
                 "ExceptionLogState": {
                   TypeTag: ExceptionLogState
