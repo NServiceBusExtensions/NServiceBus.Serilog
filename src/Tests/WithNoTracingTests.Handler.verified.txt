@@ -1,2 +1,2 @@
-Expected to find a `ILogger` in the pipeline context.
+﻿Expected to find a `ILogger` in the pipeline context.
 It is possible NServiceBus.Serilog has not been enabled using a call to `SerilogTracingExtensions.EnableSerilogTracing()`.
