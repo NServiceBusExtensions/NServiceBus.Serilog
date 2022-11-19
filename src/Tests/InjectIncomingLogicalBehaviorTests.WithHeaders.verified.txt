@@ -1,9 +1,6 @@
 ﻿{
   Message: {
     MessageType: InjectIncomingLogicalBehaviorTests.Message1,
-    Metadata: {
-      MessageType: InjectIncomingLogicalBehaviorTests.Message1
-    },
     Instance: {}
   },
   MessageHandled: false,
