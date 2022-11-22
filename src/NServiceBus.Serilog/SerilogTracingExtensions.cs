@@ -6,7 +6,7 @@
 public static partial class SerilogTracingExtensions
 {
     /// <summary>
-    /// Enable Serilog Tracing for this endpoint using <see cref="Log.Logger"/> as the logging target.
+    /// Enable Serilog Tracing for this endpoint using Log.Logger as the logging target.
     /// </summary>
     public static SerilogTracingSettings EnableSerilogTracing(this EndpointConfiguration configuration) =>
         configuration.EnableSerilogTracing(Log.Logger);

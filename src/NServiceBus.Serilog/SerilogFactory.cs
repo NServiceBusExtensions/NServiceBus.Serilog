@@ -15,7 +15,7 @@ public class SerilogFactory :
         new LoggerFactory(loggerToUse ?? Log.Logger);
 
     /// <summary>
-    /// Specify an instance of <see cref="ILogger"/> to use. If not specified then the default is <see cref="Log.Logger"/>.
+    /// Specify an instance of <see cref="ILogger"/> to use. If not specified then the default is Log.Logger.
     /// </summary>
     public void WithLogger(ILogger logger) =>
         loggerToUse = logger;
