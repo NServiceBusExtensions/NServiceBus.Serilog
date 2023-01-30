@@ -6,7 +6,7 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="NServiceBus.Testing" Version="8.0.1" />
-    <PackageReference Include="Verify.NServiceBus" Version="5.0.3" />
+    <PackageReference Include="Verify.NServiceBus" Version="5.1.1" />
     <PackageReference Include="Verify.Xunit" Version="19.8.0" />
     <PackageReference Include="Serilog.Exceptions" Version="8.4.0" />
     <PackageReference Include="Xunit" Version="2.4.2" />
