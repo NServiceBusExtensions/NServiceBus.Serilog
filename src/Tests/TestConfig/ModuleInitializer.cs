@@ -3,7 +3,7 @@
     [ModuleInitializer]
     public static void Initialize()
     {
-        VerifyNServiceBus.Enable();
+        VerifierSettings.InitializePlugins();
         var nsbVersion = FileVersionInfo.GetVersionInfo(typeof(Endpoint).Assembly.Location);
         var nsbVersionString = $"{nsbVersion.FileMajorPart}.{nsbVersion.FileMinorPart}.{nsbVersion.FileBuildPart}";
         VerifierSettings.IgnoreStackTrace();
