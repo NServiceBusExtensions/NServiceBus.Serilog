@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net6.0</TargetFrameworks>
+    <TargetFrameworks>net7.0</TargetFrameworks>
     <Version>1.0.0</Version>
   </PropertyGroup>
   <ItemGroup>
@@ -12,7 +12,7 @@
     <PackageReference Include="Xunit" Version="2.4.2" />
     <PackageReference Include="NServiceBus.Persistence.NonDurable" Version="1.0.0" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.5" PrivateAssets="all" />
-    <PackageReference Include="MarkdownSnippets.MsBuild" Version="24.5.1" PrivateAssets="all" />
+    <PackageReference Include="MarkdownSnippets.MsBuild" Version="24.5.1" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.5.0" />
     <PackageReference Include="NServiceBus" Version="8.0.3" />
     <PackageReference Include="Serilog.Sinks.Seq" Version="5.2.2" />
