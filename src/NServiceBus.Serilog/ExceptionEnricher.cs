@@ -68,10 +68,7 @@
                 }
             }
 
-            if (Log.BindProperty("IncomingHeaders", logState.IncomingHeaders, true, out var headersProperty))
-            {
-                logEvent.AddPropertyIfAbsent(headersProperty);
-            }
+            logEvent.AddPropertyIfAbsent(SerilogExtensions.BuildDictionaryProperty("IncomingHeaders", logState.IncomingHeaders));
         }
     }
 }

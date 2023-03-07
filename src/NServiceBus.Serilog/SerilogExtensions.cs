@@ -22,4 +22,13 @@ static class SerilogExtensions
             properties: properties);
         logger.Write(logEvent);
     }
+
+    public static LogEventProperty BuildDictionaryProperty(string name, IReadOnlyDictionary<string, string> otherHeaders) =>
+        new(
+            name,
+            new DictionaryValue(
+                otherHeaders.Select(_ =>
+                    new KeyValuePair<ScalarValue, LogEventPropertyValue>(
+                        new(_.Key),
+                        new ScalarValue(_.Value)))));
 }

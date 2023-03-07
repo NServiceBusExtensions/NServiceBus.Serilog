@@ -70,10 +70,7 @@ static class HeaderAppender
 
         if (otherHeaders.Count > 0)
         {
-            if (logger.BindProperty("OtherHeaders", otherHeaders, out var property))
-            {
-                yield return property;
-            }
+            yield return SerilogExtensions.BuildDictionaryProperty("OtherHeaders", otherHeaders);
         }
     }
 }
