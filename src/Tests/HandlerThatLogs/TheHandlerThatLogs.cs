@@ -6,7 +6,7 @@
     public TheHandlerThatLogs(ManualResetEvent resetEvent) =>
         this.resetEvent = resetEvent;
 
-    public Task Handle(StartHandlerThatLogs message, IMessageHandlerContext context)
+    public Task Handle(StartHandlerThatLogs message, HandlerContext context)
     {
         var logger = LogManager.GetLogger<TheHandlerThatThrows>();
         logger.Error("The message", new());

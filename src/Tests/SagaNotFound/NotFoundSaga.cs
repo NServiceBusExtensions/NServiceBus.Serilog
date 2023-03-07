@@ -12,6 +12,6 @@
         public string? Property { get; set; }
     }
 
-    public Task Handle(NotFoundSagaMessage message, IMessageHandlerContext context) =>
+    public Task Handle(NotFoundSagaMessage message, HandlerContext context) =>
         Task.CompletedTask;
 }

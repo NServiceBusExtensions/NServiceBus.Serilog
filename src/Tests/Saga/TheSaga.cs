@@ -16,7 +16,7 @@
             .ToSaga(s => s.Property);
     }
 
-    public Task Handle(StartSaga message, IMessageHandlerContext context)
+    public Task Handle(StartSaga message, HandlerContext context)
     {
         context.LogInformation("Hello from {@Saga}. Message: {@Message}", nameof(TheSaga), message);
         var backIntoSaga = new BackIntoSaga
@@ -26,7 +26,7 @@
         return context.SendLocal(backIntoSaga);
     }
 
-    public Task Handle(BackIntoSaga message, IMessageHandlerContext context)
+    public Task Handle(BackIntoSaga message, HandlerContext context)
     {
         context.LogInformation("Hello from {@Saga}. Message: {@Message}", nameof(TheSaga), message);
         MarkAsComplete();

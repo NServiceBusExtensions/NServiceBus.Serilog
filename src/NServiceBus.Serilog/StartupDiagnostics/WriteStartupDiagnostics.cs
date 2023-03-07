@@ -9,7 +9,7 @@ class StartupDiagnostics :
         this.logger = logger.ForContext<StartupDiagnostics>();
     }
 
-    protected override Task OnStart(IMessageSession session, CancellationToken cancellation = default)
+    protected override Task OnStart(IMessageSession session, Cancellation cancellation = default)
     {
         var properties = BuildProperties(settings, logger);
 
@@ -55,7 +55,7 @@ class StartupDiagnostics :
         return entry;
     }
 
-    protected override Task OnStop(IMessageSession session, CancellationToken cancellation = default) =>
+    protected override Task OnStop(IMessageSession session, Cancellation cancellation = default) =>
         Task.CompletedTask;
 
     IReadOnlySettings settings;

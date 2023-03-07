@@ -3,7 +3,7 @@
 public class HandlerUsingLogger :
     IHandleMessages<TheMessage>
 {
-    public Task Handle(TheMessage message, IMessageHandlerContext context)
+    public Task Handle(TheMessage message, HandlerContext context)
     {
         var logger = context.Logger();
         logger.Information("Hello from {@Handler}.");
@@ -17,7 +17,7 @@ public class HandlerUsingLogger :
 public class HandlerUsingLog :
     IHandleMessages<TheMessage>
 {
-    public Task Handle(TheMessage message, IMessageHandlerContext context)
+    public Task Handle(TheMessage message, HandlerContext context)
     {
         context.LogInformation("Hello from {@Handler}.");
         return Task.CompletedTask;

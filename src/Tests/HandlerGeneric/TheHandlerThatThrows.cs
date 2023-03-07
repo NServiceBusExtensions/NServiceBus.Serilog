@@ -6,7 +6,7 @@
     public GenericHandler(ManualResetEvent resetEvent) =>
         this.resetEvent = resetEvent;
 
-    public Task Handle(StartGenericHandler<string> message, IMessageHandlerContext context)
+    public Task Handle(StartGenericHandler<string> message, HandlerContext context)
     {
         context.LogInformation("Hello from {@Handler}.");
         resetEvent.Set();

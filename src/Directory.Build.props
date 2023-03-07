@@ -23,6 +23,8 @@
     <Using Include="Serilog.Core.Enrichers"/>
     <Using Include="Serilog.Filters"/>
     <Using Include="Serilog.Parsing"/>
-    <Using Include="Serilog.Configuration"/>    
+    <Using Include="Serilog.Configuration"/>
+    <Using Include="NServiceBus.IMessageHandlerContext"
+           Alias="HandlerContext" />
   </ItemGroup>
 </Project>

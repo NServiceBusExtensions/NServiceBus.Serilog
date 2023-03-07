@@ -7,7 +7,7 @@
         mapper.ConfigureMapping<CreateUser>(m => m.UserName)
             .ToSaga(s => s.UserName);
 
-    public Task Handle(CreateUser message, IMessageHandlerContext context)
+    public Task Handle(CreateUser message, HandlerContext context)
     {
         Data.UserName = message.UserName;
         context.LogInformation("User created. Message: {@Message}", message);
@@ -21,7 +21,7 @@
             context.SendLocal(userCreated));
     }
 
-    public Task Timeout(SagaTimeout state, IMessageHandlerContext context)
+    public Task Timeout(SagaTimeout state, HandlerContext context)
     {
         context.LogInformation("Timeout received");
         return Task.CompletedTask;

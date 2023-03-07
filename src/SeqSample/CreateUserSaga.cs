@@ -6,7 +6,7 @@
         mapper.ConfigureMapping<CreateUser>(message => message.UserName)
             .ToSaga(sagaData => sagaData.UserName);
 
-    public Task Handle(CreateUser message, IMessageHandlerContext context)
+    public Task Handle(CreateUser message, HandlerContext context)
     {
         Data.UserName = message.UserName;
         context.LogInformation("User Created {@Message}", message);

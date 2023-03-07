@@ -1,6 +1,6 @@
 ﻿public class HandlerBehaviorThatThrows :
     IHandleMessages<StartBehaviorThatThrows>
 {
-    public Task Handle(StartBehaviorThatThrows message, IMessageHandlerContext context) =>
+    public Task Handle(StartBehaviorThatThrows message, HandlerContext context) =>
         Task.CompletedTask;
 }

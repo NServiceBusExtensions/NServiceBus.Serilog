@@ -159,7 +159,7 @@ The contextual logger instance can be accessed from anywhere in the pipeline via
 public class HandlerUsingLogger :
     IHandleMessages<TheMessage>
 {
-    public Task Handle(TheMessage message, IMessageHandlerContext context)
+    public Task Handle(TheMessage message, HandlerContext context)
     {
         var logger = context.Logger();
         logger.Information("Hello from {@Handler}.");
@@ -181,7 +181,7 @@ public class HandlerUsingLogger :
 public class HandlerUsingLog :
     IHandleMessages<TheMessage>
 {
-    public Task Handle(TheMessage message, IMessageHandlerContext context)
+    public Task Handle(TheMessage message, HandlerContext context)
     {
         context.LogInformation("Hello from {@Handler}.");
         return Task.CompletedTask;
@@ -532,7 +532,7 @@ class StartupDiagnostics :
         this.logger = logger.ForContext<StartupDiagnostics>();
     }
 
-    protected override Task OnStart(IMessageSession session, CancellationToken cancellation = default)
+    protected override Task OnStart(IMessageSession session, Cancellation cancellation = default)
     {
         var properties = BuildProperties(settings, logger);
 
@@ -578,7 +578,7 @@ class StartupDiagnostics :
         return entry;
     }
 
-    protected override Task OnStop(IMessageSession session, CancellationToken cancellation = default) =>
+    protected override Task OnStop(IMessageSession session, Cancellation cancellation = default) =>
         Task.CompletedTask;
 
     IReadOnlySettings settings;
