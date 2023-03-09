@@ -8,7 +8,7 @@ namespace NServiceBus.Serilog;
 public static class TypeNameConverter
 {
     static ConcurrentDictionary<string, string> longNameToNameCache = new();
-    static ConcurrentDictionary<Type, string> typeToNameCache = new();
+    static ConcurrentDictionary<Type, TypeName> typeToNameCache = new();
 
     /// <summary>
     /// Get a short type name from a long type name.
@@ -16,17 +16,11 @@ public static class TypeNameConverter
     public static string GetName(string longName) =>
         longNameToNameCache.GetOrAdd(longName, FormatForDisplay);
 
-    /// <summary>
-    /// Get a short type name from a long type name.
-    /// </summary>
-    public static string GetName(Type type) =>
-        typeToNameCache.GetOrAdd(type, FormatForDisplay);
-
     static string FormatForDisplay(string typeName)
     {
         if (TryGetType(typeName, out var type))
         {
-            return FormatForDisplay(type);
+            return FormatForDisplay(type).MessageTypeName;
         }
 
         var indexOfComma = typeName.IndexOf(',');
@@ -71,13 +65,33 @@ public static class TypeNameConverter
         return type != null;
     }
 
-    static string FormatForDisplay(Type type)
+    public record TypeName(string MessageTypeName, string LongName);
+
+    /// <summary>
+    /// Get a short type name from a long type name.
+    /// </summary>
+    public static TypeName GetName(Type type) =>
+        typeToNameCache.GetOrAdd(type, FormatForDisplay);
+
+    static TypeName FormatForDisplay(Type type)
     {
         var builder = new StringBuilder();
         FormatForDisplay(type, builder);
-        return builder.ToString();
+        var messageTypeName = builder.ToString();
+        var longName = GetLongName(type, messageTypeName);
+        return new(messageTypeName, longName);
     }
 
+    static string GetLongName(Type type, string messageTypeName)
+    {
+        var assemblyName = type.Assembly.GetName();
+        if (type.Namespace == null)
+        {
+            return $"{messageTypeName}, {assemblyName.Name}, Version={assemblyName.Version}";
+        }
+
+        return $"{type.Namespace}.{messageTypeName}, {assemblyName.Name}, Version={assemblyName.Version}";
+    }
     static void FormatForDisplay(Type type, StringBuilder builder)
     {
         if (type.IsNested)

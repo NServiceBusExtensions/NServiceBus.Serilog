@@ -95,7 +95,7 @@
             {new("MessageId"), new ScalarValue(messageId)},
             {new("OriginatingMachine"), new ScalarValue(context.OriginatingMachine())},
             {new("OriginatingEndpoint"), new ScalarValue(context.OriginatingEndpoint())},
-            {new("MessageType"), new ScalarValue(TypeNameConverter.GetName(context.MessageType()))},
+            {new("MessageType"), new ScalarValue(TypeNameConverter.GetName(context.MessageType()).MessageTypeName)},
             {new("TimeSent"), new ScalarValue(context.TimeSent())},
             {new("Intent"), new ScalarValue(context.MessageIntent())}
         };

@@ -38,15 +38,14 @@
     public Task Inner(IIncomingLogicalMessageContext context, Func<Task> next)
     {
         var type = context.Message.MessageType;
-        var messageTypeName = TypeNameConverter.GetName(type);
-        var longName = GetLongName(type, messageTypeName);
+        var typeName = TypeNameConverter.GetName(type);
         var properties = new List<PropertyEnricher>
         {
             new("IncomingMessageId", context.MessageId),
-            new("IncomingMessageType", messageTypeName),
-            new("IncomingMessageTypeLong", longName)
+            new("IncomingMessageType", typeName.MessageTypeName),
+            new("IncomingMessageTypeLong", typeName.LongName)
         };
-        var logger = logBuilder.GetLogger(messageTypeName);
+        var logger = logBuilder.GetLogger(typeName.MessageTypeName);
 
         var headers = context.MessageHeaders;
         if (headers.TryGetValue(Headers.CorrelationId, out var correlationId))
@@ -63,16 +62,5 @@
         context.Extensions.Set(loggerForContext);
 
         return next();
-    }
-
-    static string GetLongName(Type type, string messageTypeName)
-    {
-        var assemblyName = type.Assembly.GetName();
-        if (type.Namespace == null)
-        {
-            return $"{messageTypeName}, {assemblyName.Name}, Version={assemblyName.Version}";
-        }
-
-        return $"{type.Namespace}.{messageTypeName}, {assemblyName.Name}, Version={assemblyName.Version}";
     }
 }

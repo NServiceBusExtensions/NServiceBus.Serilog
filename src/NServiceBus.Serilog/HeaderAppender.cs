@@ -15,8 +15,8 @@ static class HeaderAppender
     {
         var otherHeaders = new Dictionary<string, string>();
         foreach (var header in headers
-            .Where(x => !excludeHeaders.Contains(x.Key))
-            .OrderBy(x => x.Key))
+            .Where(_ =>  !excludeHeaders.Contains(_.Key))
+            .OrderBy(_ => _.Key))
         {
             var key = header.Key;
             var value = header.Value;

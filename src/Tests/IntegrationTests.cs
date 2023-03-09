@@ -157,6 +157,7 @@ public class IntegrationTests
     {
         logs.Clear();
         var suffix = TypeNameConverter.GetName(message.GetType())
+            .MessageTypeName
             .Replace("<", "_")
             .Replace(">", "_");
         var configuration = ConfigBuilder.BuildDefaultConfig("SerilogTests" + suffix);
@@ -210,14 +211,14 @@ public class IntegrationTests
         await endpoint.Stop();
 
         return logs
-            .Where(x => !x.MessageTemplate.Text.StartsWith("Operation canceled"))
-            .Select(x =>
+            .Where(_ =>  !_.MessageTemplate.Text.StartsWith("Operation canceled"))
+            .Select(_ =>
                 new LogEventEx
                 (
-                    messageTemplate: x.MessageTemplate,
-                    level: x.Level,
-                    properties: x.Properties,
-                    exception: x.Exception
+                    messageTemplate: _.MessageTemplate,
+                    level: _.Level,
+                    properties: _.Properties,
+                    exception: _.Exception
                 ));
     }
 }

@@ -30,7 +30,7 @@
         var addresses = context.UnicastAddresses();
         if (addresses.Count > 0)
         {
-            var sequence = new SequenceValue(addresses.Select(x => new ScalarValue(x)));
+            var sequence = new SequenceValue(addresses.Select(_ =>  new ScalarValue(_)));
             properties.Add(new("UnicastRoutes", sequence));
         }
 
