@@ -19,7 +19,7 @@
         logs.Where(x => x.Exception is not null);
 
     public static IEnumerable<LogEventEx> LogsForType<T>(this IEnumerable<LogEventEx> logs) =>
-        LogsForName(logs, TypeNameConverter.GetName(typeof(T)))
+        LogsForName(logs, TypeNameConverter.GetName(typeof(T)).MessageTypeName)
             .OrderBy(x => x.MessageTemplate.Text);
 
     static IEnumerable<LogEventEx> LogsForName(this IEnumerable<LogEventEx> logs, string name) =>

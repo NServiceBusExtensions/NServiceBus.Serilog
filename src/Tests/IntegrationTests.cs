@@ -157,6 +157,7 @@ public class IntegrationTests
     {
         logs.Clear();
         var suffix = TypeNameConverter.GetName(message.GetType())
+            .MessageTypeName
             .Replace("<", "_")
             .Replace(">", "_");
         var configuration = ConfigBuilder.BuildDefaultConfig("SerilogTests" + suffix);
