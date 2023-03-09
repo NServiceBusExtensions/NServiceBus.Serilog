@@ -13,7 +13,7 @@
         var bag = context.Extensions;
 
         var type = context.Message.Instance.GetType();
-        var messageTypeName = TypeNameConverter.GetName(type);
+        var messageTypeName = TypeNameConverter.GetName(type).MessageTypeName;
         if (!bag.TryGet<ILogger>(out var logger))
         {
             // if it a raw session send (ie no handler/saga, there will be no current logger)
