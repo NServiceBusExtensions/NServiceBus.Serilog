@@ -211,14 +211,14 @@ public class IntegrationTests
         await endpoint.Stop();
 
         return logs
-            .Where(x => !x.MessageTemplate.Text.StartsWith("Operation canceled"))
-            .Select(x =>
+            .Where(_ =>  !_.MessageTemplate.Text.StartsWith("Operation canceled"))
+            .Select(_ =>
                 new LogEventEx
                 (
-                    messageTemplate: x.MessageTemplate,
-                    level: x.Level,
-                    properties: x.Properties,
-                    exception: x.Exception
+                    messageTemplate: _.MessageTemplate,
+                    level: _.Level,
+                    properties: _.Properties,
+                    exception: _.Exception
                 ));
     }
 }

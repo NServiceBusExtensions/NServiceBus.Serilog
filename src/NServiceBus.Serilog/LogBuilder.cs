@@ -12,6 +12,6 @@
     public ILogger Logger { get; }
 
     public ILogger GetLogger(string key) =>
-        loggers.GetOrAdd(key, x => Logger
-            .ForContext(Constants.SourceContextPropertyName, x));
+        loggers.GetOrAdd(key, _ =>  Logger
+            .ForContext(Constants.SourceContextPropertyName, _));
 }

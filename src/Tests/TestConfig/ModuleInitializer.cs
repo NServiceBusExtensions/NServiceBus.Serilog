@@ -7,7 +7,7 @@
         var nsbVersion = FileVersionInfo.GetVersionInfo(typeof(Endpoint).Assembly.Location);
         var nsbVersionString = $"{nsbVersion.FileMajorPart}.{nsbVersion.FileMinorPart}.{nsbVersion.FileBuildPart}";
         VerifierSettings.IgnoreStackTrace();
-        VerifierSettings.AddScrubber(x => x.Replace(nsbVersionString, "NsbVersion"));
+        VerifierSettings.AddScrubber(_ => _.Replace(nsbVersionString, "NsbVersion"));
         VerifierSettings.ScrubMachineName();
         VerifierSettings.AddExtraSettings(_ =>
         {

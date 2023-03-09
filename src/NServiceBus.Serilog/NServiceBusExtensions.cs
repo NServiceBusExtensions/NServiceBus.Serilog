@@ -47,7 +47,7 @@
     public static List<string> UnicastAddresses(this IOutgoingPhysicalMessageContext context) =>
         context.RoutingStrategies
             .OfType<UnicastRoutingStrategy>()
-            .Select(x => ((UnicastAddressTag) x.Apply(emptyDictionary)).Destination)
+            .Select(_ =>  ((UnicastAddressTag) _.Apply(emptyDictionary)).Destination)
             .ToList();
 
     public static DateTimeOffset TimeSent(this IInvokeHandlerContext context) =>
