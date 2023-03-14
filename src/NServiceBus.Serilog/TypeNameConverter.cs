@@ -65,6 +65,9 @@ public static class TypeNameConverter
         return type != null;
     }
 
+    /// <summary>
+    /// Type long and short name pair.
+    /// </summary>
     public record TypeName(string MessageTypeName, string LongName);
 
     /// <summary>
