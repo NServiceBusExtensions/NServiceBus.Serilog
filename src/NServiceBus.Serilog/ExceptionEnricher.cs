@@ -84,23 +84,33 @@
         {
             var key = header.Key;
 
-            if (key == Headers.ConversationId)
+            var isNsbHeader = key.StartsWith("NServiceBus.");
+
+            if (isNsbHeader)
             {
-                continue;
-            }
-            if (key == Headers.CorrelationId)
-            {
-                continue;
-            }
-            if (key == Headers.EnclosedMessageTypes)
-            {
-                continue;
-            }
-            if (key.StartsWith("NServiceBus."))
-            {
+                if (key == Headers.MessageId)
+                {
+                    continue;
+                }
+
+                if (key == Headers.ConversationId)
+                {
+                    continue;
+                }
+
+                if (key == Headers.CorrelationId)
+                {
+                    continue;
+                }
+
+                if (key == Headers.EnclosedMessageTypes)
+                {
+                    continue;
+                }
+
                 key = key[12..];
             }
-            else if(key =="$.diagnostics.originating.hostid")
+            else if (key == "$.diagnostics.originating.hostid")
             {
                 key = "HostId";
             }

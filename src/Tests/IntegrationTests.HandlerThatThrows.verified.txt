@@ -181,7 +181,6 @@
         HandlerType: TheHandlerThatThrows,
         IncomingHeaders: {
           Elements: {
-            "MessageId": Guid_2,
             "MessageIntent": Send,
             "ReplyToAddress": SerilogTestsStartHandlerThatThrows,
             "OriginatingMachine": TheMachineName,
@@ -242,7 +241,6 @@
         HandlerType: TheHandlerThatThrows,
         IncomingHeaders: {
           Elements: {
-            "MessageId": Guid_2,
             "MessageIntent": Send,
             "ReplyToAddress": SerilogTestsStartHandlerThatThrows,
             "OriginatingMachine": TheMachineName,
@@ -303,7 +301,6 @@
         HandlerType: TheHandlerThatThrows,
         IncomingHeaders: {
           Elements: {
-            "MessageId": Guid_2,
             "MessageIntent": Send,
             "ReplyToAddress": SerilogTestsStartHandlerThatThrows,
             "OriginatingMachine": TheMachineName,
@@ -367,7 +364,6 @@
         HandlerType: TheHandlerThatThrows,
         IncomingHeaders: {
           Elements: {
-            "MessageId": Guid_2,
             "MessageIntent": Send,
             "ReplyToAddress": SerilogTestsStartHandlerThatThrows,
             "OriginatingMachine": TheMachineName,
