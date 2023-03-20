@@ -173,18 +173,15 @@
         },
         IncomingHeaders: {
           Elements: {
-            "NServiceBus.MessageId": Guid_2,
-            "NServiceBus.MessageIntent": Send,
-            "NServiceBus.ConversationId": Guid_1,
-            "NServiceBus.CorrelationId": Guid_2,
-            "NServiceBus.ReplyToAddress": SerilogTestsStartBehaviorThatThrows,
-            "NServiceBus.OriginatingMachine": TheMachineName,
-            "NServiceBus.OriginatingEndpoint": SerilogTestsStartBehaviorThatThrows,
-            "$.diagnostics.originating.hostid": Guid_3,
-            "NServiceBus.ContentType": text/xml,
-            "NServiceBus.EnclosedMessageTypes": StartBehaviorThatThrows, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
-            "NServiceBus.Version": NsbVersion,
-            "NServiceBus.TimeSent": DateTimeOffset_1
+            "MessageId": Guid_2,
+            "MessageIntent": Send,
+            "ReplyToAddress": SerilogTestsStartBehaviorThatThrows,
+            "OriginatingMachine": TheMachineName,
+            "OriginatingEndpoint": SerilogTestsStartBehaviorThatThrows,
+            "HostId": Guid_3,
+            "ContentType": text/xml,
+            "Version": NsbVersion,
+            "TimeSent": DateTimeOffset_1
           }
         },
         IncomingMessage: {
@@ -228,18 +225,15 @@
         },
         IncomingHeaders: {
           Elements: {
-            "NServiceBus.MessageId": Guid_2,
-            "NServiceBus.MessageIntent": Send,
-            "NServiceBus.ConversationId": Guid_1,
-            "NServiceBus.CorrelationId": Guid_2,
-            "NServiceBus.ReplyToAddress": SerilogTestsStartBehaviorThatThrows,
-            "NServiceBus.OriginatingMachine": TheMachineName,
-            "NServiceBus.OriginatingEndpoint": SerilogTestsStartBehaviorThatThrows,
-            "$.diagnostics.originating.hostid": Guid_3,
-            "NServiceBus.ContentType": text/xml,
-            "NServiceBus.EnclosedMessageTypes": StartBehaviorThatThrows, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
-            "NServiceBus.Version": NsbVersion,
-            "NServiceBus.TimeSent": DateTimeOffset_1
+            "MessageId": Guid_2,
+            "MessageIntent": Send,
+            "ReplyToAddress": SerilogTestsStartBehaviorThatThrows,
+            "OriginatingMachine": TheMachineName,
+            "OriginatingEndpoint": SerilogTestsStartBehaviorThatThrows,
+            "HostId": Guid_3,
+            "ContentType": text/xml,
+            "Version": NsbVersion,
+            "TimeSent": DateTimeOffset_1
           }
         },
         IncomingMessage: {
@@ -283,21 +277,18 @@
         },
         IncomingHeaders: {
           Elements: {
-            "NServiceBus.MessageId": Guid_2,
-            "NServiceBus.MessageIntent": Send,
-            "NServiceBus.ConversationId": Guid_1,
-            "NServiceBus.CorrelationId": Guid_2,
-            "NServiceBus.ReplyToAddress": SerilogTestsStartBehaviorThatThrows,
-            "NServiceBus.OriginatingMachine": TheMachineName,
-            "NServiceBus.OriginatingEndpoint": SerilogTestsStartBehaviorThatThrows,
-            "$.diagnostics.originating.hostid": Guid_3,
-            "NServiceBus.ContentType": text/xml,
-            "NServiceBus.EnclosedMessageTypes": StartBehaviorThatThrows, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
-            "NServiceBus.Version": NsbVersion,
-            "NServiceBus.TimeSent": DateTimeOffset_1,
-            "NServiceBus.Retries": 1,
-            "NServiceBus.Retries.Timestamp": DateTimeOffset_3,
-            "NServiceBus.DeliverAt": DateTimeOffset_2
+            "MessageId": Guid_2,
+            "MessageIntent": Send,
+            "ReplyToAddress": SerilogTestsStartBehaviorThatThrows,
+            "OriginatingMachine": TheMachineName,
+            "OriginatingEndpoint": SerilogTestsStartBehaviorThatThrows,
+            "HostId": Guid_3,
+            "ContentType": text/xml,
+            "Version": NsbVersion,
+            "TimeSent": DateTimeOffset_1,
+            "Retries": 1,
+            "Retries.Timestamp": DateTimeOffset_3,
+            "DeliverAt": DateTimeOffset_2
           }
         },
         IncomingMessage: {
@@ -341,21 +332,18 @@
         },
         IncomingHeaders: {
           Elements: {
-            "NServiceBus.MessageId": Guid_2,
-            "NServiceBus.MessageIntent": Send,
-            "NServiceBus.ConversationId": Guid_1,
-            "NServiceBus.CorrelationId": Guid_2,
-            "NServiceBus.ReplyToAddress": SerilogTestsStartBehaviorThatThrows,
-            "NServiceBus.OriginatingMachine": TheMachineName,
-            "NServiceBus.OriginatingEndpoint": SerilogTestsStartBehaviorThatThrows,
-            "$.diagnostics.originating.hostid": Guid_3,
-            "NServiceBus.ContentType": text/xml,
-            "NServiceBus.EnclosedMessageTypes": StartBehaviorThatThrows, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
-            "NServiceBus.Version": NsbVersion,
-            "NServiceBus.TimeSent": DateTimeOffset_1,
-            "NServiceBus.Retries": 1,
-            "NServiceBus.Retries.Timestamp": DateTimeOffset_3,
-            "NServiceBus.DeliverAt": DateTimeOffset_2
+            "MessageId": Guid_2,
+            "MessageIntent": Send,
+            "ReplyToAddress": SerilogTestsStartBehaviorThatThrows,
+            "OriginatingMachine": TheMachineName,
+            "OriginatingEndpoint": SerilogTestsStartBehaviorThatThrows,
+            "HostId": Guid_3,
+            "ContentType": text/xml,
+            "Version": NsbVersion,
+            "TimeSent": DateTimeOffset_1,
+            "Retries": 1,
+            "Retries.Timestamp": DateTimeOffset_3,
+            "DeliverAt": DateTimeOffset_2
           }
         },
         IncomingMessage: {

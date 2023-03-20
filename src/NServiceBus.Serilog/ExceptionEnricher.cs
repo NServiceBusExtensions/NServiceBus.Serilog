@@ -68,7 +68,46 @@
                 }
             }
 
-            logEvent.AddPropertyIfAbsent(SerilogExtensions.BuildDictionaryProperty("IncomingHeaders", logState.IncomingHeaders));
+            if (!logEvent.Properties.ContainsKey("IncomingHeaders"))
+            {
+                logEvent.AddPropertyIfAbsent(
+                    SerilogExtensions.BuildDictionaryProperty("IncomingHeaders",
+                        CleanedHeaders(logState.IncomingHeaders)));
+            }
         }
+    }
+
+    static Dictionary<string, string> CleanedHeaders(IReadOnlyDictionary<string, string> headers)
+    {
+        var dictionary = new Dictionary<string, string>(headers.Count);
+        foreach (var header in headers)
+        {
+            var key = header.Key;
+
+            if (key == Headers.ConversationId)
+            {
+                continue;
+            }
+            if (key == Headers.CorrelationId)
+            {
+                continue;
+            }
+            if (key == Headers.EnclosedMessageTypes)
+            {
+                continue;
+            }
+            if (key.StartsWith("NServiceBus."))
+            {
+                key = key[12..];
+            }
+            else if(key =="$.diagnostics.originating.hostid")
+            {
+                key = "HostId";
+            }
+
+            dictionary.Add(key, header.Value);
+        }
+
+        return dictionary;
     }
 }
