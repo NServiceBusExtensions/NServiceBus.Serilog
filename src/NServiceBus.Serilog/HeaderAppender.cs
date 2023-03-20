@@ -30,9 +30,10 @@ static class HeaderAppender
 
             if (key.StartsWith("NServiceBus."))
             {
+                var name = key[12..];
                 if (key == Headers.TimeSent)
                 {
-                    yield return new(key[12..], new ScalarValue(DateTimeOffsetHelper.ToDateTimeOffset(value)));
+                    yield return new(name, new ScalarValue(DateTimeOffsetHelper.ToDateTimeOffset(value)));
                     continue;
                 }
 
@@ -43,7 +44,7 @@ static class HeaderAppender
                     continue;
                 }
 
-                yield return new(key[12..], new ScalarValue(value));
+                yield return new(name, new ScalarValue(value));
                 continue;
             }
 
