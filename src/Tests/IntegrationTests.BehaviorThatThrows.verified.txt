@@ -171,18 +171,6 @@
             "TargetSite": System.Threading.Tasks.Task Invoke(NServiceBus.Pipeline.IInvokeHandlerContext, System.Func`1[System.Threading.Tasks.Task])
           }
         },
-        IncomingHeaders: {
-          Elements: {
-            "MessageIntent": Send,
-            "ReplyToAddress": SerilogTestsStartBehaviorThatThrows,
-            "OriginatingMachine": TheMachineName,
-            "OriginatingEndpoint": SerilogTestsStartBehaviorThatThrows,
-            "HostId": Guid_3,
-            "ContentType": text/xml,
-            "Version": NsbVersion,
-            "TimeSent": DateTimeOffset_1
-          }
-        },
         IncomingMessage: {
           TypeTag: StartBehaviorThatThrows,
           Properties: [
@@ -193,8 +181,14 @@
         },
         IncomingMessageId: Guid_2,
         IncomingTransportMessageId: Guid_4,
+        MessageIntent: Send,
+        OriginatingEndpoint: SerilogTestsStartBehaviorThatThrows,
+        OriginatingHostId: Guid_3,
+        OriginatingMachine: TheMachineName,
         ProcessingEndpoint: SerilogTestsStartBehaviorThatThrows,
-        SourceContext: NServiceBus.ImmediateRetry
+        ReplyToAddress: SerilogTestsStartBehaviorThatThrows,
+        SourceContext: NServiceBus.ImmediateRetry,
+        TimeSent: DateTimeOffset_1
       }
     },
     {
@@ -222,18 +216,6 @@
             "TargetSite": System.Threading.Tasks.Task Invoke(NServiceBus.Pipeline.IInvokeHandlerContext, System.Func`1[System.Threading.Tasks.Task])
           }
         },
-        IncomingHeaders: {
-          Elements: {
-            "MessageIntent": Send,
-            "ReplyToAddress": SerilogTestsStartBehaviorThatThrows,
-            "OriginatingMachine": TheMachineName,
-            "OriginatingEndpoint": SerilogTestsStartBehaviorThatThrows,
-            "HostId": Guid_3,
-            "ContentType": text/xml,
-            "Version": NsbVersion,
-            "TimeSent": DateTimeOffset_1
-          }
-        },
         IncomingMessage: {
           TypeTag: StartBehaviorThatThrows,
           Properties: [
@@ -244,8 +226,14 @@
         },
         IncomingMessageId: Guid_2,
         IncomingTransportMessageId: Guid_4,
+        MessageIntent: Send,
+        OriginatingEndpoint: SerilogTestsStartBehaviorThatThrows,
+        OriginatingHostId: Guid_3,
+        OriginatingMachine: TheMachineName,
         ProcessingEndpoint: SerilogTestsStartBehaviorThatThrows,
-        SourceContext: NServiceBus.DelayedRetry
+        ReplyToAddress: SerilogTestsStartBehaviorThatThrows,
+        SourceContext: NServiceBus.DelayedRetry,
+        TimeSent: DateTimeOffset_1
       }
     },
     {
@@ -254,6 +242,7 @@
       Properties: {
         ConversationId: Guid_1,
         CorrelationId: Guid_2,
+        DeliverAt: DateTimeOffset_2,
         ExceptionDetail: {
           Elements: {
             "Type": System.Exception,
@@ -273,21 +262,6 @@
             "TargetSite": System.Threading.Tasks.Task Invoke(NServiceBus.Pipeline.IInvokeHandlerContext, System.Func`1[System.Threading.Tasks.Task])
           }
         },
-        IncomingHeaders: {
-          Elements: {
-            "MessageIntent": Send,
-            "ReplyToAddress": SerilogTestsStartBehaviorThatThrows,
-            "OriginatingMachine": TheMachineName,
-            "OriginatingEndpoint": SerilogTestsStartBehaviorThatThrows,
-            "HostId": Guid_3,
-            "ContentType": text/xml,
-            "Version": NsbVersion,
-            "TimeSent": DateTimeOffset_1,
-            "Retries": 1,
-            "Retries.Timestamp": DateTimeOffset_3,
-            "DeliverAt": DateTimeOffset_2
-          }
-        },
         IncomingMessage: {
           TypeTag: StartBehaviorThatThrows,
           Properties: [
@@ -298,8 +272,16 @@
         },
         IncomingMessageId: Guid_2,
         IncomingTransportMessageId: Guid_5,
+        MessageIntent: Send,
+        OriginatingEndpoint: SerilogTestsStartBehaviorThatThrows,
+        OriginatingHostId: Guid_3,
+        OriginatingMachine: TheMachineName,
         ProcessingEndpoint: SerilogTestsStartBehaviorThatThrows,
-        SourceContext: NServiceBus.ImmediateRetry
+        ReplyToAddress: SerilogTestsStartBehaviorThatThrows,
+        Retries: 1,
+        Retries.Timestamp: DateTimeOffset_3,
+        SourceContext: NServiceBus.ImmediateRetry,
+        TimeSent: DateTimeOffset_1
       }
     },
     {
@@ -308,6 +290,7 @@
       Properties: {
         ConversationId: Guid_1,
         CorrelationId: Guid_2,
+        DeliverAt: DateTimeOffset_2,
         ExceptionDetail: {
           Elements: {
             "Type": System.Exception,
@@ -327,21 +310,6 @@
             "TargetSite": System.Threading.Tasks.Task Invoke(NServiceBus.Pipeline.IInvokeHandlerContext, System.Func`1[System.Threading.Tasks.Task])
           }
         },
-        IncomingHeaders: {
-          Elements: {
-            "MessageIntent": Send,
-            "ReplyToAddress": SerilogTestsStartBehaviorThatThrows,
-            "OriginatingMachine": TheMachineName,
-            "OriginatingEndpoint": SerilogTestsStartBehaviorThatThrows,
-            "HostId": Guid_3,
-            "ContentType": text/xml,
-            "Version": NsbVersion,
-            "TimeSent": DateTimeOffset_1,
-            "Retries": 1,
-            "Retries.Timestamp": DateTimeOffset_3,
-            "DeliverAt": DateTimeOffset_2
-          }
-        },
         IncomingMessage: {
           TypeTag: StartBehaviorThatThrows,
           Properties: [
@@ -352,8 +320,16 @@
         },
         IncomingMessageId: Guid_2,
         IncomingTransportMessageId: Guid_5,
+        MessageIntent: Send,
+        OriginatingEndpoint: SerilogTestsStartBehaviorThatThrows,
+        OriginatingHostId: Guid_3,
+        OriginatingMachine: TheMachineName,
         ProcessingEndpoint: SerilogTestsStartBehaviorThatThrows,
-        SourceContext: NServiceBus.MoveToError
+        ReplyToAddress: SerilogTestsStartBehaviorThatThrows,
+        Retries: 1,
+        Retries.Timestamp: DateTimeOffset_3,
+        SourceContext: NServiceBus.MoveToError,
+        TimeSent: DateTimeOffset_1
       }
     }
   ]

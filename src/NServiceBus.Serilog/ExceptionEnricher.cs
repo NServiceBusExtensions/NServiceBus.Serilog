@@ -1,6 +1,11 @@
 ﻿class ExceptionEnricher :
     ILogEventEnricher
 {
+    ConvertHeader? convertHeader;
+
+    public ExceptionEnricher(ConvertHeader? convertHeader) =>
+        this.convertHeader = convertHeader;
+
     public void Enrich(LogEvent logEvent, ILogEventPropertyFactory propertyFactory)
     {
         var exception = logEvent.Exception;
@@ -68,56 +73,10 @@
                 }
             }
 
-            if (!logEvent.Properties.ContainsKey("IncomingHeaders"))
+            foreach (var property in HeaderAppender.BuildHeaders(logState.IncomingHeaders, convertHeader))
             {
-                logEvent.AddPropertyIfAbsent(
-                    SerilogExtensions.BuildDictionaryProperty("IncomingHeaders",
-                        CleanedHeaders(logState.IncomingHeaders)));
+                logEvent.AddPropertyIfAbsent(property);
             }
         }
-    }
-
-    static Dictionary<string, string> CleanedHeaders(IReadOnlyDictionary<string, string> headers)
-    {
-        var dictionary = new Dictionary<string, string>(headers.Count);
-        foreach (var header in headers)
-        {
-            var key = header.Key;
-
-            var isNsbHeader = key.StartsWith("NServiceBus.");
-
-            if (isNsbHeader)
-            {
-                if (key == Headers.MessageId)
-                {
-                    continue;
-                }
-
-                if (key == Headers.ConversationId)
-                {
-                    continue;
-                }
-
-                if (key == Headers.CorrelationId)
-                {
-                    continue;
-                }
-
-                if (key == Headers.EnclosedMessageTypes)
-                {
-                    continue;
-                }
-
-                key = key[12..];
-            }
-            else if (key == "$.diagnostics.originating.hostid")
-            {
-                key = "HostId";
-            }
-
-            dictionary.Add(key, header.Value);
-        }
-
-        return dictionary;
     }
 }

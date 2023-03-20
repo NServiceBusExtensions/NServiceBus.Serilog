@@ -11,7 +11,7 @@ static class HeaderAppender
         Headers.MessageId
     };
 
-    public static IEnumerable<LogEventProperty> BuildHeaders(this ILogger logger, IReadOnlyDictionary<string, string> headers, ConvertHeader convertHeader)
+    public static IEnumerable<LogEventProperty> BuildHeaders(IReadOnlyDictionary<string, string> headers, ConvertHeader? convertHeader)
     {
         var otherHeaders = new Dictionary<string, string>();
         foreach (var header in headers
@@ -21,8 +21,8 @@ static class HeaderAppender
             var key = header.Key;
             var value = header.Value;
 
-            var converted = convertHeader(key, value);
-            if (converted is not null)
+            var converted = convertHeader?.Invoke(key, value);
+            if (converted != null)
             {
                 yield return converted;
                 continue;

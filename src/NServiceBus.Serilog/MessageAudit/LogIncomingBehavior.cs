@@ -40,7 +40,7 @@
             properties.Add(property);
         }
 
-        properties.AddRange(logger.BuildHeaders(context.Headers, convertHeader));
+        properties.AddRange(HeaderAppender.BuildHeaders(context.Headers, convertHeader));
         logger.WriteInfo(messageTemplate, properties);
         return next();
     }
