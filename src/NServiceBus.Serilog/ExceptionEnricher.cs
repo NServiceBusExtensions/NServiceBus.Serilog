@@ -1,6 +1,11 @@
 ﻿class ExceptionEnricher :
     ILogEventEnricher
 {
+    ConvertHeader? convertHeader;
+
+    public ExceptionEnricher(ConvertHeader? convertHeader) =>
+        this.convertHeader = convertHeader;
+
     public void Enrich(LogEvent logEvent, ILogEventPropertyFactory propertyFactory)
     {
         var exception = logEvent.Exception;
@@ -68,7 +73,10 @@
                 }
             }
 
-            logEvent.AddPropertyIfAbsent(SerilogExtensions.BuildDictionaryProperty("IncomingHeaders", logState.IncomingHeaders));
+            foreach (var property in HeaderAppender.BuildHeaders(logState.IncomingHeaders, convertHeader))
+            {
+                logEvent.AddPropertyIfAbsent(property);
+            }
         }
     }
 }

@@ -14,9 +14,9 @@ public static partial class SerilogTracingExtensions
     /// <summary>
     /// Take NSB specific info from <see cref="Exception.Data"/> and promotes it to Serilog properties.
     /// </summary>
-    public static LoggerEnrichmentConfiguration WithNsbExceptionDetails(this LoggerEnrichmentConfiguration configuration)
+    public static LoggerEnrichmentConfiguration WithNsbExceptionDetails(this LoggerEnrichmentConfiguration configuration, ConvertHeader? convertHeader = null)
     {
-        configuration.With<ExceptionEnricher>();
+        configuration.With(new ExceptionEnricher(convertHeader));
         return configuration;
     }
 
@@ -72,7 +72,9 @@ public static partial class SerilogTracingExtensions
             }
         }
 
-        throw new($@"Expected to find a `{nameof(ILogger)}` in the pipeline context.
-It is possible NServiceBus.Serilog has not been enabled using a call to `{nameof(SerilogTracingExtensions)}.{nameof(EnableSerilogTracing)}()`.");
+        throw new($"""
+            Expected to find a `{nameof(ILogger)}` in the pipeline context.
+            It is possible NServiceBus.Serilog has not been enabled using a call to `{nameof(SerilogTracingExtensions)}.{nameof(EnableSerilogTracing)}()`.
+            """);
     }
 }

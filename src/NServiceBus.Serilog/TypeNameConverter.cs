@@ -103,7 +103,7 @@ public static class TypeNameConverter
             builder.Append('+');
         }
 
-        var typeName = type.Name;
+        var typeName = type.Name.AsSpan();
 
         var indexOfGenericDelimiter = typeName.IndexOf('`');
         if (indexOfGenericDelimiter != -1)

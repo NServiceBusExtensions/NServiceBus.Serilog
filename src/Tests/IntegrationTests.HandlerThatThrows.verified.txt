@@ -179,22 +179,6 @@
         HandlerFailureTime: DateTimeOffset_5,
         HandlerStartTime: DateTimeOffset_4,
         HandlerType: TheHandlerThatThrows,
-        IncomingHeaders: {
-          Elements: {
-            "NServiceBus.MessageId": Guid_2,
-            "NServiceBus.MessageIntent": Send,
-            "NServiceBus.ConversationId": Guid_1,
-            "NServiceBus.CorrelationId": Guid_2,
-            "NServiceBus.ReplyToAddress": SerilogTestsStartHandlerThatThrows,
-            "NServiceBus.OriginatingMachine": TheMachineName,
-            "NServiceBus.OriginatingEndpoint": SerilogTestsStartHandlerThatThrows,
-            "$.diagnostics.originating.hostid": Guid_3,
-            "NServiceBus.ContentType": text/xml,
-            "NServiceBus.EnclosedMessageTypes": StartHandlerThatThrows, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
-            "NServiceBus.Version": NsbVersion,
-            "NServiceBus.TimeSent": DateTimeOffset_1
-          }
-        },
         IncomingMessage: {
           TypeTag: StartHandlerThatThrows,
           Properties: [
@@ -206,8 +190,14 @@
         IncomingMessageId: Guid_2,
         IncomingMessageType: StartHandlerThatThrows,
         IncomingTransportMessageId: Guid_4,
+        MessageIntent: Send,
+        OriginatingEndpoint: SerilogTestsStartHandlerThatThrows,
+        OriginatingHostId: Guid_3,
+        OriginatingMachine: TheMachineName,
         ProcessingEndpoint: SerilogTestsStartHandlerThatThrows,
-        SourceContext: NServiceBus.ImmediateRetry
+        ReplyToAddress: SerilogTestsStartHandlerThatThrows,
+        SourceContext: NServiceBus.ImmediateRetry,
+        TimeSent: DateTimeOffset_1
       }
     },
     {
@@ -243,22 +233,6 @@
         HandlerFailureTime: DateTimeOffset_7,
         HandlerStartTime: DateTimeOffset_6,
         HandlerType: TheHandlerThatThrows,
-        IncomingHeaders: {
-          Elements: {
-            "NServiceBus.MessageId": Guid_2,
-            "NServiceBus.MessageIntent": Send,
-            "NServiceBus.ConversationId": Guid_1,
-            "NServiceBus.CorrelationId": Guid_2,
-            "NServiceBus.ReplyToAddress": SerilogTestsStartHandlerThatThrows,
-            "NServiceBus.OriginatingMachine": TheMachineName,
-            "NServiceBus.OriginatingEndpoint": SerilogTestsStartHandlerThatThrows,
-            "$.diagnostics.originating.hostid": Guid_3,
-            "NServiceBus.ContentType": text/xml,
-            "NServiceBus.EnclosedMessageTypes": StartHandlerThatThrows, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
-            "NServiceBus.Version": NsbVersion,
-            "NServiceBus.TimeSent": DateTimeOffset_1
-          }
-        },
         IncomingMessage: {
           TypeTag: StartHandlerThatThrows,
           Properties: [
@@ -270,8 +244,14 @@
         IncomingMessageId: Guid_2,
         IncomingMessageType: StartHandlerThatThrows,
         IncomingTransportMessageId: Guid_4,
+        MessageIntent: Send,
+        OriginatingEndpoint: SerilogTestsStartHandlerThatThrows,
+        OriginatingHostId: Guid_3,
+        OriginatingMachine: TheMachineName,
         ProcessingEndpoint: SerilogTestsStartHandlerThatThrows,
-        SourceContext: NServiceBus.DelayedRetry
+        ReplyToAddress: SerilogTestsStartHandlerThatThrows,
+        SourceContext: NServiceBus.DelayedRetry,
+        TimeSent: DateTimeOffset_1
       }
     },
     {
@@ -280,6 +260,7 @@
       Properties: {
         ConversationId: Guid_1,
         CorrelationId: Guid_2,
+        DeliverAt: DateTimeOffset_2,
         ExceptionDetail: {
           Elements: {
             "Type": System.Exception,
@@ -307,25 +288,6 @@
         HandlerFailureTime: DateTimeOffset_9,
         HandlerStartTime: DateTimeOffset_8,
         HandlerType: TheHandlerThatThrows,
-        IncomingHeaders: {
-          Elements: {
-            "NServiceBus.MessageId": Guid_2,
-            "NServiceBus.MessageIntent": Send,
-            "NServiceBus.ConversationId": Guid_1,
-            "NServiceBus.CorrelationId": Guid_2,
-            "NServiceBus.ReplyToAddress": SerilogTestsStartHandlerThatThrows,
-            "NServiceBus.OriginatingMachine": TheMachineName,
-            "NServiceBus.OriginatingEndpoint": SerilogTestsStartHandlerThatThrows,
-            "$.diagnostics.originating.hostid": Guid_3,
-            "NServiceBus.ContentType": text/xml,
-            "NServiceBus.EnclosedMessageTypes": StartHandlerThatThrows, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
-            "NServiceBus.Version": NsbVersion,
-            "NServiceBus.TimeSent": DateTimeOffset_1,
-            "NServiceBus.Retries": 1,
-            "NServiceBus.Retries.Timestamp": DateTimeOffset_3,
-            "NServiceBus.DeliverAt": DateTimeOffset_2
-          }
-        },
         IncomingMessage: {
           TypeTag: StartHandlerThatThrows,
           Properties: [
@@ -337,8 +299,16 @@
         IncomingMessageId: Guid_2,
         IncomingMessageType: StartHandlerThatThrows,
         IncomingTransportMessageId: Guid_5,
+        MessageIntent: Send,
+        OriginatingEndpoint: SerilogTestsStartHandlerThatThrows,
+        OriginatingHostId: Guid_3,
+        OriginatingMachine: TheMachineName,
         ProcessingEndpoint: SerilogTestsStartHandlerThatThrows,
-        SourceContext: NServiceBus.ImmediateRetry
+        ReplyToAddress: SerilogTestsStartHandlerThatThrows,
+        Retries: 1,
+        Retries.Timestamp: DateTimeOffset_3,
+        SourceContext: NServiceBus.ImmediateRetry,
+        TimeSent: DateTimeOffset_1
       }
     },
     {
@@ -347,6 +317,7 @@
       Properties: {
         ConversationId: Guid_1,
         CorrelationId: Guid_2,
+        DeliverAt: DateTimeOffset_2,
         ExceptionDetail: {
           Elements: {
             "Type": System.Exception,
@@ -374,25 +345,6 @@
         HandlerFailureTime: DateTimeOffset_11,
         HandlerStartTime: DateTimeOffset_10,
         HandlerType: TheHandlerThatThrows,
-        IncomingHeaders: {
-          Elements: {
-            "NServiceBus.MessageId": Guid_2,
-            "NServiceBus.MessageIntent": Send,
-            "NServiceBus.ConversationId": Guid_1,
-            "NServiceBus.CorrelationId": Guid_2,
-            "NServiceBus.ReplyToAddress": SerilogTestsStartHandlerThatThrows,
-            "NServiceBus.OriginatingMachine": TheMachineName,
-            "NServiceBus.OriginatingEndpoint": SerilogTestsStartHandlerThatThrows,
-            "$.diagnostics.originating.hostid": Guid_3,
-            "NServiceBus.ContentType": text/xml,
-            "NServiceBus.EnclosedMessageTypes": StartHandlerThatThrows, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
-            "NServiceBus.Version": NsbVersion,
-            "NServiceBus.TimeSent": DateTimeOffset_1,
-            "NServiceBus.Retries": 1,
-            "NServiceBus.Retries.Timestamp": DateTimeOffset_3,
-            "NServiceBus.DeliverAt": DateTimeOffset_2
-          }
-        },
         IncomingMessage: {
           TypeTag: StartHandlerThatThrows,
           Properties: [
@@ -404,8 +356,16 @@
         IncomingMessageId: Guid_2,
         IncomingMessageType: StartHandlerThatThrows,
         IncomingTransportMessageId: Guid_5,
+        MessageIntent: Send,
+        OriginatingEndpoint: SerilogTestsStartHandlerThatThrows,
+        OriginatingHostId: Guid_3,
+        OriginatingMachine: TheMachineName,
         ProcessingEndpoint: SerilogTestsStartHandlerThatThrows,
-        SourceContext: NServiceBus.MoveToError
+        ReplyToAddress: SerilogTestsStartHandlerThatThrows,
+        Retries: 1,
+        Retries.Timestamp: DateTimeOffset_3,
+        SourceContext: NServiceBus.MoveToError,
+        TimeSent: DateTimeOffset_1
       }
     }
   ]
