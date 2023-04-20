@@ -121,7 +121,7 @@ public class IntegrationTests
                 Property = "TheProperty"
             });
         var logEvents = events.ToList();
-        await Verify<StartSaga>(logEvents);
+        await Verify<StartSaga>(logEvents).ScrubMember("Serilog.SagaStateChange");
     }
 
     [Fact]

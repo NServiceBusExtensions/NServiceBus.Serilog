@@ -24,11 +24,13 @@
       }
     },
     {
-      MessageTemplate: Receive message {IncomingMessageType} {IncomingMessageId}.,
+      MessageTemplate: Receive message {IncomingMessageType} {IncomingMessageId} ({ElapsedTime:m\:ss\.fff}).,
       Level: Information,
       Properties: {
         ConversationId: Guid_1,
         CorrelationId: Guid_2,
+        ElapsedTime: {Scrubbed},
+        FinishTime: DateTimeOffset_1,
         IncomingMessage: {
           TypeTag: StartSaga,
           Properties: [
@@ -46,16 +48,19 @@
         OriginatingMachine: TheMachineName,
         ProcessingEndpoint: SerilogTestsStartSaga,
         ReplyToAddress: SerilogTestsStartSaga,
+        Serilog.SagaStateChange: {Scrubbed},
         SourceContext: StartSaga,
-        TimeSent: DateTimeOffset_1
+        StartTime: DateTimeOffset_2,
+        TimeSent: DateTimeOffset_3
       }
     },
     {
-      MessageTemplate: Saga execution {SagaType} {SagaId}.,
+      MessageTemplate: Saga execution {SagaType} {SagaId} ({ElapsedTime:m\:ss\.fff}).,
       Level: Information,
       Properties: {
         ConversationId: Guid_1,
         CorrelationId: Guid_2,
+        ElapsedTime: {Scrubbed},
         Entity: {
           TypeTag: TheSagaData,
           Properties: [
@@ -73,7 +78,7 @@
             }
           ]
         },
-        FinishTime: DateTimeOffset_2,
+        FinishTime: DateTimeOffset_4,
         IncomingMessageId: Guid_2,
         IncomingMessageType: StartSaga,
         IncomingMessageTypeLong: StartSaga, Tests, Version=0.0.0.0,
@@ -84,7 +89,7 @@
             "OriginatingMachine": TheMachineName,
             "OriginatingEndpoint": SerilogTestsStartSaga,
             "MessageType": StartSaga,
-            "TimeSent": DateTimeOffset_1,
+            "TimeSent": DateTimeOffset_3,
             "Intent": Send
           }
         },
@@ -106,7 +111,7 @@
         SagaId: Guid_4,
         SagaType: TheSaga,
         SourceContext: StartSaga,
-        StartTime: DateTimeOffset_3
+        StartTime: DateTimeOffset_5
       }
     },
     {

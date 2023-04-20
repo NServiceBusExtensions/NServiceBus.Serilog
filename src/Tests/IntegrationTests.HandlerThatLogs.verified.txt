@@ -1,11 +1,13 @@
 ﻿{
   logsForTarget: [
     {
-      MessageTemplate: Receive message {IncomingMessageType} {IncomingMessageId}.,
+      MessageTemplate: Receive message {IncomingMessageType} {IncomingMessageId} ({ElapsedTime:m\:ss\.fff}).,
       Level: Information,
       Properties: {
         ConversationId: Guid_1,
         CorrelationId: Guid_2,
+        ElapsedTime: {Scrubbed},
+        FinishTime: DateTimeOffset_1,
         IncomingMessage: {
           TypeTag: StartHandlerThatLogs
         },
@@ -19,7 +21,8 @@
         ProcessingEndpoint: SerilogTestsStartHandlerThatLogs,
         ReplyToAddress: SerilogTestsStartHandlerThatLogs,
         SourceContext: StartHandlerThatLogs,
-        TimeSent: DateTimeOffset_1
+        StartTime: DateTimeOffset_2,
+        TimeSent: DateTimeOffset_3
       }
     },
     {

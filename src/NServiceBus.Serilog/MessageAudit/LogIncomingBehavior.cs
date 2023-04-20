@@ -10,7 +10,7 @@
     static LogIncomingBehavior()
     {
         var templateParser = new MessageTemplateParser();
-        messageTemplate = templateParser.Parse("Receive message {IncomingMessageType} {IncomingMessageId}.");
+        messageTemplate = templateParser.Parse("Receive message {IncomingMessageType} {IncomingMessageId} ({ElapsedTime:m\\:ss\\.fff}).");
     }
 
     public static string Name = $"Serilog{nameof(LogIncomingBehavior)}";
@@ -29,12 +29,20 @@
         }
     }
 
-    public override Task Invoke(IIncomingLogicalMessageContext context, Func<Task> next)
+    public override async Task Invoke(IIncomingLogicalMessageContext context, Func<Task> next)
     {
         var message = context.Message;
-        var properties = new List<LogEventProperty>();
-
         var logger = context.Logger();
+        var startTime = DateTimeOffset.UtcNow;
+        await next();
+        var finishTime = DateTimeOffset.UtcNow;
+        var properties = new List<LogEventProperty>
+        {
+            new("StartTime", new ScalarValue(startTime)),
+            new("FinishTime", new ScalarValue(finishTime)),
+            new("ElapsedTime", new ScalarValue(finishTime - startTime)),
+        };
+
         if (logger.BindProperty("IncomingMessage", message.Instance, out var property))
         {
             properties.Add(property);
@@ -42,6 +50,5 @@
 
         properties.AddRange(HeaderAppender.BuildHeaders(context.Headers, convertHeader));
         logger.WriteInfo(messageTemplate, properties);
-        return next();
     }
 }
