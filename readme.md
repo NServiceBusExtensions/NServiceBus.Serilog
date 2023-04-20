@@ -283,7 +283,7 @@ serilogTracing.EnableSagaTracing();
         OriginatingMachine: TheMachineName,
         ProcessingEndpoint: SerilogTestsStartSaga,
         ReplyToAddress: SerilogTestsStartSaga,
-        Serilog.SagaStateChange: f7afdd0d-85be-487c-b39e-afea0058428b:New,
+        Serilog.SagaStateChange: {Scrubbed},
         SourceContext: StartSaga,
         StartTime: DateTimeOffset_2,
         TimeSent: DateTimeOffset_3
