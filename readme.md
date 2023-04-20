@@ -259,7 +259,7 @@ serilogTracing.EnableSagaTracing();
       }
     },
     {
-      MessageTemplate: Receive message {IncomingMessageType} {IncomingMessageId} ({ElapsedTime:m\:ss\.fff}).,
+      MessageTemplate: Receive message {IncomingMessageType} {IncomingMessageId} ({ElapsedTime:N3}s).,
       Level: Information,
       Properties: {
         ConversationId: Guid_1,
@@ -290,7 +290,7 @@ serilogTracing.EnableSagaTracing();
       }
     },
     {
-      MessageTemplate: Saga execution {SagaType} {SagaId} ({ElapsedTime:m\:ss\.fff}).,
+      MessageTemplate: Saga execution {SagaType} {SagaId} ({ElapsedTime:N3}s).,
       Level: Information,
       Properties: {
         ConversationId: Guid_1,
@@ -458,7 +458,7 @@ serilogTracing.EnableMessageTracing();
       }
     },
     {
-      MessageTemplate: Receive message {IncomingMessageType} {IncomingMessageId} ({ElapsedTime:m\:ss\.fff}).,
+      MessageTemplate: Receive message {IncomingMessageType} {IncomingMessageId} ({ElapsedTime:N3}s).,
       Level: Information,
       Properties: {
         ConversationId: Guid_1,
