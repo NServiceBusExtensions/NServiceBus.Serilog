@@ -6,7 +6,7 @@
     CaptureSagaStateBehavior()
     {
         var templateParser = new MessageTemplateParser();
-        messageTemplate = templateParser.Parse("Saga execution {SagaType} {SagaId} ({ElapsedTime:m\\:ss\\.fff}).");
+        messageTemplate = templateParser.Parse("Saga execution {SagaType} {SagaId} ({ElapsedTime:N3}s).");
     }
 
     public override async Task Invoke(IInvokeHandlerContext context, Func<Task> next)
@@ -64,7 +64,7 @@
             new("SagaId", new ScalarValue(sagaId)),
             new("StartTime", new ScalarValue(startTime)),
             new("FinishTime", new ScalarValue(finishTime)),
-            new("ElapsedTime", new ScalarValue(finishTime - startTime)),
+            new("ElapsedTime", new ScalarValue((finishTime - startTime).TotalSeconds)),
             new("IsCompleted", new ScalarValue(isCompleted)),
             new("IsNew", new ScalarValue(isNew))
         };

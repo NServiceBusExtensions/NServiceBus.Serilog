@@ -15,7 +15,7 @@
       }
     },
     {
-      MessageTemplate: Receive message {IncomingMessageType} {IncomingMessageId} ({ElapsedTime:m\:ss\.fff}).,
+      MessageTemplate: Receive message {IncomingMessageType} {IncomingMessageId} ({ElapsedTime:N3}s).,
       Level: Information,
       Properties: {
         ConversationId: Guid_1,

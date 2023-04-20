@@ -10,7 +10,7 @@
     static LogIncomingBehavior()
     {
         var templateParser = new MessageTemplateParser();
-        messageTemplate = templateParser.Parse("Receive message {IncomingMessageType} {IncomingMessageId} ({ElapsedTime:m\\:ss\\.fff}).");
+        messageTemplate = templateParser.Parse("Receive message {IncomingMessageType} {IncomingMessageId} ({ElapsedTime:N3}s).");
     }
 
     public static string Name = $"Serilog{nameof(LogIncomingBehavior)}";
@@ -40,7 +40,7 @@
         {
             new("StartTime", new ScalarValue(startTime)),
             new("FinishTime", new ScalarValue(finishTime)),
-            new("ElapsedTime", new ScalarValue(finishTime - startTime)),
+            new("ElapsedTime", new ScalarValue((finishTime - startTime).TotalSeconds)),
         };
 
         if (logger.BindProperty("IncomingMessage", message.Instance, out var property))
