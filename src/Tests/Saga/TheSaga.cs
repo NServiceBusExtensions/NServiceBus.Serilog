@@ -10,9 +10,9 @@
 
     protected override void ConfigureHowToFindSaga(SagaPropertyMapper<TheSagaData> mapper)
     {
-        mapper.ConfigureMapping<StartSaga>(m => m.Property)
+        mapper.ConfigureMapping<StartSaga>(_ => _.Property)
             .ToSaga(s => s.Property);
-        mapper.ConfigureMapping<BackIntoSaga>(m => m.Property)
+        mapper.ConfigureMapping<BackIntoSaga>(_ => _.Property)
             .ToSaga(s => s.Property);
     }
 
