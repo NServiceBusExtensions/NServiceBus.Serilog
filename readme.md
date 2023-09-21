@@ -5,6 +5,8 @@
 
 Add support for sending [NServiceBus](http://particular.net/NServiceBus) logging through [Serilog](http://serilog.net/)
 
+**See [Milestones](../../milestones?state=closed) for release notes.**
+
 <!--- StartOpenCollectiveBackers -->
 
 [Already a Patron? skip past this section](#endofbacking)
