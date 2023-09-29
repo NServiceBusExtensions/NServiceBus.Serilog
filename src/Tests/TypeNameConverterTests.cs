@@ -30,5 +30,6 @@ public class TypeNameConverterTests
 
 namespace Namespace
 {
-    class TheClass{}
+    // ReSharper disable once UnusedType.Global
+    class TheClass;
 }

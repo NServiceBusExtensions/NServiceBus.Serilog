@@ -19,8 +19,5 @@ public class HandlerUsingContextLoggerTests
     }
 
     class InheritedTestableMessageHandlerContext :
-        TestableMessageHandlerContext
-    {
-
-    }
+        TestableMessageHandlerContext;
 }

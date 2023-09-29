@@ -1,3 +1,1 @@
-﻿public class SagaTimeout
-{
-}
+﻿public class SagaTimeout;

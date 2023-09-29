@@ -65,6 +65,4 @@ class TracingUsage
     }
 }
 
-public class TheMessage
-{
-}
+public class TheMessage;

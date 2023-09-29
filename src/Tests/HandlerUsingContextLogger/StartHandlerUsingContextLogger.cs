@@ -1,4 +1,2 @@
 ﻿public class StartHandlerUsingContextLogger :
-    IMessage
-{
-}
+    IMessage;

@@ -1,4 +1,2 @@
 ﻿public class StartHandlerThatLogs :
-    IMessage
-{
-}
+    IMessage;

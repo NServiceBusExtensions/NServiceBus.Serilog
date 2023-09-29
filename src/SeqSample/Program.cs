@@ -1,4 +1,4 @@
-﻿Logger ConfigureSerilog()
+﻿static Logger ConfigureSerilog()
 {
     #region ConfigureSerilog
 

@@ -1,4 +1,4 @@
-﻿void ConfigureSerilog()
+﻿static void ConfigureSerilog()
 {
     #region ConfigureSerilog
 

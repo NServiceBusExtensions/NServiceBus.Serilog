@@ -1,4 +1,2 @@
 ﻿public class MyMessage :
-    IMessage
-{
-}
+    IMessage;

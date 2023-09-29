@@ -31,8 +31,5 @@ public class InjectIncomingLogicalBehaviorTests
         await Verify(context);
     }
 
-    class Message1
-    {
-
-    }
+    class Message1;
 }

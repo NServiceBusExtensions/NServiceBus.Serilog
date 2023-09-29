@@ -57,13 +57,7 @@ public class InjectIncomingBehaviorTests
         await Verify(context);
     }
 
-    class Message1
-    {
+    class Message1;
 
-    }
-
-    class Message2
-    {
-
-    }
+    class Message2;
 }
