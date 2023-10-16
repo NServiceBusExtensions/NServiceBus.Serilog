@@ -6,6 +6,7 @@
     <LangVersion>preview</LangVersion>
     <Description>Add support for sending NServiceBus logging through Serilog</Description>
     <ImplicitUsings>enable</ImplicitUsings>
+    <ResolveAssemblyReferencesSilent>true</ResolveAssemblyReferencesSilent>
   </PropertyGroup>
 
   <ItemGroup>
