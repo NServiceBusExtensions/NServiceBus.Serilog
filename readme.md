@@ -533,15 +533,9 @@ serilogTracing.EnableMessageTracing();
 <!-- snippet: WriteStartupDiagnostics -->
 <a id='snippet-writestartupdiagnostics'></a>
 ```cs
-class StartupDiagnostics :
+class StartupDiagnostics(IReadOnlySettings settings, ILogger logger) :
     FeatureStartupTask
 {
-    public StartupDiagnostics(IReadOnlySettings settings, ILogger logger)
-    {
-        this.settings = settings;
-        this.logger = logger.ForContext<StartupDiagnostics>();
-    }
-
     protected override Task OnStart(IMessageSession session, Cancel cancel = default)
     {
         var properties = BuildProperties(settings, logger);
@@ -591,11 +585,10 @@ class StartupDiagnostics :
     protected override Task OnStop(IMessageSession session, Cancel cancel = default) =>
         Task.CompletedTask;
 
-    IReadOnlySettings settings;
-    ILogger logger;
+    ILogger logger = logger.ForContext<StartupDiagnostics>();
 }
 ```
-<sup><a href='/src/NServiceBus.Serilog/StartupDiagnostics/WriteStartupDiagnostics.cs#L1-L65' title='Snippet source file'>snippet source</a> | <a href='#snippet-writestartupdiagnostics' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/NServiceBus.Serilog/StartupDiagnostics/WriteStartupDiagnostics.cs#L1-L58' title='Snippet source file'>snippet source</a> | <a href='#snippet-writestartupdiagnostics' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 

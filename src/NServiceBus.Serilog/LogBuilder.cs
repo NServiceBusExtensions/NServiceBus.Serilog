@@ -1,17 +1,16 @@
-﻿class LogBuilder
+﻿class LogBuilder(ILogger logger, string endpointName)
 {
     ConcurrentDictionary<string, ILogger> loggers = new();
 
-    public LogBuilder(ILogger logger, string endpointName) =>
-        Logger = logger
-            .ForContext(new[]
-            {
-                new PropertyEnricher("ProcessingEndpoint", endpointName)
-            });
-
-    public ILogger Logger { get; }
+    public ILogger Logger { get; } = logger
+        .ForContext(
+        [
+            new PropertyEnricher("ProcessingEndpoint", endpointName)
+        ]);
 
     public ILogger GetLogger(string key) =>
-        loggers.GetOrAdd(key, _ =>  Logger
-            .ForContext(Constants.SourceContextPropertyName, _));
+        loggers.GetOrAdd(
+            key,
+            _ => Logger
+                .ForContext(Constants.SourceContextPropertyName, _));
 }

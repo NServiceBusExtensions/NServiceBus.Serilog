@@ -1,7 +1,7 @@
 static class HeaderAppender
 {
-    static List<string> excludeHeaders = new()
-    {
+    static List<string> excludeHeaders =
+    [
         Headers.EnclosedMessageTypes,
         Headers.ProcessingEndpoint,
         Headers.ContentType,
@@ -9,7 +9,7 @@ static class HeaderAppender
         Headers.ConversationId,
         Headers.NServiceBusVersion,
         Headers.MessageId
-    };
+    ];
 
     public static IEnumerable<LogEventProperty> BuildHeaders(IReadOnlyDictionary<string, string> headers, ConvertHeader? convertHeader)
     {

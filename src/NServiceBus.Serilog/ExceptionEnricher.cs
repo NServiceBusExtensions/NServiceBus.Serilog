@@ -1,11 +1,6 @@
-﻿class ExceptionEnricher :
+﻿class ExceptionEnricher(ConvertHeader? header) :
     ILogEventEnricher
 {
-    ConvertHeader? convertHeader;
-
-    public ExceptionEnricher(ConvertHeader? convertHeader) =>
-        this.convertHeader = convertHeader;
-
     public void Enrich(LogEvent logEvent, ILogEventPropertyFactory propertyFactory)
     {
         var exception = logEvent.Exception;
@@ -73,7 +68,7 @@
                 }
             }
 
-            foreach (var property in HeaderAppender.BuildHeaders(logState.IncomingHeaders, convertHeader))
+            foreach (var property in HeaderAppender.BuildHeaders(logState.IncomingHeaders, header))
             {
                 logEvent.AddPropertyIfAbsent(property);
             }

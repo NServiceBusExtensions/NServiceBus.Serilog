@@ -1,14 +1,8 @@
 ﻿#region WriteStartupDiagnostics
 
-class StartupDiagnostics :
+class StartupDiagnostics(IReadOnlySettings settings, ILogger logger) :
     FeatureStartupTask
 {
-    public StartupDiagnostics(IReadOnlySettings settings, ILogger logger)
-    {
-        this.settings = settings;
-        this.logger = logger.ForContext<StartupDiagnostics>();
-    }
-
     protected override Task OnStart(IMessageSession session, Cancel cancel = default)
     {
         var properties = BuildProperties(settings, logger);
@@ -58,8 +52,7 @@ class StartupDiagnostics :
     protected override Task OnStop(IMessageSession session, Cancel cancel = default) =>
         Task.CompletedTask;
 
-    IReadOnlySettings settings;
-    ILogger logger;
+    ILogger logger = logger.ForContext<StartupDiagnostics>();
 }
 
 #endregion
