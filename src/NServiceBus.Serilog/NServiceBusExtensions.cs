@@ -42,7 +42,7 @@
         return "Send";
     }
 
-    static Dictionary<string, string> emptyDictionary = new();
+    static Dictionary<string, string> emptyDictionary = [];
 
     public static List<string> UnicastAddresses(this IOutgoingPhysicalMessageContext context) =>
         context.RoutingStrategies

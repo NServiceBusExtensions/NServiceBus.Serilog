@@ -7,8 +7,8 @@ namespace NServiceBus.Serilog;
 /// </summary>
 public static class TypeNameConverter
 {
-    static ConcurrentDictionary<string, string> longNameToNameCache = new();
-    static ConcurrentDictionary<Type, TypeName> typeToNameCache = new();
+    static ConcurrentDictionary<string, string> longNameToNameCache = [];
+    static ConcurrentDictionary<Type, TypeName> typeToNameCache = [];
 
     /// <summary>
     /// Get a short type name from a long type name.

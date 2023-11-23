@@ -1,6 +1,6 @@
 ﻿class LogBuilder(ILogger logger, string endpointName)
 {
-    ConcurrentDictionary<string, ILogger> loggers = new();
+    ConcurrentDictionary<string, ILogger> loggers = [];
 
     public ILogger Logger { get; } = logger
         .ForContext(

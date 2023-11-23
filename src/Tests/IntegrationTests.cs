@@ -9,7 +9,7 @@ public class IntegrationTests
 
     static IntegrationTests()
     {
-        logs = new();
+        logs = [];
         var eventSink = new EventSink(logs.Add);
 
         var configuration = new LoggerConfiguration();
