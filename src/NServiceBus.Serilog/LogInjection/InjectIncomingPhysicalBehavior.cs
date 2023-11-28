@@ -1,28 +1,12 @@
-﻿class InjectIncomingPhysicalBehavior :
+﻿class InjectIncomingPhysicalBehavior(LogBuilder builder, string endpoint) :
     Behavior<IIncomingPhysicalMessageContext>
 {
-    LogBuilder logBuilder;
-    string endpoint;
-
-    public InjectIncomingPhysicalBehavior(LogBuilder logBuilder, string endpoint)
-    {
-        this.logBuilder = logBuilder;
-        this.endpoint = endpoint;
-    }
-
-    public class Registration :
-        RegisterStep
-    {
-        public Registration(LogBuilder logBuilder, string endpoint) :
-            base(
-                stepId: $"Serilog{nameof(InjectIncomingPhysicalBehavior)}",
-                behavior: typeof(InjectIncomingPhysicalBehavior),
-                description: "Injects a logger into the incoming physical context",
-                factoryMethod: _ => new InjectIncomingPhysicalBehavior(logBuilder, endpoint)
-            )
-        {
-        }
-    }
+    public class Registration(LogBuilder logBuilder, string endpoint) :
+        RegisterStep(
+            stepId: $"Serilog{nameof(InjectIncomingPhysicalBehavior)}",
+            behavior: typeof(InjectIncomingPhysicalBehavior),
+            description: "Injects a logger into the incoming physical context",
+            factoryMethod: _ => new InjectIncomingPhysicalBehavior(logBuilder, endpoint));
 
     public override async Task Invoke(IIncomingPhysicalMessageContext context, Func<Task> next)
     {
@@ -40,14 +24,14 @@
             properties.Add(new("IncomingMessageTypes", names));
             properties.Add(new("IncomingMessageTypesLong", split));
             var messageTypeName = string.Join(";", names);
-            logger = logBuilder.GetLogger(messageTypeName);
+            logger = builder.GetLogger(messageTypeName);
         }
         else
         {
             properties.Add(new("IncomingMessageTypes", Array.Empty<string>()));
             properties.Add(new("IncomingMessageTypesLong", Array.Empty<string>()));
 
-            logger = logBuilder.GetLogger("UnknownMessageTypes");
+            logger = builder.GetLogger("UnknownMessageTypes");
         }
 
         if (headers.TryGetValue(Headers.CorrelationId, out var correlationId))
