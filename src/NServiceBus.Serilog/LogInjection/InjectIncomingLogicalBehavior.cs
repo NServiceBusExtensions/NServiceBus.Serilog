@@ -1,24 +1,12 @@
-﻿class InjectIncomingLogicalBehavior :
+﻿class InjectIncomingLogicalBehavior(LogBuilder builder) :
     Behavior<IIncomingLogicalMessageContext>
 {
-    LogBuilder logBuilder;
-
-    public InjectIncomingLogicalBehavior(LogBuilder logBuilder) =>
-        this.logBuilder = logBuilder;
-
-    public class Registration :
-        RegisterStep
-    {
-        public Registration(LogBuilder logBuilder) :
-            base(
-                stepId: Name,
-                behavior: typeof(InjectIncomingLogicalBehavior),
-                description: "Injects a logger into the incoming logical context",
-                factoryMethod: _ => new InjectIncomingLogicalBehavior(logBuilder)
-            )
-        {
-        }
-    }
+    public class Registration(LogBuilder logBuilder) :
+        RegisterStep(
+            stepId: Name,
+            behavior: typeof(InjectIncomingLogicalBehavior),
+            description: "Injects a logger into the incoming logical context",
+            factoryMethod: _ => new InjectIncomingLogicalBehavior(logBuilder));
 
     public static string Name = $"Serilog{nameof(InjectIncomingLogicalBehavior)}";
 
@@ -45,7 +33,7 @@
             new("IncomingMessageType", typeName.MessageTypeName),
             new("IncomingMessageTypeLong", typeName.LongName)
         };
-        var logger = logBuilder.GetLogger(typeName.MessageTypeName);
+        var logger = builder.GetLogger(typeName.MessageTypeName);
 
         var headers = context.MessageHeaders;
         if (headers.TryGetValue(Headers.CorrelationId, out var correlationId))

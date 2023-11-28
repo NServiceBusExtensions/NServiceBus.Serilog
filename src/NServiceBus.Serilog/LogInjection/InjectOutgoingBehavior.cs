@@ -48,16 +48,10 @@
         }
     }
 
-    public class Registration :
-        RegisterStep
-    {
-        public Registration(LogBuilder logBuilder) :
-            base(
-                stepId: $"Serilog{nameof(InjectOutgoingBehavior)}",
-                behavior: typeof(InjectOutgoingBehavior),
-                description: "Injects a logger into the outgoing context",
-                factoryMethod: _ => new InjectOutgoingBehavior(logBuilder))
-        {
-        }
-    }
+    public class Registration(LogBuilder logBuilder) :
+        RegisterStep(
+            stepId: $"Serilog{nameof(InjectOutgoingBehavior)}",
+            behavior: typeof(InjectOutgoingBehavior),
+            description: "Injects a logger into the outgoing context",
+            factoryMethod: _ => new InjectOutgoingBehavior(logBuilder));
 }

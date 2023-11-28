@@ -38,16 +38,10 @@
         updatedMessage.ResultingMessages.Add(resultingMessage);
     }
 
-    public class Registration :
-        RegisterStep
-    {
-        public Registration() :
-            base(
-                stepId: $"Serilog{nameof(CaptureSagaResultingBehavior)}",
-                behavior: typeof(CaptureSagaResultingBehavior),
-                description: "Reports messages outgoing from a saga to Serilog",
-                factoryMethod: _ => new CaptureSagaResultingBehavior())
-        {
-        }
-    }
+    public class Registration() :
+        RegisterStep(
+            stepId: $"Serilog{nameof(CaptureSagaResultingBehavior)}",
+            behavior: typeof(CaptureSagaResultingBehavior),
+            description: "Reports messages outgoing from a saga to Serilog",
+            factoryMethod: _ => new CaptureSagaResultingBehavior());
 }

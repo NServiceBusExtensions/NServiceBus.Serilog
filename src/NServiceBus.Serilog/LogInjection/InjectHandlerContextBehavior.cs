@@ -1,17 +1,11 @@
 ﻿class InjectHandlerContextBehavior :
     Behavior<IInvokeHandlerContext>
 {
-    public class Registration :
-        RegisterStep
-    {
-        public Registration() :
-            base(
-                stepId: $"Serilog{nameof(InjectHandlerContextBehavior)}",
-                behavior: typeof(InjectHandlerContextBehavior),
-                description: "Injects logger into the handler context")
-        {
-        }
-    }
+    public class Registration() :
+        RegisterStep(
+            stepId: $"Serilog{nameof(InjectHandlerContextBehavior)}",
+            behavior: typeof(InjectHandlerContextBehavior),
+            description: "Injects logger into the handler context");
 
     public override async Task Invoke(IInvokeHandlerContext context, Func<Task> next)
     {

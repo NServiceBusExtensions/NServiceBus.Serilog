@@ -1,16 +1,11 @@
-﻿public class TheHandlerThatLogs :
+﻿public class TheHandlerThatLogs(ManualResetEvent @event) :
     IHandleMessages<StartHandlerThatLogs>
 {
-    ManualResetEvent resetEvent;
-
-    public TheHandlerThatLogs(ManualResetEvent resetEvent) =>
-        this.resetEvent = resetEvent;
-
     public Task Handle(StartHandlerThatLogs message, HandlerContext context)
     {
         var logger = LogManager.GetLogger<TheHandlerThatThrows>();
         logger.Error("The message", new());
-        resetEvent.Set();
+        @event.Set();
         return Task.CompletedTask;
     }
 }

@@ -38,16 +38,10 @@
         logger.WriteInfo(messageTemplate, properties);
     }
 
-    public class Registration :
-        RegisterStep
-    {
-        public Registration(ConvertHeader convertHeader) :
-            base(
-                stepId: $"Serilog{nameof(LogOutgoingBehavior)}",
-                behavior: typeof(LogOutgoingBehavior),
-                description: "Logs outgoing messages",
-                factoryMethod: _ => new LogOutgoingBehavior(convertHeader))
-        {
-        }
-    }
+    public class Registration(ConvertHeader convertHeader) :
+        RegisterStep(
+            stepId: $"Serilog{nameof(LogOutgoingBehavior)}",
+            behavior: typeof(LogOutgoingBehavior),
+            description: "Logs outgoing messages",
+            factoryMethod: _ => new LogOutgoingBehavior(convertHeader));
 }

@@ -1,11 +1,6 @@
-﻿class LoggerFactory :
+﻿class LoggerFactory(ILogger logger) :
     ILoggerFactory
 {
-    ILogger logger;
-
-    public LoggerFactory(ILogger logger) =>
-        this.logger = logger;
-
     public ILog GetLogger(Type type)
     {
         var contextLogger = logger.ForContext(type);

@@ -1,15 +1,10 @@
-﻿public class GenericHandler :
+﻿public class GenericHandler(ManualResetEvent @event) :
     IHandleMessages<StartGenericHandler<string>>
 {
-    ManualResetEvent resetEvent;
-
-    public GenericHandler(ManualResetEvent resetEvent) =>
-        this.resetEvent = resetEvent;
-
     public Task Handle(StartGenericHandler<string> message, HandlerContext context)
     {
         context.LogInformation("Hello from {@Handler}.");
-        resetEvent.Set();
+        @event.Set();
         return Task.CompletedTask;
     }
 }
