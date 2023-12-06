@@ -25,9 +25,15 @@
 
         var resultingMessage = new Dictionary<string, string>
         {
-            {"Id", context.MessageId},
-            {"Type", messageType},
-            {"Intent", context.MessageIntent()}
+            {
+                "Id", context.MessageId
+            },
+            {
+                "Type", messageType
+            },
+            {
+                "Intent", context.MessageIntent()
+            }
         };
         var destination = context.GetDestinationForUnicastMessages();
         if (destination is not null)

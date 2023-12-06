@@ -3,7 +3,8 @@
     IAmStartedByMessages<CreateUser>
 {
     protected override void ConfigureHowToFindSaga(SagaPropertyMapper<CreateUserSagaData> mapper) =>
-        mapper.ConfigureMapping<CreateUser>(message => message.UserName)
+        mapper
+            .ConfigureMapping<CreateUser>(message => message.UserName)
             .ToSaga(sagaData => sagaData.UserName);
 
     public Task Handle(CreateUser message, HandlerContext context)

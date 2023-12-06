@@ -3,7 +3,7 @@
 namespace NServiceBus.Serilog;
 
 /// <summary>
-/// Converts a <see cref="Type"/> or a long type name to a short type name.
+/// Converts a <see cref="Type" /> or a long type name to a short type name.
 /// </summary>
 public static class TypeNameConverter
 {
@@ -20,7 +20,8 @@ public static class TypeNameConverter
     {
         if (TryGetType(typeName, out var type))
         {
-            return FormatForDisplay(type).MessageTypeName;
+            return FormatForDisplay(type)
+                .MessageTypeName;
         }
 
         var indexOfComma = typeName.IndexOf(',');
@@ -95,6 +96,7 @@ public static class TypeNameConverter
 
         return $"{type.Namespace}.{messageTypeName}, {assemblyName.Name}, Version={assemblyName.Version}";
     }
+
     static void FormatForDisplay(Type type, StringBuilder builder)
     {
         if (type.IsNested)

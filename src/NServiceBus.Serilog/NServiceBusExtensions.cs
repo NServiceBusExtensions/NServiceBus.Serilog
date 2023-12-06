@@ -45,9 +45,10 @@
     static Dictionary<string, string> emptyDictionary = [];
 
     public static List<string> UnicastAddresses(this IOutgoingPhysicalMessageContext context) =>
-        context.RoutingStrategies
+        context
+            .RoutingStrategies
             .OfType<UnicastRoutingStrategy>()
-            .Select(_ =>  ((UnicastAddressTag) _.Apply(emptyDictionary)).Destination)
+            .Select(_ => ((UnicastAddressTag) _.Apply(emptyDictionary)).Destination)
             .ToList();
 
     public static DateTimeOffset TimeSent(this IInvokeHandlerContext context) =>
@@ -65,15 +66,18 @@
 
     public static string? GetDestinationForUnicastMessages(this IOutgoingLogicalMessageContext context)
     {
-        var sendAddressTags = context.RoutingStrategies
+        var sendAddressTags = context
+            .RoutingStrategies
             .OfType<UnicastRoutingStrategy>()
             .Select(urs => urs.Apply(context.Headers))
-            .Cast<UnicastAddressTag>().ToList();
+            .Cast<UnicastAddressTag>()
+            .ToList();
         if (sendAddressTags.Count != 1)
         {
             return null;
         }
 
-        return sendAddressTags.First().Destination;
+        return sendAddressTags.First()
+            .Destination;
     }
 }

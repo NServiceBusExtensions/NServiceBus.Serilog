@@ -13,7 +13,7 @@
 
     public ILogger ForContext(string propertyName, object? value, bool destructureObjects = false)
     {
-        ContextKey = (string?)value;
+        ContextKey = (string?) value;
         return this;
     }
 

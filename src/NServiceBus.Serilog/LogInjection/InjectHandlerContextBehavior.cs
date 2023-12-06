@@ -11,7 +11,9 @@
     {
         var handler = context.HandlerType();
         var bag = context.Extensions;
-        var forContext = context.Logger().ForContext("Handler", handler);
+        var forContext = context
+            .Logger()
+            .ForContext("Handler", handler);
         try
         {
             bag.Set("SerilogHandlerLogger", forContext);

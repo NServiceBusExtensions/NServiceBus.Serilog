@@ -4,7 +4,8 @@
     IHandleTimeouts<SagaTimeout>
 {
     protected override void ConfigureHowToFindSaga(SagaPropertyMapper<MySagaData> mapper) =>
-        mapper.ConfigureMapping<CreateUser>(_ => _.UserName)
+        mapper
+            .ConfigureMapping<CreateUser>(_ => _.UserName)
             .ToSaga(s => s.UserName);
 
     public Task Handle(CreateUser message, HandlerContext context)

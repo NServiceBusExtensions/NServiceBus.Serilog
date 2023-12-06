@@ -14,6 +14,7 @@ Console.Title = "SerilogSample";
 ConfigureSerilog();
 
 #region UseConfig
+
 LogManager.Use<SerilogFactory>();
 
 var configuration = new EndpointConfiguration("SerilogSample");
@@ -28,7 +29,10 @@ var message = new MyMessage();
 await endpoint.SendLocal(message);
 Console.WriteLine("Press any key to exit");
 Console.ReadKey();
+
 #region Cleanup
+
 await endpoint.Stop();
 Log.CloseAndFlush();
+
 #endregion

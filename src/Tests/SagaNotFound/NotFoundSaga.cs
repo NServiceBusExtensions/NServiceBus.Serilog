@@ -3,7 +3,8 @@
     IAmStartedByMessages<NotFoundSagaMessage>
 {
     protected override void ConfigureHowToFindSaga(SagaPropertyMapper<TheSagaData> mapper) =>
-        mapper.ConfigureMapping<NotFoundSagaMessage>(_ => _.Property)
+        mapper
+            .ConfigureMapping<NotFoundSagaMessage>(_ => _.Property)
             .ToSaga(s => s.Property);
 
     public class TheSagaData :

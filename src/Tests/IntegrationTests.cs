@@ -121,7 +121,8 @@ public class IntegrationTests
                 Property = "TheProperty"
             });
         var logEvents = events.ToList();
-        await Verify<StartSaga>(logEvents).ScrubMember("Serilog.SagaStateChange");
+        await Verify<StartSaga>(logEvents)
+            .ScrubMember("Serilog.SagaStateChange");
     }
 
     [Fact]
@@ -140,13 +141,19 @@ public class IntegrationTests
     static SettingsTask Verify<T>(IEnumerable<LogEventEx> logEvents)
     {
         var list = logEvents.ToList();
-        var logsForTarget = list.LogsForType<T>().ToList();
+        var logsForTarget = list
+            .LogsForType<T>()
+            .ToList();
         return Verifier.Verify(
             new
             {
                 logsForTarget,
-                logsForNsbSerilog = list.LogsForNsbSerilog().ToList(),
-                logsWithExceptions = list.LogsWithExceptions().ToList()
+                logsForNsbSerilog = list
+                    .LogsForNsbSerilog()
+                    .ToList(),
+                logsWithExceptions = list
+                    .LogsWithExceptions()
+                    .ToList()
             });
     }
 
@@ -156,7 +163,8 @@ public class IntegrationTests
         Action<EndpointConfiguration>? extraConfiguration = null)
     {
         logs.Clear();
-        var suffix = TypeNameConverter.GetName(message.GetType())
+        var suffix = TypeNameConverter
+            .GetName(message.GetType())
             .MessageTypeName
             .Replace("<", "_")
             .Replace(">", "_");
@@ -211,7 +219,7 @@ public class IntegrationTests
         await endpoint.Stop();
 
         return logs
-            .Where(_ =>  !_.MessageTemplate.Text.StartsWith("Operation canceled"))
+            .Where(_ => !_.MessageTemplate.Text.StartsWith("Operation canceled"))
             .Select(_ =>
                 new LogEventEx
                 (

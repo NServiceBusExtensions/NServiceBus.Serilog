@@ -61,7 +61,8 @@
 
         var properties = new List<LogEventProperty>
         {
-            new("SagaType", new ScalarValue(saga.GetType().Name)),
+            new("SagaType", new ScalarValue(saga.GetType()
+                .Name)),
             new("SagaId", new ScalarValue(sagaId)),
             new("StartTime", new ScalarValue(startTime)),
             new("FinishTime", new ScalarValue(finishTime)),
@@ -93,13 +94,28 @@
     {
         var initiator = new Dictionary<ScalarValue, LogEventPropertyValue>
         {
-            {new("IsSagaTimeout"), new ScalarValue(context.IsTimeoutMessage())},
-            {new("MessageId"), new ScalarValue(messageId)},
-            {new("OriginatingMachine"), new ScalarValue(context.OriginatingMachine())},
-            {new("OriginatingEndpoint"), new ScalarValue(context.OriginatingEndpoint())},
-            {new("MessageType"), new ScalarValue(TypeNameConverter.GetName(context.MessageType()).MessageTypeName)},
-            {new("TimeSent"), new ScalarValue(context.TimeSent())},
-            {new("Intent"), new ScalarValue(context.MessageIntent())}
+            {
+                new("IsSagaTimeout"), new ScalarValue(context.IsTimeoutMessage())
+            },
+            {
+                new("MessageId"), new ScalarValue(messageId)
+            },
+            {
+                new("OriginatingMachine"), new ScalarValue(context.OriginatingMachine())
+            },
+            {
+                new("OriginatingEndpoint"), new ScalarValue(context.OriginatingEndpoint())
+            },
+            {
+                new("MessageType"), new ScalarValue(TypeNameConverter.GetName(context.MessageType())
+                    .MessageTypeName)
+            },
+            {
+                new("TimeSent"), new ScalarValue(context.TimeSent())
+            },
+            {
+                new("Intent"), new ScalarValue(context.MessageIntent())
+            }
         };
         properties.Add(new("Initiator", new DictionaryValue(initiator)));
     }

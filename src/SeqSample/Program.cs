@@ -35,13 +35,16 @@ var createUser = new CreateUser
 {
     UserName = "jsmith",
     FamilyName = "Smith",
-    GivenNames = "John",
+    GivenNames = "John"
 };
 await endpoint.SendLocal(createUser);
 Console.WriteLine("Message sent");
 Console.WriteLine("Press any key to exit");
 Console.ReadKey();
+
 #region Cleanup
+
 await endpoint.Stop();
 Log.CloseAndFlush();
+
 #endregion

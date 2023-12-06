@@ -16,7 +16,7 @@ class TracingUsage
         #endregion
     }
 
-    private static Serilog.Core.Logger SerilogTracingLogger()
+    static Serilog.Core.Logger SerilogTracingLogger()
     {
         #region SerilogTracingLogger
 

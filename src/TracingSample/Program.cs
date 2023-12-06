@@ -16,14 +16,20 @@ configuration.UsePersistence<NonDurablePersistence>();
 configuration.UseTransport<LearningTransport>();
 configuration.SendFailedMessagesTo("error");
 var recoverability = configuration.Recoverability();
-recoverability.Delayed(settings => { settings.NumberOfRetries(1); });
-recoverability.Immediate(settings => { settings.NumberOfRetries(1); });
+recoverability.Delayed(settings =>
+{
+    settings.NumberOfRetries(1);
+});
+recoverability.Immediate(settings =>
+{
+    settings.NumberOfRetries(1);
+});
 var endpoint = await Endpoint.Start(configuration);
 var createUser = new CreateUser
 {
     UserName = "jsmith",
     FamilyName = "Smith",
-    GivenNames = "John",
+    GivenNames = "John"
 };
 await endpoint.SendLocal(createUser);
 //  await endpoint.ScheduleEvery(TimeSpan.FromSeconds(1), context => context.SendLocal(createUser));

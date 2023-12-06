@@ -1,4 +1,4 @@
-﻿public class StartGenericHandler<T>:
+﻿public class StartGenericHandler<T> :
     IMessage
 {
     public T? Property { get; set; }
