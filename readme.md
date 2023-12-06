@@ -169,7 +169,7 @@ public class HandlerUsingLogger :
     }
 }
 ```
-<sup><a href='/src/Tests/Snippets/ContextualLoggerUsage.cs#L1-L13' title='Snippet source file'>snippet source</a> | <a href='#snippet-contextualloggerusage' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Snippets/ContextualLoggerUsage.cs#L1-L14' title='Snippet source file'>snippet source</a> | <a href='#snippet-contextualloggerusage' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -190,7 +190,7 @@ public class HandlerUsingLog :
     }
 }
 ```
-<sup><a href='/src/Tests/Snippets/ContextualLoggerUsage.cs#L15-L26' title='Snippet source file'>snippet source</a> | <a href='#snippet-directlogusage' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Snippets/ContextualLoggerUsage.cs#L16-L28' title='Snippet source file'>snippet source</a> | <a href='#snippet-directlogusage' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -648,7 +648,7 @@ LogManager.Use<SerilogFactory>();
 
 var configuration = new EndpointConfiguration("SerilogSample");
 ```
-<sup><a href='/src/Sample/Program.cs#L16-L21' title='Snippet source file'>snippet source</a> | <a href='#snippet-useconfig' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Sample/Program.cs#L16-L22' title='Snippet source file'>snippet source</a> | <a href='#snippet-useconfig' title='Start of snippet'>anchor</a></sup>
 <a id='snippet-useconfig-1'></a>
 ```cs
 var configuration = new EndpointConfiguration("SeqSample");
@@ -668,13 +668,13 @@ serilogTracing.EnableMessageTracing();
 await endpoint.Stop();
 Log.CloseAndFlush();
 ```
-<sup><a href='/src/Sample/Program.cs#L31-L34' title='Snippet source file'>snippet source</a> | <a href='#snippet-cleanup' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Sample/Program.cs#L33-L38' title='Snippet source file'>snippet source</a> | <a href='#snippet-cleanup' title='Start of snippet'>anchor</a></sup>
 <a id='snippet-cleanup-1'></a>
 ```cs
 await endpoint.Stop();
 Log.CloseAndFlush();
 ```
-<sup><a href='/src/SeqSample/Program.cs#L44-L47' title='Snippet source file'>snippet source</a> | <a href='#snippet-cleanup-1' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/SeqSample/Program.cs#L45-L50' title='Snippet source file'>snippet source</a> | <a href='#snippet-cleanup-1' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -722,7 +722,7 @@ LogManager.Use<SerilogFactory>();
 
 var configuration = new EndpointConfiguration("SerilogSample");
 ```
-<sup><a href='/src/Sample/Program.cs#L16-L21' title='Snippet source file'>snippet source</a> | <a href='#snippet-useconfig' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Sample/Program.cs#L16-L22' title='Snippet source file'>snippet source</a> | <a href='#snippet-useconfig' title='Start of snippet'>anchor</a></sup>
 <a id='snippet-useconfig-1'></a>
 ```cs
 var configuration = new EndpointConfiguration("SeqSample");
@@ -742,13 +742,13 @@ serilogTracing.EnableMessageTracing();
 await endpoint.Stop();
 Log.CloseAndFlush();
 ```
-<sup><a href='/src/Sample/Program.cs#L31-L34' title='Snippet source file'>snippet source</a> | <a href='#snippet-cleanup' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Sample/Program.cs#L33-L38' title='Snippet source file'>snippet source</a> | <a href='#snippet-cleanup' title='Start of snippet'>anchor</a></sup>
 <a id='snippet-cleanup-1'></a>
 ```cs
 await endpoint.Stop();
 Log.CloseAndFlush();
 ```
-<sup><a href='/src/SeqSample/Program.cs#L44-L47' title='Snippet source file'>snippet source</a> | <a href='#snippet-cleanup-1' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/SeqSample/Program.cs#L45-L50' title='Snippet source file'>snippet source</a> | <a href='#snippet-cleanup-1' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
