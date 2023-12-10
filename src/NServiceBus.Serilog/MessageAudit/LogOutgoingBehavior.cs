@@ -13,7 +13,9 @@
 
     public override Task Invoke(IOutgoingPhysicalMessageContext context, Func<Task> next)
     {
-        var message = context.Extensions.Get<OutgoingLogicalMessage>().Instance;
+        var message = context.Extensions
+            .Get<OutgoingLogicalMessage>()
+            .Instance;
         LogMessage(context, context.Logger(), message);
         return next();
     }
@@ -30,7 +32,7 @@
         var addresses = context.UnicastAddresses();
         if (addresses.Count > 0)
         {
-            var sequence = new SequenceValue(addresses.Select(_ =>  new ScalarValue(_)));
+            var sequence = new SequenceValue(addresses.Select(_ => new ScalarValue(_)));
             properties.Add(new("UnicastRoutes", sequence));
         }
 

@@ -12,7 +12,7 @@ public static partial class SerilogTracingExtensions
         configuration.EnableSerilogTracing(Log.Logger);
 
     /// <summary>
-    /// Take NSB specific info from <see cref="Exception.Data"/> and promotes it to Serilog properties.
+    /// Take NSB specific info from <see cref="Exception.Data" /> and promotes it to Serilog properties.
     /// </summary>
     public static LoggerEnrichmentConfiguration WithNsbExceptionDetails(this LoggerEnrichmentConfiguration configuration, ConvertHeader? convertHeader = null)
     {
@@ -36,7 +36,7 @@ public static partial class SerilogTracingExtensions
         settings.Get<SerilogTracingSettings>();
 
     /// <summary>
-    /// Get the current <see cref="ILogger"/> for this context.
+    /// Get the current <see cref="ILogger" /> for this context.
     /// </summary>
     public static ILogger Logger(this IPipelineContext context)
     {
@@ -73,8 +73,8 @@ public static partial class SerilogTracingExtensions
         }
 
         throw new($"""
-            Expected to find a `{nameof(ILogger)}` in the pipeline context.
-            It is possible NServiceBus.Serilog has not been enabled using a call to `{nameof(SerilogTracingExtensions)}.{nameof(EnableSerilogTracing)}()`.
-            """);
+                   Expected to find a `{nameof(ILogger)}` in the pipeline context.
+                   It is possible NServiceBus.Serilog has not been enabled using a call to `{nameof(SerilogTracingExtensions)}.{nameof(EnableSerilogTracing)}()`.
+                   """);
     }
 }

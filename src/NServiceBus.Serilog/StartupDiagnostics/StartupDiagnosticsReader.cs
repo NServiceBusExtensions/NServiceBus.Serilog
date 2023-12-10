@@ -3,7 +3,9 @@
     public static List<StartupDiagnosticEntries.StartupDiagnosticEntry> ReadStartupDiagnosticEntries(this IReadOnlySettings readOnlySettings)
     {
         var diagnosticEntries = readOnlySettings.Get<StartupDiagnosticEntries>();
-        var field = diagnosticEntries.GetType().GetField("entries", BindingFlags.Instance | BindingFlags.NonPublic);
+        var field = diagnosticEntries
+            .GetType()
+            .GetField("entries", BindingFlags.Instance | BindingFlags.NonPublic);
         if (field is null)
         {
             throw new($"Could not extract 'entries' field from {nameof(StartupDiagnosticEntries)}.");

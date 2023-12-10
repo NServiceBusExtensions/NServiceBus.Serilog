@@ -14,6 +14,7 @@
     }
 
     public static string Name = $"Serilog{nameof(LogIncomingBehavior)}";
+
     public class Registration :
         RegisterStep
     {
@@ -40,7 +41,7 @@
         {
             new("StartTime", new ScalarValue(startTime)),
             new("FinishTime", new ScalarValue(finishTime)),
-            new("ElapsedTime", new ScalarValue((finishTime - startTime).TotalSeconds)),
+            new("ElapsedTime", new ScalarValue((finishTime - startTime).TotalSeconds))
         };
 
         if (logger.BindProperty("IncomingMessage", message.Instance, out var property))

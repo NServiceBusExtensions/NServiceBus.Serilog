@@ -20,7 +20,9 @@
         if (headers.TryGetValue(Headers.EnclosedMessageTypes, out var enclosedMessageTypes))
         {
             var split = enclosedMessageTypes.Split(';');
-            var names = split.Select(TypeNameConverter.GetName).ToList();
+            var names = split
+                .Select(TypeNameConverter.GetName)
+                .ToList();
             properties.Add(new("IncomingMessageTypes", names));
             properties.Add(new("IncomingMessageTypesLong", split));
             var messageTypeName = string.Join(";", names);

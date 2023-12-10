@@ -10,6 +10,7 @@ public class HandlerUsingLogger :
         return Task.CompletedTask;
     }
 }
+
 #endregion
 
 #region DirectLogUsage
@@ -23,4 +24,5 @@ public class HandlerUsingLog :
         return Task.CompletedTask;
     }
 }
+
 #endregion
