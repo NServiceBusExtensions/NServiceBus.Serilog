@@ -752,7 +752,6 @@ Log.CloseAndFlush();
 <!-- endSnippet -->
 
 
-
 ## Icon
 
 [Brain](https://thenounproject.com/noun/brain/#icon-No10411) designed by [Rémy Médard](https://thenounproject.com/catalarem) from [The Noun Project](https://thenounproject.com).
