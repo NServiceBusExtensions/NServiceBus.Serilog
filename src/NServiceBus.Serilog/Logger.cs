@@ -1,11 +1,6 @@
-﻿class Logger :
+﻿class Logger(ILogger logger) :
     ILog
 {
-    ILogger logger;
-
-    public Logger(ILogger logger) =>
-        this.logger = logger;
-
     public void Debug(string message) =>
         logger.Debug(message);
 
