@@ -2,11 +2,13 @@
     Behavior<IOutgoingPhysicalMessageContext>
 {
     ConvertHeader convertHeader;
-    MessageTemplate messageTemplate;
+    static MessageTemplate messageTemplate;
 
-    LogOutgoingBehavior(ConvertHeader convertHeader)
-    {
+    LogOutgoingBehavior(ConvertHeader convertHeader) =>
         this.convertHeader = convertHeader;
+
+    static LogOutgoingBehavior()
+    {
         var templateParser = new MessageTemplateParser();
         messageTemplate = templateParser.Parse("Sent message {OutgoingMessageType} {OutgoingMessageId}.");
     }
