@@ -66,18 +66,16 @@
 
     public static string? GetDestinationForUnicastMessages(this IOutgoingLogicalMessageContext context)
     {
-        var sendAddressTags = context
-            .RoutingStrategies
-            .OfType<UnicastRoutingStrategy>()
-            .Select(urs => urs.Apply(context.Headers))
-            .Cast<UnicastAddressTag>()
-            .ToList();
-        if (sendAddressTags.Count != 1)
+        foreach (var strategy in context
+                     .RoutingStrategies)
         {
-            return null;
+            if (strategy is UnicastRoutingStrategy unicastRouting)
+            {
+                var tag = (UnicastAddressTag) unicastRouting.Apply(context.Headers);
+                return tag.Destination;
+            }
         }
 
-        return sendAddressTags.First()
-            .Destination;
+        return null;
     }
 }
