@@ -72,9 +72,10 @@ public static partial class SerilogTracingExtensions
             }
         }
 
-        throw new($"""
-                   Expected to find a `{nameof(ILogger)}` in the pipeline context.
-                   It is possible NServiceBus.Serilog has not been enabled using a call to `{nameof(SerilogTracingExtensions)}.{nameof(EnableSerilogTracing)}()`.
-                   """);
+        throw new(
+            $"""
+             Expected to find a `{nameof(ILogger)}` in the pipeline context.
+             It is possible NServiceBus.Serilog has not been enabled using a call to `{nameof(SerilogTracingExtensions)}.{nameof(EnableSerilogTracing)}()`.
+             """);
     }
 }
