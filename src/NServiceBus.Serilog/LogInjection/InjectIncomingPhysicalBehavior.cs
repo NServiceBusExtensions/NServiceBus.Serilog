@@ -8,6 +8,9 @@
             description: "Injects a logger into the incoming physical context",
             factoryMethod: _ => new InjectIncomingPhysicalBehavior(logBuilder, endpoint));
 
+    static PropertyEnricher emptyIncomingMessageTypes = new("IncomingMessageTypes", Array.Empty<string>());
+    static PropertyEnricher emptyIncomingMessageTypesLong = new("IncomingMessageTypesLong", Array.Empty<string>());
+
     public override async Task Invoke(IIncomingPhysicalMessageContext context, Func<Task> next)
     {
         var properties = new List<PropertyEnricher>
@@ -30,8 +33,8 @@
         }
         else
         {
-            properties.Add(new("IncomingMessageTypes", Array.Empty<string>()));
-            properties.Add(new("IncomingMessageTypesLong", Array.Empty<string>()));
+            properties.Add(emptyIncomingMessageTypes);
+            properties.Add(emptyIncomingMessageTypesLong);
 
             logger = builder.GetLogger("UnknownMessageTypes");
         }
