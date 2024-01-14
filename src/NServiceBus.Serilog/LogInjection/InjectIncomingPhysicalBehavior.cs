@@ -10,6 +10,7 @@
 
     static PropertyEnricher emptyIncomingMessageTypes = new("IncomingMessageTypes", Array.Empty<string>());
     static PropertyEnricher emptyIncomingMessageTypesLong = new("IncomingMessageTypesLong", Array.Empty<string>());
+    LogEventProperty processingEndpoint = new("ProcessingEndpoint", new ScalarValue(endpoint));
 
     public override async Task Invoke(IIncomingPhysicalMessageContext context, Func<Task> next)
     {
@@ -51,7 +52,7 @@
 
         var exceptionLogState = new ExceptionLogState
         (
-            processingEndpoint: endpoint,
+            processingEndpoint: processingEndpoint,
             incomingHeaders: context.MessageHeaders,
             correlationId: correlationId,
             conversationId: conversationId

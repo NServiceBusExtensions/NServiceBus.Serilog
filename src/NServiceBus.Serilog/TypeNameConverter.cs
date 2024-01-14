@@ -70,7 +70,27 @@ public static class TypeNameConverter
     /// <summary>
     /// Type long and short name pair.
     /// </summary>
-    public record TypeName(string MessageTypeName, string LongName);
+    public record TypeName
+    {
+        /// <summary>
+        /// Type long and short name pair.
+        /// </summary>
+        public TypeName(string MessageTypeName, string LongName)
+        {
+            this.MessageTypeName = MessageTypeName;
+            this.LongName = LongName;
+
+            IncomingMessageType = new("IncomingMessageType", MessageTypeName);
+            IncomingMessageTypeLong = new("IncomingMessageTypeLong", LongName);
+        }
+
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
+        public PropertyEnricher IncomingMessageType { get; }
+        public PropertyEnricher IncomingMessageTypeLong { get; }
+        public string MessageTypeName { get; }
+        public string LongName { get; }
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
+    }
 
     /// <summary>
     /// Get a short type name from a long type name.

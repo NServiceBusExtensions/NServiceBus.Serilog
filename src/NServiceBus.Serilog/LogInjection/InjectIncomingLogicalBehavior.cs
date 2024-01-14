@@ -30,8 +30,8 @@
         var properties = new List<PropertyEnricher>
         {
             new("IncomingMessageId", context.MessageId),
-            new("IncomingMessageType", typeName.MessageTypeName),
-            new("IncomingMessageTypeLong", typeName.LongName)
+            typeName.IncomingMessageType,
+            typeName.IncomingMessageTypeLong
         };
         var logger = builder.GetLogger(typeName.MessageTypeName);
 

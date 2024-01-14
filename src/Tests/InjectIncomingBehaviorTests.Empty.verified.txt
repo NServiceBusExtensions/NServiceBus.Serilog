@@ -8,7 +8,9 @@
   },
   Extensions: {
     ExceptionLogState: {
-      ProcessingEndpoint: endpoint
+      ProcessingEndpoint: {
+        ProcessingEndpoint: endpoint
+      }
     },
     Serilog.ILogger: {
       Enrichers: [

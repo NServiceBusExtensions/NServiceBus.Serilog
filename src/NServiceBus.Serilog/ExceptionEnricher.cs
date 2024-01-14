@@ -46,8 +46,7 @@
 
         if (exception.TryReadData("ExceptionLogState", out ExceptionLogState logState))
         {
-            logEvent.AddPropertyIfAbsent(
-                new("ProcessingEndpoint", new ScalarValue(logState.ProcessingEndpoint)));
+            logEvent.AddPropertyIfAbsent(logState.ProcessingEndpoint);
             if (logState.CorrelationId is not null)
             {
                 logEvent.AddPropertyIfAbsent(

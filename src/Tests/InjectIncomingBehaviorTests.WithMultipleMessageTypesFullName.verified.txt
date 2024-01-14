@@ -8,7 +8,9 @@
   },
   Extensions: {
     ExceptionLogState: {
-      ProcessingEndpoint: endpoint,
+      ProcessingEndpoint: {
+        ProcessingEndpoint: endpoint
+      },
       IncomingHeaders: {
         NServiceBus.EnclosedMessageTypes: InjectIncomingBehaviorTests+Message1;InjectIncomingBehaviorTests+Message2
       }
