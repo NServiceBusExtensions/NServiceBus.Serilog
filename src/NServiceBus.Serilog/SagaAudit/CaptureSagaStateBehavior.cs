@@ -155,7 +155,7 @@
 
         if (!string.IsNullOrEmpty(sagaStateChange))
         {
-            sagaStateChange += ";";
+            sagaStateChange += ';';
         }
 
         sagaStateChange += $"{sagaId}:{stateChange}";
