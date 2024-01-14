@@ -1,9 +1,9 @@
 ﻿class CaptureSagaStateBehavior :
     Behavior<IInvokeHandlerContext>
 {
-    MessageTemplate messageTemplate;
+    static MessageTemplate messageTemplate;
 
-    CaptureSagaStateBehavior()
+    static CaptureSagaStateBehavior()
     {
         var templateParser = new MessageTemplateParser();
         messageTemplate = templateParser.Parse("Saga execution {SagaType} {SagaId} ({ElapsedTime:N3}s).");
@@ -61,8 +61,7 @@
 
         var properties = new List<LogEventProperty>
         {
-            new("SagaType", new ScalarValue(saga.GetType()
-                .Name)),
+            new("SagaType", new ScalarValue(saga.GetType().Name)),
             new("SagaId", new ScalarValue(sagaId)),
             new("StartTime", new ScalarValue(startTime)),
             new("FinishTime", new ScalarValue(finishTime)),
