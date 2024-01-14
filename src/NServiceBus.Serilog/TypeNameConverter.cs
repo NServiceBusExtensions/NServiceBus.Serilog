@@ -24,19 +24,20 @@ public static class TypeNameConverter
                 .MessageTypeName;
         }
 
-        var indexOfComma = typeName.IndexOf(',');
+        var span = typeName.AsSpan();
+        var indexOfComma = span.IndexOf(',');
         if (indexOfComma > -1)
         {
-            typeName = typeName[..indexOfComma];
+            span = span[..indexOfComma];
         }
 
-        var indexOfPeriod = typeName.IndexOf('.');
+        var indexOfPeriod = span.IndexOf('.');
         if (indexOfPeriod > -1)
         {
-            typeName = typeName[(indexOfPeriod + 1)..];
+            span = span[(indexOfPeriod + 1)..];
         }
 
-        return typeName;
+        return span.ToString();
     }
 
     static bool TryGetType(string typeName, [NotNullWhen(true)] out Type? type)
