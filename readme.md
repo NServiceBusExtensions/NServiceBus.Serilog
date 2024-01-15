@@ -264,6 +264,7 @@ serilogTracing.EnableSagaTracing();
       MessageTemplate: Receive message {IncomingMessageType} {IncomingMessageId} ({ElapsedTime:N3}s).,
       Level: Information,
       Properties: {
+        ContentType: text/xml,
         ConversationId: Guid_1,
         CorrelationId: Guid_2,
         ElapsedTime: {Scrubbed},
@@ -355,6 +356,7 @@ serilogTracing.EnableSagaTracing();
       MessageTemplate: Sent message {OutgoingMessageType} {OutgoingMessageId}.,
       Level: Information,
       Properties: {
+        ContentType: text/xml,
         ConversationId: Guid_1,
         CorrelationId: Guid_2,
         MessageIntent: Send,
@@ -385,6 +387,7 @@ serilogTracing.EnableSagaTracing();
       MessageTemplate: Sent message {OutgoingMessageType} {OutgoingMessageId}.,
       Level: Information,
       Properties: {
+        ContentType: text/xml,
         ConversationId: Guid_1,
         CorrelationId: Guid_2,
         IncomingMessageId: Guid_2,
@@ -420,7 +423,7 @@ serilogTracing.EnableSagaTracing();
   ]
 }
 ```
-<sup><a href='/src/Tests/IntegrationTests.Saga.verified.txt#L1-L184' title='Snippet source file'>snippet source</a> | <a href='#snippet-IntegrationTests.Saga.verified.txt' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/IntegrationTests.Saga.verified.txt#L1-L187' title='Snippet source file'>snippet source</a> | <a href='#snippet-IntegrationTests.Saga.verified.txt' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -463,6 +466,7 @@ serilogTracing.EnableMessageTracing();
       MessageTemplate: Receive message {IncomingMessageType} {IncomingMessageId} ({ElapsedTime:N3}s).,
       Level: Information,
       Properties: {
+        ContentType: text/xml,
         ConversationId: Guid_1,
         CorrelationId: Guid_2,
         ElapsedTime: {Scrubbed},
@@ -493,6 +497,7 @@ serilogTracing.EnableMessageTracing();
       MessageTemplate: Sent message {OutgoingMessageType} {OutgoingMessageId}.,
       Level: Information,
       Properties: {
+        ContentType: text/xml,
         ConversationId: Guid_1,
         CorrelationId: Guid_2,
         MessageIntent: Send,
@@ -522,7 +527,7 @@ serilogTracing.EnableMessageTracing();
   ]
 }
 ```
-<sup><a href='/src/Tests/IntegrationTests.Handler.verified.txt#L1-L78' title='Snippet source file'>snippet source</a> | <a href='#snippet-IntegrationTests.Handler.verified.txt' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/IntegrationTests.Handler.verified.txt#L1-L80' title='Snippet source file'>snippet source</a> | <a href='#snippet-IntegrationTests.Handler.verified.txt' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
