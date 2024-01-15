@@ -4,7 +4,6 @@ static class HeaderAppender
     [
         Headers.EnclosedMessageTypes,
         Headers.ProcessingEndpoint,
-        Headers.ContentType,
         Headers.CorrelationId,
         Headers.ConversationId,
         Headers.NServiceBusVersion,

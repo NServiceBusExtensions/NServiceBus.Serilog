@@ -32,15 +32,8 @@
     public static string MessageIntent(this IOutgoingLogicalMessageContext context) =>
         MessageIntent(context.Headers);
 
-    static string MessageIntent(Dictionary<string, string> headers)
-    {
-        if (headers.TryGetValue(Headers.MessageIntent, out var intent))
-        {
-            return intent;
-        }
-
-        return "Send";
-    }
+    static string MessageIntent(Dictionary<string, string> headers) =>
+        headers.GetValueOrDefault(Headers.MessageIntent, "Send");
 
     static Dictionary<string, string> emptyDictionary = [];
 
