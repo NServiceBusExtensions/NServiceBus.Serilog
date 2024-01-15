@@ -22,7 +22,7 @@ public static class HeaderAppender
         Headers.MessageId
     ]);
 
-    public static IEnumerable<LogEventProperty> BuildHeaders(IReadOnlyDictionary<string, string> headers, ConvertHeader? convertHeader)
+    static IEnumerable<LogEventProperty> BuildHeaders(IReadOnlyDictionary<string, string> headers, ConvertHeader? convertHeader)
     {
         var otherHeaders = new Dictionary<string, string>();
         foreach (var header in headers
