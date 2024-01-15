@@ -1,6 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
-
-static class SerilogExtensions
+﻿static class SerilogExtensions
 {
     public static bool BindProperty(
         this ILogger logger,

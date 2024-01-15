@@ -1,6 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
-
-namespace NServiceBus.Serilog;
+﻿namespace NServiceBus.Serilog;
 
 /// <summary>
 /// Converts a <see cref="Type" /> or a long type name to a short type name.
