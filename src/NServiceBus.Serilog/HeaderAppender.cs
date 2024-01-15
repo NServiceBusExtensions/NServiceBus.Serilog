@@ -1,5 +1,10 @@
-static class HeaderAppender
+namespace NServiceBus.Serilog;
+
+public static class HeaderAppender
 {
+    public static void Exclude(string name) =>
+        excludeHeaders.Add(name);
+
     static List<string> excludeHeaders =
     [
         Headers.EnclosedMessageTypes,
