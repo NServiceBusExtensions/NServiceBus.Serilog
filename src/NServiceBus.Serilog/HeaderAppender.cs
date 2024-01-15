@@ -3,10 +3,16 @@ namespace NServiceBus.Serilog;
 
 public static class HeaderAppender
 {
-    public static void Exclude(string name) =>
-        excludeHeaders.Add(name);
+    public static void Exclude(string name)
+    {
+        var tempSet = new HashSet<string>(excludeHeaders)
+        {
+            name
+        };
+        excludeHeaders = tempSet.ToFrozenSet();
+    }
 
-    static List<string> excludeHeaders =
+    static FrozenSet<string> excludeHeaders = FrozenSet.ToFrozenSet(
     [
         Headers.EnclosedMessageTypes,
         Headers.ProcessingEndpoint,
@@ -14,7 +20,7 @@ public static class HeaderAppender
         Headers.ConversationId,
         Headers.NServiceBusVersion,
         Headers.MessageId
-    ];
+    ]);
 
     public static IEnumerable<LogEventProperty> BuildHeaders(IReadOnlyDictionary<string, string> headers, ConvertHeader? convertHeader)
     {

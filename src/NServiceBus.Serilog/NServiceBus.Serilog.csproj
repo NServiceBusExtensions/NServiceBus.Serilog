@@ -12,6 +12,7 @@
     <PackageReference Include="ProjectDefaults" Version="1.0.109" PrivateAssets="all" />
     <PackageReference Include="Polyfill" Version="2.1.0" PrivateAssets="all" />
     <PackageReference Include="System.Memory" Version="4.5.5" Condition="$(TargetFramework) == 'net48'" />
+    <PackageReference Include="System.Collections.Immutable" Version="8.0.0" Condition="'$(TargetFramework)' != 'net8.0'" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All" Condition="$(Configuration) == 'Release'" />
     <Content Include="buildTransitive\NServiceBus.Serilog.props" PackagePath="buildTransitive\NServiceBus.Serilog.props" />
     <Content Include="buildTransitive\NServiceBus.Serilog.props" PackagePath="build\NServiceBus.Serilog.props" />
