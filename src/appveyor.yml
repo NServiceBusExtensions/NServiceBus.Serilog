@@ -1,4 +1,4 @@
-image: Previous Visual Studio 2022
+image: Visual Studio 2022
 environment:
   DOTNET_NOLOGO: true
   DOTNET_CLI_TELEMETRY_OPTOUT: true
