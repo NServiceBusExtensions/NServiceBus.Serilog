@@ -58,6 +58,12 @@ public static class HeaderAppender
                 continue;
             }
 
+            if (key == Headers.DiagnosticsTraceParent)
+            {
+                yield return new("TraceParent", new ScalarValue(value));
+                continue;
+            }
+
             if (key == Headers.HostDisplayName)
             {
                 yield return new(nameof(Headers.HostDisplayName), new ScalarValue(value));
