@@ -1,6 +1,5 @@
 ﻿using TypeNameConverter = NServiceBus.Serilog.TypeNameConverter;
 
-[UsesVerify]
 public class TypeNameConverterTests
 {
     [Fact]

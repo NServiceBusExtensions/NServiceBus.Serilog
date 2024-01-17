@@ -1,5 +1,4 @@
-﻿[UsesVerify]
-public class WriteStartupDiagnosticsTests
+﻿public class WriteStartupDiagnosticsTests
 {
     [Fact]
     public Task Can_extract_settings()

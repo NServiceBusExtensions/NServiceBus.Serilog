@@ -2,7 +2,6 @@
 using Serilog.Exceptions;
 using TypeNameConverter = NServiceBus.Serilog.TypeNameConverter;
 
-[UsesVerify]
 public class IntegrationTests
 {
     static List<LogEvent> logs;

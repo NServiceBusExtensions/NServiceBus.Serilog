@@ -1,6 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 
-[UsesVerify]
 public class WithNoTracingTests
 {
     [Fact]

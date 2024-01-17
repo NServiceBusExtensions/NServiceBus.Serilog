@@ -1,6 +1,5 @@
 ﻿using NServiceBus.Testing;
 
-[UsesVerify]
 public class InjectIncomingBehaviorTests
 {
     [Fact]
