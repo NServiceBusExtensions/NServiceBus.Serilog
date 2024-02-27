@@ -1,22 +1,12 @@
-﻿public class TheSaga :
+﻿public class TheSaga(ManualResetEvent resetEvent) :
     Saga<TheSaga.TheSagaData>,
     IAmStartedByMessages<StartSaga>,
     IAmStartedByMessages<BackIntoSaga>
 {
-    ManualResetEvent resetEvent;
-
-    public TheSaga(ManualResetEvent resetEvent) =>
-        this.resetEvent = resetEvent;
-
-    protected override void ConfigureHowToFindSaga(SagaPropertyMapper<TheSagaData> mapper)
-    {
-        mapper
-            .ConfigureMapping<StartSaga>(_ => _.Property)
-            .ToSaga(s => s.Property);
-        mapper
-            .ConfigureMapping<BackIntoSaga>(_ => _.Property)
-            .ToSaga(s => s.Property);
-    }
+    protected override void ConfigureHowToFindSaga(SagaPropertyMapper<TheSagaData> mapper) =>
+        mapper.MapSaga(saga => saga.Property)
+            .ToMessage<StartSaga>(_ => _.Property)
+            .ToMessage<BackIntoSaga>(_ => _.Property);
 
     public Task Handle(StartSaga message, HandlerContext context)
     {
