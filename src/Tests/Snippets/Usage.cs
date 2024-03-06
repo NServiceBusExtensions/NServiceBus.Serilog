@@ -14,7 +14,7 @@
         #endregion
     }
 
-    void Seq()
+    static void Seq()
     {
         #region SerilogSeq
 

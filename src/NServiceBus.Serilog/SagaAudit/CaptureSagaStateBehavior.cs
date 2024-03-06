@@ -122,7 +122,7 @@
     static void AddResultingMessages(SagaUpdatedMessage sagaAudit, ILogger logger, List<LogEventProperty> properties)
     {
         var resultingMessages = sagaAudit.ResultingMessages;
-        if (!resultingMessages.Any())
+        if (resultingMessages.Count == 0)
         {
             return;
         }

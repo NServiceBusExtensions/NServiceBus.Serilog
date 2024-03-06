@@ -31,7 +31,7 @@ class TracingUsage
         return tracingLog;
     }
 
-    void EnableSagaTracing(EndpointConfiguration configuration, ILogger logger)
+    static void EnableSagaTracing(EndpointConfiguration configuration, ILogger logger)
     {
         #region EnableSagaTracing
 
@@ -41,7 +41,7 @@ class TracingUsage
         #endregion
     }
 
-    void EnableMessageTracing(EndpointConfiguration configuration, ILogger logger)
+    static void EnableMessageTracing(EndpointConfiguration configuration, ILogger logger)
     {
         #region EnableMessageTracing
 
@@ -51,7 +51,7 @@ class TracingUsage
         #endregion
     }
 
-    void Seq()
+    static void Seq()
     {
         #region SerilogTracingSeq
 
