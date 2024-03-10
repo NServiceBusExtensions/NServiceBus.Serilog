@@ -27,11 +27,11 @@
 
         var sagaAudit = new SagaUpdatedMessage();
         context.Extensions.Set(sagaAudit);
-        var startTime = DateTimeOffset.UtcNow;
+        var startTime = DateTimeOffset.Now;
 
         await next();
 
-        var finishTime = DateTimeOffset.UtcNow;
+        var finishTime = DateTimeOffset.Now;
 
         if (!context.Extensions.TryGet(out ActiveSagaInstance activeSagaInstance))
         {

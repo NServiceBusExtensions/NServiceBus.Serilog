@@ -16,6 +16,9 @@
             _.Converters.Add(new ScalarValueConverter());
             _.Converters.Add(new PropertyEnricherConverter());
         });
-        VerifierSettings.AddExtraDatetimeOffsetFormat("yyyy-MM-dd HH:mm:ss:ffffff Z");
+        VerifierSettings.AddExtraDateTimeOffsetFormat("yyyy-MM-dd HH:mm:ss:ffffff Z");
+        VerifierSettings
+            .ScrubMember("ElapsedTime");
+        VerifierSettings.AddExtraDateTimeOffsetFormat("yyyy-MM-ddTHH:mm:ss.fffzz");
     }
 }

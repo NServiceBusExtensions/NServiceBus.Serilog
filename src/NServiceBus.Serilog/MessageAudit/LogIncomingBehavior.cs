@@ -34,9 +34,9 @@
     {
         var message = context.Message;
         var logger = context.Logger();
-        var startTime = DateTimeOffset.UtcNow;
+        var startTime = DateTimeOffset.Now;
         await next();
-        var finishTime = DateTimeOffset.UtcNow;
+        var finishTime = DateTimeOffset.Now;
         var properties = new List<LogEventProperty>
         {
             new("StartTime", new ScalarValue(startTime.ToLogString())),
