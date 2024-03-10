@@ -14,5 +14,5 @@
     }
 
     public Task Handle(NotFoundSagaMessage message, HandlerContext context) =>
-        Task.CompletedTask;
+        Task.Delay(1100, context.CancellationToken);
 }

@@ -8,22 +8,23 @@
             .ToMessage<StartSaga>(_ => _.Property)
             .ToMessage<BackIntoSaga>(_ => _.Property);
 
-    public Task Handle(StartSaga message, HandlerContext context)
+    public async Task Handle(StartSaga message, HandlerContext context)
     {
+        await Task.Delay(1100, context.CancellationToken);
         context.LogInformation("Hello from {@Saga}. Message: {@Message}", nameof(TheSaga), message);
         var backIntoSaga = new BackIntoSaga
         {
             Property = message.Property
         };
-        return context.SendLocal(backIntoSaga);
+        await context.SendLocal(backIntoSaga);
     }
 
-    public Task Handle(BackIntoSaga message, HandlerContext context)
+    public async Task Handle(BackIntoSaga message, HandlerContext context)
     {
+        await Task.Delay(1100, context.CancellationToken);
         context.LogInformation("Hello from {@Saga}. Message: {@Message}", nameof(TheSaga), message);
         MarkAsComplete();
         resetEvent.Set();
-        return Task.CompletedTask;
     }
 
     public class TheSagaData :

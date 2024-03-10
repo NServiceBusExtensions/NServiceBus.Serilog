@@ -1,11 +1,6 @@
-﻿public class TheHandler :
+﻿public class TheHandler(ManualResetEvent resetEvent) :
     IHandleMessages<StartHandler>
 {
-    ManualResetEvent resetEvent;
-
-    public TheHandler(ManualResetEvent resetEvent) =>
-        this.resetEvent = resetEvent;
-
     public async Task Handle(StartHandler message, HandlerContext context)
     {
         await Task.Delay(1100, context.CancellationToken);
