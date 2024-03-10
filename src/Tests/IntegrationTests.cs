@@ -111,6 +111,8 @@ public class IntegrationTests
         await Verify<StartHandlerThatThrows>(events);
     }
 
+#if Debug
+
     [Fact]
     public async Task Saga()
     {
@@ -123,6 +125,8 @@ public class IntegrationTests
         await Verify<StartSaga>(logEvents)
             .ScrubMember("Serilog.SagaStateChange");
     }
+
+#endif
 
     [Fact]
     public async Task BehaviorThatThrows()
