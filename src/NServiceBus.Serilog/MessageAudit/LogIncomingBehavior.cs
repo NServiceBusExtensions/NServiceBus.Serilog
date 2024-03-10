@@ -39,8 +39,8 @@
         var finishTime = DateTimeOffset.UtcNow;
         var properties = new List<LogEventProperty>
         {
-            new("StartTime", new ScalarValue(startTime)),
-            new("FinishTime", new ScalarValue(finishTime)),
+            new("StartTime", new ScalarValue(startTime.ToLogString())),
+            new("FinishTime", new ScalarValue(finishTime.ToLogString())),
             new("ElapsedTime", new ScalarValue((finishTime - startTime).TotalSeconds))
         };
 

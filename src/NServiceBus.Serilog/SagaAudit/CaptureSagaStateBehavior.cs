@@ -110,7 +110,7 @@
                     .MessageTypeName)
             },
             {
-                new("TimeSent"), new ScalarValue(context.TimeSent())
+                new("TimeSent"), new ScalarValue(context.TimeSent().ToLogString())
             },
             {
                 new("Intent"), new ScalarValue(context.MessageIntent())

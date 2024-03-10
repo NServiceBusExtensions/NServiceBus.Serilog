@@ -29,14 +29,16 @@
 
         if (exception.TryReadData("Handler start time", out string handlerStartTime))
         {
+            var dateTime = DateTimeOffsetHelper.ToDateTimeOffset(handlerStartTime);
             logEvent.AddPropertyIfAbsent(
-                new("HandlerStartTime", new ScalarValue(DateTimeOffsetHelper.ToDateTimeOffset(handlerStartTime))));
+                new("HandlerStartTime", new ScalarValue(dateTime.ToLogString())));
         }
 
         if (exception.TryReadData("Handler failure time", out string handlerFailureTime))
         {
+            var dateTime = DateTimeOffsetHelper.ToDateTimeOffset(handlerFailureTime);
             logEvent.AddPropertyIfAbsent(
-                new("HandlerFailureTime", new ScalarValue(DateTimeOffsetHelper.ToDateTimeOffset(handlerFailureTime))));
+                new("HandlerFailureTime", new ScalarValue(dateTime.ToLogString())));
         }
 
         if (exception.TryReadData("Handler type", out string handlerType))

@@ -44,7 +44,8 @@ public static class HeaderAppender
                 var name = key[12..];
                 if (key == Headers.TimeSent)
                 {
-                    yield return new(name, new ScalarValue(DateTimeOffsetHelper.ToDateTimeOffset(value)));
+                    var dateTime = DateTimeOffsetHelper.ToDateTimeOffset(value);
+                    yield return new(name, new ScalarValue(dateTime.ToLogString()));
                     continue;
                 }
 
