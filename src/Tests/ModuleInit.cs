@@ -5,7 +5,7 @@
     {
         VerifierSettings
             .ScrubMember("ElapsedTime");
-        VerifierSettings.AddExtraDatetimeOffsetFormat("yyyy-MM-ddTHH:mm:ss.fffzz");
+        VerifierSettings.AddExtraDateTimeOffsetFormat("yyyy-MM-ddTHH:mm:ss.fffzz");
         VerifierSettings.InitializePlugins();
     }
 }
