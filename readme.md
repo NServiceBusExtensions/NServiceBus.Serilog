@@ -327,7 +327,7 @@ serilogTracing.EnableSagaTracing();
             "OriginatingMachine": TheMachineName,
             "OriginatingEndpoint": SerilogTestsStartSaga,
             "MessageType": StartSaga,
-            "TimeSent": DateTimeOffset_3,
+            "TimeSent": DateTimeOffset_5,
             "Intent": Send
           }
         },
@@ -349,7 +349,7 @@ serilogTracing.EnableSagaTracing();
         SagaId: Guid_4,
         SagaType: TheSaga,
         SourceContext: StartSaga,
-        StartTime: DateTimeOffset_5
+        StartTime: DateTimeOffset_6
       }
     },
     {
