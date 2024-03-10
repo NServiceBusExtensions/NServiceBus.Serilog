@@ -22,7 +22,7 @@
     }
 
     public static string ToLogString(this DateTimeOffset date) =>
-        date.ToString("yyyy-MM-ddTHH:mm:ss.fffzz");
+        date.ToLocalTime().ToString("yyyy-MM-ddTHH:mm:ss.fffzz");
 
     public static LogEventProperty BuildDictionaryProperty(string name, IReadOnlyDictionary<string, string> otherHeaders) =>
         new(
