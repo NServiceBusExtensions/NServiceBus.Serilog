@@ -489,8 +489,8 @@ serilogTracing.EnableMessageTracing();
         ProcessingEndpoint: SerilogTestsStartHandler,
         ReplyToAddress: SerilogTestsStartHandler,
         SourceContext: StartHandler,
-        StartTime: DateTimeOffset_2,
-        TimeSent: DateTimeOffset_3
+        StartTime: DateTimeOffset_1,
+        TimeSent: DateTimeOffset_2
       }
     },
     {

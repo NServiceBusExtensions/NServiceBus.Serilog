@@ -61,11 +61,11 @@
             "HResult": -2146233088,
             "Message": Exception of type 'System.Exception' was thrown.,
             "Source": Tests,
-            "TargetSite": System.Threading.Tasks.Task Handle(StartHandlerThatThrows, NServiceBus.IMessageHandlerContext)
+            "TargetSite": Void MoveNext()
           }
         },
         HandlerFailureTime: DateTimeOffset_3,
-        HandlerStartTime: DateTimeOffset_3,
+        HandlerStartTime: DateTimeOffset_4,
         HandlerType: TheHandlerThatThrows,
         IncomingMessage: {
           TypeTag: StartHandlerThatThrows,
@@ -85,7 +85,7 @@
         ProcessingEndpoint: SerilogTestsStartHandlerThatThrows,
         ReplyToAddress: SerilogTestsStartHandlerThatThrows,
         SourceContext: NServiceBus.ImmediateRetry,
-        TimeSent: DateTimeOffset_4
+        TimeSent: DateTimeOffset_5
       }
     },
     {
@@ -102,8 +102,8 @@
               Elements: {
                 "Message type": StartHandlerThatThrows,
                 "Handler type": TheHandlerThatThrows,
-                "Handler start time": DateTimeOffset_5,
-                "Handler failure time": DateTimeOffset_6,
+                "Handler start time": DateTimeOffset_6,
+                "Handler failure time": DateTimeOffset_7,
                 "Handler canceled": false,
                 "ExceptionLogState": {
                   TypeTag: ExceptionLogState
@@ -116,11 +116,11 @@
             "HResult": -2146233088,
             "Message": Exception of type 'System.Exception' was thrown.,
             "Source": Tests,
-            "TargetSite": System.Threading.Tasks.Task Handle(StartHandlerThatThrows, NServiceBus.IMessageHandlerContext)
+            "TargetSite": Void MoveNext()
           }
         },
-        HandlerFailureTime: DateTimeOffset_7,
-        HandlerStartTime: DateTimeOffset_7,
+        HandlerFailureTime: DateTimeOffset_8,
+        HandlerStartTime: DateTimeOffset_9,
         HandlerType: TheHandlerThatThrows,
         IncomingMessage: {
           TypeTag: StartHandlerThatThrows,
@@ -140,7 +140,7 @@
         ProcessingEndpoint: SerilogTestsStartHandlerThatThrows,
         ReplyToAddress: SerilogTestsStartHandlerThatThrows,
         SourceContext: NServiceBus.DelayedRetry,
-        TimeSent: DateTimeOffset_4
+        TimeSent: DateTimeOffset_5
       }
     },
     {
@@ -150,7 +150,7 @@
         ContentType: text/xml,
         ConversationId: Guid_1,
         CorrelationId: Guid_2,
-        DeliverAt: DateTimeOffset_8,
+        DeliverAt: DateTimeOffset_10,
         ExceptionDetail: {
           Elements: {
             "Type": System.Exception,
@@ -158,8 +158,8 @@
               Elements: {
                 "Message type": StartHandlerThatThrows,
                 "Handler type": TheHandlerThatThrows,
-                "Handler start time": DateTimeOffset_9,
-                "Handler failure time": DateTimeOffset_10,
+                "Handler start time": DateTimeOffset_11,
+                "Handler failure time": DateTimeOffset_12,
                 "Handler canceled": false,
                 "ExceptionLogState": {
                   TypeTag: ExceptionLogState
@@ -172,11 +172,11 @@
             "HResult": -2146233088,
             "Message": Exception of type 'System.Exception' was thrown.,
             "Source": Tests,
-            "TargetSite": System.Threading.Tasks.Task Handle(StartHandlerThatThrows, NServiceBus.IMessageHandlerContext)
+            "TargetSite": Void MoveNext()
           }
         },
-        HandlerFailureTime: DateTimeOffset_11,
-        HandlerStartTime: DateTimeOffset_11,
+        HandlerFailureTime: DateTimeOffset_13,
+        HandlerStartTime: DateTimeOffset_14,
         HandlerType: TheHandlerThatThrows,
         IncomingMessage: {
           TypeTag: StartHandlerThatThrows,
@@ -196,9 +196,9 @@
         ProcessingEndpoint: SerilogTestsStartHandlerThatThrows,
         ReplyToAddress: SerilogTestsStartHandlerThatThrows,
         Retries: 1,
-        Retries.Timestamp: DateTimeOffset_12,
+        Retries.Timestamp: DateTimeOffset_15,
         SourceContext: NServiceBus.ImmediateRetry,
-        TimeSent: DateTimeOffset_4
+        TimeSent: DateTimeOffset_5
       }
     },
     {
@@ -208,7 +208,7 @@
         ContentType: text/xml,
         ConversationId: Guid_1,
         CorrelationId: Guid_2,
-        DeliverAt: DateTimeOffset_8,
+        DeliverAt: DateTimeOffset_10,
         ExceptionDetail: {
           Elements: {
             "Type": System.Exception,
@@ -216,8 +216,8 @@
               Elements: {
                 "Message type": StartHandlerThatThrows,
                 "Handler type": TheHandlerThatThrows,
-                "Handler start time": DateTimeOffset_13,
-                "Handler failure time": DateTimeOffset_14,
+                "Handler start time": DateTimeOffset_16,
+                "Handler failure time": DateTimeOffset_17,
                 "Handler canceled": false,
                 "ExceptionLogState": {
                   TypeTag: ExceptionLogState
@@ -230,11 +230,11 @@
             "HResult": -2146233088,
             "Message": Exception of type 'System.Exception' was thrown.,
             "Source": Tests,
-            "TargetSite": System.Threading.Tasks.Task Handle(StartHandlerThatThrows, NServiceBus.IMessageHandlerContext)
+            "TargetSite": Void MoveNext()
           }
         },
-        HandlerFailureTime: DateTimeOffset_15,
-        HandlerStartTime: DateTimeOffset_15,
+        HandlerFailureTime: DateTimeOffset_18,
+        HandlerStartTime: DateTimeOffset_19,
         HandlerType: TheHandlerThatThrows,
         IncomingMessage: {
           TypeTag: StartHandlerThatThrows,
@@ -254,9 +254,9 @@
         ProcessingEndpoint: SerilogTestsStartHandlerThatThrows,
         ReplyToAddress: SerilogTestsStartHandlerThatThrows,
         Retries: 1,
-        Retries.Timestamp: DateTimeOffset_12,
+        Retries.Timestamp: DateTimeOffset_15,
         SourceContext: NServiceBus.MoveToError,
-        TimeSent: DateTimeOffset_4
+        TimeSent: DateTimeOffset_5
       }
     }
   ]

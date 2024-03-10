@@ -1,10 +1,10 @@
 ﻿public class GenericHandler(ManualResetEvent @event) :
     IHandleMessages<StartGenericHandler<string>>
 {
-    public Task Handle(StartGenericHandler<string> message, HandlerContext context)
+    public async Task Handle(StartGenericHandler<string> message, HandlerContext context)
     {
+        await Task.Delay(1100, context.CancellationToken);
         context.LogInformation("Hello from {@Handler}.");
         @event.Set();
-        return Task.CompletedTask;
     }
 }

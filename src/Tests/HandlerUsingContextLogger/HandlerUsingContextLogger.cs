@@ -1,9 +1,9 @@
 ﻿public class HandlerUsingContextLogger :
     IHandleMessages<StartHandlerUsingContextLogger>
 {
-    public Task Handle(StartHandlerUsingContextLogger message, HandlerContext context)
+    public async Task Handle(StartHandlerUsingContextLogger message, HandlerContext context)
     {
+        await Task.Delay(1100, context.CancellationToken);
         context.LogError("The message", new Exception());
-        return Task.CompletedTask;
     }
 }
