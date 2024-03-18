@@ -7,6 +7,8 @@
     <Description>Add support for sending NServiceBus logging through Serilog</Description>
     <ImplicitUsings>enable</ImplicitUsings>
     <ResolveAssemblyReferencesSilent>true</ResolveAssemblyReferencesSilent>
+    <NuGetAuditMode>all</NuGetAuditMode>
+    <NuGetAuditLevel>low</NuGetAuditLevel>
   </PropertyGroup>
 
   <ItemGroup>
