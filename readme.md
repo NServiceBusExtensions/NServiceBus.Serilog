@@ -41,7 +41,7 @@ https://nuget.org/packages/NServiceBus.Serilog/
 ## Usage
 
 <!-- snippet: SerilogInCode -->
-<a id='snippet-serilogincode'></a>
+<a id='snippet-SerilogInCode'></a>
 ```cs
 var configuration = new LoggerConfiguration();
 configuration.Enrich.WithNsbExceptionDetails();
@@ -50,7 +50,7 @@ Log.Logger = configuration.CreateLogger();
 
 LogManager.Use<SerilogFactory>();
 ```
-<sup><a href='/src/Tests/Snippets/Usage.cs#L5-L14' title='Snippet source file'>snippet source</a> | <a href='#snippet-serilogincode' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Snippets/Usage.cs#L5-L14' title='Snippet source file'>snippet source</a> | <a href='#snippet-SerilogInCode' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -63,7 +63,7 @@ For example to limit log output to a specific namespace.
 Here is a code configuration example for adding a [Filter](https://github.com/serilog/serilog/wiki/Configuration-Basics#filters).
 
 <!-- snippet: SerilogFiltering -->
-<a id='snippet-serilogfiltering'></a>
+<a id='snippet-SerilogFiltering'></a>
 ```cs
 var configuration = new LoggerConfiguration();
 configuration.Enrich.WithNsbExceptionDetails();
@@ -79,7 +79,7 @@ Log.Logger = configuration.CreateLogger();
 
 LogManager.Use<SerilogFactory>();
 ```
-<sup><a href='/src/Tests/Snippets/Filtering.cs#L5-L21' title='Snippet source file'>snippet source</a> | <a href='#snippet-serilogfiltering' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Snippets/Filtering.cs#L5-L21' title='Snippet source file'>snippet source</a> | <a href='#snippet-SerilogFiltering' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -93,7 +93,7 @@ When using Serilog for tracing, it is optional to use Serilog as the main NServi
 ### Create an instance of a Serilog logger
 
 <!-- snippet: SerilogTracingLogger -->
-<a id='snippet-serilogtracinglogger'></a>
+<a id='snippet-SerilogTracingLogger'></a>
 ```cs
 var configuration = new LoggerConfiguration();
 configuration.Enrich.WithNsbExceptionDetails();
@@ -101,19 +101,19 @@ configuration.WriteTo.File("log.txt");
 configuration.MinimumLevel.Information();
 var tracingLog = configuration.CreateLogger();
 ```
-<sup><a href='/src/Tests/Snippets/TracingUsage.cs#L21-L29' title='Snippet source file'>snippet source</a> | <a href='#snippet-serilogtracinglogger' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Snippets/TracingUsage.cs#L21-L29' title='Snippet source file'>snippet source</a> | <a href='#snippet-SerilogTracingLogger' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
 ### Configure the tracing feature to use that logger
 
 <!-- snippet: SerilogTracingPassLoggerToFeature -->
-<a id='snippet-serilogtracingpassloggertofeature'></a>
+<a id='snippet-SerilogTracingPassLoggerToFeature'></a>
 ```cs
 var serilogTracing = configuration.EnableSerilogTracing(tracingLog);
 serilogTracing.EnableMessageTracing();
 ```
-<sup><a href='/src/Tests/Snippets/TracingUsage.cs#L11-L16' title='Snippet source file'>snippet source</a> | <a href='#snippet-serilogtracingpassloggertofeature' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Snippets/TracingUsage.cs#L11-L16' title='Snippet source file'>snippet source</a> | <a href='#snippet-SerilogTracingPassLoggerToFeature' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -156,7 +156,7 @@ When a message is sent, the same properties as described in "Incoming message en
 The contextual logger instance can be accessed from anywhere in the pipeline via `SerilogTracingExtensions.Logger(this IPipelineContext context)`.
 
 <!-- snippet: ContextualLoggerUsage -->
-<a id='snippet-contextualloggerusage'></a>
+<a id='snippet-ContextualLoggerUsage'></a>
 ```cs
 public class HandlerUsingLogger :
     IHandleMessages<TheMessage>
@@ -169,7 +169,7 @@ public class HandlerUsingLogger :
     }
 }
 ```
-<sup><a href='/src/Tests/Snippets/ContextualLoggerUsage.cs#L1-L14' title='Snippet source file'>snippet source</a> | <a href='#snippet-contextualloggerusage' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Snippets/ContextualLoggerUsage.cs#L1-L14' title='Snippet source file'>snippet source</a> | <a href='#snippet-ContextualLoggerUsage' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -178,7 +178,7 @@ public class HandlerUsingLogger :
 `IPipelineContext` also has extension methods added to expose direct `Log*` methods
 
 <!-- snippet: DirectLogUsage -->
-<a id='snippet-directlogusage'></a>
+<a id='snippet-DirectLogUsage'></a>
 ```cs
 public class HandlerUsingLog :
     IHandleMessages<TheMessage>
@@ -190,7 +190,7 @@ public class HandlerUsingLog :
     }
 }
 ```
-<sup><a href='/src/Tests/Snippets/ContextualLoggerUsage.cs#L16-L28' title='Snippet source file'>snippet source</a> | <a href='#snippet-directlogusage' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Snippets/ContextualLoggerUsage.cs#L16-L28' title='Snippet source file'>snippet source</a> | <a href='#snippet-DirectLogUsage' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -221,12 +221,12 @@ When a pipeline exception is logged, it will be enriched with the following prop
 ### Saga tracing
 
 <!-- snippet: EnableSagaTracing -->
-<a id='snippet-enablesagatracing'></a>
+<a id='snippet-EnableSagaTracing'></a>
 ```cs
 var serilogTracing = configuration.EnableSerilogTracing(logger);
 serilogTracing.EnableSagaTracing();
 ```
-<sup><a href='/src/Tests/Snippets/TracingUsage.cs#L36-L41' title='Snippet source file'>snippet source</a> | <a href='#snippet-enablesagatracing' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Snippets/TracingUsage.cs#L36-L41' title='Snippet source file'>snippet source</a> | <a href='#snippet-EnableSagaTracing' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -432,12 +432,12 @@ serilogTracing.EnableSagaTracing();
 Both incoming and outgoing messages will be logged at the [Information level](https://github.com/serilog/serilog/wiki/Writing-Log-Events#the-role-of-the-information-level). The current message will be included in a property named `Message`. For outgoing messages any unicast routes will be included in a property named `UnicastRoutes`.
 
 <!-- snippet: EnableMessageTracing -->
-<a id='snippet-enablemessagetracing'></a>
+<a id='snippet-EnableMessageTracing'></a>
 ```cs
 var serilogTracing = configuration.EnableSerilogTracing(logger);
 serilogTracing.EnableMessageTracing();
 ```
-<sup><a href='/src/Tests/Snippets/TracingUsage.cs#L46-L51' title='Snippet source file'>snippet source</a> | <a href='#snippet-enablemessagetracing' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Snippets/TracingUsage.cs#L46-L51' title='Snippet source file'>snippet source</a> | <a href='#snippet-EnableMessageTracing' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -536,7 +536,7 @@ serilogTracing.EnableMessageTracing();
 [Startup diagnostics](https://docs.particular.net/nservicebus/hosting/startup-diagnostics) is, in addition to its default file location, also written to Serilog with the level of `Warning`.
 
 <!-- snippet: WriteStartupDiagnostics -->
-<a id='snippet-writestartupdiagnostics'></a>
+<a id='snippet-WriteStartupDiagnostics'></a>
 ```cs
 class StartupDiagnostics(IReadOnlySettings settings, ILogger logger) :
     FeatureStartupTask
@@ -593,7 +593,7 @@ class StartupDiagnostics(IReadOnlySettings settings, ILogger logger) :
     ILogger logger = logger.ForContext<StartupDiagnostics>();
 }
 ```
-<sup><a href='/src/NServiceBus.Serilog/StartupDiagnostics/WriteStartupDiagnostics.cs#L1-L58' title='Snippet source file'>snippet source</a> | <a href='#snippet-writestartupdiagnostics' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/NServiceBus.Serilog/StartupDiagnostics/WriteStartupDiagnostics.cs#L1-L58' title='Snippet source file'>snippet source</a> | <a href='#snippet-WriteStartupDiagnostics' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -602,7 +602,7 @@ class StartupDiagnostics(IReadOnlySettings settings, ILogger logger) :
 To log to [Seq](https://getseq.net/):
 
 <!-- snippet: SerilogTracingSeq -->
-<a id='snippet-serilogtracingseq'></a>
+<a id='snippet-SerilogTracingSeq'></a>
 ```cs
 var configuration = new LoggerConfiguration();
 configuration.Enrich.WithNsbExceptionDetails();
@@ -610,7 +610,7 @@ configuration.WriteTo.Seq("http://localhost:5341");
 configuration.MinimumLevel.Information();
 var tracingLog = configuration.CreateLogger();
 ```
-<sup><a href='/src/Tests/Snippets/TracingUsage.cs#L56-L64' title='Snippet source file'>snippet source</a> | <a href='#snippet-serilogtracingseq' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Snippets/TracingUsage.cs#L56-L64' title='Snippet source file'>snippet source</a> | <a href='#snippet-SerilogTracingSeq' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -622,15 +622,15 @@ The sample illustrates how to customize logging by configuring Serilog targets a
 ### Configure Serilog
 
 <!-- snippet: ConfigureSerilog -->
-<a id='snippet-configureserilog'></a>
+<a id='snippet-ConfigureSerilog'></a>
 ```cs
 var configuration = new LoggerConfiguration();
 configuration.Enrich.WithNsbExceptionDetails();
 configuration.WriteTo.Console();
 Log.Logger = configuration.CreateLogger();
 ```
-<sup><a href='/src/Sample/Program.cs#L3-L10' title='Snippet source file'>snippet source</a> | <a href='#snippet-configureserilog' title='Start of snippet'>anchor</a></sup>
-<a id='snippet-configureserilog-1'></a>
+<sup><a href='/src/Sample/Program.cs#L3-L10' title='Snippet source file'>snippet source</a> | <a href='#snippet-ConfigureSerilog' title='Start of snippet'>anchor</a></sup>
+<a id='snippet-ConfigureSerilog-1'></a>
 ```cs
 var configuration = new LoggerConfiguration();
 configuration.Enrich.WithNsbExceptionDetails();
@@ -640,46 +640,46 @@ var logger = configuration.CreateLogger();
 var serilogFactory = LogManager.Use<SerilogFactory>();
 serilogFactory.WithLogger(logger);
 ```
-<sup><a href='/src/SeqSample/Program.cs#L3-L13' title='Snippet source file'>snippet source</a> | <a href='#snippet-configureserilog-1' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/SeqSample/Program.cs#L3-L13' title='Snippet source file'>snippet source</a> | <a href='#snippet-ConfigureSerilog-1' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
 ### Pass the configuration to NServiceBus
 
 <!-- snippet: UseConfig -->
-<a id='snippet-useconfig'></a>
+<a id='snippet-UseConfig'></a>
 ```cs
 LogManager.Use<SerilogFactory>();
 
 var configuration = new EndpointConfiguration("SerilogSample");
 ```
-<sup><a href='/src/Sample/Program.cs#L16-L22' title='Snippet source file'>snippet source</a> | <a href='#snippet-useconfig' title='Start of snippet'>anchor</a></sup>
-<a id='snippet-useconfig-1'></a>
+<sup><a href='/src/Sample/Program.cs#L16-L22' title='Snippet source file'>snippet source</a> | <a href='#snippet-UseConfig' title='Start of snippet'>anchor</a></sup>
+<a id='snippet-UseConfig-1'></a>
 ```cs
 var configuration = new EndpointConfiguration("SeqSample");
 var serilogTracing = configuration.EnableSerilogTracing(tracingLog);
 serilogTracing.EnableSagaTracing();
 serilogTracing.EnableMessageTracing();
 ```
-<sup><a href='/src/SeqSample/Program.cs#L21-L28' title='Snippet source file'>snippet source</a> | <a href='#snippet-useconfig-1' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/SeqSample/Program.cs#L21-L28' title='Snippet source file'>snippet source</a> | <a href='#snippet-UseConfig-1' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
 ### Ensure logging is flushed on shutdown
 
 <!-- snippet: Cleanup -->
-<a id='snippet-cleanup'></a>
+<a id='snippet-Cleanup'></a>
 ```cs
 await endpoint.Stop();
 Log.CloseAndFlush();
 ```
-<sup><a href='/src/Sample/Program.cs#L33-L38' title='Snippet source file'>snippet source</a> | <a href='#snippet-cleanup' title='Start of snippet'>anchor</a></sup>
-<a id='snippet-cleanup-1'></a>
+<sup><a href='/src/Sample/Program.cs#L33-L38' title='Snippet source file'>snippet source</a> | <a href='#snippet-Cleanup' title='Start of snippet'>anchor</a></sup>
+<a id='snippet-Cleanup-1'></a>
 ```cs
 await endpoint.Stop();
 Log.CloseAndFlush();
 ```
-<sup><a href='/src/SeqSample/Program.cs#L45-L50' title='Snippet source file'>snippet source</a> | <a href='#snippet-cleanup-1' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/SeqSample/Program.cs#L45-L50' title='Snippet source file'>snippet source</a> | <a href='#snippet-Cleanup-1' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -696,15 +696,15 @@ An instance of [Seq](https://getseq.net/) running one `http://localhost:5341`.
 ### Configure Serilog
 
 <!-- snippet: ConfigureSerilog -->
-<a id='snippet-configureserilog'></a>
+<a id='snippet-ConfigureSerilog'></a>
 ```cs
 var configuration = new LoggerConfiguration();
 configuration.Enrich.WithNsbExceptionDetails();
 configuration.WriteTo.Console();
 Log.Logger = configuration.CreateLogger();
 ```
-<sup><a href='/src/Sample/Program.cs#L3-L10' title='Snippet source file'>snippet source</a> | <a href='#snippet-configureserilog' title='Start of snippet'>anchor</a></sup>
-<a id='snippet-configureserilog-1'></a>
+<sup><a href='/src/Sample/Program.cs#L3-L10' title='Snippet source file'>snippet source</a> | <a href='#snippet-ConfigureSerilog' title='Start of snippet'>anchor</a></sup>
+<a id='snippet-ConfigureSerilog-1'></a>
 ```cs
 var configuration = new LoggerConfiguration();
 configuration.Enrich.WithNsbExceptionDetails();
@@ -714,46 +714,46 @@ var logger = configuration.CreateLogger();
 var serilogFactory = LogManager.Use<SerilogFactory>();
 serilogFactory.WithLogger(logger);
 ```
-<sup><a href='/src/SeqSample/Program.cs#L3-L13' title='Snippet source file'>snippet source</a> | <a href='#snippet-configureserilog-1' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/SeqSample/Program.cs#L3-L13' title='Snippet source file'>snippet source</a> | <a href='#snippet-ConfigureSerilog-1' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
 ### Pass that configuration to NServiceBus
 
 <!-- snippet: UseConfig -->
-<a id='snippet-useconfig'></a>
+<a id='snippet-UseConfig'></a>
 ```cs
 LogManager.Use<SerilogFactory>();
 
 var configuration = new EndpointConfiguration("SerilogSample");
 ```
-<sup><a href='/src/Sample/Program.cs#L16-L22' title='Snippet source file'>snippet source</a> | <a href='#snippet-useconfig' title='Start of snippet'>anchor</a></sup>
-<a id='snippet-useconfig-1'></a>
+<sup><a href='/src/Sample/Program.cs#L16-L22' title='Snippet source file'>snippet source</a> | <a href='#snippet-UseConfig' title='Start of snippet'>anchor</a></sup>
+<a id='snippet-UseConfig-1'></a>
 ```cs
 var configuration = new EndpointConfiguration("SeqSample");
 var serilogTracing = configuration.EnableSerilogTracing(tracingLog);
 serilogTracing.EnableSagaTracing();
 serilogTracing.EnableMessageTracing();
 ```
-<sup><a href='/src/SeqSample/Program.cs#L21-L28' title='Snippet source file'>snippet source</a> | <a href='#snippet-useconfig-1' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/SeqSample/Program.cs#L21-L28' title='Snippet source file'>snippet source</a> | <a href='#snippet-UseConfig-1' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
 ### Ensure logging is flushed on shutdown
 
 <!-- snippet: Cleanup -->
-<a id='snippet-cleanup'></a>
+<a id='snippet-Cleanup'></a>
 ```cs
 await endpoint.Stop();
 Log.CloseAndFlush();
 ```
-<sup><a href='/src/Sample/Program.cs#L33-L38' title='Snippet source file'>snippet source</a> | <a href='#snippet-cleanup' title='Start of snippet'>anchor</a></sup>
-<a id='snippet-cleanup-1'></a>
+<sup><a href='/src/Sample/Program.cs#L33-L38' title='Snippet source file'>snippet source</a> | <a href='#snippet-Cleanup' title='Start of snippet'>anchor</a></sup>
+<a id='snippet-Cleanup-1'></a>
 ```cs
 await endpoint.Stop();
 Log.CloseAndFlush();
 ```
-<sup><a href='/src/SeqSample/Program.cs#L45-L50' title='Snippet source file'>snippet source</a> | <a href='#snippet-cleanup-1' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/SeqSample/Program.cs#L45-L50' title='Snippet source file'>snippet source</a> | <a href='#snippet-Cleanup-1' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
