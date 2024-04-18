@@ -196,10 +196,7 @@ public class IntegrationTests
             settings.TimeIncrease(TimeSpan.FromMilliseconds(1));
             settings.NumberOfRetries(1);
         });
-        recoverability.Immediate(_ =>
-        {
-            _.NumberOfRetries(1);
-        });
+        recoverability.Immediate(_ => _.NumberOfRetries(1));
 
         recoverability.Failed(_ => _
             .OnMessageSentToErrorQueue((_, _) =>
