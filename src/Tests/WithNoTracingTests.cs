@@ -10,7 +10,6 @@ public class WithNoTracingTests
         var configuration = ConfigBuilder.BuildDefaultConfig("WithNoTracingTests");
         configuration.DisableRetries();
         configuration.RegisterComponents(_ => _.AddSingleton(resetEvent));
-
         var recoverability = configuration.Recoverability();
         recoverability.Failed(_ => _
             .OnMessageSentToErrorQueue((message, _) =>
