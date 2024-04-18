@@ -466,7 +466,7 @@ serilogTracing.EnableMessageTracing();
       MessageTemplate: Receive message {IncomingMessageType} {IncomingMessageId} ({ElapsedTime:N3}s).,
       Level: Information,
       Properties: {
-        ContentType: text/xml,
+        ContentType: application/json,
         ConversationId: Guid_1,
         CorrelationId: Guid_2,
         ElapsedTime: {Scrubbed},
@@ -497,7 +497,7 @@ serilogTracing.EnableMessageTracing();
       MessageTemplate: Sent message {OutgoingMessageType} {OutgoingMessageId}.,
       Level: Information,
       Properties: {
-        ContentType: text/xml,
+        ContentType: application/json,
         ConversationId: Guid_1,
         CorrelationId: Guid_2,
         MessageIntent: Send,

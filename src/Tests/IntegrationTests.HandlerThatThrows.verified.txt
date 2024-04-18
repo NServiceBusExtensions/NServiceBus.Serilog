@@ -4,7 +4,7 @@
       MessageTemplate: Sent message {OutgoingMessageType} {OutgoingMessageId}.,
       Level: Information,
       Properties: {
-        ContentType: text/xml,
+        ContentType: application/json,
         ConversationId: Guid_1,
         CorrelationId: Guid_2,
         MessageIntent: Send,
@@ -37,7 +37,7 @@
       MessageTemplate: Immediate Retry is going to retry message '00000000-0000-0000-0000-000000000001' because of an exception:,
       Level: Information,
       Properties: {
-        ContentType: text/xml,
+        ContentType: application/json,
         ConversationId: Guid_1,
         CorrelationId: Guid_2,
         ExceptionDetail: {
@@ -92,7 +92,7 @@
       MessageTemplate: Delayed Retry will reschedule message '00000000-0000-0000-0000-000000000001' after a delay of 00:00:00.0010000 because of an exception:,
       Level: Warning,
       Properties: {
-        ContentType: text/xml,
+        ContentType: application/json,
         ConversationId: Guid_1,
         CorrelationId: Guid_2,
         ExceptionDetail: {
@@ -147,7 +147,7 @@
       MessageTemplate: Immediate Retry is going to retry message '00000000-0000-0000-0000-000000000001' because of an exception:,
       Level: Information,
       Properties: {
-        ContentType: text/xml,
+        ContentType: application/json,
         ConversationId: Guid_1,
         CorrelationId: Guid_2,
         DeliverAt: DateTimeOffset_10,
@@ -205,7 +205,7 @@
       MessageTemplate: Moving message '00000000-0000-0000-0000-000000000001' to the error queue 'error' because processing failed due to an exception:,
       Level: Error,
       Properties: {
-        ContentType: text/xml,
+        ContentType: application/json,
         ConversationId: Guid_1,
         CorrelationId: Guid_2,
         DeliverAt: DateTimeOffset_10,

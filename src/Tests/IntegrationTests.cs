@@ -173,6 +173,9 @@ public class IntegrationTests
             .Replace('>', '_');
         var configuration = ConfigBuilder.BuildDefaultConfig("SerilogTests" + suffix);
         configuration.PurgeOnStartup(true);
+        configuration.UseSerialization<SystemJsonSerializer>();
+        configuration.AssemblyScanner()
+            .ExcludeAssemblies("xunit.runner.utility.netcoreapp10.dll");
         extraConfiguration?.Invoke(configuration);
 
         var serilogTracing = configuration.EnableSerilogTracing();
