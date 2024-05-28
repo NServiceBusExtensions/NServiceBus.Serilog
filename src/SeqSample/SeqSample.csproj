@@ -4,9 +4,9 @@
     <OutputType>Exe</OutputType>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="NServiceBus" Version="9.0.0" />
-    <PackageReference Include="Serilog" Version="3.1.1" />
-    <PackageReference Include="Serilog.Sinks.Seq" Version="7.0.1" />
+    <PackageReference Include="NServiceBus" />
+    <PackageReference Include="Serilog" />
+    <PackageReference Include="Serilog.Sinks.Seq" />
     <ProjectReference Include="..\NServiceBus.Serilog\NServiceBus.Serilog.csproj" />
   </ItemGroup>
 </Project>

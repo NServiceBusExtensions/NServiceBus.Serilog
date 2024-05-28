@@ -1,0 +1,29 @@
+<Project>
+  <PropertyGroup>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+    <CentralPackageTransitivePinningEnabled>false</CentralPackageTransitivePinningEnabled>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageVersion Include="ConfigureAwait.Fody" Version="3.3.2" />
+    <PackageVersion Include="Fody" Version="6.8.1" />
+    <PackageVersion Include="MarkdownSnippets.MsBuild" Version="27.0.2" />
+    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.10.0" />
+    <PackageVersion Include="NServiceBus" Version="9.0.0" />
+    <PackageVersion Include="NServiceBus.Persistence.NonDurable" Version="2.0.0" />
+    <PackageVersion Include="NServiceBus.Testing" Version="9.0.0" />
+    <PackageVersion Include="Polyfill" Version="5.2.2" />
+    <PackageVersion Include="ProjectDefaults" Version="1.0.127" />
+    <PackageVersion Include="Serilog" Version="3.1.1" />
+    <PackageVersion Include="Serilog.Exceptions" Version="8.4.0" />
+    <PackageVersion Include="Serilog.Formatting.Compact" Version="2.0.0" />
+    <PackageVersion Include="Serilog.Sinks.Console" Version="5.0.1" />
+    <PackageVersion Include="Serilog.Sinks.File" Version="5.0.0" />
+    <PackageVersion Include="Serilog.Sinks.PeriodicBatching" Version="4.1.0" />
+    <PackageVersion Include="Serilog.Sinks.Seq" Version="7.0.1" />
+    <PackageVersion Include="Verify.DiffPlex" Version="3.0.0" />
+    <PackageVersion Include="Verify.NServiceBus" Version="9.0.0" />
+    <PackageVersion Include="Verify.Xunit" Version="24.2.0" />
+    <PackageVersion Include="Xunit" Version="2.8.1" />
+    <PackageVersion Include="xunit.runner.visualstudio" Version="2.8.1" />
+  </ItemGroup>
+</Project>
