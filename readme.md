@@ -128,7 +128,7 @@ There are several layers of enrichment based on the pipeline phase.
 
 #### Endpoint enrichment
 
-All loggers for an endpoint will have the the property `ProcessingEndpoint` added that contains the current [endpoint name](https://docs.particular.net/nservicebus/endpoints/specify-endpoint-name).
+All loggers for an endpoint will have the property `ProcessingEndpoint` added that contains the current [endpoint name](https://docs.particular.net/nservicebus/endpoints/specify-endpoint-name).
 
 
 #### Incoming message enrichment
@@ -143,7 +143,7 @@ When a message is received, the following enrichment properties are added:
 
 #### Handler enrichment
 
-When a handler is invoked, a new logger is forked from the above enriched physical logger with a new enriched property named `Handler` that contains the the [FullName](https://docs.microsoft.com/de-de/dotnet/api/system.type.fullname) of the current handler.
+When a handler is invoked, a new logger is forked from the above enriched physical logger with a new enriched property named `Handler` that contains the [FullName](https://docs.microsoft.com/de-de/dotnet/api/system.type.fullname) of the current handler.
 
 
 #### Outgoing message enrichment
