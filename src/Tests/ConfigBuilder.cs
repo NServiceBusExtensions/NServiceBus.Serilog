@@ -8,8 +8,6 @@
         configuration.UseTransport<LearningTransport>();
         configuration.PurgeOnStartup(true);
         configuration.UseSerialization<SystemJsonSerializer>();
-        configuration.AssemblyScanner()
-            .ExcludeAssemblies("xunit.runner.utility.netcoreapp10.dll");
         return configuration;
     }
 }
