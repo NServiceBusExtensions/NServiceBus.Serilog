@@ -4,11 +4,17 @@
     Instance: {}
   },
   MessageHandled: false,
+  MessageHeaders: {
+    NServiceBus.ConversationId: Guid_1,
+    NServiceBus.CorrelationId: Guid_2
+  },
+  MessageId: Guid_3,
+  ReplyToAddress: reply address,
   Extensions: {
     Serilog.ILogger: {
       Enrichers: [
         {
-          IncomingMessageId: Guid_1
+          IncomingMessageId: Guid_3
         },
         {
           IncomingMessageType: InjectIncomingLogicalBehaviorTests+Message1
@@ -20,7 +26,7 @@
           CorrelationId: Guid_2
         },
         {
-          ConversationId: Guid_3
+          ConversationId: Guid_1
         }
       ],
       ContextKey: InjectIncomingLogicalBehaviorTests+Message1

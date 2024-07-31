@@ -8,7 +8,7 @@
     <PackageVersion Include="Fody" Version="6.8.1" />
     <PackageVersion Include="MarkdownSnippets.MsBuild" Version="27.0.2" />
     <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.10.0" />
-    <PackageVersion Include="NServiceBus" Version="9.1.0" />
+    <PackageVersion Include="NServiceBus" Version="9.1.1" />
     <PackageVersion Include="NServiceBus.Persistence.NonDurable" Version="2.0.0" />
     <PackageVersion Include="NServiceBus.Testing" Version="9.0.0" />
     <PackageVersion Include="Polyfill" Version="6.0.0" />
@@ -21,8 +21,8 @@
     <PackageVersion Include="Serilog.Sinks.Seq" Version="8.0.0" />
     <PackageVersion Include="Serilog.Sinks.PeriodicBatching" Version="5.0.0" />
     <PackageVersion Include="Verify.DiffPlex" Version="3.1.0" />
-    <PackageVersion Include="Verify.NServiceBus" Version="9.0.0" />
-    <PackageVersion Include="Verify.Xunit" Version="26.1.5" />
+    <PackageVersion Include="Verify.NServiceBus" Version="10.3.0" />
+    <PackageVersion Include="Verify.Xunit" Version="26.1.6" />
     <PackageVersion Include="Xunit" Version="2.9.0" />
     <PackageVersion Include="xunit.runner.visualstudio" Version="2.8.2" />
   </ItemGroup>

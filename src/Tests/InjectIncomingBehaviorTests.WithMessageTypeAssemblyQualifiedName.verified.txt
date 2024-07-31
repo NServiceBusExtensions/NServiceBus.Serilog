@@ -1,24 +1,25 @@
 ﻿{
-  Message: {
-    MessageId: Guid_1,
-    NativeMessageId: Guid_1,
-    Body: {
-      IsEmpty: true
-    }
-  },
   Extensions: {
     ExceptionLogState: {
       ProcessingEndpoint: {
         ProcessingEndpoint: endpoint
       },
+      CorrelationId: CorrelationId,
+      ConversationId: ConversationId,
       IncomingHeaders: {
-        NServiceBus.EnclosedMessageTypes: InjectIncomingBehaviorTests+Message1, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6
+        NServiceBus.ConversationId: ConversationId,
+        NServiceBus.CorrelationId: CorrelationId,
+        NServiceBus.EnclosedMessageTypes: InjectIncomingBehaviorTests+Message1, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
+        NServiceBus.MessageId: MessageId,
+        NServiceBus.OriginatingEndpoint: DefaultOriginatingEndpoint,
+        NServiceBus.ReplyToAddress: ReplyToAddress,
+        NServiceBus.TimeSent: DateTimeOffset_1
       }
     },
     Serilog.ILogger: {
       Enrichers: [
         {
-          IncomingMessageId: Guid_2
+          IncomingMessageId: MessageId
         },
         {
           IncomingMessageTypes: [
@@ -29,6 +30,12 @@
           IncomingMessageTypesLong: [
             InjectIncomingBehaviorTests+Message1, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6
           ]
+        },
+        {
+          CorrelationId: CorrelationId
+        },
+        {
+          ConversationId: ConversationId
         }
       ],
       ContextKey: InjectIncomingBehaviorTests+Message1

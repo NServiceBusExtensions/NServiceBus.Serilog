@@ -1,4 +1,4 @@
-﻿using NServiceBus.Testing;
+﻿using VerifyTests.NServiceBus;
 
 public class InjectIncomingBehaviorTests
 {
@@ -7,7 +7,7 @@ public class InjectIncomingBehaviorTests
     {
         var logBuilder = new LogBuilder(new FakeLogger(), "endpoint");
         var behavior = new InjectIncomingPhysicalBehavior(logBuilder, "endpoint");
-        var context = new TestableIncomingPhysicalMessageContext();
+        var context = new RecordingIncomingPhysicalMessageContext();
         await behavior.Invoke(context, () => Task.CompletedTask);
         await Verify(context);
     }
@@ -17,8 +17,8 @@ public class InjectIncomingBehaviorTests
     {
         var logBuilder = new LogBuilder(new FakeLogger(), "endpoint");
         var behavior = new InjectIncomingPhysicalBehavior(logBuilder, "endpoint");
-        var context = new TestableIncomingPhysicalMessageContext();
-        context.MessageHeaders.Add(Headers.EnclosedMessageTypes, typeof(Message1).FullName);
+        var context = new RecordingIncomingPhysicalMessageContext(
+            headers: [new(Headers.EnclosedMessageTypes, typeof(Message1).FullName!)]);
         await behavior.Invoke(context, () => Task.CompletedTask);
         await Verify(context);
     }
@@ -28,8 +28,8 @@ public class InjectIncomingBehaviorTests
     {
         var logBuilder = new LogBuilder(new FakeLogger(), "endpoint");
         var behavior = new InjectIncomingPhysicalBehavior(logBuilder, "endpoint");
-        var context = new TestableIncomingPhysicalMessageContext();
-        context.MessageHeaders.Add(Headers.EnclosedMessageTypes, typeof(Message1).AssemblyQualifiedName);
+        var context = new RecordingIncomingPhysicalMessageContext(
+            headers: [new(Headers.EnclosedMessageTypes, typeof(Message1).AssemblyQualifiedName!)]);
         await behavior.Invoke(context, () => Task.CompletedTask);
         await Verify(context);
     }
@@ -39,8 +39,8 @@ public class InjectIncomingBehaviorTests
     {
         var logBuilder = new LogBuilder(new FakeLogger(), "endpoint");
         var behavior = new InjectIncomingPhysicalBehavior(logBuilder, "endpoint");
-        var context = new TestableIncomingPhysicalMessageContext();
-        context.MessageHeaders.Add(Headers.EnclosedMessageTypes, $"{typeof(Message1).FullName};{typeof(Message2).FullName}");
+        var context = new RecordingIncomingPhysicalMessageContext(
+            headers: [new(Headers.EnclosedMessageTypes, $"{typeof(Message1).FullName};{typeof(Message2).FullName}")]);
         await behavior.Invoke(context, () => Task.CompletedTask);
         await Verify(context);
     }
@@ -50,8 +50,8 @@ public class InjectIncomingBehaviorTests
     {
         var logBuilder = new LogBuilder(new FakeLogger(), "endpoint");
         var behavior = new InjectIncomingPhysicalBehavior(logBuilder, "endpoint");
-        var context = new TestableIncomingPhysicalMessageContext();
-        context.MessageHeaders.Add(Headers.EnclosedMessageTypes, $"{typeof(Message1).AssemblyQualifiedName};{typeof(Message2).AssemblyQualifiedName}");
+        var context = new RecordingIncomingPhysicalMessageContext(
+            headers: [new(Headers.EnclosedMessageTypes, $"{typeof(Message1).AssemblyQualifiedName};{typeof(Message2).AssemblyQualifiedName}")]);
         await behavior.Invoke(context, () => Task.CompletedTask);
         await Verify(context);
     }
