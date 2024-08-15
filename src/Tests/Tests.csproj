@@ -3,14 +3,15 @@
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <Version>1.0.0</Version>
+    <OutputType>Exe</OutputType>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="NServiceBus.Testing" />
     <PackageReference Include="Verify.DiffPlex" />
     <PackageReference Include="Verify.NServiceBus" />
-    <PackageReference Include="Verify.Xunit" />
+    <PackageReference Include="Verify.XunitV3" />
     <PackageReference Include="Serilog.Exceptions" />
-    <PackageReference Include="Xunit" />
+    <PackageReference Include="xunit.v3" />
     <PackageReference Include="NServiceBus.Persistence.NonDurable" />
     <PackageReference Include="xunit.runner.visualstudio" PrivateAssets="all" />
     <PackageReference Include="MarkdownSnippets.MsBuild" PrivateAssets="all" />
