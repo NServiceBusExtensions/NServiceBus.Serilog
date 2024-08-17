@@ -6,6 +6,7 @@
   <ItemGroup>
     <PackageReference Include="NServiceBus" />
     <PackageReference Include="Serilog" />
+    <PackageReference Include="Serilog.Sinks.File" />
     <PackageReference Include="Serilog.Sinks.Seq" />
     <ProjectReference Include="..\NServiceBus.Serilog\NServiceBus.Serilog.csproj" />
   </ItemGroup>
