@@ -5,8 +5,6 @@
     <NoWarn>NU5105</NoWarn>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="ConfigureAwait.Fody" PrivateAssets="All" />
-    <PackageReference Include="Fody" PrivateAssets="all" />
     <PackageReference Include="NServiceBus" />
     <PackageReference Include="Serilog" />
     <PackageReference Include="ProjectDefaults" PrivateAssets="all" />
