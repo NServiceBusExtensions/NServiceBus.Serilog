@@ -11,7 +11,7 @@
     <PackageVersion Include="NServiceBus.Testing" Version="9.0.0" />
     <PackageVersion Include="Polyfill" Version="7.5.0" />
     <PackageVersion Include="ProjectDefaults" Version="1.0.144" />
-    <PackageVersion Include="Serilog" Version="4.1.0" />
+    <PackageVersion Include="Serilog" Version="4.2.0" />
     <PackageVersion Include="Serilog.Exceptions" Version="8.4.0" />
     <PackageVersion Include="Serilog.Sinks.Console" Version="6.0.0" />
     <PackageVersion Include="Serilog.Formatting.Compact" Version="3.0.0" />
