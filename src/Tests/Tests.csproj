@@ -5,6 +5,7 @@
     <Version>1.0.0</Version>
     <OutputType>Exe</OutputType>
     <NoWarn>xUnit1051</NoWarn>
+    <RootNamespace>testing</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="NServiceBus.Testing" />
