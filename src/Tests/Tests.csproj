@@ -4,7 +4,7 @@
     <TargetFramework>net8.0</TargetFramework>
     <Version>1.0.0</Version>
     <OutputType>Exe</OutputType>
-    <NoWarn>xUnit1051</NoWarn>
+    <NoWarn>$(NoWarn);xUnit1051</NoWarn>
     <RootNamespace>testing</RootNamespace>
   </PropertyGroup>
   <ItemGroup>

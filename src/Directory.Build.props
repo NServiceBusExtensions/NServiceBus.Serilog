@@ -2,6 +2,7 @@
 <Project>
   <PropertyGroup>
     <Version>12.0.1</Version>
+    <NoWarn>NU1608</NoWarn>
     <AssemblyVersion>1.0.0</AssemblyVersion>
     <LangVersion>preview</LangVersion>
     <Description>Add support for sending NServiceBus logging through Serilog</Description>
