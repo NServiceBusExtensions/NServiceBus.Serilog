@@ -1,4 +1,5 @@
-﻿class Logger(ILogger logger) :
+﻿#pragma warning disable CA2254
+class Logger(ILogger logger) :
     ILog
 {
     public void Debug(string message) =>

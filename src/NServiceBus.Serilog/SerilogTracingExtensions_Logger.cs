@@ -1,4 +1,5 @@
-﻿namespace NServiceBus;
+﻿#pragma warning disable CA2254
+namespace NServiceBus;
 
 /// <summary>
 /// Extensions to enable and configure Serilog Tracing.
