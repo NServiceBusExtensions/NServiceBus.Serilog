@@ -673,13 +673,13 @@ serilogTracing.EnableMessageTracing();
 await endpoint.Stop();
 Log.CloseAndFlush();
 ```
-<sup><a href='/src/Sample/Program.cs#L34-L39' title='Snippet source file'>snippet source</a> | <a href='#snippet-Cleanup' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Sample/Program.cs#L38-L43' title='Snippet source file'>snippet source</a> | <a href='#snippet-Cleanup' title='Start of snippet'>anchor</a></sup>
 <a id='snippet-Cleanup-1'></a>
 ```cs
 await endpoint.Stop();
 Log.CloseAndFlush();
 ```
-<sup><a href='/src/SeqSample/Program.cs#L46-L51' title='Snippet source file'>snippet source</a> | <a href='#snippet-Cleanup-1' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/SeqSample/Program.cs#L50-L55' title='Snippet source file'>snippet source</a> | <a href='#snippet-Cleanup-1' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -747,13 +747,13 @@ serilogTracing.EnableMessageTracing();
 await endpoint.Stop();
 Log.CloseAndFlush();
 ```
-<sup><a href='/src/Sample/Program.cs#L34-L39' title='Snippet source file'>snippet source</a> | <a href='#snippet-Cleanup' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Sample/Program.cs#L38-L43' title='Snippet source file'>snippet source</a> | <a href='#snippet-Cleanup' title='Start of snippet'>anchor</a></sup>
 <a id='snippet-Cleanup-1'></a>
 ```cs
 await endpoint.Stop();
 Log.CloseAndFlush();
 ```
-<sup><a href='/src/SeqSample/Program.cs#L46-L51' title='Snippet source file'>snippet source</a> | <a href='#snippet-Cleanup-1' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/SeqSample/Program.cs#L50-L55' title='Snippet source file'>snippet source</a> | <a href='#snippet-Cleanup-1' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
