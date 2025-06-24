@@ -44,12 +44,8 @@
         OutgoingMessageType: StartHandlerThatLogs,
         ProcessingEndpoint: SerilogTestsStartHandlerThatLogs,
         ReplyToAddress: SerilogTestsStartHandlerThatLogs,
-        SourceContext: StartHandlerThatLogs,
-        UnicastRoutes: {
-          Elements: [
-            SerilogTestsStartHandlerThatLogs
-          ]
-        }
+        Route: SerilogTestsStartHandlerThatLogs,
+        SourceContext: StartHandlerThatLogs
       }
     }
   ],

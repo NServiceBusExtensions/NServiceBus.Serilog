@@ -23,12 +23,8 @@
         OutgoingMessageType: StartHandlerThatThrows,
         ProcessingEndpoint: SerilogTestsStartHandlerThatThrows,
         ReplyToAddress: SerilogTestsStartHandlerThatThrows,
-        SourceContext: StartHandlerThatThrows,
-        UnicastRoutes: {
-          Elements: [
-            SerilogTestsStartHandlerThatThrows
-          ]
-        }
+        Route: SerilogTestsStartHandlerThatThrows,
+        SourceContext: StartHandlerThatThrows
       }
     }
   ],

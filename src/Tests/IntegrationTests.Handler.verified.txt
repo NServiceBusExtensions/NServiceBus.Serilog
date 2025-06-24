@@ -68,12 +68,8 @@
         OutgoingMessageType: StartHandler,
         ProcessingEndpoint: SerilogTestsStartHandler,
         ReplyToAddress: SerilogTestsStartHandler,
-        SourceContext: StartHandler,
-        UnicastRoutes: {
-          Elements: [
-            SerilogTestsStartHandler
-          ]
-        }
+        Route: SerilogTestsStartHandler,
+        SourceContext: StartHandler
       }
     }
   ]
