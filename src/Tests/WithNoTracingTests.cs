@@ -1,6 +1,4 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-
-[TestFixture]
+﻿[TestFixture]
 public class WithNoTracingTests
 {
     [Test]

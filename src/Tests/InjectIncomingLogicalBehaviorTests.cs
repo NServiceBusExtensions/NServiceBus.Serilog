@@ -1,6 +1,4 @@
-﻿using NServiceBus.Testing;
-
-[TestFixture]
+﻿[TestFixture]
 public class InjectIncomingLogicalBehaviorTests
 {
     [Test]

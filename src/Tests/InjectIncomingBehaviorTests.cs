@@ -1,6 +1,4 @@
-﻿using VerifyTests.NServiceBus;
-
-[TestFixture]
+﻿[TestFixture]
 public class InjectIncomingBehaviorTests
 {
     [Test]
