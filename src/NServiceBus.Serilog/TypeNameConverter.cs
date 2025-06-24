@@ -18,8 +18,7 @@ public static class TypeNameConverter
     {
         if (TryGetType(typeName, out var type))
         {
-            return FormatForDisplay(type)
-                .MessageTypeName;
+            return FormatForDisplay(type).MessageTypeName;
         }
 
         var span = typeName.AsSpan();

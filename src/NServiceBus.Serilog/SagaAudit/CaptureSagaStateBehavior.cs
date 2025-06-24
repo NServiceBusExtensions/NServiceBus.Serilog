@@ -18,7 +18,8 @@
             return;
         }
 
-        var logger = context.Logger();
+        //TODO: try to make instance based on the type
+        var logger = Log.ForContext<CaptureSagaStateBehavior>();
         if (!logger.IsEnabled(LogEventLevel.Information))
         {
             await next();
@@ -106,8 +107,7 @@
                 new("OriginatingEndpoint"), new ScalarValue(context.OriginatingEndpoint())
             },
             {
-                new("MessageType"), new ScalarValue(TypeNameConverter.GetName(context.MessageType())
-                    .MessageTypeName)
+                new("MessageType"), new ScalarValue(TypeNameConverter.GetName(context.MessageType()).MessageTypeName)
             },
             {
                 new("TimeSent"), new ScalarValue(context.TimeSent().ToLogString())

@@ -4,19 +4,12 @@ using TypeNameConverter = NServiceBus.Serilog.TypeNameConverter;
 [TestFixture]
 public class IntegrationTests
 {
-    static List<LogEvent> logs;
-
     static IntegrationTests()
     {
-        logs = [];
-        var eventSink = new EventSink(logs.Add);
-
         var configuration = new LoggerConfiguration();
         var enrich = configuration.Enrich;
         enrich.WithExceptionDetails();
         enrich.WithNsbExceptionDetails();
-        configuration.MinimumLevel.Verbose();
-        configuration.WriteTo.Sink(eventSink);
         Log.Logger = configuration.CreateLogger();
         LogManager.Use<SerilogFactory>();
     }
@@ -38,49 +31,49 @@ public class IntegrationTests
     public async Task Handler()
     {
         Recording.Start();
-        var events = await Send(
+        await Send(
             new StartHandler
             {
                 Property = "TheProperty"
             });
-        await Verify<StartHandler>(events);
+        await Verify();
     }
 
     [Test]
     public async Task GenericHandler()
     {
         Recording.Start();
-        var events = await Send(
+        await Send(
             new StartGenericHandler<string>
             {
                 Property = "TheProperty"
             });
-        await Verify<StartGenericHandler<string>>(events);
+        await Verify();
     }
 
     [Test]
     public async Task WithCustomHeader()
     {
         Recording.Start();
-        var events = await Send(
+        await Send(
             new StartHandler
             {
                 Property = "TheProperty"
             },
             options => options.SetHeader("CustomHeader", "CustomValue"));
-        await Verify<StartHandler>(events);
+        await Verify();
     }
 
     [Test]
     public async Task WithConvertedCustomHeader()
     {
         Recording.Start();
-        var events = await Send(
+        await Send(
             new StartHandler
             {
                 Property = "TheProperty"
             }, options => options.SetHeader("ConvertHeader", "CustomValue"));
-        await Verify<StartHandler>(events);
+        await Verify();
     }
 
     //[Fact]
@@ -100,20 +93,20 @@ public class IntegrationTests
     public async Task HandlerThatLogs()
     {
         Recording.Start();
-        var events = await Send(new StartHandlerThatLogs());
-        await Verify<StartHandlerThatLogs>(events);
+        await Send(new StartHandlerThatLogs());
+        await Verify();
     }
 
     [Test]
     public async Task HandlerThatThrows()
     {
         Recording.Start();
-        var events = await Send(
+        await Send(
             new StartHandlerThatThrows
             {
                 Property = "TheProperty"
             });
-        await Verify<StartHandlerThatThrows>(events);
+        await Verify();
     }
 
 #if Debug
@@ -137,41 +130,21 @@ public class IntegrationTests
     public async Task BehaviorThatThrows()
     {
         Recording.Start();
-        var events = await Send(
+        await Send(
             new StartBehaviorThatThrows
             {
                 Property = "TheProperty"
             },
             extraConfiguration: _ => _.EnableFeature<BehaviorThatThrowsFeature>());
-        var logEvents = events.ToList();
-        await Verify<StartBehaviorThatThrows>(logEvents);
+        await Verify();
     }
 
-    static SettingsTask Verify<T>(IEnumerable<LogEventEx> logEvents)
-    {
-        var list = logEvents.ToList();
-        var logsForTarget = list
-            .LogsForType<T>()
-            .ToList();
-        return Verifier.Verify(
-            new
-            {
-                logsForTarget,
-                logsForNsbSerilog = list
-                    .LogsForNsbSerilog()
-                    .ToList(),
-                logsWithExceptions = list
-                    .LogsWithExceptions()
-                    .ToList()
-            });
-    }
 
-    static async Task<IEnumerable<LogEventEx>> Send(
+    static async Task Send(
         object message,
         Action<SendOptions>? optionsAction = null,
         Action<EndpointConfiguration>? extraConfiguration = null)
     {
-        logs.Clear();
         var suffix = TypeNameConverter
             .GetName(message.GetType())
             .MessageTypeName
@@ -223,16 +196,5 @@ public class IntegrationTests
         }
 
         await endpoint.Stop();
-
-        return logs
-            .Where(_ => !_.MessageTemplate.Text.StartsWith("Operation canceled"))
-            .Select(_ =>
-                new LogEventEx
-                (
-                    messageTemplate: _.MessageTemplate,
-                    level: _.Level,
-                    properties: _.Properties,
-                    exception: _.Exception
-                ));
     }
 }

@@ -12,5 +12,6 @@
     <PackageReference Include="Microsoft.Sbom.Targets" PrivateAssets="all" />
     <Content Include="buildTransitive\NServiceBus.Serilog.props" PackagePath="buildTransitive\NServiceBus.Serilog.props" />
     <Content Include="buildTransitive\NServiceBus.Serilog.props" PackagePath="build\NServiceBus.Serilog.props" />
+    <PackageReference Include="Verify.Serilog" />
   </ItemGroup>
 </Project>

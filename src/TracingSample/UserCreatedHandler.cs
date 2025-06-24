@@ -3,7 +3,7 @@
 {
     public Task Handle(UserCreated message, HandlerContext context)
     {
-        context.LogInformation("Hello from UserCreatedHandler");
+        Log.Information("Hello from UserCreatedHandler");
         throw new("The error");
     }
 }

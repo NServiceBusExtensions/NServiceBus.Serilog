@@ -4,6 +4,7 @@
 
     var configuration = new LoggerConfiguration();
     configuration.Enrich.WithNsbExceptionDetails();
+    configuration.Enrich.FromLogContext();
     configuration.WriteTo.Console();
     Log.Logger = configuration.CreateLogger();
 

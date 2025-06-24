@@ -18,12 +18,14 @@
         var message = context.Extensions
             .Get<OutgoingLogicalMessage>()
             .Instance;
-        LogMessage(context, context.Logger(), message);
+        LogMessage(context, message);
         return next();
     }
 
-    void LogMessage(IOutgoingPhysicalMessageContext context, ILogger logger, object message)
+    void LogMessage(IOutgoingPhysicalMessageContext context, object message)
     {
+        //TODO: try to make instance based on the type
+        var logger = Log.ForContext<LogOutgoingBehavior>();
         var properties = new List<LogEventProperty>();
 
         if (logger.BindProperty("OutgoingMessage", message, out var messageProperty))

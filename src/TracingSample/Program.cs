@@ -1,6 +1,7 @@
 ﻿var loggerConfiguration = new LoggerConfiguration();
 loggerConfiguration.WriteTo.Seq("http://localhost:5341");
 loggerConfiguration.WriteTo.File("logFile.txt");
+loggerConfiguration.Enrich.FromLogContext();
 loggerConfiguration.MinimumLevel.Information();
 var tracingLog = loggerConfiguration.CreateLogger();
 //Set NServiceBus to log to Serilog

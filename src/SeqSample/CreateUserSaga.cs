@@ -10,7 +10,7 @@
     public Task Handle(CreateUser message, HandlerContext context)
     {
         Data.UserName = message.UserName;
-        context.LogInformation("User Created {@Message}", message);
+        Log.Information("User Created {@Message}", message);
         var userCreated = new UserCreated
         {
             UserName = message.UserName

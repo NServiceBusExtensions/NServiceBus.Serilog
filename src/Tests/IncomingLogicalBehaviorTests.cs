@@ -4,11 +4,10 @@ public class IncomingLogicalBehaviorTests
     [Test]
     public async Task Simple()
     {
-        var logBuilder = new LogBuilder(new FakeLogger(), "endpoint");
-        var behavior = new IncomingLogicalBehavior(logBuilder);
+        var behavior = new IncomingLogicalBehavior();
         var context = BuildContext();
         Recording.Start();
-        await behavior.Inner(context, TestExtensions.WriteLog);
+        await behavior.Invoke(context, TestExtensions.WriteLog);
         await Verify(context);
     }
 
@@ -21,13 +20,12 @@ public class IncomingLogicalBehaviorTests
     [Test]
     public async Task WithHeaders()
     {
-        var logBuilder = new LogBuilder(new FakeLogger(), "endpoint");
-        var behavior = new IncomingLogicalBehavior(logBuilder);
+        var behavior = new IncomingLogicalBehavior();
         var context = BuildContext();
         context.MessageHeaders.Add(Headers.ConversationId, Guid.NewGuid().ToString());
         context.MessageHeaders.Add(Headers.CorrelationId, Guid.NewGuid().ToString());
         Recording.Start();
-        await behavior.Inner(context, TestExtensions.WriteLog);
+        await behavior.Invoke(context, TestExtensions.WriteLog);
         await Verify(context);
     }
 

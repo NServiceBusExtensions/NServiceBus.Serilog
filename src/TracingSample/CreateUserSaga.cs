@@ -11,7 +11,7 @@
     public Task Handle(CreateUser message, HandlerContext context)
     {
         Data.UserName = message.UserName;
-        context.LogInformation("User created. Message: {@Message}", message);
+        Log.Information("User created. Message: {@Message}", message);
         var userCreated = new UserCreated
         {
             UserName = message.UserName
@@ -24,7 +24,7 @@
 
     public Task Timeout(SagaTimeout state, HandlerContext context)
     {
-        context.LogInformation("Timeout received");
+        Log.Information("Timeout received");
         return Task.CompletedTask;
     }
 }

@@ -34,48 +34,4 @@ public static partial class SerilogTracingExtensions
 
     internal static SerilogTracingSettings TracingSettings(this IReadOnlySettings settings) =>
         settings.Get<SerilogTracingSettings>();
-
-    /// <summary>
-    /// Get the current <see cref="ILogger" /> for this context.
-    /// </summary>
-    public static ILogger Logger(this IPipelineContext context)
-    {
-        var bag = context.Extensions;
-        if (bag.TryGet("SerilogOutgoingLogger", out ILogger logger))
-        {
-            return logger;
-        }
-
-        if (bag.TryGet("SerilogHandlerLogger", out logger))
-        {
-            return logger;
-        }
-
-        if (bag.TryGet(out logger))
-        {
-            return logger;
-        }
-
-        var type = context.GetType();
-        while (true)
-        {
-            if (type.Name == "TestableMessageHandlerContext")
-            {
-                context.Extensions.Set(Log.Logger);
-                return Log.Logger;
-            }
-
-            type = type.BaseType;
-            if (type is null)
-            {
-                break;
-            }
-        }
-
-        throw new(
-            $"""
-             Expected to find a `{nameof(ILogger)}` in the pipeline context.
-             It is possible NServiceBus.Serilog has not been enabled using a call to `{nameof(SerilogTracingExtensions)}.{nameof(EnableSerilogTracing)}()`.
-             """);
-    }
 }

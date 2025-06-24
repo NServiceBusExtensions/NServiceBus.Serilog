@@ -9,13 +9,6 @@
         VerifierSettings.IgnoreStackTrace();
         VerifierSettings.AddScrubber(_ => _.Replace(nsbVersionString, "NsbVersion"));
         VerifierSettings.ScrubMachineName();
-        VerifierSettings.AddExtraSettings(_ =>
-        {
-            _.Converters.Add(new LogEventPropertyConverter());
-            _.Converters.Add(new LogEventConverter());
-            _.Converters.Add(new ScalarValueConverter());
-            _.Converters.Add(new PropertyEnricherConverter());
-        });
         VerifierSettings.AddExtraDateTimeOffsetFormat("yyyy-MM-dd HH:mm:ss:ffffff Z");
         VerifierSettings
             .ScrubMember("ElapsedTime");

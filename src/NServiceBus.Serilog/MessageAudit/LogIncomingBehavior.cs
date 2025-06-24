@@ -33,7 +33,8 @@
     public override async Task Invoke(IIncomingLogicalMessageContext context, Func<Task> next)
     {
         var message = context.Message;
-        var logger = context.Logger();
+        //TODO: try to make instance based on the type
+        var logger = Log.ForContext<LogIncomingBehavior>();
         var startTime = DateTimeOffset.Now;
         await next();
         var finishTime = DateTimeOffset.Now;

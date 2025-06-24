@@ -10,18 +10,9 @@
     public override async Task Invoke(IInvokeHandlerContext context, Func<Task> next)
     {
         var handler = context.HandlerType();
-        var bag = context.Extensions;
-        var forContext = context
-            .Logger()
-            .ForContext("Handler", handler);
-        try
+        using (LogContext.PushProperty("Handler", handler))
         {
-            bag.Set("SerilogHandlerLogger", forContext);
             await next();
-        }
-        finally
-        {
-            bag.Remove("SerilogHandlerLogger");
         }
     }
 }

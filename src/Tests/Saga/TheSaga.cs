@@ -11,7 +11,7 @@
     public async Task Handle(StartSaga message, HandlerContext context)
     {
         await Task.Delay(1100, context.CancellationToken);
-        context.LogInformation("Hello from {@Saga}. Message: {@Message}", nameof(TheSaga), message);
+        Log.Information("Hello from {@Saga}. Message: {@Message}", nameof(TheSaga), message);
         var backIntoSaga = new BackIntoSaga
         {
             Property = message.Property
@@ -22,7 +22,7 @@
     public async Task Handle(BackIntoSaga message, HandlerContext context)
     {
         await Task.Delay(1100, context.CancellationToken);
-        context.LogInformation("Hello from {@Saga}. Message: {@Message}", nameof(TheSaga), message);
+        Log.Information("Hello from {@Saga}. Message: {@Message}", nameof(TheSaga), message);
         MarkAsComplete();
         resetEvent.Set();
     }

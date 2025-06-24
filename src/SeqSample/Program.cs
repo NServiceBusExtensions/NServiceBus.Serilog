@@ -4,9 +4,11 @@
 
     var configuration = new LoggerConfiguration();
     configuration.Enrich.WithNsbExceptionDetails();
+    configuration.Enrich.FromLogContext();
     configuration.WriteTo.Seq("http://localhost:5341");
     configuration.MinimumLevel.Information();
     var logger = configuration.CreateLogger();
+    Log.Logger = logger;
     var serilogFactory = LogManager.Use<SerilogFactory>();
     serilogFactory.WithLogger(logger);
 
