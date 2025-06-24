@@ -31,6 +31,10 @@ configuration.UsePersistence<LearningPersistence>();
 configuration.UseSerialization<SystemJsonSerializer>();
 configuration.UseTransport<LearningTransport>();
 
+var feature = Type.GetType("NServiceBus.Features.LicenseReminder, NServiceBus.Core")!;
+var settings = configuration.GetSettings();
+settings.Set(feature.FullName, FeatureState.Deactivated);
+
 var endpoint = await Endpoint.Start(configuration);
 var createUser = new CreateUser
 {
