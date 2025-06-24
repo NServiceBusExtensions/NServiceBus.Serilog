@@ -17,9 +17,8 @@ configuration.UseSerialization<SystemJsonSerializer>();
 configuration.UseTransport<LearningTransport>();
 configuration.SendFailedMessagesTo("error");
 
-var feature = Type.GetType("NServiceBus.Features.LicenseReminder, NServiceBus.Core")!;
 var settings = configuration.GetSettings();
-settings.Set(feature.FullName, FeatureState.Deactivated);
+settings.Set("NServiceBus.Features.LicenseReminder", FeatureState.Deactivated);
 
 var recoverability = configuration.Recoverability();
 recoverability.Delayed(settings =>

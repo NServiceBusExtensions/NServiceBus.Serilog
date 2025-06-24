@@ -25,9 +25,8 @@ configuration.UseSerialization<SystemJsonSerializer>();
 configuration.UsePersistence<LearningPersistence>();
 configuration.UseTransport<LearningTransport>();
 
-var feature = Type.GetType("NServiceBus.Features.LicenseReminder, NServiceBus.Core")!;
 var settings = configuration.GetSettings();
-settings.Set(feature.FullName, FeatureState.Deactivated);
+settings.Set("NServiceBus.Features.LicenseReminder", FeatureState.Deactivated);
 
 var endpoint = await Endpoint.Start(configuration);
 var message = new MyMessage();
