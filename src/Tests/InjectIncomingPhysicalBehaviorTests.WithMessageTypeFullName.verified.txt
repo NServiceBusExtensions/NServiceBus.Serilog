@@ -9,7 +9,7 @@
       IncomingHeaders: {
         NServiceBus.ConversationId: ConversationId,
         NServiceBus.CorrelationId: CorrelationId,
-        NServiceBus.EnclosedMessageTypes: InjectIncomingBehaviorTests+Message1;InjectIncomingBehaviorTests+Message2,
+        NServiceBus.EnclosedMessageTypes: InjectIncomingPhysicalBehaviorTests+Message1,
         NServiceBus.MessageId: MessageId,
         NServiceBus.OriginatingEndpoint: DefaultOriginatingEndpoint,
         NServiceBus.ReplyToAddress: ReplyToAddress,
@@ -23,14 +23,12 @@
         },
         {
           IncomingMessageTypes: [
-            InjectIncomingBehaviorTests+Message1,
-            InjectIncomingBehaviorTests+Message2
+            InjectIncomingPhysicalBehaviorTests+Message1
           ]
         },
         {
           IncomingMessageTypesLong: [
-            InjectIncomingBehaviorTests+Message1,
-            InjectIncomingBehaviorTests+Message2
+            InjectIncomingPhysicalBehaviorTests+Message1
           ]
         },
         {
@@ -40,7 +38,7 @@
           ConversationId: ConversationId
         }
       ],
-      ContextKey: InjectIncomingBehaviorTests+Message1;InjectIncomingBehaviorTests+Message2
+      ContextKey: InjectIncomingPhysicalBehaviorTests+Message1
     }
   }
 }
