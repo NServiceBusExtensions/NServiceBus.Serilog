@@ -1,30 +1,31 @@
 ﻿using TypeNameConverter = NServiceBus.Serilog.TypeNameConverter;
 
+[TestFixture]
 public class TypeNameConverterTests
 {
-    [Fact]
+    [Test]
     public void NameOnly() =>
-        Assert.Equal("TheClass", TypeNameConverter.GetName("TheClass"));
+        AreEqual("TheClass", TypeNameConverter.GetName("TheClass"));
 
-    [Fact]
+    [Test]
     public void NameAndNamespace() =>
-        Assert.Equal("TheClass", TypeNameConverter.GetName("Namespace.TheClass"));
+        AreEqual("TheClass", TypeNameConverter.GetName("Namespace.TheClass"));
 
-    [Fact]
+    [Test]
     public void NameAndNamespaceAndAssembly() =>
-        Assert.Equal("TheClass", TypeNameConverter.GetName("Namespace.TheClass, Tests"));
+        AreEqual("TheClass", TypeNameConverter.GetName("Namespace.TheClass, Tests"));
 
-    [Fact]
+    [Test]
     public void AssemblyQualified()
     {
-        Assert.Equal("TheClass", TypeNameConverter.GetName("Namespace.TheClass, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6"));
-        Assert.Equal("TheClass", TypeNameConverter.GetName("Namespace.TheClass, Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6"));
-        Assert.Equal("TheClass", TypeNameConverter.GetName("Namespace.TheClass, Foo, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6"));
+        AreEqual("TheClass", TypeNameConverter.GetName("Namespace.TheClass, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6"));
+        AreEqual("TheClass", TypeNameConverter.GetName("Namespace.TheClass, Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6"));
+        AreEqual("TheClass", TypeNameConverter.GetName("Namespace.TheClass, Foo, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6"));
     }
 
-    [Fact]
+    [Test]
     public void AssemblyQualifiedWithNoVersion() =>
-        Assert.Equal("TheClass", TypeNameConverter.GetName("Namespace.TheClass, Tests"));
+        AreEqual("TheClass", TypeNameConverter.GetName("Namespace.TheClass, Tests"));
 }
 
 namespace Namespace

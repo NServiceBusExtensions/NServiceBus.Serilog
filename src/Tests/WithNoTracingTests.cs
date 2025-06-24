@@ -1,8 +1,9 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 
+[TestFixture]
 public class WithNoTracingTests
 {
-    [Fact]
+    [Test]
     public async Task Handler()
     {
         Exception? exception = null;
@@ -10,7 +11,6 @@ public class WithNoTracingTests
         var configuration = ConfigBuilder.BuildDefaultConfig("WithNoTracingTests");
         configuration.DisableRetries();
         configuration.RegisterComponents(_ => _.AddSingleton(resetEvent));
-        configuration.AssemblyScanner().ExcludeAssemblies("xunit.runner.utility.netcoreapp10.dll");
         var recoverability = configuration.Recoverability();
         recoverability.Failed(_ => _
             .OnMessageSentToErrorQueue((message, _) =>

@@ -1,8 +1,9 @@
 ﻿using NServiceBus.Testing;
 
+[TestFixture]
 public class HandlerUsingContextLoggerTests
 {
-    [Fact]
+    [Test]
     public Task Simple()
     {
         var handler = new HandlerUsingContextLogger();
@@ -10,7 +11,7 @@ public class HandlerUsingContextLoggerTests
         return handler.Handle(new(), context);
     }
 
-    [Fact]
+    [Test]
     public Task Inherited()
     {
         var handler = new HandlerUsingContextLogger();

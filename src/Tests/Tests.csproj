@@ -12,11 +12,11 @@
     <PackageReference Include="Serilog.Sinks.File" />
     <PackageReference Include="Verify.DiffPlex" />
     <PackageReference Include="Verify.NServiceBus" />
-    <PackageReference Include="Verify.XunitV3" />
+    <PackageReference Include="Verify.NUnit" />
     <PackageReference Include="Serilog.Exceptions" />
-    <PackageReference Include="xunit.v3" />
+    <PackageReference Include="NUnit" />
     <PackageReference Include="NServiceBus.Persistence.NonDurable" />
-    <PackageReference Include="xunit.runner.visualstudio" PrivateAssets="all" />
+    <PackageReference Include="NUnit3TestAdapter" />
     <PackageReference Include="MarkdownSnippets.MsBuild" PrivateAssets="all" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" />
     <PackageReference Include="NServiceBus" />
@@ -24,5 +24,6 @@
     <PackageReference Include="Serilog" />
     <ProjectReference Include="..\NServiceBus.Serilog\NServiceBus.Serilog.csproj" />
     <PackageReference Include="ProjectDefaults" PrivateAssets="all" />
+    <Using Include="NUnit.Framework.Legacy.ClassicAssert" Static="True" />
   </ItemGroup>
 </Project>

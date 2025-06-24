@@ -1,8 +1,9 @@
 ﻿using VerifyTests.NServiceBus;
 
+[TestFixture]
 public class InjectIncomingBehaviorTests
 {
-    [Fact]
+    [Test]
     public async Task Empty()
     {
         var logBuilder = new LogBuilder(new FakeLogger(), "endpoint");
@@ -12,7 +13,7 @@ public class InjectIncomingBehaviorTests
         await Verify(context);
     }
 
-    [Fact]
+    [Test]
     public async Task WithMessageTypeFullName()
     {
         var logBuilder = new LogBuilder(new FakeLogger(), "endpoint");
@@ -23,7 +24,7 @@ public class InjectIncomingBehaviorTests
         await Verify(context);
     }
 
-    [Fact]
+    [Test]
     public async Task WithMessageTypeAssemblyQualifiedName()
     {
         var logBuilder = new LogBuilder(new FakeLogger(), "endpoint");
@@ -34,7 +35,7 @@ public class InjectIncomingBehaviorTests
         await Verify(context);
     }
 
-    [Fact]
+    [Test]
     public async Task WithMultipleMessageTypesFullName()
     {
         var logBuilder = new LogBuilder(new FakeLogger(), "endpoint");
@@ -45,7 +46,7 @@ public class InjectIncomingBehaviorTests
         await Verify(context);
     }
 
-    [Fact]
+    [Test]
     public async Task WithMultipleMessageTypesAssemblyQualifiedName()
     {
         var logBuilder = new LogBuilder(new FakeLogger(), "endpoint");

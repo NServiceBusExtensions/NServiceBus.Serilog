@@ -2,6 +2,7 @@
 using Serilog.Exceptions;
 using TypeNameConverter = NServiceBus.Serilog.TypeNameConverter;
 
+[TestFixture]
 public class IntegrationTests
 {
     static List<LogEvent> logs;
@@ -34,7 +35,7 @@ public class IntegrationTests
 //    }
 //#endif
 
-    [Fact]
+    [Test]
     public async Task Handler()
     {
         var events = await Send(
@@ -45,7 +46,7 @@ public class IntegrationTests
         await Verify<StartHandler>(events);
     }
 
-    [Fact]
+    [Test]
     public async Task GenericHandler()
     {
         var events = await Send(
@@ -56,7 +57,7 @@ public class IntegrationTests
         await Verify<StartGenericHandler<string>>(events);
     }
 
-    [Fact]
+    [Test]
     public async Task WithCustomHeader()
     {
         var events = await Send(
@@ -68,7 +69,7 @@ public class IntegrationTests
         await Verify<StartHandler>(events);
     }
 
-    [Fact]
+    [Test]
     public async Task WithConvertedCustomHeader()
     {
         var events = await Send(
@@ -92,15 +93,14 @@ public class IntegrationTests
     //    await Verify<NotFoundSagaMessage>(events);
     //}
 
-    [Fact]
+    [Test]
     public async Task HandlerThatLogs()
     {
         var events = await Send(new StartHandlerThatLogs());
         await Verify<StartHandlerThatLogs>(events);
     }
 
-
-    [Fact]
+    [Test]
     public async Task HandlerThatThrows()
     {
         var events = await Send(
@@ -113,7 +113,7 @@ public class IntegrationTests
 
 #if Debug
 
-    [Fact]
+    [Test]
     public async Task Saga()
     {
         var events = await Send(
@@ -128,7 +128,7 @@ public class IntegrationTests
 
 #endif
 
-    [Fact]
+    [Test]
     public async Task BehaviorThatThrows()
     {
         var events = await Send(
@@ -173,7 +173,6 @@ public class IntegrationTests
             .Replace('>', '_');
         var configuration = ConfigBuilder.BuildDefaultConfig("SerilogTests" + suffix);
         configuration.PurgeOnStartup(true);
-        configuration.AssemblyScanner().ExcludeAssemblies("xunit.runner.utility.netcoreapp10.dll");
         extraConfiguration?.Invoke(configuration);
 
         var serilogTracing = configuration.EnableSerilogTracing();

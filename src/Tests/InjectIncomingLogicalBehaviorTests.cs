@@ -1,8 +1,9 @@
 ﻿using NServiceBus.Testing;
 
+[TestFixture]
 public class InjectIncomingLogicalBehaviorTests
 {
-    [Fact]
+    [Test]
     public async Task Simple()
     {
         var logBuilder = new LogBuilder(new FakeLogger(), "endpoint");
@@ -18,7 +19,7 @@ public class InjectIncomingLogicalBehaviorTests
             Message = new(new(typeof(Message1)), new Message1())
         };
 
-    [Fact]
+    [Test]
     public async Task WithHeaders()
     {
         var logBuilder = new LogBuilder(new FakeLogger(), "endpoint");

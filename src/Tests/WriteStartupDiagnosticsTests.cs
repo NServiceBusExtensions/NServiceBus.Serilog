@@ -1,6 +1,7 @@
-﻿public class WriteStartupDiagnosticsTests
+﻿[TestFixture]
+public class WriteStartupDiagnosticsTests
 {
-    [Fact]
+    [Test]
     public Task Can_extract_settings()
     {
         var settings = new SettingsHolder();
@@ -10,11 +11,11 @@
         return Verify(settings.ReadStartupDiagnosticEntries());
     }
 
-    [Fact]
+    [Test]
     public void CleanEntry()
     {
-        Assert.Equal("Persistence.Sql.SqlDialect", StartupDiagnostics.CleanEntry("NServiceBus.Persistence.Sql.SqlDialect"));
-        Assert.Equal("Transport.SqlServer.CircuitBreaker", StartupDiagnostics.CleanEntry("NServiceBus.Transport.SqlServer.CircuitBreaker"));
-        Assert.Equal("Foo", StartupDiagnostics.CleanEntry("Foo"));
+        AreEqual("Persistence.Sql.SqlDialect", StartupDiagnostics.CleanEntry("NServiceBus.Persistence.Sql.SqlDialect"));
+        AreEqual("Transport.SqlServer.CircuitBreaker", StartupDiagnostics.CleanEntry("NServiceBus.Transport.SqlServer.CircuitBreaker"));
+        AreEqual("Foo", StartupDiagnostics.CleanEntry("Foo"));
     }
 }
