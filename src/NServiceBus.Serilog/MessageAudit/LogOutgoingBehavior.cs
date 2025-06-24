@@ -34,8 +34,15 @@
         var addresses = context.UnicastAddresses();
         if (addresses.Count > 0)
         {
-            var sequence = new SequenceValue(addresses.Select(_ => new ScalarValue(_)));
-            properties.Add(new("UnicastRoutes", sequence));
+            if (addresses.Count == 1)
+            {
+                properties.Add(new("Route", new ScalarValue(addresses[0])));
+            }
+            else
+            {
+                var sequence = new SequenceValue(addresses.Select(_ => new ScalarValue(_)));
+                properties.Add(new("Routes", sequence));
+            }
         }
 
         properties.AddRange(HeaderAppender.BuildHeaders(context.Headers, convertHeader));

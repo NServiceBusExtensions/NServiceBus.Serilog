@@ -68,12 +68,8 @@
         OutgoingMessageType: StartGenericHandler<String>,
         ProcessingEndpoint: SerilogTestsStartGenericHandler_String_,
         ReplyToAddress: SerilogTestsStartGenericHandler_String_,
-        SourceContext: StartGenericHandler<String>,
-        UnicastRoutes: {
-          Elements: [
-            SerilogTestsStartGenericHandler_String_
-          ]
-        }
+        Route: SerilogTestsStartGenericHandler_String_,
+        SourceContext: StartGenericHandler<String>
       }
     }
   ]

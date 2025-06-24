@@ -516,18 +516,14 @@ serilogTracing.EnableMessageTracing();
         OutgoingMessageType: StartHandler,
         ProcessingEndpoint: SerilogTestsStartHandler,
         ReplyToAddress: SerilogTestsStartHandler,
-        SourceContext: StartHandler,
-        UnicastRoutes: {
-          Elements: [
-            SerilogTestsStartHandler
-          ]
-        }
+        Route: SerilogTestsStartHandler,
+        SourceContext: StartHandler
       }
     }
   ]
 }
 ```
-<sup><a href='/src/Tests/IntegrationTests.Handler.verified.txt#L1-L80' title='Snippet source file'>snippet source</a> | <a href='#snippet-IntegrationTests.Handler.verified.txt' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/IntegrationTests.Handler.verified.txt#L1-L76' title='Snippet source file'>snippet source</a> | <a href='#snippet-IntegrationTests.Handler.verified.txt' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
