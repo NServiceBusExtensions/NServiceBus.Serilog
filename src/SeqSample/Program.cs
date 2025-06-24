@@ -28,6 +28,7 @@ serilogTracing.EnableMessageTracing();
 #endregion
 
 configuration.UsePersistence<LearningPersistence>();
+configuration.UseSerialization<SystemJsonSerializer>();
 configuration.UseTransport<LearningTransport>();
 
 var endpoint = await Endpoint.Start(configuration);

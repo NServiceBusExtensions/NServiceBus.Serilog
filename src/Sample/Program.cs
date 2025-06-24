@@ -21,6 +21,7 @@ var configuration = new EndpointConfiguration("SerilogSample");
 
 #endregion
 
+configuration.UseSerialization<SystemJsonSerializer>();
 configuration.UsePersistence<LearningPersistence>();
 configuration.UseTransport<LearningTransport>();
 
