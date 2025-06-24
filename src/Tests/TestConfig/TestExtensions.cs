@@ -3,22 +3,16 @@
     public static void DisableRetries(this EndpointConfiguration configuration)
     {
         var recoverability = configuration.Recoverability();
-        recoverability.Delayed(settings =>
-        {
-            settings.NumberOfRetries(0);
-        });
-        recoverability.Immediate(settings =>
-        {
-            settings.NumberOfRetries(0);
-        });
+        recoverability.Delayed(_ => _.NumberOfRetries(0));
+        recoverability.Immediate(_ => _.NumberOfRetries(0));
     }
 
     public static IEnumerable<LogEventEx> LogsForNsbSerilog(this IEnumerable<LogEventEx> logs) =>
         logs
             .Where(log =>
             {
-                var sourceContext = log.StringSourceContext;
-                return sourceContext != null && sourceContext.StartsWith("NServiceBus.Serilog.");
+                var context = log.StringSourceContext;
+                return context != null && context.StartsWith("NServiceBus.Serilog.");
             })
             .OrderBy(_ => _.MessageTemplate.Text);
 
@@ -32,6 +26,6 @@
 
     static IEnumerable<LogEventEx> LogsForName(this IEnumerable<LogEventEx> logs, string name) =>
         logs
-            .Where(log => log.StringSourceContext == name)
+            .Where(_ => _.StringSourceContext == name)
             .OrderBy(_ => _.StringSourceContext);
 }
