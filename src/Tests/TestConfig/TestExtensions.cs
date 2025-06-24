@@ -28,4 +28,10 @@
         logs
             .Where(_ => _.StringSourceContext == name)
             .OrderBy(_ => _.StringSourceContext);
+
+    public static Task WriteLog()
+    {
+        Log.Error("LogMessage");
+        return Task.CompletedTask;
+    }
 }

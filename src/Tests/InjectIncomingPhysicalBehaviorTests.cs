@@ -8,7 +8,7 @@ public class InjectIncomingPhysicalBehaviorTests
         var behavior = new InjectIncomingPhysicalBehavior(logBuilder, "endpoint");
         var context = new RecordingIncomingPhysicalMessageContext();
         Recording.Start();
-        await behavior.Invoke(context, () => Task.CompletedTask);
+        await behavior.Invoke(context, TestExtensions.WriteLog);
         await Verify(context);
     }
 
@@ -20,7 +20,7 @@ public class InjectIncomingPhysicalBehaviorTests
         var context = new RecordingIncomingPhysicalMessageContext(
             headers: [new(Headers.EnclosedMessageTypes, typeof(Message1).FullName!)]);
         Recording.Start();
-        await behavior.Invoke(context, () => Task.CompletedTask);
+        await behavior.Invoke(context, TestExtensions.WriteLog);
         await Verify(context);
     }
 
@@ -32,7 +32,7 @@ public class InjectIncomingPhysicalBehaviorTests
         var context = new RecordingIncomingPhysicalMessageContext(
             headers: [new(Headers.EnclosedMessageTypes, typeof(Message1).AssemblyQualifiedName!)]);
         Recording.Start();
-        await behavior.Invoke(context, () => Task.CompletedTask);
+        await behavior.Invoke(context, TestExtensions.WriteLog);
         await Verify(context);
     }
 
@@ -44,7 +44,7 @@ public class InjectIncomingPhysicalBehaviorTests
         var context = new RecordingIncomingPhysicalMessageContext(
             headers: [new(Headers.EnclosedMessageTypes, $"{typeof(Message1).FullName};{typeof(Message2).FullName}")]);
         Recording.Start();
-        await behavior.Invoke(context, () => Task.CompletedTask);
+        await behavior.Invoke(context, TestExtensions.WriteLog);
         await Verify(context);
     }
 
@@ -56,7 +56,7 @@ public class InjectIncomingPhysicalBehaviorTests
         var context = new RecordingIncomingPhysicalMessageContext(
             headers: [new(Headers.EnclosedMessageTypes, $"{typeof(Message1).AssemblyQualifiedName};{typeof(Message2).AssemblyQualifiedName}")]);
         Recording.Start();
-        await behavior.Invoke(context, () => Task.CompletedTask);
+        await behavior.Invoke(context, TestExtensions.WriteLog);
         await Verify(context);
     }
 

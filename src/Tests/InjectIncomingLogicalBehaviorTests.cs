@@ -8,7 +8,7 @@ public class InjectIncomingLogicalBehaviorTests
         var behavior = new InjectIncomingLogicalBehavior(logBuilder);
         var context = BuildContext();
         Recording.Start();
-        await behavior.Inner(context, () => Task.CompletedTask);
+        await behavior.Inner(context, TestExtensions.WriteLog);
         await Verify(context);
     }
 
@@ -27,7 +27,7 @@ public class InjectIncomingLogicalBehaviorTests
         context.MessageHeaders.Add(Headers.ConversationId, Guid.NewGuid().ToString());
         context.MessageHeaders.Add(Headers.CorrelationId, Guid.NewGuid().ToString());
         Recording.Start();
-        await behavior.Inner(context, () => Task.CompletedTask);
+        await behavior.Inner(context, TestExtensions.WriteLog);
         await Verify(context);
     }
 
