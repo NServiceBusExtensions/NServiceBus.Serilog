@@ -26,7 +26,7 @@
                 factoryMethod: _ => new LogIncomingBehavior(convertHeader))
         {
             InsertBefore("MutateIncomingMessages");
-            InsertAfter(InjectIncomingLogicalBehavior.Name);
+            InsertAfter(IncomingLogicalBehavior.Name);
         }
     }
 

@@ -1,14 +1,14 @@
-﻿class InjectIncomingLogicalBehavior(LogBuilder builder) :
+﻿class IncomingLogicalBehavior(LogBuilder builder) :
     Behavior<IIncomingLogicalMessageContext>
 {
     public class Registration(LogBuilder logBuilder) :
         RegisterStep(
             stepId: Name,
-            behavior: typeof(InjectIncomingLogicalBehavior),
-            description: "Injects a logger into the incoming logical context",
-            factoryMethod: _ => new InjectIncomingLogicalBehavior(logBuilder));
+            behavior: typeof(IncomingLogicalBehavior),
+            description:  nameof(IncomingLogicalBehavior),
+            factoryMethod: _ => new IncomingLogicalBehavior(logBuilder));
 
-    public static string Name = $"Serilog{nameof(InjectIncomingLogicalBehavior)}";
+    public static string Name = $"Serilog{nameof(IncomingLogicalBehavior)}";
 
     public override async Task Invoke(IIncomingLogicalMessageContext context, Func<Task> next)
     {

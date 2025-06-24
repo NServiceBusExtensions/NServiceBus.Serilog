@@ -1,9 +1,9 @@
-﻿class InjectOutgoingBehavior :
+﻿class OutgoingBehavior :
     Behavior<IOutgoingLogicalMessageContext>
 {
     LogBuilder logBuilder;
 
-    InjectOutgoingBehavior(LogBuilder logBuilder) =>
+    OutgoingBehavior(LogBuilder logBuilder) =>
         this.logBuilder = logBuilder;
 
     public override async Task Invoke(IOutgoingLogicalMessageContext context, Func<Task> next)
@@ -51,8 +51,8 @@
 
     public class Registration(LogBuilder logBuilder) :
         RegisterStep(
-            stepId: $"Serilog{nameof(InjectOutgoingBehavior)}",
-            behavior: typeof(InjectOutgoingBehavior),
+            stepId: $"Serilog{nameof(OutgoingBehavior)}",
+            behavior: typeof(OutgoingBehavior),
             description: "Injects a logger into the outgoing context",
-            factoryMethod: _ => new InjectOutgoingBehavior(logBuilder));
+            factoryMethod: _ => new OutgoingBehavior(logBuilder));
 }

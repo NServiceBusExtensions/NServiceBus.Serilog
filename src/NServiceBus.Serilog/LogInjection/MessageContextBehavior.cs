@@ -1,4 +1,4 @@
-﻿class InjectMessageContextBehavior :
+﻿class MessageContextBehavior :
     Behavior<IIncomingLogicalMessageContext>
 {
     public class Registration :
@@ -6,9 +6,9 @@
     {
         public Registration() :
             base(
-                stepId: $"Serilog{nameof(InjectMessageContextBehavior)}",
-                behavior: typeof(InjectMessageContextBehavior),
-                description: "Injects the message into the ExceptionLogState") =>
+                stepId: $"Serilog{nameof(MessageContextBehavior)}",
+                behavior: typeof(MessageContextBehavior),
+                description: nameof(MessageContextBehavior)) =>
             InsertBefore(LogIncomingBehavior.Name);
     }
 

@@ -1,12 +1,12 @@
-﻿class InjectIncomingPhysicalBehavior(LogBuilder builder, string endpoint) :
+﻿class IncomingPhysicalBehavior(LogBuilder builder, string endpoint) :
     Behavior<IIncomingPhysicalMessageContext>
 {
     public class Registration(LogBuilder logBuilder, string endpoint) :
         RegisterStep(
-            stepId: $"Serilog{nameof(InjectIncomingPhysicalBehavior)}",
-            behavior: typeof(InjectIncomingPhysicalBehavior),
-            description: "Injects a logger into the incoming physical context",
-            factoryMethod: _ => new InjectIncomingPhysicalBehavior(logBuilder, endpoint));
+            stepId: $"Serilog{nameof(IncomingPhysicalBehavior)}",
+            behavior: typeof(IncomingPhysicalBehavior),
+            description: nameof(IncomingPhysicalBehavior),
+            factoryMethod: _ => new IncomingPhysicalBehavior(logBuilder, endpoint));
 
     static PropertyEnricher emptyIncomingMessageTypes = new("IncomingMessageTypes", Array.Empty<string>());
     static PropertyEnricher emptyIncomingMessageTypesLong = new("IncomingMessageTypesLong", Array.Empty<string>());
@@ -29,7 +29,7 @@
                 .ToList();
             properties.Add(new("IncomingMessageTypes", names));
             properties.Add(new("IncomingMessageTypesLong", split));
-            var messageTypeName = string.Join(";", names);
+            var messageTypeName = string.Join(';', names);
             logger = builder.GetLogger(messageTypeName);
         }
         else
