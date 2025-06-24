@@ -21,14 +21,8 @@ var settings = configuration.GetSettings();
 settings.Set("NServiceBus.Features.LicenseReminder", FeatureState.Deactivated);
 
 var recoverability = configuration.Recoverability();
-recoverability.Delayed(settings =>
-{
-    settings.NumberOfRetries(1);
-});
-recoverability.Immediate(settings =>
-{
-    settings.NumberOfRetries(1);
-});
+recoverability.Delayed(_ => _.NumberOfRetries(1));
+recoverability.Immediate(_ => _.NumberOfRetries(1));
 var endpoint = await Endpoint.Start(configuration);
 var createUser = new CreateUser
 {
