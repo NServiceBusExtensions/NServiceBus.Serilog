@@ -6,6 +6,7 @@ public class HandlerUsingContextLoggerTests
     {
         var handler = new HandlerUsingContextLogger();
         TestableMessageHandlerContext context = new InheritedTestableMessageHandlerContext();
+        Recording.Start();
         return handler.Handle(new(), context);
     }
 
@@ -14,6 +15,7 @@ public class HandlerUsingContextLoggerTests
     {
         var handler = new HandlerUsingContextLogger();
         var context = new InheritedTestableMessageHandlerContext();
+        Recording.Start();
         return handler.Handle(new(), context);
     }
 

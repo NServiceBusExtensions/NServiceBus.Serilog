@@ -7,6 +7,7 @@ public class InjectIncomingPhysicalBehaviorTests
         var logBuilder = new LogBuilder(new FakeLogger(), "endpoint");
         var behavior = new InjectIncomingPhysicalBehavior(logBuilder, "endpoint");
         var context = new RecordingIncomingPhysicalMessageContext();
+        Recording.Start();
         await behavior.Invoke(context, () => Task.CompletedTask);
         await Verify(context);
     }
@@ -18,6 +19,7 @@ public class InjectIncomingPhysicalBehaviorTests
         var behavior = new InjectIncomingPhysicalBehavior(logBuilder, "endpoint");
         var context = new RecordingIncomingPhysicalMessageContext(
             headers: [new(Headers.EnclosedMessageTypes, typeof(Message1).FullName!)]);
+        Recording.Start();
         await behavior.Invoke(context, () => Task.CompletedTask);
         await Verify(context);
     }
@@ -29,6 +31,7 @@ public class InjectIncomingPhysicalBehaviorTests
         var behavior = new InjectIncomingPhysicalBehavior(logBuilder, "endpoint");
         var context = new RecordingIncomingPhysicalMessageContext(
             headers: [new(Headers.EnclosedMessageTypes, typeof(Message1).AssemblyQualifiedName!)]);
+        Recording.Start();
         await behavior.Invoke(context, () => Task.CompletedTask);
         await Verify(context);
     }
@@ -40,6 +43,7 @@ public class InjectIncomingPhysicalBehaviorTests
         var behavior = new InjectIncomingPhysicalBehavior(logBuilder, "endpoint");
         var context = new RecordingIncomingPhysicalMessageContext(
             headers: [new(Headers.EnclosedMessageTypes, $"{typeof(Message1).FullName};{typeof(Message2).FullName}")]);
+        Recording.Start();
         await behavior.Invoke(context, () => Task.CompletedTask);
         await Verify(context);
     }
@@ -51,6 +55,7 @@ public class InjectIncomingPhysicalBehaviorTests
         var behavior = new InjectIncomingPhysicalBehavior(logBuilder, "endpoint");
         var context = new RecordingIncomingPhysicalMessageContext(
             headers: [new(Headers.EnclosedMessageTypes, $"{typeof(Message1).AssemblyQualifiedName};{typeof(Message2).AssemblyQualifiedName}")]);
+        Recording.Start();
         await behavior.Invoke(context, () => Task.CompletedTask);
         await Verify(context);
     }
