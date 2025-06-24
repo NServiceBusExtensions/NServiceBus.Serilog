@@ -1,5 +1,5 @@
 ﻿[TestFixture]
-public class InjectIncomingLogicalBehaviorTests
+public class IncomingLogicalBehaviorTests
 {
     [Test]
     public async Task Simple()

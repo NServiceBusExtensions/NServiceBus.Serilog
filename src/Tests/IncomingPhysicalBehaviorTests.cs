@@ -1,5 +1,5 @@
 ﻿[TestFixture]
-public class InjectIncomingPhysicalBehaviorTests
+public class IncomingPhysicalBehaviorTests
 {
     [Test]
     public async Task Empty()

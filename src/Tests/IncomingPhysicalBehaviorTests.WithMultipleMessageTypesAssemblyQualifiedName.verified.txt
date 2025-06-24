@@ -9,7 +9,7 @@
       IncomingHeaders: {
         NServiceBus.ConversationId: ConversationId,
         NServiceBus.CorrelationId: CorrelationId,
-        NServiceBus.EnclosedMessageTypes: InjectIncomingPhysicalBehaviorTests+Message1;InjectIncomingPhysicalBehaviorTests+Message2,
+        NServiceBus.EnclosedMessageTypes: IncomingPhysicalBehaviorTests+Message1, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6;IncomingPhysicalBehaviorTests+Message2, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
         NServiceBus.MessageId: MessageId,
         NServiceBus.OriginatingEndpoint: DefaultOriginatingEndpoint,
         NServiceBus.ReplyToAddress: ReplyToAddress,
@@ -23,14 +23,14 @@
         },
         {
           IncomingMessageTypes: [
-            InjectIncomingPhysicalBehaviorTests+Message1,
-            InjectIncomingPhysicalBehaviorTests+Message2
+            IncomingPhysicalBehaviorTests+Message1,
+            IncomingPhysicalBehaviorTests+Message2
           ]
         },
         {
           IncomingMessageTypesLong: [
-            InjectIncomingPhysicalBehaviorTests+Message1,
-            InjectIncomingPhysicalBehaviorTests+Message2
+            IncomingPhysicalBehaviorTests+Message1, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6,
+            IncomingPhysicalBehaviorTests+Message2, Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ce8ec7717ba6fbb6
           ]
         },
         {
@@ -40,7 +40,7 @@
           ConversationId: ConversationId
         }
       ],
-      ContextKey: InjectIncomingPhysicalBehaviorTests+Message1;InjectIncomingPhysicalBehaviorTests+Message2
+      ContextKey: IncomingPhysicalBehaviorTests+Message1;IncomingPhysicalBehaviorTests+Message2
     }
   }
 }
