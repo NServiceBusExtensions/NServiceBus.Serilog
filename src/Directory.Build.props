@@ -14,23 +14,22 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Using Include="NServiceBus"/>
-    <Using Include="NServiceBus.Sagas"/>
-    <Using Include="NServiceBus.Features"/>
-    <Using Include="NServiceBus.Settings"/>
-    <Using Include="NServiceBus.Pipeline"/>
-    <Using Include="NServiceBus.Logging"/>
-    <Using Include="NServiceBus.Serilog"/>
-    <Using Include="NServiceBus.Routing"/>
-    <Using Include="NServiceBus.Configuration.AdvancedExtensibility"/>
-    <Using Include="Serilog"/>
-    <Using Include="Serilog.Core"/>
-    <Using Include="Serilog.Events"/>
-    <Using Include="Serilog.Core.Enrichers"/>
-    <Using Include="Serilog.Filters"/>
-    <Using Include="Serilog.Parsing"/>
-    <Using Include="Serilog.Configuration"/>
-    <Using Include="NServiceBus.IMessageHandlerContext"
-           Alias="HandlerContext" />
+    <Using Include="NServiceBus" />
+    <Using Include="NServiceBus.Sagas" />
+    <Using Include="NServiceBus.Features" />
+    <Using Include="NServiceBus.Settings" />
+    <Using Include="NServiceBus.Pipeline" />
+    <Using Include="NServiceBus.Logging" />
+    <Using Include="NServiceBus.Serilog" />
+    <Using Include="NServiceBus.Routing" />
+    <Using Include="NServiceBus.Configuration.AdvancedExtensibility" />
+    <Using Include="Serilog" />
+    <Using Include="Serilog.Core" />
+    <Using Include="Serilog.Events" />
+    <Using Include="Serilog.Core.Enrichers" />
+    <Using Include="Serilog.Filters" />
+    <Using Include="Serilog.Parsing" />
+    <Using Include="Serilog.Configuration" />
+    <Using Include="NServiceBus.IMessageHandlerContext" Alias="HandlerContext" />
   </ItemGroup>
 </Project>
