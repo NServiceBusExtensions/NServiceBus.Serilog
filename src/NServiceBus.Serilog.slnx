@@ -1,0 +1,15 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path=".gitattributes" />
+    <File Path="appveyor.yml" />
+    <File Path="Directory.Build.props" />
+    <File Path="Directory.Packages.props" />
+    <File Path="global.json" />
+    <File Path="mdsnippets.json" />
+  </Folder>
+  <Project Path="NServiceBus.Serilog/NServiceBus.Serilog.csproj" />
+  <Project Path="Sample/Sample.csproj" />
+  <Project Path="SeqSample/SeqSample.csproj" />
+  <Project Path="Tests/Tests.csproj" />
+  <Project Path="TracingSample/TracingSample.csproj" />
+</Solution>
