@@ -8,8 +8,5 @@
     <File Path="mdsnippets.json" />
   </Folder>
   <Project Path="NServiceBus.Serilog/NServiceBus.Serilog.csproj" />
-  <Project Path="Sample/Sample.csproj" />
-  <Project Path="SeqSample/SeqSample.csproj" />
   <Project Path="Tests/Tests.csproj" />
-  <Project Path="TracingSample/TracingSample.csproj" />
 </Solution>
