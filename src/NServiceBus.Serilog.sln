@@ -1,0 +1,59 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32127.271
+MinimumVisualStudioVersion = 16.0.29201.188
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NServiceBus.Serilog", "NServiceBus.Serilog\NServiceBus.Serilog.csproj", "{17097D26-641A-4A26-BD4A-39DB66964774}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sample", "Sample\Sample.csproj", "{8CB7E535-A40A-4557-BF0A-3302C12E7FC6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TracingSample", "TracingSample\TracingSample.csproj", "{082EDF4E-FBF4-4987-A671-14F8AD4FD62E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests", "Tests\Tests.csproj", "{570F4E99-F844-4B2A-959E-65CF1D48FDD6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D38E547B-EABE-40FC-80B9-7AD8CB41374F}"
+	ProjectSection(SolutionItems) = preProject
+		.gitattributes = .gitattributes
+		appveyor.yml = appveyor.yml
+		Directory.Build.props = Directory.Build.props
+		Directory.Packages.props = Directory.Packages.props
+		global.json = global.json
+		mdsnippets.json = mdsnippets.json
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeqSample", "SeqSample\SeqSample.csproj", "{B1A67DA4-DF52-4283-8743-FB8D5FC55FB0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{17097D26-641A-4A26-BD4A-39DB66964774}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17097D26-641A-4A26-BD4A-39DB66964774}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17097D26-641A-4A26-BD4A-39DB66964774}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17097D26-641A-4A26-BD4A-39DB66964774}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8CB7E535-A40A-4557-BF0A-3302C12E7FC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CB7E535-A40A-4557-BF0A-3302C12E7FC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CB7E535-A40A-4557-BF0A-3302C12E7FC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CB7E535-A40A-4557-BF0A-3302C12E7FC6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{082EDF4E-FBF4-4987-A671-14F8AD4FD62E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{082EDF4E-FBF4-4987-A671-14F8AD4FD62E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{082EDF4E-FBF4-4987-A671-14F8AD4FD62E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{082EDF4E-FBF4-4987-A671-14F8AD4FD62E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{570F4E99-F844-4B2A-959E-65CF1D48FDD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{570F4E99-F844-4B2A-959E-65CF1D48FDD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{570F4E99-F844-4B2A-959E-65CF1D48FDD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{570F4E99-F844-4B2A-959E-65CF1D48FDD6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1A67DA4-DF52-4283-8743-FB8D5FC55FB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1A67DA4-DF52-4283-8743-FB8D5FC55FB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1A67DA4-DF52-4283-8743-FB8D5FC55FB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1A67DA4-DF52-4283-8743-FB8D5FC55FB0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4A599E60-1A56-419D-9383-5D8018993E87}
+	EndGlobalSection
+EndGlobal
