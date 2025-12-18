@@ -9,8 +9,8 @@
     <PackageVersion Include="NServiceBus" Version="9.2.8" />
     <PackageVersion Include="NServiceBus.Persistence.NonDurable" Version="2.0.1" />
     <PackageVersion Include="NServiceBus.Testing" Version="9.0.1" />
-    <PackageVersion Include="ProjectDefaults" Version="1.0.166" />
-    <PackageVersion Include="Polyfill" Version="9.3.4" />
+    <PackageVersion Include="ProjectDefaults" Version="1.0.167" />
+    <PackageVersion Include="Polyfill" Version="9.4.0" />
     <PackageVersion Include="Serilog" Version="4.3.0" />
     <PackageVersion Include="Serilog.Exceptions" Version="8.4.0" />
     <PackageVersion Include="Serilog.Sinks.Console" Version="6.1.1" />
