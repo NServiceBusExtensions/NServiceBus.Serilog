@@ -13,7 +13,7 @@
     <PackageReference Include="NServiceBus" />
     <PackageReference Include="Serilog" />
     <PackageReference Include="NServiceBus.Persistence.NonDurable" />
-    <ProjectReference Include="..\NServiceBus.Serilog\NServiceBus.Serilog.csproj" />
+    <ProjectReference Include="..\NServiceBus.Community.Serilog\NServiceBus.Community.Serilog.csproj" />
     <PackageReference Include="ProjectDefaults" PrivateAssets="all" />
   </ItemGroup>
 </Project>

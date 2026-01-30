@@ -12,7 +12,7 @@
     <PackageReference Include="Serilog.Sinks.Seq" />
     <PackageReference Include="NServiceBus" />
     <PackageReference Include="Serilog" />
-    <ProjectReference Include="..\NServiceBus.Serilog\NServiceBus.Serilog.csproj" />
+    <ProjectReference Include="..\NServiceBus.Community.Serilog\NServiceBus.Community.Serilog.csproj" />
     <PackageReference Include="ProjectDefaults" PrivateAssets="all" />
   </ItemGroup>
 </Project>
