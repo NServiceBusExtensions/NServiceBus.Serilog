@@ -41,17 +41,17 @@ public static partial class SerilogTracingExtensions
     public static ILogger Logger(this IPipelineContext context)
     {
         var bag = context.Extensions;
-        if (bag.TryGet("SerilogOutgoingLogger", out ILogger logger))
+        if (bag.TryGet("SerilogOutgoingLogger", out ILogger? logger) && logger is not null)
         {
             return logger;
         }
 
-        if (bag.TryGet("SerilogHandlerLogger", out logger))
+        if (bag.TryGet("SerilogHandlerLogger", out logger) && logger is not null)
         {
             return logger;
         }
 
-        if (bag.TryGet(out logger))
+        if (bag.TryGet(out logger) && logger is not null)
         {
             return logger;
         }

@@ -9,7 +9,7 @@
 
     static void AppendMessageToState(IOutgoingLogicalMessageContext context)
     {
-        if (!context.Extensions.TryGet(out SagaUpdatedMessage updatedMessage))
+        if (!context.Extensions.TryGet(out SagaUpdatedMessage? updatedMessage) || updatedMessage is null)
         {
             return;
         }
